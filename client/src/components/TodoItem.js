@@ -176,7 +176,7 @@ TodoItem.defaultProps ={
 	item: { 
 		id: '0.3HxYz',
 		complete: false,
-		details: "needed",
+		details: 'needed',
 		date: '2020-01-01',
 		owner: 'Bhudah',
 		task: 'Celebrate life!',
