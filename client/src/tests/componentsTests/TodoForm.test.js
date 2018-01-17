@@ -7,7 +7,7 @@ import TodoList from '../../containers/TodoList';
 // ========= 
 
 // this may want a Provider to work
-describe('renders without crashing', () => {
+it('renders without crashing', () => {
 	const div = document.createElement('div');
 	ReactDOM.render(
 		<TodoList />
