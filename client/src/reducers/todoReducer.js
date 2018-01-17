@@ -1,20 +1,20 @@
 import axios from 'axios';
 
 // replace with an API call
-/*let initialState = [
+let initialState = [
 	{id:'0.1HxYz', date: 	'2020-01-01', completed: false, task:'Get some Milk', rank: 'High'},
 	{id:'0.2HxYz', date: 	'2020-01-01', completed: false, task:'Kiss my daughter', rank: 'Med'},
 	{id:'0.3HxYz', date: 	'2020-01-01', completed: false, task:'Celebrate life!', rank: 'Low'},
-];*/
+];
 
 // ========= 
-let initialState
+/*let initialState
 
 axios.get('http://localhost:3003/api/todos')
 	.then((res) => {
 		 initialState = res.data
 		console.log("axios route",res.data)
-	})
+	})*/
 
 // ========= 	
 
