@@ -3,7 +3,6 @@ env:
   commonjs: true
   es6: true
   mocha: true
-  chai: true
 extends: 'eslint:recommended'
 parserOptions:
   ecmaFeatures:
