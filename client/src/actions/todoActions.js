@@ -1,10 +1,12 @@
-// import shortid from 'shortid';
+// Set new id's uniquely, until API is installed in this app
+import shortid from 'shortid';
 
 export const addTodo = (todo) => {
 	return {
 		type: 'ADD_TODO',
 		payload: {
-			_id: todo._id,	
+			// _id: todo._id,	
+			_id: shortid.generate(),
 			date: todo.date,
 			completed: todo.completed,
 			details: todo.details,

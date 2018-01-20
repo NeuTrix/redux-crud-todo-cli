@@ -39,14 +39,15 @@ const TodoList = (props) => {
 	let todos= todoArray.map(item => {
 		return <TodoItem 
 		
-			key = {item.id}
-			item={item}
+			key= { item._id }
+			item= { item }
 			removeTodo= { props.removeTodo }
 			toggleTodo= { props.toggleTodo }
 			updateDate= { props.updateDate }
 			updateRank= { props.updateRank }
 			updateTodo= { props.updateTodo }
 		/>;
+
 	});
 
 	return (

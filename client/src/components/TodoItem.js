@@ -92,7 +92,6 @@ const TodoItem = (props) => {
 				className= 'priorityRadio' 
 				sm= { 1 } 
 				style={ centered } 
-			
 			>
 			
 				<PriorityRadio

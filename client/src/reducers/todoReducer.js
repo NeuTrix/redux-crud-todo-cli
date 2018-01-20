@@ -1,10 +1,11 @@
-import axios from 'axios';
+// import axios from 'axios';
+import shortid from 'shortid';
 
 // replace with an API call
 let initialState = [
-	{_id:'0.1HxYz', date: 	'2020-01-01', completed: false, task:'Get some Milk', rank: 'High'},
-	{_id:'0.2HxYz', date: 	'2020-01-01', completed: false, task:'Kiss my daughter', rank: 'Med'},
-	{_id:'0.3HxYz', date: 	'2020-01-01', completed: false, task:'Celebrate life!', rank: 'Low'},
+	{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Get some Milk', rank: 'High' },
+	{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Kiss my daughter', rank: 'Med' },
+	{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Celebrate life!', rank: 'Low' },
 ];
 
 // ========= 
