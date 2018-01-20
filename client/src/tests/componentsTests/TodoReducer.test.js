@@ -46,8 +46,6 @@ describe('The ADD_TODO function', () => {
 		listAfter = store.getState().todos;
 		_task = listAfter[listAfter.length - 1];
 
-		console.log("Here's the last item in the list... ", _task);
-
 	});
 
 	afterAll(() => {
@@ -92,10 +90,9 @@ describe('The ADD_TODO function', () => {
 	it('... has the expected task property', () => {
 		expect(_task).to.have.property('task').eql(newItem.task);
 	})
-
 });
 
-xdescribe('The REMOVE_TODO function', () => { 
+describe.only('The REMOVE_TODO function', () => { 
 
 	it('...can REMOVE an item from the list', () => {
 		let listBefore = store.getState().todos;
