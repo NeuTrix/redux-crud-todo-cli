@@ -4,6 +4,7 @@ export const addTodo = (_todo) => {
 	return {
 		type: 'ADD_TODO',
 		payload: {
+			_id: _todo._id,
 			date: _todo.date,
 			completed: _todo.completed,
 			details: _todo.details,

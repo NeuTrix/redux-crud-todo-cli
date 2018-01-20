@@ -24,29 +24,76 @@ import {
 
 // ====================================
 
-/*xdescribe.only('The ADD_TODO function', () => { 
+describe('The ADD_TODO function', () => { 
+
 	let listBefore = store.getState().todos;
-	let task
-	it('...has an initial list of 3 items', () => {
+
+	let newItem = { 
+		_id: "TestID990077",
+		date: "2017-12-31",
+	  completed: true,
+	  details: "Something to try",
+	  owner: "Wilbur",
+	  rank: "High",
+	  task: "Test this component" 
+	}
+
+	let listAfter, _task;
+
+	beforeAll(() => {
+		store.dispatch(addTodo(newItem));
+
+		listAfter = store.getState().todos;
+		_task = listAfter[listAfter.length - 1];
+
+		console.log("Here's the last item in the list... ", _task);
+
+	});
+
+	afterAll(() => {
+		listAfter.pop()
+	});
+	
+	it('... is an initial array of 3 items', () => {
+		expect(listAfter).to.be.an('array');
 		expect(listBefore.length).to.equal(3);
 	});
 
-	it('...can ADD another task to that list', () => {
-		store.dispatch(addTodo('Mumby Corn Rocks!', 'HIGH'));
-		let listAfter = store.getState().todos;
-			
-		task = listAfter[0]
-		console.log(task)
-		expect(listAfter).to.be.an('array');
-		expect(listAfter.length).to.equal(listBefore.length+1);
-		expect(listAfter[3].owner).to.equal('Mumby Corn Rocks!');
+	it('...can ADD another _task to that list', () => {
+		expect(listAfter.length).to.equal(listBefore.length + 1);
 	});
 
-	it('..it has an id', () => {
-		expect(task).to.have.property('id')
-		console.log(task.id)
+	// ========= 
+
+	it('... has the expected _id property', () => {
+		expect(_task).to.have.property('_id').eql(newItem._id);
 	})
-});*/
+
+	it('... has the expected date property', () => {
+		expect(_task).to.have.property('date').eql(newItem.date);
+	})
+
+	it('... has the expected completed property', () => {
+		expect(_task).to.have.property('completed').eql(newItem.completed);
+	})
+
+	it('... has the expected details property', () => {
+		expect(_task).to.have.property('details').eql(newItem.details);
+	})
+
+	it('... has the expected owner property', () => {
+		expect(_task).to.have.property('owner').eql(newItem.owner);
+	})
+
+	it('... has the expected rank property', () => {
+		expect(_task).to.have.property('rank').eql(newItem.rank);
+	})
+
+	it('... has the expected task property', () => {
+		expect(_task).to.have.property('task').eql(newItem.task);
+	})
+
+});
 
 xdescribe('The REMOVE_TODO function', () => { 
 
@@ -146,3 +193,4 @@ xdescribe('The UPDATE_DATE function', () => {
 
 	});
 });
+
