@@ -26,6 +26,7 @@ import {
 
 describe('The TodoReducer action suite', () => {
 	let TodoList = store.getState().todos;
+		deepFreeze(TodoList);
 
 	let newItem = { 
 			_id: "TestID990077",
@@ -37,22 +38,19 @@ describe('The TodoReducer action suite', () => {
 		  task: "Test this component" 
 		}
 
-	beforeAll(() => {
-		deepFreeze(TodoList);
-	});
+	let _task;
 
-	describe.only('The ADD_TODO function', () => { 
 
-		let listAfter, _task;
+	describe('The ADD_TODO function', () => { 
 
-		beforeAll(() => {
-			store.dispatch(addTodo(newItem));
+		beforeEach(() => {
+		store.dispatch(addTodo(newItem));
 			TodoList = store.getState().todos;
 			_task = TodoList[TodoList.length - 1];
 		});
 
-		afterAll(() => {
-			TodoList.pop()
+		afterEach(() => {
+			TodoList.length > 3 ? TodoList.pop() : TodoList;
 		});
 
 		it('...can ADD another _task to that list', () => {
@@ -91,24 +89,36 @@ describe('The TodoReducer action suite', () => {
 		})
 	});
 
-	describe('The REMOVE_TODO function', () => { 
+	describe.only('The REMOVE_TODO function', () => {
 
-		it('...can REMOVE an item from the list', () => {
-			let TodoList = store.getState().todos;
-			deepFreeze(TodoList);
-			
-			expect(TodoList.length).to.equal(4);
-			
-			let _id = TodoList[1].id;
-			
-			expect(_id).to.be.a('string');
-			
-			store.dispatch(removeTodo(_id));
-			let listAfter = store.getState().todos;
+		let initialSize
 
-			expect(listAfter).to.be.an('array');
-			expect(listAfter.length).to.equal(TodoList.length-1);
+		beforeAll(() => {
+			store.dispatch(addTodo(newItem));
+			TodoList = store.getState().todos;
+			initialSize = TodoList.length
+			_task = TodoList[TodoList.length - 1];
 		});
+
+		afterAll(() => {
+			TodoList.length > 3 ? TodoList.pop() : TodoList;
+		});
+
+		it('... starts with an inital list of at least 1 item', () => {
+			expect(initialSize).to.eql(4);
+			console.log("***********", _task)
+		});
+
+		it('... the last item in the list has an id', () => {
+			expect(_task).to.have.property('_id').eql(_task._id)
+		});
+
+		it('... it can remove the last item', () => {
+			store.dispatch(removeTodo(_task._id));
+			let postSize = store.getState().todos.length 
+			expect(postSize).to.eql(initialSize-1)
+		})
+
 	});
 
 	xdescribe('The TOGGLE_TODO function', () => {

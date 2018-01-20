@@ -18,7 +18,11 @@ const TodoForm = (props) => {
 	
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		props.addTodo(_task.value, _rank.value, _date.value);
+		props.addTodo({
+			date: _date.value,
+			task: _task.value, 
+			rank: _rank.value, 
+		});
 	
 		// reset the fields
 		_task.value ='';
@@ -121,7 +125,7 @@ TodoForm.propTypes = {
 };
 
 TodoForm.defaultProps = {
-	// addTodo: f=>f
+	addTodo: f=>f,
 	_task: '',
 	_rank: '',
 	_date: ''
