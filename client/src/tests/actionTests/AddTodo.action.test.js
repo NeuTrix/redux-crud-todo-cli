@@ -1,9 +1,9 @@
-/* eslint-env node, mocha, chai, jest */
+/* eslint-env node, mocha, jest */
 
 import store from '../../store/store';
 import { addTodo } from '../../actions/todoActions';
 
-import chai from 'chai';
+// import chai from 'chai';
 import { expect } from 'chai';
 import deepFreeze from 'deep-freeze';
 
