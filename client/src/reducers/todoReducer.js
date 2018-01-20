@@ -2,9 +2,9 @@ import axios from 'axios';
 
 // replace with an API call
 let initialState = [
-	{id:'0.1HxYz', date: 	'2020-01-01', completed: false, task:'Get some Milk', rank: 'High'},
-	{id:'0.2HxYz', date: 	'2020-01-01', completed: false, task:'Kiss my daughter', rank: 'Med'},
-	{id:'0.3HxYz', date: 	'2020-01-01', completed: false, task:'Celebrate life!', rank: 'Low'},
+	{_id:'0.1HxYz', date: 	'2020-01-01', completed: false, task:'Get some Milk', rank: 'High'},
+	{_id:'0.2HxYz', date: 	'2020-01-01', completed: false, task:'Kiss my daughter', rank: 'Med'},
+	{_id:'0.3HxYz', date: 	'2020-01-01', completed: false, task:'Celebrate life!', rank: 'Low'},
 ];
 
 // ========= 
@@ -32,8 +32,8 @@ const TodoReducer = (state = initialState, action) => {
 
 	case 'REMOVE_TODO':{
 
-		let _id = payload.id;
-		let matchId = (task) => { return task.id === _id; };
+		let _id = payload._id;
+		let matchId = (task) => { return task._id === _id; };
 
 		if(state.some(matchId)) {
 			let index = state.findIndex(matchId);
@@ -49,7 +49,7 @@ const TodoReducer = (state = initialState, action) => {
 	case 'TOGGLE_TODO': {
 
 		let _id = payload.id;
-		let matchId = (task) => { return task.id === _id; };
+		let matchId = (task) => { return task._id === _id; };
 		let target = state.findIndex(matchId);
 
 		let newState = state.map((task, index) => {
@@ -72,7 +72,7 @@ const TodoReducer = (state = initialState, action) => {
 		let _id = 	payload.id;
 		let _task = payload.task;
 
-		let matchId = (task) => { return task.id === _id; };
+		let matchId = (task) => { return task._id === _id; };
 		let target = state.findIndex(matchId);
 
 		let updatedTask = state.map((task, index) => {
@@ -96,7 +96,7 @@ const TodoReducer = (state = initialState, action) => {
 		let _id =		payload.id;
 		let _rank = payload.rank;
 
-		let matchId = (task) => { return task.id === _id; };
+		let matchId = (task) => { return task._id === _id; };
 		let target = state.findIndex(matchId);
 
 		let updatedTask = state.map((task, index) => {
@@ -120,7 +120,7 @@ const TodoReducer = (state = initialState, action) => {
 		let _id =		payload.id;
 		let _date = payload.date;
 
-		let matchId = (task) => { return task.id === _id; };
+		let matchId = (task) => { return task._id === _id; };
 		let target = state.findIndex(matchId);
 
 		let updatedTask = state.map((task, index) => {
