@@ -49,7 +49,7 @@ const TodoReducer = (state = initialState, action) => {
 
 	case 'TOGGLE_TODO': {
 
-		let _id = payload.id;
+		let _id = payload._id;
 		let matchId = (task) => { return task._id === _id; };
 		let target = state.findIndex(matchId);
 
@@ -70,14 +70,14 @@ const TodoReducer = (state = initialState, action) => {
 
 	case 'UPDATE_TODO': {
 
-		let _id = 	payload.id;
+		let _id = 	payload._id;
 		let _task = payload.task;
 
 		let matchId = (task) => { return task._id === _id; };
-		let target = state.findIndex(matchId);
+		let targetIndex = state.findIndex(matchId);
 
 		let updatedTask = state.map((task, index) => {
-			if(index !== target ) {
+			if(index !== targetIndex ) {
 				return task;
 			} else {
 				return Object.assign(
@@ -94,7 +94,7 @@ const TodoReducer = (state = initialState, action) => {
 		
 	case 'UPDATE_RANK': {
 
-		let _id =		payload.id;
+		let _id =		payload._id;
 		let _rank = payload.rank;
 
 		let matchId = (task) => { return task._id === _id; };
@@ -118,7 +118,7 @@ const TodoReducer = (state = initialState, action) => {
 
 	case 'UPDATE_DATE': {
 
-		let _id =		payload.id;
+		let _id =		payload._id;
 		let _date = payload.date;
 
 		let matchId = (task) => { return task._id === _id; };

@@ -2,6 +2,7 @@
 import shortid from 'shortid';
 
 export const addTodo = (todo) => {
+
 	return {
 		type: 'ADD_TODO',
 		payload: {
@@ -15,6 +16,7 @@ export const addTodo = (todo) => {
 			task: todo.task,
 		}
 	};
+	
 };
 
 export const removeTodo = (id) => {
