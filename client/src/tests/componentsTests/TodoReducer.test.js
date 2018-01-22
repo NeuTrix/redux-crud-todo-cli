@@ -1,4 +1,4 @@
-/* eslint-env mocha, chai */
+/* eslint-env jest, mocha, chai */
 
 // should split this into a reducer test suite
 // import React from 'react';
@@ -26,17 +26,17 @@ import {
 
 describe('The TodoReducer action suite', () => {
 	let TodoList = store.getState().todos;
-		deepFreeze(TodoList);
+	deepFreeze(TodoList);
 
 	let newItem = { 
-			_id: "TestID990077",
-			date: "2017-12-31",
-		  completed: true,
-		  details: "Something to try",
-		  owner: "Wilbur",
-		  rank: "High",
-		  task: "Test this component" 
-		}
+		_id: 'TestID990077',
+		date: '2017-12-31',
+		completed: true,
+		details: 'Something to try',
+		owner: 'Wilbur',
+		rank: 'High',
+		task: 'Test this component' 
+	};
 
 	let _task;
 
@@ -44,7 +44,7 @@ describe('The TodoReducer action suite', () => {
 	describe('The ADD_TODO function', () => { 
 
 		beforeEach(() => {
-		store.dispatch(addTodo(newItem));
+			store.dispatch(addTodo(newItem));
 			TodoList = store.getState().todos;
 			_task = TodoList[TodoList.length - 1];
 		});
@@ -62,41 +62,41 @@ describe('The TodoReducer action suite', () => {
 
 		it('... has the expected _id property', () => {
 			expect(_task).to.have.property('_id').eql(newItem._id);
-		})
+		});
 
 		it('... has the expected date property', () => {
 			expect(_task).to.have.property('date').eql(newItem.date);
-		})
+		});
 
 		it('... has the expected completed property', () => {
 			expect(_task).to.have.property('completed').eql(newItem.completed);
-		})
+		});
 
 		it('... has the expected details property', () => {
 			expect(_task).to.have.property('details').eql(newItem.details);
-		})
+		});
 
 		it('... has the expected owner property', () => {
 			expect(_task).to.have.property('owner').eql(newItem.owner);
-		})
+		});
 
 		it('... has the expected rank property', () => {
 			expect(_task).to.have.property('rank').eql(newItem.rank);
-		})
+		});
 
 		it('... has the expected task property', () => {
 			expect(_task).to.have.property('task').eql(newItem.task);
-		})
+		});
 	});
 
 	describe.only('The REMOVE_TODO function', () => {
 
-		let initialSize
+		let initialSize;
 
 		beforeAll(() => {
 			store.dispatch(addTodo(newItem));
 			TodoList = store.getState().todos;
-			initialSize = TodoList.length
+			initialSize = TodoList.length;
 			_task = TodoList[TodoList.length - 1];
 		});
 
@@ -106,18 +106,18 @@ describe('The TodoReducer action suite', () => {
 
 		it('... starts with an inital list of at least 1 item', () => {
 			expect(initialSize).to.eql(4);
-			console.log("***********", _task)
+			console.log('***********', _task);
 		});
 
 		it('... the last item in the list has an id', () => {
-			expect(_task).to.have.property('_id').eql(_task._id)
+			expect(_task).to.have.property('_id').eql(_task._id);
 		});
 
 		it('... it can remove the last item', () => {
 			store.dispatch(removeTodo(_task._id));
-			let postSize = store.getState().todos.length 
-			expect(postSize).to.eql(initialSize-1)
-		})
+			let postSize = store.getState().todos.length; 
+			expect(postSize).to.eql(initialSize-1);
+		});
 
 	});
 

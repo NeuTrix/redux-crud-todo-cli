@@ -67,7 +67,7 @@ const TodoItem = (props) => {
 			return _task.style.backgroundColor = 'white';
 		}
 
-		_task.style.backgroundColor = 'grey';
+		_task.style.backgroundColor = 'white';
 		return props.updateTodo(item._id, newTask);
 	};
 
