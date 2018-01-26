@@ -5,8 +5,8 @@ import DeleteBtn from '../../containers/DeleteBtn';
 it('renders without crashing', () => {
 	const div = document.createElement('div');
 	ReactDOM.render(
-  		<DeleteBtn />,
-  	div);
+		<DeleteBtn />
+		,div);
 });
 
 xdescribe('The todo Reducer Props', () => {
