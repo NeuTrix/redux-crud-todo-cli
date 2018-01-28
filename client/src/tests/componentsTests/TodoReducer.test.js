@@ -4,7 +4,6 @@
 // import React from 'react';
 
 // ======== esllint
-/*global TodoReducer xdescribe:true*/
 /*global TodoReducer it:true*/
 /*eslint no-undef: "error"*/
 
