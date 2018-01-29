@@ -1,4 +1,4 @@
-/* eslint-env node, mocha */
+/* eslint-env node, mocha, chai, jest */
 
 let server = require('../app');
 let mongoose = require('mongoose');
@@ -64,7 +64,7 @@ xdescribe('Routes for /todos resources', () => {
 					expect(res.body).to.have.property('task');
 					expect(res.body).to.have.property('completed');
 					expect(res.body).to.have.property('_id');
-					expect(res.body._id).to.be.a('string')
+					expect(res.body._id).to.be.a('string');
 					done();
 				}); 	
 		}); 
@@ -74,7 +74,7 @@ xdescribe('Routes for /todos resources', () => {
 	describe('*** READ a specific todo item: "/todos/:id" route', () => {
 		it('... can find a specific todo item', (done) => {
 			let _todo = new Todos(_task);
-			let testTask
+			let testTask;
 
 			_todo.save((err, todo) => {
 				chai.request(server)
@@ -102,7 +102,7 @@ xdescribe('Routes for /todos resources', () => {
 
 			_todo.save((err, todo) => {
 
-			chai.request(server)
+				chai.request(server)
 					.put('/api/todos/' + todo.id)
 					.send({
 						task: 'Hitting ANOTHER',
@@ -139,15 +139,15 @@ xdescribe('Routes for /todos resources', () => {
 			_todo.save((err, todo) => {
 
 				chai.request(server)
-				.delete('/api/todos/' + todo.id)
-				.end((err, res) => {
+					.delete('/api/todos/' + todo.id)
+					.end((err, res) => {
 						expect(res.status).to.eql(200);
 						expect(res.body).to.be.a('object');
 						console.log(res.body);
-						expect(res.body.message).to.exist
-						expect(res.body).to.have.property('message').eql("Successfully deleted todo item with id: " + todo.id )
-					done()
-				});
+						expect(res.body.message).to.exist;
+						expect(res.body).to.have.property('message').eql('Successfully deleted todo item with id: ' + todo.id );
+						done();
+					});
 			});
 		});
 	});
