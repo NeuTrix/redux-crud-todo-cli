@@ -1,7 +1,19 @@
 # redux_crud_todolist
 Basic CRUD todo application in React with Redux
 
-ReadMe is work in progress.
+## Project Background
+
+- Standalone CRUD frontend app utilizing ReactJS / Redux framework
+- TDD approach
+- Support with datapersistence via localStorage
+- Deployment via Heroku
+
+## The stack
+
+- ReactJS
+- Redux
+- BootStrap
+
 
 Application:
 
@@ -12,4 +24,4 @@ Application:
 - Data persists in localStorage
 - Deployed on Heroku: https://redux-crud-project.herokuapp.com/
 
-- Debuggin Mongoose and testing suit in alt branch
+- Debugging Mongoose and testing suit in alt branch
