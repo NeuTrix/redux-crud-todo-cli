@@ -1,4 +1,4 @@
-# redux_crud_todolist
+# redux_crud_todolist (WIP)
 Basic CRUD todo application in React with Redux
 
 ## Project Background
@@ -12,6 +12,7 @@ Basic CRUD todo application in React with Redux
 
 - ReactJS
 - Redux
+- React Router
 - BootStrap
 
 
