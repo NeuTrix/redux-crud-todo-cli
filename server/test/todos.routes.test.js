@@ -12,10 +12,10 @@ let Todos = require('../models/Todos.model');
 
 chai.use(chaiHttp);
 
-xdescribe('Routes for /todos resources', () => {
+describe('Routes for /todos resources', () => {
 
 	const _task = {
-		task: 'Hitting that route, yo!',
+		task: 'Test Task: Hitting that route, yo!',
 		owner: 'Walker',
 		completed: false
 	};
@@ -44,7 +44,7 @@ xdescribe('Routes for /todos resources', () => {
 				.end((err, res) => {
 					expect(res.status).to.eql(200);
 					expect(res.body).to.be.an('array');
-					expect(res.body.length).to.eql(0);
+					expect(res.body.length).to.be.above(0);
 					done();
 				});
 		});
@@ -105,7 +105,7 @@ xdescribe('Routes for /todos resources', () => {
 				chai.request(server)
 					.put('/api/todos/' + todo.id)
 					.send({
-						task: 'Hitting ANOTHER',
+						task: 'Test Task:  Hitting ANOTHER',
 						completed: true,
 						owner: 'Johara Bell',
 					})
