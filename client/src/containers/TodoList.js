@@ -1,12 +1,9 @@
 // component to display the curret todo list
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Col, Grid,Row } from 'react-bootstrap';
 
-import { 
-	Col, 
-	Grid,
-	Row, 
-} from 'react-bootstrap';
+import getTodosData from '../reducers/apiReducer'
 
 import TodoItem from '../components/TodoItem';
 
@@ -32,50 +29,61 @@ const styleMain = {
 
 // =========================== COMPONENT ===========================
 
-const TodoList = (props) => {
+class TodoList extends Component {
 
-	let todoArray= props.todoArray;
+	
 
-	let todos= todoArray.map(item => {
-		return <TodoItem 
-		
-			key= { item._id }
-			item= { item }
-			removeTodo= { props.removeTodo }
-			toggleTodo= { props.toggleTodo }
-			updateDate= { props.updateDate }
-			updateRank= { props.updateRank }
-			updateTodo= { props.updateTodo }
-		/>;
 
-	});
+	componentDidMount() {
+		// getTodosData('http://localhost:3003/api/todos')
+		alert("howdy")
+	}
 
-	return (
+		render() {
 
-		<Grid >
+			let todoArray= this.props.todoArray;
 
-			<Row 
-				className= 'tableHeaders'
-				style= { styleTitle } 
-			>
-				<Col sm= { 1 } style={ styleItems } >
-					<input type='checkbox' checked disabled />
+			let todos= todoArray.map(item => {
+				return <TodoItem 
 				
-				</Col >
-				<Col sm={1} style={ styleItems } >Rank</Col>
-				<Col sm={2} style={ styleItems } >Due Date</Col>
-				<Col sm={7} style={ styleItems } >Task</Col>
-				<Col sm={1} style={ styleItems } >Delete</Col>
-			</Row>
+					key= { item._id }
+					item= { item }
+					removeTodo= { this.props.removeTodo }
+					toggleTodo= { this.props.toggleTodo }
+					updateDate= { this.props.updateDate }
+					updateRank= { this.props.updateRank }
+					updateTodo= { this.props.updateTodo }
+				/>;
 
-			<Row className= 'todoItems' >
-				<Col sm= { 12 } style= { styleMain } >
-					{todos} 
-				</Col>
-			</Row>
+			});
 
-		</Grid>
-	);
+			return (
+		
+				<Grid >
+	
+					<Row 
+						className= 'tableHeaders'
+						style= { styleTitle } 
+					>
+						<Col sm= { 1 } style={ styleItems } >
+							<input type='checkbox' checked disabled />
+						
+						</Col >
+						<Col sm={1} style={ styleItems } >Rank</Col>
+						<Col sm={2} style={ styleItems } >Due Date</Col>
+						<Col sm={7} style={ styleItems } >Task</Col>
+						<Col sm={1} style={ styleItems } >Delete</Col>
+					</Row>
+	
+					<Row className= 'todoItems' >
+						<Col sm= { 12 } style= { styleMain } >
+							{todos} 
+						</Col>
+					</Row>
+	
+				</Grid>
+			);
+		}
 }; // end component
 
 // ==================================================================

@@ -16,7 +16,6 @@ export const addTodo = (todo) => {
 			task: todo.task,
 		}
 	};
-	
 };
 
 export const removeTodo = (id) => {
