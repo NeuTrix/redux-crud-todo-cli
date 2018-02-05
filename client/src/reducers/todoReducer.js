@@ -1,25 +1,22 @@
-// import axios from 'axios';
+import axios from 'axios';
 import shortid from 'shortid';
 
 // replace with an API call
-let initialState = [
+/*let initialState = [
 	{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Get some Milk', rank: 'High' },
 	{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Kiss my daughter', rank: 'Med' },
 	{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Celebrate life!', rank: 'Low' },
-];
+];*/
 
 // ========= 
-/*let initialState
 
-axios.get('http://localhost:3003/api/todos')
-	.then((res) => {
-		 initialState = res.data
-		console.log("axios route",res.data)
-	})*/
+const TodoReducer = (state = initialState , action) => {
+
+	
+
 
 // ========= 	
 
-const TodoReducer = (state = initialState, action) => {
 
 	let payload  = action.payload;
 	let type = action.type;

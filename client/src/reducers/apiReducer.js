@@ -1,13 +1,16 @@
-
+import axios from 'axios';
 // const url: 'http://localhost:3003/api/todos'
 
 export function getTodosData(url) {
 	
-	/*axios.get(url)
-	.then((res) => {
-		// console.log("axios route",res.data)
-		 // initialState = res.data
-	})*/
-	return	alert("connected")
+	let initialState
+
+	axios.get('http://localhost:3003/api/todos')
+		.then((res) => {
+			console.log("axios route in REDUCER",res.data)
+			  // console.log("initialState IS:", initialState)
+			  initialState = res.data
+			  console.log('now data IS:', initialState)
+		})
 
 }

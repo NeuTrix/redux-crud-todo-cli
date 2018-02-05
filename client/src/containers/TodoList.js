@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Col, Grid,Row } from 'react-bootstrap';
 
-import getTodosData from '../reducers/apiReducer'
+// import { connect } from 'react-redux';
+import { getTodosData } from '../reducers/apiReducer'
 
 import TodoItem from '../components/TodoItem';
 
@@ -31,17 +32,16 @@ const styleMain = {
 
 class TodoList extends Component {
 
-	
-
-
+	/*let data
 	componentDidMount() {
-		// getTodosData('http://localhost:3003/api/todos')
-		alert("howdy")
-	}
+		 data= getTodosData('http://localhost:3003/api/todos')
+		console.log(data);
+		// alert("howdy")
+	}*/
 
 		render() {
 
-			let todoArray= this.props.todoArray;
+			/*let todoArray= this.props.todoArray;
 
 			let todos= todoArray.map(item => {
 				return <TodoItem 
@@ -55,7 +55,9 @@ class TodoList extends Component {
 					updateTodo= { this.props.updateTodo }
 				/>;
 
-			});
+			});*/
+
+			let todos =[];
 
 			return (
 		
