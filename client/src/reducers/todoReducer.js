@@ -12,8 +12,6 @@ let initialState = [
 
 const TodoReducer = (state = initialState , action) => {
 
-	
-
 
 // ========= 	
 

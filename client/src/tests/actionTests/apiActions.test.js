@@ -8,21 +8,23 @@ import deepFreeze from 'deep-freeze';
 import { expect } from 'chai';
 import store from '../../store/store';
 
+
+
+// import action creators
 import { 
 		todosIsLoading,
 		todosHasErrored,
 		todosFetchData,
-
 } from '../../actions/apiActions';
 
 describe('The apiActions Module...', () => {
 
-	describe('... has a working "todosIsLoading" function', () => {
+	describe('... has a working LOADING action', () => {
 
 		let loading
 
 		beforeAll(() => {
-			loading = todosIsLoading(true)
+			loading = todosIsLoading(false)
 		});
 
 		it('... is an available function', () => {
@@ -36,12 +38,11 @@ describe('The apiActions Module...', () => {
 
 		it('... returns a boolean', () => {
 			expect(loading.payload.status).to.be.a('boolean')
-				.to.eql(true)
+				.to.eql(false)
 		});
-
 	});
 
-	describe ('... has a working "todosHasErrored" function', () => {
+	describe ('... has a working ERROR action', () => {
 
 		let anErr
 
@@ -62,11 +63,32 @@ describe('The apiActions Module...', () => {
 			expect(anErr.payload.status).to.be.a('boolean')
 				.to.eql(false)
 		});
-
 	})
 
-	describe.only ('... has a working "todosFetchData" function', () => {
+	xdescribe ('... has a working SUCCESS action', () => {
+		
+		/*let aSuccess
 
+		beforeAll(() => {
+			aSuccess = todosHasFetched(false)
+		});
+
+		it('... is an available function', () => {
+			expect(aSuccess).to.exist
+		});
+
+		it('... has a type of "TODOS_HAS_ERRORED" ', () => {
+			expect(aSuccess.type).to.exist
+				.to.eql('TODOS_HAS_ERRORED')
+		})
+
+		it('... returns a function', () => {
+			expect(aSuccess.payload.status).to.be.a('boolean')
+				.to.eql(false)
+		});*/
+	})
+
+	xdescribe('... has a working FETCH function', () => {
 		let hasData
 		let url = 'http://localhost:3003/api/todos'
 
@@ -74,12 +96,13 @@ describe('The apiActions Module...', () => {
 			hasData = todosFetchData(url)
 		});
 
-		it('... the proper url: "http://localhost:3003/api/todos" ', () => {
+		it('... has the proper url: "http://localhost:3003/api/todos" ', () => {
 			expect(url).to.eql('http://localhost:3003/api/todos')
 		})
 
-		it('... is an available function', () => {
+		it('... is an available action', () => {
 			expect(hasData).to.exist
+			expect(hasData.payload.fetchData).to.be.a('function')
 		});
 
 		it('... has a type of "TODOS_FETCH_DATA"', () => {
@@ -87,15 +110,11 @@ describe('The apiActions Module...', () => {
 				.to.eql('TODOS_FETCH_DATA')
 		})
 
-		it('... returns a function in payload', () => {
-			expect(hasData.payload.fetchData).to.be.a('function')
+		xit('... returns a function in payload', () => {
 		});
 
-		it.only('... returns a dataset', () => {
-			let data = todosFetchData(url).payload.fetchData(store.dispatch)
-			expect(data).to.be.an('string');
+		xit('... returns a dataset', () => {
+			expect(hasData.payload.fetchData(store.dispatch)).to.be.an('string');
 		})
-
 	})
-
 })

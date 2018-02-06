@@ -7,7 +7,7 @@ import { loadState, saveState } from './localStorage';
 import throttle from 'lodash/throttle';
 
 // create middlewares
-const middleware = applyMiddleware(promise(),thunk, logger);
+const middleware = applyMiddleware(promise(), thunk, logger);
 
 // state management: start the app with the current state in localStr
 const persistedState = loadState();

@@ -1,8 +1,12 @@
 import axios from 'axios';
 
-export const todosIsLoading = (bool) => {
+export const TODOS_IS_LOADING = 'TODOS_IS_LOADING'
+export const TODOS_IS_LOADING = 'TODOS_IS_LOADING'
+export const TODOS_IS_LOADING = 'TODOS_IS_LOADING'
+
+export function todosIsLoading(bool)  {
 	return {
-		type: 'TODOS_IS_LOADING',
+		type: TODOS_IS_LOADING,
 		payload: {
 			status: bool
 		}
@@ -18,7 +22,17 @@ export const todosHasErrored = (bool) => {
 	}
 }
 
-export const todosFetchData = (url) => {
+
+/*export const todoHasFetched = (bool) => {
+	return {
+		type: ''
+		payload: {
+
+		}
+	}
+};*/
+
+export const todosFetchData = (url, ) => {
 
 	return {
 		type: 'TODOS_FETCH_DATA',
@@ -28,11 +42,13 @@ export const todosFetchData = (url) => {
 				dispatch(todosIsLoading(true))
 		
 				axios.get(url)
-					.then ((res) => {
-						// console.log('API is working', res.data)
-						return res
+					.then((res) => {
+						// console.log('API is working', res)
+						// return res.json
 					})
-					// .catch
+					.catch((err) => {
+						console.log("An error occured: ", err.mesage)
+					});
 			}
 		}
 	}
