@@ -4,6 +4,8 @@
 /*global TodoReducer it:true*/
 /*eslint no-undef: "error"*/
 
+import axios from 'axios';
+
 import deepFreeze from 'deep-freeze';
 import { expect } from 'chai';
 import store from '../../store/store';
@@ -13,11 +15,13 @@ import {
 		todosIsLoading,
 		todosHasErrored,
 		todosHasFetched,
+
+		todosFetchData,
 } from '../../actions/apiActions';
 
-describe('The apiActions Module...', () => {
+describe('The apiActions actions creator Module...', () => {
 
-	describe('... has a working LOADING action', () => {
+	describe('... has a working LOADING action creator', () => {
 
 		let loading
 
@@ -55,7 +59,7 @@ describe('The apiActions Module...', () => {
 				})
 	});
 
-	describe ('... has a working ERROR action', () => {
+	describe ('... has a working ERROR action creator', () => {
 
 		let anErr
 
@@ -87,33 +91,10 @@ describe('The apiActions Module...', () => {
 		it('... payload.status has a boolean value', () => {
 			expect(anErr.payload).to.have.property('status');
 		})
-
 	});
 
 	describe ('... has a working SUCCESS action', () => {
-		
-		let aSuccess
-
-		beforeAll(() => {
-			aSuccess = todosHasFetched(false)
-		});
-
-		it('... is an available function', () => {
-			expect(aSuccess).to.exist
-		});
-
-		it('... has a type of "TODOS_HAS_FETCHED" ', () => {
-			expect(aSuccess.type).to.exist
-				.to.eql('TODOS_HAS_FETCHED')
-		})
-
-		it('... returns a boolean', () => {
-			expect(aSuccess.payload.status).to.be.a('boolean')
-				.to.eql(false)
-		});
-	})
-
-	describe.only('... has a working FETCH function', () => {
+	
 		let hasData
 		let url = 'http://localhost:3003/api/todos'
 
@@ -146,4 +127,48 @@ describe('The apiActions Module...', () => {
 			expect(hasData.payload).to.have.property('status');
 		})
 	})
+
+})
+
+describe.only('The apiActions fetch data function...', () => {
+
+	let url = 'http://localhost:3003/api/todos';
+	let aFetch 
+	let loading 
+
+	beforeAll(() => {
+		loading = todosIsLoading(false)
+		aFetch = todosFetchData(url);
+	});
+
+	afterAll(() => {
+		todosIsLoading(false)
+	});
+
+	it('... loading is set to false', () => {
+		expect(loading.payload.status).to.eql(false)	;
+	})
+
+	it('... has an available function', () => {
+		expect(todosFetchData).to.be.an('function');
+	});
+
+	it('... changes value of loading to true', () => {
+		console.log(todosFetchData(url))
+	})
+
+	it('... has an axios connections', () => {
+		let todos = axios.get(url)
+			.then((res, err) => {
+				// return console.log('API is working', res)
+				return  console.log(res)
+				})
+			.catch((err) => {
+				console.log("An error occured: ", err.Error)
+			});
+
+			expect(todos).to.be.an('string');
+
+	})
+
 })
