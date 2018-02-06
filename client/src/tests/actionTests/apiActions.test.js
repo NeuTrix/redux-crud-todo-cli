@@ -19,156 +19,111 @@ import {
 		todosFetchData,
 } from '../../actions/apiActions';
 
-describe('The apiActions actions creator Module...', () => {
 
-	describe('... has a working LOADING action creator', () => {
+describe('The apiActions LOADING action creator', () => {
 
-		let loading
-
-		beforeAll(() => {
-			loading = todosIsLoading(false)
-		});
-
-		it('... is an available function', () => {
-			expect(loading).to.exist
-		});
-
-		it('... has a "type" property', () => {
-			expect(loading).to.have.property('type');
-		})
-
-		it('... has a type of "TODOS_IS_LOADING" ', () => {
-			expect(loading.type).to.exist
-				.to.eql('TODOS_IS_LOADING')
-		})
-
-		it('... type is a string', () => {
-			expect(loading.type).to.be.a('string')
-		})
-		
-		it('... has a "payload" property', () => {
-					expect(loading).to.have.property('payload');
-				})
-
-		it('... payload has a "status" property', () => {
-					expect(loading.payload).to.have.property('status');
-				})
-
-		it('... payload.status has a boolean value', () => {
-					expect(loading.payload).to.have.property('status');
-				})
-	});
-
-	describe ('... has a working ERROR action creator', () => {
-
-		let anErr
-
-		beforeAll(() => {
-			anErr = todosHasErrored(false)
-		});
-
-		it('... is an available function', () => {
-			expect(anErr).to.exist
-		});
-
-		it('... has a "type" property', () => {
-			expect(anErr).to.have.property('type');
-		})
-
-		it('... has a type of "TODOS_HAS_ERRORED" ', () => {
-			expect(anErr.type).to.exist
-				.to.eql('TODOS_HAS_ERRORED')
-		})
-
-		it('... has a "payload" property', () => {
-			expect(anErr).to.have.property('payload');
-		})
-
-		it('... payload has a "status" property', () => {
-			expect(anErr.payload).to.have.property('status');
-		})
-
-		it('... payload.status has a boolean value', () => {
-			expect(anErr.payload).to.have.property('status');
-		})
-	});
-
-	describe ('... has a working SUCCESS action', () => {
-	
-		let hasData
-		let url = 'http://localhost:3003/api/todos'
-
-		beforeAll(() => {
-			hasData = todosHasFetched()
-		});
-
-		it('... is an available function', () => {
-			expect(hasData).to.exist
-		});
-
-		it('... has a "type" property', () => {
-			expect(hasData).to.have.property('type');
-		})
-
-		it('... has a type of "TODOS_HAS_FETCHED" ', () => {
-			expect(hasData.type).to.exist
-				.to.eql('TODOS_HAS_FETCHED')
-		})
-
-		it('... has a "payload" property', () => {
-			expect(hasData).to.have.property('payload');
-		})
-
-		it('... payload has a "status" property', () => {
-			expect(hasData.payload).to.have.property('status');
-		})
-
-		it('... payload.status has a boolean value', () => {
-			expect(hasData.payload).to.have.property('status');
-		})
-	})
-
-})
-
-describe.only('The apiActions fetch data function...', () => {
-
-	let url = 'http://localhost:3003/api/todos';
-	let aFetch 
-	let loading 
+	let loading
 
 	beforeAll(() => {
 		loading = todosIsLoading(false)
-		aFetch = todosFetchData(url);
 	});
 
-	afterAll(() => {
-		todosIsLoading(false)
+	it('... is an available function', () => {
+		expect(loading).to.exist
 	});
 
-	it('... loading is set to false', () => {
-		expect(loading.payload.status).to.eql(false)	;
+	it('... has a "type" property', () => {
+		expect(loading).to.have.property('type');
 	})
 
-	it('... has an available function', () => {
-		expect(todosFetchData).to.be.an('function');
+	it('... has a type of "TODOS_IS_LOADING" ', () => {
+		expect(loading.type).to.exist
+			.to.eql('TODOS_IS_LOADING')
+	})
+
+	it('... type is a string', () => {
+		expect(loading.type).to.be.a('string')
+	})
+	
+	it('... has a "payload" property', () => {
+				expect(loading).to.have.property('payload');
+			})
+
+	it('... payload has a "status" property', () => {
+				expect(loading.payload).to.have.property('status');
+			})
+
+	it('... payload.status has a boolean value', () => {
+				expect(loading.payload).to.have.property('status');
+			})
+});
+
+describe ('The apiActions ERROR action creator', () => {
+
+	let anErr
+
+	beforeAll(() => {
+		anErr = todosHasErrored(false)
 	});
 
-	it('... changes value of loading to true', () => {
-		console.log(todosFetchData(url))
+	it('... is an available function', () => {
+		expect(anErr).to.exist
+	});
+
+	it('... has a "type" property', () => {
+		expect(anErr).to.have.property('type');
 	})
 
-	it('... has an axios connections', () => {
-		let todos = axios.get(url)
-			.then((res, err) => {
-				// return console.log('API is working', res)
-				return  console.log(res)
-				})
-			.catch((err) => {
-				console.log("An error occured: ", err.Error)
-			});
-
-			expect(todos).to.be.an('string');
-
+	it('... has a type of "TODOS_HAS_ERRORED" ', () => {
+		expect(anErr.type).to.exist
+			.to.eql('TODOS_HAS_ERRORED')
 	})
 
+	it('... has a "payload" property', () => {
+		expect(anErr).to.have.property('payload');
+	})
+
+	it('... payload has a "status" property', () => {
+		expect(anErr.payload).to.have.property('status');
+	})
+
+	it('... payload.status has a boolean value', () => {
+		expect(anErr.payload).to.have.property('status');
+	})
+});
+
+describe ('The apiActions SUCCESS action creator', () => {
+
+	let hasData
+	let url = 'http://localhost:3003/api/todos'
+
+	beforeAll(() => {
+		hasData = todosHasFetched()
+	});
+
+	it('... is an available function', () => {
+		expect(hasData).to.exist
+	});
+
+	it('... has a "type" property', () => {
+		expect(hasData).to.have.property('type');
+	})
+
+	it('... has a type of "TODOS_HAS_FETCHED" ', () => {
+		expect(hasData.type).to.exist
+			.to.eql('TODOS_HAS_FETCHED')
+	})
+
+	it('... has a "payload" property', () => {
+		expect(hasData).to.have.property('payload');
+	})
+
+	it('... payload has a "status" property', () => {
+		expect(hasData.payload).to.have.property('status');
+	})
+
+	it('... payload.status has a boolean value', () => {
+		expect(hasData.payload).to.have.property('status');
+	})
 })
+

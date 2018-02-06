@@ -36,17 +36,22 @@ export function todosFetchData(url ) {
 
 // return 'howdy!'
 	return function (dispatch) { 
-	
-		// dispatch(todosIsLoading(true));
 
-		return axios.get(url)
-			.then((res) => {
-				// return console.log('API is working', res)
-				 console.log(res.json)
-			})
-			.catch((err) => {
-				console.log("An error occured: ", err.mesage)
-			});
-		}
+		// dispatch loading to true
+		
+		// fetch the todos
+
+		return fetch(url)
+			.then(
+					response => response.json(),
+
+					error => console.log('An error has occured', error)
+				)
+			// .then(json =>)
+
+		// dispatch loading to false
+		// deploy if there's an error
+	
+	}
 }
 
