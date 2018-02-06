@@ -24,6 +24,7 @@
     "axios": "^0.17.1",
     "babel-plugin-transform-decorators": "^6.24.1",
     "chai-enzyme": "^0.8.0",
+    "cross-fetch": "^1.1.1",
     "jquery": "^3.2.1",
     "jsxhint": "^0.15.1",
     "lodash": "^4.17.4",
