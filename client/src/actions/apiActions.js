@@ -23,8 +23,17 @@ export const todosFetchData = (url) => {
 	return {
 		type: 'TODOS_FETCH_DATA',
 		payload: {
-
-			
+			fetchData: (dispatch) => { 
+		
+				dispatch(todosIsLoading(true))
+		
+				axios.get(url)
+					.then ((res) => {
+						// console.log('API is working', res.data)
+						return res
+					})
+					// .catch
+			}
 		}
 	}
 }
