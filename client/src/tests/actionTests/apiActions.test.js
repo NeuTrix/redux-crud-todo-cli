@@ -29,15 +29,30 @@ describe('The apiActions Module...', () => {
 			expect(loading).to.exist
 		});
 
+		it('... has a "type" property', () => {
+			expect(loading).to.have.property('type');
+		})
+
 		it('... has a type of "TODOS_IS_LOADING" ', () => {
 			expect(loading.type).to.exist
 				.to.eql('TODOS_IS_LOADING')
 		})
 
-		it('... returns a boolean', () => {
-			expect(loading.payload.status).to.be.a('boolean')
-				.to.eql(false)
-		});
+		it('... type is a string', () => {
+			expect(loading.type).to.be.a('string')
+		})
+		
+		it('... has a "payload" property', () => {
+					expect(loading).to.have.property('payload');
+				})
+
+		it('... payload has a "status" property', () => {
+					expect(loading.payload).to.have.property('status');
+				})
+
+		it('... payload.status has a boolean value', () => {
+					expect(loading.payload).to.have.property('status');
+				})
 	});
 
 	describe ('... has a working ERROR action', () => {
@@ -60,25 +75,20 @@ describe('The apiActions Module...', () => {
 			expect(anErr.type).to.exist
 				.to.eql('TODOS_HAS_ERRORED')
 		})
-		
+
 		it('... has a "payload" property', () => {
-					expect(anErr).to.have.property('payload');
-				})
+			expect(anErr).to.have.property('payload');
+		})
 
 		it('... payload has a "status" property', () => {
-					expect(anErr.payload).to.have.property('status');
-				})
+			expect(anErr.payload).to.have.property('status');
+		})
 
 		it('... payload.status has a boolean value', () => {
-					expect(anErr.payload).to.have.property('status');
-				})
+			expect(anErr.payload).to.have.property('status');
+		})
 
-		it('... payload.status has a boolean value', () => {
-			expect(anErr.payload.status).to.be.a('boolean')
-				.to.eql(false)
-		});
-		
-	})
+	});
 
 	describe ('... has a working SUCCESS action', () => {
 		
@@ -103,33 +113,37 @@ describe('The apiActions Module...', () => {
 		});
 	})
 
-	xdescribe('... has a working FETCH function', () => {
+	describe.only('... has a working FETCH function', () => {
 		let hasData
 		let url = 'http://localhost:3003/api/todos'
 
 		beforeAll(() => {
-			// hasData = todosFetchData(url)
+			hasData = todosHasFetched()
 		});
 
-		it('... has the proper url: "http://localhost:3003/api/todos" ', () => {
-			expect(url).to.eql('http://localhost:3003/api/todos')
-		})
-
-		it('... is an available action', () => {
+		it('... is an available function', () => {
 			expect(hasData).to.exist
-			expect(hasData.payload.fetchData).to.be.a('function')
 		});
 
-		it('... has a type of "TODOS_FETCH_DATA"', () => {
-			expect(hasData.type).to.exist
-				.to.eql('TODOS_FETCH_DATA')
+		it('... has a "type" property', () => {
+			expect(hasData).to.have.property('type');
 		})
 
-		xit('... returns a function in payload', () => {
-		});
+		it('... has a type of "TODOS_HAS_FETCHED" ', () => {
+			expect(hasData.type).to.exist
+				.to.eql('TODOS_HAS_FETCHED')
+		})
 
-		xit('... returns a dataset', () => {
-			expect(hasData.payload.fetchData(store.dispatch)).to.be.an('string');
+		it('... has a "payload" property', () => {
+			expect(hasData).to.have.property('payload');
+		})
+
+		it('... payload has a "status" property', () => {
+			expect(hasData.payload).to.have.property('status');
+		})
+
+		it('... payload.status has a boolean value', () => {
+			expect(hasData.payload).to.have.property('status');
 		})
 	})
 })
