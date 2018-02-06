@@ -1,6 +1,14 @@
 import axios from 'axios';
 // const url: 'http://localhost:3003/api/todos'
 
+// import action constants
+import {
+	TODOS_IS_LOADING,
+	TODOS_HAS_ERRORED,
+	TODOS_HAS_FETCHED
+} from '../../actions/apiActions';
+
+
 export function getTodosData(url) {
 	
 	let initialState

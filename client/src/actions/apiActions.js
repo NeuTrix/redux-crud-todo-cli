@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-export const TODOS_IS_LOADING = 'TODOS_IS_LOADING'
-export const TODOS_IS_LOADING = 'TODOS_IS_LOADING'
-export const TODOS_IS_LOADING = 'TODOS_IS_LOADING'
+export const TODOS_IS_LOADING  = 'TODOS_IS_LOADING'
+export const TODOS_HAS_ERRORED = 'TODOS_HAS_ERRORED'
+export const TODOS_HAS_FETCHED = 'TODOS_HAS_FETCHED'
 
 export function todosIsLoading(bool)  {
 	return {
@@ -15,7 +15,7 @@ export function todosIsLoading(bool)  {
 
 export const todosHasErrored = (bool) => {
 	return {
-		type: 'TODOS_HAS_ERRORED' ,
+		type: TODOS_HAS_ERRORED ,
 		payload: {
 			status: bool
 		}

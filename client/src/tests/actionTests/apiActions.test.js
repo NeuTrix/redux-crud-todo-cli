@@ -8,13 +8,11 @@ import deepFreeze from 'deep-freeze';
 import { expect } from 'chai';
 import store from '../../store/store';
 
-
-
 // import action creators
 import { 
 		todosIsLoading,
 		todosHasErrored,
-		todosFetchData,
+		todosHasFetched,
 } from '../../actions/apiActions';
 
 describe('The apiActions Module...', () => {
@@ -65,9 +63,9 @@ describe('The apiActions Module...', () => {
 		});
 	})
 
-	xdescribe ('... has a working SUCCESS action', () => {
+	describe.only ('... has a working SUCCESS action', () => {
 		
-		/*let aSuccess
+		let aSuccess
 
 		beforeAll(() => {
 			aSuccess = todosHasFetched(false)
@@ -85,7 +83,7 @@ describe('The apiActions Module...', () => {
 		it('... returns a function', () => {
 			expect(aSuccess.payload.status).to.be.a('boolean')
 				.to.eql(false)
-		});*/
+		});
 	})
 
 	xdescribe('... has a working FETCH function', () => {
