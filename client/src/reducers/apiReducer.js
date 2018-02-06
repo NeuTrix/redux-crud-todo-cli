@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-// import action constants
+// import action constants- allows JS to throw spelling errors
 import {
 	TODOS_IS_LOADING,
 	TODOS_HAS_FETCHED,
@@ -11,7 +11,7 @@ export const apiReducer = (
 	state = {
 		todosIsLoading: false,
 		todosHasFetched: false,
-		todosHasErrored: false,
+		todosHasErrored: false
 	}, 
 	action) => {
 
@@ -23,8 +23,7 @@ export const apiReducer = (
 			return {...state, ...{todosIsLoading:payload.status}};
 	
 		case TODOS_HAS_FETCHED:
-			
-			return {...state, ...{todoHasFetched:payload.status}};
+			return {...state, ...{todosHasFetched:payload.status}};
 	
 		case TODOS_HAS_ERRORED:
 			return {...state, ...{todosHasErrored:payload.status}};
@@ -32,8 +31,6 @@ export const apiReducer = (
 		default:
 			return state
 	}
-
 }
-
 	
 export default apiReducer
