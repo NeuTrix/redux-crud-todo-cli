@@ -27,7 +27,7 @@ export const todosHasFetched = (bool) => {
 	return {
 		type: TODOS_HAS_FETCHED,
 		payload: {
-
+				status: bool
 		}
 	}
 };
