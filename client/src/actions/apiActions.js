@@ -14,15 +14,6 @@ export function todosIsLoading(bool)  {
 	}
 }
 
-export const todosHasErrored = (bool) => {
-	return {
-		type: TODOS_HAS_ERRORED ,
-		payload: {
-			status: bool
-		}
-	}
-}
-
 export const todosHasFetched = (bool) => {
 	return {
 		type: TODOS_HAS_FETCHED,
@@ -32,26 +23,26 @@ export const todosHasFetched = (bool) => {
 	}
 };
 
-export function todosFetchData(url ) {
-
-// return 'howdy!'
-	return function (dispatch) { 
-
-		// dispatch loading to true
-		
-		// fetch the todos
-
-		return fetch(url)
-			.then(
-					response => response.json(),
-
-					error => console.log('An error has occured', error)
-				)
-			// .then(json =>)
-
-		// dispatch loading to false
-		// deploy if there's an error
-	
+export const todosHasErrored = (bool) => {
+	return {
+		type: TODOS_HAS_ERRORED ,
+		payload: {
+			status: bool
+		}
 	}
+}
+
+export function getTodosData(url) {
+	
+	let initialState
+
+	axios.get('http://localhost:3003/api/todos')
+		.then((res) => {
+			console.log("axios route in REDUCER",res.data)
+			  // console.log("initialState IS:", initialState)
+			  initialState = res.data
+			  console.log('now data IS:', initialState)
+		})
+
 }
 

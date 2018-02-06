@@ -6,30 +6,25 @@
 
 import deepFreeze from 'deep-freeze';
 import { expect } from 'chai';
-// import store from '../../store/store';
-// import todos from '../../reducers/todoReducer';
+import store from '../../store/store';
+import todosApi from '../../reducers/apiReducer';
 
 import { 
-		isLoading,
-
-} from '../../reducer/apiReducer';
+	todosIsLoading,
+	todosHasFetched,
+	todosHasErrored,
+	getTodosData
+} from '../../actions/apiActions';
 
 // ====================================
 
 describe('The apiReducer action suite', () => {
+	let ApiState = store.getState().todosApi;
+	deepFreeze(ApiState)
 
-
-	describe('the isLoading reducer', () => {
-		
-		
-
-		it('...', () => {
-
-		})
-
+	it('has a state', () => {
+		console.log(ApiState)
 	})
-
-
 
 
 
