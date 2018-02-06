@@ -6,6 +6,7 @@
 
 import deepFreeze from 'deep-freeze';
 import { expect } from 'chai';
+import store from '../../store/store';
 
 import { 
 		todosIsLoading,
@@ -58,35 +59,43 @@ describe('The apiActions Module...', () => {
 		})
 
 		it('... returns a function', () => {
-			expect(anErr.payload.status).to.be.a('function')
+			expect(anErr.payload.status).to.be.a('boolean')
 				.to.eql(false)
 		});
 
 	})
 
-	describe ('... has a working "todosFetchData" function', () => {
+	describe.only ('... has a working "todosFetchData" function', () => {
 
 		let hasData
+		let url = 'http://localhost:3003/api/todos'
 
 		beforeAll(() => {
-			hasData = todosFetchData(false)
-		});``
+			hasData = todosFetchData(url)
+		});
+
+		it('... the proper url: "http://localhost:3003/api/todos" ', () => {
+			expect(url).to.eql('http://localhost:3003/api/todos')
+		})
 
 		it('... is an available function', () => {
 			expect(hasData).to.exist
 		});
 
-		it('... has a type of "TODOS_FETCH_DATA" ', () => {
+		it('... has a type of "TODOS_FETCH_DATA"', () => {
 			expect(hasData.type).to.exist
 				.to.eql('TODOS_FETCH_DATA')
 		})
 
-		it('... returns a boolean', () => {
-			expect(hasData.payload.status).to.be.a('boolean')
-				.to.eql(false)
+		it('... returns a function in payload', () => {
+			expect(hasData.payload.fetchData).to.be.a('function')
 		});
 
-	})
+		it.only('... returns a dataset', () => {
+			let data = todosFetchData(url).payload.fetchData(store.dispatch)
+			expect(data).to.be.an('string');
+		})
 
+	})
 
 })
