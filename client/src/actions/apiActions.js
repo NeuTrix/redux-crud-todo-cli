@@ -23,34 +23,31 @@ export const todosHasErrored = (bool) => {
 }
 
 
-/*export const todoHasFetched = (bool) => {
+export const todosHasFetched = (bool) => {
 	return {
-		type: ''
+		type: TODOS_HAS_FETCHED,
 		payload: {
 
 		}
 	}
-};*/
+};
 
-export const todosFetchData = (url, ) => {
+export function todosFetchData (url ) {
 
-	return {
-		type: 'TODOS_FETCH_DATA',
-		payload: {
-			fetchData: (dispatch) => { 
-		
-				dispatch(todosIsLoading(true))
-		
-				axios.get(url)
-					.then((res) => {
-						// console.log('API is working', res)
-						// return res.json
-					})
-					.catch((err) => {
-						console.log("An error occured: ", err.mesage)
-					});
-			}
+	/*return  {
+		fetchData: (dispatch) => { 
+	
+			dispatch(todosIsLoading(true))
+	
+			axios.get(url)
+				.then((res) => {
+					// console.log('API is working', res)
+					// return res.json
+				})
+				.catch((err) => {
+					console.log("An error occured: ", err.mesage)
+				});
 		}
-	}
+	}*/
 }
 
