@@ -31,7 +31,7 @@ describe.only('The setInitial state reducer', () => {
 		let	firstState = store.getState().todos;
 		deepFreeze(firstState)
 
-		it('... initial state has a default state array ', () => {
+		it('... has a default state array ', () => {
 			expect(firstState).to.be.an('array');
 		})
 		it('... has 3 initial items', () => {
@@ -41,10 +41,11 @@ describe.only('The setInitial state reducer', () => {
 
 	describe('the setInitialState action creator', () => {
 
-		it('... has a type OF SET_INITIAL_STATE', () => {
+		it('... has a type of "SET_INITIAL_STATE"', () => {
 			expect(setInitialState()).to.have.property('type')
 				.to.eql('SET_INITIAL_STATE')
 		})
+
 		it('... it has a payload prop of "newState" ', () => {
 			expect(setInitialState()).to.have.property('payload')
 			expect(setInitialState().payload).to.have.property('newState')
@@ -54,7 +55,7 @@ describe.only('The setInitial state reducer', () => {
 
 	describe('The Set intial state REDUCER', () => {
 
-		let	stateUpdate = [{
+		let	initialState = [{
 				 _id: shortid.generate(), 
 				 date: 	'2020-12-31', 
 				 completed: false, 
@@ -65,7 +66,7 @@ describe.only('The setInitial state reducer', () => {
 		let newState
 
 		beforeAll(() => {
-			store.dispatch(setInitialState(stateUpdate))
+			store.dispatch(setInitialState(initialState))
 			newState = store.getState().todos
 		});
 
@@ -73,11 +74,8 @@ describe.only('The setInitial state reducer', () => {
 			expect(newState).to.be.an('array');
 		})
 
-		it('... has only 1 item', () => {
+		it('... has replaced the old state', () => {
 			expect(newState.length).to.eql(1);
-		})
-
-		it('... has the new item', () => {
 			expect(newState[0].task).to.eql('New state item')
 		})
 			

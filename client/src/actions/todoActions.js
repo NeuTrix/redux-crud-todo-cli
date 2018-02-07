@@ -3,15 +3,14 @@ import shortid from 'shortid';
 
 export const SET_INITIAL_STATE = 'SET_INITIAL_STATE'
 
-export const setInitialState = (newState) => {
-
+export const setInitialState = (initialState) => {
+	// used to async set up a full revised initialState for todos array
 	return {
 		type: SET_INITIAL_STATE,
 		payload: {
-			newState: newState
+			newState: initialState
 		}
 	}
-
 }
 
 export const addTodo = (todo) => {
@@ -75,4 +74,5 @@ export const updateDate = (id, _date) => {
 		}
 	};
 };
+
 

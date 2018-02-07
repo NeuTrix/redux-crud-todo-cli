@@ -1,5 +1,5 @@
-import axios from 'axios';
-// import fetch from 'cross-fetch'
+// import axios from 'axios';
+import fetch from 'cross-fetch'
 
 export const TODOS_IS_LOADING  = 'TODOS_IS_LOADING'
 export const TODOS_HAS_ERRORED = 'TODOS_HAS_ERRORED'
@@ -32,17 +32,29 @@ export const todosHasErrored = (bool) => {
 	}
 }
 
-export function getTodosData(url) {
-	
-	let initialState
+// ========= ========= ========= 
 
-	axios.get('http://localhost:3003/api/todos')
-		.then((res) => {
-			console.log("axios route in REDUCER",res.data)
-			  // console.log("initialState IS:", initialState)
-			  initialState = res.data
-			  console.log('now data IS:', initialState)
-		})
+export function setInitialState(url) {
 
+	return(dispatch) => {
+
+		// note that it's loading
+		dispatch(todosIsLoading(true));
+		
+		// check for errors, if so
+		dispatch(todosHasErrored(true));
+
+		// once finished loading
+		dispatch(todosIsLoading(false));
+
+		// if succesfully delivered
+
+		dispatch(todosHasFetched(true))
+
+	}
 }
+
+
+
+
 
