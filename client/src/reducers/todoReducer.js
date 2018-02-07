@@ -2,8 +2,8 @@ import axios from 'axios';
 import shortid from 'shortid';
 
 import {
-
-} from '../actions/'
+	SET_INITIAL_STATE
+} from '../actions/todoActions'
 
 // replace with an API call
 let initialState = [
@@ -21,8 +21,9 @@ const TodoReducer = (state = initialState , action) => {
 
 	switch (type) {
 
-	case
-
+	case SET_INITIAL_STATE: {
+		return payload.newState
+	}
 
 	case 'ADD_TODO': {
 		return [...state, payload];

@@ -69,10 +69,6 @@ describe.only('The setInitial state reducer', () => {
 			newState = store.getState().todos
 		});
 
-		afterAll(() => {
-			store.dispatch(setInitialState(undefined))
-		});
-
 		it('... can return a new state array', () => {
 			expect(newState).to.be.an('array');
 		})
