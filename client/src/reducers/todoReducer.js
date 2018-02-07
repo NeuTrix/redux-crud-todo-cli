@@ -17,6 +17,8 @@ const TodoReducer = (state = initialState , action) => {
 
 	switch (type) {
 
+	// case
+
 	case 'ADD_TODO': {
 		return [...state, payload];
 	}

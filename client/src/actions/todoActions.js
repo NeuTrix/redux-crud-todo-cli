@@ -1,6 +1,19 @@
 // Set new id's uniquely, until API is installed in this app
 import shortid from 'shortid';
 
+export const SET_INITIAL_STATE = 'SET_INITIAL_STATE'
+
+export const setInitialState = (newState) => {
+
+	return {
+		type: SET_INITIAL_STATE,
+		payload: {
+			newState: newState
+		}
+	}
+
+}
+
 export const addTodo = (todo) => {
 
 	return {

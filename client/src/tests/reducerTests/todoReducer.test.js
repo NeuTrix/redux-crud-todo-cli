@@ -11,6 +11,7 @@ import deepFreeze from 'deep-freeze';
 import { expect } from 'chai';
 import store from '../../store/store';
 import todos from '../../reducers/todoReducer';
+import shortid from 'shortid';
 
 import { 
 	addTodo, 
@@ -19,9 +20,58 @@ import {
 	toggleTodo,
 	updateRank, 
 	updateDate,
+	setInitialState,
 } from '../../actions/todoActions';
 
 // ====================================
+
+describe.only('The setInitial state reducer', () => {
+
+	describe('The iniital state', () => {
+		let	firstState = store.getState().todos;
+
+		it('... initial state has a default state array ', () => {
+			expect(firstState).to.be.an('array');
+		})
+		it('... has 3 initial items', () => {
+			expect(firstState.length).to.eql(3);
+		})
+	})
+
+	describe('the setInitialState action creator', () => {
+
+		it('... has a type OF SET_INITIAL_STATE', () => {
+			expect(setInitialState()).to.have.property('type')
+				.to.eql('SET_INITIAL_STATE')
+		})
+		it('... it has a payload prop of "newState" ', () => {
+			expect(setInitialState()).to.have.property('payload')
+			expect(setInitialState().payload).to.have.property('newState')
+		})
+
+	})
+
+	describe('The Set intial state REDUCER', () => {
+			
+		let	newState = [{
+				 _id: shortid.generate(), 
+				 date: 	'2020-12-31', 
+				 completed: false, 
+				 task:'New state items', 
+				 rank: 'High' 
+			}];  
+
+
+		it('... can retuen a new state array', () => {
+
+		})
+			
+	})
+
+
+})
+
+
 
 describe('The TodoReducer action suite', () => {
 	let TodoList = store.getState().todos;
@@ -88,7 +138,7 @@ describe('The TodoReducer action suite', () => {
 		});
 	});
 
-	describe.only('The REMOVE_TODO function', () => {
+	describe('The REMOVE_TODO function', () => {
 
 		let initialSize;
 

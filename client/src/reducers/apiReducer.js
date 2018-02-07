@@ -8,11 +8,13 @@ import {
 } from '../actions/apiActions';
 
 export const apiReducer = (
+	
 	state = {
 		todosIsLoading: false,
 		todosHasFetched: false,
 		todosHasErrored: false
 	}, 
+
 	action) => {
 
 	let payload = action.payload
