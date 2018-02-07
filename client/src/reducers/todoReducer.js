@@ -1,6 +1,10 @@
 import axios from 'axios';
 import shortid from 'shortid';
 
+import {
+
+} from '../actions/'
+
 // replace with an API call
 let initialState = [
 	{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Get some Milk', rank: 'High' },
@@ -17,7 +21,8 @@ const TodoReducer = (state = initialState , action) => {
 
 	switch (type) {
 
-	// case
+	case
+
 
 	case 'ADD_TODO': {
 		return [...state, payload];
