@@ -5,8 +5,8 @@ import Checkbox from '../../containers/Checkbox';
 it('renders without crashing', () => {
 	const div = document.createElement('div');
 	ReactDOM.render(
-  		<Checkbox />,
-  	div);
+		<Checkbox />,
+		div);
 });
 
 
