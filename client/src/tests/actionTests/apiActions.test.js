@@ -18,8 +18,7 @@ import {
 		todosIsLoading,
 		todosHasErrored,
 		todosHasFetched,
-
-		todosFetchData,
+		startState
 } from '../../actions/apiActions';
 
 chai.use(chaiHttp);
@@ -138,11 +137,11 @@ describe ('The apiActions SUCCESS action creator', () => {
 
 describe.only('The get todos INITIAL STATE  function', () => {
 
-	let api = 'http://localhost:3003'
+	let api = 'http://localhost:3003/api/todos'
 
 	it('... connection to api returns status 200', (done) => {
 		chai.request(api)
-			.get('/api/todos')
+			.get('/')
 			.end((err,res) => {
 				expect(err).to.be.eql(null)
 				expect(res).to.have.status(200);
@@ -150,10 +149,11 @@ describe.only('The get todos INITIAL STATE  function', () => {
 			})
 	})
 
-	it('... returns a new state json object with a body array', (done) => {
+	it('... base connection returns a new json array object', (done) => {
 		let data 
+
 		chai.request(api)
-			.get('/api/todos')
+			.get('/')
 			.end((err,res) => {
 				console.log(
 					"===*==>>> The 1st res.body arr obj is: ", 
@@ -163,8 +163,17 @@ describe.only('The get todos INITIAL STATE  function', () => {
 				expect(res.body).to.be.an('array')
 				done()
 			})
-
 	})
+
+	it('.. the function returns an array object', () => {
+		let dispatch = store.dispatch
+		// let data = startState(api)(dispatch)
+		let data = startState(api)
+		let test = store.dispatch(data)
+		console.log("===*==>>> data from the fn: ",  test)
+/*		expect(data).to.exist;
+		expect(data).to.be.an('function');
+*/	})
 
 })
 

@@ -7,6 +7,7 @@ import { Col, Grid,Row } from 'react-bootstrap';
 import { getTodosData } from '../reducers/apiReducer'
 
 import TodoItem from '../components/TodoItem';
+import { startState } from '../actions/apiActions'
 
 // ============================ STYLING ============================
 
@@ -32,16 +33,14 @@ const styleMain = {
 
 class TodoList extends Component {
 
-	/*let data
 	componentDidMount() {
-		 data= getTodosData('http://localhost:3003/api/todos')
-		console.log(data);
-		// alert("howdy")
-	}*/
+		let url = 'http://localhost:3003/api/todos'
+		dispatch(startState(url));
+	}
 
 		render() {
 
-			/*let todoArray= this.props.todoArray;
+			let todoArray= this.props.todoArray;
 
 			let todos= todoArray.map(item => {
 				return <TodoItem 
@@ -55,9 +54,8 @@ class TodoList extends Component {
 					updateTodo= { this.props.updateTodo }
 				/>;
 
-			});*/
+			});
 
-			let todos =[];
 
 			return (
 		
@@ -107,5 +105,7 @@ TodoList.defaultProps = {
 	updateRank: f=>f,
 	updateTodo: f=>f,
 };
+
+const mapStateToProps = 
 
 export default TodoList;
