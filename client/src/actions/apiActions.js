@@ -14,11 +14,11 @@ export function todosIsLoading(bool)  {
 	}
 }
 
-export const todosHasFetched = (bool) => {
+export const todosHasFetched = (todos) => {
 	return {
 		type: TODOS_HAS_FETCHED,
 		payload: {
-			status: bool
+			todos: todos
 		}
 	}
 };
@@ -34,25 +34,41 @@ export const todosHasErrored = (bool) => {
 
 // ========= ========= ========= 
 
-export function setInitialState(url) {
+// export function setInitialState(url) {
 
-	return(dispatch) => {
+	/*return(dispatch) => {
 
 		// note that it's loading
 		dispatch(todosIsLoading(true));
+
+		// fetch the items
+		fetch(url)
+			.then((res) => {
+				// watch for errors
+				if(!res.ok) {
+					throw Error(res.statusText);
+				}	
+
+				// once finished loading
+				dispatch(todosIsLoading(false));
 		
-		// check for errors, if so
-		dispatch(todosHasErrored(true));
+				return res;
+			})
+			// api may already return a json item; if not...
+			// .then((res) => res.json())
 
-		// once finished loading
-		dispatch(todosIsLoading(false));
+			.then((newState) => dispatch(todosHasFetched(newState))
+			// check for errors, if so
+			.catch(() => dispatch(todosHasErrored(true)));
 
-		// if succesfully delivered
+		};
 
-		dispatch(todosHasFetched(true))
 
-	}
-}
+		// if succesfully delivered*/
+
+		// dispatch(todosHasFetched(true))
+
+// }
 
 
 

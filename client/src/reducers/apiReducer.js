@@ -11,7 +11,7 @@ export const apiReducer = (
 	
 	state = {
 		todosIsLoading: false,
-		todosHasFetched: false,
+		todosHasFetched: [],
 		todosHasErrored: false
 	}, 
 
@@ -25,7 +25,7 @@ export const apiReducer = (
 			return {...state, ...{todosIsLoading:payload.status}};
 	
 		case TODOS_HAS_FETCHED:
-			return {...state, ...{todosHasFetched:payload.status}};
+			return {...state, ...{todosHasFetched:payload}};
 	
 		case TODOS_HAS_ERRORED:
 			return {...state, ...{todosHasErrored:payload.status}};
