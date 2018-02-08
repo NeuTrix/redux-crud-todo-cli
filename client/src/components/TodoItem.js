@@ -53,7 +53,7 @@ const TodoItem = (props) => {
 	const validateEditable = (event) => {
 		event.preventDefault();
 
-		if(item.complete === true) {
+		if(item.completed === true) {
 			return alert('To Edit, uncheck task completed checkbox');
 		}
 		// return console.log('Would you like to edit this item')
@@ -83,7 +83,7 @@ const TodoItem = (props) => {
 				<Checkbox
 					toggleTodo= { props.toggleTodo }   
 					id= { item._id }
-					complete= { item.complete }
+					completed= { item.completed }
 				/>
 			
 			</Col >
@@ -174,7 +174,7 @@ TodoItem.propTypes = {
 TodoItem.defaultProps ={
 	item: { 
 		id: '0.3HxYz',
-		complete: false,
+		completed: false,
 		details: 'needed',
 		date: '2020-01-01',
 		owner: 'Bhudah',

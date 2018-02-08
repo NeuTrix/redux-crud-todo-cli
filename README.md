@@ -14,6 +14,7 @@ Basic CRUD todo application in React with Redux
 - Redux
 - React Router
 - BootStrap
+- Mongo/Mongoose db set up on mlab cloud
 
 
 Application:
