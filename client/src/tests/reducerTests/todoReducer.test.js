@@ -56,11 +56,11 @@ describe.only('The TODOS_SET_INITIAL_STATE reducer', () => {
 	describe('The Set intial state REDUCER', () => {
 
 		let	initialState = [{
-				 _id: shortid.generate(), 
-				 date: 	'2020-12-31', 
-				 completed: false, 
-				 task:'New state item', 
-				 rank: 'High' 
+			_id: shortid.generate(), 
+			date: 	'2020-12-31', 
+			completed: false, 
+			task:'New state item', 
+			rank: 'High' 
 		}];  
 
 		let newState;
