@@ -29,29 +29,29 @@ describe.only('The TODOS_SET_INITIAL_STATE reducer', () => {
 
 	describe('The iniital state', () => {
 		let	firstState = store.getState().todos;
-		deepFreeze(firstState)
+		deepFreeze(firstState);
 
 		it('... has a default state array ', () => {
 			expect(firstState).to.be.an('array');
-		})
+		});
 		it('... has 3 initial items', () => {
 			expect(firstState.length).to.eql(3);
-		})
-	})
+		});
+	});
 
 	describe('the todosSetInitialState action creator', () => {
 
 		it('... has a type of "TODOS_SET_INITIAL_STATE"', () => {
 			expect(todosSetInitialState()).to.have.property('type')
-				.to.eql('TODOS_SET_INITIAL_STATE')
-		})
+				.to.eql('TODOS_SET_INITIAL_STATE');
+		});
 
 		it('... it has a payload prop of "newState" ', () => {
-			expect(todosSetInitialState()).to.have.property('payload')
-			expect(todosSetInitialState().payload).to.have.property('newState')
-		})
+			expect(todosSetInitialState()).to.have.property('payload');
+			expect(todosSetInitialState().payload).to.have.property('newState');
+		});
 
-	})
+	});
 
 	describe('The Set intial state REDUCER', () => {
 
@@ -61,26 +61,26 @@ describe.only('The TODOS_SET_INITIAL_STATE reducer', () => {
 				 completed: false, 
 				 task:'New state item', 
 				 rank: 'High' 
-			}];  
+		}];  
 
-		let newState
+		let newState;
 
 		beforeAll(() => {
-			store.dispatch(todosSetInitialState(initialState))
-			newState = store.getState().todos
+			store.dispatch(todosSetInitialState(initialState));
+			newState = store.getState().todos;
 		});
 
 		it('... can return a new state array', () => {
 			expect(newState).to.be.an('array');
-		})
+		});
 
 		it('... has replaced the old state', () => {
 			expect(newState.length).to.eql(1);
-			expect(newState[0].task).to.eql('New state item')
-		})
+			expect(newState[0].task).to.eql('New state item');
+		});
 			
-	})
-})
+	});
+});
 
 describe('The TodoReducer action suite', () => {
 	let TodoList = store.getState().todos;
