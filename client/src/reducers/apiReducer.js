@@ -17,22 +17,22 @@ export const apiReducer = (
 
 	action) => {
 
-	let payload = action.payload
+	let payload = action.payload;
 
 	switch(action.type) {
 
-		case TODOS_IS_LOADING:
-			return {...state, ...{todosIsLoading:payload.status}};
+	case TODOS_IS_LOADING:
+		return {...state, ...{todosIsLoading:payload.status}};
 	
-		case TODOS_HAS_FETCHED:
-			return {...state, ...{todosHasFetched:payload}};
+	case TODOS_HAS_FETCHED:
+		return {...state, ...{todosHasFetched:payload}};
 	
-		case TODOS_HAS_ERRORED:
-			return {...state, ...{todosHasErrored:payload.status}};
+	case TODOS_HAS_ERRORED:
+		return {...state, ...{todosHasErrored:payload.status}};
 
-		default:
-			return state
+	default:
+		return state;
 	}
-}
+};
 	
-export default apiReducer
+export default apiReducer;
