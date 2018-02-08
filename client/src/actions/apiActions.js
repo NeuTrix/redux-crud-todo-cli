@@ -40,7 +40,7 @@ export const todosHasErrored = (bool) => {
 // ========= ========= ========= 
 
 export function startState(url) {
-	// return "hello Walker!"
+// return [{"hello Walker!"}]
 
 	return (dispatch) => {
 

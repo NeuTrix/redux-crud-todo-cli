@@ -3,10 +3,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Col, Grid,Row } from 'react-bootstrap';
 
-// import { connect } from 'react-redux';
-import { getTodosData } from '../reducers/apiReducer'
-
 import TodoItem from '../components/TodoItem';
+
+// connect to the store
+import { connect } from 'react-redux';
+
+// function to gather initial state
 import { startState } from '../actions/apiActions'
 
 // ============================ STYLING ============================
@@ -34,8 +36,8 @@ const styleMain = {
 class TodoList extends Component {
 
 	componentDidMount() {
-		let url = 'http://localhost:3003/api/todos'
-		dispatch(startState(url));
+		// let url = 'http://localhost:3003/api/todos'
+		this.props.setData('http://localhost:3003/api/todos');
 	}
 
 		render() {
@@ -106,6 +108,21 @@ TodoList.defaultProps = {
 	updateTodo: f=>f,
 };
 
-const mapStateToProps = 
+const mapStateToProps = (state) => {
+	return {
+		todos: state.todos,
+		hasErrored: state.todosHasErrored,
+		isLoading: state.todosIsLoading
+	};
+};
 
-export default TodoList;
+const mapDispatchToProps = (dispatch) => {
+	return {
+		// setData:(url) => dispatch(startState(url))
+		setData: (url) => {
+			dispatch(startState(url))
+		}
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

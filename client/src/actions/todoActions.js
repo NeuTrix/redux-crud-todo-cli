@@ -3,7 +3,7 @@ import shortid from 'shortid';
 
 export const TODOS_SET_INITIAL_STATE = 'TODOS_SET_INITIAL_STATE'
 
-export const todosSetInitialState = (initialState) => {
+export function todosSetInitialState(initialState) {
 	// used to async set up a full revised initialState for todos array
 	return {
 		type: TODOS_SET_INITIAL_STATE,
