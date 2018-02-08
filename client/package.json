@@ -23,7 +23,6 @@
   "dependencies": {
     "axios": "^0.17.1",
     "babel-plugin-transform-decorators": "^6.24.1",
-    "chai-enzyme": "^0.8.0",
     "cross-fetch": "^1.1.1",
     "jquery": "^3.2.1",
     "jsxhint": "^0.15.1",
@@ -40,11 +39,12 @@
     "redux-promise-middleware": "^5.0.0",
     "redux-thunk": "^2.2.0",
     "shortid": "^2.2.8",
-    "tree-list": "^1.0.0"
   },
   "devDependencies": {
     "babel-jest": "^22.0.4",
     "chai": "^4.1.2",
+    "chai-enzyme": "^0.8.0",
+    "chai-http": "^3.0.0",
     "deep-freeze": "^0.0.1",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.1",
@@ -53,6 +53,7 @@
     "expect": "^22.0.3",
     "faker": "^4.1.0",
     "jest": "^22.0.4",
-    "react-addons-test-utils": "^15.6.2"
+    "react-addons-test-utils": "^15.6.2",
+    "tree-list": "^1.0.0",
   }
 }
