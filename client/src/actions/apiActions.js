@@ -34,7 +34,7 @@ export const todosHasErrored = (bool) => {
 
 // ========= ========= ========= 
 
-// export function setInitialState(url) {
+// export function todosSetInitialState(url) {
 
 	/*return(dispatch) => {
 

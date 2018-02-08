@@ -5,6 +5,8 @@
 /*eslint no-undef: "error"*/
 
 import axios from 'axios';
+import chai	from 'chai';
+import chaiHttp from 'chai-http';
 import shortid from 'shortid';
 
 import deepFreeze from 'deep-freeze';
@@ -20,6 +22,7 @@ import {
 		todosFetchData,
 } from '../../actions/apiActions';
 
+chai.use(chaiHttp);
 
 describe('The apiActions LOADING action creator', () => {
 
@@ -133,13 +136,20 @@ describe ('The apiActions SUCCESS action creator', () => {
 	})
 });
 
-describe('The get INITIAL STATE for todos function', () => {
+describe.only('The get todos INITIAL STATE  function', () => {
 
-	it('... connects to the external api', () => {
+	let api = 'http://localhost:3003/api'
 
+	it('... connects to the external api', (done) => {
+		chai.request(api)
+			.get('/todos')
+			.end((err,res) => {
+				expect(res).to.have.status(900);
+				done()
+			})
 	})
 
-	it('r... eturns a new state array object', () => {
+	it('... returns a new state array object', () => {
 
 	})
 
