@@ -21,11 +21,11 @@ import {
 // ====================================
 
 describe('The apiReducer action suite', () => {
-	let initialState
+	let initialState;
 
 	beforeAll(() => {
 		initialState = store.getState().todosApi;
-		deepFreeze(initialState)
+		deepFreeze(initialState);
 	});
 
 	describe('The LOADING reducer', () => {
@@ -36,16 +36,16 @@ describe('The apiReducer action suite', () => {
 
 		it('... initialState has an isLoading prop set to false', () => {
 			expect(initialState).to.have.property('todosIsLoading')
-				.to.eql(false)
-		})
+				.to.eql(false);
+		});
 
 		it('... should immutably change the state to true', () => {
 			store.dispatch(todosIsLoading(true));
-			let loading = store.getState().todosApi.todosIsLoading
+			let loading = store.getState().todosApi.todosIsLoading;
 			expect(loading).to.eql(true);
-		})
+		});
 
-	})
+	});
 
 	describe.only('The SUCCESS reducer', () => {
 
@@ -55,8 +55,8 @@ describe('The apiReducer action suite', () => {
 
 		it('... initialState has an todosHasFetched prop set to false', () => {
 			expect(initialState).to.have.property('todosHasFetched')
-				.to.eql(false)
-		})
+				.to.eql(false);
+		});
 
 		it.only('... should immutably change the state to true', () => {
 			let testState = [
@@ -66,11 +66,11 @@ describe('The apiReducer action suite', () => {
 			];
 			store.dispatch(todosHasFetched(testState));
 			// let hasFetched = store.getState().todosApi.todosHasFetched
-			let hasFetched = store.getState().todosApi.todosHasFetched
+			let hasFetched = store.getState().todosApi.todosHasFetched;
 			expect(hasFetched.todos[0].task).to.eql('Get some Milk');
-		})
+		});
 
-	})
+	});
 
 	describe('The ERROR reducer', () => {
 
@@ -80,15 +80,15 @@ describe('The apiReducer action suite', () => {
 
 		it('... initialState has an todosHasErrored prop set to false', () => {
 			expect(initialState).to.have.property('todosHasErrored')
-				.to.eql(false)
-		})
+				.to.eql(false);
+		});
 
 		it('... should immutably change the state to true', () => {
 			store.dispatch(todosHasErrored(true));
-			let hasFetched = store.getState().todosApi.todosHasErrored
+			let hasFetched = store.getState().todosApi.todosHasErrored;
 			expect(hasFetched).to.eql(true);
-		})
+		});
 
-	})
+	});
 
 });
