@@ -7,10 +7,10 @@
 import axios from 'axios';
 import chai	from 'chai';
 import chaiHttp from 'chai-http';
-import shortid from 'shortid';
+import { expect } from 'chai';
 
 import deepFreeze from 'deep-freeze';
-import { expect } from 'chai';
+import shortid from 'shortid';
 import store from '../../store/store';
 
 // import action creators
@@ -138,18 +138,31 @@ describe ('The apiActions SUCCESS action creator', () => {
 
 describe.only('The get todos INITIAL STATE  function', () => {
 
-	let api = 'http://localhost:3003/api'
+	let api = 'http://localhost:3003'
 
-	it('... connects to the external api', (done) => {
+	it('... connection to api returns status 200', (done) => {
 		chai.request(api)
-			.get('/todos')
+			.get('/api/todos')
 			.end((err,res) => {
-				expect(res).to.have.status(900);
+				expect(err).to.be.eql(null)
+				expect(res).to.have.status(200);
 				done()
 			})
 	})
 
-	it('... returns a new state array object', () => {
+	it('... returns a new state json object with a body array', (done) => {
+		let data 
+		chai.request(api)
+			.get('/api/todos')
+			.end((err,res) => {
+				console.log(
+					"===*==>>> The 1st res.body arr obj is: ", 
+					res.body[0]
+				)
+				expect(res).to.be.json;
+				expect(res.body).to.be.an('array')
+				done()
+			})
 
 	})
 
