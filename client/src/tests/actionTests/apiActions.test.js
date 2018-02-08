@@ -15,90 +15,90 @@ import store from '../../store/store';
 
 // import action creators
 import { 
-		todosIsLoading,
-		todosHasErrored,
-		todosHasFetched,
-		startState
+	todosIsLoading,
+	todosHasErrored,
+	todosHasFetched,
+	startState
 } from '../../actions/apiActions';
 
 chai.use(chaiHttp);
 
 describe('The apiActions LOADING action creator', () => {
 
-	let loading
+	let loading;
 
 	beforeAll(() => {
-		loading = todosIsLoading(false)
+		loading = todosIsLoading(false);
 	});
 
 	it('... is an available function', () => {
-		expect(loading).to.exist
+		expect(loading).to.exist;
 	});
 
 	it('... has a "type" property', () => {
 		expect(loading).to.have.property('type');
-	})
+	});
 
 	it('... has a type of "TODOS_IS_LOADING" ', () => {
 		expect(loading.type).to.exist
-			.to.eql('TODOS_IS_LOADING')
-	})
+			.to.eql('TODOS_IS_LOADING');
+	});
 
 	it('... type is a string', () => {
-		expect(loading.type).to.be.a('string')
-	})
+		expect(loading.type).to.be.a('string');
+	});
 	
 	it('... has a "payload" property', () => {
-				expect(loading).to.have.property('payload');
-			})
+		expect(loading).to.have.property('payload');
+	});
 
 	it('... payload has a "status" property', () => {
-				expect(loading.payload).to.have.property('status');
-			})
+		expect(loading.payload).to.have.property('status');
+	});
 
 	it('... payload.status has a boolean value', () => {
-				expect(loading.payload).to.have.property('status');
-			})
+		expect(loading.payload).to.have.property('status');
+	});
 });
 
 describe ('The apiActions ERROR action creator', () => {
 
-	let anErr
+	let anErr;
 
 	beforeAll(() => {
-		anErr = todosHasErrored(false)
+		anErr = todosHasErrored(false);
 	});
 
 	it('... is an available function', () => {
-		expect(anErr).to.exist
+		expect(anErr).to.exist;
 	});
 
 	it('... has a "type" property', () => {
 		expect(anErr).to.have.property('type');
-	})
+	});
 
 	it('... has a type of "TODOS_HAS_ERRORED" ', () => {
 		expect(anErr.type).to.exist
-			.to.eql('TODOS_HAS_ERRORED')
-	})
+			.to.eql('TODOS_HAS_ERRORED');
+	});
 
 	it('... has a "payload" property', () => {
 		expect(anErr).to.have.property('payload');
-	})
+	});
 
 	it('... payload has a "status" property', () => {
 		expect(anErr.payload).to.have.property('status');
-	})
+	});
 
 	it('... payload.status has a boolean value', () => {
 		expect(anErr.payload).to.have.property('status');
-	})
+	});
 });
 
 describe ('The apiActions SUCCESS action creator', () => {
 
-	let hasData
-	let url = 'http://localhost:3003/api/todos'
+	let hasData;
+	let url = 'http://localhost:3003/api/todos';
 	let testState = [
 		{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Get some Milk', rank: 'High' },
 		{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Kiss my daughter', rank: 'Med' },
@@ -106,76 +106,76 @@ describe ('The apiActions SUCCESS action creator', () => {
 	];
 
 	beforeAll(() => {
-		hasData = todosHasFetched(testState)
+		hasData = todosHasFetched(testState);
 	});
 
 	it('... is an available function', () => {
-		expect(hasData).to.exist
+		expect(hasData).to.exist;
 	});
 
 	it('... has a "type" property', () => {
 		expect(hasData).to.have.property('type');
-	})
+	});
 
 	it('... has a type of "TODOS_HAS_FETCHED" ', () => {
 		expect(hasData.type).to.exist
-			.to.eql('TODOS_HAS_FETCHED')
-	})
+			.to.eql('TODOS_HAS_FETCHED');
+	});
 
 	it('... has a "payload" property', () => {
 		expect(hasData).to.have.property('payload');
-	})
+	});
 
 	it('... payload has a "todos" property', () => {
 		expect(hasData.payload).to.have.property('todos');
-	})
+	});
 
 	it('... payload.todos is an array', () => {
 		expect(hasData.payload.todos).to.be.an('array');
-	})
+	});
 });
 
 describe.only('The get todos INITIAL STATE  function', () => {
 
-	let api = 'http://localhost:3003/api/todos'
+	let api = 'http://localhost:3003/api/todos';
 
 	it('... connection to api returns status 200', (done) => {
 		chai.request(api)
 			.get('/')
 			.end((err,res) => {
-				expect(err).to.be.eql(null)
+				expect(err).to.be.eql(null);
 				expect(res).to.have.status(200);
-				done()
-			})
-	})
+				done();
+			});
+	});
 
 	it('... base connection returns a new json array object', (done) => {
-		let data 
+		let data; 
 
 		chai.request(api)
 			.get('/')
 			.end((err,res) => {
 				console.log(
-					"===*==>>> The 1st res.body arr obj is: ", 
+					'===*==>>> The 1st res.body arr obj is: ', 
 					res.body[0]
-				)
+				);
 				expect(res).to.be.json;
-				expect(res.body).to.be.an('array')
-				done()
-			})
-	})
+				expect(res.body).to.be.an('array');
+				done();
+			});
+	});
 
 	it('.. the function returns an array object', () => {
-		let dispatch = store.dispatch
+		let dispatch = store.dispatch;
 		// let data = startState(api)(dispatch)
-		let data = startState(api)
-		let test = store.dispatch(data)
-		console.log("===*==>>> data from the fn: ",  test)
-/*		expect(data).to.exist;
+		let data = startState(api);
+		let test = store.dispatch(data);
+		console.log('===*==>>> data from the fn: ',  test);
+		/*		expect(data).to.exist;
 		expect(data).to.be.an('function');
-*/	})
+*/	});
 
-})
+});
 
 
 
