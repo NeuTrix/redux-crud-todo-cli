@@ -28,9 +28,9 @@ const TodoItem = (props) => {
 
 	const styleTask = {
 		paddingBottom: 10,
-		// backgroundColor: item.complete ? 'whitesmoke' : 'white', 
-		color: item.complete ? 'lightgrey' : 'black',
-		textDecoration: item.complete ? 'line-through' : 'none',
+		backgroundColor: item.completed ? 'whitesmoke' : 'white', 
+		color: item.completed ? 'lightgrey' : 'black',
+		textDecoration: item.completed ? 'line-through' : 'none',
 	};
 
 	// Code is WET
