@@ -1,12 +1,12 @@
 // Set new id's uniquely, until API is installed in this app
 import shortid from 'shortid';
 
-export const SET_INITIAL_STATE = 'SET_INITIAL_STATE'
+export const TODOS_SET_INITIAL_STATE = 'TODOS_SET_INITIAL_STATE'
 
-export const setInitialState = (initialState) => {
+export const todosSetInitialState = (initialState) => {
 	// used to async set up a full revised initialState for todos array
 	return {
-		type: SET_INITIAL_STATE,
+		type: TODOS_SET_INITIAL_STATE,
 		payload: {
 			newState: initialState
 		}

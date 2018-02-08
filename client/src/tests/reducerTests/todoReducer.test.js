@@ -20,12 +20,12 @@ import {
 	toggleTodo,
 	updateRank, 
 	updateDate,
-	setInitialState,
+	todosSetInitialState,
 } from '../../actions/todoActions';
 
 // ====================================
 
-describe.only('The setInitial state reducer', () => {
+describe.only('The TODOS_SET_INITIAL_STATE reducer', () => {
 
 	describe('The iniital state', () => {
 		let	firstState = store.getState().todos;
@@ -39,16 +39,16 @@ describe.only('The setInitial state reducer', () => {
 		})
 	})
 
-	describe('the setInitialState action creator', () => {
+	describe('the todosSetInitialState action creator', () => {
 
-		it('... has a type of "SET_INITIAL_STATE"', () => {
-			expect(setInitialState()).to.have.property('type')
-				.to.eql('SET_INITIAL_STATE')
+		it('... has a type of "TODOS_SET_INITIAL_STATE"', () => {
+			expect(todosSetInitialState()).to.have.property('type')
+				.to.eql('TODOS_SET_INITIAL_STATE')
 		})
 
 		it('... it has a payload prop of "newState" ', () => {
-			expect(setInitialState()).to.have.property('payload')
-			expect(setInitialState().payload).to.have.property('newState')
+			expect(todosSetInitialState()).to.have.property('payload')
+			expect(todosSetInitialState().payload).to.have.property('newState')
 		})
 
 	})
@@ -66,7 +66,7 @@ describe.only('The setInitial state reducer', () => {
 		let newState
 
 		beforeAll(() => {
-			store.dispatch(setInitialState(initialState))
+			store.dispatch(todosSetInitialState(initialState))
 			newState = store.getState().todos
 		});
 
@@ -80,11 +80,7 @@ describe.only('The setInitial state reducer', () => {
 		})
 			
 	})
-
-
 })
-
-
 
 describe('The TodoReducer action suite', () => {
 	let TodoList = store.getState().todos;
@@ -101,7 +97,6 @@ describe('The TodoReducer action suite', () => {
 	};
 
 	let _task;
-
 
 	describe('The ADD_TODO function', () => { 
 
@@ -180,7 +175,6 @@ describe('The TodoReducer action suite', () => {
 			let postSize = store.getState().todos.length; 
 			expect(postSize).to.eql(initialSize-1);
 		});
-
 	});
 
 	xdescribe('The TOGGLE_TODO function', () => {
@@ -261,4 +255,5 @@ describe('The TodoReducer action suite', () => {
 
 		});
 	});
+
 });

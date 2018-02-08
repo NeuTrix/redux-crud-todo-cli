@@ -5,6 +5,7 @@
 /*eslint no-undef: "error"*/
 
 import axios from 'axios';
+import shortid from 'shortid';
 
 import deepFreeze from 'deep-freeze';
 import { expect } from 'chai';
@@ -96,9 +97,14 @@ describe ('The apiActions SUCCESS action creator', () => {
 
 	let hasData
 	let url = 'http://localhost:3003/api/todos'
+	let testState = [
+		{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Get some Milk', rank: 'High' },
+		{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Kiss my daughter', rank: 'Med' },
+		{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Celebrate life!', rank: 'Low' },
+	];
 
 	beforeAll(() => {
-		hasData = todosHasFetched()
+		hasData = todosHasFetched(testState)
 	});
 
 	it('... is an available function', () => {
@@ -118,12 +124,16 @@ describe ('The apiActions SUCCESS action creator', () => {
 		expect(hasData).to.have.property('payload');
 	})
 
-	it('... payload has a "status" property', () => {
-		expect(hasData.payload).to.have.property('status');
+	it('... payload has a "todos" property', () => {
+		expect(hasData.payload).to.have.property('todos');
 	})
 
-	it('... payload.status has a boolean value', () => {
-		expect(hasData.payload).to.have.property('status');
+	it('... payload.todos is an array', () => {
+		expect(hasData.payload.todos).to.be.an('array');
 	})
-})
+});
+
+
+
+
 

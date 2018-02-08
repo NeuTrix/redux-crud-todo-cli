@@ -2,7 +2,7 @@ import axios from 'axios';
 import shortid from 'shortid';
 
 import {
-	SET_INITIAL_STATE
+	TODOS_SET_INITIAL_STATE
 } from '../actions/todoActions'
 
 // replace with an API call
@@ -21,7 +21,7 @@ const TodoReducer = (state = initialState , action) => {
 
 	switch (type) {
 
-	case SET_INITIAL_STATE: {
+	case TODOS_SET_INITIAL_STATE: {
 		return payload.newState
 	}
 
