@@ -9,7 +9,7 @@ import TodoItem from '../components/TodoItem';
 import { connect } from 'react-redux';
 
 // function to gather initial state
-import { startState } from '../actions/apiActions'
+import { startState } from '../actions/apiActions';
 
 // ============================ STYLING ============================
 
@@ -40,53 +40,53 @@ class TodoList extends Component {
 		this.props.setData('http://localhost:3003/api/todos');
 	}
 
-		render() {
+	render() {
 
-			let todoArray= this.props.todoArray;
+		let todoArray= this.props.todoArray;
 
-			let todos= todoArray.map(item => {
-				return <TodoItem 
+		let todos= todoArray.map(item => {
+			return <TodoItem 
 				
-					key= { item._id }
-					item= { item }
-					removeTodo= { this.props.removeTodo }
-					toggleTodo= { this.props.toggleTodo }
-					updateDate= { this.props.updateDate }
-					updateRank= { this.props.updateRank }
-					updateTodo= { this.props.updateTodo }
-				/>;
+				key= { item._id }
+				item= { item }
+				removeTodo= { this.props.removeTodo }
+				toggleTodo= { this.props.toggleTodo }
+				updateDate= { this.props.updateDate }
+				updateRank= { this.props.updateRank }
+				updateTodo= { this.props.updateTodo }
+			/>;
 
-			});
+		});
 
 
-			return (
+		return (
 		
-				<Grid >
+			<Grid >
 	
-					<Row 
-						className= 'tableHeaders'
-						style= { styleTitle } 
-					>
-						<Col sm= { 1 } style={ styleItems } >
-							<input type='checkbox' checked disabled />
+				<Row 
+					className= 'tableHeaders'
+					style= { styleTitle } 
+				>
+					<Col sm= { 1 } style={ styleItems } >
+						<input type='checkbox' checked disabled />
 						
-						</Col >
-						<Col sm={1} style={ styleItems } >Rank</Col>
-						<Col sm={2} style={ styleItems } >Due Date</Col>
-						<Col sm={7} style={ styleItems } >Task</Col>
-						<Col sm={1} style={ styleItems } >Delete</Col>
-					</Row>
+					</Col >
+					<Col sm={1} style={ styleItems } >Rank</Col>
+					<Col sm={2} style={ styleItems } >Due Date</Col>
+					<Col sm={7} style={ styleItems } >Task</Col>
+					<Col sm={1} style={ styleItems } >Delete</Col>
+				</Row>
 	
-					<Row className= 'todoItems' >
-						<Col sm= { 12 } style= { styleMain } >
-							{todos} 
-						</Col>
-					</Row>
+				<Row className= 'todoItems' >
+					<Col sm= { 12 } style= { styleMain } >
+						{todos} 
+					</Col>
+				</Row>
 	
-				</Grid>
-			);
-		}
-}; // end component
+			</Grid>
+		);
+	}
+} // end component
 
 // ==================================================================
 
@@ -120,7 +120,7 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		// setData:(url) => dispatch(startState(url))
 		setData: (url) => {
-			dispatch(startState(url))
+			dispatch(startState(url));
 		}
 	};
 };
