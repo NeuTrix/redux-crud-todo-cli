@@ -133,7 +133,17 @@ describe ('The apiActions SUCCESS action creator', () => {
 	})
 });
 
+describe('The get INITIAL STATE for todos function', () => {
 
+	it('... connects to the external api', () => {
+
+	})
+
+	it('r... eturns a new state array object', () => {
+
+	})
+
+})
 
 
 

@@ -9,7 +9,6 @@ import seed from '../../../../server/config/dbseed';
 // ========= 
 
 
-
 describe('The API request object actions', () => {
 
 	let todos;
