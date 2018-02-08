@@ -1,14 +1,14 @@
 // import axios from 'axios';
-import fetch from 'cross-fetch'
+import fetch from 'cross-fetch';
 import {
 	TODOS_SET_INITIAL_STATE,
 	todosSetInitialState
-} from './todoActions'
+} from './todoActions';
 
 
-export const TODOS_IS_LOADING  = 'TODOS_IS_LOADING'
-export const TODOS_HAS_ERRORED = 'TODOS_HAS_ERRORED'
-export const TODOS_HAS_FETCHED = 'TODOS_HAS_FETCHED'
+export const TODOS_IS_LOADING  = 'TODOS_IS_LOADING';
+export const TODOS_HAS_ERRORED = 'TODOS_HAS_ERRORED';
+export const TODOS_HAS_FETCHED = 'TODOS_HAS_FETCHED';
 
 export function todosIsLoading(bool)  {
 	return {
@@ -16,7 +16,7 @@ export function todosIsLoading(bool)  {
 		payload: {
 			status: bool
 		}
-	}
+	};
 }
 
 export const todosHasFetched = (todos) => {
@@ -25,7 +25,7 @@ export const todosHasFetched = (todos) => {
 		payload: {
 			todos: todos
 		}
-	}
+	};
 };
 
 export const todosHasErrored = (bool) => {
@@ -34,8 +34,8 @@ export const todosHasErrored = (bool) => {
 		payload: {
 			status: bool
 		}
-	}
-}
+	};
+};
 
 // ========= ========= ========= 
 
@@ -58,7 +58,7 @@ export function startState(url) {
 				// once finished loading
 				dispatch(todosIsLoading(false));
 				
-				return response
+				return response;
 			})
 			// api may already return a json item; if not...
 			.then((response) => response.json())
@@ -66,11 +66,11 @@ export function startState(url) {
 			.then((todos) => dispatch(todosSetInitialState(todos)))
 			// check for errors, if so
 			.then((todos) => {
-				console.log("##########", todos.payload.todos[0])
+				console.log('##########', todos.payload.todos[0]);
 			})
 			.catch(() => dispatch(todosHasErrored(true)));
 
-		};
+	};
 
 }
 

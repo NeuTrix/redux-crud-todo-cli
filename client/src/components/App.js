@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Col, Grid,Row } from 'react-bootstrap';
+
 import logo from '../assets/logo.svg';
 import './App.css';
 import PropTypes from 'prop-types';
@@ -29,7 +31,7 @@ class App extends Component {
 	render() {
 
 		return (
-			<div className="App">
+			<Grid className="App">
 	
 				<header className="App-header">
 					<img src={logo} className="App-logo" alt="logo" />
@@ -51,7 +53,7 @@ class App extends Component {
 					updateTodo= { this.props.updateTodo }
 				/>
 
-			</div>
+			</Grid>
 		);
 	}
 } // end Class
