@@ -9,7 +9,7 @@ const _Checkbox = (props) => {
 		props.toggleTodo(props.id);
 	};
 	
-	if(props.complete) {
+	if(props.completed) {
 		return( 
 			<Form >
 				<Checkbox 
