@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Row, Col, Button, Form } from 'react-bootstrap';
 
+import TodoTitleBar from './TodoTitleBar'
+
+// ========= ========= ========= 
 const TodoForm = (props) => {
 
 	// create a default format for today's date
@@ -54,19 +57,27 @@ const TodoForm = (props) => {
 	return (
 		<Grid className= 'TodoForm'>
 
-			<Row className= 'AddSectionTitle' style= { styleTitle }>
-				<h3 style= { styleTitle } > Add a new todo here: </h3>
-			</Row>
-
 			<Form onSubmit={ handleSubmit }>
+
+				<Row className= 'AddTodoTitle'>	
+					<h3>
+						Add a new Todo here:
+					</h3>
+				</Row>
+
+				<Row>	
+					<TodoTitleBar/>
+				</Row>
 
 				<Row style= { styleTop }>
 
-					<Col className='rank' sm = { 1 } > 
-						<div></div>
+					<Col sm = { 1 } > 
+						<p>
+							===>
+						</p>
 					</Col>
 
-					<Col className='rank' sm = { 1 } > 
+					<Col className='rank' sm = { 2 } > 
 
 						<select  
 							ref= { (value) => _rank = value }
@@ -103,25 +114,26 @@ const TodoForm = (props) => {
 						/>
 
 					</Col>
-
-					<Col className='add'   style= { style } sm = { 1 } > 
-						
-						<Button 
-							className= { 'btn btn-info btn-sm' } 
-							type= 'submit' 
-							value= 'Add' 
-						> Add </Button>
-
-					</Col>
-
+			
 					<Col className='reset' style= { style } sm = { 1 } > 
-						
-						<Button 
-							className= { 'btn btn-warning btn-sm' } 
-							type = 'reset'
-						> Reset 
-						</Button> 
+						<Row>
+							<Col sm= { 6 }>
+								<Button 
+									className= { 'btn btn-info btn-sm' } 
+									type= 'submit' 
+									value= 'Add' 
+								> Add </Button>
+							</Col>
 
+							<Col sm= { 6 }>
+								<Button 
+									className= { 'btn btn-warning btn-sm' } 
+									type = 'reset'
+								> Reset 
+								</Button> 
+							</Col>
+
+						</Row>
 					</Col>
 
 				</Row>

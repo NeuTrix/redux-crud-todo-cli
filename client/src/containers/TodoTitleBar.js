@@ -34,11 +34,11 @@ const TodoTitleBar = (props) => {
 					Due Date
 				</Col>
 
-				<Col sm = { 6 } >
+				<Col sm = { 5 } >
 					Task
 				</Col>
 
-				<Col sm = { 1 } >
+				<Col sm = { 2 } >
 					Delete
 				</Col>
 

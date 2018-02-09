@@ -140,12 +140,9 @@ const TodoItem = (props) => {
 
 			</Col>
 
-			<Col className= 'spaceHolder' sm = { 1 } >
-			</Col>
-			
 			<Col 
 				className= 'deleteBtn' 
-				sm = { 1 } 
+				sm = { 2 } 
 				style= { centered } 
 			>
 
