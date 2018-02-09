@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Col, Grid,Row } from 'react-bootstrap';
 
 import TodoItem from '../components/TodoItem';
+import TodoTitleBar from '../containers/TodoTitleBar';
 
 // connect to the store
 import { connect } from 'react-redux';
@@ -12,13 +13,6 @@ import { connect } from 'react-redux';
 import { startState } from '../actions/apiActions';
 
 // ============================ STYLING ============================
-
-const styleTitle= {
-	background: '#006699',
-	color: 'lightblue',
-	borderRadius: 5,
-	marginBottom: 10,
-};
 
 const styleMain = {
 	border: '1px solid lightblue',
@@ -53,25 +47,14 @@ class TodoList extends Component {
 
 		});
 
-
 		return (
 		
 			<Grid >
-	
-				<Row 
-					className= 'tableHeaders'
-					style= { styleTitle } 
-				>
-					<Col sm = { 1 } >
-						<input type='checkbox' checked disabled />
-						
-					</Col >
-					<Col sm = { 2 } >Rank</Col>
-					<Col sm = { 2 } >Due Date</Col>
-					<Col sm = { 6 } >Task</Col>
-					<Col sm = { 1 } >Delete</Col>
+
+				<Row>	
+					<TodoTitleBar/>
 				</Row>
-	
+
 				<Row className= 'todoItems' style= { styleMain }>
 					<Col lg = { 12 }  >
 						{todos} 
