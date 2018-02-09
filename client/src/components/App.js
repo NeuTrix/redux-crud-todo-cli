@@ -8,8 +8,8 @@ import PropTypes from 'prop-types';
 
 // ============ COMPONENTS ============ 
 // import { Button, Row, Col } from 'react-bootstrap'
+import TodoList from '../components/TodoList';
 import TodoForm from '../containers/TodoForm';
-import TodoList from '../containers/TodoList';
 
 // ============ FUNCTIONS ============ 
 import { 

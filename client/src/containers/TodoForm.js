@@ -63,6 +63,10 @@ const TodoForm = (props) => {
 				<Row style= { styleTop }>
 
 					<Col className='rank' sm = { 1 } > 
+						<div></div>
+					</Col>
+
+					<Col className='rank' sm = { 1 } > 
 
 						<select  
 							ref= { (value) => _rank = value }
