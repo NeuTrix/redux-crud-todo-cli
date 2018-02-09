@@ -26,7 +26,7 @@ const TodoTitleBar = (props) => {
 					<input type='checkbox' checked disabled />
 				</Col>
 
-				<Col sm = { 2 } >
+				<Col sm = { 1 } >
 					Rank
 				</Col>
 
@@ -34,11 +34,11 @@ const TodoTitleBar = (props) => {
 					Due Date
 				</Col>
 
-				<Col sm = { 5 } >
+				<Col sm = { 7 } >
 					Task
 				</Col>
 
-				<Col sm = { 2 } >
+				<Col sm = { 1 } >
 					Delete
 				</Col>
 

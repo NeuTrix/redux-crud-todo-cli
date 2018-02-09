@@ -77,7 +77,7 @@ const TodoForm = (props) => {
 						</p>
 					</Col>
 
-					<Col className='rank' sm = { 2 } > 
+					<Col className='rank' sm = { 1 } > 
 
 						<select  
 							ref= { (value) => _rank = value }
@@ -91,7 +91,9 @@ const TodoForm = (props) => {
 
 					</Col>
 
-					<Col className='date' style={ style } sm = { 2 } > 
+					<Col className='date' 
+						sm = { 1 } 
+					> 
 
 						<input 
 							ref= { (input) => _date = input } 
@@ -102,13 +104,13 @@ const TodoForm = (props) => {
 
 					</Col>
 
-					<Col className='task'  sm = { 5 } > 
+					<Col className='task'  sm = { 7 } > 
 
 						<input 
 							ref= { (input) => _task = input } 
 							type = 'text'  
 							placeholder='enter a new task here...' 
-							size={ 60 } 
+							size={ 55 } 
 							maxLength= {48} 
 							required
 						/>

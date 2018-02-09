@@ -90,7 +90,7 @@ const TodoItem = (props) => {
 
 			<Col 
 				className= 'priorityRadio' 
-				sm = { 2 } 
+				sm = { 1 } 
 				style={ centered } 
 			>
 			
@@ -104,8 +104,7 @@ const TodoItem = (props) => {
 
 			<Col 
 				className= 'calendarBtn' 
-				sm = { 2 } 
-				style={{ padding:0,fontSize:'0.75em' }} 
+				sm = { 1 } 
 			>
 			
 				<CalendarBtn
@@ -118,7 +117,7 @@ const TodoItem = (props) => {
 
 			<Col 
 				className= 'currentTask' 
-				sm ={ 5 } 
+				sm ={ 8 } 
 			>
 
 				<Form 
@@ -132,7 +131,7 @@ const TodoItem = (props) => {
 						ref= { (input) => _task = input } 
 						type = 'text'  
 						defaultValue= { item.task }
-						size= { 70 } 
+						size= { 55 } 
 						style= { styleTask } 
 					/> 
 
@@ -142,7 +141,7 @@ const TodoItem = (props) => {
 
 			<Col 
 				className= 'deleteBtn' 
-				sm = { 2 } 
+				sm = { 1 } 
 				style= { centered } 
 			>
 
