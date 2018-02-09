@@ -24,10 +24,10 @@ const styleMain = {
 
 class TodoList extends Component {
 
-	componentDidMount() {
+	/*componentDidMount() {
 		// let url = 'http://localhost:3003/api/todos'
 		this.props.setData('http://localhost:3003/api/todos');
-	}
+	}*/
 
 	render() {
 
