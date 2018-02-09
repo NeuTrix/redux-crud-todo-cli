@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Checkbox } from 'react-bootstrap';
 
+const checkStyle ={
+	paddingLeft: 40,
+	// backgroundColor: 'orange'
+}
+
 const _Checkbox = (props) => {
 
 	const handleClick = (event) => {
@@ -13,6 +18,7 @@ const _Checkbox = (props) => {
 		return( 
 			<Form >
 				<Checkbox 
+					style = { checkStyle }
 					className= { 'form-check-input' }
 					type= 'checkbox' 
 					onClick= { handleClick }
@@ -26,6 +32,7 @@ const _Checkbox = (props) => {
 		return (
 			<Form >
 				<Checkbox 
+					style = { checkStyle }
 					className= { 'form-check-input' }
 					type= 'checkbox' 
 					onClick= { handleClick }

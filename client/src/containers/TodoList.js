@@ -20,15 +20,10 @@ const styleTitle= {
 	marginBottom: 10,
 };
 
-const styleItems= { 
-	padding: 7, 
-};
-
 const styleMain = {
 	border: '1px solid lightblue',
 	borderRadius: 5,
-	paddingTop: 20,
-	paddingBottom: 20,
+	// padding: 10,
 };
 
 // =========================== COMPONENT ===========================
@@ -67,18 +62,18 @@ class TodoList extends Component {
 					className= 'tableHeaders'
 					style= { styleTitle } 
 				>
-					<Col sm= { 1 } style={ styleItems } >
+					<Col sm = { 1 } >
 						<input type='checkbox' checked disabled />
 						
 					</Col >
-					<Col sm={1} style={ styleItems } >Rank</Col>
-					<Col sm={2} style={ styleItems } >Due Date</Col>
-					<Col sm={7} style={ styleItems } >Task</Col>
-					<Col sm={1} style={ styleItems } >Delete</Col>
+					<Col sm = { 2 } >Rank</Col>
+					<Col sm = { 2 } >Due Date</Col>
+					<Col sm = { 6 } >Task</Col>
+					<Col sm = { 1 } >Delete</Col>
 				</Row>
 	
-				<Row className= 'todoItems' >
-					<Col sm= { 12 } style= { styleMain } >
+				<Row className= 'todoItems' style= { styleMain }>
+					<Col lg = { 12 }  >
 						{todos} 
 					</Col>
 				</Row>

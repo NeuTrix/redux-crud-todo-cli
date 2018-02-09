@@ -12,7 +12,7 @@ import DeleteBtn from '../containers/DeleteBtn';
 // ============== STYLING
 
 const centered = {
-	padding: 0,
+	// paddingLeft: 20,
 	marginBottom: 5,	
 };
 
@@ -27,7 +27,7 @@ const TodoItem = (props) => {
 	// ================== Event Styling ==================
 
 	const styleTask = {
-		paddingBottom: 10,
+		// paddingBottom: 10,
 		backgroundColor: item.completed ? 'whitesmoke' : 'white', 
 		color: item.completed ? 'lightgrey' : 'black',
 		textDecoration: item.completed ? 'line-through' : 'none',
@@ -90,7 +90,7 @@ const TodoItem = (props) => {
 
 			<Col 
 				className= 'priorityRadio' 
-				sm= { 1 } 
+				sm = { 2 } 
 				style={ centered } 
 			>
 			
@@ -104,7 +104,7 @@ const TodoItem = (props) => {
 
 			<Col 
 				className= 'calendarBtn' 
-				sm= { 2 } 
+				sm = { 2 } 
 				style={{ padding:0,fontSize:'0.75em' }} 
 			>
 			
@@ -118,7 +118,7 @@ const TodoItem = (props) => {
 
 			<Col 
 				className= 'currentTask' 
-				sm={ 6 } 
+				sm ={ 5 } 
 			>
 
 				<Form 
@@ -132,7 +132,7 @@ const TodoItem = (props) => {
 						ref= { (input) => _task = input } 
 						type = 'text'  
 						defaultValue= { item.task }
-						size= { 60 } 
+						size= { 70 } 
 						style= { styleTask } 
 					/> 
 
@@ -140,12 +140,12 @@ const TodoItem = (props) => {
 
 			</Col>
 
-			<Col className= 'spaceHolder' sm= { 1 } >
+			<Col className= 'spaceHolder' sm = { 1 } >
 			</Col>
 			
 			<Col 
 				className= 'deleteBtn' 
-				sm= { 1 } 
+				sm = { 1 } 
 				style= { centered } 
 			>
 

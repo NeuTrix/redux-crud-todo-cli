@@ -19,6 +19,8 @@ const DeleteBtn = (props) => {
 		<Button 
 			onClick= { handleClick } 
 			className= { 'btn btn-danger btn-sm' }
+					bsStyle= 'pull-right' 
+			
 		> 
 			Delete 
 		</Button>

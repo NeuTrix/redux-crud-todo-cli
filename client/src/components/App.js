@@ -31,7 +31,7 @@ class App extends Component {
 	render() {
 
 		return (
-			<Grid className="App">
+			<div className="App">
 	
 				<header className="App-header">
 					<img src={logo} className="App-logo" alt="logo" />
@@ -53,7 +53,7 @@ class App extends Component {
 					updateTodo= { this.props.updateTodo }
 				/>
 
-			</Grid>
+			</div>
 		);
 	}
 } // end Class
