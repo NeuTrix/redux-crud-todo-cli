@@ -18,19 +18,31 @@ const api = 'http://localhost:3003/api/todos';
 const middleware = applyMiddleware(promise(), thunk, logger);
 
 // state management: start the app with the current state in localStr
-const persistedState = loadState();
+// const persistedState = loadState();
+
+let todolist
 
 // attempt initial state
 const starter = (url) => {
 	axios.get(url)
 		.then((res) => {
-			res.data
-		});
+			 this.todolist= (res.data)
+		})
 };
+starter(api)
 
-// const persistedState = starter(api)
+console.log("this is list: ", todolist )
 
-const store = createStore(rootReducer, persistedState, middleware);
+let initialState = {
+	todos:[
+	{task:"???"},
+	{task:"???"},
+	{task:"???"},
+	],
+	todosApi: {}
+}
+
+const store = createStore(rootReducer, initialState, middleware);
 
 // save the state anytime we have a change in the store
 // add lodash #throttle to prevent overuse of an expensive ...
