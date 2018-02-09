@@ -10,7 +10,7 @@ import TodoTitleBar from '../containers/TodoTitleBar';
 import { connect } from 'react-redux';
 
 // function to gather initial state
-import { startState } from '../actions/apiActions';
+// import { startState } from '../actions/apiActions';
 
 // ============================ STYLING ============================
 
@@ -24,10 +24,10 @@ const styleMain = {
 
 class TodoList extends Component {
 
-	/*componentDidMount() {
+	componentDidMount() {
 		// let url = 'http://localhost:3003/api/todos'
 		this.props.setData('http://localhost:3003/api/todos');
-	}*/
+	}
 
 	render() {
 
