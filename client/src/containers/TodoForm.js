@@ -52,17 +52,18 @@ const TodoForm = (props) => {
 	};
 
 	return (
-		<Grid>
+		<Grid className= 'TodoForm'>
+
 			<Row style= { styleTop }>
 			
 				<h3 style= { styleTitle } > Add a new todo here: </h3>
 			
 				<Form onSubmit={ handleSubmit }>
 
-					<Col className='rank'  sm= {1} > 
+					<Col className='rank' sm = { 1 } > 
 					</Col>
 				
-					<Col className='rank'  sm= {1} > 
+					<Col className='rank' sm = { 1 } > 
 
 						<select  
 							ref= { (value) => _rank = value }
@@ -75,7 +76,7 @@ const TodoForm = (props) => {
 
 					</Col>
 
-					<Col className='date' style={ style } sm= {2} > 
+					<Col className='date' style={ style } sm = { 2 } > 
 						<input 
 							ref= { (input) => _date = input } 
 							type = 'date'  
@@ -84,7 +85,7 @@ const TodoForm = (props) => {
 						/> 
 					</Col>
 
-					<Col className='task'  sm= {6} > 
+					<Col className='task'  sm = { 6 } > 
 						<input 
 							ref= { (input) => _task = input } 
 							type = 'text'  
@@ -95,7 +96,7 @@ const TodoForm = (props) => {
 						/>
 					</Col>
 
-					<Col className='add'   style= { style } sm= {1} > 
+					<Col className='add'   style= { style } sm = { 1 } > 
 						<Button 
 							className= { 'btn btn-info btn-sm' } 
 							type= 'submit' 
@@ -103,7 +104,7 @@ const TodoForm = (props) => {
 						> Add </Button>
 					</Col>
 
-					<Col className='reset' style= { style } sm= {1} > 
+					<Col className='reset' style= { style } sm = { 1 } > 
 						<Button 
 							className= { 'btn btn-warning btn-sm' } 
 							type = 'reset'
