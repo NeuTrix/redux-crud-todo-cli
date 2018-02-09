@@ -31,7 +31,7 @@ const TodoForm = (props) => {
 
 	const style ={
 		// outline: '0.5px solid lightgrey',
-		padding:0,
+		// padding:0,
 	};
 
 	const styleTop ={
@@ -40,29 +40,28 @@ const TodoForm = (props) => {
 		// backgroundColor: "#60D9FA",
 		backgroundColor: 'lightblue',
 		borderRadius: 5,
-		padding:5,
-		paddingBottom:20,
-		marginTop: 20,
+		padding:10,
+		// paddingBottom:20,
+		// paaddingTop: 20,
 		marginBottom: 20,
 	};
 
 	const styleTitle ={
 		color:'#006699',
-		marginBottom: 20,
+		// marginBottom: 20,
 	};
 
 	return (
 		<Grid className= 'TodoForm'>
 
-			<Row style= { styleTop }>
-			
+			<Row className= 'AddSectionTitle' style= { styleTitle }>
 				<h3 style= { styleTitle } > Add a new todo here: </h3>
-			
-				<Form onSubmit={ handleSubmit }>
+			</Row>
 
-					<Col className='rank' sm = { 1 } > 
-					</Col>
-				
+			<Form onSubmit={ handleSubmit }>
+
+				<Row style= { styleTop }>
+
 					<Col className='rank' sm = { 1 } > 
 
 						<select  
@@ -72,20 +71,24 @@ const TodoForm = (props) => {
 							<option value='High'>High</option>
 							<option value='Med' >Med</option>
 							<option value='Low'>Low</option>
+
 						</select>
 
 					</Col>
 
 					<Col className='date' style={ style } sm = { 2 } > 
+
 						<input 
 							ref= { (input) => _date = input } 
 							type = 'date'  
 							defaultValue = { _today } 
 							required
 						/> 
+
 					</Col>
 
-					<Col className='task'  sm = { 6 } > 
+					<Col className='task'  sm = { 5 } > 
+
 						<input 
 							ref= { (input) => _task = input } 
 							type = 'text'  
@@ -94,26 +97,33 @@ const TodoForm = (props) => {
 							maxLength= {48} 
 							required
 						/>
+
 					</Col>
 
 					<Col className='add'   style= { style } sm = { 1 } > 
+						
 						<Button 
 							className= { 'btn btn-info btn-sm' } 
 							type= 'submit' 
 							value= 'Add' 
 						> Add </Button>
+
 					</Col>
 
 					<Col className='reset' style= { style } sm = { 1 } > 
+						
 						<Button 
 							className= { 'btn btn-warning btn-sm' } 
 							type = 'reset'
-						> Reset </Button> 
+						> Reset 
+						</Button> 
+
 					</Col>
 
-				</Form>
+				</Row>
 
-			</Row>
+			</Form>
+
 		</Grid>
 	);
 };
