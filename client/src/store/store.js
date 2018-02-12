@@ -23,13 +23,13 @@ const middleware = applyMiddleware(promise(), thunk, logger);
 let todolist
 
 // attempt initial state
-const starter = (url) => {
+/*const starter = (url) => {
 	axios.get(url)
 		.then((res) => {
 			 this.todolist= (res.data)
 		})
 };
-starter(api)
+starter(api)*/
 
 console.log("this is list: ", todolist )
 
