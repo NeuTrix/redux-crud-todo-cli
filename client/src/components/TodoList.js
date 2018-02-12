@@ -10,7 +10,7 @@ import TodoTitleBar from '../containers/TodoTitleBar';
 import { connect } from 'react-redux';
 
 // function to gather initial state
-// import { startState } from '../actions/apiActions';
+import { startState } from '../actions/apiActions';
 
 // ============================ STYLING ============================
 
