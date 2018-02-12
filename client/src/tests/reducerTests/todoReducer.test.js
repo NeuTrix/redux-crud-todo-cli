@@ -34,8 +34,8 @@ describe.only('The TODOS_SET_INITIAL_STATE reducer', () => {
 		it('... has a default state array ', () => {
 			expect(firstState).to.be.an('array');
 		});
-		it('... has 3 initial items', () => {
-			expect(firstState.length).to.eql(3);
+		it('... has at least 1 initial item', () => {
+			expect(firstState.length).to.be.above(0);
 		});
 	});
 
