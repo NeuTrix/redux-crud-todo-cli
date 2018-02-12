@@ -53,7 +53,7 @@ describe.only('The TODOS_SET_INITIAL_STATE reducer', () => {
 
 	});
 
-	describe('The Set intial state REDUCER', () => {
+	xdescribe('The Set intial state REDUCER', () => {
 
 		let	initialState = [{
 			_id: shortid.generate(), 

@@ -18,8 +18,3 @@ describe('renders without crashing', () => {
 		, div
 	);
 });
-
-
-it('works',()=>{
-	console.log('from the test');
-});

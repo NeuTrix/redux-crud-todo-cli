@@ -47,7 +47,7 @@ describe('The apiReducer action suite', () => {
 
 	});
 
-	describe.only('The SUCCESS reducer', () => {
+	xdescribe('The SUCCESS reducer', () => {
 
 		afterEach(() => {
 			store.dispatch(todosHasFetched(false));
@@ -58,7 +58,7 @@ describe('The apiReducer action suite', () => {
 				.to.eql(false);
 		});
 
-		it.only('... should immutably change the state to true', () => {
+		it('... should immutably change the state to true', () => {
 			let testState = [
 				{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Get some Milk', rank: 'High' },
 				{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Kiss my daughter', rank: 'Med' },

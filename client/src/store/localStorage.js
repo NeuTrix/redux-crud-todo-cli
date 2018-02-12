@@ -1,4 +1,5 @@
 // create function to LOAD the state from localStorage
+let localStorage
 export const loadState = () => {
 	try {
 		const serializedState = localStorage.getItem('todosPersistedState');
