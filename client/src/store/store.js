@@ -1,3 +1,4 @@
+
 import { applyMiddleware, createStore } from 'redux';
 import { logger } from 'redux-logger';
 import thunk from 'redux-thunk';
@@ -8,7 +9,6 @@ import throttle from 'lodash/throttle';
 
 import axios from 'axios'
 
-
 // load initial state from API
 import { startState } from '../actions/apiActions';
 
@@ -18,9 +18,13 @@ const api = 'http://localhost:3003/api/todos';
 const middleware = applyMiddleware(promise(), thunk, logger);
 
 // state management: start the app with the current state in localStr
-// const persistedState = loadState();
+const persistedState = loadState();
 
-let todolist
+// ========= ========= ========= 
+
+// start coding to load state from api....
+
+// let todolist
 
 // attempt initial state
 /*const starter = (url) => {
@@ -31,18 +35,18 @@ let todolist
 };
 starter(api)*/
 
-console.log("this is list: ", todolist )
-
-let initialState = {
+/*let persistedState = {
 	todos:[
 	{task:"???"},
 	{task:"???"},
 	{task:"???"},
 	],
 	todosApi: {}
-}
+}*/
 
-const store = createStore(rootReducer, initialState, middleware);
+// ========= ========= ========= 
+
+const store = createStore(rootReducer, persistedState, middleware);
 
 // save the state anytime we have a change in the store
 // add lodash #throttle to prevent overuse of an expensive ...

@@ -8,7 +8,11 @@ import {
 // replace with an API call
 let todos, todosApi
 
-let initialState = [
+let initialState =[
+	{task:"Howdy Walker"}
+]
+
+/*let initialState = [
 	todos: {
 		_id: shortid.generate,
 		completed: {
@@ -31,19 +35,19 @@ let initialState = [
 	   	todosHasErrored: false  
 	 },
 ]
-
+*/
 // ========= 
 
-const TodoReducer = (state = [] , action) => {
+const TodoReducer = (state = initialState || [] , action) => {
 
 	let payload  = action.payload;
 	let type = action.type;
 
 	switch (type) {
 
-	case TODOS_SET_INITIAL_STATE: {
+	/*case TODOS_SET_INITIAL_STATE: {
 		return payload.newState
-	}
+	}*/
 
 	case 'ADD_TODO': {
 		return [...state, payload];
