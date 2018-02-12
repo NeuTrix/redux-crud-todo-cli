@@ -178,7 +178,7 @@ describe('The TodoReducer action suite', () => {
 		});
 	});
 
-	describe.only('The TOGGLE_TODO function', () => {
+	describe('The TOGGLE_TODO function', () => {
 		let listBefore, listAfter, _task, _id
 
 		beforeAll(() => {
@@ -188,7 +188,9 @@ describe('The TodoReducer action suite', () => {
 
 			_task = listBefore[0]
 			_id = _task._id;
+
 		});
+
 
 		it('... listBefore is an array with at least 1 element', () => {
 			expect(listBefore).to.be.an('array')
@@ -200,24 +202,25 @@ describe('The TodoReducer action suite', () => {
 				.to.be.a('string')
 		})
 
-		it('... it starts with a "false" complete task prop ', () => {
+		it('... it starts with a "false" completed task prop ', () => {
 			expect(_task).to.have.property("completed")
 				.to.eql(false)
 		})
 
-		it('changes the todo complete status', () => {
+		it('changes the task completed status to true', () => {
 
 			store.dispatch(toggleTodo(_id));
+
 			let listAfter = store.getState().todos;
-			let updatedTask= listAfter.findBy
-			expect(_task.completed).to.eql(true)
+			let matchId = (task) => { return task._id === _id; };
+			let targetIndex = listAfter.findIndex(matchId);
+			let updatedTask= listAfter[targetIndex];
 
-			// let complete = listAfter[0].complete;
+			expect(updatedTask).to.be.an('object')
+			expect(updatedTask.completed).to.eql(true)
 
-			// console.log('*****this is the status:  ', complete, listBefore[0].id);
-
-			// expect(complete).to.equal(true);
 		});
+
 	});
 
 	xdescribe('The UPDATE_TODO function', () => {
