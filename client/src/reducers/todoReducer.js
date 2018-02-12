@@ -6,6 +6,8 @@ import {
 } from '../actions/todoActions'
 
 // replace with an API call
+let todos, todosApi
+
 let initialState = [
 	todos: {
 		_id: shortid.generate,
