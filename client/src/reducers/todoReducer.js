@@ -7,10 +7,28 @@ import {
 
 // replace with an API call
 let initialState = [
-	{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Get some Milk', rank: 'High' },
-	{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Kiss my daughter', rank: 'Med' },
-	{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Celebrate life!', rank: 'Low' },
-];
+	todos: {
+		_id: shortid.generate,
+		completed: {
+			type: Boolean,
+			default: false
+		},
+		date: Date,
+		details: String,
+		owner: String,
+		rank: String,
+		task: {
+			type: String,
+			required: [true, "Please add a Task"]
+		}
+	},
+	todosApi:
+	 { 
+	 		todosIsLoading: false,
+	   	todosHasFetched: { todos: false },
+	   	todosHasErrored: false  
+	 },
+]
 
 // ========= 
 
