@@ -11,10 +11,10 @@ let initialState =[
 	{	
 		_id: shortid.generate(),
 		completed:  false,
-		date: Date,
-		details: String,
-		owner: String,
-		rank: String,
+		date: new Date(),
+		details: "default details",
+		owner: 'Tester',
+		rank: 'High',
 		task:  "Initial Task from TodoReducer"
 	}
 ]
