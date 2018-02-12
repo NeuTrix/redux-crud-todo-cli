@@ -7,13 +7,20 @@ import shortid from 'shortid';
 
 // replace with an API call
 
-// let initialState =[
-// 	{_id: shortid.generate(), task:"Howdy Walker"}
-// ]
-
+let initialState =[
+	{	
+		_id: shortid.generate(),
+		completed:  false,
+		date: Date,
+		details: String,
+		owner: String,
+		rank: String,
+		task:  "Initial Task from TodoReducer"
+	}
+]
 let todos, todosApi
 
-let initialState = [
+/*let initialState = [
 	{
 		_id: shortid.generate,
 		completed: {
@@ -30,7 +37,7 @@ let initialState = [
 		}
 	},
 ]
-
+*/
 // ========= 
 
 const TodoReducer = (state = initialState || [] , action) => {
@@ -69,10 +76,10 @@ const TodoReducer = (state = initialState || [] , action) => {
 
 		let _id = payload._id;
 		let matchId = (task) => { return task._id === _id; };
-		let target = state.findIndex(matchId);
+		let targetIndex = state.findIndex(matchId);
 
 		let newState = state.map((task, index) => {
-			if(index !== target ) {
+			if(index !== targetIndex ) {
 				return task;
 			}
 			return Object.assign(
@@ -116,10 +123,10 @@ const TodoReducer = (state = initialState || [] , action) => {
 		let _rank = payload.rank;
 
 		let matchId = (task) => { return task._id === _id; };
-		let target = state.findIndex(matchId);
+		let targetIndex = state.findIndex(matchId);
 
 		let updatedTask = state.map((task, index) => {
-			if(index !== target ) {
+			if(index !== targetIndex ) {
 				return task;
 			} else {
 				return Object.assign(
@@ -140,10 +147,10 @@ const TodoReducer = (state = initialState || [] , action) => {
 		let _date = payload.date;
 
 		let matchId = (task) => { return task._id === _id; };
-		let target = state.findIndex(matchId);
+		let targetIndex = state.findIndex(matchId);
 
 		let updatedTask = state.map((task, index) => {
-			if(index !== target ) {
+			if(index !== targetIndex ) {
 				return task;
 			} else {
 				return Object.assign(
