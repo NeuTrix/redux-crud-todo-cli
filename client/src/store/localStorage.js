@@ -20,6 +20,6 @@ export const saveState = (state) => {
 		localStorage.setItem('todosPersistedState', serializedState);
 	} catch(err) {
 		// Ignore write errors.
-		console.log(err);
+		// console.log(err);
 	} 
 };

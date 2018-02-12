@@ -25,9 +25,9 @@ import {
 
 // ====================================
 
-describe.only('The TODOS_SET_INITIAL_STATE reducer', () => {
+xdescribe('The TODOS_SET_INITIAL_STATE reducer', () => {
 
-	describe('The iniital state', () => {
+	xdescribe('The iniital state', () => {
 		let	firstState = store.getState().todos;
 		deepFreeze(firstState);
 
@@ -39,14 +39,14 @@ describe.only('The TODOS_SET_INITIAL_STATE reducer', () => {
 		});
 	});
 
-	describe('the todosSetInitialState action creator', () => {
+	xdescribe('the todosSetInitialState action creator', () => {
 
-		it('... has a type of "TODOS_SET_INITIAL_STATE"', () => {
+		xit('... has a type of "TODOS_SET_INITIAL_STATE"', () => {
 			expect(todosSetInitialState()).to.have.property('type')
 				.to.eql('TODOS_SET_INITIAL_STATE');
 		});
 
-		it('... it has a payload prop of "newState" ', () => {
+		xit('... it has a payload prop of "newState" ', () => {
 			expect(todosSetInitialState()).to.have.property('payload');
 			expect(todosSetInitialState().payload).to.have.property('newState');
 		});
@@ -65,7 +65,7 @@ describe.only('The TODOS_SET_INITIAL_STATE reducer', () => {
 
 		let newState;
 
-		beforeAll(() => {
+		xbeforeAll(() => {
 			store.dispatch(todosSetInitialState(initialState));
 			newState = store.getState().todos;
 		});
@@ -82,7 +82,8 @@ describe.only('The TODOS_SET_INITIAL_STATE reducer', () => {
 	});
 });
 
-describe('The TodoReducer action suite', () => {
+
+describe.only('The TodoReducer action suite', () => {
 	let TodoList = store.getState().todos;
 	deepFreeze(TodoList);
 
@@ -90,15 +91,15 @@ describe('The TodoReducer action suite', () => {
 		_id: 'TestID990077',
 		date: '2017-12-31',
 		completed: true,
-		details: 'Something to try',
-		owner: 'Wilbur',
+		details: 'Adding a new todo from test suite',
+		owner: 'Todo Tester',
 		rank: 'High',
-		task: 'Test this component' 
+		task: 'Testing this component' 
 	};
 
 	let _task;
 
-	describe('The ADD_TODO function', () => { 
+	describe.only('The ADD_TODO function', () => { 
 
 		beforeEach(() => {
 			store.dispatch(addTodo(newItem));

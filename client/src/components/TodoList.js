@@ -35,7 +35,6 @@ class TodoList extends Component {
 
 		let todos= todoArray.map(item => {
 			return <TodoItem 
-				
 				key= { item._id }
 				item= { item }
 				removeTodo= { this.props.removeTodo }

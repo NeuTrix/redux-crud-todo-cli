@@ -1,19 +1,20 @@
 import axios from 'axios';
 import shortid from 'shortid';
 
-import {
+/*import {
 	TODOS_SET_INITIAL_STATE
-} from '../actions/todoActions'
+} from '../actions/todoActions'*/
 
 // replace with an API call
+
+// let initialState =[
+// 	{_id: shortid.generate(), task:"Howdy Walker"}
+// ]
+
 let todos, todosApi
 
-let initialState =[
-	{task:"Howdy Walker"}
-]
-
-/*let initialState = [
-	todos: {
+let initialState = [
+	{
 		_id: shortid.generate,
 		completed: {
 			type: Boolean,
@@ -28,14 +29,8 @@ let initialState =[
 			required: [true, "Please add a Task"]
 		}
 	},
-	todosApi:
-	 { 
-	 		todosIsLoading: false,
-	   	todosHasFetched: { todos: false },
-	   	todosHasErrored: false  
-	 },
 ]
-*/
+
 // ========= 
 
 const TodoReducer = (state = initialState || [] , action) => {
