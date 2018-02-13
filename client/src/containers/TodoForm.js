@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Row, Col, Button, Form } from 'react-bootstrap';
 
-import TodoTitleBar from './TodoTitleBar'
+import TodoTitleBar from './TodoTitleBar';
+import CalendarBtn from './CalendarBtn';
 
 // ========= ========= ========= 
 const TodoForm = (props) => {
