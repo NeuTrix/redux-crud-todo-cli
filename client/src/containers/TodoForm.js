@@ -32,26 +32,11 @@ const TodoForm = (props) => {
 		_task.focus();
 	};
 
-	const style ={
-		// outline: '0.5px solid lightgrey',
-		// padding:0,
-	};
-
 	const styleTop ={
-		// outline: '1px solid lightgrey',
-		// backgroundColor: "#ffdda3",//orange
-		// backgroundColor: "#60D9FA",
 		backgroundColor: 'lightblue',
 		borderRadius: 5,
 		padding:10,
-		// paddingBottom:20,
-		// paaddingTop: 20,
 		marginBottom: 20,
-	};
-
-	const styleTitle ={
-		color:'#006699',
-		// marginBottom: 20,
 	};
 
 	return (
@@ -117,7 +102,7 @@ const TodoForm = (props) => {
 
 					</Col>
 			
-					<Col className='reset' style= { style } sm = { 1 } > 
+					<Col className='reset' sm = { 1 } > 
 						<Row>
 							<Col sm= { 6 }>
 								<Button 
@@ -146,6 +131,7 @@ const TodoForm = (props) => {
 	);
 };
 
+// ========= ========= ========= 
 TodoForm.propTypes = {
 	addTodo: PropTypes.func.isRequired,
 	_task: PropTypes.string.isRequired,
@@ -159,5 +145,6 @@ TodoForm.defaultProps = {
 	_rank: '',
 	_date: ''
 };
+// ========= ========= ========= 
 
 export default TodoForm;
