@@ -1,12 +1,12 @@
 /* eslint-env node, mocha, chai, jest */
 
-// import deepFreeze from 'deep-freeze';
 
+// import deepFreeze from 'deep-freeze';
 import { expect } from 'chai';
 import axios from 'axios';
 import seed from '../../../../server/config/dbseed';
 
-// ========= 
+// ========= ========= ========= 
 
 describe('The API request object actions', () => {
 
@@ -27,7 +27,6 @@ describe('The API request object actions', () => {
 	describe('the retrieved todo items ', () => {
 
 		it('_ _ are an array of objects', () => {
-			console.log('===================>>>>',_task);
 			expect(todos.length).to.be.above(0);
 			expect(todos).to.be.an('array');
 			expect(_task).to.be.an('object');

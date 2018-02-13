@@ -1,6 +1,6 @@
 
 import { applyMiddleware, createStore } from 'redux';
-import { logger } from 'redux-logger';
+// import { logger } from 'redux-logger';p
 import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
 import rootReducer from '../reducers';
@@ -15,7 +15,8 @@ import { startState } from '../actions/apiActions';
 const api = 'http://localhost:3003/api/todos';
 
 // create middlewares
-const middleware = applyMiddleware(promise(), thunk, logger);
+// const middleware = applyMiddleware(promise(), thunk, logger);
+const middleware = applyMiddleware(promise(), thunk);
 
 // state management: start the app with the current state in localStr
 const persistedState = loadState();

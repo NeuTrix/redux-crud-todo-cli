@@ -4,7 +4,7 @@ import { Form } from 'react-bootstrap';
 
 //============================================================
 
-const PriorityBtn = (props) => {
+const CalendarBtn = (props) => {
 
 	let _date;
 	const handleChange = (event) => {
@@ -26,15 +26,15 @@ const PriorityBtn = (props) => {
 
 //============================================================
 
-PriorityBtn.propTypes = {
+CalendarBtn.propTypes = {
 	updateDate: PropTypes.func.isRequired,
-	currDate: PropTypes.string,
+	currDate: PropTypes.instanceOf(Date),
 	id: PropTypes.string,
 };
 
-PriorityBtn.defaultProps = {
+CalendarBtn.defaultProps = {
 	updateDate: f => f,
 };
 
 //============================================================
-export default PriorityBtn;
+export default CalendarBtn;
