@@ -6,11 +6,6 @@ import rootReducer from '../reducers';
 import { loadState, saveState } from './localStorage';
 import throttle from 'lodash/throttle';
 
-import axios from 'axios'
-
-// load initial state from API
-import { startState } from '../actions/apiActions';
-
 // create middlewares
 const middlewares = [
 	promise(), 
@@ -23,44 +18,16 @@ if (process.env.NODE_ENV === `development`) {
   middlewares.push(logger);
 }
 
+// ========= TEST LOGGING ========= 
 // to turn on logs in the test env
 // if (process.env.NODE_ENV === `test`) {
 //   const { logger } = require(`redux-logger`);
 //   middlewares.push(logger);
 // }
-
 // ========= ========= ========= 
-
-const api = 'http://localhost:3003/api/todos';
 
 // state management: start the app with the current state in localStr
 const persistedState = loadState();
-
-// ========= ========= ========= 
-
-// start coding to load state from api....
-
-// let todolist
-
-// attempt initial state
-/*const starter = (url) => {
-	axios.get(url)
-		.then((res) => {
-			 this.todolist= (res.data)
-		})
-};
-starter(api)*/
-
-/*let persistedState = {
-	todos:[
-	{task:"???"},
-	{task:"???"},
-	{task:"???"},
-	],
-	todosApi: {}
-}*/
-
-// ========= ========= ========= 
 
 const store = createStore(rootReducer, persistedState, applyMiddleware(...middlewares));
 
