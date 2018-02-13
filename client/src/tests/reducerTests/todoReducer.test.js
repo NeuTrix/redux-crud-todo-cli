@@ -86,10 +86,10 @@ describe('The TodoReducer CRUD suite', () => {
 
 	let 
 		initialTodoList,
-		initialLength,
 		addedTodoToList,
+		toggledTodoToList,
+		initialLength,
 		modLength, 
-		toggleTodoToList,
 		newItem,
 		_task,
 		_id
@@ -108,19 +108,19 @@ describe('The TodoReducer CRUD suite', () => {
 		initialTodoList = []
 	});
 
-	// subsequent CRUD test will depend on ADD_TODO's initial item
-
-	describe.only('The ADD_TODO function', () => { 
+	// subsequent CRUD tests will depend on ADD_TODO's state
+	
+	describe('The ADD_TODO function', () => { 
 
 		beforeAll(() => {
 
 			newItem = { 
 				date: '2017-12-31',
 				completed: true,
-				details: '**** ADDED a new TODO ****',
+				details: 'TodoReducer test suite',
 				owner: 'Todo Tester',
 				rank: 'High',
-				task: 'Testing this component' 
+				task: '**** ADDED a new TODO ****',
 			};
 
 			store.dispatch(addTodo(newItem));
@@ -177,66 +177,47 @@ describe('The TodoReducer CRUD suite', () => {
 
 		it('changes the task completed status to false', () => {
 			store.dispatch(toggleTodo(_id));
-			toggleTodoToList = store.getState().todos
+			toggledTodoToList = store.getState().todos
 
-			let new_task = toggleTodoToList[ modLength - 1 ];
+			let new_task = toggledTodoToList[ modLength - 1 ];
 			expect(new_task.completed).to.eql(false);
 		});
 	});
 
-	describe.only('The UPDATE_TODO function', () => {
-		it('changes the todo content', () => {
-			let listB5 = store.getState().todos;
-			expect(listB5).to.be.an('array');
-			// ensure immutability
-			deepFreeze(listB5);
+	describe('The UPDATE_TODO function', () => {
 
-			let _id = listB5[0].id;
-			expect(_id).to.be.a('string');
-			expect(_id).to.be.equal('0.1HxYz');
+		it('... can update the todo items tasks', () => {
+			let content = '**** UPDATED the TASK for this todo item ****'
+			store.dispatch(updateTodo(_id, content));
+			let updatedTodoToList = store.getState().todos
 
-			store.dispatch(updateTodo(_id,'Task Updated. Whatever!'));
-
-			let listAFT2 = store.getState().todos;
-			expect(listAFT2[0].task).to.equal('Task Updated. Whatever!');
+			let new_task = updatedTodoToList[ modLength - 1 ];
+			expect(new_task.task).to.eql(content);
 		});
 	});
 
-	xdescribe('The UPDATE_RANK function', () => {
-		it('changes the rank content', () => {
-			let listB5 = store.getState().todos;
-			expect(listB5).to.be.an('array');
-			// ensure immutability
-			deepFreeze(listB5);
+	describe('The UPDATE_RANK function', () => {
 
-			let _id = listB5[0].id;
-			expect(_id).to.be.a('string');
-			expect(_id).to.be.equal('0.1HxYz');
+		it('... can update the todo items rank', () => {
+			let content = 'Low'
 
-			store.dispatch(updateRank(_id,'Highest'));
+			store.dispatch(updateRank(_id, content));
+			let updatedTodoToList = store.getState().todos
 
-			let listAFT2 = store.getState().todos;
-			expect(listAFT2[0].rank).to.equal('Highest');
-
+			let new_task = updatedTodoToList[ modLength - 1 ];
+			expect(new_task.rank).to.eql(content);
 		});
 	});
 
-	xdescribe('The UPDATE_DATE function', () => {
-		it('changes the DATE content', () => {
-			let listB5 = store.getState().todos;
-			expect(listB5).to.be.an('array');
-			// ensure immutability
-			deepFreeze(listB5);
+	describe('The UPDATE_DATE function', () => {
+		it('... can update the todo items date', () => {
+			let content = new Date() 
 
-			let _id = listB5[0].id;
-			expect(_id).to.be.a('string');
-			expect(_id).to.be.equal('0.1HxYz');
+			store.dispatch(updateDate(_id, content));
+			let updatedTodoToList = store.getState().todos
 
-			store.dispatch(updateDate(_id,'Jan 25th'));
-
-			let listAFT2 = store.getState().todos;
-			expect(listAFT2[0].date).to.equal('Jan 25th');
-
+			let new_task = updatedTodoToList[ modLength - 1 ];
+			expect(new_task.date).to.eql(content);
 		});
 	});
 
