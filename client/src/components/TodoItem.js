@@ -172,7 +172,7 @@ TodoItem.defaultProps ={
 		id: '0.3HxYz',
 		completed: false,
 		details: 'needed',
-		date: '2020-01-01',
+		date: new Date(),
 		owner: 'Bhudah',
 		task: 'Celebrate life!',
 		rank: 'Low', 

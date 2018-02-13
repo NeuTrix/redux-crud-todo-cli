@@ -155,10 +155,6 @@ describe.only('The get todos INITIAL STATE  function', () => {
 		chai.request(api)
 			.get('/')
 			.end((err,res) => {
-				console.log(
-					'===*==>>> The 1st res.body arr obj is: ', 
-					res.body[0]
-				);
 				expect(res).to.be.json;
 				expect(res.body).to.be.an('array');
 				done();
@@ -167,13 +163,9 @@ describe.only('The get todos INITIAL STATE  function', () => {
 
 	it('.. the function returns an array object', () => {
 		let dispatch = store.dispatch;
-		// let data = startState(api)(dispatch)
 		let data = startState(api);
 		let test = store.dispatch(data);
-		console.log('===*==>>> data from the fn: ',  test);
-		/*		expect(data).to.exist;
-		expect(data).to.be.an('function');
-*/	});
+	});
 
 });
 
