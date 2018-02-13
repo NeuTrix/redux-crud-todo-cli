@@ -1,11 +1,9 @@
-import axios from 'axios';
 import shortid from 'shortid';
 
-/*import {
+// set constants
+import {
 	TODOS_SET_INITIAL_STATE
-} from '../actions/todoActions'*/
-
-// replace with an API call
+} from '../actions/todoActions'
 
 let initialState =[
 	{	
@@ -18,26 +16,7 @@ let initialState =[
 		task:  "Initial Task from TodoReducer"
 	}
 ]
-let todos, todosApi
 
-/*let initialState = [
-	{
-		_id: shortid.generate,
-		completed: {
-			type: Boolean,
-			default: false
-		},
-		date: Date,
-		details: String,
-		owner: String,
-		rank: String,
-		task: {
-			type: String,
-			required: [true, "Please add a Task"]
-		}
-	},
-]
-*/
 // ========= 
 
 const TodoReducer = (state = initialState || [] , action) => {
@@ -47,127 +26,113 @@ const TodoReducer = (state = initialState || [] , action) => {
 
 	switch (type) {
 
-	/*case TODOS_SET_INITIAL_STATE: {
-		return payload.newState
-	}*/
+		case TODOS_SET_INITIAL_STATE: 
+			 return payload.newState
 
-	case 'ADD_TODO': {
-		return [...state, payload];
-	}
-	// break;
+		case 'ADD_TODO': 
+			return [...state, payload];
 
-	case 'REMOVE_TODO':{
+		case 'REMOVE_TODO':{
+			let _id = payload._id;
+			let matchId = (task) => { return task._id === _id; };
 
-		let _id = payload._id;
-		let matchId = (task) => { return task._id === _id; };
+			if(state.some(matchId)) {
+				let index = state.findIndex(matchId);
 
-		if(state.some(matchId)) {
-			let index = state.findIndex(matchId);
+				return [
+					...state.slice(0, index), 
+					...state.slice(index+1)
+				];
+			} 
+			return state
+		}
 
-			return [
-				...state.slice(0, index), 
-				...state.slice(index+1)
-			];
-		} 
-		break;
-	}
+		case 'TOGGLE_TODO': {
+			let _id = payload._id;
+			let matchId = (task) => { return task._id === _id; };
+			let targetIndex = state.findIndex(matchId);
 
-	case 'TOGGLE_TODO': {
-
-		let _id = payload._id;
-		let matchId = (task) => { return task._id === _id; };
-		let targetIndex = state.findIndex(matchId);
-
-		let newState = state.map((task, index) => {
-			if(index !== targetIndex ) {
-				return task;
-			}
-			return Object.assign(
-				{}, 
-				task, 
-				{completed:!task.completed}
-			);
-		});
-
-		return Object.assign([], state, newState);
-	}
-	// break;
-
-	case 'UPDATE_TODO': {
-
-		let _id = 	payload._id;
-		let _task = payload.task;
-
-		let matchId = (task) => { return task._id === _id; };
-		let targetIndex = state.findIndex(matchId);
-
-		let updatedTask = state.map((task, index) => {
-			if(index !== targetIndex ) {
-				return task;
-			} else {
+			let newState = state.map((task, index) => {
+				if(index !== targetIndex ) {
+					return task;
+				}
+				// find the object and toggle it's comp state
 				return Object.assign(
 					{}, 
 					task, 
-					{ task: _task }
+					{completed:!task.completed}
 				);
-			}
-		});
+			});
+			return Object.assign([], state, newState);
+		}
 
-		return Object.assign([], state, updatedTask);
-	}
-	// break;
-		
-	case 'UPDATE_RANK': {
+		case 'UPDATE_TODO': {
+			let _id = 	payload._id;
+			let _task = payload.task;
 
-		let _id =		payload._id;
-		let _rank = payload.rank;
+			let matchId = (task) => { return task._id === _id; };
+			let targetIndex = state.findIndex(matchId);
 
-		let matchId = (task) => { return task._id === _id; };
-		let targetIndex = state.findIndex(matchId);
+			let updatedTask = state.map((task, index) => {
+				if(index !== targetIndex ) {
+					return task;
+				} else {
+					return Object.assign(
+						{}, 
+						task, 
+						{ task: _task }
+					);
+				}
+			});
+			return Object.assign([], state, updatedTask);
+		}
+			
+		case 'UPDATE_RANK': {
+			let _id =		payload._id;
+			let _rank = payload.rank;
 
-		let updatedTask = state.map((task, index) => {
-			if(index !== targetIndex ) {
-				return task;
-			} else {
-				return Object.assign(
-					{}, 
-					task, 
-					{ rank: _rank }
-				);
-			}
-		});
+			let matchId = (task) => { return task._id === _id; };
+			let targetIndex = state.findIndex(matchId);
 
-		return Object.assign([], state, updatedTask);
-	}
-	// break;
+			let updatedTask = state.map((task, index) => {
+				if(index !== targetIndex ) {
+					return task;
+				} else {
+					return Object.assign(
+						{}, 
+						task, 
+						{ rank: _rank }
+					);
+				}
+			});
+			return Object.assign([], state, updatedTask);
+		}
 
-	case 'UPDATE_DATE': {
+		case 'UPDATE_DATE': {
+			let _id =		payload._id;
+			let _date = payload.date;
 
-		let _id =		payload._id;
-		let _date = payload.date;
+			let matchId = (task) => { return task._id === _id; };
+			let targetIndex = state.findIndex(matchId);
 
-		let matchId = (task) => { return task._id === _id; };
-		let targetIndex = state.findIndex(matchId);
+			let updatedTask = state.map((task, index) => {
+				if(index !== targetIndex ) {
+					return task;
+				} else {
+					return Object.assign(
+						{}, 
+						task, 
+						{ date: _date }
+					);
+				}
+			});
+			return Object.assign([], state, updatedTask);
+		}
 
-		let updatedTask = state.map((task, index) => {
-			if(index !== targetIndex ) {
-				return task;
-			} else {
-				return Object.assign(
-					{}, 
-					task, 
-					{ date: _date }
-				);
-			}
-		});
+		default: {
+			return state;
+		}
+	} // end switch
+}; // end TodoReducer
 
-		return Object.assign([], state, updatedTask);
-	}
-	// break;
-
-	default: {
-		return state;
-	}
-	}
-};
 export default TodoReducer;
