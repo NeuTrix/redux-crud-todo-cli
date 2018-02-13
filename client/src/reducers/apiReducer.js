@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 // import action constants- allows JS to throw spelling errors
 import {
 	TODOS_IS_LOADING,

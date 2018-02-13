@@ -19,10 +19,10 @@ if (process.env.NODE_ENV === `development`) {
 
 // ========= TEST LOGGING ========= 
 // to turn on logs in the test env
-if (process.env.NODE_ENV === `test`) {
+/*if (process.env.NODE_ENV === `test`) {
   const { logger } = require(`redux-logger`);
   middlewares.push(logger);
-}
+}*/
 // ========= ========= ========= 
 
 // state management: start the app with the current state in localStr
