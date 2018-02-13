@@ -15,9 +15,9 @@ import shortid from 'shortid';
 
 import { 
 	addTodo, 
-	updateTodo,
+	updateTask,
 	removeTodo, 
-	toggleTodo,
+	toggleComplete,
 	updateRank, 
 	updateDate,
 	todosSetInitialState,
@@ -169,14 +169,14 @@ describe('The TodoReducer CRUD suite', () => {
 		});
 	});
 	
-	describe('The TOGGLE_TODO function', () => {
+	describe('The TOGGLE_COMPLETE function', () => {
 
 		it('... initial task completed is "true" ', () => {
 			expect(_task.completed).to.eql(true)
 		})
 
 		it('changes the task completed status to false', () => {
-			store.dispatch(toggleTodo(_id));
+			store.dispatch(toggleComplete(_id));
 			toggledTodoToList = store.getState().todos
 
 			let new_task = toggledTodoToList[ modLength - 1 ];
@@ -184,11 +184,11 @@ describe('The TodoReducer CRUD suite', () => {
 		});
 	});
 
-	describe('The UPDATE_TODO function', () => {
+	describe('The UPDATE_TASK function', () => {
 
 		it('... can update the todo items tasks', () => {
 			let content = '**** UPDATED the TASK for this todo item ****'
-			store.dispatch(updateTodo(_id, content));
+			store.dispatch(updateTask(_id, content));
 			let updatedTodoToList = store.getState().todos
 
 			let new_task = updatedTodoToList[ modLength - 1 ];

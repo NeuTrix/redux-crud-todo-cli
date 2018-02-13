@@ -2,7 +2,13 @@ import shortid from 'shortid';
 
 // set constants
 import {
-	TODOS_SET_INITIAL_STATE
+	ADD_TODO,
+	TODOS_SET_INITIAL_STATE, 
+	UPDATE_TASK,
+	REMOVE_TODO,
+	TOGGLE_COMPLETE,
+	UPDATE_RANK,
+	UPDATE_DATE
 } from '../actions/todoActions'
 
 let initialState =[
@@ -29,10 +35,10 @@ const TodoReducer = (state = initialState , action) => {
 		case TODOS_SET_INITIAL_STATE: 
 			 return payload.newState
 
-		case 'ADD_TODO': 
+		case ADD_TODO: 
 			return [...state, payload];
 
-		case 'REMOVE_TODO':{
+		case REMOVE_TODO:{
 			let _id = payload._id;
 			let matchId = (task) => { return task._id === _id; };
 
@@ -47,7 +53,7 @@ const TodoReducer = (state = initialState , action) => {
 			return state
 		}
 
-		case 'TOGGLE_TODO': {
+		case TOGGLE_COMPLETE: {
 			let _id = payload._id;
 			let matchId = (task) => { return task._id === _id; };
 			let targetIndex = state.findIndex(matchId);
@@ -66,7 +72,7 @@ const TodoReducer = (state = initialState , action) => {
 			return Object.assign([], state, newState);
 		}
 
-		case 'UPDATE_TODO': {
+		case UPDATE_TASK: {
 			let _id = 	payload._id;
 			let _task = payload.task;
 
@@ -87,7 +93,7 @@ const TodoReducer = (state = initialState , action) => {
 			return Object.assign([], state, updatedTask);
 		}
 			
-		case 'UPDATE_RANK': {
+		case UPDATE_RANK: {
 			let _id =		payload._id;
 			let _rank = payload.rank;
 
@@ -108,7 +114,7 @@ const TodoReducer = (state = initialState , action) => {
 			return Object.assign([], state, updatedTask);
 		}
 
-		case 'UPDATE_DATE': {
+		case UPDATE_DATE: {
 			let _id =		payload._id;
 			let _date = payload.date;
 

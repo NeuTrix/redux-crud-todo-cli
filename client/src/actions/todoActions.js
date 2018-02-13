@@ -1,7 +1,14 @@
 // Set new id's uniquely, until API is installed in this app
 import shortid from 'shortid';
 
-export const TODOS_SET_INITIAL_STATE = 'TODOS_SET_INITIAL_STATE'
+export const TODOS_SET_INITIAL_STATE = 'TODOS_SET_INITIAL_STATE';
+export const ADD_TODO = 'ADD_TODO';
+export const REMOVE_TODO = 'REMOVE_TODO';
+export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
+export const UPDATE_TASK = 'UPDATE_TASK';
+export const UPDATE_RANK = 'UPDATE_RANK';
+export const UPDATE_DATE = 'UPDATE_DATE';
+
 
 export function todosSetInitialState(initialState) {
 	// used to async set up a full revised initialState for todos array
@@ -37,17 +44,17 @@ export const removeTodo = (id) => {
 	};
 };
 
-export const toggleTodo = (id) => {
+export const toggleComplete = (id) => {
 	return {
-		type: 'TOGGLE_TODO',
+		type: 'TOGGLE_COMPLETE',
 		payload: {_id: id}
 	};
 };
 
 //updates task only
-export const updateTodo = (id, _task) => {
+export const updateTask = (id, _task) => {
 	return {
-		type: 'UPDATE_TODO',
+		type: 'UPDATE_TASK',
 		payload: {
 			_id: id,
 			task: _task
