@@ -1,6 +1,5 @@
 
 import { applyMiddleware, createStore } from 'redux';
-// import { logger } from 'redux-logger';p
 import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
 import rootReducer from '../reducers';
@@ -12,11 +11,27 @@ import axios from 'axios'
 // load initial state from API
 import { startState } from '../actions/apiActions';
 
-const api = 'http://localhost:3003/api/todos';
-
 // create middlewares
-// const middleware = applyMiddleware(promise(), thunk, logger);
-const middleware = applyMiddleware(promise(), thunk);
+const middlewares = [
+	promise(), 
+	thunk,
+];
+ 
+// only adds redux-logger in the TEST_ENV
+if (process.env.NODE_ENV === `development`) {
+  const { logger } = require(`redux-logger`);
+  middlewares.push(logger);
+}
+
+// to turn on logs in the test env
+// if (process.env.NODE_ENV === `test`) {
+//   const { logger } = require(`redux-logger`);
+//   middlewares.push(logger);
+// }
+
+// ========= ========= ========= 
+
+const api = 'http://localhost:3003/api/todos';
 
 // state management: start the app with the current state in localStr
 const persistedState = loadState();
@@ -47,7 +62,7 @@ starter(api)*/
 
 // ========= ========= ========= 
 
-const store = createStore(rootReducer, persistedState, middleware);
+const store = createStore(rootReducer, persistedState, applyMiddleware(...middlewares));
 
 // save the state anytime we have a change in the store
 // add lodash #throttle to prevent overuse of an expensive ...
