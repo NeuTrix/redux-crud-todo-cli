@@ -19,7 +19,7 @@ let initialState =[
 
 // ========= 
 
-const TodoReducer = (state = initialState || [] , action) => {
+const TodoReducer = (state = initialState , action) => {
 
 	let payload  = action.payload;
 	let type = action.type;

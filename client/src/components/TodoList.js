@@ -7,17 +7,16 @@ import TodoItem from '../components/TodoItem';
 import TodoTitleBar from '../containers/TodoTitleBar';
 
 // connect to the store
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 // function to gather initial state
-import { startState } from '../actions/apiActions';
+// import { startState } from '../actions/apiActions';
 
 // ============================ STYLING ============================
 
 const styleMain = {
 	border: '1px solid lightblue',
 	borderRadius: 5,
-	// padding: 10,
 };
 
 // =========================== COMPONENT ===========================
@@ -85,7 +84,7 @@ TodoList.defaultProps = {
 	updateTodo: f=>f,
 };
 
-const mapStateToProps = (state) => {
+/*const mapStateToProps = (state) => {
 	return {
 		todos: state.todos,
 		hasErrored: state.todosHasErrored,
@@ -96,10 +95,12 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		// setData:(url) => dispatch(startState(url))
-		setData: (url) => {
-			dispatch(startState(url));
-		}
+		// setData: (url) => {
+		// 	dispatch(startState(url));
+		// }
 	};
-};
+};*/
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
+// export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
+
+export default TodoList

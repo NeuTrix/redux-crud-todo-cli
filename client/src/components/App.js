@@ -39,7 +39,7 @@ class App extends Component {
 					<h1 className="App-title">React/Redux Todo List</h1>
 				</header>
 				
-				<p> Todays Date: { Date() } </p>
+				<p> Todays Date: { new Date().toDateString() } </p>
 				
 				<TodoForm 
 					addTodo = { this.props.addTodo }

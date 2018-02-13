@@ -106,7 +106,7 @@ const TodoItem = (props) => {
 				className= 'calendarBtn' 
 				sm = { 1 } 
 			>
-			
+
 				<CalendarBtn
 					updateDate= { props.updateDate }   
 					id= { item._id }
@@ -172,7 +172,7 @@ TodoItem.defaultProps ={
 		id: '0.3HxYz',
 		completed: false,
 		details: 'needed',
-		date: new Date(),
+		date: new Date().toDateString(),
 		owner: 'Bhudah',
 		task: 'Celebrate life!',
 		rank: 'Low', 

@@ -1,8 +1,8 @@
 // create function to LOAD the state from localStorage
-let localStorage
+
 export const loadState = () => {
 	try {
-		const serializedState = localStorage.getItem('todosPersistedState');
+		const serializedState = localStorage.getItem('appState');
 		if(serializedState === null) {
 			return undefined;
 		}
@@ -17,7 +17,7 @@ export const loadState = () => {
 export const saveState = (state) => {
 	try {
 		const serializedState = JSON.stringify(state);
-		localStorage.setItem('todosPersistedState', serializedState);
+		localStorage.setItem('appState', serializedState);
 	} catch(err) {
 		// Ignore write errors.
 		// console.log(err);
