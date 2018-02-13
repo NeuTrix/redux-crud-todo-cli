@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Col, Grid,Row } from 'react-bootstrap';
+// import { Col, Grid,Row } from 'react-bootstrap';
 
 import logo from '../assets/logo.svg';
 import './App.css';

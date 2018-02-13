@@ -1,10 +1,7 @@
-// import axios from 'axios';
 import fetch from 'cross-fetch';
 import {
-	TODOS_SET_INITIAL_STATE,
 	todosSetInitialState
 } from './todoActions';
-
 
 export const TODOS_IS_LOADING  = 'TODOS_IS_LOADING';
 export const TODOS_HAS_ERRORED = 'TODOS_HAS_ERRORED';
