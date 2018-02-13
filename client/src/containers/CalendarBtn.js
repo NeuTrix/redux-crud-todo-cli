@@ -28,7 +28,8 @@ const CalendarBtn = (props) => {
 
 CalendarBtn.propTypes = {
 	updateDate: PropTypes.func.isRequired,
-	currDate: PropTypes.instanceOf(Date),
+	// currDate: PropTypes.instanceOf(Date),
+	currDate: PropTypes.string,
 	id: PropTypes.string,
 };
 

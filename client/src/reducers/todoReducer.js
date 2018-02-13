@@ -9,7 +9,7 @@ let initialState =[
 	{	
 		_id: shortid.generate(),
 		completed:  false,
-		date: new Date(),
+		date: new Date().toDateString(),
 		details: "default details",
 		owner: 'Tester',
 		rank: 'High',

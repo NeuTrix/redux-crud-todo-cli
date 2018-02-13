@@ -10,7 +10,6 @@ let mongoose = require('mongoose');
 // ========= default db
 let mongoDB = 'mongodb://Tester:test2015@ds135537.mlab.com:35537/react-redux-todo';
 
-
 // establish pending connection to db
 mongoose.connect(mongoDB);
 // use the global Promise library
@@ -25,12 +24,12 @@ const Close = () => {
 	console.log("********** Connection Closed ******")
 }
 
-/*const Clear =() => {
+const Clear =() => {
 	Todos.remove({ },(err) => {
 			err ? console.error.bind(console) : console.log('DB cleared');
 		});
 	console.log("********** db Cleared ******")
-}*/
+}
 
 // ========= The Seed Module
 
@@ -42,7 +41,7 @@ _.times(count,() => {
 		task: faker.lorem.sentence(),
 		details: faker.lorem.paragraph(),
 		rank: faker.random.number(5),
-		date: faker.date.future().getUTCFullYear().toString(),
+		date: new Date(),
 		comp: faker.random.boolean()
 	};
 
@@ -55,11 +54,10 @@ _.times(count,() => {
 
 }
 
-
 module.exports = { 
 	Seed, 
 	Close, 
-	// Clear
+	Clear
 };
 
 
