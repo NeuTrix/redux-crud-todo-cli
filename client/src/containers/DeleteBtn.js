@@ -18,9 +18,7 @@ const DeleteBtn = (props) => {
 	return (
 		<Button 
 			onClick= { handleClick } 
-			className= { 'btn btn-danger btn-sm' }
-					bsStyle= 'pull-right' 
-			
+			className= { 'btn btn-danger btn-sm pull-right' }
 		> 
 			Delete 
 		</Button>
