@@ -85,13 +85,14 @@ xdescribe('The TODOS_SET_INITIAL_STATE reducer', () => {
 describe('The TodoReducer CRUD suite', () => {
 
 	let 
-		_id,
 		initialTodoList,
 		initialLength,
 		addedTodoToList,
 		modLength, 
+		toggleTodoToList,
 		newItem,
-		_task
+		_task,
+		_id
 
 	let matchItem = (item) => {
 		return item._id === _id
@@ -109,7 +110,7 @@ describe('The TodoReducer CRUD suite', () => {
 
 	// subsequent CRUD test will depend on ADD_TODO's initial item
 
-	describe('The ADD_TODO function', () => { 
+	describe.only('The ADD_TODO function', () => { 
 
 		beforeAll(() => {
 
@@ -168,51 +169,22 @@ describe('The TodoReducer CRUD suite', () => {
 		});
 	});
 	
-	xdescribe('The TOGGLE_TODO function', () => {
-		let listBefore, listAfter, _task, _id
+	describe('The TOGGLE_TODO function', () => {
 
-		beforeAll(() => {
-			listBefore = store.getState().todos;
-			// ensure immutability
-			deepFreeze(listBefore);
-
-			_task = listBefore[0]
-			_id = _task._id;
-
-		});
-
-		it('... listBefore is an array with at least 1 element', () => {
-			expect(listBefore).to.be.an('array')
-			expect(listBefore.length).to.be.above(0);
+		it('... initial task completed is "true" ', () => {
+			expect(_task.completed).to.eql(true)
 		})
 
-		it('... the targeted task has an id prop', () => {
-			expect(_task).to.have.property('_id')
-				.to.be.a('string')
-		})
-
-		it('... it starts with a "false" completed task prop ', () => {
-			expect(_task).to.have.property("completed")
-				.to.eql(false)
-		})
-
-		it('changes the task completed status to true', () => {
-
+		it('changes the task completed status to false', () => {
 			store.dispatch(toggleTodo(_id));
+			toggleTodoToList = store.getState().todos
 
-			let listAfter = store.getState().todos;
-			let matchId = (task) => { return task._id === _id; };
-			let targetIndex = listAfter.findIndex(matchId);
-			let updatedTask= listAfter[targetIndex];
-
-			expect(updatedTask).to.be.an('object')
-			expect(updatedTask.completed).to.eql(true)
-
+			let new_task = toggleTodoToList[ modLength - 1 ];
+			expect(new_task.completed).to.eql(false);
 		});
 	});
 
-	xdescribe('The UPDATE_TODO function', () => {
-
+	describe.only('The UPDATE_TODO function', () => {
 		it('changes the todo content', () => {
 			let listB5 = store.getState().todos;
 			expect(listB5).to.be.an('array');
