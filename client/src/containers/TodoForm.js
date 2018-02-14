@@ -4,11 +4,16 @@ import { Grid, Row, Col, Button, Form, FormControl } from 'react-bootstrap';
 
 import TodoTitleBar from './TodoTitleBar';
 // import CalendarBtn from './CalendarBtn';
+import normalizeDate from '../myFunctions/normalizeDate'
 
 // ========= ========= ========= 
 const TodoForm = (props) => {
 
-	let _task, _rank, _date;
+	let _task, 
+			_rank, 
+			_date 
+
+	let _currentDate = normalizeDate(new Date())
 	
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -66,24 +71,23 @@ const TodoForm = (props) => {
 						</select>
 
 					</Col>
-					<Form>
+
 					<Col className='date' 
-						sm = { 2 } 
+						sm = {2} 
 					> 
 						<FormControl 
-							inputRef = {input => {_date = input }} 
+							inputRef = { (input) => {_date = input } } 
 							type = 'date'
-							defaultValue = { props._date }
+							defaultValue = { _currentDate } 
+							bsSize = 'sm'
 							required
 						/> 
 					</Col>
 
-					</Form>
-
-					<Col className='task' sm = { 7 } > 
+					<Col className='task' sm = { 6 } > 
 
 						<input 
-							ref= { (input) => _task = input } 
+							ref= { (input) => { _task = input} } 
 							type = 'text'  
 							placeholder='enter a new task here...' 
 							size={ 55 } 
@@ -94,24 +98,20 @@ const TodoForm = (props) => {
 					</Col>
 			
 					<Col className='reset' sm = { 1 } > 
-						<Row>
-							<Col sm= { 6 }>
-								<Button 
-									className= { 'btn btn-info btn-sm' } 
-									type= 'submit' 
-									value= 'Add' 
-								> Add </Button>
-							</Col>
+							<Button 
+								className= { 'btn btn-info btn-sm' } 
+								type= 'submit' 
+								value= 'Add' 
+							> Add 
+							</Button>
+					</Col>
 
-							<Col sm= { 6 }>
-								<Button 
-									className= { 'btn btn-warning btn-sm' } 
-									type = 'reset'
-								> Reset 
-								</Button> 
-							</Col>
-
-						</Row>
+					<Col className='reset' sm = { 1 } > 
+							<Button 
+								className= { 'btn btn-warning btn-sm' } 
+								type = 'reset'
+							> Reset 
+							</Button> 
 					</Col>
 
 				</Row>
