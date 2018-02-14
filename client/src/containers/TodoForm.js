@@ -53,23 +53,19 @@ const TodoForm = (props) => {
 				<Row style= { styleTop }>
 
 					<Col sm = { 1 } > 
-						<p>
-							===>
-						</p>
+						<p> ===> </p>
 					</Col>
 
 					<Col className='rank' sm = { 1 } > 
-
 						<select  
+							type= 'select'
 							ref= { (value) => _rank = value }
-							defaultValue='Med' 
-						>
+							defaultValue='Med'>
+
 							<option value='High'>High</option>
 							<option value='Med' >Med</option>
-							<option value='Low'>Low</option>
-
+							<option value='Low'>Low</option> 
 						</select>
-
 					</Col>
 
 					<Col className='date'	sm = { 2 } >
@@ -78,44 +74,38 @@ const TodoForm = (props) => {
 							type = 'date'
 							defaultValue = { _currentDate } 
 							bsSize = 'sm'
-							required
-						/> 
+							required /> 
 					</Col>
 
 					<Col className='task' sm = { 6 } > 
-
-						<input 
+						<FormControl 
 							ref= { (input) => { _task = input} } 
 							type = 'text'  
 							placeholder='enter a new task here...' 
 							size={ 55 } 
 							maxLength= {48} 
-							required
-						/>
-
+							required />
 					</Col>
 			
 					<Col className='reset' sm = { 1 } > 
 							<Button 
 								className= { 'btn btn-info btn-sm' } 
 								type= 'submit' 
-								value= 'Add' 
-							> Add 
+								value= 'Add' > 
+									Add 
 							</Button>
 					</Col>
 
 					<Col className='reset' sm = { 1 } > 
 							<Button 
 								className= { 'btn btn-warning btn-sm' } 
-								type = 'reset'
-							> Reset 
+								type = 'reset'> 
+									Reset 
 							</Button> 
 					</Col>
 
 				</Row>
-
 			</Form>
-
 		</Grid>
 	);
 };

@@ -24,7 +24,8 @@ const centered = {
 };
 
 const todosBox = {
-	marginTop: 15
+	marginTop: 20,
+	marginBottom: 20
 };
 
 	// ========= The Component =========
