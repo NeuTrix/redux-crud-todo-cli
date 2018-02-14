@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
 import { Col } from 'react-bootstrap';
 
@@ -6,21 +6,20 @@ import { Col } from 'react-bootstrap';
 
 // ========= Component ========= 
 
-const CalendarBtn = (props) => {
+class CalendarBtn extends Component {
 
-	
-
-	return (
-		<Col >
-			<input 
-				type = 'date'  
-				onChange= { props.handleChange }
-				defaultValue = { props.storedDate } 
-				required
-			/>
-		</Col >
-	);
-
+	render () {
+		return (
+			<Col >
+				<input 
+					type = 'date'  
+					onChange= { this.props.handleChange }
+					defaultValue = { this.props.storedDate } 
+					required
+				/>
+			</Col >
+		);
+	}
 }; //end Container
 
 //============================================================

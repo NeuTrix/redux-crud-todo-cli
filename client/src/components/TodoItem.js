@@ -117,11 +117,11 @@ const TodoItem = (props) => {
 				className= 'date' 
 				sm = { 1 } 
 			>
-				<input 
+				<CalendarBtn 
 					ref = { (value) => _date = value}
 					id = { item._id }
 					type = 'date'  
-					onChange= { props.handleChange }
+					onChange= { this.handleChange }
 					defaultValue = { item.date.toString() } 
 					required
 			/>
