@@ -7,7 +7,10 @@ import { Col, Form, Row, } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
 // import action creators
-import { updateDate } from '../actions/todoActions'
+import { 
+
+	updateDate
+	 } from '../actions/todoActions'
 
 // ============ COMPONENTS ============ 
 import Checkbox from '../containers/Checkbox';
@@ -31,7 +34,6 @@ const TodoItem = (props) => {
 	// ================== Event Styling ==================
 
 	const styleTask = {
-		// paddingBottom: 10,
 		backgroundColor: item.completed ? 'whitesmoke' : 'white', 
 		color: item.completed ? 'lightgrey' : 'black',
 		textDecoration: item.completed ? 'line-through' : 'none',
@@ -71,7 +73,14 @@ const TodoItem = (props) => {
 		}
 
 		_task.style.backgroundColor = 'white';
-		return props.updateTodo(item._id, newTask);
+		return props.updateTask(item._id, newTask);
+	};
+
+	let _date
+
+	const handleChange = (event) => {
+		event.preventDefault();
+		// props.updateDate(props.id, _date.value);
 	};
 
 	return (
@@ -109,11 +118,15 @@ const TodoItem = (props) => {
 				className= 'date' 
 				sm = { 1 } 
 			>
-
-				<CalendarBtn
+				<input 
+					refs = { (value) => _date = value}
 					id = { item._id }
 					storedDate = { item.date }
-				/>	
+					type = 'date'  
+					onChange= { props.handleChange }
+					defaultValue = { item.date.toString() } 
+					required
+			/>
 			
 			</Col >
 
@@ -166,7 +179,7 @@ TodoItem.propTypes = {
 	toggleTodo: PropTypes.func,
 	updateDate: PropTypes.func,
 	updateRank: PropTypes.func,
-	updateTodo: PropTypes.func,
+	updateTask: PropTypes.func,
 };
 
 TodoItem.defaultProps ={
@@ -183,7 +196,7 @@ TodoItem.defaultProps ={
 	toggleTodo: f=>f,
 	updateDate: f=>f,
 	updateRank: f=>f,
-	updateTodo: f=>f,
+	updateTask: f=>f,
 };
 
 const mapStateToProps = (state) => {

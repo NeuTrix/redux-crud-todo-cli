@@ -8,18 +8,13 @@ import { Col } from 'react-bootstrap';
 
 const CalendarBtn = (props) => {
 
-	let _date
-
-	const handleChange = (event) => {
-		event.preventDefault();
-		props.updateDate(props.id, _date.value);
-	};
+	
 
 	return (
 		<Col >
 			<input 
 				type = 'date'  
-				onChange= { handleChange }
+				onChange= { props.handleChange }
 				defaultValue = { props.storedDate } 
 				required
 			/>
