@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { 
 	toggleComplete,
 	updateDate,
+	updateRank,
 	updateTask,			
 	removeTodo
 	 } from '../actions/todoActions'
@@ -90,7 +91,7 @@ const centered = {
 				
 				<Col 
 					sm = { 1 } 
-					className= 'priorityRadio' 
+					className= 'rank' 
 					style={ centered } >
 				
 					<PriorityRadio
@@ -179,10 +180,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		updateDate: 	(id, date) => dispatch(updateDate(id, date)),
 		removeTodo: 	(id) => dispatch(removeTodo(id)),
+		toggleComplete: (id, task) => dispatch(toggleComplete(id, task)),
+		updateDate: 	(id, date) => dispatch(updateDate(id, date)),
 		updateTask: 	(id, task) => dispatch(updateTask(id, task)),
-		toggleComplete: 	(id, task) => dispatch(toggleComplete(id, task)),
+		updateRank: 	(id, rank) => dispatch(updateRank(id, rank)),
 	}
 };
 
