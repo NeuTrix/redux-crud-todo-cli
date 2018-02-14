@@ -51,10 +51,8 @@ export function startState(url) {
 				if(!response.ok) {
 					throw Error(response.statusText);
 				}	
-
 				// once finished loading
 				dispatch(todosIsLoading(false));
-				
 				return response;
 			})
 			// api may already return a json item; if not...
@@ -62,9 +60,6 @@ export function startState(url) {
 
 			.then((todos) => dispatch(todosSetInitialState(todos)))
 			// check for errors, if so
-			.then((todos) => {
-				console.log('##########', todos.payload.todos[0]);
-			})
 			.catch(() => dispatch(todosHasErrored(true)));
 
 	};

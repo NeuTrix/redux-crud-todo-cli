@@ -56,4 +56,4 @@ TodoList.defaultProps = {
 	todoArray: [],
 };
 
-export default TodoList
+export default TodoList;

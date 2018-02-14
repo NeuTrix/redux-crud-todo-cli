@@ -4,8 +4,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // ========= connect test component to store
-import { Provider } from 'react-redux'
-import store from '../../store/store'
+import { Provider } from 'react-redux';
+import store from '../../store/store';
 
 // Testing...
 import { expect } from 'chai';

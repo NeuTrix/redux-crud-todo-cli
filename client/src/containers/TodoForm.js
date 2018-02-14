@@ -1,19 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid, Row, Col, Button, Form, FormControl } from 'react-bootstrap';
-
 import TodoTitleBar from './TodoTitleBar';
-import CalendarBtn from './CalendarBtn';
+import normalizeDate from '../myFunctions/normalizeDate';
 
-import normalizeDate from '../myFunctions/normalizeDate'
+import { 
+	Grid, 
+	Row, 
+	Col, 
+	Button, 
+	Form, 
+	FormControl 
+} from 'react-bootstrap';
 
-// ========= ========= ========= 
+// ========= Component
+
 const TodoForm = (props) => {
 
-	let _currentDate = normalizeDate(new Date())
-	let _task, 
-			_rank, 
-			_date 
+	let _currentDate = normalizeDate(new Date());
+	let _task, // todo task
+		_rank, // todo priority
+		_date; // todo due date
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -22,9 +28,7 @@ const TodoForm = (props) => {
 			task: _task.value, 
 			rank: _rank.value, 
 		});
-	
-		// reset the fields
-		_task.value ='';
+		_task.value =''; // reset the fields
 		_task.focus();
 	};
 
@@ -41,9 +45,7 @@ const TodoForm = (props) => {
 			<Form onSubmit={ handleSubmit }>
 
 				<Row className= 'AddTodoTitle'>	
-					<h3>
-						Add a new Todo here:
-					</h3>
+					<h3> Add a new Todo here: </h3>
 				</Row>
 
 				<Row>	
@@ -70,7 +72,7 @@ const TodoForm = (props) => {
 
 					<Col className='date'	sm = { 2 } >
 						<FormControl 
-							inputRef= { (input) => {_date = input} } 
+							inputRef= { (input) => {_date = input;} } 
 							type = 'date'
 							defaultValue = { _currentDate } 
 							bsSize = 'sm'
@@ -79,7 +81,7 @@ const TodoForm = (props) => {
 
 					<Col className='task' sm = { 6 } > 
 						<FormControl 
-							inputRef= { (input) => { _task = input} } 
+							inputRef= { (input) => { _task = input;} } 
 							type = 'text'  
 							placeholder='enter a new task here...' 
 							size={ 55 } 
@@ -88,20 +90,20 @@ const TodoForm = (props) => {
 					</Col>
 			
 					<Col className='addBtn' sm = { 1 } > 
-							<Button 
-								className= { 'btn btn-success btn-sm' } 
-								type= 'submit' 
-								value= 'Add' > 
+						<Button 
+							className= { 'btn btn-success btn-sm' } 
+							type= 'submit' 
+							value= 'Add' > 
 									Add Todo
-							</Button>
+						</Button>
 					</Col>
 
 					<Col className='reset' sm = { 1 } > 
-							<Button 
-								className= { 'btn btn-warning btn-sm' } 
-								type = 'reset'> 
+						<Button 
+							className= { 'btn btn-warning btn-sm' } 
+							type = 'reset'> 
 									Reset 
-							</Button> 
+						</Button> 
 					</Col>
 
 				</Row>
@@ -110,7 +112,7 @@ const TodoForm = (props) => {
 	);
 };
 
-// ========= ========= ========= 
+// ========= Props  
 
 TodoForm.propTypes = {
 	addTodo: PropTypes.func.isRequired,
@@ -125,7 +127,5 @@ TodoForm.defaultProps = {
 	_rank: '',
 	_date: '2020-12-31'
 };
-
-// ========= ========= ========= 
 
 export default TodoForm;

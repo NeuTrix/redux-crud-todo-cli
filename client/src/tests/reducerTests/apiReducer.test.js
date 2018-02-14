@@ -1,7 +1,6 @@
 /* eslint-env jest, mocha, chai */
 
 // ======== esllint
-/*global TodoReducer it:true*/
 /*eslint no-undef: "error"*/
 
 import shortid from 'shortid';
@@ -9,13 +8,13 @@ import shortid from 'shortid';
 import deepFreeze from 'deep-freeze';
 import { expect } from 'chai';
 import store from '../../store/store';
-import apiReducer from '../../reducers/apiReducer';
+// import apiReducer from '../../reducers/apiReducer';
 
 import { 
 	todosIsLoading,
 	todosHasFetched,
 	todosHasErrored,
-	getTodosData
+	// getTodosData
 } from '../../actions/apiActions';
 
 // ====================================

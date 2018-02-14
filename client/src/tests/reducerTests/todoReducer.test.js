@@ -4,13 +4,11 @@
 // import React from 'react';
 
 // ======== esllint
-/*global TodoReducer it:true*/
 /*eslint no-undef: "error"*/
 
 import deepFreeze from 'deep-freeze';
 import { expect } from 'chai';
 import store from '../../store/store';
-import todos from '../../reducers/todoReducer';
 import shortid from 'shortid';
 
 import { 
@@ -65,7 +63,7 @@ xdescribe('The TODOS_SET_INITIAL_STATE reducer', () => {
 
 		let newState;
 
-		xbeforeAll(() => {
+		beforeAll(() => {
 			store.dispatch(todosSetInitialState(initialState));
 			newState = store.getState().todos;
 		});
@@ -92,20 +90,20 @@ describe('The TodoReducer CRUD suite', () => {
 		modLength, 
 		newItem,
 		_task,
-		_id
+		_id;
 
 	let matchItem = (item) => {
-		return item._id === _id
+		return item._id === _id;
 	};
 
 	beforeAll(() => {
 		initialTodoList = store.getState().todos;
 		deepFreeze(initialTodoList);
-		initialLength = initialTodoList.length
+		initialLength = initialTodoList.length;
 	});
 
 	afterAll(() => {
-		initialTodoList = []
+		initialTodoList = [];
 	});
 
 	// subsequent CRUD tests will depend on ADD_TODO's state
@@ -127,18 +125,18 @@ describe('The TodoReducer CRUD suite', () => {
 			addedTodoToList = store.getState().todos;
 			modLength = addedTodoToList.length;
 			_task = addedTodoToList[modLength -1];
-			_id = _task._id
+			_id = _task._id;
 
 		});
 
 		it('... the new "addedTodoToList" is an array', () => {
 			expect(addedTodoToList).to.be.an('array');
-		})
+		});
 
 		it('...can ADD one more _task to the initialTodoList', () => {
 			expect(initialLength).to.above(0);
-			expect(modLength).to.eql(initialLength + 1)
-		})
+			expect(modLength).to.eql(initialLength + 1);
+		});
 
 		it('... has the expected _id property', () => {
 			expect(_task).to.have.property('_id');
@@ -172,12 +170,12 @@ describe('The TodoReducer CRUD suite', () => {
 	describe('The TOGGLE_COMPLETE function', () => {
 
 		it('... initial task completed is "true" ', () => {
-			expect(_task.completed).to.eql(true)
-		})
+			expect(_task.completed).to.eql(true);
+		});
 
 		it('changes the task completed status to false', () => {
 			store.dispatch(toggleComplete(_id));
-			toggledTodoToList = store.getState().todos
+			toggledTodoToList = store.getState().todos;
 
 			let new_task = toggledTodoToList[ modLength - 1 ];
 			expect(new_task.completed).to.eql(false);
@@ -187,9 +185,9 @@ describe('The TodoReducer CRUD suite', () => {
 	describe('The UPDATE_TASK function', () => {
 
 		it('... can update the todo items tasks', () => {
-			let content = '**** UPDATED the TASK for this todo item ****'
+			let content = '**** UPDATED the TASK for this todo item ****';
 			store.dispatch(updateTask(_id, content));
-			let updatedTodoToList = store.getState().todos
+			let updatedTodoToList = store.getState().todos;
 
 			let new_task = updatedTodoToList[ modLength - 1 ];
 			expect(new_task.task).to.eql(content);
@@ -199,10 +197,10 @@ describe('The TodoReducer CRUD suite', () => {
 	describe('The UPDATE_RANK function', () => {
 
 		it('... can update the todo items rank', () => {
-			let content = 'Low'
+			let content = 'Low';
 
 			store.dispatch(updateRank(_id, content));
-			let updatedTodoToList = store.getState().todos
+			let updatedTodoToList = store.getState().todos;
 
 			let new_task = updatedTodoToList[ modLength - 1 ];
 			expect(new_task.rank).to.eql(content);
@@ -211,10 +209,10 @@ describe('The TodoReducer CRUD suite', () => {
 
 	describe('The UPDATE_DATE function', () => {
 		it('... can update the todo items date', () => {
-			let content = new Date() 
+			let content = new Date(); 
 
 			store.dispatch(updateDate(_id, content));
-			let updatedTodoToList = store.getState().todos
+			let updatedTodoToList = store.getState().todos;
 
 			let new_task = updatedTodoToList[ modLength - 1 ];
 			expect(new_task.date).to.eql(content);
@@ -225,11 +223,11 @@ describe('The TodoReducer CRUD suite', () => {
 
 		let 
 			removedTodoFromList, 
-			postLength
+			postLength;
 
 		beforeAll(() => {
 			store.dispatch(removeTodo(_id));
-			removedTodoFromList = store.getState().todos
+			removedTodoFromList = store.getState().todos;
 			postLength = removedTodoFromList.length; 
 		});
 
@@ -238,18 +236,18 @@ describe('The TodoReducer CRUD suite', () => {
 		});
 
 		it('...the previous array contained the "_task" ', () => {
-			let presence = addedTodoToList.some(matchItem)
-			expect(presence).to.eql(true)
-		})
+			let presence = addedTodoToList.some(matchItem);
+			expect(presence).to.eql(true);
+		});
 
 		it('...it removed the task from the list', () => {
-			let presence = removedTodoFromList.some(matchItem)
-			expect(presence).to.eql(false)
+			let presence = removedTodoFromList.some(matchItem);
+			expect(presence).to.eql(false);
 		});
 
 		it('... the updatedTodoList is now smaller', () => {
 			expect(postLength).to.eql(modLength - 1);
-		})
+		});
 	});
 
 });

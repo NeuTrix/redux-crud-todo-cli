@@ -14,9 +14,9 @@ const middlewares = [
 ];
  
 // only adds redux-logger in the TEST_ENV
-if (process.env.NODE_ENV === `development`) {
-  const { logger } = require(`redux-logger`);
-  middlewares.push(logger);
+if (process.env.NODE_ENV === 'development') {
+	const { logger } = require('redux-logger');
+	middlewares.push(logger);
 }
 
 // ========= TEST LOGGING ========= 

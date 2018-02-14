@@ -10,7 +10,7 @@ import {
 	updateRank,
 	updateTask,			
 	removeTodo
-	 } from '../actions/todoActions'
+} from '../actions/todoActions';
 
 import Checkbox from '../containers/Checkbox';
 import PriorityRadio from '../containers/PriorityRadio';
@@ -79,7 +79,7 @@ class TodoItem extends Component {
 
 		const handleDateChange = (event) => {
 			event.preventDefault();
-			let newDate = _date.value
+			let newDate = _date.value;
 			return this.props.updateDate(item._id, newDate );
 		};
 
@@ -103,7 +103,7 @@ class TodoItem extends Component {
 				<Col 	sm = { 2 } className='date' >
 					<Form onChange = { handleDateChange } >
 						<FormControl 
-							inputRef = { (ref) => { _date = ref} } 
+							inputRef = { (ref) => { _date = ref;} } 
 							type = 'date'
 							defaultValue = { item.date } 
 							bsSize = 'sm'
@@ -118,7 +118,7 @@ class TodoItem extends Component {
 						onFocus = { onFocusStyle } 
 						onBlur = { onBlurStyle } >
 						<FormControl 
-							inputRef = { (input) => { _task = input} } 
+							inputRef = { (input) => { _task = input;} } 
 							type = 'text'  
 							defaultValue= { item.task }
 							size = { 55 } 
@@ -135,7 +135,7 @@ class TodoItem extends Component {
 			</Row>
 		);
 	}
-}; 
+} 
 
 // ========= Props ========= 
 
@@ -168,7 +168,7 @@ const mapDispatchToProps = (dispatch) => {
 		updateDate: 		(id, date) => dispatch(updateDate(id, date)),
 		updateTask: 		(id, task) => dispatch(updateTask(id, task)),
 		updateRank: 		(id, rank) => dispatch(updateRank(id, rank)),
-	}
+	};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoItem);

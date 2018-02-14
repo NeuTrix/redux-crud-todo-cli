@@ -3,12 +3,12 @@
 
 const normalizedDate = (date) => {
 	let year = date.getFullYear();
-	let day = ("0" + date.getDate()).slice(-2);
-	let month = ("0" + (date.getMonth() + 1)).slice(-2);
+	let day = ('0' + date.getDate()).slice(-2);
+	let month = ('0' + (date.getMonth() + 1)).slice(-2);
 
 	let fullDate =[];
 	return [...fullDate, year, month, day].join('-');
 };
 
-export default normalizedDate
+export default normalizedDate;
 

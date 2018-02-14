@@ -1,6 +1,6 @@
 // component to display the curret todo list
 import React from 'react';
-import { Col, Grid,Row } from 'react-bootstrap';
+import { Col, Grid, Row } from 'react-bootstrap';
 // import PropTypes from 'prop-types';
 
 // ============================ STYLING ============================
@@ -48,7 +48,7 @@ const TodoTitleBar = (props) => {
 
 	);
 
-} // end container
+}; // end container
 
 // ==================================================================
 

@@ -16,7 +16,7 @@ export function todosSetInitialState(initialState) {
 		payload: {
 			newState: initialState
 		}
-	}
+	};
 }
 
 export const addTodo = (todo) => {

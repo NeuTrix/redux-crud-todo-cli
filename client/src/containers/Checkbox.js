@@ -5,7 +5,7 @@ import { Form, Checkbox } from 'react-bootstrap';
 const checkStyle ={
 	paddingLeft: 40,
 	// backgroundColor: 'orange'
-}
+};
 
 const _Checkbox = (props) => {
 

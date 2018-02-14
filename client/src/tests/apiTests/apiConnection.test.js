@@ -18,7 +18,7 @@ describe('The API request object actions', () => {
 		axios.get('http://localhost:3003/api/todos')
 			.then((res) => {
 				todos = res.data;
-		 		_last = todos.length - 1;
+				_last = todos.length - 1;
 				_task = todos[_last];
 				done();
 			});
