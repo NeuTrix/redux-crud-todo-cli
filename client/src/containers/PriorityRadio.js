@@ -1,45 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FormControl } from 'react-bootstrap'
 
-//============================================================
+// ========= Component
 
 const PriorityBtn = (props) => {
-	let _rank;
+	let _rank; // task priority 
 
 	const handleChange = (event) => {
 		event.preventDefault();
-
 		props.updateRank(props.id, _rank.value);
 	};
 
 	return (
-		<form >
-			<select 
-				onChange= { handleChange } 
-				ref= { (value) => _rank = value }
-			>
-				<option value={props.currRank}>{props.currRank}</option>
-				<option value='High'>High</option>
-				<option value='Med' >Med</option>
-				<option value='Low'>Low</option>
-			</select>
-		</form >
-	);
-}; //end Container
 
-//============================================================
+		 <FormControl
+				bsSize = 'sm'
+				componentClass = "select" 
+				placeholder = { props.currRank }
+				onChange = { handleChange } 
+				inputRef = { (value) => _rank = value } >
+
+				<option value = 'High'>High</option>
+				<option value = 'Med' >Med</option>
+				<option value = 'Low'>Low</option>
+
+      </FormControl>
+	);
+}; 
+
+// ========= Props  
 
 PriorityBtn.propTypes = {
 	currRank: PropTypes.string.isRequired,
-	updateRank: PropTypes.func.isRequired,
-	id: PropTypes.string
+	id: PropTypes.string.isRequired,
+	updateRank: PropTypes.func.isRequired
 };
 
 PriorityBtn.defaultProps = {
-	updateRank: f => f,
-	currRank: 'Med',
+	currRank: 'Med',	
+	id: 'default',
+	updateRank: f => f
 };
-
-//============================================================
 
 export default PriorityBtn;

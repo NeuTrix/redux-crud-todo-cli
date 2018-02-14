@@ -59,15 +59,17 @@ const TodoForm = (props) => {
 					</Col>
 
 					<Col className='rank' sm = { 1 } > 
-						<select  
-							type= 'select'
-							ref= { (value) => _rank = value }
-							defaultValue='Med'>
+						<FormControl 
+							bsSize = 'sm'
+							componentClass = "select" 
+							placeholder = "Med"
+							inputRef = { (value) => _rank = value } >
 
-							<option value='High'>High</option>
-							<option value='Med' >Med</option>
-							<option value='Low'>Low</option> 
-						</select>
+							<option value = 'High'>High</option>
+							<option value = 'Med'>Med</option>
+							<option value = 'Low'>Low</option>
+
+			      </FormControl>
 					</Col>
 
 					<Col className='date'	sm = { 2 } >
