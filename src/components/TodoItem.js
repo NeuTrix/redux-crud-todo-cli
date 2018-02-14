@@ -98,8 +98,8 @@ class TodoItem extends Component {
 				
 				<Col sm = { spacing[1] } className= 'rank' style = { centered } >
 					<PriorityRadio
-						updateRank= { this.props.updateRank }   
 						id = { item._id }
+						updateRank= { this.props.updateRank }   
 						currRank = { item.rank }/>
 				</Col >
 

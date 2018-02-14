@@ -17,7 +17,7 @@ const PriorityBtn = (props) => {
 		 <FormControl
 				bsSize = 'sm'
 				componentClass = "select" 
-				placeholder = { props.currRank }
+				defaultValue = { props.currRank }
 				onChange = { handleChange } 
 				inputRef = { (value) => _rank = value } >
 
@@ -38,7 +38,7 @@ PriorityBtn.propTypes = {
 };
 
 PriorityBtn.defaultProps = {
-	currRank: 'Med',	
+	currRank: 'M',	
 	id: 'default',
 	updateRank: f => f
 };

@@ -67,12 +67,12 @@ const TodoForm = (props) => {
 					<Col className ='rank' sm = { spacing[1] } > 
 						<FormControl 
 							bsSize = 'sm'
+							defaultValue = 'M'
 							componentClass = 'select' 
-							placeholder = 'M'
-							inputRef = { (value) => _rank = value } >
+							inputRef = { (value) => { _rank = value } } >
 
 							<option value = 'H'>H</option>
-							<option value = 'M'>Med</option>
+							<option value = 'M'>M</option>
 							<option value = 'L'>L</option>
 
 			      </FormControl>

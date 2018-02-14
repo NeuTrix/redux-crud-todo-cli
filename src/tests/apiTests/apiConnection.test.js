@@ -8,7 +8,7 @@ import seed from '../../../../server/config/dbseed';
 
 // ========= ========= ========= 
 
-describe('The API request object actions', () => {
+xdescribe('The API request object actions', () => {
 
 	let todos;
 	let _task;
