@@ -79,7 +79,7 @@ const TodoItem = (props) => {
 
 	return (
 
-		<Row  >
+		<Row >
 
 			<Col 
 				className= 'checkBox' 

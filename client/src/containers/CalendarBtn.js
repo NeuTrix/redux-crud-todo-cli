@@ -12,14 +12,19 @@ const CalendarBtn = (props) => {
 		props.updateDate(props.id, _date.value);
 	};
 
+	let showMeTheDate = props.storedDate
+
 	return (
 		<Form >
 			<input 
 				type = 'date'  
 				ref= { (input) => _date = input } 
 				onChange= { handleChange }
-				defaultValue = { props.currDate } required
+				defaultValue = { props.storedDate } required
 			/>
+			<div>
+				Here's the date: {showMeTheDate}
+			</div>
 		</Form >
 	);
 
@@ -36,7 +41,8 @@ CalendarBtn.propTypes = {
 CalendarBtn.defaultProps = {
 	id: 'pending',
 	updateDate: f => f,
-	storedDate: new Date()//.toLocaleDateString
+	// storedDate: new Date().toLocaleDateString()
+	storedDate: '2018-12-14'
 };
 
 //============================================================

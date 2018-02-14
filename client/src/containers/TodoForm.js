@@ -90,7 +90,7 @@ const TodoForm = (props) => {
 
 					</Col>
 
-					<Col className='task'  sm = { 7 } > 
+					<Col className='task' sm = { 7 } > 
 
 						<input 
 							ref= { (input) => _task = input } 
