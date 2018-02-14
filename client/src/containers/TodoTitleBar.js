@@ -16,29 +16,31 @@ const styleTitle= {
 
 const TodoTitleBar = (props) => {
 
+	const spacing = [1, 1, 2, 7, 1] // control spacing of elements
+
 	return (
 	
 		<Grid >
 
 			<Row className= 'TodoTitleBar' style= { styleTitle }>
 
-				<Col sm = { 1 } >
+				<Col sm = { spacing[0] } >
 					<input type='checkbox' checked disabled />
 				</Col>
 
-				<Col sm = { 1 } >
+				<Col sm = { spacing[1] } >
 					Rank
 				</Col>
 
-				<Col sm = { 2 } >
+				<Col sm = { spacing[2] } >
 					Due Date
 				</Col>
 
-				<Col sm = { 7 } >
+				<Col sm = { spacing[3] } >
 					Task
 				</Col>
 
-				<Col sm = { 1 } >
+				<Col sm = { spacing[4] } >
 					Delete
 				</Col>
 

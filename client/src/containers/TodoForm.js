@@ -32,19 +32,21 @@ const TodoForm = (props) => {
 		_task.focus();
 	};
 
-	const styleTop ={
+	const styleTop = {
 		backgroundColor: 'lightblue',
 		borderRadius: 5,
 		padding:10,
 		marginBottom: 20,
 	};
 
+	const spacing = [1, 1, 2, 7, 1] // control spacing of elements
+
 	return (
-		<Grid className= 'TodoForm'>
+		<Grid className = 'TodoForm'>
 
-			<Form onSubmit={ handleSubmit }>
+			<Form onSubmit ={ handleSubmit }>
 
-				<Row className= 'AddTodoTitle'>	
+				<Row className = 'AddTodoTitle'>	
 					<h3> Add a new Todo here: </h3>
 				</Row>
 
@@ -54,11 +56,15 @@ const TodoForm = (props) => {
 
 				<Row style= { styleTop }>
 
-					<Col sm = { 1 } > 
-						<p> ===> </p>
+					<Col className ='reset' sm = { spacing[0] } > 
+						<Button 
+							className = { 'btn btn-warning btn-sm' } 
+							type = 'reset'> 
+								Reset 
+						</Button> 
 					</Col>
 
-					<Col className='rank' sm = { 1 } > 
+					<Col className='rank' sm = { spacing[1] } > 
 						<FormControl 
 							bsSize = 'sm'
 							componentClass = "select" 
@@ -72,7 +78,7 @@ const TodoForm = (props) => {
 			      </FormControl>
 					</Col>
 
-					<Col className='date'	sm = { 2 } >
+					<Col className='date'	sm = { spacing[2] } >
 						<FormControl 
 							inputRef= { (input) => {_date = input;} } 
 							type = 'date'
@@ -81,31 +87,23 @@ const TodoForm = (props) => {
 							required /> 
 					</Col>
 
-					<Col className='task' sm = { 6 } > 
+					<Col className='task' sm = { spacing[3] } > 
 						<FormControl 
-							inputRef= { (input) => { _task = input;} } 
+							inputRef = { (input) => { _task = input;} } 
 							type = 'text'  
-							placeholder='enter a new task here...' 
-							size={ 55 } 
-							maxLength= {48} 
+							placeholder ='enter a new task here...' 
+							size = { 55 } 
+							maxLength = { 48 } 
 							required />
 					</Col>
 			
-					<Col className='addBtn' sm = { 1 } > 
+					<Col className = 'addBtn' sm = { spacing[4] } > 
 						<Button 
-							className= { 'btn btn-success btn-sm' } 
-							type= 'submit' 
-							value= 'Add' > 
-									Add Todo
+							className = { 'btn btn-success btn-sm' } 
+							type = 'submit' 
+							value = 'Add' > 
+								Add 
 						</Button>
-					</Col>
-
-					<Col className='reset' sm = { 1 } > 
-						<Button 
-							className= { 'btn btn-warning btn-sm' } 
-							type = 'reset'> 
-									Reset 
-						</Button> 
 					</Col>
 
 				</Row>
