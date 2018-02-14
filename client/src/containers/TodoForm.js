@@ -87,12 +87,12 @@ const TodoForm = (props) => {
 							required />
 					</Col>
 			
-					<Col className='reset' sm = { 1 } > 
+					<Col className='addBtn' sm = { 1 } > 
 							<Button 
-								className= { 'btn btn-info btn-sm' } 
+								className= { 'btn btn-success btn-sm' } 
 								type= 'submit' 
 								value= 'Add' > 
-									Add 
+									Add Todo
 							</Button>
 					</Col>
 
