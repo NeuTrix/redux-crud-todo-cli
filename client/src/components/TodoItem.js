@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 // import action creators
 import { 
 	updateDate,
+	updateTask,			
 	removeTodo
 	 } from '../actions/todoActions'
 
@@ -78,12 +79,6 @@ const centered = {
 		this.props.updateTask(item.id, _date.value);
 	};
 
-	const handleChangeDate = (event) => {
-		event.preventDefault();
-		alert("Howdy")
-		// this.props.updateDate(item.id, _date.value);
-	};
-
 		return (
 	
 			<Row >
@@ -117,14 +112,14 @@ const centered = {
 					className= 'date' 
 					sm = { 1 } 
 				>
-					<CalendarBtn 
+					<input 
 						ref = { (value) => _date = value}
 						id = { item._id }
 						type = 'date'  
-						onFocus= { handleChangeDate }
-						defaultValue = { item.date.toString() } 
+						defaultValue = { item.date } 
 						required
-				/>
+					/>
+					<input type= 'date' />
 				</Col >
 	
 				<Col 
@@ -175,7 +170,7 @@ TodoItem.propTypes = {
 	toggleTodo: PropTypes.func,
 	updateDate: PropTypes.func,
 	updateRank: PropTypes.func,
-	updateTask: PropTypes.func,
+	// updateTask: PropTypes.func,
 };
 
 TodoItem.defaultProps ={
@@ -192,7 +187,7 @@ TodoItem.defaultProps ={
 	toggleTodo: f=>f,
 	updateDate: f=>f,
 	updateRank: f=>f,
-	updateTask: f=>f,
+	// updateTask: f=>f,
 };
 
 const mapStateToProps = (state) => {
@@ -203,8 +198,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		setCalender: (date) => dispatch(updateDate(date)),
-		removeTodo: (id) => dispatch(removeTodo(id))
+		setCalender: 	(date) => dispatch(updateDate(date)),
+		removeTodo: 	(id) => dispatch(removeTodo(id)),
+		updateTask: 	(id, task) => dispatch(updateTask(id, task))
 	}
 };
 

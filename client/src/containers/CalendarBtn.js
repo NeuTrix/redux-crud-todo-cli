@@ -9,11 +9,18 @@ import { Col } from 'react-bootstrap';
 class CalendarBtn extends Component {
 
 	render () {
+
+		const handleChangeDate = (event) => {
+		event.preventDefault();
+		alert("Howdy")
+		// this.props.updateDate(item.id, _date.value);
+	};
+
 		return (
 			<Col >
 				<input 
 					type = 'date'  
-					onChange= { this.props.handleChangeDate }
+					onBlur= { this.props.handleChangeDate }
 					defaultValue = { this.props.storedDate } 
 					required
 				/>
@@ -25,8 +32,8 @@ class CalendarBtn extends Component {
 //============================================================
 
 CalendarBtn.propTypes = {
+	updateDate: PropTypes.func.isRequired,
 	id: PropTypes.string.isRequired,
-	handleChangeDate: PropTypes.func.isRequired,
 	storedDate: PropTypes.string.isRequired
 };
 

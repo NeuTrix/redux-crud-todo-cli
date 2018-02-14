@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid, Row, Col, Button, Form } from 'react-bootstrap';
+import { Grid, Row, Col, Button, Form, FormControl } from 'react-bootstrap';
 
 import TodoTitleBar from './TodoTitleBar';
 // import CalendarBtn from './CalendarBtn';
@@ -66,18 +66,19 @@ const TodoForm = (props) => {
 						</select>
 
 					</Col>
-
+					<Form>
 					<Col className='date' 
-						sm = { 1 } 
+						sm = { 2 } 
 					> 
-						<input 
-							ref= { (input) => _date = input } 
+						<FormControl 
+							inputRef = {input => {_date = input }} 
 							type = 'date'
 							defaultValue = { props._date }
 							required
 						/> 
-
 					</Col>
+
+					</Form>
 
 					<Col className='task' sm = { 7 } > 
 
