@@ -8,7 +8,6 @@ import { connect } from 'react-redux';
 
 // import action creators
 import { 
-
 	updateDate
 	 } from '../actions/todoActions'
 
@@ -119,9 +118,8 @@ const TodoItem = (props) => {
 				sm = { 1 } 
 			>
 				<input 
-					refs = { (value) => _date = value}
+					ref = { (value) => _date = value}
 					id = { item._id }
-					storedDate = { item.date }
 					type = 'date'  
 					onChange= { props.handleChange }
 					defaultValue = { item.date.toString() } 
