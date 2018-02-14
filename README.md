@@ -16,6 +16,24 @@ Basic CRUD todo application in React with Redux
 - BootStrap
 - Mongo/Mongoose db set up on mlab cloud
 
+## Testing Error
+After intial `yarn`, this error appears:
+`TypeError: environment.teardown is not a function`
+
+Need to go to the offending lines (112 and 144
+) and comment the out.
+
+```javascript
+// line 112...
+const start = Date.now();
+    // yield environment.setup();
+    try {
+
+// line 144...
+ } finally {
+      // yield environment.teardown();
+    }
+```
 
 Application:
 
