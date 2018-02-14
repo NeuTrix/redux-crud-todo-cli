@@ -72,6 +72,8 @@ const TodoForm = (props) => {
 					> 
 						<input 
 							ref= { (input) => _date = input } 
+							type = 'date'
+							defaultValue = { props._date }
 							required
 						/> 
 
