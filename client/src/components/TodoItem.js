@@ -29,6 +29,7 @@ const centered = {
 	let item = this.props.item;
 	let oldTask = item.task;
 	let _task;
+	let _date;
 
 	const styleCompleteTask =  {
 		backgroundColor: item.completed ? 'whitesmoke' : 'white', 
@@ -67,16 +68,15 @@ const centered = {
 		if (newTask === oldTask) {
 			return _task.style.backgroundColor = 'white';
 		}
-
 		_task.style.backgroundColor = 'white';
 		return this.props.updateTask(item._id, newTask);
 	};
 
-	let _date
-
-	const handleChange = (event) => {
+	const handleDateChange = (event) => {
 		event.preventDefault();
-		this.props.updateTask(item.id, _date.value);
+		let newDate = _date.value
+		return this.props.updateDate(item._id, newDate );
+		// return console.log("In the Route?!",item._id, newDate)
 	};
 
 		return (
@@ -87,7 +87,6 @@ const centered = {
 					className= 'checkBox' 
 					sm= { 1 } 
 				>
-				
 					<Checkbox
 						toggleTodo= { this.props.toggleTodo }   
 						id= { item._id }
@@ -109,13 +108,15 @@ const centered = {
 				</Col >
 
 				<Col className='date'	sm = { 2 } >
-					<FormControl 
-						inputRef= { (input) => {_date = input} } 
-						type = 'date'
-						defaultValue = { item.date } 
-						bsSize = 'sm'
-						required
-					/> 
+						
+					<Form onChange = { handleDateChange } >
+						<FormControl 
+							inputRef= { (ref) => { _date = ref} } 
+							type = 'date'
+							defaultValue = { item.date } 
+							bsSize = 'sm'
+							required /> 
+					</Form>
 				</Col>
 	
 				<Col 
@@ -127,8 +128,7 @@ const centered = {
 						onClick= { validateEditable }
 						onChange= { handleTaskEdit } 
 						onFocus= { onFocusStyle } 
-						onBlur= { onBlurStyle } 
-					>
+						onBlur= { onBlurStyle } >
 	
 						<input 
 							ref= { (input) => _task = input } 
@@ -194,7 +194,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		setCalender: 	(date) => dispatch(updateDate(date)),
+		updateDate: 	(id, date) => dispatch(updateDate(id, date)),
 		removeTodo: 	(id) => dispatch(removeTodo(id)),
 		updateTask: 	(id, task) => dispatch(updateTask(id, task))
 	}

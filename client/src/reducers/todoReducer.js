@@ -3,12 +3,12 @@ import shortid from 'shortid';
 // set constants
 import {
 	ADD_TODO,
-	TODOS_SET_INITIAL_STATE, 
-	UPDATE_TASK,
 	REMOVE_TODO,
+	TODOS_SET_INITIAL_STATE, 
 	TOGGLE_COMPLETE,
+	UPDATE_DATE,
 	UPDATE_RANK,
-	UPDATE_DATE
+	UPDATE_TASK
 } from '../actions/todoActions'
 
 let initialState =[

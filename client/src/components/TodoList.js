@@ -28,7 +28,6 @@ class TodoList extends Component {
 				removeTodo= { this.props.removeTodo }
 				toggleTodo= { this.props.toggleTodo }
 				updateRank= { this.props.updateRank }
-				updateTodo= { this.props.updateTodo }
 			/>;
 
 		});
@@ -59,7 +58,7 @@ TodoList.propTypes = {
 	removeTodo: PropTypes.func.isRequired,
 	toggleTodo: PropTypes.func.isRequired,
 	updateRank: PropTypes.func.isRequired,
-	updateTodo: PropTypes.func.isRequired,
+	// updateTodo: PropTypes.func.isRequired,
 };
 
 TodoList.defaultProps = { 
@@ -67,7 +66,7 @@ TodoList.defaultProps = {
 	removeTodo: f=>f,
 	toggleTodo: f=>f,
 	updateRank: f=>f,
-	updateTodo: f=>f,
+	// updateTodo: f=>f,
 };
 
 export default TodoList

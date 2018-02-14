@@ -69,24 +69,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		addTodo: (task) => {
-			dispatch(addTodo(task));
-		},
-		removeTodo: (id) => {
-			dispatch(removeTodo(id));
-		},
-		toggleComplete: (id) => {
-			dispatch(toggleComplete(id));
-		},
-		updateDate: (id, date) => {
-			dispatch(updateDate(id, date));
-		},
-		updateRank: (id, rank) => {
-			dispatch(updateRank(id,rank));
-		},
-		updateTask: (id, task) => {
-			dispatch(updateTask(id,task));
-		},
+		addTodo: (task) 				=> { dispatch(addTodo(task)) },
+		removeTodo: (id) 				=> { dispatch(removeTodo(id)) },
+		toggleComplete: (id) 		=> { dispatch(toggleComplete(id)) },
+		updateDate: (id, date)	=> { dispatch(updateDate(id, date)) },
+		updateRank: (id, rank) 	=> { dispatch(updateRank(id,rank)) },
+		updateTask: (id, task) 	=> { dispatch(updateTask(id,task)) },
 	};
 }; // end const
 
