@@ -23,6 +23,10 @@ const centered = {
 	marginBottom: 5,	
 };
 
+const todosBox = {
+	marginTop: 15
+};
+
 	// ========= The Component =========
 	class TodoItem extends Component {
 
@@ -76,11 +80,10 @@ const centered = {
 		event.preventDefault();
 		let newDate = _date.value
 		return this.props.updateDate(item._id, newDate );
-		// return console.log("In the Route?!",item._id, newDate)
 	};
 
 		return (
-			<Row >
+			<Row style= { todosBox }  >
 	
 				<Col sm= { 1 } className= 'checkBox'>
 					<Checkbox
@@ -118,8 +121,8 @@ const centered = {
 						onFocus= { onFocusStyle } 
 						onBlur= { onBlurStyle } >
 
-						<input 
-							ref= { (input) => _task = input } 
+						<FormControl 
+							inputRef= { (input) => { _task = input} } 
 							type = 'text'  
 							defaultValue= { item.task }
 							size= { 55 } 
