@@ -1,9 +1,11 @@
 import { applyMiddleware, createStore } from 'redux';
-import thunk from 'redux-thunk';
-import promise from 'redux-promise-middleware';
 import rootReducer from '../reducers';
+
 import { loadState, saveState } from './localStorage';
 import throttle from 'lodash/throttle';
+
+import thunk from 'redux-thunk';
+import promise from 'redux-promise-middleware';
 
 // create middlewares
 const middlewares = [

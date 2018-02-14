@@ -5,22 +5,21 @@ import { Col, Form, Row, } from 'react-bootstrap';
 // ========= Store Connections ========= 
 // import connection
 import { connect } from 'react-redux';
-/*// import action constants
-import { UPDATE_DATE } from '../actions/todoActions'
+// import action constants
+// import { UPDATE_DATE } from '../actions/todoActions'
+
 // import action creators
 import { updateDate } from '../actions/todoActions'
-*/
+
 // ============ COMPONENTS ============ 
 import Checkbox from '../containers/Checkbox';
 import PriorityRadio from '../containers/PriorityRadio';
 import CalendarBtn from '../containers/CalendarBtn';
 import DeleteBtn from '../containers/DeleteBtn';
-// import EditButton from '../containers/EditButton';
     
 // ============== STYLING
 
 const centered = {
-	// paddingLeft: 20,
 	marginBottom: 5,	
 };
 	// ================== The Component ==================
@@ -115,9 +114,8 @@ const TodoItem = (props) => {
 			>
 
 				<CalendarBtn
-					updateDate= { props.updateDate }   
-					id= { item._id }
-					currDate = { item.date }
+					id = { item._id }
+					storedDate = { item.date }
 				/>	
 			
 			</Col >
@@ -179,7 +177,7 @@ TodoItem.defaultProps ={
 		id: '0.3HxYz',
 		completed: false,
 		details: 'needed',
-		date: new Date().toLocaleDateString(),
+		date: new Date(),
 		owner: 'Bhudah',
 		task: 'Celebrate life!',
 		rank: 'Low', 
@@ -199,7 +197,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		setCalender: (date) => dispatch(updateDate(date))
+		// setCalender: (date) => dispatch(updateDate(date))
 	}
 };
 

@@ -22,19 +22,21 @@ const CalendarBtn = (props) => {
 			/>
 		</Form >
 	);
+
 }; //end Container
 
 //============================================================
 
 CalendarBtn.propTypes = {
+	id: PropTypes.string.isRequired,
 	updateDate: PropTypes.func.isRequired,
-	// currDate: PropTypes.instanceOf(Date),
-	currDate: PropTypes.string,
-	id: PropTypes.string,
+	storedDate: PropTypes.instanceOf(Date),
 };
 
 CalendarBtn.defaultProps = {
+	id: 'pending',
 	updateDate: f => f,
+	storedDate: new Date()//.toLocaleDateString
 };
 
 //============================================================
