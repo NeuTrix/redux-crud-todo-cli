@@ -31,6 +31,7 @@ DeleteBtn.propTypes = {
 };
 
 DeleteBtn.defaultProps = {
+	id: 'default',
 	removeTodo: f => f,
 };
 

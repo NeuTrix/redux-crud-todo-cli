@@ -1,16 +1,16 @@
+// ========= Under construction ========= 
+
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
 import { Col, FormControl } from 'react-bootstrap';
-
 import normalizeDate from '../myFunctions/normalizeDate'
-let _currentDate = normalizeDate(new Date())
 
+let _currentDate = normalizeDate(new Date()) // for default view
 
 const CalendarBtn = (props) => {
 
 	const handleChangeDate = (event) => {
 		event.preventDefault();
-		// alert("Howdy")
 		// this.props.updateDate(item.id, _date.value);
 	};
 
@@ -20,19 +20,18 @@ const CalendarBtn = (props) => {
 		);
 }; //end Container
 
-//============================================================
+// ========= Props ========= 
 
 CalendarBtn.propTypes = {
-	updateDate: PropTypes.func.isRequired,
 	id: PropTypes.string.isRequired,
+	updateDate: PropTypes.func.isRequired,
 	storedDate: PropTypes.string.isRequired
 };
 
 CalendarBtn.defaultProps = {
 	id: 'pending',
-	handleChangeDate: f => f,
+	updateDate: f => f,
 	storedDate: '2017-12-31'
 };
 
-//============================================================
 export default CalendarBtn;
