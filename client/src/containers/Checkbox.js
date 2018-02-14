@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form, Checkbox } from 'react-bootstrap';
+import { Checkbox } from 'react-bootstrap';
 
 const checkStyle ={
 	paddingLeft: 40,
-	// backgroundColor: 'orange'
 };
 
 const _Checkbox = (props) => {
@@ -16,41 +15,35 @@ const _Checkbox = (props) => {
 	
 	if(props.completed) {
 		return( 
-			<Form >
-				<Checkbox 
-					style = { checkStyle }
-					className= { 'form-check-input' }
-					type= 'checkbox' 
-					onClick= { handleClick }
-					defaultChecked
-				> 
-				</Checkbox>
-			</Form>
+			<Checkbox 
+				defaultChecked 
+				type = 'checkbox' 
+				className = { 'form-check-input' }
+				style = { checkStyle }
+				onClick = { handleClick } > 
+			</Checkbox>
 		);
 	} else {
 	
 		return (
-			<Form >
-				<Checkbox 
-					style = { checkStyle }
-					className= { 'form-check-input' }
-					type= 'checkbox' 
-					onClick= { handleClick }
-				> 
-				</Checkbox>
-			</Form>
+			<Checkbox 
+				type = 'checkbox' 
+				className = { 'form-check-input' }
+				style = { checkStyle }
+				onClick = { handleClick } > 
+			</Checkbox>
 		);
-	} // end return
-
-}; // end component
+	} 
+};
 
 _Checkbox.propTypes = {
 	complete: PropTypes.bool.isRequired,
-	id: PropTypes.string,
+	id: PropTypes.string.isRequired,
 	toggleComplete: PropTypes.func.isRequired,
 };
 
 _Checkbox.defaultProps = {
+	id: 'default',
 	toggleComplete: f => f,
 	complete: false
 };
