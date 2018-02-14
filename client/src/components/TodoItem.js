@@ -1,7 +1,15 @@
 import React from 'react';
-import { Col, Form, Row, } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import { Col, Form, Row, } from 'react-bootstrap';
 
+// ========= Store Connections ========= 
+// import connection
+import { connect } from 'react-redux';
+/*// import action constants
+import { UPDATE_DATE } from '../actions/todoActions'
+// import action creators
+import { updateDate } from '../actions/todoActions'
+*/
 // ============ COMPONENTS ============ 
 import Checkbox from '../containers/Checkbox';
 import PriorityRadio from '../containers/PriorityRadio';
@@ -15,7 +23,6 @@ const centered = {
 	// paddingLeft: 20,
 	marginBottom: 5,	
 };
-
 	// ================== The Component ==================
 
 const TodoItem = (props) => {
@@ -172,7 +179,7 @@ TodoItem.defaultProps ={
 		id: '0.3HxYz',
 		completed: false,
 		details: 'needed',
-		date: new Date().toDateString(),
+		date: new Date().toLocaleDateString(),
 		owner: 'Bhudah',
 		task: 'Celebrate life!',
 		rank: 'Low', 
@@ -184,4 +191,18 @@ TodoItem.defaultProps ={
 	updateTodo: f=>f,
 };
 
-export default TodoItem;
+const mapStateToProps = (state) => {
+	return {
+		todos: state.todos
+	};	
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		setCalender: (date) => dispatch(updateDate(date))
+	}
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoItem);
+
+// export default TodoItem;

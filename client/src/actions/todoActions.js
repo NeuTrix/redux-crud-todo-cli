@@ -9,7 +9,6 @@ export const UPDATE_TASK = 'UPDATE_TASK';
 export const UPDATE_RANK = 'UPDATE_RANK';
 export const UPDATE_DATE = 'UPDATE_DATE';
 
-
 export function todosSetInitialState(initialState) {
 	// used to async set up a full revised initialState for todos array
 	return {
