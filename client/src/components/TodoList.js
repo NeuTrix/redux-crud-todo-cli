@@ -24,12 +24,7 @@ class TodoList extends Component {
 		let todos= todoArray.map(item => {
 			return <TodoItem 
 				key= { item._id }
-				item= { item }
-				removeTodo= { this.props.removeTodo }
-				toggleTodo= { this.props.toggleTodo }
-				updateRank= { this.props.updateRank }
-			/>;
-
+				item= { item } />;
 		});
 
 		return (
@@ -55,18 +50,10 @@ class TodoList extends Component {
 
 TodoList.propTypes = {
 	todoArray: PropTypes.array.isRequired,
-	removeTodo: PropTypes.func.isRequired,
-	toggleTodo: PropTypes.func.isRequired,
-	updateRank: PropTypes.func.isRequired,
-	// updateTodo: PropTypes.func.isRequired,
 };
 
 TodoList.defaultProps = { 
 	todoArray: [],
-	removeTodo: f=>f,
-	toggleTodo: f=>f,
-	updateRank: f=>f,
-	// updateTodo: f=>f,
 };
 
 export default TodoList

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 // import action creators
 import { 
+	toggleComplete,
 	updateDate,
 	updateTask,			
 	removeTodo
@@ -55,7 +56,6 @@ const centered = {
 
 	const validateEditable = (event) => {
 		event.preventDefault();
-
 		if(item.completed === true) {
 			return alert('To Edit, uncheck task completed checkbox');
 		}
@@ -64,7 +64,6 @@ const centered = {
 	const handleTaskEdit = (event) => {
 		event.preventDefault();
 		let newTask = _task.value;
-			
 		if (newTask === oldTask) {
 			return _task.style.backgroundColor = 'white';
 		}
@@ -80,12 +79,11 @@ const centered = {
 	};
 
 		return (
-	
 			<Row >
 	
 				<Col sm= { 1 } className= 'checkBox'>
 					<Checkbox
-						toggleTodo= { this.props.toggleTodo }   
+						toggleComplete= { this.props.toggleComplete }   
 						id= { item._id }
 						completed= { item.completed }/>
 				</Col >
@@ -118,7 +116,7 @@ const centered = {
 						onChange= { handleTaskEdit } 
 						onFocus= { onFocusStyle } 
 						onBlur= { onBlurStyle } >
-						
+
 						<input 
 							ref= { (input) => _task = input } 
 							type = 'text'  
@@ -150,8 +148,8 @@ const centered = {
 TodoItem.propTypes = { 
 	item: PropTypes.object.isRequired,
 	// removeTodo: PropTypes.func,
-	toggleTodo: PropTypes.func,
-	updateDate: PropTypes.func,
+	// toggleComplete: PropTypes.func,
+	// updateDate: PropTypes.func,
 	updateRank: PropTypes.func,
 	// updateTask: PropTypes.func,
 };
@@ -167,8 +165,8 @@ TodoItem.defaultProps ={
 		rank: 'Low', 
 	},
 	// removeTodo: f=>f,
-	toggleTodo: f=>f,
-	updateDate: f=>f,
+	// toggleComplete: f=>f,
+	// updateDate: f=>f,
 	updateRank: f=>f,
 	// updateTask: f=>f,
 };
@@ -183,7 +181,8 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		updateDate: 	(id, date) => dispatch(updateDate(id, date)),
 		removeTodo: 	(id) => dispatch(removeTodo(id)),
-		updateTask: 	(id, task) => dispatch(updateTask(id, task))
+		updateTask: 	(id, task) => dispatch(updateTask(id, task)),
+		toggleComplete: 	(id, task) => dispatch(toggleComplete(id, task)),
 	}
 };
 
