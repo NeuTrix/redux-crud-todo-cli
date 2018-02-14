@@ -79,7 +79,7 @@ const TodoForm = (props) => {
 
 					<Col className='task' sm = { 6 } > 
 						<FormControl 
-							ref= { (input) => { _task = input} } 
+							inputRef= { (input) => { _task = input} } 
 							type = 'text'  
 							placeholder='enter a new task here...' 
 							size={ 55 } 
