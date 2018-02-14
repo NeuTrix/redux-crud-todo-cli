@@ -28,7 +28,7 @@ const TodoForm = (props) => {
 			task: _task.value, 
 			rank: _rank.value, 
 		});
-		_task.value =''; // reset the fields
+		_task.value = ''; // reset the fields
 		_task.focus();
 	};
 
@@ -44,7 +44,7 @@ const TodoForm = (props) => {
 	return (
 		<Grid className = 'TodoForm'>
 
-			<Form onSubmit ={ handleSubmit }>
+			<Form onSubmit = { handleSubmit }>
 
 				<Row className = 'AddTodoTitle'>	
 					<h3> Add a new Todo here: </h3>
@@ -64,30 +64,30 @@ const TodoForm = (props) => {
 						</Button> 
 					</Col>
 
-					<Col className='rank' sm = { spacing[1] } > 
+					<Col className ='rank' sm = { spacing[1] } > 
 						<FormControl 
 							bsSize = 'sm'
-							componentClass = "select" 
-							placeholder = "Med"
+							componentClass = 'select' 
+							placeholder = 'M'
 							inputRef = { (value) => _rank = value } >
 
-							<option value = 'High'>High</option>
-							<option value = 'Med'>Med</option>
-							<option value = 'Low'>Low</option>
+							<option value = 'H'>H</option>
+							<option value = 'M'>Med</option>
+							<option value = 'L'>L</option>
 
 			      </FormControl>
 					</Col>
 
-					<Col className='date'	sm = { spacing[2] } >
+					<Col className ='date'	sm = { spacing[2] } >
 						<FormControl 
-							inputRef= { (input) => {_date = input;} } 
+							inputRef = { (input) => { _date = input } } 
 							type = 'date'
 							defaultValue = { _currentDate } 
 							bsSize = 'sm'
 							required /> 
 					</Col>
 
-					<Col className='task' sm = { spacing[3] } > 
+					<Col className ='task' sm = { spacing[3] } > 
 						<FormControl 
 							inputRef = { (input) => { _task = input;} } 
 							type = 'text'  
@@ -118,11 +118,11 @@ TodoForm.propTypes = {
 	addTodo: PropTypes.func.isRequired,
 	_task: PropTypes.string.isRequired,
 	_rank: PropTypes.string.isRequired,
-	_date: PropTypes.string.isRequired,
+	_date: PropTypes.string.isRequired
 };
 
 TodoForm.defaultProps = {
-	addTodo: f=>f,
+	addTodo: f => f,
 	_task: '',
 	_rank: '',
 	_date: '2020-12-31'

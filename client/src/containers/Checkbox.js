@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Checkbox } from 'react-bootstrap';
 
 const checkStyle ={
-	paddingLeft: 40,
+	paddingLeft: 10,
 };
 
 const _Checkbox = (props) => {

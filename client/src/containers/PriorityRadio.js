@@ -21,9 +21,9 @@ const PriorityBtn = (props) => {
 				onChange = { handleChange } 
 				inputRef = { (value) => _rank = value } >
 
-				<option value = 'High'>High</option>
-				<option value = 'Med' >Med</option>
-				<option value = 'Low'>Low</option>
+				<option value = 'H'>H</option>
+				<option value = 'M' >M</option>
+				<option value = 'L'>L</option>
 
       </FormControl>
 	);
