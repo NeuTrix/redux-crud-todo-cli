@@ -13,7 +13,7 @@ class CalendarBtn extends Component {
 			<Col >
 				<input 
 					type = 'date'  
-					onChange= { this.props.handleChange }
+					onChange= { this.props.handleChangeDate }
 					defaultValue = { this.props.storedDate } 
 					required
 				/>
@@ -26,13 +26,13 @@ class CalendarBtn extends Component {
 
 CalendarBtn.propTypes = {
 	id: PropTypes.string.isRequired,
-	updateDate: PropTypes.func.isRequired,
+	handleChangeDate: PropTypes.func.isRequired,
 	storedDate: PropTypes.string.isRequired
 };
 
 CalendarBtn.defaultProps = {
 	id: 'pending',
-	updateDate: f => f,
+	handleChangeDate: f => f,
 	storedDate: '2017-12-31'
 };
 

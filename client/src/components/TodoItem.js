@@ -1,9 +1,6 @@
-import React from 'react';
+import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
 import { Col, Form, Row, } from 'react-bootstrap';
-
-// ========= Store Connections ========= 
-// import connection
 import { connect } from 'react-redux';
 
 // import action creators
@@ -11,35 +8,41 @@ import {
 	updateDate
 	 } from '../actions/todoActions'
 
-// ============ COMPONENTS ============ 
 import Checkbox from '../containers/Checkbox';
 import PriorityRadio from '../containers/PriorityRadio';
 import CalendarBtn from '../containers/CalendarBtn';
 import DeleteBtn from '../containers/DeleteBtn';
-    
-// ============== STYLING
+   
+// ========= STYLING =========
 
 const centered = {
 	marginBottom: 5,	
 };
-	// ================== The Component ==================
 
-const TodoItem = (props) => {
+	// ========= The Component =========
+	class TodoItem extends Component {
 
-	let item = props.item;
+		constructor(props){
+			super(props)
+		}
+
+	render () {
+
+	let item = this.props.item;
 	let oldTask = item.task;
 	let _task;
 
-	// ================== Event Styling ==================
-
-	const styleTask = {
+	// =========   Event Styling =========
+	const styleTask =  {
 		backgroundColor: item.completed ? 'whitesmoke' : 'white', 
 		color: item.completed ? 'lightgrey' : 'black',
 		textDecoration: item.completed ? 'line-through' : 'none',
 	};
 
-	// Code is WET
 
+		
+
+	// Code is WET
 	const onFocusStyle = (event) => {
 		event.preventDefault();
 		_task.style.backgroundColor = 'whitesmoke';
@@ -53,7 +56,7 @@ const TodoItem = (props) => {
 		_task.style.color = 'black';
 	};
 
-	// ================== Event Functions ==================
+	// =============== Event Functions ===============
 
 	const validateEditable = (event) => {
 		event.preventDefault();
@@ -72,104 +75,101 @@ const TodoItem = (props) => {
 		}
 
 		_task.style.backgroundColor = 'white';
-		return props.updateTask(item._id, newTask);
+		return this.props.updateTask(item._id, newTask);
 	};
 
 	let _date
 
 	const handleChange = (event) => {
 		event.preventDefault();
-		// props.updateDate(props.id, _date.value);
+		this.props.updateDate(this.props.id, _date.value);
 	};
 
-	return (
 
-		<Row >
-
-			<Col 
-				className= 'checkBox' 
-				sm= { 1 } 
-			>
-			
-				<Checkbox
-					toggleTodo= { props.toggleTodo }   
-					id= { item._id }
-					completed= { item.completed }
-				/>
-			
-			</Col >
-
-			<Col 
-				className= 'priorityRadio' 
-				sm = { 1 } 
-				style={ centered } 
-			>
-			
-				<PriorityRadio
-					updateRank= { props.updateRank }   
-					id= { item._id }
-					currRank = { item.rank }
-				/>
-			
-			</Col >
-
-			<Col 
-				className= 'date' 
-				sm = { 1 } 
-			>
-				<CalendarBtn 
-					ref = { (value) => _date = value}
-					id = { item._id }
-					type = 'date'  
-					onChange= { this.handleChange }
-					defaultValue = { item.date.toString() } 
-					required
-			/>
-			
-			</Col >
-
-			<Col 
-				className= 'currentTask' 
-				sm ={ 8 } 
-			>
-
-				<Form 
-					onClick= { validateEditable }
-					onChange= { handleTaskEdit } 
-					onFocus= { onFocusStyle } 
-					onBlur= { onBlurStyle } 
+		return (
+	
+			<Row >
+	
+				<Col 
+					className= 'checkBox' 
+					sm= { 1 } 
 				>
-
-					<input 
-						ref= { (input) => _task = input } 
-						type = 'text'  
-						defaultValue= { item.task }
-						size= { 55 } 
-						style= { styleTask } 
-					/> 
-
-				</Form>
-
-			</Col>
-
-			<Col 
-				className= 'deleteBtn' 
-				sm = { 1 } 
-				style= { centered } 
-			>
-
-				<DeleteBtn 
-					removeTodo= { props.removeTodo }   
-					id= { item._id } 
+				
+					<Checkbox
+						toggleTodo= { this.props.toggleTodo }   
+						id= { item._id }
+						completed= { item.completed }
+					/>
+				</Col >
+				
+				<Col 
+					className= 'priorityRadio' 
+					sm = { 1 } 
+					style={ centered } 
+				>
+				
+					<PriorityRadio
+						updateRank= { this.props.updateRank }   
+						id= { item._id }
+						currRank = { item.rank }
+					/>
+				</Col >
+	
+				<Col 
+					className= 'date' 
+					sm = { 1 } 
+				>
+					<CalendarBtn 
+						ref = { (value) => _date = value}
+						id = { item._id }
+						type = 'date'  
+						handleChangeDate= { handleChange }
+						defaultValue = { item.date.toString() } 
+						required
 				/>
-
-			</Col>
-
-		</Row>
-	);
+				</Col >
+	
+				<Col 
+					className= 'currentTask' 
+					sm ={ 8 } 
+				>
+	
+					<Form 
+						onClick= { validateEditable }
+						onChange= { handleTaskEdit } 
+						onFocus= { onFocusStyle } 
+						onBlur= { onBlurStyle } 
+					>
+	
+						<input 
+							ref= { (input) => _task = input } 
+							type = 'text'  
+							defaultValue= { item.task }
+							size= { 55 } 
+							style= { styleTask } 
+						/> 
+	
+					</Form>
+				</Col>
+	
+				<Col 
+					className= 'deleteBtn' 
+					sm = { 1 } 
+					style= { centered } 
+				>
+	
+					<DeleteBtn 
+						removeTodo= { this.props.removeTodo }   
+						id= { item._id } 
+					/>
+				</Col>
+	
+			</Row>
+		);
+	}
 }; // end Component
 
-//===========================================================
+//===============================================
 
 TodoItem.propTypes = { 
 	item: PropTypes.object.isRequired,
