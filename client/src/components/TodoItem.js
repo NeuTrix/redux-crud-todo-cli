@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 
 // import action creators
 import { 
-	updateDate
+	updateDate,
+	removeTodo
 	 } from '../actions/todoActions'
 
 import Checkbox from '../containers/Checkbox';
@@ -22,25 +23,17 @@ const centered = {
 	// ========= The Component =========
 	class TodoItem extends Component {
 
-		constructor(props){
-			super(props)
-		}
-
 	render () {
 
 	let item = this.props.item;
 	let oldTask = item.task;
 	let _task;
 
-	// =========   Event Styling =========
-	const styleTask =  {
+	const styleCompleteTask =  {
 		backgroundColor: item.completed ? 'whitesmoke' : 'white', 
 		color: item.completed ? 'lightgrey' : 'black',
 		textDecoration: item.completed ? 'line-through' : 'none',
 	};
-
-
-		
 
 	// Code is WET
 	const onFocusStyle = (event) => {
@@ -82,9 +75,14 @@ const centered = {
 
 	const handleChange = (event) => {
 		event.preventDefault();
-		this.props.updateDate(this.props.id, _date.value);
+		this.props.updateTask(item.id, _date.value);
 	};
 
+	const handleChangeDate = (event) => {
+		event.preventDefault();
+		alert("Howdy")
+		// this.props.updateDate(item.id, _date.value);
+	};
 
 		return (
 	
@@ -123,7 +121,7 @@ const centered = {
 						ref = { (value) => _date = value}
 						id = { item._id }
 						type = 'date'  
-						handleChangeDate= { handleChange }
+						onFocus= { handleChangeDate }
 						defaultValue = { item.date.toString() } 
 						required
 				/>
@@ -146,7 +144,7 @@ const centered = {
 							type = 'text'  
 							defaultValue= { item.task }
 							size= { 55 } 
-							style= { styleTask } 
+							style= { styleCompleteTask } 
 						/> 
 	
 					</Form>
@@ -173,7 +171,7 @@ const centered = {
 
 TodoItem.propTypes = { 
 	item: PropTypes.object.isRequired,
-	removeTodo: PropTypes.func,
+	// removeTodo: PropTypes.func,
 	toggleTodo: PropTypes.func,
 	updateDate: PropTypes.func,
 	updateRank: PropTypes.func,
@@ -190,7 +188,7 @@ TodoItem.defaultProps ={
 		task: 'Celebrate life!',
 		rank: 'Low', 
 	},
-	removeTodo: f=>f,
+	// removeTodo: f=>f,
 	toggleTodo: f=>f,
 	updateDate: f=>f,
 	updateRank: f=>f,
@@ -205,7 +203,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		setCalender: (date) => dispatch(updateDate(date))
+		setCalender: (date) => dispatch(updateDate(date)),
+		removeTodo: (id) => dispatch(removeTodo(id))
 	}
 };
 

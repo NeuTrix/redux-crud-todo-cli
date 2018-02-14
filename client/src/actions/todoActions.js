@@ -22,7 +22,7 @@ export function todosSetInitialState(initialState) {
 export const addTodo = (todo) => {
 
 	return {
-		type: 'ADD_TODO',
+		type: ADD_TODO,
 		payload: {
 			// _id: todo._id,	
 			_id: shortid.generate(),
@@ -38,14 +38,14 @@ export const addTodo = (todo) => {
 
 export const removeTodo = (id) => {
 	return {
-		type: 'REMOVE_TODO',
+		type: REMOVE_TODO,
 		payload: {_id: id}
 	};
 };
 
 export const toggleComplete = (id) => {
 	return {
-		type: 'TOGGLE_COMPLETE',
+		type: TOGGLE_COMPLETE,
 		payload: {_id: id}
 	};
 };
@@ -53,7 +53,7 @@ export const toggleComplete = (id) => {
 //updates task only
 export const updateTask = (id, _task) => {
 	return {
-		type: 'UPDATE_TASK',
+		type: UPDATE_TASK,
 		payload: {
 			_id: id,
 			task: _task
@@ -63,7 +63,7 @@ export const updateTask = (id, _task) => {
 
 export const updateRank = (id, _rank) => {
 	return {
-		type: 'UPDATE_RANK',
+		type: UPDATE_RANK,
 		payload: {
 			_id: id,
 			rank: _rank
@@ -73,7 +73,7 @@ export const updateRank = (id, _rank) => {
 
 export const updateDate = (id, _date) => {
 	return {
-		type: 'UPDATE_DATE',
+		type: UPDATE_DATE,
 		payload: {
 			_id: id,
 			date: _date
