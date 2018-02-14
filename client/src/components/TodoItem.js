@@ -14,7 +14,6 @@ import {
 
 import Checkbox from '../containers/Checkbox';
 import PriorityRadio from '../containers/PriorityRadio';
-import CalendarBtn from '../containers/CalendarBtn';
 import DeleteBtn from '../containers/DeleteBtn';
    
 // ========= STYLING =========
@@ -28,86 +27,83 @@ const todosBox = {
 	marginBottom: 20
 };
 
-	// ========= The Component =========
-	class TodoItem extends Component {
+// ========= Component =========
+
+class TodoItem extends Component {
 
 	render () {
 
-	let item = this.props.item;
-	let oldTask = item.task;
-	let _task;
-	let _date;
+		let item = this.props.item;
+		let oldTask = item.task;
+		let _task;
+		let _date;
 
-	const styleCompleteTask =  {
-		backgroundColor: item.completed ? 'whitesmoke' : 'white', 
-		color: item.completed ? 'lightgrey' : 'black',
-		textDecoration: item.completed ? 'line-through' : 'none',
-	};
+		const styleCompleteTask =  {
+			backgroundColor: item.completed ? 'whitesmoke' : 'white', 
+			color: item.completed ? 'lightgrey' : 'black',
+			textDecoration: item.completed ? 'line-through' : 'none',
+		};
 
-	// Code is WET
-	const onFocusStyle = (event) => {
-		event.preventDefault();
-		_task.style.backgroundColor = 'whitesmoke';
-		_task.style.color = 'blue';
-		_task.setSelectionRange(0, _task.value.length);
-	};
+		// Code is WET
+		const onFocusStyle = (event) => {
+			event.preventDefault();
+			_task.style.backgroundColor = 'whitesmoke';
+			_task.style.color = 'blue';
+			_task.setSelectionRange(0, _task.value.length);
+		};
 
-	const onBlurStyle = (event) => {
-		event.preventDefault();
-		_task.style.backgroundColor = 'white';
-		_task.style.color = 'black';
-	};
+		const onBlurStyle = (event) => {
+			event.preventDefault();
+			_task.style.backgroundColor = 'white';
+			_task.style.color = 'black';
+		};
 
-	// =============== Event Functions ===============
+		// =============== Event Functions ===============
 
-	const validateEditable = (event) => {
-		event.preventDefault();
-		if(item.completed === true) {
-			return alert('To Edit, uncheck task completed checkbox');
-		}
-	};
+		const validateEditable = (event) => {
+			event.preventDefault();
+			if(item.completed === true) {
+				return alert('To Edit, uncheck task completed checkbox');
+			}
+		};
 
-	const handleTaskEdit = (event) => {
-		event.preventDefault();
-		let newTask = _task.value;
-		if (newTask === oldTask) {
-			return _task.style.backgroundColor = 'white';
-		}
-		_task.style.backgroundColor = 'white';
-		return this.props.updateTask(item._id, newTask);
-	};
+		const handleTaskEdit = (event) => {
+			event.preventDefault();
+			let newTask = _task.value;
+			if (newTask === oldTask) {
+				return _task.style.backgroundColor = 'white';
+			}
+			_task.style.backgroundColor = 'white';
+			return this.props.updateTask(item._id, newTask);
+		};
 
-	const handleDateChange = (event) => {
-		event.preventDefault();
-		let newDate = _date.value
-		return this.props.updateDate(item._id, newDate );
-	};
+		const handleDateChange = (event) => {
+			event.preventDefault();
+			let newDate = _date.value
+			return this.props.updateDate(item._id, newDate );
+		};
 
 		return (
-			<Row style= { todosBox }  >
-	
-				<Col sm= { 1 } className= 'checkBox'>
+			<Row style = { todosBox }  >
+
+				<Col sm = { 1 } className = 'checkBox'>
 					<Checkbox
-						toggleComplete= { this.props.toggleComplete }   
-						id= { item._id }
-						completed= { item.completed }/>
+						toggleComplete = { this.props.toggleComplete }   
+						id = { item._id }
+						completed = { item.completed }/>
 				</Col >
 				
-				<Col 
-					sm = { 1 } 
-					className= 'rank' 
-					style={ centered } >
-				
+				<Col sm = { 1 } className= 'rank' style = { centered } >
 					<PriorityRadio
 						updateRank= { this.props.updateRank }   
-						id= { item._id }
+						id = { item._id }
 						currRank = { item.rank }/>
 				</Col >
 
-				<Col className='date'	sm = { 2 } >
+				<Col 	sm = { 2 } className='date' >
 					<Form onChange = { handleDateChange } >
 						<FormControl 
-							inputRef= { (ref) => { _date = ref} } 
+							inputRef = { (ref) => { _date = ref} } 
 							type = 'date'
 							defaultValue = { item.date } 
 							bsSize = 'sm'
@@ -115,48 +111,36 @@ const todosBox = {
 					</Form>
 				</Col>
 	
-				<Col sm ={ 6 } className= 'currentTask' >
+				<Col sm = { 6 } className= 'currentTask' >
 					<Form 
-						onClick= { validateEditable }
-						onChange= { handleTaskEdit } 
-						onFocus= { onFocusStyle } 
-						onBlur= { onBlurStyle } >
-
+						onClick = { validateEditable }
+						onChange = { handleTaskEdit } 
+						onFocus = { onFocusStyle } 
+						onBlur = { onBlurStyle } >
 						<FormControl 
-							inputRef= { (input) => { _task = input} } 
+							inputRef = { (input) => { _task = input} } 
 							type = 'text'  
 							defaultValue= { item.task }
-							size= { 55 } 
-							style= { styleCompleteTask } 
-						/> 
+							size = { 55 } 
+							style = { styleCompleteTask } /> 
 					</Form>
 				</Col>
 	
-				<Col 
-					className= 'deleteBtn' 
-					sm = { 2 } 
-					style= { centered } 
-				>
+				<Col sm = { 2 } className= 'deleteBtn' style = { centered } >
 					<DeleteBtn 
-						removeTodo= { this.props.removeTodo }   
-						id= { item._id } 
-					/>
+						removeTodo = { this.props.removeTodo }   
+						id = { item._id } />
 				</Col>
 	
 			</Row>
 		);
 	}
-}; // end Component
+}; 
 
-//===============================================
+// ========= Props ========= 
 
 TodoItem.propTypes = { 
 	item: PropTypes.object.isRequired,
-	// removeTodo: PropTypes.func,
-	// toggleComplete: PropTypes.func,
-	// updateDate: PropTypes.func,
-	updateRank: PropTypes.func,
-	// updateTask: PropTypes.func,
 };
 
 TodoItem.defaultProps ={
@@ -168,12 +152,7 @@ TodoItem.defaultProps ={
 		owner: 'Bhudah',
 		task: 'Celebrate life!',
 		rank: 'Low', 
-	},
-	// removeTodo: f=>f,
-	// toggleComplete: f=>f,
-	// updateDate: f=>f,
-	updateRank: f=>f,
-	// updateTask: f=>f,
+	}
 };
 
 const mapStateToProps = (state) => {
@@ -184,14 +163,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		removeTodo: 	(id) => dispatch(removeTodo(id)),
+		removeTodo: 		(id) => dispatch(removeTodo(id)),
 		toggleComplete: (id, task) => dispatch(toggleComplete(id, task)),
-		updateDate: 	(id, date) => dispatch(updateDate(id, date)),
-		updateTask: 	(id, task) => dispatch(updateTask(id, task)),
-		updateRank: 	(id, rank) => dispatch(updateRank(id, rank)),
+		updateDate: 		(id, date) => dispatch(updateDate(id, date)),
+		updateTask: 		(id, task) => dispatch(updateTask(id, task)),
+		updateRank: 		(id, rank) => dispatch(updateRank(id, rank)),
 	}
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoItem);
-
-// export default TodoItem;
