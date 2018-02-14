@@ -5,8 +5,6 @@ import { Col, Form, Row, } from 'react-bootstrap';
 // ========= Store Connections ========= 
 // import connection
 import { connect } from 'react-redux';
-// import action constants
-// import { UPDATE_DATE } from '../actions/todoActions'
 
 // import action creators
 import { updateDate } from '../actions/todoActions'
@@ -62,7 +60,6 @@ const TodoItem = (props) => {
 		if(item.completed === true) {
 			return alert('To Edit, uncheck task completed checkbox');
 		}
-		// return console.log('Would you like to edit this item')
 	};
 
 	const handleTaskEdit = (event) => {
