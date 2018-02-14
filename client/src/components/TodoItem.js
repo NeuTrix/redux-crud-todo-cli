@@ -83,32 +83,25 @@ const centered = {
 	
 			<Row >
 	
-				<Col 
-					className= 'checkBox' 
-					sm= { 1 } 
-				>
+				<Col sm= { 1 } className= 'checkBox'>
 					<Checkbox
 						toggleTodo= { this.props.toggleTodo }   
 						id= { item._id }
-						completed= { item.completed }
-					/>
+						completed= { item.completed }/>
 				</Col >
 				
 				<Col 
-					className= 'priorityRadio' 
 					sm = { 1 } 
-					style={ centered } 
-				>
+					className= 'priorityRadio' 
+					style={ centered } >
 				
 					<PriorityRadio
 						updateRank= { this.props.updateRank }   
 						id= { item._id }
-						currRank = { item.rank }
-					/>
+						currRank = { item.rank }/>
 				</Col >
 
 				<Col className='date'	sm = { 2 } >
-						
 					<Form onChange = { handleDateChange } >
 						<FormControl 
 							inputRef= { (ref) => { _date = ref} } 
@@ -119,17 +112,13 @@ const centered = {
 					</Form>
 				</Col>
 	
-				<Col 
-					className= 'currentTask' 
-					sm ={ 6 } 
-				>
-	
+				<Col sm ={ 6 } className= 'currentTask' >
 					<Form 
 						onClick= { validateEditable }
 						onChange= { handleTaskEdit } 
 						onFocus= { onFocusStyle } 
 						onBlur= { onBlurStyle } >
-	
+						
 						<input 
 							ref= { (input) => _task = input } 
 							type = 'text'  
@@ -137,7 +126,6 @@ const centered = {
 							size= { 55 } 
 							style= { styleCompleteTask } 
 						/> 
-	
 					</Form>
 				</Col>
 	
@@ -146,7 +134,6 @@ const centered = {
 					sm = { 2 } 
 					style= { centered } 
 				>
-	
 					<DeleteBtn 
 						removeTodo= { this.props.removeTodo }   
 						id= { item._id } 
