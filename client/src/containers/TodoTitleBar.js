@@ -41,7 +41,7 @@ const TodoTitleBar = (props) => {
 				</Col>
 
 				<Col sm = { spacing[4] } >
-					Delete
+					Action
 				</Col>
 
 			</Row>
