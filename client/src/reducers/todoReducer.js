@@ -15,7 +15,7 @@ let initialState =[
 	{	
 		_id: shortid.generate(),
 		completed:  false,
-		date: new Date(),
+		date: null,
 		details: "default details",
 		owner: 'Tester',
 		rank: 'High',

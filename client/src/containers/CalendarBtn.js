@@ -1,31 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 
-//============================================================
+// ========= Functions ========= 
+
+// ========= Component ========= 
 
 const CalendarBtn = (props) => {
 
-	let _date;
+	let _date
+
 	const handleChange = (event) => {
 		event.preventDefault();
 		props.updateDate(props.id, _date.value);
 	};
 
-	let showMeTheDate = props.storedDate
-
 	return (
-		<Form >
+		<Col >
 			<input 
 				type = 'date'  
-				ref= { (input) => _date = input } 
 				onChange= { handleChange }
-				defaultValue = { props.storedDate } required
+				defaultValue = { props.storedDate } 
+				required
 			/>
-			<div>
-				Here's the date: {showMeTheDate}
-			</div>
-		</Form >
+		</Col >
 	);
 
 }; //end Container
@@ -35,14 +33,13 @@ const CalendarBtn = (props) => {
 CalendarBtn.propTypes = {
 	id: PropTypes.string.isRequired,
 	updateDate: PropTypes.func.isRequired,
-	storedDate: PropTypes.instanceOf(Date),
+	storedDate: PropTypes.string.isRequired
 };
 
 CalendarBtn.defaultProps = {
 	id: 'pending',
 	updateDate: f => f,
-	// storedDate: new Date().toLocaleDateString()
-	storedDate: '2018-12-14'
+	storedDate: '2017-12-31'
 };
 
 //============================================================

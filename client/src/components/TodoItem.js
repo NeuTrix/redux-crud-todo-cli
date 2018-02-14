@@ -109,7 +109,7 @@ const TodoItem = (props) => {
 			</Col >
 
 			<Col 
-				className= 'calendarBtn' 
+				className= 'date' 
 				sm = { 1 } 
 			>
 
@@ -177,7 +177,7 @@ TodoItem.defaultProps ={
 		id: '0.3HxYz',
 		completed: false,
 		details: 'needed',
-		date: new Date(),
+		date: '2018-12-31',
 		owner: 'Bhudah',
 		task: 'Celebrate life!',
 		rank: 'Low', 
@@ -197,7 +197,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		// setCalender: (date) => dispatch(updateDate(date))
+		setCalender: (date) => dispatch(updateDate(date))
 	}
 };
 

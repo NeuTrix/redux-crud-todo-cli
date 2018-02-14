@@ -3,20 +3,10 @@ import PropTypes from 'prop-types';
 import { Grid, Row, Col, Button, Form } from 'react-bootstrap';
 
 import TodoTitleBar from './TodoTitleBar';
-// import CalendarBtn from './CalendarBtn';
+import CalendarBtn from './CalendarBtn';
 
 // ========= ========= ========= 
 const TodoForm = (props) => {
-
-	// create a default format for today's date
-	const getDay = (date) => {
-		let year = date.getFullYear();
-		let month = date.getMonth()+1;
-		let day = date.getDate();
-		let fullDate =[];
-		return [...fullDate, year, month, day].join('-');
-	};
-	const _today = getDay(new Date());
 
 	let _task, _rank, _date;
 	
@@ -80,11 +70,8 @@ const TodoForm = (props) => {
 					<Col className='date' 
 						sm = { 1 } 
 					> 
-
 						<input 
 							ref= { (input) => _date = input } 
-							type = 'date'  
-							defaultValue = { _today } 
 							required
 						/> 
 
@@ -133,6 +120,7 @@ const TodoForm = (props) => {
 };
 
 // ========= ========= ========= 
+
 TodoForm.propTypes = {
 	addTodo: PropTypes.func.isRequired,
 	_task: PropTypes.string.isRequired,
@@ -144,8 +132,9 @@ TodoForm.defaultProps = {
 	addTodo: f=>f,
 	_task: '',
 	_rank: '',
-	_date: ''
+	_date: '2020-12-31'
 };
+
 // ========= ========= ========= 
 
 export default TodoForm;
