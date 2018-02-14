@@ -24,6 +24,7 @@ const mapDispatchToProps = (dispatch) => {
 		// }
 	};
 };
+
 ```
 
 ## export the connection an Mapping
