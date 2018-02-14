@@ -1,32 +1,23 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
-import { Col } from 'react-bootstrap';
+import { Col, FormControl } from 'react-bootstrap';
 
-// ========= Functions ========= 
+import normalizeDate from '../myFunctions/normalizeDate'
+let _currentDate = normalizeDate(new Date())
 
-// ========= Component ========= 
 
-class CalendarBtn extends Component {
+const CalendarBtn = (props) => {
 
-	render () {
-
-		const handleChangeDate = (event) => {
+	const handleChangeDate = (event) => {
 		event.preventDefault();
-		alert("Howdy")
+		// alert("Howdy")
 		// this.props.updateDate(item.id, _date.value);
 	};
 
 		return (
-			<Col >
-				<input 
-					type = 'date'  
-					onBlur= { this.props.handleChangeDate }
-					defaultValue = { this.props.storedDate } 
-					required
-				/>
-			</Col >
+				<div>
+				</div>
 		);
-	}
 }; //end Container
 
 //============================================================

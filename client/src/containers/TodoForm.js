@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 import { Grid, Row, Col, Button, Form, FormControl } from 'react-bootstrap';
 
 import TodoTitleBar from './TodoTitleBar';
-// import CalendarBtn from './CalendarBtn';
+import CalendarBtn from './CalendarBtn';
+
 import normalizeDate from '../myFunctions/normalizeDate'
 
 // ========= ========= ========= 
 const TodoForm = (props) => {
 
+	let _currentDate = normalizeDate(new Date())
 	let _task, 
 			_rank, 
 			_date 
 
-	let _currentDate = normalizeDate(new Date())
-	
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		props.addTodo({
@@ -72,11 +72,9 @@ const TodoForm = (props) => {
 
 					</Col>
 
-					<Col className='date' 
-						sm = {2} 
-					> 
+					<Col className='date'	sm = { 2 } >
 						<FormControl 
-							inputRef = { (input) => {_date = input } } 
+							inputRef= { (input) => {_date = input} } 
 							type = 'date'
 							defaultValue = { _currentDate } 
 							bsSize = 'sm'

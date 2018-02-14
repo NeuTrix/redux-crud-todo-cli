@@ -1,6 +1,6 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
-import { Col, Form, Row, } from 'react-bootstrap';
+import { Col, Form, FormControl, Row, } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
 // import action creators
@@ -107,24 +107,20 @@ const centered = {
 						currRank = { item.rank }
 					/>
 				</Col >
-	
-				<Col 
-					className= 'date' 
-					sm = { 1 } 
-				>
-					<input 
-						ref = { (value) => _date = value}
-						id = { item._id }
-						type = 'date'  
+
+				<Col className='date'	sm = { 2 } >
+					<FormControl 
+						inputRef= { (input) => {_date = input} } 
+						type = 'date'
 						defaultValue = { item.date } 
+						bsSize = 'sm'
 						required
-					/>
-					<input type= 'date' />
-				</Col >
+					/> 
+				</Col>
 	
 				<Col 
 					className= 'currentTask' 
-					sm ={ 8 } 
+					sm ={ 6 } 
 				>
 	
 					<Form 
@@ -147,7 +143,7 @@ const centered = {
 	
 				<Col 
 					className= 'deleteBtn' 
-					sm = { 1 } 
+					sm = { 2 } 
 					style= { centered } 
 				>
 	
