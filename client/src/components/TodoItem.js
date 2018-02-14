@@ -83,24 +83,26 @@ class TodoItem extends Component {
 			return this.props.updateDate(item._id, newDate );
 		};
 
+		const spacing = [1, 1, 2, 7, 1] // control spacing of elements
+
 		return (
 			<Row style = { todosBox }  >
 
-				<Col sm = { 1 } className = 'checkBox'>
+				<Col sm = { spacing[0] } className = 'checkBox'>
 					<Checkbox
 						toggleComplete = { this.props.toggleComplete }   
 						id = { item._id }
 						completed = { item.completed }/>
 				</Col >
 				
-				<Col sm = { 1 } className= 'rank' style = { centered } >
+				<Col sm = { spacing[1] } className= 'rank' style = { centered } >
 					<PriorityRadio
 						updateRank= { this.props.updateRank }   
 						id = { item._id }
 						currRank = { item.rank }/>
 				</Col >
 
-				<Col 	sm = { 2 } className='date' >
+				<Col 	sm = { spacing[2] } className='date' >
 					<Form onChange = { handleDateChange } >
 						<FormControl 
 							inputRef = { (ref) => { _date = ref;} } 
@@ -111,7 +113,7 @@ class TodoItem extends Component {
 					</Form>
 				</Col>
 	
-				<Col sm = { 6 } className= 'currentTask' >
+				<Col sm = { spacing[3] } className= 'currentTask' >
 					<Form 
 						onClick = { validateEditable }
 						onChange = { handleTaskEdit } 
@@ -126,7 +128,7 @@ class TodoItem extends Component {
 					</Form>
 				</Col>
 	
-				<Col sm = { 2 } className= 'deleteBtn' style = { centered } >
+				<Col sm = { spacing[4] } className= 'deleteBtn' style = { centered } >
 					<DeleteBtn 
 						removeTodo = { this.props.removeTodo }   
 						id = { item._id } />
