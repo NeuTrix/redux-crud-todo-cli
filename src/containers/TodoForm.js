@@ -51,7 +51,9 @@ const TodoForm = (props) => {
 				</Row>
 
 				<Row>	
-					<TodoTitleBar/>
+					<Col xsHidden = 'true' smHidden = 'true'>
+						<TodoTitleBar/>
+					</Col>
 				</Row>
 
 				<Row style= { styleTop }>
