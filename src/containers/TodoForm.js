@@ -36,22 +36,23 @@ const TodoForm = (props) => {
 
 	// control spacing of elements
 	const spacing = { 
-		xs: {form: 12, rank: 4, date: 5, addBtn: 1, resetBtn: 1}, 
+		xs: {form: 12, rank: 3, date: 5, addBtn: 2, resetBtn: 2}, 
 		sm: {form: 5, rank: 2, date: 2, addBtn: 1, resetBtn: 1} 
 	}
 
 	const styleTop = {
 		backgroundColor: 'lightblue',
 		borderRadius: 5,
-		paddingTop:10,
-		paddingBottom:10,
+		padding:10,
+		// paddingTop:10,
+		// paddingBottom:10,
 		marginBottom: 20,
 	};
 
 	const styleButtons = {
-		width: 60,
-		marginRight: 10
-		// visibleXsBlock: true
+		width: 35,
+		paddingLeft: 7,
+		textAlign: 'center'
 	}
 
 	const styleTitle = {
@@ -92,8 +93,7 @@ const TodoForm = (props) => {
 							inputRef = { (input) => { _task = input;} } 
 							type = 'text'  
 							placeholder ='Enter a NEW task here...' 
-							size = { 55 } 
-							maxLength = { 48 } 
+							maxLength = { 40 } 
 							required />
 					</Col>
 
@@ -119,7 +119,6 @@ const TodoForm = (props) => {
 					<Col 
 						className = 'date' 
 						xs = { spacing.xs.date }
-						xsPull = { 1 }
 						sm = { spacing.sm.date }
 						smPush = { 3 }
 					>
@@ -135,7 +134,6 @@ const TodoForm = (props) => {
 				<Col 
 						className = 'addBtn' 
 						xs = { spacing.xs.addBtn }
-						xsPull = { 2 }
 						sm = { spacing.sm.addBtn }
 						smPull = { 2 }
 					>
@@ -144,24 +142,21 @@ const TodoForm = (props) => {
 							className = { 'btn btn-success btn-sm' } 
 							type = 'submit' 
 							value = 'Add'
-						> 
-								Add +
+						>Add
 						</Button>
 					</Col>
 
 					<Col 
 						className = 'resetBtn' 
 						xs = { spacing.xs.resetBtn }
-						xsPull = { 1 }
 						sm = { spacing.sm.resetBtn }
-						smPull = { 2 }
 					> 
 						<Button 
 							style = { styleButtons }
 							className = { 'btn btn-warning btn-sm' } 
 							type = 'reset'
-						> 
-								Reset 
+						>
+						Clr 
 						</Button> 
 					</Col>
 
