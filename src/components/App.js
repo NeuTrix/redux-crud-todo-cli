@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
@@ -17,7 +16,9 @@ class App extends Component {
 	
 				<header className="App-header">
 					<img src={logo} className="App-logo" alt="logo" />
-					<h1 className="App-title">React/Redux Todo List</h1>
+					<h1 className="App-title">
+						React/Redux Todo (LocalStorage)
+					</h1>
 				</header>
 				
 				<p> Todays Date: { new Date().toDateString() } </p>
