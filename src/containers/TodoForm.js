@@ -37,7 +37,7 @@ const TodoForm = (props) => {
 	// control spacing of elements
 	const spacing = { 
 		xs: { form: 12, rank: 3, date: 5, addBtn: 2, resetBtn: 2 }, 
-		sm: { form: 5, rank: 2, date: 2, addBtn: 1, resetBtn: 1 } 
+		sm: { form: 6, rank: 2, date: 2, addBtn: 1, resetBtn: 1 } 
 	}
 
 	const styleTop = {
@@ -105,7 +105,7 @@ const TodoForm = (props) => {
 						<FormControl 
 							componentClass = 'select' 
 							bsSize = 'sm'
-							defaultValue = 'Med'
+							defaultValue = 'M'
 							inputRef = { (value) => { _rank = value } } >
 
 							<option value = 'H'>H</option>
@@ -119,7 +119,6 @@ const TodoForm = (props) => {
 						className = 'date' 
 						xs = { spacing.xs.date }
 						sm = { spacing.sm.date }
-						smPush = { 3 }
 					>
 
 						<FormControl 
@@ -134,7 +133,6 @@ const TodoForm = (props) => {
 						className = 'addBtn' 
 						xs = { spacing.xs.addBtn }
 						sm = { spacing.sm.addBtn }
-						smPull = { 2 }
 					>
 						<Button 
 							style = { styleButtons }

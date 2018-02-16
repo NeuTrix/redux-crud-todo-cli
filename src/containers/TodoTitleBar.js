@@ -10,10 +10,11 @@ const styleTitle= {
 	color: 'lightblue',
 	borderRadius: 5,
 	marginBottom: 10,
+	textAlign: 'left'
 };
 
 const spacing =  {
-		sm: {task: 5, rank: 1, action: 3, date: 2 }, 
+		sm: {task: 6, rank: 2, date: 2, action: 2,  }, 
 	}	
 
 // =========================== Container ===========================
@@ -35,12 +36,12 @@ const TodoTitleBar = (props) => {
 					Rank
 				</Col>
 
-				<Col className = 'titleAction' sm = { spacing.sm.action } >
-					Action
-				</Col>
-
 				<Col className = 'titleDue' sm = { spacing.sm.date } >
 					Date
+				</Col>
+
+				<Col className = 'titleAction' sm = { spacing.sm.action } >
+					Action
 				</Col>
 
 			</Row>
