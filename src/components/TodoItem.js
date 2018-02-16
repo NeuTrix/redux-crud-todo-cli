@@ -66,6 +66,7 @@ class TodoItem extends Component {
 		};
 
 		const styleCompleteTask =  {
+			marginBottom: 10,
 			backgroundColor: item.completed ? 'whitesmoke' : 'white', 
 			color: item.completed ? 'lightgrey' : 'black',
 			textDecoration: item.completed ? 'line-through' : 'none',
@@ -138,7 +139,6 @@ class TodoItem extends Component {
 				<Col 	
 					className='date' 
 					xs = { spacing.xs.date }
-					xsPull = { 1 }
 					sm = { spacing.sm.date }
 				>
 					<Form onChange = { handleDateChange } >

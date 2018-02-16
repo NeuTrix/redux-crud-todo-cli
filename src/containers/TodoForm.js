@@ -92,8 +92,9 @@ const TodoForm = (props) => {
 						<FormControl 
 							inputRef = { (input) => { _task = input;} } 
 							type = 'text'  
-							placeholder ='Enter a NEW task here...' 
 							maxLength = { 40 } 
+							style = { { marginBottom: 10 } }
+							placeholder ='Enter a NEW task here...' 
 							required />
 					</Col>
 
@@ -104,9 +105,9 @@ const TodoForm = (props) => {
 					> 
 
 						<FormControl 
+							componentClass = 'select' 
 							bsSize = 'sm'
 							defaultValue = 'Med'
-							componentClass = 'select' 
 							inputRef = { (value) => { _rank = value } } >
 
 							<option value = 'H'>H</option>
