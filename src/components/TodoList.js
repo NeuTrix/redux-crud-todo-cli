@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { Col, Grid, Row } from 'react-bootstrap';
 
 import TodoItem from '../components/TodoItem';
-import TodoTitleBar from '../containers/TodoTitleBar';
 
 // ============================ STYLING ============================
 
