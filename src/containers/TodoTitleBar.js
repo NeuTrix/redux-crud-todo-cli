@@ -1,7 +1,7 @@
 // component to display the curret todo list
 import React from 'react';
 import { Col, Grid, Row } from 'react-bootstrap';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 // ============================ STYLING ============================
 
@@ -12,54 +12,52 @@ const styleTitle= {
 	marginBottom: 10,
 };
 
+const spacing =  {
+		sm: {task: 6, rank: 1, date: 2, action: 3, }, 
+	}	
+
 // =========================== Container ===========================
 
 const TodoTitleBar = (props) => {
 
-	const spacing = [1, 1, 2, 7, 1] // control spacing of elements
-
+	
 	return (
 	
 		<Grid >
 
-			<Row className= 'TodoTitleBar' style= { styleTitle }>
-
-				<Col sm = { spacing[0] } >
-					<input type='checkbox' checked disabled />
-				</Col>
-
-				<Col sm = { spacing[1] } >
-					Rank
-				</Col>
-
-				<Col sm = { spacing[2] } >
-					Due Date
-				</Col>
-
-				<Col sm = { spacing[3] } >
+			<Row className = 'TodoTitleBar' style= { styleTitle }>
+			
+				<Col className = 'titleTask' sm = { spacing.sm.task } >
 					Task
 				</Col>
 
-				<Col sm = { spacing[4] } >
+				<Col className = 'titleRank' sm = { spacing.sm.rank } >
+					Rank
+				</Col>
+
+				<Col className = 'titleDue' sm = { spacing.sm.date } >
+					Date
+				</Col>
+
+				<Col className = 'titleAction' sm = { spacing.sm.action } >
 					Action
 				</Col>
 
 			</Row>
 
 		</Grid>
-
 	);
 
 }; // end container
 
 // ==================================================================
 
-/*TodoTitleBar.propTypes = {
-	// none
+TodoTitleBar.propTypes = {
+	spacing: PropTypes.object
 };
 
 TodoTitleBar.defaultProps = {
- // none
-};*/
+	
+};
 
 export default (TodoTitleBar);

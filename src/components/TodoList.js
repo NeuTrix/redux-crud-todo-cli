@@ -31,12 +31,6 @@ class TodoList extends Component {
 		
 			<Grid >
 
-				<Row>	
-					<Col xsHidden = { true }>
-						<TodoTitleBar/>
-					</Col>
-				</Row>
-
 				<Row className= 'todoItems' style= { styleMain }>
 					<Col lg = { 12 }  >
 						{todos} 

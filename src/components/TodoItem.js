@@ -15,10 +15,6 @@ import {
 import Checkbox from '../containers/Checkbox';
 import PriorityRadio from '../containers/PriorityRadio';
 import DeleteBtn from '../containers/DeleteBtn';
-   
-// ========= STYLING =========
-
-
 
 // ========= Component =========
 
@@ -31,10 +27,7 @@ class TodoItem extends Component {
 		let _task;
 		let _date;
 
-		
-
-		// =============== Event Functions ===============
-
+		// ========= Functions
 		const validateEditable = (event) => {
 			event.preventDefault();
 			if(item.completed === true) {
@@ -58,21 +51,15 @@ class TodoItem extends Component {
 			return this.props.updateDate(item._id, newDate );
 		};
 
-// ========= Styling ========= 
+		// ========= Styling 
 
-	// control spacing of elements
 		const spacing = { 
 			xs: {checkBox: 1, task: 11, rank: 3, date: 5, deleteBtn: 3},
-			sm: {checkBox: 1, task: 10, rank: 3, date: 5, deleteBtn: 3} 
+			sm: {checkBox: 1, task: 6, rank: 2, date: 2, deleteBtn: 1} 
 		}
-
-		const centered = {
-			marginBottom: 5,	
-		};
 
 		const todosBox = {
 			marginTop: 20,
-			paddingBottom: 10,
 			marginBottom: 10,
 			borderBottom:'2px solid lightgrey'
 		};
@@ -83,7 +70,6 @@ class TodoItem extends Component {
 			textDecoration: item.completed ? 'line-through' : 'none',
 		};
 
-		// Code is WET
 		const onFocusStyle = (event) => {
 			event.preventDefault();
 			_task.style.backgroundColor = 'whitesmoke';
@@ -100,24 +86,24 @@ class TodoItem extends Component {
 // ========= 
 
 		return (
-			
 			<Row style = { todosBox }  >
-
 				<Col 
 					className = 'checkBox'
 					xs = { spacing.xs.checkBox } 
-					sm = { spacing.xs.checkBox } 
+					sm = { spacing.sm.checkBox } 
 				>
 					<Checkbox
 						toggleComplete = { this.props.toggleComplete }   
 						id = { item._id }
-						completed = { item.completed }/>
+						completed = { item.completed }
+					/>
+
 				</Col >
 
 				<Col 
 					className= 'task' 
 					xs = { spacing.xs.task } 
-					sm = { spacing.xs.task } 
+					sm = { spacing.sm.task } 
 				>
 					<Form 
 						onClick = { validateEditable }
@@ -129,7 +115,7 @@ class TodoItem extends Component {
 							inputRef = { (input) => { _task = input;} } 
 							type = 'text'  
 							defaultValue= { item.task }
-							style = { styleCompleteTask } 
+							style = { styleCompleteTask }
 						/> 
 
 					</Form>
@@ -137,42 +123,46 @@ class TodoItem extends Component {
 
 				<Col 
 					className= 'rank' 
-					style = { centered } 
 					xs = { spacing.xs.rank } 
-					sm = { spacing.xs.rank } 
+					sm = { spacing.sm.rank }
 				>
 					<PriorityRadio
 						id = { item._id }
 						updateRank= { this.props.updateRank }   
-						currRank = { item.rank }/>
+						currRank = { item.rank }
+					/>
+
 				</Col >
 
 				<Col 	
 					className='date' 
 					xs = { spacing.xs.date }
-					sm = { spacing.xs.date }
-					xsPull = { 1 } 
+					sm = { spacing.sm.date }
 				>
 					<Form onChange = { handleDateChange } >
+						
 						<FormControl 
 							inputRef = { (ref) => { _date = ref;} } 
 							type = 'date'
 							defaultValue = { item.date } 
 							bsSize = 'sm'
-							required /> 
+							required 
+						/> 
+
 					</Form>
 				</Col>
 	
 				<Col 
 					className= 'deleteBtn' 
 					xs = { spacing.xs.deleteBtn } 
-					sm = { spacing.xs.deleteBtn } 
+					sm = { spacing.sm.deleteBtn }
 				>
 					<DeleteBtn 
 						removeTodo = { this.props.removeTodo }   
-						id = { item._id } />
+						id = { item._id } 
+					/>
+
 				</Col>
-	
 			</Row>
 		);
 	}
