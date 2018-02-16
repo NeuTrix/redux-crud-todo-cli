@@ -137,6 +137,7 @@ class TodoItem extends Component {
 				<Col 	
 					className='date' 
 					xs = { spacing.xs.date }
+					xsPull = { 1 }
 					sm = { spacing.sm.date }
 				>
 					<Form onChange = { handleDateChange } >
