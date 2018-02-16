@@ -37,7 +37,7 @@ const TodoForm = (props) => {
 	// control spacing of elements
 	const spacing = { 
 		xs: {form: 12, rank: 3, date: 5, addBtn: 1, resetBtn: 1}, 
-		sm: {form: 6, rank: 2, date: 2, addBtn: 1, resetBtn: 1} 
+		sm: {form: 5, rank: 2, date: 2, addBtn: 1, resetBtn: 1} 
 	}
 
 	const styleTop = {
@@ -50,7 +50,8 @@ const TodoForm = (props) => {
 
 	const styleButtons = {
 		width: 60,
-		visibleXsBlock: true
+		marginRight: 10
+		// visibleXsBlock: true
 	}
 
 	const styleTitle = {
@@ -69,18 +70,17 @@ const TodoForm = (props) => {
 						style = { styleTitle}
 						xsHidden = { true }
 					>	
-						<h4> Add a new Todo here: </h4>
+						<h3> Add a new Todo here: </h3>
 					</Col>
 				</Row>
 
 				<Row>	
 					<Col xsHidden = { true }>
-						<TodoTitleBar spacing = { spacing } />
+						<TodoTitleBar/>
 					</Col>
 				</Row>
 
 				<Row style = { styleTop }>
-
 
 					<Col 
 						className = 'task' 
@@ -96,7 +96,6 @@ const TodoForm = (props) => {
 							maxLength = { 48 } 
 							required />
 					</Col>
-
 
 					<Col 
 						className = 'rank' 
@@ -120,8 +119,9 @@ const TodoForm = (props) => {
 					<Col 
 						className = 'date' 
 						xs = { spacing.xs.date }
-						sm = { spacing.sm.date }
 						xsPull = { 1 }
+						sm = { spacing.sm.date }
+						smPush = { 3 }
 					>
 
 						<FormControl 
@@ -151,6 +151,7 @@ const TodoForm = (props) => {
 						className = 'resetBtn' 
 						xs = { spacing.xs.resetBtn }
 						sm = { spacing.sm.resetBtn }
+						smPull = { 1 }
 					> 
 						<Button 
 							style = { styleButtons }
