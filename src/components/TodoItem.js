@@ -1,6 +1,6 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
-import { Col, Form, FormControl, Row, Well } from 'react-bootstrap';
+import { Col, Form, FormControl, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
 // import action creators
@@ -18,14 +18,7 @@ import DeleteBtn from '../containers/DeleteBtn';
    
 // ========= STYLING =========
 
-const centered = {
-	marginBottom: 5,	
-};
 
-const todosBox = {
-	marginTop: 20,
-	marginBottom: 20
-};
 
 // ========= Component =========
 
@@ -69,8 +62,20 @@ class TodoItem extends Component {
 
 	// control spacing of elements
 		const spacing = { 
-			xs: {checkBox: 1, task: 10, rank: 3, date: 4, deleteBtn: 3} 
+			xs: {checkBox: 1, task: 11, rank: 3, date: 5, deleteBtn: 3},
+			sm: {checkBox: 1, task: 10, rank: 3, date: 5, deleteBtn: 3} 
 		}
+
+		const centered = {
+			marginBottom: 5,	
+		};
+
+		const todosBox = {
+			marginTop: 20,
+			paddingBottom: 10,
+			marginBottom: 10,
+			borderBottom:'2px solid lightgrey'
+		};
 
 		const styleCompleteTask =  {
 			backgroundColor: item.completed ? 'whitesmoke' : 'white', 
@@ -96,31 +101,46 @@ class TodoItem extends Component {
 
 		return (
 			
-				<Well bsSize = 'small'>
 			<Row style = { todosBox }  >
-				<Col xs = { spacing.xs.checkBox } className = 'checkBox'>
+
+				<Col 
+					className = 'checkBox'
+					xs = { spacing.xs.checkBox } 
+					sm = { spacing.xs.checkBox } 
+				>
 					<Checkbox
 						toggleComplete = { this.props.toggleComplete }   
 						id = { item._id }
 						completed = { item.completed }/>
 				</Col >
 
-				<Col xs = { spacing.xs.task } className= 'task' >
+				<Col 
+					className= 'task' 
+					xs = { spacing.xs.task } 
+					sm = { spacing.xs.task } 
+				>
 					<Form 
 						onClick = { validateEditable }
 						onChange = { handleTaskEdit } 
 						onFocus = { onFocusStyle } 
-						onBlur = { onBlurStyle } >
+						onBlur = { onBlurStyle } 
+					>
 						<FormControl 
 							inputRef = { (input) => { _task = input;} } 
 							type = 'text'  
 							defaultValue= { item.task }
-							size = { 55 } 
-							style = { styleCompleteTask } /> 
+							style = { styleCompleteTask } 
+						/> 
+
 					</Form>
 				</Col>
 
-				<Col xs = { spacing.xs.rank } className= 'rank' style = { centered } >
+				<Col 
+					className= 'rank' 
+					style = { centered } 
+					xs = { spacing.xs.rank } 
+					sm = { spacing.xs.rank } 
+				>
 					<PriorityRadio
 						id = { item._id }
 						updateRank= { this.props.updateRank }   
@@ -130,6 +150,7 @@ class TodoItem extends Component {
 				<Col 	
 					className='date' 
 					xs = { spacing.xs.date }
+					sm = { spacing.xs.date }
 					xsPull = { 1 } 
 				>
 					<Form onChange = { handleDateChange } >
@@ -142,16 +163,17 @@ class TodoItem extends Component {
 					</Form>
 				</Col>
 	
-				
-	
-				<Col xs = { spacing.xs.deleteBtn } className= 'deleteBtn' style = { centered } >
+				<Col 
+					className= 'deleteBtn' 
+					xs = { spacing.xs.deleteBtn } 
+					sm = { spacing.xs.deleteBtn } 
+				>
 					<DeleteBtn 
 						removeTodo = { this.props.removeTodo }   
 						id = { item._id } />
 				</Col>
 	
 			</Row>
-				</Well>
 		);
 	}
 } 
