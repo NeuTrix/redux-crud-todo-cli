@@ -33,6 +33,11 @@ const TodoForm = (props) => {
 	};
 
 // ========= Styling ========= 
+	// control spacing of elements
+	const spacing = { 
+		xs: {form: 12, rank: 3, date: 5, addBtn: 1, resetBtn: 1} 
+	}
+
 	const styleTop = {
 		backgroundColor: 'lightblue',
 		borderRadius: 5,
@@ -41,18 +46,14 @@ const TodoForm = (props) => {
 		marginBottom: 20,
 	};
 
-	// control spacing of elements
-	const spacing = { 
-		xs: {form: 12, rank: 3, date: 5, addBtn: 2, resetBtn: 2} 
+	const styleButtons = {
+		width: 60,
+		visibleXsBlock: true
 	}
 
-	const spacingSub = {
-		xs: [6, 6]
+	const styleTitle = {
+		textAlign: 'left'
 	}
-
-const styleButtons = {
-	width: 10
-}
 
 // ========= 
 	return (
@@ -60,8 +61,14 @@ const styleButtons = {
 
 			<Form onSubmit = { handleSubmit }>
 
-				<Row className = 'AddTodoTitle'>	
-					<h3> Add a new Todo here: </h3>
+				<Row> 
+					<Col
+						className = 'AddTodoTitle'
+						style = { styleTitle}
+						xsHidden = { true }
+					>	
+						<h4> Add a new Todo here: </h4>
+					</Col>
 				</Row>
 
 				<Row>	
@@ -81,7 +88,7 @@ const styleButtons = {
 						<FormControl 
 							inputRef = { (input) => { _task = input;} } 
 							type = 'text'  
-							placeholder ='enter a new task here...' 
+							placeholder ='Enter a NEW task here...' 
 							size = { 55 } 
 							maxLength = { 48 } 
 							required />
@@ -138,7 +145,6 @@ const styleButtons = {
 					<Col 
 						className = 'resetBtn' 
 						xs = { spacing.xs.resetBtn }
-						xsPull = { 1 }
 					> 
 						<Button 
 							style = { styleButtons }

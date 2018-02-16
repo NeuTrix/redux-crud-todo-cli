@@ -32,7 +32,9 @@ class TodoList extends Component {
 			<Grid >
 
 				<Row>	
-					<TodoTitleBar/>
+					<Col xsHidden = { true }>
+						<TodoTitleBar/>
+					</Col>
 				</Row>
 
 				<Row className= 'todoItems' style= { styleMain }>

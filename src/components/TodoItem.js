@@ -85,6 +85,7 @@ class TodoItem extends Component {
 
 		const spacing = [1, 1, 2, 7, 1] // control spacing of elements
 
+// ========= 
 		return (
 			
 			<Row style = { todosBox }  >
