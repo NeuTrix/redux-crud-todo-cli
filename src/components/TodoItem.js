@@ -54,13 +54,14 @@ class TodoItem extends Component {
 		// ========= Styling 
 
 		const spacing = { 
-			lg: {checkBox: 1, task: 11, rank: 3, date: 5, deleteBtn: 3},
+			xs: {checkBox: 1, task: 11, rank: 3, date: 5, deleteBtn: 3},
 			sm: {checkBox: 1, task: 6, rank: 2, date: 2, deleteBtn: 1} 
 		}
 
 		const todosBox = {
-			marginTop: 20,
+			marginTop: 10,
 			marginBottom: 10,
+			paddingBottom: 10,
 			borderBottom:'2px solid lightgrey'
 		};
 
@@ -89,7 +90,7 @@ class TodoItem extends Component {
 			<Row style = { todosBox }  >
 				<Col 
 					className = 'checkBox'
-					lg = { spacing.lg.checkBox } 
+					xs = { spacing.xs.checkBox } 
 					sm = { spacing.sm.checkBox } 
 				>
 					<Checkbox
@@ -102,7 +103,7 @@ class TodoItem extends Component {
 
 				<Col 
 					className= 'task' 
-					lg = { spacing.lg.task } 
+					xs = { spacing.xs.task } 
 					sm = { spacing.sm.task } 
 				>
 					<Form 
@@ -123,7 +124,7 @@ class TodoItem extends Component {
 
 				<Col 
 					className= 'rank' 
-					lg = { spacing.lg.rank } 
+					xs = { spacing.xs.rank } 
 					sm = { spacing.sm.rank }
 				>
 					<PriorityRadio
@@ -136,8 +137,8 @@ class TodoItem extends Component {
 
 				<Col 	
 					className='date' 
-					lg = { spacing.lg.date }
-					lgPull = { 1 }
+					xs = { spacing.xs.date }
+					xsPull = { 1 }
 					sm = { spacing.sm.date }
 				>
 					<Form onChange = { handleDateChange } >
@@ -155,7 +156,7 @@ class TodoItem extends Component {
 	
 				<Col 
 					className= 'deleteBtn' 
-					lg = { spacing.lg.deleteBtn } 
+					xs = { spacing.xs.deleteBtn } 
 					sm = { spacing.sm.deleteBtn }
 				>
 					<DeleteBtn 
