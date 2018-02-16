@@ -36,8 +36,8 @@ const TodoForm = (props) => {
 
 	// control spacing of elements
 	const spacing = { 
-		xs: {form: 12, rank: 3, date: 5, addBtn: 2, resetBtn: 2}, 
-		sm: {form: 5, rank: 2, date: 2, addBtn: 1, resetBtn: 1} 
+		xs: { form: 12, rank: 3, date: 5, addBtn: 2, resetBtn: 2 }, 
+		sm: { form: 5, rank: 2, date: 2, addBtn: 1, resetBtn: 1 } 
 	}
 
 	const styleTop = {
@@ -50,9 +50,7 @@ const TodoForm = (props) => {
 	};
 
 	const styleButtons = {
-		width: 35,
-		paddingLeft: 7,
-		textAlign: 'center'
+		// width: '4em'
 	}
 
 	const styleTitle = {
@@ -143,7 +141,8 @@ const TodoForm = (props) => {
 							className = { 'btn btn-success btn-sm' } 
 							type = 'submit' 
 							value = 'Add'
-						>Add
+						>
+						ADD
 						</Button>
 					</Col>
 
@@ -157,7 +156,7 @@ const TodoForm = (props) => {
 							className = { 'btn btn-warning btn-sm' } 
 							type = 'reset'
 						>
-						Clr 
+						CLR 
 						</Button> 
 					</Col>
 
