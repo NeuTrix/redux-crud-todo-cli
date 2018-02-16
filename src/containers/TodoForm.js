@@ -33,6 +33,7 @@ const TodoForm = (props) => {
 	};
 
 // ========= Styling ========= 
+
 	// control spacing of elements
 	const spacing = { 
 		xs: {form: 12, rank: 3, date: 5, addBtn: 1, resetBtn: 1} 

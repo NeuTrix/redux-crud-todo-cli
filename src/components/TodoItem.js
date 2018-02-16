@@ -38,25 +38,7 @@ class TodoItem extends Component {
 		let _task;
 		let _date;
 
-		const styleCompleteTask =  {
-			backgroundColor: item.completed ? 'whitesmoke' : 'white', 
-			color: item.completed ? 'lightgrey' : 'black',
-			textDecoration: item.completed ? 'line-through' : 'none',
-		};
-
-		// Code is WET
-		const onFocusStyle = (event) => {
-			event.preventDefault();
-			_task.style.backgroundColor = 'whitesmoke';
-			_task.style.color = 'blue';
-			_task.setSelectionRange(0, _task.value.length);
-		};
-
-		const onBlurStyle = (event) => {
-			event.preventDefault();
-			_task.style.backgroundColor = 'white';
-			_task.style.color = 'black';
-		};
+		
 
 		// =============== Event Functions ===============
 
@@ -83,39 +65,47 @@ class TodoItem extends Component {
 			return this.props.updateDate(item._id, newDate );
 		};
 
-		const spacing = [1, 1, 2, 7, 1] // control spacing of elements
+// ========= Styling ========= 
+
+	// control spacing of elements
+		const spacing = { 
+			xs: {checkBox: 1, task: 11, rank: 3, date: 5, deleteBtn: 3} 
+		}
+
+		const styleCompleteTask =  {
+			backgroundColor: item.completed ? 'whitesmoke' : 'white', 
+			color: item.completed ? 'lightgrey' : 'black',
+			textDecoration: item.completed ? 'line-through' : 'none',
+		};
+
+		// Code is WET
+		const onFocusStyle = (event) => {
+			event.preventDefault();
+			_task.style.backgroundColor = 'whitesmoke';
+			_task.style.color = 'blue';
+			_task.setSelectionRange(0, _task.value.length);
+		};
+
+		const onBlurStyle = (event) => {
+			event.preventDefault();
+			_task.style.backgroundColor = 'white';
+			_task.style.color = 'black';
+		};
 
 // ========= 
+
 		return (
 			
 			<Row style = { todosBox }  >
 
-				<Col sm = { spacing[0] } className = 'checkBox'>
+				<Col xs = { spacing.xs.checkBox } className = 'checkBox'>
 					<Checkbox
 						toggleComplete = { this.props.toggleComplete }   
 						id = { item._id }
 						completed = { item.completed }/>
 				</Col >
-				
-				<Col sm = { spacing[1] } className= 'rank' style = { centered } >
-					<PriorityRadio
-						id = { item._id }
-						updateRank= { this.props.updateRank }   
-						currRank = { item.rank }/>
-				</Col >
 
-				<Col 	sm = { spacing[2] } className='date' >
-					<Form onChange = { handleDateChange } >
-						<FormControl 
-							inputRef = { (ref) => { _date = ref;} } 
-							type = 'date'
-							defaultValue = { item.date } 
-							bsSize = 'sm'
-							required /> 
-					</Form>
-				</Col>
-	
-				<Col sm = { spacing[3] } className= 'currentTask' >
+				<Col xs = { spacing.xs.task } className= 'task' >
 					<Form 
 						onClick = { validateEditable }
 						onChange = { handleTaskEdit } 
@@ -129,8 +119,32 @@ class TodoItem extends Component {
 							style = { styleCompleteTask } /> 
 					</Form>
 				</Col>
+
+				<Col xs = { spacing.xs.rank } className= 'rank' style = { centered } >
+					<PriorityRadio
+						id = { item._id }
+						updateRank= { this.props.updateRank }   
+						currRank = { item.rank }/>
+				</Col >
+
+				<Col 	
+					className='date' 
+					xs = { spacing.xs.date }
+					xsPull = { 1 } 
+				>
+					<Form onChange = { handleDateChange } >
+						<FormControl 
+							inputRef = { (ref) => { _date = ref;} } 
+							type = 'date'
+							defaultValue = { item.date } 
+							bsSize = 'sm'
+							required /> 
+					</Form>
+				</Col>
 	
-				<Col sm = { spacing[4] } className= 'deleteBtn' style = { centered } >
+				
+	
+				<Col xs = { spacing.xs.deleteBtn } className= 'deleteBtn' style = { centered } >
 					<DeleteBtn 
 						removeTodo = { this.props.removeTodo }   
 						id = { item._id } />
