@@ -36,7 +36,7 @@ const TodoForm = (props) => {
 
 	// control spacing of elements
 	const spacing = { 
-		xs: {form: 12, rank: 3, date: 5, addBtn: 1, resetBtn: 1}, 
+		xs: {form: 12, rank: 4, date: 5, addBtn: 1, resetBtn: 1}, 
 		sm: {form: 5, rank: 2, date: 2, addBtn: 1, resetBtn: 1} 
 	}
 
@@ -135,14 +135,16 @@ const TodoForm = (props) => {
 				<Col 
 						className = 'addBtn' 
 						xs = { spacing.xs.addBtn }
+						xsPull = { 2 }
 						sm = { spacing.sm.addBtn }
-						xsPull = { 1 }
+						smPull = { 2 }
 					>
 						<Button 
 							style = { styleButtons }
 							className = { 'btn btn-success btn-sm' } 
 							type = 'submit' 
-							value = 'Add'> 
+							value = 'Add'
+						> 
 								Add +
 						</Button>
 					</Col>
@@ -150,13 +152,15 @@ const TodoForm = (props) => {
 					<Col 
 						className = 'resetBtn' 
 						xs = { spacing.xs.resetBtn }
+						xsPull = { 1 }
 						sm = { spacing.sm.resetBtn }
-						smPull = { 1 }
+						smPull = { 2 }
 					> 
 						<Button 
 							style = { styleButtons }
 							className = { 'btn btn-warning btn-sm' } 
-							type = 'reset'> 
+							type = 'reset'
+						> 
 								Reset 
 						</Button> 
 					</Col>
