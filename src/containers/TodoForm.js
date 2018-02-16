@@ -32,15 +32,29 @@ const TodoForm = (props) => {
 		_task.focus();
 	};
 
+// ========= Styling ========= 
 	const styleTop = {
 		backgroundColor: 'lightblue',
 		borderRadius: 5,
-		padding:10,
+		paddingTop:10,
+		paddingBottom:10,
 		marginBottom: 20,
 	};
 
-	const spacing = [1, 1, 2, 7, 1] // control spacing of elements
+	// control spacing of elements
+	const spacing = { 
+		xs: {form: 12, rank: 3, date: 5, addBtn: 2, resetBtn: 2} 
+	}
 
+	const spacingSub = {
+		xs: [6, 6]
+	}
+
+const styleButtons = {
+	width: 10
+}
+
+// ========= 
 	return (
 		<Grid className = 'TodoForm'>
 
@@ -51,25 +65,37 @@ const TodoForm = (props) => {
 				</Row>
 
 				<Row>	
-					<Col xsHidden = 'true' smHidden = 'true'>
+					<Col xsHidden = { true }>
 						<TodoTitleBar/>
 					</Col>
 				</Row>
 
-				<Row style= { styleTop }>
+				<Row style = { styleTop }>
 
-					<Col className ='reset' sm = { spacing[0] } > 
-						<Button 
-							className = { 'btn btn-warning btn-sm' } 
-							type = 'reset'> 
-								Reset 
-						</Button> 
+
+					<Col 
+						className = 'task' 
+						xs = { spacing.xs.form }
+					> 
+
+						<FormControl 
+							inputRef = { (input) => { _task = input;} } 
+							type = 'text'  
+							placeholder ='enter a new task here...' 
+							size = { 55 } 
+							maxLength = { 48 } 
+							required />
 					</Col>
 
-					<Col className ='rank' sm = { spacing[1] } > 
+
+					<Col 
+						className = 'rank' 
+						xs = { spacing.xs.rank }
+					> 
+
 						<FormControl 
 							bsSize = 'sm'
-							defaultValue = 'M'
+							defaultValue = 'Med'
 							componentClass = 'select' 
 							inputRef = { (value) => { _rank = value } } >
 
@@ -80,7 +106,12 @@ const TodoForm = (props) => {
 			      </FormControl>
 					</Col>
 
-					<Col className ='date'	sm = { spacing[2] } >
+					<Col 
+						className = 'date' 
+						xs = { spacing.xs.date }
+						xsPull = { 1 }
+					>
+
 						<FormControl 
 							inputRef = { (input) => { _date = input } } 
 							type = 'date'
@@ -89,23 +120,32 @@ const TodoForm = (props) => {
 							required /> 
 					</Col>
 
-					<Col className ='task' sm = { spacing[3] } > 
-						<FormControl 
-							inputRef = { (input) => { _task = input;} } 
-							type = 'text'  
-							placeholder ='enter a new task here...' 
-							size = { 55 } 
-							maxLength = { 48 } 
-							required />
-					</Col>
-			
-					<Col className = 'addBtn' sm = { spacing[4] } > 
+
+				<Col 
+						className = 'addBtn' 
+						xs = { spacing.xs.addBtn }
+						xsPull = { 1 }
+					>
 						<Button 
+							style = { styleButtons }
 							className = { 'btn btn-success btn-sm' } 
 							type = 'submit' 
-							value = 'Add' > 
-								Add 
+							value = 'Add'> 
+								Add +
 						</Button>
+					</Col>
+
+					<Col 
+						className = 'resetBtn' 
+						xs = { spacing.xs.resetBtn }
+						xsPull = { 1 }
+					> 
+						<Button 
+							style = { styleButtons }
+							className = { 'btn btn-warning btn-sm' } 
+							type = 'reset'> 
+								Reset 
+						</Button> 
 					</Col>
 
 				</Row>

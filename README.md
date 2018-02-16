@@ -35,7 +35,7 @@ const start = Date.now();
     }
 ```
 
-Application:
+# Application:
 
 - React front end
 - Redux for state management
@@ -45,3 +45,8 @@ Application:
 - Deployed on Heroku: https://redux-crud-project.herokuapp.com/
 
 - Debugging Mongoose and testing suit in alt branch
+
+
+# UI Optimization
+### Chrome
+- iPhone X
