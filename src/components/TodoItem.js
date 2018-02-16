@@ -1,6 +1,6 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
-import { Col, Form, FormControl, Row, } from 'react-bootstrap';
+import { Col, Form, FormControl, Row, Well } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
 // import action creators
@@ -69,7 +69,7 @@ class TodoItem extends Component {
 
 	// control spacing of elements
 		const spacing = { 
-			xs: {checkBox: 1, task: 11, rank: 3, date: 5, deleteBtn: 3} 
+			xs: {checkBox: 1, task: 10, rank: 3, date: 4, deleteBtn: 3} 
 		}
 
 		const styleCompleteTask =  {
@@ -96,8 +96,8 @@ class TodoItem extends Component {
 
 		return (
 			
+				<Well bsSize = 'small'>
 			<Row style = { todosBox }  >
-
 				<Col xs = { spacing.xs.checkBox } className = 'checkBox'>
 					<Checkbox
 						toggleComplete = { this.props.toggleComplete }   
@@ -151,6 +151,7 @@ class TodoItem extends Component {
 				</Col>
 	
 			</Row>
+				</Well>
 		);
 	}
 } 
