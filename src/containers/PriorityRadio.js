@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormControl } from 'react-bootstrap'
+import { FormControl } from 'react-bootstrap';
 
 // ========= Component
 
@@ -15,17 +15,17 @@ const PriorityBtn = (props) => {
 	return (
 
 		 <FormControl
-				bsSize = 'sm'
-				componentClass = "select" 
-				defaultValue = { props.currRank }
-				onChange = { handleChange } 
-				inputRef = { (value) => _rank = value } >
+			bsSize = 'sm'
+			componentClass = "select" 
+			defaultValue = { props.currRank }
+			onChange = { handleChange } 
+			inputRef = { (value) => _rank = value } >
 
-				<option value = 'H'>H</option>
-				<option value = 'M' >M</option>
-				<option value = 'L'>L</option>
+			<option value = 'H'>H</option>
+			<option value = 'M' >M</option>
+			<option value = 'L'>L</option>
 
-      </FormControl>
+		</FormControl>
 	);
 }; 
 

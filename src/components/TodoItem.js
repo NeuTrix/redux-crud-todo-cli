@@ -56,7 +56,7 @@ class TodoItem extends Component {
 		const spacing = { 
 			xs: {checkBox: 1, task: 11, rank: 3, date: 5, deleteBtn: 3},
 			sm: {checkBox: 1, task: 6, rank: 2, date: 2, deleteBtn: 1} 
-		}
+		};
 
 		const todosBox = {
 			marginTop: 10,
@@ -85,7 +85,7 @@ class TodoItem extends Component {
 			_task.style.color = 'black';
 		};
 
-// ========= 
+		// ========= 
 
 		return (
 			<Row style = { todosBox }  >

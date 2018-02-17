@@ -32,13 +32,13 @@ const TodoForm = (props) => {
 		_task.focus();
 	};
 
-// ========= Styling ========= 
+	// ========= Styling ========= 
 
 	// control spacing of elements
 	const spacing = { 
 		xs: { form: 12, rank: 3, date: 5, addBtn: 2, resetBtn: 2 }, 
 		sm: { form: 6, rank: 2, date: 2, addBtn: 1, resetBtn: 1 } 
-	}
+	};
 
 	const styleTop = {
 		backgroundColor: 'lightblue',
@@ -51,13 +51,13 @@ const TodoForm = (props) => {
 
 	const styleButtons = {
 		// width: '4em'
-	}
+	};
 
 	const styleTitle = {
 		textAlign: 'left'
-	}
+	};
 
-// ========= 
+	// ========= 
 	return (
 		<Grid className = 'TodoForm'>
 
@@ -67,7 +67,7 @@ const TodoForm = (props) => {
 					<Col 
 						xsHidden = { true }
 						smHidden = { false }
-						>
+					>
 						<TodoTitleBar/>
 					</Col>
 				</Row>
@@ -99,7 +99,7 @@ const TodoForm = (props) => {
 							componentClass = 'select' 
 							bsSize = 'sm'
 							defaultValue = 'M'
-							inputRef = { (value) => { _rank = value } } >
+							inputRef = { (value) => { _rank = value; } } >
 
 							<option value = 'H'>H</option>
 							<option value = 'M'>M</option>
@@ -115,14 +115,14 @@ const TodoForm = (props) => {
 					>
 
 						<FormControl 
-							inputRef = { (input) => { _date = input } } 
+							inputRef = { (input) => { _date = input; } } 
 							type = 'date'
 							defaultValue = { _currentDate } 
 							bsSize = 'sm'
 							required /> 
 					</Col>
 
-				<Col 
+					<Col 
 						className = 'addBtn' 
 						xs = { spacing.xs.addBtn }
 						sm = { spacing.sm.addBtn }

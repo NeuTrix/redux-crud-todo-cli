@@ -14,8 +14,8 @@ const styleTitle= {
 };
 
 const spacing =  {
-		sm: {task: 6, rank: 2, date: 2, action: 2,  }, 
-	}	
+	sm: {task: 6, rank: 2, date: 2, action: 2,  }, 
+};	
 
 // =========================== Container ===========================
 
