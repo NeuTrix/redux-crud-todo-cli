@@ -63,18 +63,11 @@ const TodoForm = (props) => {
 
 			<Form onSubmit = { handleSubmit }>
 
-				<Row> 
-					<Col
-						className = 'AddTodoTitle'
-						style = { styleTitle}
-						xsHidden = { true }
-					>	
-						<h3> Add a new Todo here: </h3>
-					</Col>
-				</Row>
-
 				<Row>	
-					<Col xsHidden = { true }>
+					<Col 
+						xsHidden = { true }
+						smHidden = { false }
+						>
 						<TodoTitleBar/>
 					</Col>
 				</Row>
