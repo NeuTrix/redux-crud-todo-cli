@@ -1,25 +1,26 @@
+// ... component used to create new Todo items
 import React from 'react';
 import PropTypes from 'prop-types';
 import TodoTitleBar from './TodoTitleBar';
 import normalizeDate from '../myFunctions/normalizeDate';
 
 import { 
-	Grid, 
-	Row, 
 	Col, 
 	Button, 
 	Form, 
 	FormControl 
+	Grid, 
+	Row, 
 } from 'react-bootstrap';
 
 // ========= Component
 
 const TodoForm = (props) => {
 
-	let _currentDate = normalizeDate(new Date());
+	let _currentDate = normalizeDate(new Date()); // formatted date
 	let _task, // todo task
-		_rank, // todo priority
-		_date; // todo due date
+			_rank, // todo priority
+			_date; // todo due date
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -28,11 +29,11 @@ const TodoForm = (props) => {
 			task: _task.value, 
 			rank: _rank.value, 
 		});
-		_task.value = ''; // reset the fields
+		_task.value = '';
 		_task.focus();
 	};
 
-	// ========= Styling ========= 
+	// ========= Styling  
 
 	// control spacing of elements
 	const spacing = { 
@@ -58,35 +59,32 @@ const TodoForm = (props) => {
 	};
 
 	// ========= 
+
 	return (
 		<Grid className = 'TodoForm'>
 
 			<Form onSubmit = { handleSubmit }>
 
 				<Row>	
-					<Col 
-						xsHidden = { true }
-						smHidden = { false }
-					>
+					<Col xsHidden = { true } smHidden = { false }>
 						<TodoTitleBar/>
 					</Col>
 				</Row>
 
 				<Row style = { styleTop }>
-
 					<Col 
 						className = 'task' 
 						xs = { spacing.xs.form }
 						sm = { spacing.sm.form }
 					> 
-
 						<FormControl 
 							inputRef = { (input) => { _task = input;} } 
 							type = 'text'  
 							maxLength = { 40 } 
 							style = { { marginBottom: 10 } }
 							placeholder ='Enter a NEW task here...' 
-							required />
+							required 
+						/>
 					</Col>
 
 					<Col 
@@ -94,13 +92,12 @@ const TodoForm = (props) => {
 						xs = { spacing.xs.rank }
 						sm = { spacing.sm.rank }
 					> 
-
 						<FormControl 
 							componentClass = 'select' 
 							bsSize = 'sm'
 							defaultValue = 'M'
-							inputRef = { (value) => { _rank = value; } } >
-
+							inputRef = { (value) => { _rank = value; } } 
+						>
 							<option value = 'H'>H</option>
 							<option value = 'M'>M</option>
 							<option value = 'L'>L</option>
@@ -113,13 +110,13 @@ const TodoForm = (props) => {
 						xs = { spacing.xs.date }
 						sm = { spacing.sm.date }
 					>
-
 						<FormControl 
 							inputRef = { (input) => { _date = input; } } 
 							type = 'date'
 							defaultValue = { _currentDate } 
 							bsSize = 'sm'
-							required /> 
+							required 
+						/> 
 					</Col>
 
 					<Col 
@@ -133,7 +130,7 @@ const TodoForm = (props) => {
 							type = 'submit' 
 							value = 'Add'
 						>
-						ADD
+							ADD
 						</Button>
 					</Col>
 
@@ -147,7 +144,7 @@ const TodoForm = (props) => {
 							className = { 'btn btn-warning btn-sm' } 
 							type = 'reset'
 						>
-						CLR 
+							CLR 
 						</Button> 
 					</Col>
 
