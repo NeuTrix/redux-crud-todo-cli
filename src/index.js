@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
-import App from './components/App';
+import HomePage from './containers/HomePage';
 
 import { Provider }  from 'react-redux';
 import store from './store/store';
@@ -10,8 +10,8 @@ import store from './store/store';
 
 ReactDOM.render(
 	
-	<Provider store={ store } >
-		<App/> 
+	<Provider store = { store } >
+		<HomePage/> 
 	</Provider>,
 
 	document.getElementById('root')

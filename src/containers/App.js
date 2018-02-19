@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Col, Grid, Row } from 'react-bootstrap' 
 
-class HomePage extends Component {
+class App extends Component {
 
 	render () {
 		return (
-			<Grid>
+			<Grid className ="App">
 				<Row>
 					<Col>
 					</Col>
@@ -23,8 +23,8 @@ class HomePage extends Component {
 				</Row>
 
 			</Grid>
-			)
+		);
 	}
 }
 
-export default HomePage
+export default App

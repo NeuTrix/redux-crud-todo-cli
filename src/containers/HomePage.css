@@ -1,28 +1,28 @@
-.App {
+.HomePage {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
+.HomePage-logo {
+  animation: HomePage-logo-spin infinite 20s linear;
   height: 80px;
 }
 
-.App-header {
+.HomePage-header {
   background-color: #006699;
   height: 150px;
   padding: 20px;
   color: white;
 }
 
-.App-title {
+.HomePage-title {
   font-size: 1.5em;
 }
 
-.App-intro {
+.HomePage-intro {
   font-size: large;
 }
 
-@keyframes App-logo-spin {
+@keyframes HomePage-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }

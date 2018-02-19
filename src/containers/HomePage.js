@@ -2,21 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import logo from '../assets/logo.svg';
-import './App.css';
+import './HomePage.css';
 import PropTypes from 'prop-types';
 import TodoList from '../containers/TodoList';
 import TodoForm from '../components/TodoForm';
 import { addTodo } from '../actions/todoActions';
 
-class App extends Component {
+class HomePage extends Component {
 
 	render() {
 		return (
-			<div className="App">
+			<div className="HomePage">
 	
-				<header className="App-header">
-					<img src={logo} className="App-logo" alt="logo" />
-					<h1 className="App-title">
+				<header className="HomePage-header">
+					<img src={logo} className="HomePage-logo" alt="logo" />
+					<h1 className="HomePage-title">
 						React/Redux Todo (LocalStorage)
 					</h1>
 				</header>
@@ -34,12 +34,12 @@ class App extends Component {
 
 // ========= Props ========= 
 
-App.propTypes = { 
+HomePage.propTypes = { 
 	addTodo:    PropTypes.func.isRequired,
 	todoArray: 	PropTypes.array.isRequired
 };
 
-App.defaultProps ={
+HomePage.defaultProps ={
 	addTodo: f=>f,
 	todoArray: []
 };
@@ -58,4 +58,4 @@ const mapDispatchToProps = (dispatch) => {
 	};
 }; 
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
