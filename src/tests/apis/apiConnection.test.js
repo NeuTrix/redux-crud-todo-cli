@@ -1,6 +1,5 @@
 /* eslint-env node, mocha, chai, jest */
 
-
 // import deepFreeze from 'deep-freeze';
 import { expect } from 'chai';
 import axios from 'axios';
@@ -18,7 +17,8 @@ describe('The API request object actions', () => {
 			.then((res) => {
 				todos = res.data;
 				_last = todos.length - 1;
-				_task = todos[_last];
+				_task = todos[0];
+				console.log(_task);
 				done();
 			});
 	});
