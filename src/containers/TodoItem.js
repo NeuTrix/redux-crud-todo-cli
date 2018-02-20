@@ -59,10 +59,12 @@ class TodoItem extends Component {
 		};
 
 		const todosBox = {
-			marginTop: 10,
+			// marginTop: 10,
 			marginBottom: 10,
-			paddingBottom: 10,
-			borderBottom:'2px solid lightgrey'
+			paddingTop: 10,
+			border: '1px solid lightgrey',
+			borderRadius: 5,
+			backgroundColor: 'whitesmoke'
 		};
 
 		const styleCompleteTask =  {

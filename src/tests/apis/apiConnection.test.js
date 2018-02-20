@@ -1,26 +1,20 @@
 /* eslint-env node, mocha, chai, jest */
 
-	xit('', () => {
-	
-	})
-/*
 
 // import deepFreeze from 'deep-freeze';
 import { expect } from 'chai';
 import axios from 'axios';
 
-
-
 // ========= ========= ========= 
 
-xdescribe('The API request object actions', () => {
+describe('The API request object actions', () => {
 
 	let todos;
 	let _task;
 	let _last;
 
 	beforeAll((done) => {
-		axios.get('http://localhost:3003/api/todos')
+		axios.get('https://redux-todo-api.herokuapp.com/api/todos')
 			.then((res) => {
 				todos = res.data;
 				_last = todos.length - 1;
@@ -63,4 +57,4 @@ xdescribe('The API request object actions', () => {
 		
 	});
 
-});*/
+});

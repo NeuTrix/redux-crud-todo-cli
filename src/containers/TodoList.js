@@ -8,8 +8,8 @@ import TodoItem from '../containers/TodoItem';
 // ============================ STYLING ============================
 
 const styleMain = {
-	border: '1px solid lightblue',
-	borderRadius: 5,
+	// border: '1px solid lightblue',
+	// borderRadius: 5,
 };
 
 // =========================== COMPONENT ===========================
