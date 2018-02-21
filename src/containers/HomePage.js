@@ -8,18 +8,17 @@ import TodoList from '../containers/TodoList';
 import TodoForm from '../components/TodoForm';
 import { addTodo } from '../actions/todoActions';
 
-import { startState } from '../actions/apiActions'
+// import { startState } from '../actions/apiActions'
 
 // ========= 
 
 class HomePage extends Component {
-
 	
-	componentDidMount() {
-		const api = 'https://redux-todo-api.herokuapp.com/api/todos'
-		this.props.startApp(api)
-		console.log('it mounted!');
-	}
+	// componentDidMount() {
+	// 	const api = 'https://redux-todo-api.herokuapp.com/api/todos'
+	// 	this.props.startApp(api)
+	// 	console.log('it mounted!');
+	// }
 
 	render() {
 		return (

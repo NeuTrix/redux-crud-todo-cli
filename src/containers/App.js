@@ -1,15 +1,9 @@
 import React, { Component } from 'react'
 import { Col, Grid, Row } from 'react-bootstrap' 
-import startState from '../actions/apiActions'
+
+// ========= 
 
 class App extends Component {
-
-	const api = 'https://redux-todo-api.herokuapp.com/api/todos'
-
-	componentDidMount() {
-		console.log('it mounted!');
-		startState(api)
-	}
 
 	render () { 
 

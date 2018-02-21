@@ -1,5 +1,5 @@
 import fetch from 'cross-fetch';
-import axios from 'axios'
+
 import {
 	todosSetInitialState
 } from './todoActions';
@@ -35,7 +35,7 @@ export const todosHasErrored = (bool) => {
 	};
 };
 
-// ========= ========= ========= 
+// =========   
 
 export function startState(url) {
 
