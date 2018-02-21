@@ -148,7 +148,7 @@ class TodoItem extends Component {
 						<FormControl 
 							inputRef = { (ref) => { _date = ref;} } 
 							type = 'date'
-							defaultValue = { item.date } 
+							defaultValue = { item.date.slice(0,10) } 
 							bsSize = 'sm'
 							required 
 						/> 
