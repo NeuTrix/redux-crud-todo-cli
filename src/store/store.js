@@ -2,9 +2,8 @@ import { applyMiddleware, createStore } from 'redux';
 import rootReducer from '../reducers';
 
 import { 
-	// loadState,
-	loadDatabase,
-	 saveState 
+	loadState,
+	saveState 
 } from './localStorage';
 
 import throttle from 'lodash/throttle';
@@ -34,7 +33,7 @@ if (process.env.NODE_ENV === 'development') {
 // ========= ========= ========= 
 
 // state management: start the app with the current state in localStr
-const persistedState = loadDatabase();
+const persistedState = loadState();
 
 const store = createStore(rootReducer, persistedState, applyMiddleware(...middlewares));
 

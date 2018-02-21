@@ -18,7 +18,7 @@ describe('The API request object actions', () => {
 				todos = res.data;
 				_last = todos.length - 1;
 				_task = todos[0];
-				console.log(_task);
+				// console.log(_task);
 				done();
 			});
 	});
