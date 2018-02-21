@@ -1,4 +1,17 @@
 // create function to LOAD the state from localStorage
+import axios from 'axios';
+
+export const loadDatabase = () => {
+	try {
+		const serializedState = axios.get()
+		if(serializedState === null) {
+			return undefined;
+		}
+		return JSON.parse(serializedState);
+	} catch(err) {
+		return undefined;
+	}
+};
 
 export const loadState = () => {
 	try {

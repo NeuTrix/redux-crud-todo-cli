@@ -1,8 +1,14 @@
 import { applyMiddleware, createStore } from 'redux';
 import rootReducer from '../reducers';
 
-import { loadState, saveState } from './localStorage';
+import { 
+	// loadState,
+	loadDatabase,
+	 saveState 
+} from './localStorage';
+
 import throttle from 'lodash/throttle';
+import axios from 'axios';
 
 import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
@@ -28,7 +34,7 @@ if (process.env.NODE_ENV === 'development') {
 // ========= ========= ========= 
 
 // state management: start the app with the current state in localStr
-const persistedState = loadState();
+const persistedState = loadDatabase();
 
 const store = createStore(rootReducer, persistedState, applyMiddleware(...middlewares));
 

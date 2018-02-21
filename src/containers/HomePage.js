@@ -8,7 +8,18 @@ import TodoList from '../containers/TodoList';
 import TodoForm from '../components/TodoForm';
 import { addTodo } from '../actions/todoActions';
 
+import { startState } from '../actions/apiActions'
+
+// ========= 
+
 class HomePage extends Component {
+
+	
+	componentDidMount() {
+		const api = 'https://redux-todo-api.herokuapp.com/api/todos'
+		this.props.startApp(api)
+		console.log('it mounted!');
+	}
 
 	render() {
 		return (
@@ -54,7 +65,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		addTodo: (task) => { dispatch(addTodo(task)); }
+		addTodo: (task) => { dispatch(addTodo(task)) },
+		startApp: (url) => { dispatch(startState(url)) }
 	};
 }; 
 

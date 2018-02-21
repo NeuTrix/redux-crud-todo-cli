@@ -11,7 +11,7 @@ import {
 	UPDATE_TASK
 } from '../actions/todoActions';
 
-let initialState =[
+let defaultState =[
 	{	
 		_id: shortid.generate(),
 		completed:  false,
@@ -25,7 +25,7 @@ let initialState =[
 
 // ========= 
 
-const TodoReducer = (state = initialState , action) => {
+const TodoReducer = (state = defaultState , action) => {
 
 	let payload  = action.payload;
 	let type = action.type;
