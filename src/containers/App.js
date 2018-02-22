@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import logo from '../assets/logo.svg';
 import './App.css';
-import './App.css';
 
 import PropTypes from 'prop-types';
 import TodoList from '../containers/TodoList';
@@ -28,16 +27,7 @@ class App extends Component {
 		return (
 			<Router>
 				<div className="App">
-					<Header/>
-					<header className="App-header">
-						<img src={logo} className="App-logo" alt="logo" />
-						<h1 className="App-title">
-							React/Redux Todo (LocalStorage)
-						</h1>
-					</header>
-
-					<p> Todays Date: { new Date().toDateString() } </p>
-					
+					<Header/>					
 					<TodoForm addTodo = { this.props.addTodo } />
 					<TodoList todoArray=  { this.props.todoArray } />
 				</div>

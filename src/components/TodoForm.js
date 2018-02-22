@@ -45,9 +45,9 @@ const TodoForm = (props) => {
 		backgroundColor: 'lightblue',
 		borderRadius: 5,
 		padding:10,
-		// paddingTop:10,
+		marginTop:55,
 		// paddingBottom:10,
-		marginBottom: 20,
+		marginBottom: 10,
 	};
 
 	const styleButtons = {
@@ -63,7 +63,7 @@ const TodoForm = (props) => {
 	return (
 		<Grid className = 'TodoForm'>
 
-			<Form onSubmit = { handleSubmit }>
+			<Form onSubmit = { handleSubmit } >
 
 				<Row>	
 					<Col xsHidden = { true } smHidden = { false }>

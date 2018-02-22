@@ -1,52 +1,62 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Col, Grid, Nav, Navbar, NavItem, Row } from 'react-bootstrap';
-// import Login from './Login'
+import logo from '../assets/logo.svg';
+import '../containers/App.css';
+
+import { 
+	Col, 
+	Grid, 
+	Nav, 
+	Navbar, 
+	NavItem, 
+	Row 
+} from 'react-bootstrap';
+
 
 const Header = () => {
 
-	const spacing = {
-		sm: { icon: 2, brand: 3, home: 2, signup: 2, login: 3}
-
-	}
-
 	return(
-			<Navbar inverse collapseOnSelect>
+		<Navbar inverse collapseOnSelect fixedTop >
 
-			  <Navbar.Header>
-			    <Navbar.Brand>
+		  <Navbar.Header>
+		    <Navbar.Brand>
+					<img src={logo} className="App-logo" alt="logo" />
+		    </Navbar.Brand>
+
+		    <Navbar.Brand>
 			      <Link to = '/' >Redux-Todo</Link>
-			    </Navbar.Brand>
-			    <Navbar.Toggle />
-			  </Navbar.Header>
+		    </Navbar.Brand>
 
-			  <Navbar.Collapse>
+		    <Navbar.Toggle />
+		  </Navbar.Header>
 
-			    <Nav>
-			      <NavItem eventKey={1}>
-				      <Link to = '/#' > *home </Link>
-			      </NavItem>
-			    </Nav>
+		  <Navbar.Collapse>
 
-			    <Nav>
-			      <NavItem eventKey={1} >
-				      <Link to = '/#' > *about </Link>
-			      </NavItem>
-			    </Nav>
+		    <Nav>
+		      <NavItem eventKey={1}>
+			      <Link to = '/#' > *home </Link>
+		      </NavItem>
+		    </Nav>
 
-			    <Nav pullRight>
-			      <NavItem eventKey={1}>
-			        <Link to = '/#' > *login </Link>
-			      </NavItem>
+		    <Nav>
+		      <NavItem eventKey={1} >
+			      <Link to = '/#' > *about </Link>
+		      </NavItem>
+		    </Nav>
 
-			      <NavItem eventKey={2}>
-			        <Link to = '/#' > *sign up </Link>
-			      </NavItem>
+		    <Nav pullRight>
+		      <NavItem eventKey={1}>
+		        <Link to = '/#' > *login </Link>
+		      </NavItem>
 
-			    </Nav>
+		      <NavItem eventKey={2}>
+		        <Link to = '/#' > *sign up </Link>
+		      </NavItem>
 
-			  </Navbar.Collapse>
-			</Navbar>
+		    </Nav>
+
+		  </Navbar.Collapse>
+		</Navbar>
 	);
 };
 
