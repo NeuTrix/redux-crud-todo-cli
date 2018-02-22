@@ -24,7 +24,7 @@ const Header = () => {
 		    </Navbar.Brand>
 
 		    <Navbar.Brand>
-			      <Link to = '/' >Redux-Todo </Link>
+			      <a href = '/' >Redux-Todo </a>
 		    </Navbar.Brand>
 
 		    <Navbar.Toggle />

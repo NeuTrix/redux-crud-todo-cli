@@ -16,7 +16,7 @@ import Header from '../../components/Header';
 
 describe('The Header Component w/ ReactDom', () => {
 
-	xit('..renders the Header component w/ReactDom', () => {
+	it.only('..renders the Header component w/ReactDom', () => {
 		const div = document.createElement('div');
 		ReactDom.render(
 			<Header/>,
@@ -41,7 +41,7 @@ describe('The Header Component', () => {
 		).toBe(1);
 	});
 
-	xit('..renders a Login component ', () => {
+	it('..renders a Login component ', () => {
 		expect(
 			_Header
 				.find('Login')
@@ -49,7 +49,7 @@ describe('The Header Component', () => {
 		).toBe(1);
 	});
 
-	xit('..has a login link', () => {
+	it('..has a login link', () => {
 		expect();
 	});
 
