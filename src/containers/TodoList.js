@@ -5,40 +5,29 @@ import { Col, Grid, Row } from 'react-bootstrap';
 
 import TodoItem from '../containers/TodoItem';
 
-// ============================ STYLING ============================
-
-const styleMain = {
-	// border: '1px solid lightblue',
-	// borderRadius: 5,
-};
-
-// =========================== COMPONENT ===========================
+// ========= Component ========= 
 
 class TodoList extends Component {
 
 	render() {
 
-		let todoArray= this.props.todoArray;
+		let todoArray = this.props.todoArray;
 
-		let todos= todoArray.map(item => {
-			return <TodoItem 
-				key = { item._id }
-				item = { item } />;
+		let todos = todoArray.map(item => {
+			return <TodoItem key = { item._id } item = { item } />;
 		});
 
 		return (
-		
 			<Grid >
-
-				<Row className= 'todoItems' style= { styleMain }>
-					<Col lg = { 12 }  >
-						{ todos } 
+				<Row className = 'todoItems' >
+					<Col lg = { 12 } >
+						{ todos.reverse() } 
 					</Col>
 				</Row>
 			</Grid>
 		);
 	}
-} // end component
+} 
 
 // ========= PropTypes ========= 
 
