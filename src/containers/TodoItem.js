@@ -184,7 +184,6 @@ class TodoItem extends Component {
 
 TodoItem.propTypes = { 
 	item: PropTypes.object.isRequired,
-	rank: PropTypes.string.isRequired
 };
 
 TodoItem.defaultProps ={
@@ -194,9 +193,8 @@ TodoItem.defaultProps ={
 		details: 'needed',
 		date: '2018-12-31',
 		owner: 'Bhudah',
-		rank: "Very",
+		rank: "High",
 		task: 'Celebrate life!',
-		 
 	}
 };
 
