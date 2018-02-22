@@ -12,32 +12,35 @@ const Header = () => {
 
 	return(
 			<Navbar inverse collapseOnSelect>
+
 			  <Navbar.Header>
 			    <Navbar.Brand>
-			      <Link to = '/' >React-Todo App</Link>
+			      <Link to = '/' >Redux-Todo</Link>
 			    </Navbar.Brand>
 			    <Navbar.Toggle />
 			  </Navbar.Header>
 
 			  <Navbar.Collapse>
+
 			    <Nav>
 			      <NavItem eventKey={1}>
-				      <Link to = '/' > home
-				      </Link>
+				      <Link to = '/#' > *home </Link>
+			      </NavItem>
+			    </Nav>
+
+			    <Nav>
+			      <NavItem eventKey={1} >
+				      <Link to = '/#' > *about </Link>
 			      </NavItem>
 			    </Nav>
 
 			    <Nav pullRight>
 			      <NavItem eventKey={1}>
-			        <Link to = '/login' >
-				        login
-			        </Link>
+			        <Link to = '/#' > *login </Link>
 			      </NavItem>
 
 			      <NavItem eventKey={2}>
-			        <Link to = '/signup' >
-				        sign up
-			        </Link>
+			        <Link to = '/#' > *sign up </Link>
 			      </NavItem>
 
 			    </Nav>
@@ -47,32 +50,4 @@ const Header = () => {
 	);
 };
 
-
-// ========= ========= ========= 
-
-// <Grid>
-// 			<Row className= "header" > 
-
-// 			<Col sm = {spacing.sm.icon} >
-// 				 icon
-// 			</Col>
-			
-// 			<Col sm = {spacing.sm.home} >
-// 				 home
-// 			</Col>
-			
-// 			<Col sm = {spacing.sm.brand} >
-// 				 brand
-// 			</Col>
-			
-// 			<Col sm = {spacing.sm.login} >
-// 				 login
-// 			</Col>
-			
-// 			<Col sm = {spacing.sm.signup} >
-// 				 signup
-// 			</Col>
-			
-// 			</Row>
-// 	</Grid>
 export default Header;
