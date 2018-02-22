@@ -62,6 +62,7 @@ class TodoItem extends Component {
 			// marginTop: 10,
 			marginBottom: 10,
 			paddingTop: 10,
+			paddingBottom: 10,
 			border: '1px solid lightgrey',
 			borderRadius: 5,
 			backgroundColor: 'whitesmoke'
