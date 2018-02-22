@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import TodoList from '../containers/TodoList';
 import TodoForm from '../components/TodoForm';
 import { addTodo } from '../actions/todoActions';
+import { BrowserRouter as Router } from 'react-router-dom'
 
 import { startState } from '../actions/apiActions'
 
@@ -21,22 +22,21 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className="App">
-	
-				<header className="App-header">
-					<img src={logo} className="App-logo" alt="logo" />
-					<h1 className="App-title">
-						React/Redux Todo (LocalStorage)
-					</h1>
-				</header>
-				
-				<p> Todays Date: { new Date().toDateString() } </p>
-				
-				<TodoForm addTodo = { this.props.addTodo } />
+			<Router>
+				<div className="App">
+					<header className="App-header">
+						<img src={logo} className="App-logo" alt="logo" />
+						<h1 className="App-title">
+							React/Redux Todo (LocalStorage)
+						</h1>
+					</header>
 
-				<TodoList todoArray=  { this.props.todoArray } />
-
-			</div>
+					<p> Todays Date: { new Date().toDateString() } </p>
+					
+					<TodoForm addTodo = { this.props.addTodo } />
+					<TodoList todoArray=  { this.props.todoArray } />
+				</div>
+			</Router>
 		);
 	}
 } 
