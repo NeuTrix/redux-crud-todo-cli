@@ -1,6 +1,6 @@
 // component to display the curret todo list
 import React from 'react';
-import { Col, Grid, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 // ============================ STYLING ============================
