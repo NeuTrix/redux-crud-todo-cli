@@ -1,7 +1,12 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
-import { Col, Form, FormControl, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { 
+	Col, 
+	Form, 
+	FormControl, 
+	Row 
+} from 'react-bootstrap';
 
 // import action creators
 import { 
@@ -131,11 +136,13 @@ class TodoItem extends Component {
 					xs = { spacing.xs.rank } 
 					sm = { spacing.sm.rank }
 				>
-					<PriorityRadio
-						id = { item._id }
-						updateRank= { this.props.updateRank }   
-						currRank = { item.rank }
-					/>
+					<Form>
+						<PriorityRadio
+							id = { item._id }
+							updateRank= { this.props.updateRank }   
+							currRank = { item.rank }
+						/>
+					</Form>
 
 				</Col >
 
@@ -177,6 +184,7 @@ class TodoItem extends Component {
 
 TodoItem.propTypes = { 
 	item: PropTypes.object.isRequired,
+	rank: PropTypes.string.isRequired
 };
 
 TodoItem.defaultProps ={
@@ -186,8 +194,9 @@ TodoItem.defaultProps ={
 		details: 'needed',
 		date: '2018-12-31',
 		owner: 'Bhudah',
+		rank: "Very",
 		task: 'Celebrate life!',
-		rank: 'Low', 
+		 
 	}
 };
 

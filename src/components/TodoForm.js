@@ -95,12 +95,12 @@ const TodoForm = (props) => {
 						<FormControl 
 							componentClass = 'select' 
 							bsSize = 'sm'
-							defaultValue = 'M'
+							defaultValue = 'Med'
 							inputRef = { (value) => { _rank = value; } } 
 						>
-							<option value = 'H'>H</option>
-							<option value = 'M'>M</option>
-							<option value = 'L'>L</option>
+							<option value = 'High'>High</option>
+							<option value = 'Med'>Med</option>
+							<option value = 'Low'>Low</option>
 
 			      </FormControl>
 					</Col>
