@@ -20,7 +20,6 @@ import {
 import Checkbox from '../components/Checkbox';
 import PriorityRadio from '../components/PriorityRadio';
 import DeleteBtn from '../components/DeleteBtn';
-
 // ========= Component =========
 
 class TodoItem extends Component {

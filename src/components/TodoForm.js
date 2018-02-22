@@ -43,10 +43,7 @@ const TodoForm = (props) => {
 
 	const styleTop = {
 		backgroundColor: 'lightblue',
-		borderRadius: 5,
 		padding:10,
-		marginTop:55,
-		// paddingBottom:10,
 		marginBottom: 10,
 	};
 
@@ -57,17 +54,15 @@ const TodoForm = (props) => {
 	// ========= 
 
 	return (
-		<Grid className = 'TodoForm'>
+	<Grid className = 'TodoForm' style = { {marginTop: 100}} >
 
-			<Form onSubmit = { handleSubmit } >
-
-				<Row>	
 					<Col xsHidden = { true } smHidden = { false }>
 						<TodoTitleBar/>
 					</Col>
-				</Row>
+			<Form onSubmit = { handleSubmit } >
 
 				<Row style = { styleTop }>
+
 					<Col 
 						className = 'task' 
 						xs = { spacing.xs.form }

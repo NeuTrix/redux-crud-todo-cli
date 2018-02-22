@@ -8,8 +8,6 @@ import PropTypes from 'prop-types';
 const styleTitle= {
 	background: '#006699',
 	color: 'lightblue',
-	borderRadius: 5,
-	marginBottom: 10,
 	textAlign: 'left'
 };
 
@@ -24,7 +22,6 @@ const TodoTitleBar = (props) => {
 	
 	return (
 	
-		<Grid >
 
 			<Row className = 'TodoTitleBar' style= { styleTitle }>
 			
@@ -46,7 +43,6 @@ const TodoTitleBar = (props) => {
 
 			</Row>
 
-		</Grid>
 	);
 
 }; // end container
