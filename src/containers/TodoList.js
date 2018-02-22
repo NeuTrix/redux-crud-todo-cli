@@ -32,7 +32,7 @@ class TodoList extends Component {
 
 				<Row className= 'todoItems' style= { styleMain }>
 					<Col lg = { 12 }  >
-						{todos} 
+						{todos.reverse()} 
 					</Col>
 				</Row>
 	
