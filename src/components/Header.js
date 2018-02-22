@@ -33,23 +33,23 @@ const Header = () => {
 		  <Navbar.Collapse>
 
 		    <Nav>
-		      <NavItem eventKey={ 2 } href = '/#' >
+		      <NavItem eventKey={ 2 } href = '/' >
 						*home 
 		      </NavItem>
 		    </Nav>
 
 		    <Nav>
-		      <NavItem eventKey={ 2 } href = '/#' >
+		      <NavItem eventKey={ 2 } href = '/about' >
 			      *about 
 		      </NavItem>
 		    </Nav>
 
 		    <Nav pullRight>
-		      <NavItem eventKey={ 3 } href = '/#' >
+		      <NavItem eventKey={ 3 } href = '/login' >
 		        *login 
 		      </NavItem>
 
-		      <NavItem eventKey={ 4 } href = '/#' >
+		      <NavItem eventKey={ 4 } href = '/signup' >
 						*sign up
 		      </NavItem>
 
