@@ -24,7 +24,7 @@ const Header = () => {
 		    </Navbar.Brand>
 
 		    <Navbar.Brand>
-			      <Link to = '/' >Redux-Todo</Link>
+			      <Link to = '/' >Redux-Todo </Link>
 		    </Navbar.Brand>
 
 		    <Navbar.Toggle />
@@ -33,24 +33,24 @@ const Header = () => {
 		  <Navbar.Collapse>
 
 		    <Nav>
-		      <NavItem eventKey={1}>
-			      <Link to = '/#' > *home </Link>
+		      <NavItem eventKey={ 2 } href = '/#' >
+						*home 
 		      </NavItem>
 		    </Nav>
 
 		    <Nav>
-		      <NavItem eventKey={1} >
-			      <Link to = '/#' > *about </Link>
+		      <NavItem eventKey={ 2 } href = '/#' >
+			      *about 
 		      </NavItem>
 		    </Nav>
 
 		    <Nav pullRight>
-		      <NavItem eventKey={1}>
-		        <Link to = '/#' > *login </Link>
+		      <NavItem eventKey={ 3 } href = '/#' >
+		        *login 
 		      </NavItem>
 
-		      <NavItem eventKey={2}>
-		        <Link to = '/#' > *sign up </Link>
+		      <NavItem eventKey={ 4 } href = '/#' >
+						*sign up
 		      </NavItem>
 
 		    </Nav>
