@@ -1,42 +1,71 @@
-import React, { Component } from 'react'
-import { Col, Grid, Row } from 'react-bootstrap' 
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import logo from '../assets/logo.svg';
+import './App.css';
+import PropTypes from 'prop-types';
+import TodoList from '../containers/TodoList';
+import TodoForm from '../components/TodoForm';
+import { addTodo } from '../actions/todoActions';
+
+import { startState } from '../actions/apiActions'
 
 // ========= 
 
 class App extends Component {
+	
+	componentDidMount() {
+		const api = 'https://redux-todo-api.herokuapp.com/api/todos'
+		this.props.startApp(api)
+	}
 
-	render () { 
-
-		const spacing = {
-			sm: {top: 1	, mid: 10, bot: 1}
-		}
-
-		const style = {
-			outline: '1px solid orange',
-			marginTop:250,
-			textAlign: 'center'
-		}
-
+	render() {
 		return (
-			<Grid className ="App">
-				<Row>
+			<div className="App">
+	
+				<header className="App-header">
+					<img src={logo} className="App-logo" alt="logo" />
+					<h1 className="App-title">
+						React/Redux Todo (LocalStorage)
+					</h1>
+				</header>
+				
+				<p> Todays Date: { new Date().toDateString() } </p>
+				
+				<TodoForm addTodo = { this.props.addTodo } />
 
-					<Col style = { style } id = 'loadTopSection' sm = {spacing.sm.top}>
-					</Col>
-					 
-					<Col style = { style } id = 'loadMiddleSection' sm = {spacing.sm.mid} >
-						<h1> Welcome to the redux Todo app</h1>
-					</Col>
+				<TodoList todoArray=  { this.props.todoArray } />
 
-					<Col style = { style } id = 'loadBottomSection' sm = {spacing.sm.bot}>
-					
-					</Col>
-
-				</Row>
-
-			</Grid>
+			</div>
 		);
 	}
-}
+} 
 
-export default App
+// ========= Props ========= 
+
+App.propTypes = { 
+	addTodo:    PropTypes.func.isRequired,
+	todoArray: 	PropTypes.array.isRequired
+};
+
+App.defaultProps ={
+	addTodo: f=>f,
+	todoArray: []
+};
+
+// ========= Store  ========= 
+
+const mapStateToProps = (state) => {
+	return {
+		todoArray: state.todos
+	};
+}; 
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		addTodo: (task) => { dispatch(addTodo(task)) },
+		startApp: (url) => { dispatch(startState(url)) }
+	};
+}; 
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
