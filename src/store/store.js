@@ -7,7 +7,6 @@ import {
 } from './localStorage';
 
 import throttle from 'lodash/throttle';
-import axios from 'axios';
 
 import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';

@@ -54,10 +54,6 @@ const TodoForm = (props) => {
 		// width: '4em'
 	};
 
-	const styleTitle = {
-		textAlign: 'left'
-	};
-
 	// ========= 
 
 	return (

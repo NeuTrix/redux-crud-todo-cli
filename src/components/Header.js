@@ -1,17 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import logo from '../assets/logo.svg';
 import '../containers/App.css';
 
-import { 
-	Col, 
-	Grid, 
-	Nav, 
-	Navbar, 
-	NavItem, 
-	Row 
-} from 'react-bootstrap';
-
+import { Nav, Navbar, NavItem } from 'react-bootstrap';
 
 const Header = () => {
 
