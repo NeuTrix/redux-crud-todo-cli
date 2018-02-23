@@ -10,26 +10,26 @@ class CheckComplete extends Component {
 			
 	constructor (props) {
 		super (props)
-		this.state ={
-			_completed: this.props.item.completed,
-			// _defaultChecked: ""
+		this.state = {
+			_completed: this.props._completed,
+			isChecked: true
 		}
 	}
 
 	componentWillMount () {
 		this.state._completed ? 
-			this.setState ({ _defaultChecked: true }) :
-			this.setState ({ _defaultChecked: false });
+			this.setState ({ isChecked: true }) :
+			this.setState ({ isChecked: false })
 	}
 
-	componentWillReceiveProps (nextProps) {
-		// let _defaultChecked = this.state._defaultChecked
+	/*componentWillReceiveProps (nextProps) {
+		// let isChecked = this.state.isChecked
 		this.setState ({ item: nextProps.item });
 
 		this.state._completed ? 
-			this.setState ({ _defaultChecked: true }) :
-			this.setState ({ _defaultChecked: false }); 
-	}
+			this.setState ({ isChecked: true }) :
+			this.setState ({ isChecked: false }); 
+	}*/
 
 	render () {
 
@@ -41,7 +41,7 @@ class CheckComplete extends Component {
 		return( 
 			<Checkbox 
 				className = 'checkComplete'
-				defaultChecked = { this.state._defaultChecked }
+				defaultChecked = { this.state.isChecked }
 				type = 'checkbox' 
 				style = { checkStyle }
 				onClick = { handleClick } > 
@@ -52,13 +52,13 @@ class CheckComplete extends Component {
 
 CheckComplete.propTypes = {
 	_id: PropTypes.string.isRequired,
-	item: PropTypes.object.isRequired,
+	_completed: PropTypes.bool.isRequired,
 	toggleComplete: PropTypes.func.isRequired,
 };
 
 CheckComplete.defaultProps = {
 	_id: 'default',
-	item: { },
+	_completed: true,
 	toggleComplete: f => f
 };
 
