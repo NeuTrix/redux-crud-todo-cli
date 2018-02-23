@@ -76,8 +76,6 @@ describe('The TodoTask Component', () => {
 		console.log('********** props afterEach',  _tasks.props())
 	})
 
-	
-
 	describe('the wrapping Form component...', () => {
 
 		const form = todotaskComp().find('Form');
@@ -171,7 +169,6 @@ describe('The TodoTask Component', () => {
 		xit('...changes font color to red', () => {
 
 		})
-
 	})
 
 })
