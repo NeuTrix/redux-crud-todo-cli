@@ -4,57 +4,71 @@ import { Form, FormControl } from 'react-bootstrap';
 
 const TodoTask = (props) => {
 
-	const handleTaskEdit = (event) => {
+	let style = props.style
+
+	const taskStyle = {
+
+	}
+
+	/*const handleTaskEdit = (event) => {
 		event.preventDefault();
 		let newTask = event.target.value;
 		props.updateTask(props._id, newTask);
 		alert('Update task to... ' + newTask)
-	};
+	};*/
 
-	const validateEditable = (event) => {
+/*	const validateEditable = (event) => {
 		event.preventDefault();
 		if(this.state.item.completed === true) {
 			return alert('To Edit, uncheck task completed');
 		}
-	};
+	};*/
 
 	const onFocusStyle = (event) => {
 		event.preventDefault();
-		_task.style.backgroundColor = 'whitesmoke';
-		_task.style.color = 'blue';
-		_task.setSelectionRange(0, _task.value.length);
+		let task = event.target
+		console.log(task)
+		task.style.backgroundColor = 'mintCream';
+		task.style.color = 'blue';
+		task.setSelectionRange(0, task.value.length);
 	};
 
-	const onBlurStyle = (event) => {
+/*	const onBlurStyle = (event) => {
 		event.preventDefault();
-		_task.style.backgroundColor = 'white';
-		_task.style.color = 'black';
-	};
+		taskStyle.backgroundColor = 'white';
+		taskStyle.color = 'black';
+	};*/
 
 	return (
 		<Form 
-			onClick = { validateEditable }
-			onChange = { handleTaskEdit } 
 			onFocus = { onFocusStyle } 
-			onBlur = { onBlurStyle } 
 		>
 			<FormControl 
 				type = 'text'  
 				className= 'task' 
 				required
 				defaultValue= { props.task }
+				style= { taskStyle }
 				style = { props.style }
 			/> 
 		</Form> 
 	);
 }; 
 
+/*
+			onClick = { validateEditable }
+			onChange = { handleTaskEdit } 
+			onBlur = { onBlurStyle } 
+
+
+*/
+
 // ========= Props 
 
 TodoTask.propTypes = {
 	_id: PropTypes.string.isRequired,
 	task: PropTypes.string.isRequired,
-	updateDate: PropTypes.func.isRequired,
+	updateTask: PropTypes.func.isRequired,
 	style: PropTypes.object
 };
 
