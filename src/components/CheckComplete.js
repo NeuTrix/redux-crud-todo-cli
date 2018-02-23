@@ -6,7 +6,7 @@ const checkStyle ={
 	paddingLeft: 10,
 };
 
-const _Checkbox = (props) => {
+const CheckComplete = (props) => {
 
 	const handleClick = (event) => {
 		// disable event.preventDefault() to allow aninmation
@@ -36,16 +36,16 @@ const _Checkbox = (props) => {
 	} 
 };
 
-_Checkbox.propTypes = {
-	complete: PropTypes.bool.isRequired,
+CheckComplete.propTypes = {
+	completed: PropTypes.bool.isRequired,
 	_id: PropTypes.string.isRequired,
 	toggleComplete: PropTypes.func.isRequired,
 };
 
-_Checkbox.defaultProps = {
+CheckComplete.defaultProps = {
 	_id: 'default',
 	toggleComplete: f => f,
-	complete: false
+	completed: false
 };
 
-export default _Checkbox;
+export default CheckComplete;

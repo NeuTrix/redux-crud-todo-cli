@@ -5,7 +5,7 @@ import { Col, Form, FormControl, Row } from 'react-bootstrap';
 
 import * as todoActions from '../actions/todoActions';
 
-import Checkbox from '../components/Checkbox';
+import CheckComplete from '../components/CheckComplete';
 import Rank from '../components/Rank';
 import DeleteBtn from '../components/DeleteBtn';
 
@@ -35,7 +35,7 @@ class TodoItem extends Component {
 		const validateEditable = (event) => {
 			event.preventDefault();
 			if(this.state.item.completed === true) {
-				return alert('To Edit, uncheck task completed checkbox');
+				return alert('To Edit, uncheck task completed');
 			}
 		};
 
@@ -58,8 +58,8 @@ class TodoItem extends Component {
 		// ========= Styling 
 
 		const spacing = { 
-			xs: {checkBox: 1, task: 11, rank: 3, date: 5, deleteBtn: 3},
-			sm: {checkBox: 1, task: 6, rank: 2, date: 2, deleteBtn: 1} 
+			xs: {checkComplete: 1, task: 11, rank: 3, date: 5, deleteBtn: 3},
+			sm: {checkComplete: 1, task: 6, rank: 2, date: 2, deleteBtn: 1} 
 		};
 
 		const todosBox = {
@@ -97,11 +97,11 @@ class TodoItem extends Component {
 		return (
 			<Row style = { todosBox }  >
 				<Col 
-					xs = { spacing.xs.checkBox } 
-					sm = { spacing.sm.checkBox } 
+					xs = { spacing.xs.checkComplete } 
+					sm = { spacing.sm.checkComplete } 
 				>
-					<Checkbox
-						className = 'checkBox'
+					<CheckComplete
+						className = 'checkComplete'
 						toggleComplete = { this.props.toggleComplete }   
 						_id = { this.state.item._id }
 						completed = { this.state.item.completed }

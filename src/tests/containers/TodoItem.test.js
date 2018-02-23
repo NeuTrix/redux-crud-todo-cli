@@ -1,6 +1,10 @@
 /* eslint-env mocha, chai */
 // Testing resource: https://medium.freecodecamp.org/the-right-way-to-test-react-components-548a4736ab22
 
+// For debugging. Use (inside of an 'it' test):
+// console.log(mountedTodoItem.debug())
+
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -52,16 +56,11 @@ describe('The TodoItem Component', () => {
 
 		it('always renders an outer Row', () => {
 			expect(rows.length).to.be.eql(1);
-			// console.log(mountedTodoItem.debug())
 		})
 
 		it('renders an outer Row that wraps all components', () => {
 			expect (wrappingRow.children()).to.eql(todoItem().children())
 		})
-
-	})
-
-	describe('when rendering core components, it..', () => {
 
 		it('always renders (5) Cols', () => {
 			const cols = todoItem().find('Col');
@@ -72,10 +71,17 @@ describe('The TodoItem Component', () => {
 			const forms = todoItem().find('Form');
 			expect(forms.length).to.be.eql(2);
 		})
+	});
 
-		it('always renders a Checkbox component', () => {
-			const checkboxes = todoItem().find('Checkbox');
+	describe('when rendering core components, it..', () => {
+
+		it('always renders a CheckComplete component', () => {
+			const checkboxes = todoItem().find('CheckComplete');
 			expect(checkboxes.length).to.be.eql(1);
+		})
+		it('CheckComplete is passed (4) props', () => {
+			const checkboxes = todoItem().find('CheckComplete');
+			expect(Object.keys(checkboxes.props()).length).to.eql(4)
 		})
 
 		it('always renders a FormControl for "task" ', () => {

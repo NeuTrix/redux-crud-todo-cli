@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Checkbox from '../../components/Checkbox';
+import CheckComplete from '../../components/CheckComplete';
 
 it('renders without crashing', () => {
 	const div = document.createElement('div');
 	ReactDOM.render(
-		<Checkbox />,
+		<CheckComplete />,
 		div);
 });
 
