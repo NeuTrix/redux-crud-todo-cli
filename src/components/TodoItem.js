@@ -8,6 +8,8 @@ import * as todoActions from '../actions/todoActions';
 import CheckComplete from '../components/CheckComplete';
 import Rank from '../components/Rank';
 import DeleteBtn from '../components/DeleteBtn';
+import CalendarBtn from '../components/CalendarBtn';
+
 
 // ========= Component 
 
@@ -18,18 +20,19 @@ class TodoItem extends Component {
 		this.state = {
 			item: this.props.item
 		}
+
 	}
 
 	componentWillReceiveProps(nextProps){
 		this.setState({ item: nextProps.item })
 	}
 
+
 	render () {
 
 		// let this.state.item = this.props.this.state.item;
 		let oldTask = this.state.item.task;
 		let _task;
-		let _date;
 
 		// ========= Functions
 		const validateEditable = (event) => {
@@ -49,11 +52,8 @@ class TodoItem extends Component {
 			return this.props.updateTask(this.state.item._id, newTask);
 		};
 
-		const handleDateChange = (event) => {
-			event.preventDefault();
-			let newDate = _date.value;
-			return this.props.updateDate(this.state.item._id, newDate );
-		};
+
+		 
 
 		// ========= Styling 
 
@@ -142,18 +142,12 @@ class TodoItem extends Component {
 					xs = { spacing.xs.date }
 					sm = { spacing.sm.date }
 				>
-					<Form onChange = { handleDateChange } >
-						
-						<FormControl 
-							className='date' 
-							inputRef = { (ref) => { _date = ref;} } 
-							type = 'date'
-							defaultValue = { this.state.item.date.slice(0,10) } 
-							bsSize = 'sm'
-							required 
-						/> 
+					<CalendarBtn
+						updateDate = { this.props.updateDate }   
+						date = { this.state.item.date }
+						_id = { this.state.item._id }
+					/>
 
-					</Form>
 				</Col>
 	
 				<Col 

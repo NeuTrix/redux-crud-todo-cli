@@ -1,9 +1,8 @@
 /* eslint-env mocha, chai */
 // Testing resource: https://medium.freecodecamp.org/the-right-way-to-test-react-components-548a4736ab22
 
-// For debugging. Use (inside of an 'it' test):
+// For debugging. Use (inside of an 'it' test, before 'expect'):
 // console.log(mountedTodoItem.debug())
-
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -79,6 +78,7 @@ describe('The TodoItem Component', () => {
 			const checkboxes = todoItem().find('CheckComplete');
 			expect(checkboxes.length).to.be.eql(1);
 		})
+		
 		it('CheckComplete is passed (3) props', () => {
 			const checkboxes = todoItem().find('CheckComplete');
 			expect(Object.keys(checkboxes.props()).length).to.eql(3)
@@ -94,9 +94,15 @@ describe('The TodoItem Component', () => {
 			expect(ranks.length).to.be.eql(1);
 		})
 
-		it('always renders a FormControl for "date" ', () => {
-			const dates = todoItem().find('FormControl.date');
+		it('always renders a CalendarBtn component ', () => {
+			const dates = todoItem().find('CalendarBtn');
 			expect(dates.length).to.be.eql(1);
+		})
+
+		it('CalendarBtn is passed (3) props', () => {
+			const checkboxes = todoItem().find('CalendarBtn');
+			expect(Object.keys(checkboxes.props()).length).to.eql(3)
+
 		})
 
 		it('always renders a DeleteBtn component ', () => {
