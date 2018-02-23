@@ -11,7 +11,6 @@ import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import store from '../../store/store';
 
-
 import CalendarBtn from '../../components/CalendarBtn';
 
 // ========= 
@@ -55,18 +54,33 @@ describe('The CalendarBtn Component', () => {
 			expect(formCtl.length).to.be.eql(1);
 		})
 
-	});
-
-	describe('when rendering core components, it..', () => {
-
 		it('always renders a CalendarBtn component ', () => {
 			const dates = calendarBtn().find('CalendarBtn');
 			expect(dates.length).to.be.eql(1);
 		})
+	});
+
+	describe('when rendering core components, it..', () => {
+		const dateBtns = calendarBtn().find('CalendarBtn');
 
 		it('CalendarBtn is passed (4) props', () => {
-			const checkboxes = calendarBtn().find('CalendarBtn');
-			expect(Object.keys(checkboxes.props()).length).to.eql(4)
+			expect(Object.keys(dateBtns.props()).length).to.eql(4)
+		})
+
+		it('has an _id prop', () => {
+			expect(Object.keys(dateBtns.props())).to.include('_id')
+		})
+
+		it('has an task prop', () => {
+			expect(Object.keys(dateBtns.props())).to.include('date')
+		})
+
+		it('has an style prop', () => {
+			expect(Object.keys(dateBtns.props())).to.include('style')
+		})
+
+		it('has an updateDate prop', () => {
+			expect(Object.keys(dateBtns.props())).to.include('updateDate')
 		})
 
 	})

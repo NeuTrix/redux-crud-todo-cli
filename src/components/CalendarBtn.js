@@ -13,9 +13,9 @@ const CalendarBtn = (props) => {
 
 	return (
 		<FormControl 
-			required 
 			type = 'date'
 			className ='calendarBtn' 
+			required 
 			bsSize = 'sm'
 			defaultValue = { props.date.slice(0,10) } 
 			onChange = { handleDateChange }

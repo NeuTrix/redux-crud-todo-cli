@@ -6,6 +6,8 @@ import CheckComplete from '../components/CheckComplete';
 import Rank from '../components/Rank';
 import DeleteBtn from '../components/DeleteBtn';
 import CalendarBtn from '../components/CalendarBtn';
+import TodoTask from '../components/TodoTask';
+
 import * as todoActions from '../actions/todoActions';
 
 // ========= Component 
@@ -28,29 +30,11 @@ class TodoItem extends Component {
 		let oldTask = this.state.item.task;
 		let _task;
 
-		// ========= Functions
-		const validateEditable = (event) => {
-			event.preventDefault();
-			if(this.state.item.completed === true) {
-				return alert('To Edit, uncheck task completed');
-			}
-		};
-
-		const handleTaskEdit = (event) => {
-			event.preventDefault();
-			let newTask = _task.value;
-			if (newTask === oldTask) {
-				return _task.style.backgroundColor = 'white';
-			}
-			_task.style.backgroundColor = 'white';
-			return this.props.updateTask(this.state.item._id, newTask);
-		};
-
 		// ========= Styling 
 
 		const spacing = { 
-			xs: {checkComplete: 1, task: 11, rank: 3, date: 5, deleteBtn: 3},
-			sm: {checkComplete: 1, task: 6, rank: 2, date: 2, deleteBtn: 1}
+			xs: {chkComp: 1, task: 11, rank: 3, date: 5, delBtn: 3},
+			sm: {chkComp: 1, task: 6, rank: 2, date: 2, delBtn: 1}
 		};
 
 		const todosBox = {
@@ -69,31 +53,20 @@ class TodoItem extends Component {
 			textDecoration: this.state.item.completed ? 'line-through' : 'none',
 		};
 
-		const onFocusStyle = (event) => {
-			event.preventDefault();
-			_task.style.backgroundColor = 'whitesmoke';
-			_task.style.color = 'blue';
-			_task.setSelectionRange(0, _task.value.length);
-		};
-
-		const onBlurStyle = (event) => {
-			event.preventDefault();
-			_task.style.backgroundColor = 'white';
-			_task.style.color = 'black';
-		};
 
 		// ========= 
 
 		return (
 			<Row style = { todosBox }  >
+
 				<Col 
-					xs = { spacing.xs.checkComplete } 
-					sm = { spacing.sm.checkComplete } 
+					xs = { spacing.xs.chkComp } 
+					sm = { spacing.sm.chkComp } 
 				>
 					<CheckComplete
-						toggleComplete = { this.props.toggleComplete }   
 						_id = { this.state.item._id }
 						completed = { this.state.item.completed }
+						toggleComplete = { this.props.toggleComplete }   
 					/>
 				</Col >
 
@@ -101,20 +74,12 @@ class TodoItem extends Component {
 					xs = { spacing.xs.task } 
 					sm = { spacing.sm.task } 
 				>
-					<Form 
-						onClick = { validateEditable }
-						onChange = { handleTaskEdit } 
-						onFocus = { onFocusStyle } 
-						onBlur = { onBlurStyle } 
-					>
-						<FormControl 
-							className= 'task' 
-							inputRef = { (input) => { _task = input;} } 
-							type = 'text'  
-							defaultValue= { this.state.item.task }
-							style = { styleCompleteTask }
-						/> 
-					</Form>
+					<TodoTask
+						_id = { this.state.item._id }
+						task = { this.state.item.task }
+						style = { styleCompleteTask }
+						updateTask = { this.props.updateTask }
+					/>
 				</Col>
 
 				<Col 
@@ -123,8 +88,8 @@ class TodoItem extends Component {
 				>
 					<Rank
 						_id = { this.state.item._id }
-						updateRank= { this.props.updateRank }   
 						currRank = { this.state.item.rank }
+						updateRank= { this.props.updateRank }   
 					/>
 				</Col >
 
@@ -133,22 +98,23 @@ class TodoItem extends Component {
 					sm = { spacing.sm.date }
 				>
 					<CalendarBtn
-						updateDate = { this.props.updateDate }   
-						date = { this.state.item.date }
 						_id = { this.state.item._id }
+						date = { this.state.item.date }
 						style = { styleCompleteTask }
+						updateDate = { this.props.updateDate }   
 					/>
 				</Col>
 	
 				<Col 
-					xs = { spacing.xs.deleteBtn } 
-					sm = { spacing.sm.deleteBtn }
+					xs = { spacing.xs.delBtn } 
+					sm = { spacing.sm.delBtn }
 				>
 					<DeleteBtn 
-						removeTodo = { this.props.removeTodo }   
 						_id = { this.state.item._id } 
+						removeTodo = { this.props.removeTodo }   
 					/>
 				</Col>
+
 			</Row>
 		);
 	}
@@ -176,22 +142,20 @@ const mapStateToProps = (state, ownProps) => {
 	return {
 		todos: state.todos,
 		item: ownProps.item,
-		// date: ownProps.item.date,
-		// _id: ownProps.item._id
 	};	
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		removeTodo:
+		removeTodo: 
 			(_id) => dispatch(todoActions.removeTodo(_id)),
-		toggleComplete:
+		toggleComplete: 
 			(_id, task) => dispatch(todoActions.toggleComplete(_id, task)),
-		updateDate:
+		updateDate: 
 			(_id, date) => dispatch(todoActions.updateDate(_id, date)),
-		updateTask:
+		updateTask: 
 			(_id, task) => dispatch(todoActions.updateTask(_id, task)),
-		updateRank:
+		updateRank: 
 			(_id, rank) => dispatch(todoActions.updateRank(_id, rank)),
 	};
 };
