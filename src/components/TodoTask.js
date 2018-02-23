@@ -21,12 +21,7 @@ class TodoTask extends Component {
 
 	render () {
 
-// ========= Stlyling
-
-	let test = true
-	let state = this.state
-	let _editing = this.state.isEditing
-	let _completed = this.state.isCompleted
+	// ========= Stlyling
 
 	const defaultStyle = {
 		backgroundColor: 'white', 
@@ -38,14 +33,14 @@ class TodoTask extends Component {
 		color: 'blue' 
 	}
 
-	const isCompletedStyle = {
+	/*const isCompletedStyle = {
 			marginBottom: 10,
 			backgroundColor: 'whitesmoke', 
 			color: 'lightgrey',
 			textDecoration: 'line-through' 
-	}
+	}*/
 
-// ========= Functions
+	// ========= Functions
 
 	const handleTaskEdit = (event) => {
 		event.preventDefault();
@@ -55,7 +50,7 @@ class TodoTask extends Component {
 
 	const handleFocus = (event) => {
 		event.preventDefault();
-		this.setState({ _editing: true })
+		this.setState({ isEditing: true })
 		this.setState({ _style: isEditingStyle })
 		let taskBox = event.target
 			taskBox.setSelectionRange( 0, taskBox.value.length)
@@ -66,6 +61,12 @@ class TodoTask extends Component {
 		this.setState({ isEditing: false })
 		this.setState({ _style: defaultStyle })
 	};
+
+
+	const spacing = { 
+			xs: { check: 1, task: 11 },
+			sm: { check: 1, task: 11 },
+		};
 /*
 	const handleClick = (event) => {
 		event.preventDefault();
@@ -82,43 +83,36 @@ class TodoTask extends Component {
 				// onClick = { handleClick } 
 				// onChange = { handleTaskEdit }
 
-		let _task = this.props.item.task
-		let _style = this.props.item.style
 
 		return (
+			<FormGroup>
+				<Row>
+					<Col 
+						xs = { spacing.xs.check } 
+					>
+						<CheckComplete
+								_id = { this.state._id }
+								_completed = { this.state.isCompleted}
+							/>
+					</Col>
+					
+					<Col 
+						xs = { spacing.xs.task } 
+					>
 
-			<FormGroup 
-				onFocus = { handleFocus }
-				onChange = { handleTaskEdit }
-				onBlur =  { handleBlur }
-			>
-			<Row>
-			<Col 
-				xs ={1}
-			>
-				<CheckComplete
-						inline = 'true'
-						_id = { this.state._id }
-						_completed = { this.state.isCompleted}
-					/>
-			</Col>
+						<FormControl 
+							onFocus = { handleFocus }
+							onChange = { handleTaskEdit }
+							onBlur =  { handleBlur }
 
-			<Col
-				xs={11}
-			>
-
-				<FormControl 
-					inline = 'true'
-					className= 'task' 
-					defaultValue= { _task }
-					required
-					style = { this.state._style }
-					type = 'text'  
-				/> 
-			</Col>
-			</Row>
-
-
+							className= 'task' 
+							defaultValue= { this.state._task }
+							required
+							style = { this.state._style }
+							type = 'text'  
+						/> 
+					</Col>
+				</Row>
 			</FormGroup>
 		)
 	}

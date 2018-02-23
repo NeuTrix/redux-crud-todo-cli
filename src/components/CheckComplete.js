@@ -12,7 +12,7 @@ class CheckComplete extends Component {
 		super (props)
 		this.state ={
 			_completed: this.props.item.completed,
-			_defaultChecked: ""
+			// _defaultChecked: ""
 		}
 	}
 
@@ -23,7 +23,7 @@ class CheckComplete extends Component {
 	}
 
 	componentWillReceiveProps (nextProps) {
-		let _defaultChecked = this.state._defaultChecked
+		// let _defaultChecked = this.state._defaultChecked
 		this.setState ({ item: nextProps.item });
 
 		this.state._completed ? 

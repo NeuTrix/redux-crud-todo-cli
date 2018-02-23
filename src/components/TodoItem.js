@@ -2,7 +2,6 @@ import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Col, Row } from 'react-bootstrap';
-import CheckComplete from '../components/CheckComplete';
 import Rank from '../components/Rank';
 import DeleteBtn from '../components/DeleteBtn';
 import CalendarBtn from '../components/CalendarBtn';

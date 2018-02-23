@@ -48,21 +48,21 @@ describe('The TodoItem Component', () => {
 		mountedTodoItem = undefined
 	});
 
-	describe('the wrapping Row component...', () => {
-		const rows = todoItem().find('Row');
-		const wrappingRow = rows.first();
+	describe('the wrapping FormGroup component...', () => {
+		const rows = todoItem().find('FormGroup');
+		const wrappingFormGroup = rows.first();
 
-		it('always renders an outer Row', () => {
+		it('always renders an outer FormGroup', () => {
 			expect(rows.length).to.be.eql(1);
 		})
 
 		it('renders an outer Row that wraps all components', () => {
-			expect (wrappingRow.children()).to.eql(todoItem().children())
+			expect (wrappingFormGroup.children()).to.eql(todoItem().children())
 		})
 
-		it('always renders (5) Cols', () => {
+		it('always renders (6) Cols', () => {
 			const cols = todoItem().find('Col');
-			expect(cols.length).to.be.eql(5  );
+			expect(cols.length).to.be.eql(6);
 		})
 	});
 
@@ -72,10 +72,7 @@ describe('The TodoItem Component', () => {
 			expect(checkboxes.length).to.be.eql(1);
 		})
 		
-		it('CheckComplete is passed (3) props', () => {
-			const checkboxes = todoItem().find('CheckComplete');
-			expect(Object.keys(checkboxes.props()).length).to.eql(3)
-		})
+		
 
 		it('always renders a FormControl for "task" ', () => {
 			const tasks = todoItem().find('FormControl.task');
