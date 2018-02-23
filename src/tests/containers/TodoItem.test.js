@@ -79,9 +79,9 @@ describe('The TodoItem Component', () => {
 			const checkboxes = todoItem().find('CheckComplete');
 			expect(checkboxes.length).to.be.eql(1);
 		})
-		it('CheckComplete is passed (4) props', () => {
+		it('CheckComplete is passed (3) props', () => {
 			const checkboxes = todoItem().find('CheckComplete');
-			expect(Object.keys(checkboxes.props()).length).to.eql(4)
+			expect(Object.keys(checkboxes.props()).length).to.eql(3)
 		})
 
 		it('always renders a FormControl for "task" ', () => {
@@ -104,9 +104,14 @@ describe('The TodoItem Component', () => {
 			expect(deleteBtn.length).to.be.eql(1);
 		})
 
-
 	})
 
+	describe('The component STATE', () => {
 
+		it('starts out with the default props', () => {
+
+		})
+
+	})
 
 })

@@ -16,9 +16,9 @@ const CheckComplete = (props) => {
 	if(props.completed) {
 		return( 
 			<Checkbox 
+				className = 'checkComplete'
 				defaultChecked 
 				type = 'checkbox' 
-				className = { 'form-check-input' }
 				style = { checkStyle }
 				onClick = { handleClick } > 
 			</Checkbox>
@@ -27,8 +27,8 @@ const CheckComplete = (props) => {
 	
 		return (
 			<Checkbox 
+				className = 'checkComplete'
 				type = 'checkbox' 
-				className = { 'form-check-input' }
 				style = { checkStyle }
 				onClick = { handleClick } > 
 			</Checkbox>

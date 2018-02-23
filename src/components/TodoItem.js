@@ -63,7 +63,6 @@ class TodoItem extends Component {
 		};
 
 		const todosBox = {
-			// marginTop: 10,
 			marginBottom: 10,
 			paddingTop: 10,
 			paddingBottom: 10,
@@ -101,7 +100,6 @@ class TodoItem extends Component {
 					sm = { spacing.sm.checkComplete } 
 				>
 					<CheckComplete
-						className = 'checkComplete'
 						toggleComplete = { this.props.toggleComplete }   
 						_id = { this.state.item._id }
 						completed = { this.state.item.completed }
@@ -134,8 +132,7 @@ class TodoItem extends Component {
 					sm = { spacing.sm.rank }
 				>
 					<Rank
-						className= 'rank' 
-						_id = { this.state.item.__id }
+						_id = { this.state.item._id }
 						updateRank= { this.props.updateRank }   
 						currRank = { this.state.item.rank }
 					/>
@@ -160,13 +157,12 @@ class TodoItem extends Component {
 				</Col>
 	
 				<Col 
-					className= 'deleteBtn' 
 					xs = { spacing.xs.deleteBtn } 
 					sm = { spacing.sm.deleteBtn }
 				>
 					<DeleteBtn 
 						removeTodo = { this.props.removeTodo }   
-						__id = { this.state.item.__id } 
+						_id = { this.state.item._id } 
 					/>
 				</Col>
 			</Row>
