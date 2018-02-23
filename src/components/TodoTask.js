@@ -17,31 +17,37 @@ class TodoTask extends Component {
 			_style: this.props.item.style
 		}
 
+
 	}
+
+
+	render () {
 
 // ========= Stlyling
-/*
+
 	const isEditingStyle ={
-		backgroundColor = 'mintCream';
-		color = 'blue';
-		setSelectionRange(0, taskBox.value.length);
+		backgroundColor: 'mintCream',
+		color: 'blue',
 	}
-*/
+
 
 // ========= Functions
-/*
+
 	const handleTaskEdit = (event) => {
 		event.preventDefault();
 		let newTask = event.target.value;
-		props.updateTask(props._id, newTask);
-	};*/
+		let taskBox = event.target
+
+		this.props.updateTask(this.state._id, newTask);
+		taskBox.setSelectionRange( 0, taskBox.value.length)
+	};
 /*
 	const handleClick = (event) => {
 		event.preventDefault();
 		let taskBox = event.target
 		console.log(taskBox)*/
 		
-		
+		// 
 		// if(props.item.completed) {
 		// 		alert('To Edit, uncheck task completed');
 		// 	}
@@ -51,18 +57,21 @@ class TodoTask extends Component {
 				// onClick = { handleClick } 
 				// onChange = { handleTaskEdit }
 
-	render () {
 		let _task = this.props.item.task
 		let _style = this.props.item.style
 
 		return (
-			<FormControl 
-				className= 'task' 
-				defaultValue= { _task }
-				required
-				style = { this.props.style }
-				type = 'text'  
-			/> 
+			<Form 
+				onFocus = { handleTaskEdit }
+			>
+				<FormControl 
+					className= 'task' 
+					defaultValue= { _task }
+					required
+					style = { this.props.style }
+					type = 'text'  
+				/> 
+			</Form>
 		)
 	}
 
