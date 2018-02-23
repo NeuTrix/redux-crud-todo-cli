@@ -1,21 +1,9 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { 
-	Col, 
-	Form, 
-	FormControl, 
-	Row 
-} from 'react-bootstrap';
+import { Col, Form, FormControl, Row } from 'react-bootstrap';
 
-// import action creators
-import { 
-	toggleComplete,
-	updateDate,
-	updateRank,
-	updateTask,			
-	removeTodo
-} from '../actions/todoActions';
+import * as todoActions from '../actions/todoActions';
 
 import Checkbox from '../components/Checkbox';
 import PriorityRadio from '../components/PriorityRadio';
@@ -218,11 +206,11 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		removeTodo: 		(id) => dispatch(removeTodo(id)),
-		toggleComplete: (id, task) => dispatch(toggleComplete(id, task)),
-		updateDate: 		(id, date) => dispatch(updateDate(id, date)),
-		updateTask: 		(id, task) => dispatch(updateTask(id, task)),
-		updateRank: 		(id, rank) => dispatch(updateRank(id, rank)),
+		removeTodo: (id) => dispatch(todoActions.removeTodo(id)),
+		toggleComplete: (id, task) => dispatch(todoActions.toggleComplete(id, task)),
+		updateDate: (id, date) => dispatch(todoActions.updateDate(id, date)),
+		updateTask: (id, task) => dispatch(todoActions.updateTask(id, task)),
+		updateRank: (id, rank) => dispatch(todoActions.updateRank(id, rank)),
 	};
 };
 
