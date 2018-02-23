@@ -4,64 +4,51 @@ import { Form, FormControl } from 'react-bootstrap';
 
 const TodoTask = (props) => {
 
-	let style = props.style
-
-	const taskStyle = {
-
-	}
-
-	/*const handleTaskEdit = (event) => {
+	const handleTaskEdit = (event) => {
 		event.preventDefault();
 		let newTask = event.target.value;
 		props.updateTask(props._id, newTask);
-		alert('Update task to... ' + newTask)
-	};*/
-
-/*	const validateEditable = (event) => {
-		event.preventDefault();
-		if(this.state.item.completed === true) {
-			return alert('To Edit, uncheck task completed');
-		}
-	};*/
-
-	const onFocusStyle = (event) => {
-		event.preventDefault();
-		let task = event.target
-		console.log(task)
-		task.style.backgroundColor = 'mintCream';
-		task.style.color = 'blue';
-		task.setSelectionRange(0, task.value.length);
 	};
 
-/*	const onBlurStyle = (event) => {
+	const handleClick = (event) => {
 		event.preventDefault();
-		taskStyle.backgroundColor = 'white';
-		taskStyle.color = 'black';
-	};*/
+		let taskBox = event.target
+		console.log(taskBox)
+		taskBox.style.backgroundColor = 'mintCream';
+		taskBox.style.color = 'blue';
+		taskBox.setSelectionRange(0, taskBox.value.length);
+		
+		// if(props.item.completed) {
+		// 		alert('To Edit, uncheck task completed');
+		// 	}
+		};
 
-	return (
-		<Form 
-			onFocus = { onFocusStyle } 
-		>
-			<FormControl 
-				type = 'text'  
-				className= 'task' 
-				required
-				defaultValue= { props.task }
-				style= { taskStyle }
-				style = { props.style }
-			/> 
-		</Form> 
-	);
+	const onBlurStyle = (event) => {
+		if(!props.item.completed) {
+				event.preventDefault();
+				let newTask = event.target
+						newTask.style.backgroundColor = 'white';
+						newTask.style.color = 'black';
+			};
+		};
+
+		return (
+			<Form
+				onBlur = { onBlurStyle } 
+				onClick = { handleClick } 
+				onChange = { handleTaskEdit }
+			>
+				<FormControl 
+					type = 'text'  
+					className= 'task' 
+					required
+					defaultValue= { props.item.task }
+					style = { props.style }
+				/> 
+			</Form>
+		)
 }; 
 
-/*
-			onClick = { validateEditable }
-			onChange = { handleTaskEdit } 
-			onBlur = { onBlurStyle } 
-
-
-*/
 
 // ========= Props 
 

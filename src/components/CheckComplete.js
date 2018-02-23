@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Checkbox } from 'react-bootstrap';
 
@@ -6,14 +6,21 @@ const checkStyle ={
 	paddingLeft: 10,
 };
 
-const CheckComplete = (props) => {
+class CheckComplete extends Component {
+
+	constructor (props) {
+		super(props)
+		this.state ={
+			_complete: props.item.completed
+		}
+	}
 
 	const handleClick = (event) => {
 		// disable event.preventDefault() to allow aninmation
 		props.toggleComplete(props._id);
 	};
 	
-	if(props.completed) {
+	if(props.item.completed) {
 		return( 
 			<Checkbox 
 				className = 'checkComplete'
@@ -37,15 +44,15 @@ const CheckComplete = (props) => {
 };
 
 CheckComplete.propTypes = {
-	completed: PropTypes.bool.isRequired,
 	_id: PropTypes.string.isRequired,
+	item: PropTypes.object.isRequired,
 	toggleComplete: PropTypes.func.isRequired,
 };
 
 CheckComplete.defaultProps = {
 	_id: 'default',
-	toggleComplete: f => f,
-	completed: false
+	item: { },
+	toggleComplete: f => f
 };
 
 export default CheckComplete;

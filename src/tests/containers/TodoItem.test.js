@@ -49,7 +49,6 @@ describe('The TodoItem Component', () => {
 	});
 
 	describe('the wrapping Row component...', () => {
-
 		const rows = todoItem().find('Row');
 		const wrappingRow = rows.first();
 
@@ -65,15 +64,9 @@ describe('The TodoItem Component', () => {
 			const cols = todoItem().find('Col');
 			expect(cols.length).to.be.eql(5  );
 		})
-
-		it('always renders (1) Form', () => {
-			const forms = todoItem().find('Form');
-			expect(forms.length).to.be.eql(1);
-		})
 	});
 
 	describe('when rendering core components, it..', () => {
-
 		it('always renders a CheckComplete component', () => {
 			const checkboxes = todoItem().find('CheckComplete');
 			expect(checkboxes.length).to.be.eql(1);
@@ -109,7 +102,6 @@ describe('The TodoItem Component', () => {
 			const deleteBtn = todoItem().find('DeleteBtn');
 			expect(deleteBtn.length).to.be.eql(1);
 		})
-
 	})
 
 	describe('The component STATE', () => {

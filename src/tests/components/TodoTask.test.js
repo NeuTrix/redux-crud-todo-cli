@@ -51,9 +51,6 @@ describe('The TodoTask Component', () => {
 		const formCtl = todotaskComp().find('FormControl');
 		const wrappingRow = formCtl.first();
 
-		it('always renders an outer Form', () => {
-			expect(form.length).to.be.eql(1);
-		})
 		it('always renders an outer FormControl', () => {
 			expect(formCtl.length).to.be.eql(1);
 		})
