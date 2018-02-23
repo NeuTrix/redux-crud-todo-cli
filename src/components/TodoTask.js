@@ -52,22 +52,35 @@ class TodoTask extends Component {
 
 	const handleTaskEdit = (event) => {
 		event.preventDefault();
+		
 		let newTask = event.target.value;
 		this.props.updateTask(this.state._id, newTask);
 	};
 
+	const handleClick = (event) => {
+		let _comp = this.state.isCompleted
+		if(_comp) {
+			 alert(`Task completed is currentl: ${_comp}. Please uncheck completed box before editing`);
+			 this.setState({ _style: isCompletedStyle })
+		}
+	}
+
 	const handleFocus = (event) => {
 		event.preventDefault();
+		let taskBox = event.target // grab the element 
 		this.setState({ isEditing: true })
 		this.setState({ _style: isEditingStyle })
-		let taskBox = event.target
 			taskBox.setSelectionRange( 0, taskBox.value.length)
 	};
 
 	const handleBlur = (event) => {
 		event.preventDefault();
 		this.setState({ isEditing: false })
-		this.setState({ _style: defaultStyle })
+
+		this.state.isCompleted ?
+		  this.setState({ _style: isCompletedStyle }) :
+			this.setState({ _style: defaultStyle })
+
 	};
 
 
@@ -76,7 +89,6 @@ class TodoTask extends Component {
 			sm: { check: 1, task: 10 },
 		};
 /*
-	const handleClick = (event) => {
 		event.preventDefault();
 		let taskBox = event.target
 		console.log(taskBox)*/
@@ -112,6 +124,7 @@ class TodoTask extends Component {
 
 						<FormControl 
 							onFocus = { handleFocus }
+							onClick = { handleClick }
 							onChange = { handleTaskEdit }
 							onBlur =  { handleBlur }
 
