@@ -66,9 +66,9 @@ describe('The TodoItem Component', () => {
 			expect(cols.length).to.be.eql(5  );
 		})
 
-		it('always renders (2) Forms ', () => {
+		it('always renders (1) Form', () => {
 			const forms = todoItem().find('Form');
-			expect(forms.length).to.be.eql(2);
+			expect(forms.length).to.be.eql(1);
 		})
 	});
 
@@ -99,9 +99,9 @@ describe('The TodoItem Component', () => {
 			expect(dates.length).to.be.eql(1);
 		})
 
-		it('CalendarBtn is passed (3) props', () => {
+		it('CalendarBtn is passed (4) props', () => {
 			const checkboxes = todoItem().find('CalendarBtn');
-			expect(Object.keys(checkboxes.props()).length).to.eql(3)
+			expect(Object.keys(checkboxes.props()).length).to.eql(4)
 
 		})
 

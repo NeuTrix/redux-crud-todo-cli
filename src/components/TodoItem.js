@@ -2,14 +2,11 @@ import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Col, Form, FormControl, Row } from 'react-bootstrap';
-
-import * as todoActions from '../actions/todoActions';
-
 import CheckComplete from '../components/CheckComplete';
 import Rank from '../components/Rank';
 import DeleteBtn from '../components/DeleteBtn';
 import CalendarBtn from '../components/CalendarBtn';
-
+import * as todoActions from '../actions/todoActions';
 
 // ========= Component 
 
@@ -18,19 +15,16 @@ class TodoItem extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			item: this.props.item
+			item: this.props.item,
+			date: this.props.date
 		}
-
 	}
 
 	componentWillReceiveProps(nextProps){
 		this.setState({ item: nextProps.item })
 	}
 
-
 	render () {
-
-		// let this.state.item = this.props.this.state.item;
 		let oldTask = this.state.item.task;
 		let _task;
 
@@ -52,14 +46,11 @@ class TodoItem extends Component {
 			return this.props.updateTask(this.state.item._id, newTask);
 		};
 
-
-		 
-
 		// ========= Styling 
 
 		const spacing = { 
 			xs: {checkComplete: 1, task: 11, rank: 3, date: 5, deleteBtn: 3},
-			sm: {checkComplete: 1, task: 6, rank: 2, date: 2, deleteBtn: 1} 
+			sm: {checkComplete: 1, task: 6, rank: 2, date: 2, deleteBtn: 1}
 		};
 
 		const todosBox = {
@@ -123,7 +114,6 @@ class TodoItem extends Component {
 							defaultValue= { this.state.item.task }
 							style = { styleCompleteTask }
 						/> 
-
 					</Form>
 				</Col>
 
@@ -146,8 +136,8 @@ class TodoItem extends Component {
 						updateDate = { this.props.updateDate }   
 						date = { this.state.item.date }
 						_id = { this.state.item._id }
+						style = { styleCompleteTask }
 					/>
-
 				</Col>
 	
 				<Col 
@@ -185,7 +175,9 @@ TodoItem.defaultProps ={
 const mapStateToProps = (state, ownProps) => {
 	return {
 		todos: state.todos,
-		item: ownProps.item
+		item: ownProps.item,
+		// date: ownProps.item.date,
+		// _id: ownProps.item._id
 	};	
 };
 
