@@ -16,8 +16,6 @@ class TodoTask extends Component {
 			_id: this.props.item._id,
 			_style: this.props.item.style
 		}
-
-
 	}
 
 
@@ -36,9 +34,12 @@ class TodoTask extends Component {
 	const handleTaskEdit = (event) => {
 		event.preventDefault();
 		let newTask = event.target.value;
-		let taskBox = event.target
 
 		this.props.updateTask(this.state._id, newTask);
+	};
+
+	const handleSelect = (event) => {
+		let taskBox = event.target
 		taskBox.setSelectionRange( 0, taskBox.value.length)
 	};
 /*
@@ -62,7 +63,8 @@ class TodoTask extends Component {
 
 		return (
 			<Form 
-				onFocus = { handleTaskEdit }
+				onChange = { handleTaskEdit }
+				onSelect = { handleSelect }
 			>
 				<FormControl 
 					className= 'task' 
