@@ -3,27 +3,26 @@ import PropTypes from 'prop-types';
 import { Col, Row, FormGroup, FormControl } from 'react-bootstrap';
 import CheckComplete from './CheckComplete'
 
-// ========= 
-
 // ========= Stlyling
 
-	const defaultStyle = {
-		backgroundColor: 'white', 
-		color: 'black' 
-	}
+const defaultStyle = {
+	backgroundColor: 'white', 
+	color: 'black' 
+}
 
-	const isEditingStyle = {
-		backgroundColor: 'mintCream', 
-		color: 'blue' 
-	}
+const isEditingStyle = {
+	backgroundColor: 'mintCream', 
+	color: 'blue' 
+}
 
-	const isCompletedStyle = {
-			marginBottom: 10,
-			backgroundColor: 'whitesmoke', 
-			color: 'lightgrey',
-			textDecoration: 'line-through' 
-	}
+const isCompletedStyle = {
+		marginBottom: 10,
+		backgroundColor: 'whitesmoke', 
+		color: 'lightgrey',
+		textDecoration: 'line-through' 
+}
 
+// ========= Component
 
 class TodoTask extends Component {
 
@@ -41,68 +40,44 @@ class TodoTask extends Component {
 
 	componentWillMount(){
 		if (this.state.isCompleted) {
-				 this.setState( {_style: isCompletedStyle })
-				} 
+		 this.setState({_style: isCompletedStyle })
+		} 
 	}
 
 	render () {
-
 	
-	// ========= Functions
-
-	const handleTaskEdit = (event) => {
-		event.preventDefault();
-		
-		let newTask = event.target.value;
-		this.props.updateTask(this.state._id, newTask);
-	};
-
-	const handleClick = (event) => {
-		let _comp = this.state.isCompleted
-		if(_comp) {
-			 alert(`Task completed is currentl: ${_comp}. Please uncheck completed box before editing`);
-			 this.setState({ _style: isCompletedStyle })
-		}
-	}
-
-	const handleFocus = (event) => {
-		event.preventDefault();
-		let taskBox = event.target // grab the element 
-		this.setState({ isEditing: true })
-		this.setState({ _style: isEditingStyle })
-			taskBox.setSelectionRange( 0, taskBox.value.length)
-	};
-
-	const handleBlur = (event) => {
-		event.preventDefault();
-		this.setState({ isEditing: false })
-
-		this.state.isCompleted ?
-		  this.setState({ _style: isCompletedStyle }) :
-			this.setState({ _style: defaultStyle })
-
-	};
-
-
-	const spacing = { 
-			xs: { check: 1, task: 10 },
-			sm: { check: 1, task: 10 },
+		const handleFocus = (event) => {
+			event.preventDefault();
+			event.target.setSelectionRange( 0, event.target.value.length)
+			this.setState({ _style: isEditingStyle })
+			this.setState({ isEditing: true })
 		};
-/*
-		event.preventDefault();
-		let taskBox = event.target
-		console.log(taskBox)*/
-		
-		// 
-		// if(props.item.completed) {
-		// 		alert('To Edit, uncheck task completed');
-		// 	}
-		// };
 
-				// onBlur = { onBlurStyle } 
-				// onClick = { handleClick } 
-				// onChange = { handleTaskEdit }
+		const handleClick = (event) => {
+			let _comp = this.state.isCompleted 
+			_comp ?
+				alert(`Task completed is currentl: ${_comp}. Please uncheck completed box before editing`) :
+				this.setState ({ _style: isCompletedStyle })
+		}
 
+		const handleChange = (event) => {
+			event.preventDefault();
+			let newTask = event.target.value;
+			this.props.updateTask(this.state._id, newTask);
+		};
+
+		const handleBlur = (event) => {
+			event.preventDefault();
+			this.state.isCompleted ?
+			  this.setState({ _style: isCompletedStyle }) :
+				this.setState({ _style: defaultStyle })
+			this.setState({ isEditing: false })
+		};
+
+		const spacing = { 
+				xs: { check: 1, task: 10 },
+				sm: { check: 1, task: 10 },
+			};
 
 		return (
 			<FormGroup>
@@ -125,7 +100,7 @@ class TodoTask extends Component {
 						<FormControl 
 							onFocus = { handleFocus }
 							onClick = { handleClick }
-							onChange = { handleTaskEdit }
+							onChange = { handleChange }
 							onBlur =  { handleBlur }
 
 							className= 'task' 
@@ -137,10 +112,9 @@ class TodoTask extends Component {
 					</Col>
 				</Row>
 			</FormGroup>
-		)
-	}
-
-}; 
+		) //return
+	}; //render
+}; //component
 
 
 // ========= Props 
