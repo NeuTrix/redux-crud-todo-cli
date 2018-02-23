@@ -32,7 +32,7 @@ class TodoTask extends Component {
 
 		this.state = {
 			isEditing: false,
-			isCompleted: this.propgas.item.completed,
+			isCompleted: this.props.item.completed,
 			_task: this.props.item.task,
 			_id: this.props.item._id,
 			_style: defaultStyle
