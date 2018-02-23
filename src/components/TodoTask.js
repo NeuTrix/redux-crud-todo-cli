@@ -5,23 +5,7 @@ import CheckComplete from './CheckComplete'
 
 // ========= 
 
-class TodoTask extends Component {
-
-	constructor (props) {
-		super(props)
-
-		this.state = {
-			isEditing: false,
-			isCompleted: this.props.item.completed,
-			_task: this.props.item.task,
-			_id: this.props.item._id,
-			_style: { backgroundColor: 'white',  color: 'black' }
-		}
-	}
-
-	render () {
-
-	// ========= Stlyling
+// ========= Stlyling
 
 	const defaultStyle = {
 		backgroundColor: 'white', 
@@ -33,13 +17,37 @@ class TodoTask extends Component {
 		color: 'blue' 
 	}
 
-	/*const isCompletedStyle = {
+	const isCompletedStyle = {
 			marginBottom: 10,
 			backgroundColor: 'whitesmoke', 
 			color: 'lightgrey',
 			textDecoration: 'line-through' 
-	}*/
+	}
 
+
+class TodoTask extends Component {
+
+	constructor (props) {
+		super(props)
+
+		this.state = {
+			isEditing: false,
+			isCompleted: this.propgas.item.completed,
+			_task: this.props.item.task,
+			_id: this.props.item._id,
+			_style: defaultStyle
+		}
+	}
+
+	componentWillMount(){
+		if (this.state.isCompleted) {
+				 this.setState( {_style: isCompletedStyle })
+				} 
+	}
+
+	render () {
+
+	
 	// ========= Functions
 
 	const handleTaskEdit = (event) => {
@@ -64,8 +72,8 @@ class TodoTask extends Component {
 
 
 	const spacing = { 
-			xs: { check: 1, task: 11 },
-			sm: { check: 1, task: 11 },
+			xs: { check: 1, task: 10 },
+			sm: { check: 1, task: 10 },
 		};
 /*
 	const handleClick = (event) => {
@@ -89,6 +97,7 @@ class TodoTask extends Component {
 				<Row>
 					<Col 
 						xs = { spacing.xs.check } 
+						sm = { spacing.sm.check } 
 					>
 						<CheckComplete
 								_id = { this.state._id }
@@ -98,6 +107,7 @@ class TodoTask extends Component {
 					
 					<Col 
 						xs = { spacing.xs.task } 
+						sm = { spacing.sm.task } 
 					>
 
 						<FormControl 
