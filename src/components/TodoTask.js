@@ -1,69 +1,94 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Form, FormControl } from 'react-bootstrap';
 
-const TodoTask = (props) => {
+// ========= 
 
+class TodoTask extends Component {
+
+	constructor (props) {
+		super(props)
+
+		this.state = {
+			isEditing: false,
+			isCompleted: this.props.item.completed,
+			_task: this.props.item.task,
+			_id: this.props.item._id,
+			_style: this.props.item.style
+		}
+
+	}
+
+// ========= Stlyling
+/*
+	const isEditingStyle ={
+		backgroundColor = 'mintCream';
+		color = 'blue';
+		setSelectionRange(0, taskBox.value.length);
+	}
+*/
+
+// ========= Functions
+/*
 	const handleTaskEdit = (event) => {
 		event.preventDefault();
 		let newTask = event.target.value;
 		props.updateTask(props._id, newTask);
-	};
-
+	};*/
+/*
 	const handleClick = (event) => {
 		event.preventDefault();
 		let taskBox = event.target
-		console.log(taskBox)
-		taskBox.style.backgroundColor = 'mintCream';
-		taskBox.style.color = 'blue';
-		taskBox.setSelectionRange(0, taskBox.value.length);
+		console.log(taskBox)*/
+		
 		
 		// if(props.item.completed) {
 		// 		alert('To Edit, uncheck task completed');
 		// 	}
-		};
+		// };
 
-	const onBlurStyle = (event) => {
-		if(!props.item.completed) {
-				event.preventDefault();
-				let newTask = event.target
-						newTask.style.backgroundColor = 'white';
-						newTask.style.color = 'black';
-			};
-		};
+				// onBlur = { onBlurStyle } 
+				// onClick = { handleClick } 
+				// onChange = { handleTaskEdit }
+
+	render () {
+		let _task = this.props.item.task
+		let _style = this.props.item.style
 
 		return (
-			<Form
-				onBlur = { onBlurStyle } 
-				onClick = { handleClick } 
-				onChange = { handleTaskEdit }
-			>
-				<FormControl 
-					type = 'text'  
-					className= 'task' 
-					required
-					defaultValue= { props.item.task }
-					style = { props.style }
-				/> 
-			</Form>
+			<FormControl 
+				className= 'task' 
+				defaultValue= { _task }
+				required
+				style = { this.props.style }
+				type = 'text'  
+			/> 
 		)
+	}
+
 }; 
 
 
 // ========= Props 
 
 TodoTask.propTypes = {
-	_id: PropTypes.string.isRequired,
-	task: PropTypes.string.isRequired,
-	updateTask: PropTypes.func.isRequired,
-	style: PropTypes.object
+	item: PropTypes.object.isRequired,
+	style: PropTypes.object,
+	updateTask: PropTypes.func.isRequired
 };
 
 TodoTask.defaultProps = {
-		_id: "default",
-		task: 'default task',
+	item: { 
+		_id: 'default',
+		completed: false,
+		details: 'default',
+		date: '2018-12-31',
+		owner: 'default',
+		rank: 'default',
+		task: 'default'
+	},
+		style: { },
 		updateTask: f => f,
-		style: { }
 };
 
 export default TodoTask;

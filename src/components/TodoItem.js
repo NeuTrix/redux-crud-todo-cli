@@ -22,10 +22,6 @@ class TodoItem extends Component {
 		}
 	}
 
-	componentWillReceiveProps(nextProps){
-		this.setState({ item: nextProps.item })
-	}
-
 	render () {
 
 		// ========= Styling 
@@ -73,7 +69,6 @@ class TodoItem extends Component {
 					sm = { spacing.sm.task } 
 				>
 					<TodoTask
-						_id = { this.state.item._id }
 						item = { this.state.item }
 						style = { styleCompleteTask }
 						updateTask = { this.props.updateTask }
@@ -126,13 +121,13 @@ TodoItem.propTypes = {
 
 TodoItem.defaultProps ={
 	item: { 
-		_id: '0.3HxYz',
+		_id: 'default',
 		completed: false,
-		details: 'needed',
-		date: '2018-12-31',
-		owner: 'Bhudah',
-		rank: "High",
-		task: 'Celebrate life!',
+		details: 'default',
+		date: '1935-05-24',
+		owner: 'default',
+		rank: 'default',
+		task: 'default'
 	}
 };
 

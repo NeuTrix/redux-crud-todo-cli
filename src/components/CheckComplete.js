@@ -7,40 +7,47 @@ const checkStyle ={
 };
 
 class CheckComplete extends Component {
-
+			
 	constructor (props) {
 		super(props)
 		this.state ={
-			_complete: props.item.completed
+			_completed: this.props.item.completed,
+			_defaultChecked: ""
 		}
 	}
 
-	const handleClick = (event) => {
-		// disable event.preventDefault() to allow aninmation
-		props.toggleComplete(props._id);
-	};
-	
-	if(props.item.completed) {
+	componentWillMount() {
+		this.state._completed ? 
+			this.setState({_defaultChecked: true}) :
+			this.setState({_defaultChecked: false}) ;
+	}
+
+	componentWillReceiveProps(nextProps) {
+		let _defaultChecked = this.state._defaultChecked
+		this.setState({ item: nextProps.item });
+		this.state._completed ? 
+			this.setState({_defaultChecked: true}) :
+			this.setState({_defaultChecked: false}) ;
+	}
+
+	render () {
+
+		const handleClick = (event) => {
+			// disable event.preventDefault() to allow aninmation
+			this.props.toggleComplete(this.props._id);
+		};
+		
 		return( 
 			<Checkbox 
 				className = 'checkComplete'
-				defaultChecked 
+				defaultChecked = { this.state._defaultChecked }
 				type = 'checkbox' 
 				style = { checkStyle }
 				onClick = { handleClick } > 
 			</Checkbox>
 		);
-	} else {
-	
-		return (
-			<Checkbox 
-				className = 'checkComplete'
-				type = 'checkbox' 
-				style = { checkStyle }
-				onClick = { handleClick } > 
-			</Checkbox>
-		);
-	} 
+	}
+
 };
 
 CheckComplete.propTypes = {

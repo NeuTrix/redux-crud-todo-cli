@@ -24,25 +24,24 @@ it('renders without crashing', () => {
 });
 
 describe('The TodoTask Component', () => {
-	let props, mountedTodoTask
+	let 
+	 	mountedTodoTask, // the mounted object
+	 	_state, // the state of the mounted object
+		_tasks // the wrapper of the ounted object
 
 	const todotaskComp = () => {
 		if(!mountedTodoTask) {
 			mountedTodoTask = mount (
-				<TodoTask { ...props } /> 
+				<TodoTask /> 
 			);
 		}
 		return mountedTodoTask
 	};
 
 	beforeEach (() => {
-		props = {
-			_id: undefined,
-			task: " ",
-			style: {},
-			updateTask: undefined
-		}
 		mountedTodoTask = undefined
+		_state = todotaskComp().state();
+		_tasks = todotaskComp().find('TodoTask');
 	});
 
 	describe('the wrapping Form component...', () => {
@@ -56,42 +55,62 @@ describe('The TodoTask Component', () => {
 		})
 
 		it('always renders a TodoTask component ', () => {
-			const dates = todotaskComp().find('TodoTask');
-			expect(dates.length).to.be.eql(1);
+			expect(_tasks.length).to.be.eql(1);
 		})
 
 	});
 
-	describe('when rendering core components, it..', () => {
+	describe(' When rendering, for Props...', () => {
 
-		const tasks = todotaskComp().find('TodoTask');
-
-		it('TodoTask is passed (4) props', () => {
-			expect(Object.keys(tasks.props()).length).to.eql(4)
+		it('Inspection', () => {
+ 			console.log('*** the Component: ', mountedTodoTask.debug())
+			console.log('*** the State: ', _state) 
+			console.log('*** the Props: ', _tasks.props()) 
 		})
 
-		it('has an _id prop', () => {
-			expect(Object.keys(tasks.props())).to.include('_id')
+		it('...TodoTask is passed (3) props', () => {
+			expect(Object.keys(_tasks.props()).length).to.eql(3)
 		})
 
-		it('has an task prop', () => {
-			expect(Object.keys(tasks.props())).to.include('task')
+		it('...has an item prop', () => {
+			expect(Object.keys(_tasks.props())).to.include('item')
 		})
 
-		it('has an style prop', () => {
-			expect(Object.keys(tasks.props())).to.include('style')
+		it('...has an style prop', () => {
+			expect(Object.keys(_tasks.props())).to.include('style')
 		})
 
-		it('has an updateTask prop', () => {
-			expect(Object.keys(tasks.props())).to.include('updateTask')
+		it('...has an updateTask prop', () => {
+			expect(Object.keys(_tasks.props())).to.include('updateTask')
 		})
 
 	})
 
-	xdescribe('The component STATE', () => {
+	describe('The component STATE', () => {
 
-		it('starts out with the default props', () => {
+		it('...has (5) state items', () => {
+			expect(Object.keys(_state).length).to.eql(5)
+		})
 
+		it('... starts with a false isEditing ', () => {
+			expect(_state).to.have.property('isEditing')
+				.to.eql(false)
+		})
+
+		it('...has isCompleted ', () => {
+			expect(_state).to.have.property('isCompleted')
+		})
+
+		it('...has _id ', () => {
+			expect(_state).to.have.property('_id')
+		})
+
+		it('...has _task ', () => {
+			expect(_state).to.have.property('_task')
+		})
+
+		it('...has _style ', () => {
+			expect(_state).to.have.property('_style')
 		})
 
 	})
