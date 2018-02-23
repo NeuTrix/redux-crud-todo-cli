@@ -9,25 +9,26 @@ const checkStyle ={
 class CheckComplete extends Component {
 			
 	constructor (props) {
-		super(props)
+		super (props)
 		this.state ={
 			_completed: this.props.item.completed,
 			_defaultChecked: ""
 		}
 	}
 
-	componentWillMount() {
+	componentWillMount () {
 		this.state._completed ? 
-			this.setState({_defaultChecked: true}) :
-			this.setState({_defaultChecked: false}) ;
+			this.setState ({ _defaultChecked: true }) :
+			this.setState ({ _defaultChecked: false });
 	}
 
-	componentWillReceiveProps(nextProps) {
+	componentWillReceiveProps (nextProps) {
 		let _defaultChecked = this.state._defaultChecked
-		this.setState({ item: nextProps.item });
+		this.setState ({ item: nextProps.item });
+
 		this.state._completed ? 
-			this.setState({_defaultChecked: true}) :
-			this.setState({_defaultChecked: false}) ;
+			this.setState ({ _defaultChecked: true }) :
+			this.setState ({ _defaultChecked: false }); 
 	}
 
 	render () {
@@ -47,7 +48,6 @@ class CheckComplete extends Component {
 			</Checkbox>
 		);
 	}
-
 };
 
 CheckComplete.propTypes = {
