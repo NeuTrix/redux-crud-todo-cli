@@ -21,6 +21,10 @@ class TodoItem extends Component {
 
 	}
 
+	componentWillReceiveProps(nextProps){
+		this.setState({item: nextProps.item})
+	}
+
 	render () {
 
 		// let this.state.item = this.props.this.state.item;
