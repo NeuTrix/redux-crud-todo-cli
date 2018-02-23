@@ -10,7 +10,7 @@ const _Checkbox = (props) => {
 
 	const handleClick = (event) => {
 		// disable event.preventDefault() to allow aninmation
-		props.toggleComplete(props.id);
+		props.toggleComplete(props._id);
 	};
 	
 	if(props.completed) {
@@ -38,12 +38,12 @@ const _Checkbox = (props) => {
 
 _Checkbox.propTypes = {
 	complete: PropTypes.bool.isRequired,
-	id: PropTypes.string.isRequired,
+	_id: PropTypes.string.isRequired,
 	toggleComplete: PropTypes.func.isRequired,
 };
 
 _Checkbox.defaultProps = {
-	id: 'default',
+	_id: 'default',
 	toggleComplete: f => f,
 	complete: false
 };

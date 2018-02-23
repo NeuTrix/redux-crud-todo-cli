@@ -4,12 +4,12 @@ import { FormControl } from 'react-bootstrap';
 
 // ========= Component
 
-const PriorityBtn = (props) => {
+const Rank = (props) => {
 	let _rank; // task priority 
 
 	const handleChange = (event) => {
 		event.preventDefault();
-		props.updateRank(props.id, _rank.value);
+		props.updateRank(props._id, _rank.value);
 	};
 
 	return (
@@ -31,16 +31,16 @@ const PriorityBtn = (props) => {
 
 // ========= Props  
 
-PriorityBtn.propTypes = {
+Rank.propTypes = {
 	currRank: PropTypes.string.isRequired,
-	id: PropTypes.string.isRequired,
+	_id: PropTypes.string.isRequired,
 	updateRank: PropTypes.func.isRequired
 };
 
-PriorityBtn.defaultProps = {
+Rank.defaultProps = {
 	currRank: 'default',	
-	id: 'default',
+	_id: 'default',
 	updateRank: f => f
 };
 
-export default PriorityBtn;
+export default Rank;

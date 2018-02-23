@@ -6,7 +6,7 @@ import { Col, Form, FormControl, Row } from 'react-bootstrap';
 import * as todoActions from '../actions/todoActions';
 
 import Checkbox from '../components/Checkbox';
-import PriorityRadio from '../components/PriorityRadio';
+import Rank from '../components/Rank';
 import DeleteBtn from '../components/DeleteBtn';
 
 // ========= Component 
@@ -99,20 +99,19 @@ class TodoItem extends Component {
 					<h4> Owner: { this.state.item.owner } </h4>
 
 				<Col 
-					className = 'checkBox'
 					xs = { spacing.xs.checkBox } 
 					sm = { spacing.sm.checkBox } 
 				>
 					<Checkbox
+						className = 'checkBox'
 						toggleComplete = { this.props.toggleComplete }   
-						id = { this.state.item._id }
+						_id = { this.state.item._id }
 						completed = { this.state.item.completed }
 					/>
 
 				</Col >
 
 				<Col 
-					className= 'task' 
 					xs = { spacing.xs.task } 
 					sm = { spacing.sm.task } 
 				>
@@ -123,6 +122,7 @@ class TodoItem extends Component {
 						onBlur = { onBlurStyle } 
 					>
 						<FormControl 
+							className= 'task' 
 							inputRef = { (input) => { _task = input;} } 
 							type = 'text'  
 							defaultValue= { this.state.item.task }
@@ -133,28 +133,26 @@ class TodoItem extends Component {
 				</Col>
 
 				<Col 
-					className= 'rank' 
 					xs = { spacing.xs.rank } 
 					sm = { spacing.sm.rank }
 				>
-					<Form>
-						<PriorityRadio
-							id = { this.state.item._id }
+						<Rank
+							className= 'rank' 
+							_id = { this.state.item.__id }
 							updateRank= { this.props.updateRank }   
 							currRank = { this.state.item.rank }
 						/>
-					</Form>
 
 				</Col >
 
 				<Col 	
-					className='date' 
 					xs = { spacing.xs.date }
 					sm = { spacing.sm.date }
 				>
 					<Form onChange = { handleDateChange } >
 						
 						<FormControl 
+							className='date' 
 							inputRef = { (ref) => { _date = ref;} } 
 							type = 'date'
 							defaultValue = { this.state.item.date.slice(0,10) } 
@@ -172,9 +170,8 @@ class TodoItem extends Component {
 				>
 					<DeleteBtn 
 						removeTodo = { this.props.removeTodo }   
-						id = { this.state.item._id } 
+						__id = { this.state.item.__id } 
 					/>
-
 
 				</Col>
 			</Row>
@@ -190,7 +187,7 @@ TodoItem.propTypes = {
 
 TodoItem.defaultProps ={
 	item: { 
-		id: '0.3HxYz',
+		_id: '0.3HxYz',
 		completed: false,
 		details: 'needed',
 		date: '2018-12-31',
@@ -210,15 +207,15 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		removeTodo:
-			(id) => dispatch(todoActions.removeTodo(id)),
+			(_id) => dispatch(todoActions.removeTodo(_id)),
 		toggleComplete:
-			(id, task) => dispatch(todoActions.toggleComplete(id, task)),
+			(_id, task) => dispatch(todoActions.toggleComplete(_id, task)),
 		updateDate:
-			(id, date) => dispatch(todoActions.updateDate(id, date)),
+			(_id, date) => dispatch(todoActions.updateDate(_id, date)),
 		updateTask:
-			(id, task) => dispatch(todoActions.updateTask(id, task)),
+			(_id, task) => dispatch(todoActions.updateTask(_id, task)),
 		updateRank:
-			(id, rank) => dispatch(todoActions.updateRank(id, rank)),
+			(_id, rank) => dispatch(todoActions.updateRank(_id, rank)),
 	};
 };
 

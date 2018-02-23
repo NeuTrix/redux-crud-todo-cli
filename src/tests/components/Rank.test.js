@@ -2,12 +2,12 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PriorityRadio from '../../components/PriorityRadio';
+import Rank from '../../components/Rank';
 
 it('renders without crashing', () => {
 	const div = document.createElement('div');
 	ReactDOM.render(
-		<PriorityRadio />
+		<Rank />
 		, div);
 });
 
