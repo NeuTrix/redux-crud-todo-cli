@@ -32,8 +32,6 @@ class TodoTask extends Component {
 		this.state = {
 			isEditing: false,
 			isCompleted: this.props.item.completed,
-			_task: this.props.item.task,
-			_id: this.props.item._id,
 			_style: defaultStyle
 		}
 	}
@@ -63,7 +61,7 @@ class TodoTask extends Component {
 		const handleChange = (event) => {
 			event.preventDefault();
 			let newTask = event.target.value;
-			this.props.updateTask(this.state._id, newTask);
+			this.props.updateTask(this.props._id, newTask);
 		};
 
 		const handleBlur = (event) => {
@@ -87,8 +85,9 @@ class TodoTask extends Component {
 						sm = { spacing.sm.check } 
 					>
 						<CheckComplete
-								_id = { this.state._id }
+								_id = { this.props._id }
 								_completed = { this.state.isCompleted}
+								toggleComplete = { this.props.toggleComplete }
 							/>
 					</Col>
 					
@@ -104,7 +103,7 @@ class TodoTask extends Component {
 							onBlur =  { handleBlur }
 
 							className= 'task' 
-							defaultValue= { this.state._task }
+							defaultValue= { this.props._task }
 							required
 							style = { this.state._style }
 							type = 'text'  
@@ -119,6 +118,8 @@ class TodoTask extends Component {
 // ========= Props 
 
 TodoTask.propTypes = {
+	_id: PropTypes.string.isRequired,
+	_task: PropTypes.string.isRequired,
 	item: PropTypes.object.isRequired,
 	updateTask: PropTypes.func.isRequired
 };

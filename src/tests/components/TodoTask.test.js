@@ -126,8 +126,8 @@ describe('The TodoTask Component', () => {
 
 	describe('The component STATE', () => {
 
-		it('...has (5) state items', () => {
-			expect(Object.keys(_state).length).to.eql(5)
+		it('...has (3) state items', () => {
+			expect(Object.keys(_state).length).to.eql(3)
 		})
 
 		it('... starts with a false isEditing ', () => {
@@ -137,14 +137,6 @@ describe('The TodoTask Component', () => {
 
 		it('...has isCompleted ', () => {
 			expect(_state).to.have.property('isCompleted')
-		})
-
-		it('...has _id ', () => {
-			expect(_state).to.have.property('_id')
-		})
-
-		it('...has _task ', () => {
-			expect(_state).to.have.property('_task')
 		})
 
 		it('...has _style ', () => {
