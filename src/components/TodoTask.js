@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Form, FormControl } from 'react-bootstrap';
+import { Col, Row, FormGroup, FormControl } from 'react-bootstrap';
+import CheckComplete from './CheckComplete'
 
 // ========= 
 
@@ -14,18 +15,34 @@ class TodoTask extends Component {
 			isCompleted: this.props.item.completed,
 			_task: this.props.item.task,
 			_id: this.props.item._id,
-			_style: this.props.item.style
+			_style: { backgroundColor: 'white',  color: 'black' }
 		}
 	}
-
 
 	render () {
 
 // ========= Stlyling
 
-	const isEditingStyle ={
-		backgroundColor: 'mintCream',
-		color: 'blue',
+	let test = true
+	let state = this.state
+	let _editing = this.state.isEditing
+	let _completed = this.state.isCompleted
+
+	const defaultStyle = {
+		backgroundColor: 'white', 
+		color: 'black' 
+	}
+
+	const isEditingStyle = {
+		backgroundColor: 'mintCream', 
+		color: 'blue' 
+	}
+
+	const isCompletedStyle = {
+			marginBottom: 10,
+			backgroundColor: 'whitesmoke', 
+			color: 'lightgrey',
+			textDecoration: 'line-through' 
 	}
 
 // ========= Functions
@@ -33,13 +50,21 @@ class TodoTask extends Component {
 	const handleTaskEdit = (event) => {
 		event.preventDefault();
 		let newTask = event.target.value;
-
 		this.props.updateTask(this.state._id, newTask);
 	};
 
 	const handleFocus = (event) => {
+		event.preventDefault();
+		this.setState({ _editing: true })
+		this.setState({ _style: isEditingStyle })
 		let taskBox = event.target
-		taskBox.setSelectionRange( 0, taskBox.value.length)
+			taskBox.setSelectionRange( 0, taskBox.value.length)
+	};
+
+	const handleBlur = (event) => {
+		event.preventDefault();
+		this.setState({ isEditing: false })
+		this.setState({ _style: defaultStyle })
 	};
 /*
 	const handleClick = (event) => {
@@ -61,18 +86,40 @@ class TodoTask extends Component {
 		let _style = this.props.item.style
 
 		return (
-			<Form 
+
+			<FormGroup 
+				onFocus = { handleFocus }
 				onChange = { handleTaskEdit }
-				onFocus = { handleFocus}
+				onBlur =  { handleBlur }
 			>
+			<Row>
+			<Col 
+				xs ={1}
+			>
+				<CheckComplete
+						inline = 'true'
+						_id = { this.state._id }
+						_completed = { this.state.isCompleted}
+					/>
+			</Col>
+
+			<Col
+				xs={11}
+			>
+
 				<FormControl 
+					inline = 'true'
 					className= 'task' 
 					defaultValue= { _task }
 					required
-					style = { this.props.style }
+					style = { this.state._style }
 					type = 'text'  
 				/> 
-			</Form>
+			</Col>
+			</Row>
+
+
+			</FormGroup>
 		)
 	}
 
@@ -83,7 +130,6 @@ class TodoTask extends Component {
 
 TodoTask.propTypes = {
 	item: PropTypes.object.isRequired,
-	style: PropTypes.object,
 	updateTask: PropTypes.func.isRequired
 };
 
@@ -97,8 +143,8 @@ TodoTask.defaultProps = {
 		rank: 'default',
 		task: 'default'
 	},
-		style: { },
 		updateTask: f => f,
+		toggleComplete: f => f
 };
 
 export default TodoTask;

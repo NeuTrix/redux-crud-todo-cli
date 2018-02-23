@@ -27,8 +27,8 @@ class TodoItem extends Component {
 		// ========= Styling 
 
 		const spacing = { 
-			xs: {chkComp: 1, task: 11, rank: 3, date: 5, delBtn: 3},
-			sm: {chkComp: 1, task: 6, rank: 2, date: 2, delBtn: 1}
+			xs: { task: 12, rank: 3, date: 5, delBtn: 3},
+			sm: { task: 6, rank: 2, date: 2, delBtn: 1}
 		};
 
 		const todosBox = {
@@ -54,24 +54,13 @@ class TodoItem extends Component {
 			<Row style = { todosBox }  >
 
 				<Col 
-					xs = { spacing.xs.chkComp } 
-					sm = { spacing.sm.chkComp } 
-				>
-					<CheckComplete
-						_id = { this.state.item._id }
-						item = { this.state.item }
-						toggleComplete = { this.props.toggleComplete }   
-					/>
-				</Col >
-
-				<Col 
 					xs = { spacing.xs.task } 
 					sm = { spacing.sm.task } 
 				>
 					<TodoTask
 						item = { this.state.item }
-						style = { styleCompleteTask }
 						updateTask = { this.props.updateTask }
+						toggleComplete = { this.props.toggleComplete }   
 					/>
 				</Col>
 

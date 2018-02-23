@@ -25,24 +25,58 @@ it('renders without crashing', () => {
 
 describe('The TodoTask Component', () => {
 	let 
-	 	mountedTodoTask, // the mounted object
-	 	_state, // the state of the mounted object
-		_tasks // the wrapper of the ounted object
+		props, // default props to clear objects before each test
+	 	mountedTodoTask // the mounted object
 
 	const todotaskComp = () => {
 		if(!mountedTodoTask) {
 			mountedTodoTask = mount (
-				<TodoTask /> 
+				<TodoTask {...props}/> 
 			);
 		}
 		return mountedTodoTask
 	};
 
+	let _state = todotaskComp().state(); // mounted component state 
+	let _tasks = todotaskComp().find('TodoTask'); // component wrapper
+
 	beforeEach (() => {
+		props = {
+			item: { 
+				_id: 'default',
+				completed: false,
+				details: 'default',
+				date: '2018-12-31',
+				owner: 'default',
+				rank: 'default',
+				task: 'default'
+			},
+			style: { },
+			updateTask: f => f
+		}
 		mountedTodoTask = undefined
-		_state = todotaskComp().state();
-		_tasks = todotaskComp().find('TodoTask');
 	});
+
+	afterEach =(() => {
+		_state.isCompleted = false,
+		_state.isEditing = false
+	});
+
+	xit('Inspection beforeEach', () => {
+		// to inspect testing objects
+		// console.log('*** the Component: ', mountedTodoTask.debug())
+		console.log('********** state beforeEach',  _state)
+		console.log('********** props beforeEach',  _tasks.props())
+	})
+
+	xit('Inspection afterEach', () => {
+		// to inspect testing objects
+		// console.log('*** the Component: ', mountedTodoTask.debug())
+		console.log('********** state afterEach',  _state)
+		console.log('********** props afterEach',  _tasks.props())
+	})
+
+	
 
 	describe('the wrapping Form component...', () => {
 
@@ -62,11 +96,11 @@ describe('The TodoTask Component', () => {
 
 	describe(' When rendering, for Props...', () => {
 
-		xit('Inspection', () => {
+		xit('Inspection for Rendering', () => {
 			// to inspect testing objects
- 			console.log('*** the Component: ', mountedTodoTask.debug())
-			console.log('*** the State: ', _state) 
-			console.log('*** the Props: ', _tasks.props()) 
+			// console.log('*** the Component: ', mountedTodoTask.debug())
+			console.log('*** Render the State: ', _state) 
+			console.log('*** Render the Props: ', _tasks.props()) 
 		})
 
 		it('...TodoTask is passed (3) props', () => {
@@ -77,7 +111,7 @@ describe('The TodoTask Component', () => {
 			expect(Object.keys(_tasks.props())).to.include('item')
 		})
 
-		it('...has an style prop', () => {
+		xit('...has an style prop', () => {
 			expect(Object.keys(_tasks.props())).to.include('style')
 		})
 
@@ -112,6 +146,25 @@ describe('The TodoTask Component', () => {
 
 		it('...has _style ', () => {
 			expect(_state).to.have.property('_style')
+		})
+	})
+
+	xdescribe('..when editing', () => {
+
+		beforeEach(() => {
+			_state.isCompleted = true ,
+			_state.isEditing = true 
+		});
+
+		xit('Inspection: Editing', () => {
+			// to inspect testing objects
+			console.log('*** Edit State: ', _state) 
+			console.log('*** Edit Props: ', _tasks.props()) 
+			console.log('*** Edit Props: ', _tasks) 
+		})
+
+		xit('...changes font color to red', () => {
+
 		})
 
 	})
