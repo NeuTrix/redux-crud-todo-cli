@@ -206,11 +206,16 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		removeTodo: (id) => dispatch(todoActions.removeTodo(id)),
-		toggleComplete: (id, task) => dispatch(todoActions.toggleComplete(id, task)),
-		updateDate: (id, date) => dispatch(todoActions.updateDate(id, date)),
-		updateTask: (id, task) => dispatch(todoActions.updateTask(id, task)),
-		updateRank: (id, rank) => dispatch(todoActions.updateRank(id, rank)),
+		removeTodo:
+			(id) => dispatch(todoActions.removeTodo(id)),
+		toggleComplete:
+			(id, task) => dispatch(todoActions.toggleComplete(id, task)),
+		updateDate:
+			(id, date) => dispatch(todoActions.updateDate(id, date)),
+		updateTask:
+			(id, task) => dispatch(todoActions.updateTask(id, task)),
+		updateRank:
+			(id, rank) => dispatch(todoActions.updateRank(id, rank)),
 	};
 };
 
