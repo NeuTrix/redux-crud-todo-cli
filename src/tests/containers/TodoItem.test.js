@@ -10,7 +10,7 @@ import store from '../../store/store';
 // Testing...
 import { expect } from 'chai';
 
-import TodoItem from '../../containers/TodoItem';
+import TodoItem from '../../components/TodoItem';
 
 // ====================================
 

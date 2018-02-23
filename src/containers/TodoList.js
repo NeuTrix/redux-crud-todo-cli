@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Col, Grid, Row } from 'react-bootstrap';
 
-import TodoItem from '../containers/TodoItem';
+import TodoItem from '../components/TodoItem';
 
 // ========= Component ========= 
 
