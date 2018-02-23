@@ -20,21 +20,30 @@ import {
 import Checkbox from '../components/Checkbox';
 import PriorityRadio from '../components/PriorityRadio';
 import DeleteBtn from '../components/DeleteBtn';
-// ========= Component =========
+
+// ========= Component 
 
 class TodoItem extends Component {
 
+	constructor(props) {
+		super(props)
+		this.state = {
+			item: this.props.item
+		}
+
+	}
+
 	render () {
 
-		let item = this.props.item;
-		let oldTask = item.task;
+		// let this.state.item = this.props.this.state.item;
+		let oldTask = this.state.item.task;
 		let _task;
 		let _date;
 
 		// ========= Functions
 		const validateEditable = (event) => {
 			event.preventDefault();
-			if(item.completed === true) {
+			if(this.state.item.completed === true) {
 				return alert('To Edit, uncheck task completed checkbox');
 			}
 		};
@@ -46,13 +55,13 @@ class TodoItem extends Component {
 				return _task.style.backgroundColor = 'white';
 			}
 			_task.style.backgroundColor = 'white';
-			return this.props.updateTask(item._id, newTask);
+			return this.props.updateTask(this.state.item._id, newTask);
 		};
 
 		const handleDateChange = (event) => {
 			event.preventDefault();
 			let newDate = _date.value;
-			return this.props.updateDate(item._id, newDate );
+			return this.props.updateDate(this.state.item._id, newDate );
 		};
 
 		// ========= Styling 
@@ -74,9 +83,9 @@ class TodoItem extends Component {
 
 		const styleCompleteTask =  {
 			marginBottom: 10,
-			backgroundColor: item.completed ? 'whitesmoke' : 'white', 
-			color: item.completed ? 'lightgrey' : 'black',
-			textDecoration: item.completed ? 'line-through' : 'none',
+			backgroundColor: this.state.item.completed ? 'whitesmoke' : 'white', 
+			color: this.state.item.completed ? 'lightgrey' : 'black',
+			textDecoration: this.state.item.completed ? 'line-through' : 'none',
 		};
 
 		const onFocusStyle = (event) => {
@@ -96,6 +105,8 @@ class TodoItem extends Component {
 
 		return (
 			<Row style = { todosBox }  >
+					<h4> Owner: { this.state.item.owner } </h4>
+
 				<Col 
 					className = 'checkBox'
 					xs = { spacing.xs.checkBox } 
@@ -103,8 +114,8 @@ class TodoItem extends Component {
 				>
 					<Checkbox
 						toggleComplete = { this.props.toggleComplete }   
-						id = { item._id }
-						completed = { item.completed }
+						id = { this.state.item._id }
+						completed = { this.state.item.completed }
 					/>
 
 				</Col >
@@ -123,7 +134,7 @@ class TodoItem extends Component {
 						<FormControl 
 							inputRef = { (input) => { _task = input;} } 
 							type = 'text'  
-							defaultValue= { item.task }
+							defaultValue= { this.state.item.task }
 							style = { styleCompleteTask }
 						/> 
 
@@ -137,9 +148,9 @@ class TodoItem extends Component {
 				>
 					<Form>
 						<PriorityRadio
-							id = { item._id }
+							id = { this.state.item._id }
 							updateRank= { this.props.updateRank }   
-							currRank = { item.rank }
+							currRank = { this.state.item.rank }
 						/>
 					</Form>
 
@@ -155,7 +166,7 @@ class TodoItem extends Component {
 						<FormControl 
 							inputRef = { (ref) => { _date = ref;} } 
 							type = 'date'
-							defaultValue = { item.date.slice(0,10) } 
+							defaultValue = { this.state.item.date.slice(0,10) } 
 							bsSize = 'sm'
 							required 
 						/> 
@@ -170,8 +181,9 @@ class TodoItem extends Component {
 				>
 					<DeleteBtn 
 						removeTodo = { this.props.removeTodo }   
-						id = { item._id } 
+						id = { this.state.item._id } 
 					/>
+
 
 				</Col>
 			</Row>
@@ -197,9 +209,10 @@ TodoItem.defaultProps ={
 	}
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
 	return {
-		todos: state.todos
+		todos: state.todos,
+		item: ownProps.item
 	};	
 };
 
