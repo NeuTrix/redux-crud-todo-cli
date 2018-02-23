@@ -18,11 +18,10 @@ class TodoItem extends Component {
 		this.state = {
 			item: this.props.item
 		}
-
 	}
 
 	componentWillReceiveProps(nextProps){
-		this.setState({item: nextProps.item})
+		this.setState({ item: nextProps.item })
 	}
 
 	render () {
