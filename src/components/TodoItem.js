@@ -6,11 +6,24 @@ import Rank from '../components/Rank';
 import DeleteBtn from '../components/DeleteBtn';
 import CalendarBtn from '../components/CalendarBtn';
 import TodoTask from '../components/TodoTask';
-
 import * as todoActions from '../actions/todoActions';
 
-// ========= Component 
+// ========= Styling 
+const spacing = { 
+	xs: { task: 12, rank: 3, date: 5, delBtn: 3},
+	sm: { task: 6, rank: 2, date: 2, delBtn: 1}
+};
 
+const todosBoxStyle = {
+	marginBottom: 10,
+	paddingTop: 10,
+	paddingBottom: 10,
+	border: '1px solid lightgrey',
+	borderRadius: 5,
+	backgroundColor: 'whitesmoke'
+};
+
+// ========= Component 
 class TodoItem extends Component {
 
 	constructor(props) {
@@ -20,44 +33,16 @@ class TodoItem extends Component {
 			date: this.props.date
 		}
 	}
-
 	render () {
-
-		// ========= Styling 
-
-		const spacing = { 
-			xs: { task: 12, rank: 3, date: 5, delBtn: 3},
-			sm: { task: 6, rank: 2, date: 2, delBtn: 1}
-		};
-
-		const todosBox = {
-			marginBottom: 10,
-			paddingTop: 10,
-			paddingBottom: 10,
-			border: '1px solid lightgrey',
-			borderRadius: 5,
-			backgroundColor: 'whitesmoke'
-		};
-
-		const styleCompleteTask =  {
-			marginBottom: 10,
-			backgroundColor: this.state.item.completed ? 'whitesmoke' : 'white', 
-			color: this.state.item.completed ? 'lightgrey' : 'black',
-			textDecoration: this.state.item.completed ? 'line-through' : 'none',
-		};
-
-
-		// ========= 
-
 		return (
-			<Row style = { todosBox }  >
-
+			<Row style = { todosBoxStyle }  >
 				<Col 
 					xs = { spacing.xs.task } 
 					sm = { spacing.sm.task } 
 				>
 					<TodoTask
 						item = { this.state.item }
+						task = { this.state.item.task }
 						updateTask = { this.props.updateTask }
 						toggleComplete = { this.props.toggleComplete }   
 					/>
@@ -81,7 +66,6 @@ class TodoItem extends Component {
 					<CalendarBtn
 						_id = { this.state.item._id }
 						date = { this.state.item.date }
-						style = { styleCompleteTask }
 						updateDate = { this.props.updateDate }   
 					/>
 				</Col>
@@ -95,16 +79,14 @@ class TodoItem extends Component {
 						removeTodo = { this.props.removeTodo }   
 					/>
 				</Col>
-
 			</Row>
 		);
 	}
 } 
 
 // ========= Props ========= 
-
-TodoItem.propTypes = { 
-	item: PropTypes.object.isRequired,
+TodoItem.propTypes = {
+	item: PropTypes.object.isRequired
 };
 
 TodoItem.defaultProps ={

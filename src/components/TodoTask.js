@@ -103,7 +103,7 @@ class TodoTask extends Component {
 							onBlur =  { handleBlur }
 
 							className= 'task' 
-							defaultValue= { this.props._task }
+							defaultValue= { this.props.task }
 							required
 							style = { this.state._style }
 							type = 'text'  
@@ -119,7 +119,7 @@ class TodoTask extends Component {
 
 TodoTask.propTypes = {
 	_id: PropTypes.string.isRequired,
-	_task: PropTypes.string.isRequired,
+	task: PropTypes.string.isRequired,
 	item: PropTypes.object.isRequired,
 	updateTask: PropTypes.func.isRequired
 };
@@ -134,6 +134,7 @@ TodoTask.defaultProps = {
 		rank: 'default',
 		task: 'default'
 	},
+	task: 'default',
 		updateTask: f => f,
 		toggleComplete: f => f
 };
