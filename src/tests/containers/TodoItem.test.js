@@ -23,7 +23,6 @@ it('renders without crashing', () => {
 	);
 });
 
-
 describe('The TodoItem Component', () => {
 	let props, mountedTodoItem
 
@@ -46,21 +45,27 @@ describe('The TodoItem Component', () => {
 		mountedTodoItem = undefined
 	});
 
-	describe('when rendering its components', () => {
+	describe('the wrapping Row component...', () => {
 
-		it('always renders a single Row', () => {
-			const rows = todoItem().find('Row');
+		const rows = todoItem().find('Row');
+		const wrappingRow = rows.first();
+
+		it('always renders an outer Row', () => {
 			expect(rows.length).to.be.eql(1);
+			// console.log(mountedTodoItem.debug())
 		})
+
+		it('renders an outer Row that wraps all components', () => {
+			expect (wrappingRow.children()).to.eql(todoItem().children())
+		})
+
+	})
+
+	describe('when rendering core components, it..', () => {
 
 		it('always renders (5) Cols', () => {
 			const cols = todoItem().find('Col');
 			expect(cols.length).to.be.eql(5  );
-		})
-
-		it('always renders a Checkbox component', () => {
-			const checkboxes = todoItem().find('Checkbox');
-			expect(checkboxes.length).to.be.eql(1);
 		})
 
 		it('always renders (2) Forms ', () => {
@@ -68,21 +73,31 @@ describe('The TodoItem Component', () => {
 			expect(forms.length).to.be.eql(2);
 		})
 
+		it('always renders a Checkbox component', () => {
+			const checkboxes = todoItem().find('Checkbox');
+			expect(checkboxes.length).to.be.eql(1);
+		})
+
 		it('always renders a FormControl for "task" ', () => {
 			const tasks = todoItem().find('FormControl.task');
 			expect(tasks.length).to.be.eql(1);
 		})
 
+		it('always renders a Rank component for rank ', () => {
+			const ranks = todoItem().find('Rank');
+			expect(ranks.length).to.be.eql(1);
+		})
+
 		it('always renders a FormControl for "date" ', () => {
 			const dates = todoItem().find('FormControl.date');
-			console.log(mountedTodoItem.debug())
 			expect(dates.length).to.be.eql(1);
 		})
 
-		it('always renders a Rank component for rank ', () => {
-			const ranks = todoItem().find('Rank');
-			expect(ranks.length).to.be.eql(2);
+		it('always renders a DeleteBtn component ', () => {
+			const deleteBtn = todoItem().find('DeleteBtn');
+			expect(deleteBtn.length).to.be.eql(1);
 		})
+
 
 	})
 

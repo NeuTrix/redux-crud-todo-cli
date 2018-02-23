@@ -96,8 +96,6 @@ class TodoItem extends Component {
 
 		return (
 			<Row style = { todosBox }  >
-					<h4> Owner: { this.state.item.owner } </h4>
-
 				<Col 
 					xs = { spacing.xs.checkBox } 
 					sm = { spacing.sm.checkBox } 
@@ -108,7 +106,6 @@ class TodoItem extends Component {
 						_id = { this.state.item._id }
 						completed = { this.state.item.completed }
 					/>
-
 				</Col >
 
 				<Col 
@@ -136,13 +133,12 @@ class TodoItem extends Component {
 					xs = { spacing.xs.rank } 
 					sm = { spacing.sm.rank }
 				>
-						<Rank
-							className= 'rank' 
-							_id = { this.state.item.__id }
-							updateRank= { this.props.updateRank }   
-							currRank = { this.state.item.rank }
-						/>
-
+					<Rank
+						className= 'rank' 
+						_id = { this.state.item.__id }
+						updateRank= { this.props.updateRank }   
+						currRank = { this.state.item.rank }
+					/>
 				</Col >
 
 				<Col 	
@@ -172,7 +168,6 @@ class TodoItem extends Component {
 						removeTodo = { this.props.removeTodo }   
 						__id = { this.state.item.__id } 
 					/>
-
 				</Col>
 			</Row>
 		);
