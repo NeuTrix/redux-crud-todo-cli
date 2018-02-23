@@ -116,7 +116,6 @@ class TodoTask extends Component {
 	}; //render
 }; //component
 
-
 // ========= Props 
 
 TodoTask.propTypes = {
