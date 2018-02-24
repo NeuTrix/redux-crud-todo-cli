@@ -11,13 +11,13 @@ class CheckComplete extends Component {
 	constructor (props) {
 		super (props)
 		this.state = {
-			_completed: this.props._completed,
+			isCompleted: this.props.isCompleted,
 			isChecked: true
 		}
 	}
 
 	componentWillMount () {
-		this.state._completed ? 
+		this.state.isCompleted ? 
 			this.setState ({ isChecked: true }) :
 			this.setState ({ isChecked: false })
 	}
@@ -26,7 +26,7 @@ class CheckComplete extends Component {
 		// let isChecked = this.state.isChecked
 		this.setState ({ item: nextProps.item });
 
-		this.state._completed ? 
+		this.state.isCompleted ? 
 			this.setState ({ isChecked: true }) :
 			this.setState ({ isChecked: false }); 
 	}*/
@@ -52,13 +52,13 @@ class CheckComplete extends Component {
 
 CheckComplete.propTypes = {
 	_id: PropTypes.string.isRequired,
-	_completed: PropTypes.bool.isRequired,
+	isCompleted: PropTypes.bool.isRequired,
 	toggleComplete: PropTypes.func.isRequired,
 };
 
 CheckComplete.defaultProps = {
 	_id: 'default',
-	_completed: true,
+	isCompleted: true,
 	toggleComplete: f => f
 };
 

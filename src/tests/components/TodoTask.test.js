@@ -109,19 +109,13 @@ describe('The TodoTask Component', () => {
 			expect(Object.keys(_tasks.props())).to.include('item')
 		})
 
-		xit('...has an style prop', () => {
-			expect(Object.keys(_tasks.props())).to.include('style')
+		it('...has an toggleComplete prop', () => {
+			expect(Object.keys(_tasks.props())).to.include('toggleComplete')
 		})
 
 		it('...has an updateTask prop', () => {
 			expect(Object.keys(_tasks.props())).to.include('updateTask')
 		})
-
-		xit('CheckComplete is passed (3) props', () => {
-			const checkboxes = todoItem().find('CheckComplete');
-			expect(Object.keys(checkboxes.props()).length).to.eql(3)
-		})
-
 	})
 
 	describe('The component STATE', () => {

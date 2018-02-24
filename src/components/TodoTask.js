@@ -85,7 +85,7 @@ class TodoTask extends Component {
 						sm = { spacing.sm.check } 
 					>
 						<CheckComplete
-								_id = { this.props._id }
+								_id = { this.props.item._id }
 								_completed = { this.state.isCompleted}
 								toggleComplete = { this.props.toggleComplete }
 							/>
@@ -103,7 +103,7 @@ class TodoTask extends Component {
 							onBlur =  { handleBlur }
 
 							className= 'task' 
-							defaultValue= { this.props.task }
+							defaultValue= { this.props.item.task }
 							required
 							style = { this.state._style }
 							type = 'text'  
@@ -118,10 +118,9 @@ class TodoTask extends Component {
 // ========= Props 
 
 TodoTask.propTypes = {
-	_id: PropTypes.string.isRequired,
-	task: PropTypes.string.isRequired,
 	item: PropTypes.object.isRequired,
-	updateTask: PropTypes.func.isRequired
+	updateTask: PropTypes.func.isRequired,
+	toggleComplete: PropTypes.func.isRequired
 };
 
 TodoTask.defaultProps = {
@@ -134,9 +133,8 @@ TodoTask.defaultProps = {
 		rank: 'default',
 		task: 'default'
 	},
-	task: 'default',
-		updateTask: f => f,
-		toggleComplete: f => f
+	updateTask: f => f,
+	toggleComplete: f => f
 };
 
 export default TodoTask;

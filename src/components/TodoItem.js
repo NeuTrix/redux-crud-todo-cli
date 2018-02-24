@@ -42,7 +42,6 @@ class TodoItem extends Component {
 				>
 					<TodoTask
 						item = { this.state.item }
-						task = { this.state.item.task }
 						updateTask = { this.props.updateTask }
 						toggleComplete = { this.props.toggleComplete }   
 					/>
@@ -86,7 +85,8 @@ class TodoItem extends Component {
 
 // ========= Props ========= 
 TodoItem.propTypes = {
-	item: PropTypes.object.isRequired
+	item: PropTypes.object.isRequired,
+	todos: PropTypes.array.isRequired
 };
 
 TodoItem.defaultProps ={
@@ -98,7 +98,8 @@ TodoItem.defaultProps ={
 		owner: 'default',
 		rank: 'default',
 		task: 'default'
-	}
+	}, 
+	todos: []
 };
 
 const mapStateToProps = (state, ownProps) => {

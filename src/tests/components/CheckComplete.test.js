@@ -43,7 +43,7 @@ describe('The CheckComplete Component', () => {
 	beforeEach (() => {
 		props = {
 			_id: "default",
-			_completed: false,
+			isCompleted: false,
 			toggleComplete: f => f
 		}
 		mountdCheckBComplete = undefined
@@ -54,7 +54,7 @@ describe('The CheckComplete Component', () => {
 	});
 
 		//console.log('*** the Component:', mountdCheckBComplete.debug())
-	it('Inspection beforeEach', () => {
+	xit('Inspection beforeEach', () => {
 		// to inspect testing objects
 		console.log('********** state beforeEach',  _state)
 		console.log('********** props beforeEach',  _tasks.props())
@@ -82,9 +82,9 @@ describe('The CheckComplete Component', () => {
 
 	});
 
-	describe.only(' When rendering, for Props...', () => {
+	describe(' Then component Props...', () => {
 
-		it('Inspection for Rendering', () => {
+		xit('Inspection for Rendering', () => {
 			// to inspect testing objects
 			console.log('*** Render the State: ', _state) 
 			console.log('*** Render the Props: ', _tasks.props()) 
@@ -98,47 +98,30 @@ describe('The CheckComplete Component', () => {
 			expect(Object.keys(_tasks.props())).to.include('_id')
 		})
 
-		it('...has an _completed prop', () => {
-			expect(Object.keys(_tasks.props())).to.include('_completed')
+		it('...has an isCompleted prop', () => {
+			expect(Object.keys(_tasks.props())).to.include('isCompleted')
 		})
 
 		it('...has an toggleComplete prop', () => {
 			expect(Object.keys(_tasks.props())).to.include('toggleComplete')
 		})
 
-		xit('CheckComplete is passed (3) props', () => {
-			const checkboxes = todoItem().find('CheckComplete');
-			expect(Object.keys(checkboxes.props()).length).to.eql(3)
-		})
-
 	})
 
 	describe('The component STATE', () => {
 
-		it('...has (5) state items', () => {
-			expect(Object.keys(_state).length).to.eql(5)
+		it('...has (2) state items', () => {
+			expect(Object.keys(_state).length).to.eql(2)
 		})
 
-		it('... starts with a false isEditing ', () => {
-			expect(_state).to.have.property('isEditing')
-				.to.eql(false)
+		it('... has an isChecked state ', () => {
+			expect(_state).to.have.property('isChecked')
 		})
 
-		it('...has isCompleted ', () => {
+		it('...has an isCompleted state ', () => {
 			expect(_state).to.have.property('isCompleted')
 		})
 
-		it('...has _id ', () => {
-			expect(_state).to.have.property('_id')
-		})
-
-		it('...has _task ', () => {
-			expect(_state).to.have.property('_task')
-		})
-
-		it('...has _style ', () => {
-			expect(_state).to.have.property('_style')
-		})
 	})
 
 	xdescribe('..when editing', () => {
