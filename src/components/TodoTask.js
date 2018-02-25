@@ -41,9 +41,11 @@ class TodoTask extends Component {
 		} 
 	}
 
-	// componentWillReceiveProps (nextProps) {
-	// 	this.setState({ isCompleted: nextProps.completed })
-	// }
+	shouldComponentUpdate (nextProps) {
+		console.log(nextProps.item)
+		this.props.item.completed === nextProps.item.completed ?
+		 false :  true
+	}
 
 	render () {
 	
