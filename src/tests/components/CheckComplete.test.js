@@ -42,9 +42,7 @@ describe('The CheckComplete Component', () => {
 
 	beforeEach (() => {
 		props = {
-			_id: "default",
-			isCompleted: false,
-			toggleComplete: f => f
+			completed: false,
 		}
 		mountdCheckBComplete = undefined
 	});
@@ -73,7 +71,7 @@ describe('The CheckComplete Component', () => {
 		const wrappingRow = checkboxes.first();
 
 		it('always renders an outer FormControl', () => {
-			expect(checkboxes.length).to.be.eql(1);
+			expect(checkboxes.length).to.be.eql(1)
 		})
 
 		it('always renders a CheckComplete component ', () => {
@@ -90,36 +88,24 @@ describe('The CheckComplete Component', () => {
 			console.log('*** Render the Props: ', _tasks.props()) 
 		})
 
-		it('...CheckComplete is passed (3) props', () => {
-			expect(Object.keys(_tasks.props()).length).to.eql(3)
+		it('...CheckComplete is passed (1) props', () => {
+			expect(Object.keys(_tasks.props()).length).to.eql(1)		
 		})
 
-		it('...has an _id prop', () => {
-			expect(Object.keys(_tasks.props())).to.include('_id')
-		})
-
-		it('...has an isCompleted prop', () => {
-			expect(Object.keys(_tasks.props())).to.include('isCompleted')
-		})
-
-		it('...has an toggleComplete prop', () => {
-			expect(Object.keys(_tasks.props())).to.include('toggleComplete')
+		it('...has an completed prop', () => {
+			expect(Object.keys(_tasks.props())).to.include('completed')
 		})
 
 	})
 
 	describe('The component STATE', () => {
 
-		it('...has (2) state items', () => {
-			expect(Object.keys(_state).length).to.eql(2)
+		it('...has (1) state items', () => {
+			expect(Object.keys(_state).length).to.eql(1)
 		})
 
 		it('... has an isChecked state ', () => {
 			expect(_state).to.have.property('isChecked')
-		})
-
-		it('...has an isCompleted state ', () => {
-			expect(_state).to.have.property('isCompleted')
 		})
 
 	})

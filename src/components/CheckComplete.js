@@ -11,32 +11,17 @@ class CheckComplete extends Component {
 	constructor (props) {
 		super (props)
 		this.state = {
-			isCompleted: this.props.isCompleted,
-			isChecked: true
+			isChecked: false
 		}
 	}
 
 	componentWillMount () {
-		this.state.isCompleted ? 
+		this.props.completed ? 
 			this.setState ({ isChecked: true }) :
 			this.setState ({ isChecked: false })
 	}
 
-	/*componentWillReceiveProps (nextProps) {
-		// let isChecked = this.state.isChecked
-		this.setState ({ item: nextProps.item });
-
-		this.state.isCompleted ? 
-			this.setState ({ isChecked: true }) :
-			this.setState ({ isChecked: false }); 
-	}*/
-
 	render () {
-
-		const handleClick = (event) => {
-			// disable event.preventDefault() to allow aninmation
-			this.props.toggleComplete(this.props._id);
-		};
 		
 		return( 
 			<Checkbox 
@@ -44,22 +29,18 @@ class CheckComplete extends Component {
 				defaultChecked = { this.state.isChecked }
 				type = 'checkbox' 
 				style = { checkStyle }
-				onClick = { handleClick } > 
+			> 
 			</Checkbox>
 		);
 	}
 };
 
 CheckComplete.propTypes = {
-	_id: PropTypes.string.isRequired,
-	isCompleted: PropTypes.bool.isRequired,
-	toggleComplete: PropTypes.func.isRequired,
+	completed: PropTypes.bool.isRequired,
 };
 
 CheckComplete.defaultProps = {
-	_id: 'default',
-	isCompleted: true,
-	toggleComplete: f => f
+	completed: false,
 };
 
 export default CheckComplete;

@@ -6,6 +6,8 @@ import Rank from '../components/Rank';
 import DeleteBtn from '../components/DeleteBtn';
 import CalendarBtn from '../components/CalendarBtn';
 import TodoTask from '../components/TodoTask';
+import CheckComplete from '../components/CheckComplete'
+
 import * as todoActions from '../actions/todoActions';
 
 // ========= Styling 
@@ -30,12 +32,34 @@ class TodoItem extends Component {
 		super(props)
 		this.state = {
 			item: this.props.item,
-			date: this.props.date
+			isCompleted: this.props.item.completed
 		}
 	}
+
 	render () {
+
+		const handleToggle = (event) => {
+			// disable event.preventDefault() to allow aninmation
+			// event.preventDefault() 
+
+			// this.setState ({ isCompleted: !this.state.isCompleted })
+			this.props.toggleComplete(this.state.item._id);
+		};
+		
 		return (
 			<Row style = { todosBoxStyle }  >
+
+				<Col 
+						xs = { spacing.xs.check } 
+						sm = { spacing.sm.check } 
+					>
+					<CheckComplete
+						completed = { this.state.isCompleted}
+						onClick = { handleToggle } 
+					/>
+
+				</Col>
+
 				<Col 
 					xs = { spacing.xs.task } 
 					sm = { spacing.sm.task } 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Col, Row, FormGroup, FormControl } from 'react-bootstrap';
-import CheckComplete from './CheckComplete'
+import { FormControl } from 'react-bootstrap';
 
 // ========= Stlyling
 
@@ -36,10 +35,14 @@ class TodoTask extends Component {
 		}
 	}
 
-	componentWillMount(){
+	componentWillMount() {
 		if (this.state.isCompleted) {
 		 this.setState({_style: isCompletedStyle })
 		} 
+	}
+
+	componentWillReceiveProps (nextProps) {
+		this.setState({ isCompleted: nextProps.item.completed })
 	}
 
 	render () {
@@ -72,45 +75,19 @@ class TodoTask extends Component {
 			this.setState({ isEditing: false })
 		};
 
-		const spacing = { 
-				xs: { check: 1, task: 10 },
-				sm: { check: 1, task: 10 },
-			};
-
 		return (
-			<FormGroup>
-				<Row>
-					<Col 
-						xs = { spacing.xs.check } 
-						sm = { spacing.sm.check } 
-					>
-						<CheckComplete
-								_id = { this.props.item._id }
-								_completed = { this.state.isCompleted}
-								toggleComplete = { this.props.toggleComplete }
-							/>
-					</Col>
-					
-					<Col 
-						xs = { spacing.xs.task } 
-						sm = { spacing.sm.task } 
-					>
+			<FormControl 
+				onFocus = { handleFocus }
+				onClick = { handleClick }
+				onChange = { handleChange }
+				onBlur =  { handleBlur }
 
-						<FormControl 
-							onFocus = { handleFocus }
-							onClick = { handleClick }
-							onChange = { handleChange }
-							onBlur =  { handleBlur }
-
-							className= 'task' 
-							defaultValue= { this.props.item.task }
-							required
-							style = { this.state._style }
-							type = 'text'  
-						/> 
-					</Col>
-				</Row>
-			</FormGroup>
+				className= 'task' 
+				defaultValue= { this.props.item.task }
+				required
+				style = { this.state._style }
+				type = 'text'  
+			/> 
 		) //return
 	}; //render
 }; //component
@@ -125,16 +102,11 @@ TodoTask.propTypes = {
 
 TodoTask.defaultProps = {
 	item: { 
-		_id: 'default',
 		completed: false,
-		details: 'default',
-		date: '2018-12-31',
-		owner: 'default',
-		rank: 'default',
 		task: 'default'
 	},
 	updateTask: f => f,
-	toggleComplete: f => f
+	toggleComplete: f => f // action creator
 };
 
 export default TodoTask;
