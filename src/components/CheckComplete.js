@@ -22,13 +22,22 @@ class CheckComplete extends Component {
 	}
 
 	render () {
-		
+
+		const handleToggle = (event) => {
+			// disable event.preventDefault() to allow aninmation
+			// event.preventDefault() 
+
+			// this.setState ({ isCompleted: !this.state.isCompleted })
+			this.props.toggleComplete(this.props._id);
+		};
+
 		return( 
 			<Checkbox 
 				className = 'checkComplete'
 				defaultChecked = { this.state.isChecked }
 				type = 'checkbox' 
 				style = { checkStyle }
+				onClick = { handleToggle } 
 			> 
 			</Checkbox>
 		);
@@ -36,11 +45,15 @@ class CheckComplete extends Component {
 };
 
 CheckComplete.propTypes = {
+	_id: PropTypes.string.isRequired,
 	completed: PropTypes.bool.isRequired,
+	toggleComplete: PropTypes.func.isRequired
 };
 
 CheckComplete.defaultProps = {
 	completed: false,
+	_id: "default" ,
+	toggleComplete: f => f
 };
 
 export default CheckComplete;

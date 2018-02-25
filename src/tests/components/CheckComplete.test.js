@@ -26,15 +26,15 @@ it('renders without crashing', () => {
 describe('The CheckComplete Component', () => {
 	let 
 		props, // default props to clear objects before each test
-	 	mountdCheckBComplete // the mounted object
+	 	mountdCheckComplete // the mounted object
 
 	const checkComp = () => {
-		if(!mountdCheckBComplete) {
-			mountdCheckBComplete = mount (
+		if(!mountdCheckComplete) {
+			mountdCheckComplete = mount (
 				<CheckComplete {...props}/> 
 			);
 		}
-		return mountdCheckBComplete
+		return mountdCheckComplete
 	};
 
 	let _state = checkComp().state(); // mounted state 
@@ -44,14 +44,14 @@ describe('The CheckComplete Component', () => {
 		props = {
 			completed: false,
 		}
-		mountdCheckBComplete = undefined
+		mountdCheckComplete = undefined
 	});
 
 	afterEach =(() => {
 		_state.isChecked = false
 	});
 
-		//console.log('*** the Component:', mountdCheckBComplete.debug())
+		//console.log('*** the Component:', mountdCheckComplete.debug())
 	xit('Inspection beforeEach', () => {
 		// to inspect testing objects
 		console.log('********** state beforeEach',  _state)
@@ -60,7 +60,7 @@ describe('The CheckComplete Component', () => {
 
 	xit('Inspection afterEach', () => {
 		// to inspect testing objects
-		//console.log('** the Component: ', mountdCheckBComplete.debug())
+		//console.log('** the Component: ', mountdCheckComplete.debug())
 		console.log('********** state afterEach',  _state)
 		console.log('********** props afterEach',  _tasks.props())
 	})
@@ -80,20 +80,26 @@ describe('The CheckComplete Component', () => {
 
 	});
 
-	describe(' Then component Props...', () => {
+	describe(' Then component PROPS...', () => {
 
-		xit('Inspection for Rendering', () => {
+		it('Inspection for Rendering', () => {
 			// to inspect testing objects
 			console.log('*** Render the State: ', _state) 
 			console.log('*** Render the Props: ', _tasks.props()) 
 		})
 
-		it('...CheckComplete is passed (1) props', () => {
-			expect(Object.keys(_tasks.props()).length).to.eql(1)		
+		it('...CheckComplete is passed (3) props', () => {
+			expect(Object.keys(_tasks.props()).length).to.eql(3)		
 		})
 
 		it('...has an completed prop', () => {
 			expect(Object.keys(_tasks.props())).to.include('completed')
+		})
+		it('...has an _id prop', () => {
+			expect(Object.keys(_tasks.props())).to.include('_id')
+		})
+		it('...has an toggleComplete prop', () => {
+			expect(Object.keys(_tasks.props())).to.include('toggleComplete')
 		})
 
 	})
