@@ -52,7 +52,7 @@ describe('The CheckComplete Component', () => {
 	});
 
 		//console.log('*** the Component:', mountdCheckComplete.debug())
-	it('Inspection beforeEach', () => {
+	xit('Inspection beforeEach', () => {
 		// to inspect testing objects
 		console.log('********** state beforeEach',  _state)
 		console.log('********** props beforeEach',  _tasks.props())
