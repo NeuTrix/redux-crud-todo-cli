@@ -38,8 +38,6 @@ class TodoItem extends Component {
 
 	render () {
 
-		
-		
 		return (
 			<Row 
 				className = 'todoItem'
