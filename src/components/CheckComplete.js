@@ -11,7 +11,7 @@ class CheckComplete extends Component {
 	constructor (props) {
 		super (props)
 		this.state = {
-			isChecked: false
+			isChecked: this.props.completed
 		}
 	}
 

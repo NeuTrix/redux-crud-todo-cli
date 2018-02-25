@@ -52,7 +52,7 @@ describe('The CheckComplete Component', () => {
 	});
 
 		//console.log('*** the Component:', mountdCheckComplete.debug())
-	xit('Inspection beforeEach', () => {
+	it('Inspection beforeEach', () => {
 		// to inspect testing objects
 		console.log('********** state beforeEach',  _state)
 		console.log('********** props beforeEach',  _tasks.props())
@@ -82,7 +82,7 @@ describe('The CheckComplete Component', () => {
 
 	describe(' Then component PROPS...', () => {
 
-		it('Inspection for Rendering', () => {
+		xit('Inspection for Rendering', () => {
 			// to inspect testing objects
 			console.log('*** Render the State: ', _state) 
 			console.log('*** Render the Props: ', _tasks.props()) 
@@ -95,9 +95,11 @@ describe('The CheckComplete Component', () => {
 		it('...has an completed prop', () => {
 			expect(Object.keys(_tasks.props())).to.include('completed')
 		})
+
 		it('...has an _id prop', () => {
 			expect(Object.keys(_tasks.props())).to.include('_id')
 		})
+
 		it('...has an toggleComplete prop', () => {
 			expect(Object.keys(_tasks.props())).to.include('toggleComplete')
 		})
@@ -116,22 +118,32 @@ describe('The CheckComplete Component', () => {
 
 	})
 
-	xdescribe('..when editing', () => {
+	xdescribe('..after toggline', () => {
 
 		beforeEach(() => {
-			_state.isCompleted = true ,
-			_state.isEditing = true 
+			_tasks.props().completed = true
 		});
+			let _tasks1 = checkComp().find('CheckComplete'); // wrapper
+			let _state1 = checkComp().state(); // mounted state 
 
-		xit('Inspection: Editing', () => {
+
+		it('Inspection: Editing', () => {
 			// to inspect testing objects
 			console.log('*** Edit State: ', _state) 
-			console.log('*** Edit Props: ', _tasks.props()) 
-			console.log('*** Edit Props: ', _tasks) 
+			console.log('*** Edit Props: ', _tasks1.props()) 
+			console.log('*** Edit Props: ', _tasks1) 
 		})
 
-		xit('...changes font color to red', () => {
+		it('...has an completed prop true', () => {
+			expect(Object.keys(_tasks1.props())).to.include('completed')
+		})
 
+		it('...completed props = true', () => {
+			expect(_tasks1.props().completed).to.eql(true)
+		})
+
+		xit('...changes isChecked state to true', () => {
+			expect(_state1.isChecked).to.eql(true)
 		})
 
 	})
