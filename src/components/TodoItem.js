@@ -38,40 +38,39 @@ class TodoItem extends Component {
 
 	render () {
 
-		const handleToggle = (event) => {
-			// disable event.preventDefault() to allow aninmation
-			// event.preventDefault() 
-
-			// this.setState ({ isCompleted: !this.state.isCompleted })
-			this.props.toggleComplete(this.state.item._id);
-		};
+		
 		
 		return (
-			<Row style = { todosBoxStyle }  >
+			<Row 
+				className = 'todoItem'
+				style = { todosBoxStyle }  >
 
 				<Col 
+						className = 'checkComplete'
 						xs = { spacing.xs.check } 
 						sm = { spacing.sm.check } 
 					>
 					<CheckComplete
+						_id = { this.props.item._id }
 						completed = { this.state.isCompleted}
-						onClick = { handleToggle } 
+						toggleComplete = { this.props.toggleComplete }   	
 					/>
 
 				</Col>
 
 				<Col 
+					className = 'todoTask'
 					xs = { spacing.xs.task } 
 					sm = { spacing.sm.task } 
 				>
 					<TodoTask
 						item = { this.state.item }
 						updateTask = { this.props.updateTask }
-						toggleComplete = { this.props.toggleComplete }   
 					/>
 				</Col>
 
 				<Col 
+					className = 'rank'
 					xs = { spacing.xs.rank } 
 					sm = { spacing.sm.rank }
 				>
@@ -83,6 +82,7 @@ class TodoItem extends Component {
 				</Col >
 
 				<Col 	
+					className = 'calendarBtn'
 					xs = { spacing.xs.date }
 					sm = { spacing.sm.date }
 				>
@@ -94,6 +94,7 @@ class TodoItem extends Component {
 				</Col>
 	
 				<Col 
+					className = 'deleteBtn'
 					xs = { spacing.xs.delBtn } 
 					sm = { spacing.sm.delBtn }
 				>

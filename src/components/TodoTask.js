@@ -10,7 +10,7 @@ const defaultStyle = {
 }
 
 const isEditingStyle = {
-	backgroundColor: 'mintCream', 
+	backgroundColor: 'yellow', 
 	color: 'blue' 
 }
 
@@ -42,7 +42,7 @@ class TodoTask extends Component {
 	}
 
 	componentWillReceiveProps (nextProps) {
-		this.setState({ isCompleted: nextProps.item.completed })
+		this.setState({ isCompleted: false })
 	}
 
 	render () {
