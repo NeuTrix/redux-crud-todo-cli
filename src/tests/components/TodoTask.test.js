@@ -94,7 +94,7 @@ describe('The TodoTask Component', () => {
 
 	describe(' When rendering, for Props...', () => {
 
-		xit('Inspection for Rendering', () => {
+		it('Inspection for Rendering', () => {
 			// to inspect testing objects
 			// console.log('*** the Component: ', mountedTodoTask.debug())
 			console.log('*** Render the State: ', _state) 
@@ -109,8 +109,8 @@ describe('The TodoTask Component', () => {
 			expect(Object.keys(_tasks.props())).to.include('item')
 		})
 
-		it('...has an toggleComplete prop', () => {
-			expect(Object.keys(_tasks.props())).to.include('toggleComplete')
+		it('...has an style prop', () => {
+			expect(Object.keys(_tasks.props())).to.include('style')
 		})
 
 		it('...has an updateTask prop', () => {
@@ -124,6 +124,10 @@ describe('The TodoTask Component', () => {
 			expect(Object.keys(_state).length).to.eql(3)
 		})
 
+		it('...has style ', () => {
+			expect(_state).to.have.property('style')
+		})
+
 		it('... starts with a false isEditing ', () => {
 			expect(_state).to.have.property('isEditing')
 				.to.eql(false)
@@ -132,10 +136,7 @@ describe('The TodoTask Component', () => {
 		it('...has isCompleted ', () => {
 			expect(_state).to.have.property('isCompleted')
 		})
-
-		it('...has _style ', () => {
-			expect(_state).to.have.property('_style')
-		})
+		
 	})
 
 	xdescribe('..when editing', () => {

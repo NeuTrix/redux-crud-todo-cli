@@ -76,18 +76,14 @@ class TodoItem extends Component {
 					xs = { spacing.xs.task } 
 					sm = { spacing.sm.task } 
 				>
-
-				<TodoTask 
-				task = { this.props.item.task }
-				_id = { this.props.item._id }
-				updateTask = { this.props.updateTask }
-				style = { style }
-				className= 'task' 
-				required
-				type = 'text'  
-			/> 
-
-					
+					<TodoTask 
+						className= 'task' 
+						type = 'text'  
+						item = { this.props.item }
+						style = { style }
+						updateTask = { this.props.updateTask }
+						required
+					/> 
 				</Col>
 
 				<Col 

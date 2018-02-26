@@ -3,32 +3,54 @@ import PropTypes from 'prop-types';
 import { Col, FormControl, Row } from 'react-bootstrap';
 
 // const TodoTask = (props) => {
+
+
 class TodoTask extends Component {
 
 	constructor (props) {
 		super(props)
 
 		this.state = {
+			isCompleted: this.props.item.completed,
 			style: this.props.style,
+			isEditing: false
 		}
 	}
 
-
-	handleClick (e) {
-		e.preventDefault()
-		let newTask = e.target.value
-		this.props.updateTask(this.props._id, newTask)
-	};
+	componentWillReceiveProps (newProps) {
+		console.log('**** newProps ****', newProps)
+		this.setState({ 
+			style: newProps.style,
+			isCompleted: newProps.item.completed 
+		})
+	}
 
 	render () {
+
+		const isEditingStyle = {
+			backgroundColor: this.state.isCompleted ? 'yellow' : 'lime',
+			color: 'green'
+		}
+
+		const	handleChange = (event) => {
+			event.preventDefault()
+			let newTask = event.target.value
+			this.props.updateTask(this.props.item._id, newTask)
+		};
+
+	/*handleClick (event) {
+		event.preventDefault()
+		// this.setState({ isEditing: true })
+		this.setState({ style: isEditingStyle })
+	}*/
 
 		return (
 
 			<FormControl 
 				className= 'task' 
-				onChange = { this.handleClick.bind(this) }
-				defaultValue= { this.props.task }
-				style = { this.props.style }
+				onChange = { this.handleChange }
+				defaultValue= { this.props.item.task }
+				style = { this.state.style }
 				type = 'text'  
 				required
 			/> 
@@ -37,14 +59,18 @@ class TodoTask extends Component {
 };
 
 TodoTask.propTypes = {
-	_id: PropTypes.string.isRequired,
-	task: PropTypes.string.isRequired,
+	item: PropTypes.object.isRequired,
+	style: PropTypes.object.isRequired,
 	updateTask: PropTypes.func.isRequired
 };
 
 TodoTask.defaultProps = {
-	_id: 'default',
-	task: 'default',
+	item: {
+		_id: 'default',
+		task: 'default',
+		completed: false
+	},
+	style: {},
 	updateTask: f => f
 };
 
