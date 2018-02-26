@@ -32,23 +32,37 @@ class TodoTask extends Component {
 			color: 'green'
 		}
 
+		const handleFocus = (event) => {
+			event.preventDefault()
+			console.log('FOCUSED!!!')
+			// alert('FOCUSED!!!')/
+
+			// if (!this.state.isCompleted) {
+				// this.setState({ style: isEditingStyle })
+				// this.setState({ isEditing: true })
+			// }
+
+		}
+
+	/*	const handleClick (event) {
+			event.preventDefault()
+			// this.setState({ isEditing: true })
+			this.setState({ style: isEditingStyle })
+		}*/
+
 		const	handleChange = (event) => {
 			event.preventDefault()
 			let newTask = event.target.value
 			this.props.updateTask(this.props.item._id, newTask)
 		};
 
-	/*handleClick (event) {
-		event.preventDefault()
-		// this.setState({ isEditing: true })
-		this.setState({ style: isEditingStyle })
-	}*/
-
 		return (
 
 			<FormControl 
 				className= 'task' 
-				onChange = { this.handleChange }
+				
+				onChange = { handleChange }
+				onFocus = { handleFocus }
 				defaultValue= { this.props.item.task }
 				style = { this.state.style }
 				type = 'text'  
