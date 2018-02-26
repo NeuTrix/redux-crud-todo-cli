@@ -4,22 +4,12 @@ import { FormControl } from 'react-bootstrap';
 
 // ========= Stlyling
 
-const defaultStyle = {
-	backgroundColor: 'white', 
-	color: 'black' 
-}
 
 const isEditingStyle = {
-	backgroundColor: 'yellow', 
+	backgroundColor: 'lime', 
 	color: 'blue' 
 }
 
-const isCompletedStyle = {
-		marginBottom: 10,
-		backgroundColor: 'whitesmoke', 
-		color: 'lightgrey',
-		textDecoration: 'line-through' 
-}
 
 // ========= Component
 
@@ -29,45 +19,64 @@ class TodoTask extends Component {
 		super(props)
 
 		this.state = {
+			item: this.props.item,
+			// isCompleted: this.props.item.completed,
 			isEditing: false,
-			isCompleted: this.props.item.completed,
-			_style: defaultStyle
+/*			style: this.props.item.completed ?
+						isCompletedStyle :
+						defaultStyle,
+
+
+*/			
+		style : {backgroundColor: 'yellow'},
+		task:"State is working"
 		}
+			this.handleClick = this.handleClick.bind(this)
+
 	}
 
-	componentWillMount() {
-		if (this.state.isCompleted) {
-		 this.setState({_style: isCompletedStyle })
+	/*componentDidMount() {
+		if(this.props.item.completed) {
+		 this.setState({ style: isCompletedStyle })
 		} 
-	}
+		 this.setState({ style: defaultStyle })
+	}*/
 
 	shouldComponentUpdate (nextProps) {
-		console.log(nextProps.item)
-		this.props.item.completed === nextProps.item.completed ?
-		 false :  true
+		// console.log("***THIS***",this.props.item)
+		// console.log("***TASK***",nextProps.item)
+		if (this.props.item !== nextProps.item) {
+			return true
+		} 
+			return false
 	}
 
+
+ handleClick(event) {
+			event.preventDefault();
+				this.setState({ isEditing: true })
+				this.setState ({ style: isEditingStyle });
+
+			// if (this.props.item.completed) {
+			// 	alert('Item is completed');
+			// 	this.setState ({ style: isCompletedStyle }); 
+			// }
+		}
 	render () {
 	
 		const handleFocus = (event) => {
 			event.preventDefault();
 
-			if (!this.state.isCompleted) {
+			if (!this.props.item.completed) {
+				// this.setState({ isCompleted: false })
 				event.target.setSelectionRange( 0, event.target.value.length)
-				this.setState({ _style: isEditingStyle })
 				this.setState({ isEditing: true })
-			} console.log('????')
+				// this.setState({ style: isEditingStyle })
+			} 
 
 		};
 
-		const handleClick = (event) => {
-			event.preventDefault();
-			if (this.state.isCompleted) {
-				alert('Item is completed');
-				this.setState ({ _style: isCompletedStyle }); 
-			}
-				this.setState ({ _style: isEditingStyle });
-		}
+		
 
 		const handleChange = (event) => {
 			event.preventDefault();
@@ -75,25 +84,22 @@ class TodoTask extends Component {
 			this.props.updateTask(this.props._id, newTask);
 		};
 
-		const handleBlur = (event) => {
+		/*const handleBlur = (event) => {
 			event.preventDefault();
-			this.state.isCompleted ?
-			  this.setState({ _style: isCompletedStyle }) :
-				this.setState({ _style: defaultStyle })
+			this.props.item.completed?
+			  this.setState({ style: isCompletedStyle }) :
+				this.setState({ style: defaultStyle })
 			this.setState({ isEditing: false })
-		};
+		};*/
 
 		return (
 			<FormControl 
-				onClick = { handleClick }
-				onFocus = { handleFocus }
-				onChange = { handleChange }
-				onBlur =  { handleBlur }
+				onFocus = { this.handleClick }
 
 				className= 'task' 
-				defaultValue= { this.props.item.task }
+				defaultValue= { this.state.task }
 				required
-				style = { this.state._style }
+				style = { this.state.style }
 				type = 'text'  
 			/> 
 		) //return
@@ -105,16 +111,12 @@ class TodoTask extends Component {
 TodoTask.propTypes = {
 	item: PropTypes.object.isRequired,
 	updateTask: PropTypes.func.isRequired,
-	toggleComplete: PropTypes.func.isRequired
 };
 
 TodoTask.defaultProps = {
-	item: { 
-		completed: false,
-		task: 'default'
-	},
+	item: { },
 	updateTask: f => f,
-	toggleComplete: f => f // action creator
+	style: { }
 };
 
 export default TodoTask;

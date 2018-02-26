@@ -25,6 +25,18 @@ const todosBoxStyle = {
 	backgroundColor: 'whitesmoke'
 };
 
+const defaultStyle = {
+	backgroundColor: 'white', 
+	color: 'black' 
+}
+
+const isCompletedStyle = {
+		marginBottom: 10,
+		backgroundColor: 'whitesmoke', 
+		color: 'lightgrey',
+		textDecoration: 'line-through' 
+}
+
 // ========= Component 
 class TodoItem extends Component {
 
@@ -32,11 +44,29 @@ class TodoItem extends Component {
 		super(props)
 		this.state = {
 			item: this.props.item,
-			isCompleted: this.props.item.completed
+			_id: this.props.item._id,
+			isCompleted: this.props.item.completed,
+
+			/*_style: {
+				color:'red'
+			}*/
+			_style: this.props.item.completed ?
+									isCompletedStyle :
+									defaultStyle
 		}
 	}
 
+/*shouldComponentUpdate (nextProps) {
+		console.log(nextProps.item)
+		if (this.props.item !== nextProps.item) {
+			return true
+		} 
+			return false
+	}*/
+
 	render () {
+
+		let _task // capture imput of TodoTask component
 
 		return (
 			<Row 
@@ -62,7 +92,9 @@ class TodoItem extends Component {
 					sm = { spacing.sm.task } 
 				>
 					<TodoTask
-						item = { this.state.item }
+						inputRef = { (input) => { _task = input } }
+						item = { this.props.item }
+						style = { this.state._style }
 						updateTask = { this.props.updateTask }
 					/>
 				</Col>
@@ -127,7 +159,7 @@ TodoItem.defaultProps ={
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		todos: state.todos,
+		// todos: state.todos
 		item: ownProps.item,
 	};	
 };
