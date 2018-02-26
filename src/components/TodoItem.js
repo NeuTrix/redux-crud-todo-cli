@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Col, FormControl, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import Rank from '../components/Rank';
 import DeleteBtn from '../components/DeleteBtn';
 import CalendarBtn from '../components/CalendarBtn';
@@ -50,8 +50,6 @@ class TodoItem extends Component {
 		} else {
 			style = defaultStyle 
 		}
-
-		let _task // capture imput of TodoTask component
 
 		return (
 			<Row 

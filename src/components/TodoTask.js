@@ -1,9 +1,6 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
-import { Col, FormControl, Row } from 'react-bootstrap';
-
-// const TodoTask = (props) => {
-
+import { FormControl } from 'react-bootstrap';
 
 class TodoTask extends Component {
 
@@ -18,7 +15,6 @@ class TodoTask extends Component {
 	}
 
 	componentWillReceiveProps (newProps) {
-		// console.log('**** newProps ****', newProps)
 		this.setState({ 
 			style: newProps.style,
 			isCompleted: newProps.item.completed 
@@ -37,13 +33,16 @@ class TodoTask extends Component {
 
 		const handleClick = (event) => {
 			event.preventDefault()
+			let _task = event.target
 
 			if (status) {
 				alert(`Current completed status is "${status}".\nPlease uncheck "completed" before continuing to edit`);
 				this.setState({ style: this.props.style });
 			} else {
-				this.setState({ style: isEditingStyle });
 				this.setState({ isEditing: true });
+				this.setState({ style: isEditingStyle });
+				_task.setSelectionRange(0, _task.value.length)
+				
 			}
 		}
 
@@ -56,6 +55,7 @@ class TodoTask extends Component {
 		const handleBlur = (event) => {
 			event.preventDefault()
 			this.setState({ style: defaultStyle })
+			this.setState({ isEditing: false });
 		}
 
 		return (
