@@ -8,7 +8,6 @@ const CalendarBtn = (props) => {
 		event.preventDefault();
 		let newDate = event.target.value;
 		props.updateDate(props._id, newDate );
-		alert('Update date to... ' + newDate)
 	};
 
 	return (

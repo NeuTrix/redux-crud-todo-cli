@@ -2,23 +2,38 @@ import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
 import { Col, FormControl, Row } from 'react-bootstrap';
 
-const TodoTask = (props) => {
+// const TodoTask = (props) => {
+class TodoTask extends Component {
 
-	const handleClick = () => {
+	constructor (props) {
+		super(props)
 
+		this.state = {
+			style: this.props.style,
+		}
+	}
+
+
+	handleClick (e) {
+		e.preventDefault()
+		let newTask = e.target.value
+		this.props.updateTask(this.props._id, newTask)
 	};
+
+	render () {
 
 		return (
 
 			<FormControl 
 				className= 'task' 
-				onFocus = { handleClick }
-				defaultValue= { props.task }
-				style = { props.style }
+				onChange = { this.handleClick.bind(this) }
+				defaultValue= { this.props.task }
+				style = { this.props.style }
 				type = 'text'  
 				required
 			/> 
 		)
+	};
 };
 
 TodoTask.propTypes = {
