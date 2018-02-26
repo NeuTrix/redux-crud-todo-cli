@@ -38,8 +38,8 @@ const isCompletedStyle = {
 }
 
 // ========= Component 
-class TodoItem extends Component {
 
+class TodoItem extends Component {
 
 	render () {
 
