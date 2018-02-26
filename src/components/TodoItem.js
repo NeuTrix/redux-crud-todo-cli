@@ -27,7 +27,7 @@ const todosBoxStyle = {
 
 const defaultStyle = {
 	backgroundColor: 'white', 
-	color: 'red' 
+	color: 'black' 
 }
 
 const isCompletedStyle = {

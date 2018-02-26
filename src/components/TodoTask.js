@@ -11,14 +11,14 @@ class TodoTask extends Component {
 		super(props)
 
 		this.state = {
-			isCompleted: this.props.item.completed,
 			style: this.props.style,
+			isCompleted: this.props.item.completed,
 			isEditing: false
 		}
 	}
 
 	componentWillReceiveProps (newProps) {
-		console.log('**** newProps ****', newProps)
+		// console.log('**** newProps ****', newProps)
 		this.setState({ 
 			style: newProps.style,
 			isCompleted: newProps.item.completed 
@@ -27,19 +27,19 @@ class TodoTask extends Component {
 
 	render () {
 
-		const isEditingStyle = {
-			backgroundColor: this.state.isCompleted ? 'yellow' : 'lime',
-			color: 'green'
-		}
+		let defaultStyle = this.props.style // base style for component
+		let status = this.state.isCompleted; // completed status
 
-		
-		let status = this.state.isCompleted;
+		const isEditingStyle = {
+			backgroundColor: 'aliceBlue',
+			color: 'navy'
+		}
 
 		const handleClick = (event) => {
 			event.preventDefault()
 
 			if (status) {
-				alert(`Current completed status is ${status}. Please uncheck completed before continuing to edit`);
+				alert(`Current completed status is "${status}".\nPlease uncheck "completed" before continuing to edit`);
 				this.setState({ style: this.props.style });
 			} else {
 				this.setState({ style: isEditingStyle });
@@ -53,25 +53,23 @@ class TodoTask extends Component {
 			this.props.updateTask(this.props.item._id, newTask)
 		};
 
-		/*const handleBlur = (event) => {
+		const handleBlur = (event) => {
 			event.preventDefault()
-
-			if (!this.state.isCompleted) {
-				
-			} 
-
-		}*/
+			this.setState({ style: defaultStyle })
+		}
 
 		return (
 
 			<FormControl 
 				className= 'task' 
-				onClick = { handleClick }
-				onChange = { handleChange }
 				defaultValue= { this.props.item.task }
 				style = { this.state.style }
 				type = 'text'  
 				required
+
+				onClick = { handleClick }
+				onChange = { handleChange }
+				onBlur =  { handleBlur }
 			/> 
 		)
 	};

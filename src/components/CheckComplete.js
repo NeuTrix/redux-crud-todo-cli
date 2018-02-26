@@ -15,6 +15,13 @@ class CheckComplete extends Component {
 		}
 	}
 
+	componentWillReceiveProps (newProps) {
+		console.log('**** CHECK newProps ****', newProps)
+		this.setState({ 
+			isChecked: newProps.completed,
+		})
+	}
+
 render() {
 
 		const handleToggle = (event) => {
@@ -28,7 +35,7 @@ render() {
 		return( 
 			<Checkbox 
 				className = 'checkComplete'
-				defaultChecked = { this.state.isChecked }
+				defaultChecked = { this.props.completed }
 				type = 'checkbox' 
 				style = { checkStyle }
 				onClick = { handleToggle } 
