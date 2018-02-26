@@ -6,6 +6,7 @@ import Rank from '../components/Rank';
 import DeleteBtn from '../components/DeleteBtn';
 import CalendarBtn from '../components/CalendarBtn';
 import CheckComplete from '../components/CheckComplete'
+import TodoTask from '../components/TodoTask'
 
 import * as todoActions from '../actions/todoActions';
 
@@ -76,14 +77,16 @@ class TodoItem extends Component {
 					sm = { spacing.sm.task } 
 				>
 
-				<FormControl 
-				onFocus = { this.handleClick }
-						style = { style }
+				<TodoTask 
+				task = { this.props.item.task }
+				_id = { this.props.item._id }
+				updateTask = { this.props.updateTask }
+				style = { style }
 				className= 'task' 
-				defaultValue= { this.props.item.task }
 				required
 				type = 'text'  
 			/> 
+
 					
 				</Col>
 

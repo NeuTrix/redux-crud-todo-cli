@@ -15,8 +15,7 @@ class CheckComplete extends Component {
 		}
 	}
 
-
-	render () {
+render() {
 
 		const handleToggle = (event) => {
 			// disable event.preventDefault() to allow aninmation
@@ -36,7 +35,7 @@ class CheckComplete extends Component {
 			> 
 			</Checkbox>
 		);
-	}
+	};
 };
 
 CheckComplete.propTypes = {
