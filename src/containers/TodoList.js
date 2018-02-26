@@ -22,7 +22,7 @@ class TodoList extends Component {
 			<Grid >
 				<Row className = 'todoItems' >
 					<Col lg = { 12 } >
-						<TaskCounter/>
+						<TaskCounter todos = { todoArray } />
 					</Col>
 					<Col lg = { 12 } >
 						{ todos.reverse() } 

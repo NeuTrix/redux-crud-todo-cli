@@ -5,21 +5,38 @@ import { Badge } from 'react-bootstrap';
 
 const TaskCounter = (props) => {
 
-	const spacing = {
+	const style = {
+		color: 'steelblue',
+		outline: '1px solid lightgrey',
+		padding: 10,
+		borderRadius: 10
+	}
 
-		xs: { title: 4, badge: 8 }
+	const spacing = {
+		xs: { title: 4, badge: 8 },
+		sm: { title: 2, badge: 10 },
+		md: { title: 2, badge: 10 }
 	}
 
 	return ( 
-		<Row>
-			<Col xs = { spacing.xs.title } >
+		<Row style = { style } >
+			<Col
+				xs = { spacing.xs.title } 
+				sm = { spacing.sm.title } 
+				md = { spacing.md.title } 
+				>
 				Todos Count:   
 			</Col>
 			
-			<Col xs = { spacing.xs.badge } >
-				<Badge> 
+			<Col
+				xs = { spacing.xs.badge } 
+				sm = { spacing.sm.badge } 
+				md = { spacing.md.badge } 
+			>
+				<Badge > 
 					{ props.todos.length }
 				</Badge>
+
 			</Col>
 		</Row>
 	);
