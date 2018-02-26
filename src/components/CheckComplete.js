@@ -16,7 +16,7 @@ class CheckComplete extends Component {
 	}
 
 	componentWillReceiveProps (newProps) {
-		console.log('**** CHECK newProps ****', newProps)
+		// console.log('**** CHECK newProps ****', newProps)
 		this.setState({ 
 			isChecked: newProps.completed,
 		})
@@ -27,7 +27,6 @@ render() {
 		const handleToggle = (event) => {
 			// disable event.preventDefault() to allow aninmation
 			// event.preventDefault() 
-
 			// this.setState ({ isCompleted: !this.state.isCompleted })
 			this.props.toggleComplete(this.props._id);
 		};
