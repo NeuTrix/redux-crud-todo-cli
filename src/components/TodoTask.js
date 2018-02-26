@@ -32,23 +32,20 @@ class TodoTask extends Component {
 			color: 'green'
 		}
 
-		const handleFocus = (event) => {
+		
+		let status = this.state.isCompleted;
+
+		const handleClick = (event) => {
 			event.preventDefault()
-			console.log('FOCUSED!!!')
-			// alert('FOCUSED!!!')/
 
-			// if (!this.state.isCompleted) {
-				// this.setState({ style: isEditingStyle })
-				// this.setState({ isEditing: true })
-			// }
-
+			if (status) {
+				alert(`Current completed status is ${status}. Please uncheck completed before continuing to edit`);
+				this.setState({ style: this.props.style });
+			} else {
+				this.setState({ style: isEditingStyle });
+				this.setState({ isEditing: true });
+			}
 		}
-
-	/*	const handleClick (event) {
-			event.preventDefault()
-			// this.setState({ isEditing: true })
-			this.setState({ style: isEditingStyle })
-		}*/
 
 		const	handleChange = (event) => {
 			event.preventDefault()
@@ -56,13 +53,21 @@ class TodoTask extends Component {
 			this.props.updateTask(this.props.item._id, newTask)
 		};
 
+		/*const handleBlur = (event) => {
+			event.preventDefault()
+
+			if (!this.state.isCompleted) {
+				
+			} 
+
+		}*/
+
 		return (
 
 			<FormControl 
 				className= 'task' 
-				
+				onClick = { handleClick }
 				onChange = { handleChange }
-				onFocus = { handleFocus }
 				defaultValue= { this.props.item.task }
 				style = { this.state.style }
 				type = 'text'  
