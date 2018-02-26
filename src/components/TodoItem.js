@@ -12,26 +12,26 @@ import * as todoActions from '../actions/todoActions';
 
 // ========= Styling 
 const spacing = { 
-	xs: { task: 12, rank: 3, date: 5, delBtn: 3},
-	sm: { task: 6, rank: 2, date: 2, delBtn: 1}
+	xs: { chkbx: 1, task: 11, rank: 3, date: 5, delBtn: 3},
+	sm: { chkbx: 1, task: 11, rank: 2, date: 2, delBtn: 1}
 };
 
 const todosBoxStyle = {
-	marginBottom: 10,
-	paddingTop: 10,
+	marginTop: 10,
 	paddingBottom: 10,
+	paddingTop: 10,
 	border: '1px solid lightgrey',
 	borderRadius: 5,
-	backgroundColor: 'whitesmoke'
+	backgroundColor: 'whitesmoke',
+
 };
 
 const defaultStyle = {
 	backgroundColor: 'white', 
-	color: 'black' 
+	color: 'black', 
 }
 
 const isCompletedStyle = {
-		marginBottom: 10,
 		backgroundColor: 'whitesmoke', 
 		color: 'lightgrey',
 		textDecoration: 'line-through' 
@@ -58,8 +58,8 @@ class TodoItem extends Component {
 
 				<Col 
 						className = 'checkComplete'
-						xs = { spacing.xs.check } 
-						sm = { spacing.sm.check } 
+						xs = { spacing.xs.chkbx } 
+						sm = { spacing.sm.chkbx } 
 					>
 					<CheckComplete
 						_id = { this.props.item._id }
@@ -73,6 +73,7 @@ class TodoItem extends Component {
 					className = 'todoTask'
 					xs = { spacing.xs.task } 
 					sm = { spacing.sm.task } 
+					style = { { marginBottom: 10 } }
 				>
 					<TodoTask 
 						className= 'task' 
