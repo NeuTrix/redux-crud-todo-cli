@@ -15,11 +15,6 @@ class CheckComplete extends Component {
 		}
 	}
 
-	/*componentWillMount () {
-		this.props.completed ? 
-			this.setState ({ isChecked: true }) :
-			this.setState ({ isChecked: false })
-	}*/
 
 	render () {
 

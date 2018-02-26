@@ -1,11 +1,10 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Col, Row } from 'react-bootstrap';
+import { Col, FormControl, Row } from 'react-bootstrap';
 import Rank from '../components/Rank';
 import DeleteBtn from '../components/DeleteBtn';
 import CalendarBtn from '../components/CalendarBtn';
-import TodoTask from '../components/TodoTask';
 import CheckComplete from '../components/CheckComplete'
 
 import * as todoActions from '../actions/todoActions';
@@ -27,7 +26,7 @@ const todosBoxStyle = {
 
 const defaultStyle = {
 	backgroundColor: 'white', 
-	color: 'black' 
+	color: 'red' 
 }
 
 const isCompletedStyle = {
@@ -40,31 +39,16 @@ const isCompletedStyle = {
 // ========= Component 
 class TodoItem extends Component {
 
-	constructor(props) {
-		super(props)
-		this.state = {
-			item: this.props.item,
-			_id: this.props.item._id,
-			isCompleted: this.props.item.completed,
-
-			/*_style: {
-				color:'red'
-			}*/
-			_style: this.props.item.completed ?
-									isCompletedStyle :
-									defaultStyle
-		}
-	}
-
-/*shouldComponentUpdate (nextProps) {
-		console.log(nextProps.item)
-		if (this.props.item !== nextProps.item) {
-			return true
-		} 
-			return false
-	}*/
 
 	render () {
+
+		let style = {}
+		
+		if (this.props.item.completed) {
+			style = isCompletedStyle 
+		} else {
+			style = defaultStyle 
+		}
 
 		let _task // capture imput of TodoTask component
 
@@ -80,7 +64,7 @@ class TodoItem extends Component {
 					>
 					<CheckComplete
 						_id = { this.props.item._id }
-						completed = { this.state.isCompleted}
+						completed = { this.props.item.completed }
 						toggleComplete = { this.props.toggleComplete }   	
 					/>
 
@@ -91,12 +75,16 @@ class TodoItem extends Component {
 					xs = { spacing.xs.task } 
 					sm = { spacing.sm.task } 
 				>
-					<TodoTask
-						inputRef = { (input) => { _task = input } }
-						item = { this.props.item }
-						style = { this.state._style }
-						updateTask = { this.props.updateTask }
-					/>
+
+				<FormControl 
+				onFocus = { this.handleClick }
+						style = { style }
+				className= 'task' 
+				defaultValue= { this.props.item.task }
+				required
+				type = 'text'  
+			/> 
+					
 				</Col>
 
 				<Col 
@@ -105,8 +93,8 @@ class TodoItem extends Component {
 					sm = { spacing.sm.rank }
 				>
 					<Rank
-						_id = { this.state.item._id }
-						currRank = { this.state.item.rank }
+						_id = { this.props.item._id }
+						currRank = { this.props.item.rank }
 						updateRank= { this.props.updateRank }   
 					/>
 				</Col >
@@ -117,8 +105,8 @@ class TodoItem extends Component {
 					sm = { spacing.sm.date }
 				>
 					<CalendarBtn
-						_id = { this.state.item._id }
-						date = { this.state.item.date }
+						_id = { this.props.item._id }
+						date = { this.props.item.date }
 						updateDate = { this.props.updateDate }   
 					/>
 				</Col>
@@ -129,7 +117,7 @@ class TodoItem extends Component {
 					sm = { spacing.sm.delBtn }
 				>
 					<DeleteBtn 
-						_id = { this.state.item._id } 
+						_id = { this.props.item._id } 
 						removeTodo = { this.props.removeTodo }   
 					/>
 				</Col>

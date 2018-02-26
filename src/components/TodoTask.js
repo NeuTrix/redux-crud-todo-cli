@@ -4,11 +4,11 @@ import { FormControl } from 'react-bootstrap';
 
 // ========= Stlyling
 
-
+/*
 const isEditingStyle = {
 	backgroundColor: 'lime', 
 	color: 'blue' 
-}
+}*/
 
 
 // ========= Component
@@ -21,15 +21,14 @@ class TodoTask extends Component {
 		this.state = {
 			item: this.props.item,
 			// isCompleted: this.props.item.completed,
-			isEditing: false,
-/*			style: this.props.item.completed ?
+			// isEditing: false,
+		/*	style: this.props.item.completed ?
 						isCompletedStyle :
-						defaultStyle,
+						defaultStyle,*/
 
+		task: this.props.item.task
 
-*/			
-		style : {backgroundColor: 'yellow'},
-		task:"State is working"
+			
 		}
 			this.handleClick = this.handleClick.bind(this)
 
@@ -41,7 +40,7 @@ class TodoTask extends Component {
 		} 
 		 this.setState({ style: defaultStyle })
 	}*/
-
+/*
 	shouldComponentUpdate (nextProps) {
 		// console.log("***THIS***",this.props.item)
 		// console.log("***TASK***",nextProps.item)
@@ -49,13 +48,13 @@ class TodoTask extends Component {
 			return true
 		} 
 			return false
-	}
+	}*/
 
 
  handleClick(event) {
 			event.preventDefault();
 				this.setState({ isEditing: true })
-				this.setState ({ style: isEditingStyle });
+				// this.setState ({ style: isEditingStyle });
 
 			// if (this.props.item.completed) {
 			// 	alert('Item is completed');
@@ -64,7 +63,7 @@ class TodoTask extends Component {
 		}
 	render () {
 	
-		const handleFocus = (event) => {
+		/*const handleFocus = (event) => {
 			event.preventDefault();
 
 			if (!this.props.item.completed) {
@@ -83,7 +82,7 @@ class TodoTask extends Component {
 			let newTask = event.target.value;
 			this.props.updateTask(this.props._id, newTask);
 		};
-
+*/
 		/*const handleBlur = (event) => {
 			event.preventDefault();
 			this.props.item.completed?
@@ -95,11 +94,9 @@ class TodoTask extends Component {
 		return (
 			<FormControl 
 				onFocus = { this.handleClick }
-
 				className= 'task' 
 				defaultValue= { this.state.task }
 				required
-				style = { this.state.style }
 				type = 'text'  
 			/> 
 		) //return
