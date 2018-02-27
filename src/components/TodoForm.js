@@ -152,18 +152,20 @@ const TodoForm = (props) => {
 
 TodoForm.propTypes = {
 	addTodo: PropTypes.func.isRequired,
+	api: PropTypes.string.isRequired,
 	createTodo: PropTypes.func.isRequired,
-	_task: PropTypes.string.isRequired,
+	_date: PropTypes.string.isRequired,
 	_rank: PropTypes.string.isRequired,
-	_date: PropTypes.string.isRequired
+	_task: PropTypes.string.isRequired,
 };
 
 TodoForm.defaultProps = {
 	addTodo: f => f,
+ 	api: 'https://redux-todo-api.herokuapp.com/api/todos',
 	createTodo: f => f,
-	_task: '',
+	_date: '2020-12-31',
 	_rank: '',
-	_date: '2020-12-31'
+	_task: '',
 };
 
 export default TodoForm;

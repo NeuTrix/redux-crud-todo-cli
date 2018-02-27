@@ -11,7 +11,7 @@ const DeleteBtn = (props) => {
 		let _confirmed = confirm('DELETE this item?') 
 			
 		if (_confirmed) {
-			return props.deleteTodo(props._id);
+			return props.deleteTodo(props.api, props._id);
 		} 
 	};
 
@@ -27,11 +27,14 @@ const DeleteBtn = (props) => {
 
 DeleteBtn.propTypes = {
 	// removeTodo: PropTypes.func.isRequired,
+	api: PropTypes.string.isRequired,
 	deleteTodo: PropTypes.func.isRequired,
 	_id: PropTypes.string.isRequired
 };
 
 DeleteBtn.defaultProps = {
+
+ 	api: 'https://redux-todo-api.herokuapp.com/api/todos',
 	_id: 'default',
 	deleteTodo: f => f,
 	removeTodo: f => f,

@@ -116,6 +116,7 @@ class TodoItem extends Component {
 					sm = { spacing.sm.delBtn }
 				>
 					<DeleteBtn 
+						api = { this.props.api }
 						_id = { this.props.item._id } 
 						deleteTodo = { this.props.deleteTodo }   
 					/>
@@ -127,11 +128,13 @@ class TodoItem extends Component {
 
 // ========= Props ========= 
 TodoItem.propTypes = {
+	api: PropTypes.string.isRequired,
 	item: PropTypes.object.isRequired,
 	todos: PropTypes.array.isRequired
 };
 
 TodoItem.defaultProps ={
+ 	api: 'https://redux-todo-api.herokuapp.com/api/todos',
 	item: { 
 		_id: 'default',
 		completed: false,
@@ -156,7 +159,7 @@ const mapDispatchToProps = (dispatch) => {
 		removeTodo: 
 			(_id) => dispatch(todoActions.removeTodo(_id)),
 		deleteTodo:
-			(api, _id) => dispatch(deleteTodo(_id)),
+			(api, _id) => dispatch(deleteTodo(api, _id)),
 		toggleComplete: 
 			(_id, task) => dispatch(todoActions.toggleComplete(_id, task)),
 		updateDate: 

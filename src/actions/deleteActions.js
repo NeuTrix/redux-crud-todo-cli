@@ -46,7 +46,7 @@ export function deleteTodo(api, _id) {
 		dispatch(deleteIsPosting(true));
 
 		// fetch the items
-		axios.delete(api, _id)
+		axios.delete(`${api}/${_id}`)
 			.then((response) => {
 				// watch for errors
 				if(response.status !== 204) {
@@ -60,7 +60,7 @@ export function deleteTodo(api, _id) {
 			.then(() => dispatch(deleteHasSucceeded(true)))
 			.catch((err) => {
 					dispatch(deleteHasErrored(true))
-					console.log('=====+> Erroor:', err)
+					// console.log('=====+> Erroor:', err)
 			});
 	};
 
