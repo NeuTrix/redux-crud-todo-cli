@@ -20,7 +20,7 @@ export const deleteReducer = (state = initialState, action) => {
 	case DELETE_IS_POSTING:
 		return {...state, ...{deleteIsPosting:payload.status}};
 	
-	case DELETEE_HAS_SUCCEEDED:
+	case DELETE_HAS_SUCCEEDED:
 		return {...state, ...{deleteHasSucceeded:payload.status}};
 	
 	case DELETE_HAS_ERRORED:
