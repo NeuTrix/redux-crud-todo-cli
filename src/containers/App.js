@@ -26,7 +26,7 @@ class App extends Component {
 			<Router>
 				<div className="App">
 					<Header/>					
-					<TodoForm addTodo = { this.props.addTodo } />
+					<TodoForm createTodo = { this.props.createTodo } />
 					<TodoList todoArray=  { this.props.todoArray } />
 				</div>
 			</Router>
@@ -38,11 +38,15 @@ class App extends Component {
 
 App.propTypes = { 
 	addTodo:    PropTypes.func.isRequired,
+	api:    PropTypes.string.isRequired,
+	createTodo:    PropTypes.func.isRequired,
 	todoArray: 	PropTypes.array.isRequired
 };
 
 App.defaultProps ={
 	addTodo: f=>f,
+ 	api: 'https://redux-todo-api.herokuapp.com/api/todos',
+	createTodo: f=>f,
 	todoArray: []
 };
 
@@ -57,6 +61,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		addTodo: (task) => { dispatch(addTodo(task)) },
+		createTodo: (task) => { dispatch(createTodo(task)) },
 		startApp: (url) => { dispatch(startState(url)) }
 	};
 }; 
