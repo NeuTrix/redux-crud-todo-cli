@@ -5,15 +5,13 @@ import {
 	CREATE_HAS_ERRORED,
 } from '../actions/CreateActions';
 
-export const createReducer = (
-	
-	state = {
-		createIsPosting: false,
-		createHasSucceeded: false,
-		createHasErrored: false
-	}, 
+let initialState = {
+	createIsPosting: false,
+	createHasSucceeded: false,
+	createHasErrored: false
+} 
 
-	action) => {
+export const createReducer = (state = initialState, action) => {
 
 	let payload = action.payload;
 

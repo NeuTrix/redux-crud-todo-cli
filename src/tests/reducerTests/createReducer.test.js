@@ -3,6 +3,8 @@
 // ======== esllint
 /*eslint no-undef: "error"*/
 
+import axios from 'axios';
+
 import deepFreeze from 'deep-freeze';
 import { expect } from 'chai';
 import store from '../../store/store';
@@ -11,9 +13,10 @@ import {
 	createIsPosting,
 	createHasSucceeded,
 	createHasErrored,
-	// createTodo
+	createTodo
 } from '../../actions/createActions';
 
+import { startState } from '../../actions/Read-Actions'
 // ====================================
 
 describe('The apiReducer action suite', () => {
@@ -30,7 +33,7 @@ describe('The apiReducer action suite', () => {
 			store.dispatch(createIsPosting(false));
 		});
 
-		it('... initialState has an isLoading prop set to false', () => {
+		it('... has an isLoading prop set to false', () => {
 			expect(initialState).to.have.property('createIsPosting')
 				.to.eql(false);
 		});
@@ -68,5 +71,49 @@ describe('The apiReducer action suite', () => {
 		});
 
 	});
+
+	xdescribe('...the createTodo function', () => {
+
+			let testItem = {
+				owner: "tester",
+				task: "Test the createTodo function"
+			}
+
+				let api ='https://redux-todo-api.herokuapp.com/api/todos'
+
+			let todosBefore = store.getState().todos
+
+			beforeAll(() => {
+			startState(api)
+				// console.log('***** Before *****', todosBefore)
+				let afterTodo = store.getState().todos
+				// console.log('***** After *****', afterTodo)
+			});
+
+			afterAll(() => {
+
+			});
+
+		it('... makes a successful call to the server', (done) => {
+			
+			axios.get(api)
+				.then((res) => {
+					expect(res.data.length).to.eql(1)
+					done()
+				});
+
+			store.dispatch(createTodo(api,testItem))
+
+		})
+
+		xit('... adds a new item to the api', () => {
+
+		})
+
+
+		xit('... updates the api state accordingly', () => {
+
+		})
+	})
 
 });

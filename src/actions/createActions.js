@@ -54,6 +54,7 @@ export function createTodo(url, data) {
 				}	
 				// once finished loading
 				dispatch(createIsPosting(false));
+				return response;
 			})
 			.then((todo) => dispatch(addTodo(todo)))
 			// check for errors, if so
