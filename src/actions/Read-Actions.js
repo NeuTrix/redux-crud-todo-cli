@@ -57,7 +57,7 @@ export function startState(url) {
 				return response;
 			})
 			// api may already return a json item; if not...
-			.then((response) => response())
+			.then((response) => response.json())
 
 			.then((todos) => dispatch(todosSetInitialState(todos)))
 			// check for errors, if so
@@ -65,7 +65,10 @@ export function startState(url) {
 			.then(() => {
 				dispatch(todosHasFetched(true))
 			})
-			.catch(() => dispatch(todosHasErrored(true)));
+			.catch((err) => {
+				dispatch(todosHasErrored(true))
+				console.log('WTF!==>',  err)
+			});
 
 	};
 
