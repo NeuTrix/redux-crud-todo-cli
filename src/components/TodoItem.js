@@ -14,7 +14,7 @@ import * as todoActions from '../actions/todoActions';
 const spacing = { 
 	xs: { chkbx: 1, task: 11, rank: 3, date: 5, delBtn: 3},
 	sm: { chkbx: 1, task: 11, rank: 2, date: 3, delBtn: 6}
-};
+}
 
 const todosBoxStyle = {
 	marginTop: 10,

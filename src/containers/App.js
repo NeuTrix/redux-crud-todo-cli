@@ -7,17 +7,17 @@ import TodoForm from '../components/TodoForm';
 import Header from '../components/Header';
 
 import { addTodo } from '../actions/todoActions';
+import { createTodo } from '../actions/createActions';
 import { BrowserRouter as Router } from 'react-router-dom'
 
-import { startState } from '../actions/apiActions'
+import { startState } from '../actions/Read-Actions'
 
 // ========= 
 
 class App extends Component {
 	
 	componentDidMount() {
-		const api = 'https://redux-todo-api.herokuapp.com/api/todos'
-		this.props.startApp(api)
+		this.props.startApp(this.props.api)
 	}
 
 	render() {
@@ -25,7 +25,10 @@ class App extends Component {
 			<Router>
 				<div className="App">
 					<Header/>					
-					<TodoForm addTodo = { this.props.addTodo } />
+					<TodoForm 
+						createTodo = { this.props.createTodo } 
+						api = { this.props.api }
+					/>
 					<TodoList todoArray=  { this.props.todoArray } />
 				</div>
 			</Router>
@@ -37,11 +40,15 @@ class App extends Component {
 
 App.propTypes = { 
 	addTodo:    PropTypes.func.isRequired,
+	api:    PropTypes.string.isRequired,
+	createTodo:    PropTypes.func.isRequired,
 	todoArray: 	PropTypes.array.isRequired
 };
 
 App.defaultProps ={
 	addTodo: f=>f,
+ 	api: 'https://redux-todo-api.herokuapp.com/api/todos',
+	createTodo: f=>f,
 	todoArray: []
 };
 
@@ -56,6 +63,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		addTodo: (task) => { dispatch(addTodo(task)) },
+		createTodo: (api, task) => { dispatch(createTodo(api, task)) },
 		startApp: (url) => { dispatch(startState(url)) }
 	};
 }; 

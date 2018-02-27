@@ -8,14 +8,13 @@ import shortid from 'shortid';
 import deepFreeze from 'deep-freeze';
 import { expect } from 'chai';
 import store from '../../store/store';
-// import apiReducer from '../../reducers/apiReducer';
 
 import { 
 	todosIsLoading,
 	todosHasFetched,
 	todosHasErrored,
 	// getTodosData
-} from '../../actions/apiActions';
+} from '../../actions/Read-Actions';
 
 // ====================================
 
@@ -55,18 +54,6 @@ describe('The apiReducer action suite', () => {
 		it('... initialState has an todosHasFetched prop set to false', () => {
 			expect(initialState).to.have.property('todosHasFetched')
 				.to.eql(false);
-		});
-
-		it('... should immutably change the state to true', () => {
-			let testState = [
-				{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Get some Milk', rank: 'High' },
-				{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Kiss my daughter', rank: 'Med' },
-				{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Celebrate life!', rank: 'Low' },
-			];
-			store.dispatch(todosHasFetched(testState));
-			// let hasFetched = store.getState().todosApi.todosHasFetched
-			let hasFetched = store.getState().todosApi.todosHasFetched;
-			expect(hasFetched.todos[0].task).to.eql('Get some Milk');
 		});
 
 	});
