@@ -19,7 +19,7 @@ import {
 	todosHasErrored,
 	todosHasFetched,
 	startState
-} from '../../actions/apiActions';
+} from '../../actions/Read-Actions';
 
 chai.use(chaiHttp);
 
@@ -154,7 +154,7 @@ describe('The get todos INITIAL STATE  function', () => {
 		axios.get(api)
 			.then((res) => {
 				let data = res.data
-				expect(res.status).to.eql(400)
+				expect(res.status).to.eql(200)
 				expect(data).to.be.an('array')
 			done()
 		})

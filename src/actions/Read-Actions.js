@@ -47,13 +47,13 @@ export function startState(url) {
 		// fetch the items
 		fetch(url)
 			.then((response) => {
-				// watch for errors
+				// watch for errorsap
 				if(!response.ok) {
 					throw Error(response.statusText);
 				}	
 				// once finished loading
 				dispatch(todosIsLoading(false));
-				return response;
+				// return response;
 			})
 			// api may already return a json item; if not...
 			.then((response) => response.json())
