@@ -6,7 +6,7 @@ import TodoList from '../containers/TodoList';
 import TodoForm from '../components/TodoForm';
 import Header from '../components/Header';
 
-import { addTodo } from '../actions/todoActions';
+// import { addTodo } from '../actions/todoActions';
 import { createTodo } from '../actions/createActions';
 import { BrowserRouter as Router } from 'react-router-dom'
 
@@ -39,14 +39,14 @@ class App extends Component {
 // ========= Props ========= 
 
 App.propTypes = { 
-	addTodo:    PropTypes.func.isRequired,
+	// addTodo:    PropTypes.func.isRequired,
 	api:    PropTypes.string.isRequired,
 	createTodo:    PropTypes.func.isRequired,
 	todoArray: 	PropTypes.array.isRequired
 };
 
 App.defaultProps ={
-	addTodo: f=>f,
+	// addTodo: f=>f,
  	api: 'https://redux-todo-api.herokuapp.com/api/todos',
 	createTodo: f=>f,
 	todoArray: []
@@ -62,7 +62,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		addTodo: (task) => { dispatch(addTodo(task)) },
+		// addTodo: (task) => { dispatch(addTodo(task)) },
 		createTodo: (api, task) => { dispatch(createTodo(api, task)) },
 		startApp: (url) => { dispatch(startState(url)) }
 	};
