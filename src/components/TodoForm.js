@@ -24,11 +24,14 @@ const TodoForm = (props) => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		props.createTodo({
-			date: _date.value,
-			task: _task.value, 
-			rank: _rank.value, 
-		});
+		props.createTodo(
+			props.api,
+			{
+				date: _date.value,
+				task: _task.value, 
+				rank: _rank.value, 
+			}
+		);
 		_task.value = '';
 		_task.focus();
 	};

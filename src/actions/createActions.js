@@ -53,17 +53,15 @@ export function createTodo(api, data) {
 					throw Error(response.statusText);
 				}	
 				// once finished loading
+				dispatch(addTodo(data));
 				dispatch(createIsPosting(false));
-				// may need this for response==>
-				// return response;
 			})
-			.then((todo) => dispatch(addTodo(todo)))
-			// check for errors, if so
+			// check for errors, 
 			.then(() => dispatch(createHasSucceeded(true)))
 			.catch((err) => {
 					dispatch(createHasErrored(true))
 					console.log('=====+> Erroor:', err)
-				});
+			});
 	};
 
 }
