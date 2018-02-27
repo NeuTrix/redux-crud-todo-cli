@@ -5,8 +5,8 @@ import {
 } from './todoActions';
 
 export const CREATE_IS_POSTING  = 'CREATE_IS_POSTING';
-export const CREATE_HAS_ERRORED = 'CREATE_HAS_ERRORED';
 export const CREATE_HAS_SUCCEEDED = 'CREATE_HAS_SUCCEEDED';
+export const CREATE_HAS_ERRORED = 'CREATE_HAS_ERRORED';
 
 export function createIsPosting(bool)  {
 	return {
@@ -17,7 +17,7 @@ export function createIsPosting(bool)  {
 	};
 }
 
-export const createHasFetched = (todos) => {
+export const createHasSucceeded = (todos) => {
 	return {
 		type: CREATE_HAS_SUCCEEDED,
 		payload: {
@@ -54,10 +54,10 @@ export function createTodo(url, data) {
 				}	
 				// once finished loading
 				dispatch(createIsPosting(false));
-				return response;
 			})
 			.then((todo) => dispatch(addTodo(todo)))
 			// check for errors, if so
+			.then(() => dispatch(createHasSucceeded(true)))
 			.catch(() => dispatch(createHasErrored(true)));
 	};
 
