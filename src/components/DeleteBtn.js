@@ -11,7 +11,7 @@ const DeleteBtn = (props) => {
 		let _confirmed = confirm('DELETE this item?') 
 			
 		if (_confirmed) {
-			return props.removeTodo(props._id);
+			return props.deleteTodo(props._id);
 		} 
 	};
 
@@ -26,12 +26,14 @@ const DeleteBtn = (props) => {
 };
 
 DeleteBtn.propTypes = {
-	removeTodo: PropTypes.func.isRequired,
+	// removeTodo: PropTypes.func.isRequired,
+	deleteTodo: PropTypes.func.isRequired,
 	_id: PropTypes.string.isRequired
 };
 
 DeleteBtn.defaultProps = {
 	_id: 'default',
+	deleteTodo: f => f,
 	removeTodo: f => f,
 };
 

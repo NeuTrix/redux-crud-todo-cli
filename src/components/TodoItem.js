@@ -9,6 +9,7 @@ import CheckComplete from '../components/CheckComplete'
 import TodoTask from '../components/TodoTask'
 
 import * as todoActions from '../actions/todoActions';
+import { deleteTodo } from '../actions/deleteActions'
 
 // ========= Styling 
 const spacing = { 
@@ -116,7 +117,7 @@ class TodoItem extends Component {
 				>
 					<DeleteBtn 
 						_id = { this.props.item._id } 
-						removeTodo = { this.props.removeTodo }   
+						deleteTodo = { this.props.deleteTodo }   
 					/>
 				</Col>
 			</Row>
@@ -154,6 +155,8 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		removeTodo: 
 			(_id) => dispatch(todoActions.removeTodo(_id)),
+		deleteTodo:
+			(api, _id) => dispatch(deleteTodo(_id)),
 		toggleComplete: 
 			(_id, task) => dispatch(todoActions.toggleComplete(_id, task)),
 		updateDate: 
