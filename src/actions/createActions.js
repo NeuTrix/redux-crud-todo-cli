@@ -38,7 +38,7 @@ export const createHasErrored = (bool) => {
 // =========   
 
 // here's the Thunk...
-export function createTodo(url, data) {
+export function createTodo(api, data) {
 
 	return (dispatch) => {
 
@@ -46,7 +46,7 @@ export function createTodo(url, data) {
 		dispatch(createIsPosting(true));
 
 		// fetch the items
-		axios.post(url, data)
+		axios.post(api, data)
 			.then((response) => {
 				// watch for errors
 				if(response.status !== 201) {

@@ -17,8 +17,7 @@ import { startState } from '../actions/Read-Actions'
 class App extends Component {
 	
 	componentDidMount() {
-		const api = 'https://redux-todo-api.herokuapp.com/api/todos'
-		this.props.startApp(api)
+		this.props.startApp(this.props.api)
 	}
 
 	render() {
@@ -26,7 +25,10 @@ class App extends Component {
 			<Router>
 				<div className="App">
 					<Header/>					
-					<TodoForm createTodo = { this.props.createTodo } />
+					<TodoForm 
+						createTodo = { this.props.createTodo } 
+						api = { this.props.api }
+					/>
 					<TodoList todoArray=  { this.props.todoArray } />
 				</div>
 			</Router>
@@ -61,7 +63,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		addTodo: (task) => { dispatch(addTodo(task)) },
-		createTodo: (task) => { dispatch(createTodo(task)) },
+		createTodo: (api, task) => { dispatch(createTodo(api, task)) },
 		startApp: (url) => { dispatch(startState(url)) }
 	};
 }; 
