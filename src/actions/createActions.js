@@ -54,12 +54,16 @@ export function createTodo(url, data) {
 				}	
 				// once finished loading
 				dispatch(createIsPosting(false));
-				return response;
+				// may need this for response==>
+				// return response;
 			})
 			.then((todo) => dispatch(addTodo(todo)))
 			// check for errors, if so
 			.then(() => dispatch(createHasSucceeded(true)))
-			.catch(() => dispatch(createHasErrored(true)));
+			.catch((err) => {
+					dispatch(createHasErrored(true))
+					console.log('=====+> Erroor:', err)
+				});
 	};
 
 }
