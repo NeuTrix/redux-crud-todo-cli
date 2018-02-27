@@ -3,7 +3,7 @@ import {
 	CREATE_IS_POSTING,
 	CREATE_HAS_SUCCEEDED,
 	CREATE_HAS_ERRORED,
-} from '../actions/CreateActions';
+} from '../actions/createActions';
 
 let initialState = {
 	createIsPosting: false,
