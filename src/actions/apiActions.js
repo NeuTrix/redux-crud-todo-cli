@@ -17,11 +17,11 @@ export function todosIsLoading(bool)  {
 	};
 }
 
-export const todosHasFetched = (todos) => {
+export const todosHasFetched = (bool) => {
 	return {
 		type: TODOS_HAS_FETCHED,
 		payload: {
-			todos: todos
+			status: bool
 		}
 	};
 };
@@ -60,6 +60,10 @@ export function startState(url) {
 
 			.then((todos) => dispatch(todosSetInitialState(todos)))
 			// check for errors, if so
+
+			.then(() => {
+				dispatch(todosHasFetched(true))
+			})
 			.catch(() => dispatch(todosHasErrored(true)));
 
 	};

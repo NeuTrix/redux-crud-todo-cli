@@ -6,7 +6,7 @@ import {
 
 export const CREATE_IS_POSTING  = 'CREATE_IS_POSTING';
 export const CREATE_HAS_ERRORED = 'CREATE_HAS_ERRORED';
-export const CREATE_HAS_FETCHED = 'CREATE_HAS_FETCHED';
+export const CREATE_HAS_SUCCEEDED = 'CREATE_HAS_SUCCEEDED';
 
 export function createIsPosting(bool)  {
 	return {
@@ -19,7 +19,7 @@ export function createIsPosting(bool)  {
 
 export const createHasFetched = (todos) => {
 	return {
-		type: CREATE_HAS_FETCHED,
+		type: CREATE_HAS_SUCCEEDED,
 		payload: {
 			todos: todos
 		}
@@ -37,6 +37,7 @@ export const createHasErrored = (bool) => {
 
 // =========   
 
+// here's the Thunk...
 export function createTodo(url, data) {
 
 	return (dispatch) => {
