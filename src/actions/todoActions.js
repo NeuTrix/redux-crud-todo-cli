@@ -35,12 +35,12 @@ export const addTodo = (todo) => {
 	};
 };
 
-export const editItem = (id, update) => {
+export const editItem = (id, _update) => {
 	return {
 		type: EDIT_ITEM,
 		payload: {
 			_id: id,
-			_update: update
+			update: _update
 		}
 	};
 }

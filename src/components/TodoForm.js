@@ -74,7 +74,7 @@ const TodoForm = (props) => {
 						<FormControl 
 							inputRef = { (input) => { _task = input;} } 
 							type = 'text'  
-							maxLength = { 40 } 
+							maxLength = { 55 } 
 							style = { { marginBottom: 10 } }
 							placeholder ='Enter a NEW task here...' 
 							required 

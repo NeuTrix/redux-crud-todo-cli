@@ -39,18 +39,18 @@ const TodoReducer = (state = defaultState , action) => {
 	case ADD_TODO: 
 		return [...state, payload];
 
-// *** NEED TO FIX THIS FOR EDIT ITEM SWAP VS TASK
 	case EDIT_ITEM: {
 		let _id = 	payload._id;
-		let update = payload._update; // an update object
+		let update = payload.update; // an update object
 
-		let matchId = (old_task) => { return old_task._id === _id; };
+		let matchId = (task) => { return task._id === _id; };
 		let targetIndex = state.findIndex(matchId);
 
 		let editedTask = state.map((task, index) => {
 			if(index !== targetIndex ) {
 				return task;
 			} else {
+				// spread operator will replace the updated properties
 				return {
 					...task,
 					...update
