@@ -48,7 +48,7 @@ export function deleteTodo(api,_id) {
 				if(response.status !== 200) {
 					throw Error(response.statusText);
 				}	
-				console.log(`the id is: ${_id}`)
+				// console.log(`the id is: ${_id}`)
 				dispatch(removeTodo(_id));
 				dispatch(deleteIsPosting(false));
 			})

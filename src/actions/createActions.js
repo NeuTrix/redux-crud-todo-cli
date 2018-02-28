@@ -43,7 +43,7 @@ export function createTodo(api, data) {
 	return (dispatch) => {
 
 		let newTodo // the newly created todo item
-		console.log("====> Here's the 1st object",newTodo)
+		// console.log("====> Here's the 1st object",newTodo)
 		
 		dispatch(createIsPosting(true));
 		
@@ -55,17 +55,17 @@ export function createTodo(api, data) {
 					throw Error(response.statusText);
 				}	
 				newTodo = response.data
-				console.log("====> Here's the 2nd object",newTodo)
+				// console.log("====> Here's the 2nd object",newTodo)
 			})
 			.then(() => {
-				console.log("====> Here's 3rd object",newTodo)
+				// console.log("====> Here's 3rd object",newTodo)
 				dispatch(addTodo(newTodo));
 				dispatch(createIsPosting(false));
 				dispatch(createHasSucceeded(true));
 			})
 			.catch((err) => {
 					dispatch(createHasErrored(true))
-					console.log('=====+> Erroor:', err)
+					// console.log('=====+> Erroor:', err)
 			});
 	};
 
