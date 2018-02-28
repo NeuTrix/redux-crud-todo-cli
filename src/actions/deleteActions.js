@@ -58,7 +58,6 @@ export function deleteTodo(api,_id) {
 					dispatch(deleteHasErrored(true))
 			});
 	};
-
 }
 
 
