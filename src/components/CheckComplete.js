@@ -16,7 +16,6 @@ class CheckComplete extends Component {
 	}
 
 	componentWillReceiveProps (newProps) {
-		// console.log('**** CHECK newProps ****', newProps)
 		this.setState({ 
 			isChecked: newProps.completed,
 		})
@@ -25,10 +24,13 @@ class CheckComplete extends Component {
 render() {
 
 		const handleToggle = (event) => {
-			// disable event.preventDefault() to allow aninmation
-			// event.preventDefault() 
-			// this.setState ({ isCompleted: !this.state.isCompleted })
+			// do not preventDefault- preserves animation
 			this.props.toggleComplete(this.props._id);
+			this.props.editTodo(
+				this.props.api, 
+				this.props._id, 
+				{ completed: !this.state.isChecked }
+			)
 		};
 
 		return( 
@@ -45,13 +47,17 @@ render() {
 };
 
 CheckComplete.propTypes = {
-	_id: PropTypes.string.isRequired,
+	api: PropTypes.string.isRequired,
 	completed: PropTypes.bool.isRequired,
+	editTodo: PropTypes.func.isRequired,
+	_id: PropTypes.string.isRequired,
 	toggleComplete: PropTypes.func.isRequired
 };
 
 CheckComplete.defaultProps = {
+ 	api: 'https://redux-todo-api.herokuapp.com/api/todos',
 	completed: false,
+	editTodo: f => f,
 	_id: "default" ,
 	toggleComplete: f => f
 };

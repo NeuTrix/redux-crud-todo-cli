@@ -63,8 +63,10 @@ class TodoItem extends Component {
 						sm = { spacing.sm.chkbx } 
 					>
 					<CheckComplete
-						_id = { this.props.item._id }
+						api = { this.props.api }
 						completed = { this.props.item.completed }
+						editTodo = { this.props.editTodo }
+						_id = { this.props.item._id }
 						toggleComplete = { this.props.toggleComplete }   	
 					/>
 				</Col>
@@ -76,6 +78,7 @@ class TodoItem extends Component {
 					style = { { marginBottom: 10 } }
 				>
 					<TodoTask 
+						api = { this.props.api }
 						className= 'task' 
 						item = { this.props.item }
 						required
