@@ -6,7 +6,6 @@ class TodoTask extends Component {
 
 	constructor (props) {
 		super(props)
-
 		this.state = {
 			style: this.props.style,
 			isCompleted: this.props.item.completed,
@@ -22,7 +21,6 @@ class TodoTask extends Component {
 	}
 
 	render () {
-
 		let defaultStyle = this.props.style // base style for component
 		let status = this.state.isCompleted; // completed status
 
@@ -42,14 +40,17 @@ class TodoTask extends Component {
 				this.setState({ isEditing: true });
 				this.setState({ style: isEditingStyle });
 				_task.setSelectionRange(0, _task.value.length)
-				
 			}
 		}
 		
 		const	handleChange = (event) => {
 			event.preventDefault()
-			let update = event.target.value
-			this.props.editTodo(this.props.api, update)
+			// console.log(event.target.value)
+			let update = { 
+				owner: "Killmonger",
+				task: "HEEEELLLLP!"
+			}
+			this.props.editTodo(this.props.api, this.props.item._id, update)
 		};
 
 		const handleBlur = (event) => {

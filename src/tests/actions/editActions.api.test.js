@@ -4,30 +4,34 @@
 /*global TodoReducer it:true*/
 /*eslint no-undef: "error"*/
 
-/*// import axios from 'axios';
+// import axios from 'axios';
 import chai	from 'chai';
 import chaiHttp from 'chai-http';
 import { expect } from 'chai';
 
 import deepFreeze from 'deep-freeze';
-import shortid from 'shortid';
+// import shortid from 'shortid';
+import store from '../../store/store'
+import { editItem } from '../../actions/editActions'
+import { createTodo } from '../../actions/createActions'
+import { deleteTodo } from '../../actions/deleteActions'
 
 // import action creators
-import { 
-	todosIsLoading,
-	todosHasErrored,
-	todosHasFetched,
-	startState
-} from '../../actions/apiActions';
-
+import * as actions from '../../actions/editActions';
+import {
+	EDIT_IS_POSTING,
+	EDIT_HAS_SUCCEEDED,
+	EDIT_HAS_ERRORED
+} from '../../actions/editActions';
+ 
 chai.use(chaiHttp);
 
-describe('The apiActions LOADING action creator', () => {
+describe ('The editIsPosting POSTING action creator', () => {
 
 	let loading;
 
 	beforeAll(() => {
-		loading = todosIsLoading(false);
+		loading = actions.editIsPosting(false);
 	});
 
 	it('... is an available function', () => {
@@ -38,9 +42,9 @@ describe('The apiActions LOADING action creator', () => {
 		expect(loading).to.have.property('type');
 	});
 
-	it('... has a type of "TODOS_IS_LOADING" ', () => {
+	it('... has a type of "EDIT_IS_POSTING" ', () => {
 		expect(loading.type).to.exist
-			.to.eql('TODOS_IS_LOADING');
+			.to.eql('EDIT_IS_POSTING');
 	});
 
 	it('... type is a string', () => {
@@ -60,12 +64,49 @@ describe('The apiActions LOADING action creator', () => {
 	});
 });
 
-describe ('The apiActions ERROR action creator', () => {
+describe ('The editHasSucceeded SUCCESS action creator', () => {
+
+	let aSuccess;
+	let todos
+
+	beforeAll(() => {
+		todos = [1,2,3]
+		aSuccess = actions.editHasSucceeded(todos);
+	});
+
+	it('... is an available function', () => {
+		expect(aSuccess).to.exist;
+	});
+
+	it('... has a "type" property', () => {
+		expect(aSuccess).to.have.property('type');
+	});
+
+	it('... has a type of "EDIT_HAS_SUCCEEDED" ', () => {
+		expect(aSuccess.type).to.exist
+			.to.eql('EDIT_HAS_SUCCEEDED');
+	});
+
+	it('... has a "payload" property', () => {
+		expect(aSuccess).to.have.property('payload');
+	});
+
+	it('... payload has a "todos" property', () => {
+		expect(aSuccess.payload).to.have.property('todos');
+	});
+
+	it('... payload.todos has a boolean value', () => {
+		expect(aSuccess.payload).to.have.property('todos')
+			.to.be.an('array')
+	});
+});
+
+describe ('The editHasErrored ERROR action creator', () => {
 
 	let anErr;
 
 	beforeAll(() => {
-		anErr = todosHasErrored(false);
+		anErr = actions.editHasErrored(false);
 	});
 
 	it('... is an available function', () => {
@@ -76,9 +117,9 @@ describe ('The apiActions ERROR action creator', () => {
 		expect(anErr).to.have.property('type');
 	});
 
-	it('... has a type of "TODOS_HAS_ERRORED" ', () => {
+	it('... has a type of "EDIT_HAS_ERRORED" ', () => {
 		expect(anErr.type).to.exist
-			.to.eql('TODOS_HAS_ERRORED');
+			.to.eql('EDIT_HAS_ERRORED');
 	});
 
 	it('... has a "payload" property', () => {
@@ -94,49 +135,54 @@ describe ('The apiActions ERROR action creator', () => {
 	});
 });
 
-describe ('The apiActions SUCCESS action creator', () => {
+describe('The editItem action', () => {
 
-	let hasData;
-	let url = 'http://localhost:3003/api/todos';
-	let testState = [
-		{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Get some Milk', rank: 'High' },
-		{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Kiss my daughter', rank: 'Med' },
-		{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Celebrate life!', rank: 'Low' },
-	];
+})
 
-	beforeAll(() => {
-		hasData = todosHasFetched(testState);
-	});
-
-	it('... is an available function', () => {
-		expect(hasData).to.exist;
-	});
-
-	it('... has a "type" property', () => {
-		expect(hasData).to.have.property('type');
-	});
-
-	it('... has a type of "TODOS_HAS_FETCHED" ', () => {
-		expect(hasData.type).to.exist
-			.to.eql('TODOS_HAS_FETCHED');
-	});
-
-	it('... has a "payload" property', () => {
-		expect(hasData).to.have.property('payload');
-	});
-
-	it('... payload has a "todos" property', () => {
-		expect(hasData.payload).to.have.property('todos');
-	});
-
-	it('... payload.todos is an array', () => {
-		expect(hasData.payload.todos).to.be.an('array');
-	});
-});
-
-describe('The get todos INITIAL STATE  function', () => {
-
+xdescribe ('The editTodo function', () => {
+	let listBefore, listAfter
+	let todos, lastItem
 	let api = 'https://redux-todo-api.herokuapp.com/api/todos';
+
+	let newItem = {	
+				completed:  false,
+				date: '2050-12-31',
+				details: 'Initial test Item',
+				owner: 'EDIT Tester*',
+				rank: 'Low',
+				task:  'set Initial TEST item'
+			}
+	let updatedItem = {	
+				completed:  false,
+				date: '2050-12-31',
+				details: 'edit item test',
+				owner: 'EDIT Tester*',
+				rank: 'Low',
+				task:  'EDITED itme'
+			}
+
+	// let oldItem = store.getState().todos[0];
+
+	beforeEach(() => {
+		store.dispatch(createTodo(api, newItem))
+		listBefore = store.getState().todos
+	});
+
+	afterEach(() => {
+		todos  = store.getState().todos
+		lastItem = todos[todos.length - 1]
+		console.log(lastItem)
+		store.dispatch(deleteTodo(api, lastItem._id))
+	});
+
+	it('The state list it cleared', () => {
+		let todos = store.getState().todos
+		expect(listBefore.length).to.eql(todos.length)
+	})
+		
+	it('... starts with a clean list', () => {
+		todos = store.getState().todos
+	})
 
 	it('... connection to api returns status 200', (done) => {
 		chai.request(api)
@@ -164,14 +210,10 @@ describe('The get todos INITIAL STATE  function', () => {
 			});
 	});
 
-	it('.. the function returns an array object', () => {
-		let dispatch = store.dispatch;
-		let data = startState(api);
-		let test = store.dispatch(data);
-	});
+	
 
 });
-*/
+
 
 	it('', () => {
 		

@@ -167,6 +167,8 @@ describe('The TodoReducer CRUD suite', () => {
 			expect(_task).to.have.property('task').eql(newItem.task);
 		});
 	});
+
+	
 	
 	describe('The TOGGLE_COMPLETE function', () => {
 
@@ -209,7 +211,7 @@ describe('The TodoReducer CRUD suite', () => {
 			expect(old_task.task).not.to.eql(new_task.task);
 		});
 
-		it('... initially old_task  has now owner prop', () => {
+		it('... initially old_task has new owner prop', () => {
 			expect(old_task).not.to.have.property('owner')
 		})
 
@@ -219,8 +221,7 @@ describe('The TodoReducer CRUD suite', () => {
 			let edited_task = store.getState().todos[0];
 			// console.log('**Edited ==>', edited_task)
 			expect(edited_task).not.to.eql(old_task);
- 		})
-
+ 		});
 	});
 
 	describe('The UPDATE_RANK function', () => {

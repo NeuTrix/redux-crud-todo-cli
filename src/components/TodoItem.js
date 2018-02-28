@@ -81,7 +81,7 @@ class TodoItem extends Component {
 						required
 						style = { style }
 						type = 'text'  
-						updateTask = { this.props.editTodo }
+						editTodo = { this.props.editTodo }
 					/> 
 				</Col>
 
