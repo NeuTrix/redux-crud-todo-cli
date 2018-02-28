@@ -42,22 +42,27 @@ export function createTodo(api, data) {
 
 	return (dispatch) => {
 
-		// note that it's loading
+		let newTodo // the newly created todo item
+		console.log("====> Here's the 1st object",newTodo)
+		
 		dispatch(createIsPosting(true));
-
+		
 		// fetch the items
 		axios.post(api, data)
+
 			.then((response) => {
-				// watch for errors
 				if(response.status !== 201) {
 					throw Error(response.statusText);
 				}	
-				// once finished loading
-				dispatch(addTodo(data));
-				dispatch(createIsPosting(false));
+				newTodo = response.data
+				console.log("====> Here's the 2nd object",newTodo)
 			})
-			// check for errors, 
-			.then(() => dispatch(createHasSucceeded(true)))
+			.then(() => {
+				console.log("====> Here's 3rd object",newTodo)
+				dispatch(addTodo(newTodo));
+				dispatch(createIsPosting(false));
+				dispatch(createHasSucceeded(true));
+			})
 			.catch((err) => {
 					dispatch(createHasErrored(true))
 					console.log('=====+> Erroor:', err)

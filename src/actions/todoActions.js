@@ -1,5 +1,4 @@
 // Set new id's uniquely, until API is installed in this app
-import shortid from 'shortid';
 
 export const TODOS_SET_INITIAL_STATE = 'TODOS_SET_INITIAL_STATE';
 export const ADD_TODO = 'ADD_TODO';
@@ -10,7 +9,6 @@ export const UPDATE_RANK = 'UPDATE_RANK';
 export const UPDATE_DATE = 'UPDATE_DATE';
 
 export function todosSetInitialState(initialState) {
-	// used to async set up a full revised initialState for todos array
 	return {
 		type: TODOS_SET_INITIAL_STATE,
 		payload: {
@@ -24,8 +22,7 @@ export const addTodo = (todo) => {
 	return {
 		type: ADD_TODO,
 		payload: {
-			// _id: todo._id,	
-			_id: shortid.generate(),
+			_id: todo._id,	
 			date: todo.date,
 			completed: todo.completed,
 			details: todo.details,

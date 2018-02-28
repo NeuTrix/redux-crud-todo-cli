@@ -38,7 +38,7 @@ export const deleteHasErrored = (bool) => {
 // =========   
 
 // here's the Thunk...
-export function deleteTodo(api, _id) {
+export function deleteTodo(api, id) {
 
 	return (dispatch) => {
 
@@ -46,14 +46,14 @@ export function deleteTodo(api, _id) {
 		dispatch(deleteIsPosting(true));
 
 		// fetch the items
-		axios.delete(`${api}/${_id}`)
+		axios.delete(`${api}/${id}`)
 			.then((response) => {
 				// watch for errors
 				if(response.status !== 204) {
 					throw Error(response.statusText);
 				}	
 				// once finished loading
-				dispatch(removeTodo(_id));
+				dispatch(removeTodo(id));
 				dispatch(deleteIsPosting(false));
 			})
 			// check for errors, 
