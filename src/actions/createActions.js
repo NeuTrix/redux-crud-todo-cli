@@ -47,7 +47,6 @@ export function createTodo(api, data) {
 		
 		dispatch(createIsPosting(true));
 		
-		// fetch the items
 		axios.post(api, data)
 
 			.then((response) => {
@@ -65,7 +64,7 @@ export function createTodo(api, data) {
 			})
 			.catch((err) => {
 					dispatch(createHasErrored(true))
-					// console.log('=====+> Erroor:', err)
+					console.log('=====+> Erroor:', err)
 			});
 	};
 

@@ -1,6 +1,5 @@
 // tutorial at: https://coursework.vschool.io/mongoose-crud/
 import axios from 'axios'
-
 import { editItem } from './todoActions'
 
 export const EDIT_IS_POSTING  = 'EDIT_IS_POSTING';
@@ -37,26 +36,32 @@ export const editHasErrored = (bool) => {
 // =========   
 
 // here's the Thunk...
-export function editTodo(api, _id) {
+export function editTodo(api, data) {
 
 	return (dispatch) => {
 
+		let updatedTodo // newly update item from api
+		console.log("====> Here's the 1st object",updatedTodo)
+
 		dispatch(editIsPosting(true));
 
-		axios.put(`${api}/${_id}`)
+		axios.put(`${api}/${data._id}`, data)
 			.then((response) => {
 				if(response.status !== 200) {
 					throw Error(response.statusText);
 				}	
-				console.log(`the id is: ${_id}`)
-				dispatch(editItem(_id));
+				updatedTodo = response.data
+				console.log("====> Here's the 2nd object",newTodo)
 			})
 			.then(() => {
+				console.log("====> Here's 3rd object",newTodo)
+				dispatch(editItem(data._id, updatedTodo));
 				dispatch(editIsPosting(false));
 				dispatch(editHasSucceeded(true))
 			})
 			.catch((err) => {
 					dispatch(editHasErrored(true))
-			});
+					console.log('=====+> Erroor:', err)
+todo			});
 	};
 }
