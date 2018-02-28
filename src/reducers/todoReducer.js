@@ -3,6 +3,7 @@ import shortid from 'shortid';
 // set constants
 import {
 	ADD_TODO,
+	EDIT_ITEM,
 	REMOVE_TODO,
 	TODOS_SET_INITIAL_STATE, 
 	TOGGLE_COMPLETE,
@@ -38,6 +39,26 @@ const TodoReducer = (state = defaultState , action) => {
 	case ADD_TODO: 
 		return [...state, payload];
 
+// *** NEED TO FIX THIS FOR EDIT ITEM SWAP VS TASK
+	case EDIT_ITEM: {
+		let _id = 	payload._id;
+		let update = payload._update;
+
+		let matchId = (old_task) => { return old_task._id === _id; };
+		let targetIndex = state.findIndex(matchId);
+
+		let editedTask = state.map((task, index) => {
+			if(index !== targetIndex ) {
+				return task;
+			} else {
+				return {
+					...task,
+					...update
+				}
+			}
+	});
+	return Object.assign([], state, editedTask);
+}
 	case REMOVE_TODO:{
 		let _id = payload._id;
 		let matchId = (task) => { return task._id === _id; };

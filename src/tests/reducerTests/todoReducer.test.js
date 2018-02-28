@@ -13,6 +13,7 @@ import shortid from 'shortid';
 
 import { 
 	addTodo, 
+	editItem,
 	updateTask,
 	removeTodo, 
 	toggleComplete,
@@ -21,7 +22,7 @@ import {
 	todosSetInitialState,
 } from '../../actions/todoActions';
 
-// ====================================
+// ========= 
 
 xdescribe('The TODOS_SET_INITIAL_STATE reducer', () => {
 
@@ -192,6 +193,34 @@ describe('The TodoReducer CRUD suite', () => {
 			let new_task = updatedTodoToList[ modLength - 1 ];
 			expect(new_task.task).to.eql(content);
 		});
+	});
+
+	describe('The UPDATE_TASK function', () => {
+
+		let new_task, editTodoList, old_task
+
+		beforeAll(() => {
+			new_task = { owner: "Black Panther", task:"kickass" }
+			old_task = store.getState().todos[0];
+			console.log(old_task)
+		});
+
+		it('... initiall has a difference in tasks', () => {
+			expect(old_task.task).not.to.eql(new_task.task);
+		});
+
+		it('... initially old_task  has now owner prop', () => {
+			expect(old_task).not.to.have.property('owner')
+		})
+
+		it('... edited task is different from old task', () => {
+			let _id = old_task._id
+			store.dispatch(editItem(_id, new_task));
+			let edited_task = store.getState().todos[0];
+			console.log('**Edited ==>', edited_task)
+			expect(edited_task).not.to.eql(old_task);
+ 		})
+
 	});
 
 	describe('The UPDATE_RANK function', () => {

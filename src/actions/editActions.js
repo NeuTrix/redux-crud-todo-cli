@@ -1,22 +1,11 @@
 // tutorial at: https://coursework.vschool.io/mongoose-crud/
-
 import axios from 'axios'
 
-export const EDIT_ITEM  = 'EDIT_ITEM';
+import { editItem } from './todoActions'
+
 export const EDIT_IS_POSTING  = 'EDIT_IS_POSTING';
 export const EDIT_HAS_SUCCEEDED = 'EDIT_HAS_SUCCEEDED';
 export const EDIT_HAS_ERRORED = 'EDIT_HAS_ERRORED';
-
-export const editItem = (id, _newItem) => {
-	return {
-		type: EDIT_ITEM,
-		payload: {
-		
-			_id: id,
-			newItem: _newItem
-		}
-	};
-}
 
 export function editIsPosting(bool)  {
 	return {
