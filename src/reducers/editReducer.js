@@ -18,13 +18,13 @@ export const editReducer = (state = initialState, action) => {
 	switch(action.type) {
 
 	case EDIT_IS_POSTING:
-		retun {...state, ...{editIsPosting:payload.status}};
+		return { ...state, ...{editIsPosting:payload.status } };
 	
 	case EDIT_HAS_SUCCEEDED:
-		return {...state, ...{editHasSucceeded:payload.status}};
+		return { ...state, ...{editHasSucceeded:payload.status } };
 	
 	case EDIT_HAS_ERRORED:
-		return {...state, ...{editHasErrored:payload.status}};
+		return { ...state, ...{editHasErrored:payload.status } };
 
 	default:
 		return state;
