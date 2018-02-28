@@ -67,7 +67,6 @@ export function createTodo(api, data) {
 					console.log('=====+> Erroor:', err)
 			});
 	};
-
 }
 
 

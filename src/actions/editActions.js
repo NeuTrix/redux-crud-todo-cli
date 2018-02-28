@@ -37,7 +37,7 @@ export const editHasErrored = (bool) => {
 
 // here's the Thunk...
 // pass in an api url and an update object
-export function editTodo(api, _id, update) {
+export function editTodo(api, _id, data) {
 	return (dispatch) => {
 
 		let updatedTodo // newly update item from api
@@ -45,13 +45,14 @@ export function editTodo(api, _id, update) {
 
 		dispatch(editIsPosting(true));
 
-		axios.put(`${api}/${_id}`, update)
+		axios.put(`${api}/${_id}`, data)
+
 			.then((response) => {
-		console.log(`${api}/${_id}`, update)
 				if(response.status !== 200) {
 					throw Error(response.statusText);
 				}	
 				updatedTodo = response.data
+			console.log("API DATA",`${api}/${_id}`, data)
 				console.log("====> Here's the 2nd object", updatedTodo)
 			})
 			.then(() => {

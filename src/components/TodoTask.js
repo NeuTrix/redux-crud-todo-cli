@@ -46,13 +46,10 @@ class TodoTask extends Component {
 		
 		const	handleChange = (event) => {
 			event.preventDefault()
-			console.log( event.target.value )
 			this.props.editTodo(
 				this.props.api, 
 				this.props.item._id, 
-				{ 
-					owner: _task.value
-				}
+				{ task: _task.value }
 			)
 		};
 

@@ -161,7 +161,7 @@ const mapDispatchToProps = (dispatch) => {
 		// editTodo update arg should be an object
 		// ??? does this need the api arg?
 		editTodo:
-			(api, update) => dispatch(editTodo(api, update)), 
+			(api, _id, update) => dispatch(editTodo(api, _id, update)), 
 		removeTodo: 
 			(_id) => dispatch(todoActions.removeTodo(_id)),
 		toggleComplete: 
