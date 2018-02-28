@@ -67,7 +67,6 @@ class TodoItem extends Component {
 						completed = { this.props.item.completed }
 						toggleComplete = { this.props.toggleComplete }   	
 					/>
-
 				</Col>
 
 				<Col 
