@@ -47,6 +47,7 @@ export function editTodo(api, _id, update) {
 
 		axios.put(`${api}/${_id}`, update)
 			.then((response) => {
+		console.log(`${api}/${_id}`, update)
 				if(response.status !== 200) {
 					throw Error(response.statusText);
 				}	
@@ -55,7 +56,7 @@ export function editTodo(api, _id, update) {
 			})
 			.then(() => {
 				console.log("====> Here's 3rd object", updatedTodo)
-				dispatch(editItem(update._id, updatedTodo));
+				dispatch(editItem(_id, updatedTodo));
 				dispatch(editIsPosting(false));
 				dispatch(editHasSucceeded(true))
 			})

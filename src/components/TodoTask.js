@@ -23,6 +23,7 @@ class TodoTask extends Component {
 	render () {
 		let defaultStyle = this.props.style // base style for component
 		let status = this.state.isCompleted; // completed status
+		let _task // value derived from the form input
 
 		const isEditingStyle = {
 			backgroundColor: 'aliceBlue',
@@ -45,12 +46,14 @@ class TodoTask extends Component {
 		
 		const	handleChange = (event) => {
 			event.preventDefault()
-			// console.log(event.target.value)
-			let update = { 
-				owner: "Killmonger",
-				task: "HEEEELLLLP!"
-			}
-			this.props.editTodo(this.props.api, this.props.item._id, update)
+			console.log( event.target.value )
+			this.props.editTodo(
+				this.props.api, 
+				this.props.item._id, 
+				{ 
+					owner: _task.value
+				}
+			)
 		};
 
 		const handleBlur = (event) => {
@@ -64,6 +67,7 @@ class TodoTask extends Component {
 			<FormControl 
 				className= 'task' 
 				defaultValue= { this.props.item.task }
+				inputRef = { (value) => { _task = value; } }
 				required
 				style = { this.state.style }
 				type = 'text'  
