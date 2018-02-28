@@ -29,7 +29,7 @@ class App extends Component {
 						createTodo = { this.props.createTodo } 
 						api = { this.props.api }
 					/>
-					<TodoList todoArray=  { this.props.todoArray } />
+					<TodoList todoArray = { this.props.todoArray } />
 				</div>
 			</Router>
 		);
@@ -46,10 +46,10 @@ App.propTypes = {
 };
 
 App.defaultProps ={
-	// addTodo: f=>f,
+	// addTodo: f => f,
  	api: 'https://redux-todo-api.herokuapp.com/api/todos',
-	createTodo: f=>f,
-	todoArray: []
+	createTodo: f => f,
+	todoArray: [ ]
 };
 
 // ========= Store  ========= 

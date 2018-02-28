@@ -42,7 +42,7 @@ const TodoReducer = (state = defaultState , action) => {
 // *** NEED TO FIX THIS FOR EDIT ITEM SWAP VS TASK
 	case EDIT_ITEM: {
 		let _id = 	payload._id;
-		let update = payload._update;
+		let update = payload._update; // an update object
 
 		let matchId = (old_task) => { return old_task._id === _id; };
 		let targetIndex = state.findIndex(matchId);

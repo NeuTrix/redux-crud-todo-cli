@@ -45,11 +45,11 @@ class TodoTask extends Component {
 				
 			}
 		}
-
+		
 		const	handleChange = (event) => {
 			event.preventDefault()
 			let newTask = event.target.value
-			this.props.updateTask(this.props.item._id, newTask)
+			this.props.editTodo(this.props.item._id, newTask)
 		};
 
 		const handleBlur = (event) => {
@@ -78,7 +78,7 @@ class TodoTask extends Component {
 TodoTask.propTypes = {
 	item: PropTypes.object.isRequired,
 	style: PropTypes.object.isRequired,
-	updateTask: PropTypes.func.isRequired
+	editTodo: PropTypes.func.isRequired
 };
 
 TodoTask.defaultProps = {
@@ -88,7 +88,7 @@ TodoTask.defaultProps = {
 		completed: false
 	},
 	style: {},
-	updateTask: f => f
+	editTodo: f => f
 };
 
 export default TodoTask;

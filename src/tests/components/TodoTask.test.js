@@ -113,8 +113,8 @@ describe('The TodoTask Component', () => {
 			expect(Object.keys(_tasks.props())).to.include('style')
 		})
 
-		it('...has an updateTask prop', () => {
-			expect(Object.keys(_tasks.props())).to.include('updateTask')
+		it('...has an editTodo prop', () => {
+			expect(Object.keys(_tasks.props())).to.include('editTodo')
 		})
 	})
 

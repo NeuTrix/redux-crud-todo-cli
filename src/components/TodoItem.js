@@ -10,6 +10,7 @@ import TodoTask from '../components/TodoTask'
 
 import * as todoActions from '../actions/todoActions';
 import { deleteTodo } from '../actions/deleteActions'
+import { editTodo } from '../actions/editActions'
 
 // ========= Styling 
 const spacing = { 
@@ -24,7 +25,6 @@ const todosBoxStyle = {
 	border: '1px solid lightgrey',
 	borderRadius: 5,
 	backgroundColor: 'whitesmoke',
-
 };
 
 const defaultStyle = {
@@ -81,7 +81,7 @@ class TodoItem extends Component {
 						type = 'text'  
 						item = { this.props.item }
 						style = { style }
-						updateTask = { this.props.updateTask }
+						updateTask = { this.props.editTodo }
 						required
 					/> 
 				</Col>
@@ -144,7 +144,7 @@ TodoItem.defaultProps ={
 		rank: 'default',
 		task: 'default'
 	}, 
-	todos: []
+	todos: [ ]
 };
 
 const mapStateToProps = (state, ownProps) => {
@@ -156,10 +156,15 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
+		deleteTodo:
+		// ??? does this need the api arg?
+			(api, _id) => dispatch(deleteTodo(api, _id)),
+		// editTodo update arg should be an object
+		// ??? does this need the api arg?
+		editTodo:
+			(_id, update) => dispatch(editTodo(_id, update)), 
 		removeTodo: 
 			(_id) => dispatch(todoActions.removeTodo(_id)),
-		deleteTodo:
-			(api, _id) => dispatch(deleteTodo(api, _id)),
 		toggleComplete: 
 			(_id, task) => dispatch(todoActions.toggleComplete(_id, task)),
 		updateDate: 

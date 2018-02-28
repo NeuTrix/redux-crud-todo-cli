@@ -202,7 +202,7 @@ describe('The TodoReducer CRUD suite', () => {
 		beforeAll(() => {
 			new_task = { owner: "Black Panther", task:"kickass" }
 			old_task = store.getState().todos[0];
-			console.log(old_task)
+			// console.log(old_task)
 		});
 
 		it('... initiall has a difference in tasks', () => {
@@ -217,7 +217,7 @@ describe('The TodoReducer CRUD suite', () => {
 			let _id = old_task._id
 			store.dispatch(editItem(_id, new_task));
 			let edited_task = store.getState().todos[0];
-			console.log('**Edited ==>', edited_task)
+			// console.log('**Edited ==>', edited_task)
 			expect(edited_task).not.to.eql(old_task);
  		})
 
