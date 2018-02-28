@@ -36,7 +36,7 @@ export const editHasErrored = (bool) => {
 // =========   
 
 // here's the Thunk...
-export function editTodo(api, data) {
+export function editTodo(api, update) {
 
 	return (dispatch) => {
 
@@ -45,23 +45,23 @@ export function editTodo(api, data) {
 
 		dispatch(editIsPosting(true));
 
-		axios.put(`${api}/${data._id}`, data)
+		axios.put(`${api}/${update._id}`, update)
 			.then((response) => {
 				if(response.status !== 200) {
 					throw Error(response.statusText);
 				}	
 				updatedTodo = response.data
-				console.log("====> Here's the 2nd object",newTodo)
+				console.log("====> Here's the 2nd object", updatedTodo)
 			})
 			.then(() => {
-				console.log("====> Here's 3rd object",newTodo)
-				dispatch(editItem(data._id, updatedTodo));
+				console.log("====> Here's 3rd object", updatedTodo)
+				dispatch(editItem(update._id, updatedTodo));
 				dispatch(editIsPosting(false));
 				dispatch(editHasSucceeded(true))
 			})
 			.catch((err) => {
 					dispatch(editHasErrored(true))
 					console.log('=====+> Erroor:', err)
-todo			});
+			});
 	};
 }

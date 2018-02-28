@@ -48,8 +48,8 @@ class TodoTask extends Component {
 		
 		const	handleChange = (event) => {
 			event.preventDefault()
-			let newTask = event.target.value
-			this.props.editTodo(this.props.item._id, newTask)
+			let update = event.target.value
+			this.props.editTodo(this.props.api, update)
 		};
 
 		const handleBlur = (event) => {
@@ -63,9 +63,9 @@ class TodoTask extends Component {
 			<FormControl 
 				className= 'task' 
 				defaultValue= { this.props.item.task }
+				required
 				style = { this.state.style }
 				type = 'text'  
-				required
 
 				onClick = { handleClick }
 				onChange = { handleChange }
@@ -76,12 +76,14 @@ class TodoTask extends Component {
 };
 
 TodoTask.propTypes = {
+	api: PropTypes.string.isRequired,
 	item: PropTypes.object.isRequired,
 	style: PropTypes.object.isRequired,
 	editTodo: PropTypes.func.isRequired
 };
 
 TodoTask.defaultProps = {
+ 	api: 'https://redux-todo-api.herokuapp.com/api/todos',
 	item: {
 		_id: 'default',
 		task: 'default',

@@ -77,11 +77,11 @@ class TodoItem extends Component {
 				>
 					<TodoTask 
 						className= 'task' 
-						type = 'text'  
 						item = { this.props.item }
-						style = { style }
-						updateTask = { this.props.editTodo }
 						required
+						style = { style }
+						type = 'text'  
+						updateTask = { this.props.editTodo }
 					/> 
 				</Col>
 
@@ -161,7 +161,7 @@ const mapDispatchToProps = (dispatch) => {
 		// editTodo update arg should be an object
 		// ??? does this need the api arg?
 		editTodo:
-			(_id, update) => dispatch(editTodo(_id, update)), 
+			(api, update) => dispatch(editTodo(api, update)), 
 		removeTodo: 
 			(_id) => dispatch(todoActions.removeTodo(_id)),
 		toggleComplete: 
