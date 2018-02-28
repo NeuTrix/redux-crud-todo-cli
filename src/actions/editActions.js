@@ -2,17 +2,19 @@
 
 import axios from 'axios'
 
+export const EDIT_ITEM  = 'EDIT_ITEM';
 export const EDIT_IS_POSTING  = 'EDIT_IS_POSTING';
 export const EDIT_HAS_SUCCEEDED = 'EDIT_HAS_SUCCEEDED';
 export const EDIT_HAS_ERRORED = 'EDIT_HAS_ERRORED';
 
 export const editItem = (id, _newItem) => {
 	return {
-		type: UPDATE_ITEM,
+		type: EDIT_ITEM,
 		payload: {
+		
 			_id: id,
 			newItem: _newItem
-		};
+		}
 	};
 }
 

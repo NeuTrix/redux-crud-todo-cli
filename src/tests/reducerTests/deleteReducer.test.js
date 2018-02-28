@@ -17,7 +17,8 @@ import {
 } from '../../actions/deleteActions';
 
 import { startState } from '../../actions/Read-Actions'
-// ====================================
+
+// ========= 
 
 describe('The deleteReducer action suite', () => {
 	let initialState;
@@ -37,7 +38,6 @@ describe('The deleteReducer action suite', () => {
 			expect(initialState).to.have.property('deleteIsPosting')
 				.to.eql(false);
 		});
-
 	});
 
 	describe('The SUCCESS reducer', () => {
