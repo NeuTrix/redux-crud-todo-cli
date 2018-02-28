@@ -1,8 +1,7 @@
+// tutorial at: https://coursework.vschool.io/mongoose-crud/
 import axios from 'axios'
 
-import {
-	removeTodo
-} from './todoActions';
+import { removeTodo } from './todoActions';
 
 export const DELETE_IS_POSTING  = 'DELETE_IS_POSTING';
 export const DELETE_HAS_SUCCEEDED = 'DELETE_HAS_SUCCEEDED';
