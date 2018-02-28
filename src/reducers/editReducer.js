@@ -6,7 +6,7 @@ import {
 } from '../actions/editActions';
 
 let initialState = {
-	editeIsPosting: false,
+	editIsPosting: false,
 	editHasSucceeded: false,
 	editHasErrored: false
 } 
@@ -18,7 +18,7 @@ export const editReducer = (state = initialState, action) => {
 	switch(action.type) {
 
 	case EDIT_IS_POSTING:
-		return {...state, ...{editeIsPosting:payload.status}};
+		retun {...state, ...{editIsPosting:payload.status}};
 	
 	case EDIT_HAS_SUCCEEDED:
 		return {...state, ...{editHasSucceeded:payload.status}};
