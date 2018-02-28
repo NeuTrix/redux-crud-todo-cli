@@ -44,11 +44,11 @@ describe('The editReducer action suite', () => {
 	describe('The SUCCESS reducer', () => {
 
 		afterEach(() => {
-			storeeditdispatch(editHasSucceeded(false));
+			store.dispatch(editHasSucceeded(false));
 		});
 
 		it('... the initialState has an editHasSucceeded prop set to false', () => {
-			edit(initialState).to.have.property('editHasSucceeded')
+			expect(initialState).to.have.property('editHasSucceeded')
 				.to.eql(false);
 		});
 
@@ -60,7 +60,7 @@ describe('The editReducer action suite', () => {
 			store.dispatch(editHasErrored(false));
 		});
 
-		it.only('... initialState has an editHasErrored prop set to false', () => {
+		it('... initialState has an editHasErrored prop set to false', () => {
 			expect(initialState).to.have.property('editHasErrored')
 				.to.eql(false);
 		});
