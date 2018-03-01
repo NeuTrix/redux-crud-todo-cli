@@ -13,7 +13,7 @@ import store from '../../store/store';
 
 import CheckComplete from '../../components/CheckComplete';
 
-// ========= 
+// +++++++++ 
 
 it('renders without crashing', () => {
 	const div = document.createElement('div');

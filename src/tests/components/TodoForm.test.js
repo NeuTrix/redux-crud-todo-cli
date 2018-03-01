@@ -4,7 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TodoForm from '../../components/TodoForm';
 
-// ========= 
+// +++++++++ 
 
 // this may want a Provider to work
 it('renders without crashing', () => {

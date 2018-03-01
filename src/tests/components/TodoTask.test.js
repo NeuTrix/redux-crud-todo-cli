@@ -1,8 +1,5 @@
 /* eslint-env mocha, chai */
-// Testing resource: https://medium.freecodecamp.org/the-right-way-to-test-react-components-548a4736ab22
 
-// For debugging. Use (inside of an 'it' test, before 'expect'):
-// console.log(mountedTodoTask.debug())
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -10,10 +7,7 @@ import { expect } from 'chai';
 import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import store from '../../store/store';
-
 import TodoTask from '../../components/TodoTask';
-
-// ========= 
 
 it('renders without crashing', () => {
 	const div = document.createElement('div');

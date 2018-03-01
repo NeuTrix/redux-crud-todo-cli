@@ -12,7 +12,7 @@ import { Provider } from 'react-redux';
 
 import TaskCounter from '../../components/TaskCounter';
 
-// ========= 
+// +++++++++ 
 
 it('renders without crashing', () => {
 	const div = document.createElement('div');

@@ -3,7 +3,7 @@
 import { expect } from 'chai';
 import axios from 'axios';
 
-// ========= 
+// +++++++++ 
 
 describe('The API request object actions', () => {
 
