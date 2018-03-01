@@ -1,5 +1,3 @@
-// Set new id's uniquely, until API is installed in this app
-
 export const TODOS_SET_INITIAL_STATE = 'TODOS_SET_INITIAL_STATE';
 export const ADD_TODO = 'ADD_TODO';
 export const EDIT_ITEM  = 'EDIT_ITEM';

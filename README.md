@@ -49,6 +49,9 @@ const start = Date.now();
 
 - Debugging Mongoose and testing suit in alt branch
 
+## Web resources
+- tutorial at: https://coursework.vschool.io/mongoose-crud/
+
 
 # UI Optimization
 ### Chrome

@@ -1,4 +1,3 @@
-// tutorial at: https://coursework.vschool.io/mongoose-crud/
 import axios from 'axios'
 
 import { removeTodo } from './todoActions';
