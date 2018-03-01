@@ -60,7 +60,6 @@ class TodoTask extends Component {
 		}
 
 		return (
-
 			<FormControl 
 				className= 'task' 
 				defaultValue= { this.props.item.task }
@@ -87,12 +86,12 @@ TodoTask.propTypes = {
 TodoTask.defaultProps = {
  	api: 'https://redux-todo-api.herokuapp.com/api/todos',
 	item: {
-		_id: 'default',
 		task: 'default',
 		completed: false
 	},
 	style: {},
-	editTodo: f => f
+	editTodo: f => f,
+	_id: 'default',
 };
 
 export default TodoTask;

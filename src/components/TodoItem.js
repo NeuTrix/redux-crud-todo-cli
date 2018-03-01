@@ -94,6 +94,8 @@ class TodoItem extends Component {
 					sm = { spacing.sm.rank }
 				>
 					<Rank
+						api = { this.props.api }
+						editTodo = { this.props.editTodo }
 						_id = { this.props.item._id }
 						currRank = { this.props.item.rank }
 						updateRank= { this.props.updateRank }   

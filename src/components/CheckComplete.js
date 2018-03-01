@@ -58,8 +58,8 @@ CheckComplete.defaultProps = {
  	api: 'https://redux-todo-api.herokuapp.com/api/todos',
 	completed: false,
 	editTodo: f => f,
+	toggleComplete: f => f,
 	_id: "default" ,
-	toggleComplete: f => f
 };
 
 export default CheckComplete;
