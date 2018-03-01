@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 import { removeTodo } from './todoActions';
 
@@ -33,13 +33,16 @@ export function deleteTodo (api, _id) {
 		axios.delete (`${api}/${_id}`)
 			.then ((response) => {
 				if (response.status !== 200) {
-					throw Error(response.statusText);
+					throw Error (response.statusText);
 				}	
 				dispatch (removeTodo (_id));
 				dispatch (deleteIsPosting (false));
 			})
 			.then (() => dispatch (deleteHasSucceeded (true)))
-			.catch ((err) => { dispatch (deleteHasErrored (true)) });
+			.catch ((err) => { 
+				dispatch (deleteHasErrored (true)); 
+				console.error(err);
+			});
 	};
 }
 

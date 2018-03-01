@@ -1,8 +1,6 @@
 import axios from 'axios'
 
-import {
-	addTodo
-} from './todoActions';
+import { addTodo } from './todoActions';
 
 export const CREATE_IS_POSTING  = 'CREATE_IS_POSTING';
 export const CREATE_HAS_SUCCEEDED = 'CREATE_HAS_SUCCEEDED';
@@ -11,31 +9,28 @@ export const CREATE_HAS_ERRORED = 'CREATE_HAS_ERRORED';
 export function createIsPosting(bool)  {
 	return {
 		type: CREATE_IS_POSTING,
-		payload: {
-			status: bool
-		}
+		payload: { status: bool }
 	};
 }
+
+// +++++++++ 
+  +++++++++ 
 
 export const createHasSucceeded = (todos) => {
 	return {
 		type: CREATE_HAS_SUCCEEDED,
-		payload: {
-			todos: todos
-		}
+		payload: { todos: todos }
 	};
 };
 
 export const createHasErrored = (bool) => {
 	return {
 		type: CREATE_HAS_ERRORED ,
-		payload: {
-			status: bool
-		}
+		payload: { status: bool }
 	};
 };
-
-// =========   
+  
+// +++++++++ 
 
 // here's the Thunk...
 export function createTodo(api, data) {
