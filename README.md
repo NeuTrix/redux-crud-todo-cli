@@ -51,6 +51,8 @@ const start = Date.now();
 
 ## Web resources
 - tutorial at: https://coursework.vschool.io/mongoose-crud/
+- Testing resource: https://medium.freecodecamp.org/the-right-way-to-test-react-components-548a4736ab22
+
 
 
 # UI Optimization

@@ -1,20 +1,14 @@
 /* eslint-env mocha, chai */
-// Testing resource: https://medium.freecodecamp.org/the-right-way-to-test-react-components-548a4736ab22
-
 // For debugging. Use (inside of an 'it' test, before 'expect'):
 // console.log(mountedTodoItem.debug())
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
 import store from '../../store/store';
-
+import TodoItem from '../../components/TodoItem';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-
-import TodoItem from '../../components/TodoItem';
-
-// ========= 
+import { Provider } from 'react-redux';
 
 it('renders without crashing', () => {
 	const div = document.createElement('div');
@@ -28,7 +22,6 @@ it('renders without crashing', () => {
 
 describe('The TodoItem Component', () => {
 	let props, mountedTodoItem
-
 	const todoItem = () => {
 		if(!mountedTodoItem) {
 			mountedTodoItem = mount (
@@ -42,8 +35,6 @@ describe('The TodoItem Component', () => {
 
 	let _state = todoItem().state(); // mounted state 
 	let _tasks = todoItem().find('CheckComplete'); // wrapper
-
-
 	beforeEach (() => {
 		props = {
 			todos: undefined,
@@ -55,8 +46,6 @@ describe('The TodoItem Component', () => {
 	describe('the wrapping Row component...', () => {
 		const rows = todoItem().find('Row');
 		const wrappingRow = rows.first();
-
-		//console.log('*** the Component:', mountedTodoItem.debug())
 
 		xit('Inspection beforeEach', () => {
 			// to inspect testing objects
@@ -102,7 +91,6 @@ describe('The TodoItem Component', () => {
 		it('CalendarBtn is passed (6) props', () => {
 			const checkboxes = todoItem().find('CalendarBtn');
 			expect(Object.keys(checkboxes.props()).length).to.eql(6)
-
 		})
 
 		it('always renders a DeleteBtn component ', () => {
@@ -110,13 +98,4 @@ describe('The TodoItem Component', () => {
 			expect(deleteBtn.length).to.be.eql(1);
 		})
 	})
-
-	describe('The component STATE', () => {
-
-		it('starts out with the default props', () => {
-
-		})
-
-	})
-
 })
