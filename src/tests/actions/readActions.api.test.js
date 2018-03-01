@@ -19,7 +19,7 @@ import {
 	todosHasErrored,
 	todosHasFetched,
 	startState
-} from '../../actions/Read-Actions';
+} from '../../actions/readActions';
 
 chai.use(chaiHttp);
 
