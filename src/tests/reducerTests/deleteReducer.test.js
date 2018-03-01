@@ -1,69 +1,49 @@
 /* eslint-env jest, mocha, chai */
-
-// ======== esllint
 /*eslint no-undef: "error"*/
-
 import axios from 'axios';
-
 import deepFreeze from 'deep-freeze';
 import { expect } from 'chai';
 import store from '../../store/store';
-
-import { 
-	deleteIsPosting,
-	deleteHasSucceeded,
-	deleteHasErrored,
-	deleteTodo
-} from '../../actions/deleteActions';
-
 import { startState } from '../../actions/readActions'
+import * as actions from '../../actions/deleteActions';
 
-// +++++++++ 
-
-describe('The deleteReducer action suite', () => {
+describe ('The deleteReducer action suite', () => {
 	let initialState;
-
-	beforeAll(() => {
+	beforeAll (() => {
 		initialState = store.getState().deleteApi;
-		deepFreeze(initialState);
+		deepFreeze (initialState);
 	});
 
-	describe('The POSTING reducer', () => {
-
+	describe ('The POSTING reducer', () => {
 		afterAll(() => {
-			store.dispatch(deleteIsPosting(false));
+			store.dispatch (actions.deleteIsPosting  (false));
 		});
 
-		it('... has an isLoading prop set to false', () => {
+		it ('... has an isLoading prop set to false', () => {
 			expect(initialState).to.have.property('deleteIsPosting')
-				.to.eql(false);
+				.to.eql (false);
 		});
 	});
 
-	describe('The SUCCESS reducer', () => {
-
+	describe ('The SUCCESS reducer', () => {
 		afterEach(() => {
-			store.dispatch(deleteHasSucceeded(false));
+			store.dispatch(actions.deleteHasSucceeded (false));
 		});
 
-		it('... initialState has an deleteHasSucceeded prop set to false', () => {
+		it ('... initialState has an deleteHasSucceeded prop set to false', () => {
 			expect(initialState).to.have.property('deleteHasSucceeded')
-				.to.eql(false);
+				.to.eql (false);
 		});
-
 	});
 
-	describe('The ERROR reducer', () => {
-
-		afterAll(() => {
-			store.dispatch(deleteHasErrored(false));
+	describe ('The ERROR reducer', () => {
+		afterAll (() => {
+			store.dispatch(actions.deleteHasErrored (false));
 		});
 
-		it('... initialState has an deleteHasErrored prop set to false', () => {
+		it ('... initialState has a false deleteHasErrored prop', () => {
 			expect(initialState).to.have.property('deleteHasErrored')
-				.to.eql(false);
+				.to.eql (false);
 		});
-
 	});
-
 });
