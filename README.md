@@ -3,6 +3,9 @@ Basic CRUD todo application in React with Redux
 
 ## Project Background
 
+This is a React and Redux application with immutable state and
+asynchronus CRUD actions for Todo list application.
+
 - Standalone CRUD frontend app utilizing ReactJS / Redux framework
 - TDD approach
 - Support with datapersistence via localStorage
