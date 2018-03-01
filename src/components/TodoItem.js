@@ -1,18 +1,17 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Col, Row } from 'react-bootstrap';
 import Rank from '../components/Rank';
 import DeleteBtn from '../components/DeleteBtn';
 import CalendarBtn from '../components/CalendarBtn';
 import CheckComplete from '../components/CheckComplete'
 import TodoTask from '../components/TodoTask'
-
-import * as todoActions from '../actions/todoActions';
+import { connect } from 'react-redux';
 import { deleteTodo } from '../actions/deleteActions'
 import { editTodo } from '../actions/editActions'
+import * as _a from '../actions/todoActions';
 
-// ========= Styling 
+// +++++++++ Styling 
 const spacing = { 
 	xs: { chkbx: 1, task: 11, rank: 3, date: 5, delBtn: 3},
 	sm: { chkbx: 1, task: 11, rank: 2, date: 3, delBtn: 6}
@@ -24,12 +23,12 @@ const todosBoxStyle = {
 	paddingTop: 10,
 	border: '1px solid lightgrey',
 	borderRadius: 5,
-	backgroundColor: 'whitesmoke',
+	backgroundColor: 'whitesmoke'
 };
 
 const defaultStyle = {
 	backgroundColor: 'white', 
-	color: 'black', 
+	color: 'black'
 }
 
 const isCompletedStyle = {
@@ -37,15 +36,13 @@ const isCompletedStyle = {
 		color: 'lightgrey',
 		textDecoration: 'line-through' 
 }
-
-// ========= Component 
+// +++++++++ 
 
 class TodoItem extends Component {
 
 	render () {
 
 		let style = {}
-		
 		if (this.props.item.completed) {
 			style = isCompletedStyle 
 		} else {
@@ -132,11 +129,9 @@ class TodoItem extends Component {
 	}
 } 
 
-// ========= Props ========= 
 TodoItem.propTypes = {
 	api: PropTypes.string.isRequired,
 	item: PropTypes.object.isRequired,
-	todos: PropTypes.array.isRequired
 };
 
 TodoItem.defaultProps ={
@@ -150,35 +145,28 @@ TodoItem.defaultProps ={
 		rank: 'default',
 		task: 'default'
 	}, 
-	todos: [ ]
 };
 
 const mapStateToProps = (state, ownProps) => {
-	return {
-		// todos: state.todos
-		item: ownProps.item,
-	};	
+	return { item: ownProps.item };	
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		deleteTodo:
-		// ??? does this need the api arg?
-			(api, _id) => dispatch(deleteTodo(api, _id)),
-		// editTodo update arg should be an object
-		// ??? does this need the api arg?
+			(api, _id) => dispatch (deleteTodo (api, _id)),
 		editTodo:
-			(api, _id, update) => dispatch(editTodo(api, _id, update)), 
+			(api, _id, update) => dispatch (editTodo (api, _id, update)), 
 		removeTodo: 
-			(_id) => dispatch(todoActions.removeTodo(_id)),
+			(_id) => dispatch (_a.removeTodo (_id)),
 		toggleComplete: 
-			(_id, task) => dispatch(todoActions.toggleComplete(_id, task)),
+			(_id, task) => dispatch (_a.toggleComplete (_id, task)),
 		updateDate: 
-			(_id, date) => dispatch(todoActions.updateDate(_id, date)),
+			(_id, date) => dispatch (_a.updateDate (_id, date)),
 		updateTask: 
-			(_id, task) => dispatch(todoActions.updateTask(_id, task)),
+			(_id, task) => dispatch (_a.updateTask (_id, task)),
 		updateRank: 
-			(_id, rank) => dispatch(todoActions.updateRank(_id, rank)),
+			(_id, rank) => dispatch (_a.updateRank (_id, rank)),
 	};
 };
 
