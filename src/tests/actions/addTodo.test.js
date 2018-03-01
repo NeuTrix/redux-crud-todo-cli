@@ -7,7 +7,7 @@ import { addTodo } from '../../actions/todoActions';
 import { expect } from 'chai';
 import deepFreeze from 'deep-freeze';
 
-// ========= 
+// +++++++++ 
 
 describe('The todos tasks', () => {
 
@@ -26,7 +26,7 @@ describe('The todos tasks', () => {
 		deepFreeze (prevState);
 		let _task, nextState;
 
-		// ========= 
+		// +++++++++ 
 
 		beforeAll(() => {
 			store.dispatch(addTodo(_mock));
@@ -39,7 +39,7 @@ describe('The todos tasks', () => {
 			nextState.pop();
 		});
 
-		// ========= 
+		// +++++++++ 
 
 		it('_ _ adds a todo to the array', () => {
 			expect(_task).to.be.an('object');

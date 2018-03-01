@@ -1,15 +1,11 @@
 /* eslint-env node, mocha, chai, jest */
-
 import { expect } from 'chai';
 import axios from 'axios';
 
-// +++++++++ 
-
 describe('The API request object actions', () => {
-
-	let todos;
-	let _task;
-	let _last;
+	let todos; // array
+	let _task; // initial test item
+	let _last; // last test item
 
 	beforeAll((done) => {
 		axios.get('https://redux-todo-api.herokuapp.com/api/todos')
@@ -17,13 +13,11 @@ describe('The API request object actions', () => {
 				todos = res.data;
 				_last = todos.length - 1;
 				_task = todos[0];
-				// console.log(_task);
 				done();
 			});
 	});
 
 	describe('the retrieved todo items ', () => {
-
 		it('... are an array of objects', () => {
 			expect(todos.length).to.be.above(0);
 			expect(todos).to.be.an('array');
@@ -54,5 +48,4 @@ describe('The API request object actions', () => {
 			expect(_task).to.have.property('task');
 		});
 	});
-
 });
