@@ -1,4 +1,3 @@
-import shortid from 'shortid';
 import {
 	ADD_TODO,
 	EDIT_ITEM,
