@@ -1,18 +1,12 @@
 /* eslint-env node, mocha, jest */
-
 import store from '../../store/store';
 import { addTodo } from '../../actions/todoActions';
-
-// import chai from 'chai';
 import { expect } from 'chai';
 import deepFreeze from 'deep-freeze';
-
-// +++++++++ 
 
 describe('The todos tasks', () => {
 
 	describe ('the ADD_TODO action ', () => {
-
 		const _mock ={
 			completed:  false,
 			date: Date.now(),
@@ -22,11 +16,9 @@ describe('The todos tasks', () => {
 			task: 'Make it so'
 		};
 			
+		let _task, nextState;
 		let prevState = (store.getState().todos);
 		deepFreeze (prevState);
-		let _task, nextState;
-
-		// +++++++++ 
 
 		beforeAll(() => {
 			store.dispatch(addTodo(_mock));
@@ -38,8 +30,6 @@ describe('The todos tasks', () => {
 		afterAll(() => {
 			nextState.pop();
 		});
-
-		// +++++++++ 
 
 		it('_ _ adds a todo to the array', () => {
 			expect(_task).to.be.an('object');
@@ -75,7 +65,5 @@ describe('The todos tasks', () => {
 			expect(_task).to.have.property('task')
 				.to.eql(_mock.task);
 		});
-
 	});
-
-}); //master describe
+}); 
