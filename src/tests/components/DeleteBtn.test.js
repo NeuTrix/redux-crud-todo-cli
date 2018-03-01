@@ -70,11 +70,11 @@ describe ('The DeleteBtn Component', () => {
 
 		it ('...has an deleteTodo prop', () => {
 			expect (Object.keys(_deletebtns.props())).to.include('deleteTodo');
-		});
+		});g
 
 		it ('...has an task prop', () => {
 			expect (Object.keys(_deletebtns.props())).to.include('task');
-		});
+		});g
 
 		it ('...has an removeTodo prop', () => {
 			expect (Object.keys(_deletebtns.props())).to.include('removeTodo');
