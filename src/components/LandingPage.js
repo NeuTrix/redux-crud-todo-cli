@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Col, Grid, Row } from 'react-bootstrap' 
 
-// ========= 
+// +++++++++ 
 
 class App extends Component {
 

@@ -1,8 +1,7 @@
+// used for setting priority rank of todo components
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormControl } from 'react-bootstrap';
-
-// +++++++++ Component
 
 const Rank = (props) => {
 	let _rank; // task priority 
@@ -20,8 +19,8 @@ const Rank = (props) => {
 			componentClass = "select" 
 			defaultValue = {props.currRank}
 			onChange = { handleChange } 
-			inputRef = { (value) => _rank = value } >
-
+			inputRef = { (value) => _rank = value } 
+		>
 			<option value = 'High'>High</option>
 			<option value = 'Med'>Med</option>
 			<option value = 'Low'>Low</option>
@@ -29,14 +28,12 @@ const Rank = (props) => {
 	);
 }; 
 
-// +++++++++ Props  
-
 Rank.propTypes = {
 	api: PropTypes.string.isRequired,
 	currRank: PropTypes.string.isRequired,
 	editTodo: PropTypes.func.isRequired,
-	_id: PropTypes.string.isRequired,
-	updateRank: PropTypes.func.isRequired
+	updateRank: PropTypes.func.isRequired,
+	_id: PropTypes.string.isRequired
 };
 
 Rank.defaultProps = {
