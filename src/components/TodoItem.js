@@ -108,8 +108,10 @@ class TodoItem extends Component {
 					sm = { spacing.sm.date }
 				>
 					<CalendarBtn
-						_id = { this.props.item._id }
+						api = { this.props.api }
 						date = { this.props.item.date }
+						editTodo = { this.props.editTodo }
+						_id = { this.props.item._id }
 						updateDate = { this.props.updateDate }   
 					/>
 				</Col>

@@ -63,24 +63,32 @@ describe('The CalendarBtn Component', () => {
 	describe('when rendering core components, it..', () => {
 		const dateBtns = calendarBtn().find('CalendarBtn');
 
-		it('CalendarBtn is passed (4) props', () => {
-			expect(Object.keys(dateBtns.props()).length).to.eql(4)
+		it('CalendarBtn is passed (6) props', () => {
+			expect(Object.keys(dateBtns.props()).length).to.eql(6)
 		})
+
+		it('has an api prop', () => {
+			expect(Object.keys(dateBtns.props())).to.include('api')
+		})	
+
+		it('has an date prop', () => {
+			expect(Object.keys(dateBtns.props())).to.include('date')
+		})
+
+		it('has an editTodo prop', () => {
+			expect(Object.keys(dateBtns.props())).to.include('editTodo')
+		})	
 
 		it('has an _id prop', () => {
 			expect(Object.keys(dateBtns.props())).to.include('_id')
 		})
 
-		it('has an task prop', () => {
-			expect(Object.keys(dateBtns.props())).to.include('date')
+		it('has an updateDate prop', () => {
+			expect(Object.keys(dateBtns.props())).to.include('updateDate')
 		})
 
 		it('has an style prop', () => {
 			expect(Object.keys(dateBtns.props())).to.include('style')
-		})
-
-		it('has an updateDate prop', () => {
-			expect(Object.keys(dateBtns.props())).to.include('updateDate')
 		})
 
 	})
