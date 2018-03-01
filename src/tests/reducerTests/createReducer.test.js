@@ -1,6 +1,4 @@
 /* eslint-env jest, mocha, chai */
-
-// ======== esllint
 /*eslint no-undef: "error"*/
 
 import axios from 'axios';
@@ -17,7 +15,8 @@ import {
 } from '../../actions/createActions';
 
 import { startState } from '../../actions/readActions'
-// ====================================
+
+// +++++++++ 
 
 describe('The apiReducer action suite', () => {
 	let initialState;

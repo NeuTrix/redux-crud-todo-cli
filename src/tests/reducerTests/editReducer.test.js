@@ -18,7 +18,7 @@ import {
 
 import { startState } from '../../actions/readActions'
 
-// ========= 
+// +++++++++ 
 
 describe('The editReducer action suite', () => {
 	let initialState;

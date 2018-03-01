@@ -18,7 +18,7 @@ import {
 
 import { startState } from '../../actions/readActions'
 
-// ========= 
+// +++++++++ 
 
 describe('The deleteReducer action suite', () => {
 	let initialState;

@@ -22,7 +22,7 @@ import {
 	todosSetInitialState,
 } from '../../actions/todoActions';
 
-// ========= 
+// +++++++++ 
 
 xdescribe('The TODOS_SET_INITIAL_STATE reducer', () => {
 
