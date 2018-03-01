@@ -16,7 +16,7 @@ import {
 	// getTodosData
 } from '../../actions/readActions';
 
-// ====================================
+// +++++++++ ===========================
 
 describe('The apiReducer action suite', () => {
 	let initialState;
