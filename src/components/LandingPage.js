@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Col, Grid, Row } from 'react-bootstrap' 
+import React, { Component } from 'react';
+import { Col, Grid, Row } from 'react-bootstrap'; 
 
 class App extends Component {
 
@@ -7,13 +7,13 @@ class App extends Component {
 
 		const spacing = {
 			sm: {top: 1	, mid: 10, bot: 1}
-		}
+		};
 
 		const style = {
 			outline: '1px solid orange',
 			marginTop:250,
 			textAlign: 'center'
-		}
+		};
 
 		return (
 			<Grid className ="App">
@@ -37,4 +37,4 @@ class App extends Component {
 	}
 }
 
-export default App
+export default App;

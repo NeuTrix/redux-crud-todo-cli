@@ -153,12 +153,12 @@ describe('The get todos INITIAL STATE  function', () => {
 
 		axios.get(api)
 			.then((res) => {
-				let data = res.data
-				expect(res.status).to.eql(200)
-				expect(data).to.be.an('array')
-			done()
-		})
-	})
+				let data = res.data;
+				expect(res.status).to.eql(200);
+				expect(data).to.be.an('array');
+				done();
+			});
+	});
 
 	it('... base connection returns a new json array object', (done) => {
 		let data; 

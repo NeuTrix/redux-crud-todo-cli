@@ -9,7 +9,7 @@ let initialState = {
 	editIsPosting: false,
 	editHasSucceeded: false,
 	editHasErrored: false
-} 
+}; 
 
 export const editReducer = (state = initialState, action) => {
 

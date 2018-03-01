@@ -9,7 +9,7 @@ let initialState = {
 	createIsPosting: false,
 	createHasSucceeded: false,
 	createHasErrored: false
-} 
+}; 
 
 export const createReducer = (state = initialState, action) => {
 

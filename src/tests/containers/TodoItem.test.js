@@ -21,16 +21,16 @@ it('renders without crashing', () => {
 });
 
 describe('The TodoItem Component', () => {
-	let props, mountedTodoItem
+	let props, mountedTodoItem;
 	const todoItem = () => {
 		if(!mountedTodoItem) {
 			mountedTodoItem = mount (
 				<Provider store = { store } >
 					<TodoItem {...props} />
 				</Provider>
-				);
+			);
 		}
-		return mountedTodoItem
+		return mountedTodoItem;
 	};
 
 	let _state = todoItem().state(); // mounted state 
@@ -40,7 +40,7 @@ describe('The TodoItem Component', () => {
 			todos: undefined,
 			item: undefined
 		};
-		mountedTodoItem = undefined
+		mountedTodoItem = undefined;
 	});
 
 	describe('the wrapping Row component...', () => {
@@ -49,53 +49,53 @@ describe('The TodoItem Component', () => {
 
 		xit('Inspection beforeEach', () => {
 			// to inspect testing objects
-			console.log('********** state beforeEach',  _state)
-			console.log('********** props beforeEach',  _tasks.props())
-		})
+			console.log('********** state beforeEach',  _state);
+			console.log('********** props beforeEach',  _tasks.props());
+		});
 
 		it('always renders an outer Row', () => {
 			expect(rows.length).to.be.eql(1);
-		})
+		});
 
 		it('renders an outer Row that wraps all components', () => {
-			expect (wrappingRow.children()).to.eql(todoItem().children())
-		})
+			expect (wrappingRow.children()).to.eql(todoItem().children());
+		});
 
 		it('always renders (5) Cols', () => {
 			const cols = todoItem().find('Col');
 			expect(cols.length).to.be.eql(5);
-		})
+		});
 	});
 
 	describe('when rendering core components, it..', () => {
 		it('always renders a CheckComplete component', () => {
 			const checkboxes = todoItem().find('CheckComplete');
 			expect(checkboxes.length).to.be.eql(1);
-		})
+		});
 		
 		it('always renders a FormControl for "task" ', () => {
 			const tasks = todoItem().find('FormControl.task');
 			expect(tasks.length).to.be.eql(1);
-		})
+		});
 
 		it('always renders a Rank component for rank ', () => {
 			const ranks = todoItem().find('Rank');
 			expect(ranks.length).to.be.eql(1);
-		})
+		});
 
 		it('always renders a CalendarBtn component ', () => {
 			const dates = todoItem().find('CalendarBtn');
 			expect(dates.length).to.be.eql(1);
-		})
+		});
 
 		it('CalendarBtn is passed (6) props', () => {
 			const checkboxes = todoItem().find('CalendarBtn');
-			expect(Object.keys(checkboxes.props()).length).to.eql(6)
-		})
+			expect(Object.keys(checkboxes.props()).length).to.eql(6);
+		});
 
 		it('always renders a DeleteBtn component ', () => {
 			const deleteBtn = todoItem().find('DeleteBtn');
 			expect(deleteBtn.length).to.be.eql(1);
-		})
-	})
-})
+		});
+	});
+});

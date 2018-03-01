@@ -1,5 +1,5 @@
-import axios from 'axios'
-import { editItem } from './todoActions'
+import axios from 'axios';
+import { editItem } from './todoActions';
 
 export const EDIT_IS_POSTING  = 'EDIT_IS_POSTING';
 export const EDIT_HAS_SUCCEEDED = 'EDIT_HAS_SUCCEEDED';
@@ -28,19 +28,19 @@ export function editIsPosting (bool)  {
 
 export function editTodo (api, _id, data) {
 	return (dispatch) => {
-		let updatedTodo // newly updated item from api
+		let updatedTodo; // newly updated item from api
 		dispatch (editIsPosting(true));
 		axios.put (`${api}/${_id}`, data)
 			.then ((response) => {
 				if (response.status !== 200) {
 					throw Error (response.statusText);
 				}	
-				updatedTodo = response.data
+				updatedTodo = response.data;
 			})
 			.then (() => {
 				dispatch (editItem (_id, updatedTodo));
 				dispatch (editIsPosting (false));
-				dispatch (editHasSucceeded (true))
+				dispatch (editHasSucceeded (true));
 			})
 			.catch ((err) => {
 				dispatch (editHasErrored (true));

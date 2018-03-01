@@ -39,10 +39,10 @@ export function startState (url) {
 			})
 			.then ((response) => response.json ())
 			.then ((todos) => dispatch (todosSetInitialState (todos)))
-			.then (() => { dispatch (todosHasFetched (true)) })
+			.then (() => { dispatch (todosHasFetched (true)); })
 			.catch ((err) => {
-				dispatch (todosHasErrored (true))
-				console.error (err)
+				dispatch (todosHasErrored (true));
+				console.error (err);
 			});
 	};
 }

@@ -9,19 +9,19 @@ const checkStyle ={
 class CheckComplete extends Component {
 			
 	constructor (props) {
-		super (props)
+		super (props);
 		this.state = {
 			isChecked: this.props.completed
-		}
+		};
 	}
 
 	componentWillReceiveProps (newProps) {
 		this.setState({ 
 			isChecked: newProps.completed,
-		})
+		});
 	}
 
-render() {
+	render() {
 
 		const handleToggle = (event) => {
 			// do not preventDefault- preserves animation
@@ -30,7 +30,7 @@ render() {
 				this.props.api, 
 				this.props._id, 
 				{ completed: !this.state.isChecked }
-			)
+			);
 		};
 
 		return( 
@@ -43,8 +43,8 @@ render() {
 			> 
 			</Checkbox>
 		);
-	};
-};
+	}
+}
 
 CheckComplete.propTypes = {
 	api: PropTypes.string.isRequired,
@@ -59,7 +59,7 @@ CheckComplete.defaultProps = {
 	completed: false,
 	editTodo: f => f,
 	toggleComplete: f => f,
-	_id: "default" ,
+	_id: 'default' ,
 };
 
 export default CheckComplete;

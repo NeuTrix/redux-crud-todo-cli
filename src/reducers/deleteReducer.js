@@ -9,7 +9,7 @@ let initialState = {
 	deleteIsPosting: false,
 	deleteHasSucceeded: false,
 	deleteHasErrored: false
-} 
+}; 
 
 export const deleteReducer = (state = initialState, action) => {
 

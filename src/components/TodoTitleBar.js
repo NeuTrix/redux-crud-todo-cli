@@ -14,31 +14,27 @@ const spacing =  { sm: {task: 6, rank: 2, date: 2, action: 2 } };
 const TodoTitleBar = (props) => {
 
 	return (
-			<Row className = 'TodoTitleBar' style= { styleTitle }>
-				<Col className = 'titleTask' sm = { spacing.sm.task } >
+		<Row className = 'TodoTitleBar' style= { styleTitle }>
+			<Col className = 'titleTask' sm = { spacing.sm.task } >
 					Task
-				</Col>
+			</Col>
 
-				<Col className = 'titleRank' sm = { spacing.sm.rank } >
+			<Col className = 'titleRank' sm = { spacing.sm.rank } >
 					Rank
-				</Col>
+			</Col>
 
-				<Col className = 'titleDue' sm = { spacing.sm.date } >
+			<Col className = 'titleDue' sm = { spacing.sm.date } >
 					Date
-				</Col>
+			</Col>
 
-				<Col className = 'titleAction' sm = { spacing.sm.action } >
+			<Col className = 'titleAction' sm = { spacing.sm.action } >
 					Action
-				</Col>
-			</Row>
+			</Col>
+		</Row>
 	);
 }; 
 
-TodoTitleBar.propTypes = {
-	spacing: PropTypes.object
-};
-
-TodoTitleBar.defaultProps = {
-};
+TodoTitleBar.propTypes = { };
+TodoTitleBar.defaultProps = { };
 
 export default (TodoTitleBar);

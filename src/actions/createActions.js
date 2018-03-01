@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 import { addTodo } from './todoActions';
 
@@ -29,14 +29,14 @@ export function createIsPosting (bool)  {
   
 export function createTodo (api, data) {
 	return (dispatch) => {
-		let newTodo // the newly created todo item
+		let newTodo; // the newly created todo item
 		dispatch (createIsPosting (true));
 		axios.post (api, data)
 			.then ((response) => {
 				if (response.status !== 201) {
 					throw Error (response.statusText);
 				}	
-				newTodo = response.data
+				newTodo = response.data;
 			})
 			.then (() => {
 				dispatch (addTodo (newTodo));
@@ -44,8 +44,8 @@ export function createTodo (api, data) {
 				dispatch (createHasSucceeded (true));
 			})
 			.catch ((err) => {
-				dispatch (createHasErrored (true))
-				console.error (err)
+				dispatch (createHasErrored (true));
+				console.error (err);
 			});
 	};
 }

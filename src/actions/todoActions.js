@@ -41,7 +41,7 @@ export const editItem = (id, _update) => {
 			update: _update
 		}
 	};
-}
+};
 
 export const removeTodo = (id) => {
 	return {

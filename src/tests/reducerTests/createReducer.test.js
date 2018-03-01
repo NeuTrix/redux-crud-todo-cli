@@ -4,7 +4,7 @@ import axios from 'axios';
 import deepFreeze from 'deep-freeze';
 import store from '../../store/store';
 import { expect } from 'chai';
-import { startState } from '../../actions/readActions'
+import { startState } from '../../actions/readActions';
 import * as _a from '../../actions/createActions';
 
 describe ('The apiReducer action suite', () => {
@@ -55,31 +55,32 @@ describe ('The apiReducer action suite', () => {
 	});
 
 	xdescribe ('...the createTodo function', () => {
-			let testItem = {
-				owner: "tester",
-				task: "Test the createTodo function"
-			}
-			let api ='https://redux-todo-api.herokuapp.com/api/todos'
-			let todosBefore = store.getState().todos
+		// under construction
+		let testItem = {
+			owner: 'tester',
+			task: 'Test the createTodo function'
+		};
+		let api ='https://redux-todo-api.herokuapp.com/api/todos';
+		// let todosBefore = store.getState().todos;
 
-			beforeAll(() => {
-			startState(api)
-				let afterTodo = store.getState().todos
-			});
+		beforeAll(() => {
+			startState(api);
+			// let afterTodo = store.getState().todos;
+		});
 
 		it ('... makes a successful call to the server', (done) => {
 			axios.get(api)
 				.then((res) => {
-					expect(res.data.length).to.eql(1)
-					done()
+					expect(res.data.length).to.eql(1);
+					done();
 				});
-			store.dispatch(_a.createTodo(api,testItem))
-		})
+			store.dispatch(_a.createTodo(api,testItem));
+		});
 
 		xit ('... adds a new item to the api', () => {
-		})
+		});
 
 		xit ('... updates the api state accordingly', () => {
-		})
-	})
+		});
+	});
 });

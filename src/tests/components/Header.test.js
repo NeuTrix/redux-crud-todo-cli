@@ -1,18 +1,11 @@
+/* eslint-env jest, mocha, chai */
 import React from 'react';
 import ReactDom from 'react-dom';
 
 import { shallow, mount, render } from 'enzyme';
 import Header from '../../components/Header';
 
-// ======== eslint
-/*global describe:true*/
-/*global it:true*/
-/*global xit:true*/
-/*global expect:true*/
-/*global render:true*/
-/*global mount:true*/
-/*global beforeEach:true*/
-/*eslint no-undef: "error"*/
+
 
 describe('The Header Component w/ ReactDom', () => {
 
@@ -34,7 +27,7 @@ xdescribe('The Header Component', () => {
 	});
 
 	it('..renders the component class "Navbar" ', () => {
-		console.log(_Header)
+		console.log(_Header);
 		expect(
 			_Header
 				.find('Navbar.Header')

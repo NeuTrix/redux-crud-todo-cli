@@ -16,24 +16,24 @@ it('renders without crashing', () => {
 });
 
 describe('The CalendarBtn Component', () => {
-	let props, mountedCalendarBtn
+	let props, mountedCalendarBtn;
 	const calendarBtn = () => {
 		if(!mountedCalendarBtn) {
 			mountedCalendarBtn = mount (
 				<CalendarBtn { ...props } /> 
 			);
 		}
-		return mountedCalendarBtn
+		return mountedCalendarBtn;
 	};
 
 	beforeEach (() => {
 		props = {
-			date: "2018-12-31",
+			date: '2018-12-31',
 			_id: undefined,
 			style: {},
 			updateDate: undefined
-		}
-		mountedCalendarBtn = undefined
+		};
+		mountedCalendarBtn = undefined;
 	});
 
 	describe('the wrapping Row component...', () => {
@@ -42,43 +42,43 @@ describe('The CalendarBtn Component', () => {
 
 		it('always renders an outer FormControl', () => {
 			expect(formCtl.length).to.be.eql(1);
-		})
+		});
 
 		it('always renders a CalendarBtn component ', () => {
 			const dates = calendarBtn().find('CalendarBtn');
 			expect(dates.length).to.be.eql(1);
-		})
+		});
 	});
 
 	describe('when rendering core components, it..', () => {
 		const dateBtns = calendarBtn().find('CalendarBtn');
 
 		it('CalendarBtn is passed (6) props', () => {
-			expect(Object.keys(dateBtns.props()).length).to.eql(6)
-		})
+			expect(Object.keys(dateBtns.props()).length).to.eql(6);
+		});
 
 		it('has an api prop', () => {
-			expect(Object.keys(dateBtns.props())).to.include('api')
-		})	
+			expect(Object.keys(dateBtns.props())).to.include('api');
+		});	
 
 		it('has an date prop', () => {
-			expect(Object.keys(dateBtns.props())).to.include('date')
-		})
+			expect(Object.keys(dateBtns.props())).to.include('date');
+		});
 
 		it('has an editTodo prop', () => {
-			expect(Object.keys(dateBtns.props())).to.include('editTodo')
-		})	
+			expect(Object.keys(dateBtns.props())).to.include('editTodo');
+		});	
 
 		it('has an _id prop', () => {
-			expect(Object.keys(dateBtns.props())).to.include('_id')
-		})
+			expect(Object.keys(dateBtns.props())).to.include('_id');
+		});
 
 		it('has an updateDate prop', () => {
-			expect(Object.keys(dateBtns.props())).to.include('updateDate')
-		})
+			expect(Object.keys(dateBtns.props())).to.include('updateDate');
+		});
 
 		it('has an style prop', () => {
-			expect(Object.keys(dateBtns.props())).to.include('style')
-		})
-	})
-})
+			expect(Object.keys(dateBtns.props())).to.include('style');
+		});
+	});
+});

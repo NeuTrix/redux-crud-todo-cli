@@ -5,12 +5,12 @@ import { FormControl } from 'react-bootstrap';
 
 const CalendarBtn = (props) => {
 
-	let _date // caputure component value
+	let _date; // caputure component value
 
 	const handleDateChange = (event) => {
 		event.preventDefault();
 		props.updateDate(props._id, _date.value );
-		props.editTodo(props.api, props._id, { date: _date.value })
+		props.editTodo(props.api, props._id, { date: _date.value });
 	};
 
 	return (
@@ -42,7 +42,7 @@ CalendarBtn.defaultProps = {
 	editTodo: f => f,
 	style: { },
 	updateDate: f => f,
-	_id: "default"
+	_id: 'default'
 };
 
 export default CalendarBtn;

@@ -8,8 +8,8 @@ import { Col, Button, Form, FormControl, Grid, Row } from 'react-bootstrap';
 const TodoForm = (props) => {
 	let _currentDate = normalizeDate(new Date()); // formatted date
 	let _task, // todo task
-			_rank, // todo priority
-			_date; // todo due date
+		_rank, // todo priority
+		_date; // todo due date
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -35,7 +35,7 @@ const TodoForm = (props) => {
 	// +++++++++ 
 
 	return (
-	<Grid className = 'TodoForm' style = { {marginTop: 100}} >
+		<Grid className = 'TodoForm' style = { {marginTop: 100}} >
 
 			<Col 
 				xsHidden = { true } 
@@ -76,7 +76,7 @@ const TodoForm = (props) => {
 							<option value = 'Med'>Med</option>
 							<option value = 'Low'>Low</option>
 
-			      </FormControl>
+			    	</FormControl>
 					</Col>
 
 					<Col 

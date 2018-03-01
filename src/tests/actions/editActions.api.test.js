@@ -6,22 +6,17 @@ import chai	from 'chai';
 import chaiHttp from 'chai-http';
 import { expect } from 'chai';
 import deepFreeze from 'deep-freeze';
-import store from '../../store/store'
-import { editItem } from '../../actions/editActions'
-import { createTodo } from '../../actions/createActions'
-import { deleteTodo } from '../../actions/deleteActions'
+import store from '../../store/store';
+import { editItem } from '../../actions/editActions';
+import { createTodo } from '../../actions/createActions';
+import { deleteTodo } from '../../actions/deleteActions';
 import * as actions from '../../actions/editActions';
-import {
-	EDIT_IS_POSTING,
-	EDIT_HAS_SUCCEEDED,
-	EDIT_HAS_ERRORED
-} from '../../actions/editActions';
  
 chai.use (chaiHttp);
 
 describe ('The editIsPosting POSTING action creator', () => {
 
-	let loading // action variable
+	let loading; // action variable
 
 	beforeAll (() => {
 		loading = actions.editIsPosting (false);
@@ -59,11 +54,11 @@ describe ('The editIsPosting POSTING action creator', () => {
 
 describe ('The editHasSucceeded SUCCESS action creator', () => {
 
-	let aSuccess // success action 
-	let todos // array for testing
+	let aSuccess; // success action 
+	let todos; // array for testing
 
 	beforeAll (() => {
-		todos = [1,2,3]
+		todos = [1,2,3];
 		aSuccess = actions.editHasSucceeded (todos);
 	});
 
@@ -90,7 +85,7 @@ describe ('The editHasSucceeded SUCCESS action creator', () => {
 
 	it ('... payload.todos has a boolean value', () => {
 		expect (aSuccess.payload).to.have.property ('todos')
-			.to.be.an('array')
+			.to.be.an('array');
 	});
 });
 
@@ -129,45 +124,45 @@ describe ('The editHasErrored ERROR action creator', () => {
 });
 
 xdescribe ('The editTodo function', () => {
-	let listBefore, listAfter
-	let todos, lastItem
+	let listBefore, listAfter;
+	let todos, lastItem;
 	let api = 'https://redux-todo-api.herokuapp.com/api/todos';
 	let newItem = {	
-				completed:  false,
-				date: '2050-12-31',
-				details: 'Initial test Item',
-				owner: 'EDIT Tester*',
-				rank: 'Low',
-				task:  'set Initial TEST item'
-			}
+		completed:  false,
+		date: '2050-12-31',
+		details: 'Initial test Item',
+		owner: 'EDIT Tester*',
+		rank: 'Low',
+		task:  'set Initial TEST item'
+	};
 	let updatedItem = {	
-				completed:  false,
-				date: '2050-12-31',
-				details: 'edit item test',
-				owner: 'EDIT Tester*',
-				rank: 'Low',
-				task:  'EDITED itme'
-			}
+		completed:  false,
+		date: '2050-12-31',
+		details: 'edit item test',
+		owner: 'EDIT Tester*',
+		rank: 'Low',
+		task:  'EDITED itme'
+	};
 
 	beforeEach (() => {
-		store.dispatch(createTodo (api, newItem))
-		listBefore = store.getState ().todos
+		store.dispatch(createTodo (api, newItem));
+		listBefore = store.getState ().todos;
 	});
 
 	afterEach (() => {
-		todos  = store.getState ().todos
-		lastItem = todos[todos.length - 1]
-		store.dispatch (deleteTodo(api, lastItem._id))
+		todos  = store.getState ().todos;
+		lastItem = todos[todos.length - 1];
+		store.dispatch (deleteTodo(api, lastItem._id));
 	});
 
 	it ('The state list it cleared', () => {
-		let todos = store.getState ().todos
-		expect (listBefore.length).to.eql(todos.length)
-	})
+		let todos = store.getState ().todos;
+		expect (listBefore.length).to.eql(todos.length);
+	});
 		
 	it ('... starts with a clean list', () => {
-		todos = store.getState ().todos
-	})
+		todos = store.getState ().todos;
+	});
 
 	it ('... connection to api returns status 200', (done) => {
 		chai.request (api)

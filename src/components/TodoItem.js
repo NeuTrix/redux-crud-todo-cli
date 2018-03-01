@@ -4,18 +4,18 @@ import { Col, Row } from 'react-bootstrap';
 import Rank from '../components/Rank';
 import DeleteBtn from '../components/DeleteBtn';
 import CalendarBtn from '../components/CalendarBtn';
-import CheckComplete from '../components/CheckComplete'
-import TodoTask from '../components/TodoTask'
+import CheckComplete from '../components/CheckComplete';
+import TodoTask from '../components/TodoTask';
 import { connect } from 'react-redux';
-import { deleteTodo } from '../actions/deleteActions'
-import { editTodo } from '../actions/editActions'
+import { deleteTodo } from '../actions/deleteActions';
+import { editTodo } from '../actions/editActions';
 import * as _a from '../actions/todoActions';
 
 // +++++++++ Styling 
 const spacing = { 
 	xs: { chkbx: 1, task: 11, rank: 3, date: 5, delBtn: 3},
 	sm: { chkbx: 1, task: 11, rank: 2, date: 3, delBtn: 6}
-}
+};
 
 const todosBoxStyle = {
 	marginTop: 10,
@@ -29,24 +29,24 @@ const todosBoxStyle = {
 const defaultStyle = {
 	backgroundColor: 'white', 
 	color: 'black'
-}
+};
 
 const isCompletedStyle = {
-		backgroundColor: 'whitesmoke', 
-		color: 'lightgrey',
-		textDecoration: 'line-through' 
-}
+	backgroundColor: 'whitesmoke', 
+	color: 'lightgrey',
+	textDecoration: 'line-through' 
+};
 // +++++++++ 
 
 class TodoItem extends Component {
 
 	render () {
 
-		let style = {}
+		let style = {};
 		if (this.props.item.completed) {
-			style = isCompletedStyle 
+			style = isCompletedStyle; 
 		} else {
-			style = defaultStyle 
+			style = defaultStyle; 
 		}
 
 		return (
@@ -55,10 +55,10 @@ class TodoItem extends Component {
 				style = { todosBoxStyle }  >
 
 				<Col 
-						className = 'checkComplete'
-						xs = { spacing.xs.chkbx } 
-						sm = { spacing.sm.chkbx } 
-					>
+					className = 'checkComplete'
+					xs = { spacing.xs.chkbx } 
+					sm = { spacing.sm.chkbx } 
+				>
 					<CheckComplete
 						api = { this.props.api }
 						completed = { this.props.item.completed }

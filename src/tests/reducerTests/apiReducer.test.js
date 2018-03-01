@@ -1,6 +1,5 @@
 /* eslint-env jest, mocha, chai */
 /*eslint no-undef: "error"*/
-import shortid from 'shortid';
 import deepFreeze from 'deep-freeze';
 import { expect } from 'chai';
 import store from '../../store/store';
@@ -44,7 +43,7 @@ describe('The apiReducer action suite', () => {
 
 	describe('The ERROR reducer', () => {
 		afterAll(() => {
-			_a.store.dispatch(todosHasErrored(false));
+			_a.store.dispatch(_a.todosHasErrored(false));
 		});
 
 		it('... initialState has an todosHasErrored prop set to false', () => {

@@ -6,18 +6,18 @@ import TaskCounter from '../components/TaskCounter';
 
 class TodoList extends Component {
 	constructor (props) {
-		super(props)
+		super(props);
 		this.state = { 
 			todoArray: this.props.todoArray			
-		}
+		};
 	}
 	componentWillReceiveProps (newProps) {
 		this.setState({
 			todoArray: newProps.todoArray			
-		})
+		});
 	}
 	render() {
-		let _todoArray = this.state.todoArray
+		let _todoArray = this.state.todoArray;
 		let todos = _todoArray.map(item => {
 			return <TodoItem key = { item._id } item = { item } />;
 		});

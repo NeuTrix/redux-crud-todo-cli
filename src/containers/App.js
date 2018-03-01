@@ -5,13 +5,13 @@ import TodoForm from '../components/TodoForm';
 import Header from '../components/Header';
 import { connect } from 'react-redux';
 import { createTodo } from '../actions/createActions';
-import { BrowserRouter as Router } from 'react-router-dom'
-import { startState } from '../actions/readActions'
+import { BrowserRouter as Router } from 'react-router-dom';
+import { startState } from '../actions/readActions';
 
 class App extends Component {
 	
 	componentDidMount() {
-		this.props.startApp(this.props.api)
+		this.props.startApp(this.props.api);
 	}
 
 	render() {
@@ -36,8 +36,8 @@ App.propTypes = {
 	todoArray: 	PropTypes.array.isRequired
 };
 
-App.defaultProps ={
- 	api: 'https://redux-todo-api.herokuapp.com/api/todos',
+App.defaultProps = {
+	api: 'https://redux-todo-api.herokuapp.com/api/todos',
 	createTodo: f => f,
 	todoArray: [ ]
 };
@@ -50,8 +50,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		createTodo: (api, task) => { dispatch(createTodo(api, task)) },
-		startApp: (url) => { dispatch(startState(url)) }
+		createTodo: (api, task) => { dispatch(createTodo(api, task)); },
+		startApp: (url) => { dispatch(startState(url)); }
 	};
 }; 
 

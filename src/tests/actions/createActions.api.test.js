@@ -173,8 +173,8 @@ describe('The get todos INITIAL STATE  function', () => {
 });
 */
 
-	it('', () => {
+it('', () => {
 		
-	})
+});
 
 

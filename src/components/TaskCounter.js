@@ -10,13 +10,13 @@ const TaskCounter = (props) => {
 		outline: '1px solid lightgrey',
 		padding: 10,
 		borderRadius: 10
-	}
+	};
 
 	const spacing = {
 		xs: { title: 4, badge: 8 },
 		sm: { title: 2, badge: 10 },
 		md: { title: 2, badge: 10 }
-	}
+	};
 
 	return ( 
 		<Row style = { style } >
@@ -24,7 +24,7 @@ const TaskCounter = (props) => {
 				xs = { spacing.xs.title } 
 				sm = { spacing.sm.title } 
 				md = { spacing.md.title } 
-				>
+			>
 				Todos Count:   
 			</Col>
 			

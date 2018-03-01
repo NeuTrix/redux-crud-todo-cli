@@ -1,10 +1,8 @@
 /* eslint-env jest, mocha, chai */
 /*eslint no-undef: "error"*/
-import axios from 'axios';
 import deepFreeze from 'deep-freeze';
 import { expect } from 'chai';
 import store from '../../store/store';
-import { startState } from '../../actions/readActions'
 import * as actions from '../../actions/editActions';
 
 describe('The editReducer action suite', () => {
