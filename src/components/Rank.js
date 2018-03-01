@@ -8,13 +8,13 @@ const Rank = (props) => {
 	let _rank; // task priority 
 
 	const handleChange = (event) => {
-		event.preventDefault();
-		props.updateRank(props._id, _rank.value);
+		event.preventDefault ();
+		props.updateRank (props._id, _rank.value);
+		props.editTodo (props.api, props._id, { rank: _rank.value });
 	};
 
 	return (
-
-		 <FormControl
+		<FormControl
 			className= 'rank' 
 			bsSize = 'sm'
 			componentClass = "select" 
@@ -25,7 +25,6 @@ const Rank = (props) => {
 			<option value = 'High'>High</option>
 			<option value = 'Med'>Med</option>
 			<option value = 'Low'>Low</option>
-
 		</FormControl>
 	);
 }; 
@@ -33,15 +32,19 @@ const Rank = (props) => {
 // ========= Props  
 
 Rank.propTypes = {
+	api: PropTypes.string.isRequired,
 	currRank: PropTypes.string.isRequired,
+	editTodo: PropTypes.func.isRequired,
 	_id: PropTypes.string.isRequired,
 	updateRank: PropTypes.func.isRequired
 };
 
 Rank.defaultProps = {
+ 	api: 'https://redux-todo-api.herokuapp.com/api/todos',
 	currRank: 'default',	
-	_id: 'default',
-	updateRank: f => f
+	editTodo: f => f,
+	updateRank: f => f,
+	_id: 'default'
 };
 
 export default Rank;
