@@ -28,7 +28,7 @@ export function editIsPosting (bool)  {
 
 export function editTodo (api, _id, data) {
 	return (dispatch) => {
-		let updatedTodo // newly update item from api
+		let updatedTodo // newly updated item from api
 		dispatch (editIsPosting(true));
 		axios.put (`${api}/${_id}`, data)
 			.then ((response) => {
