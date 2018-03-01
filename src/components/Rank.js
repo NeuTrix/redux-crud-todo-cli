@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormControl } from 'react-bootstrap';
 
-// ========= Component
+// +++++++++ Component
 
 const Rank = (props) => {
 	let _rank; // task priority 
@@ -29,7 +29,7 @@ const Rank = (props) => {
 	);
 }; 
 
-// ========= Props  
+// +++++++++ Props  
 
 Rank.propTypes = {
 	api: PropTypes.string.isRequired,

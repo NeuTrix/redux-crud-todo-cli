@@ -1,22 +1,11 @@
-// ... component used to create new Todo items
+// ... used to create new Todo items
 import React from 'react';
 import PropTypes from 'prop-types';
 import TodoTitleBar from './TodoTitleBar';
 import normalizeDate from '../myFunctions/normalizeDate';
-
-import { 
-	Col, 
-	Button, 
-	Form, 
-	FormControl, 
-	Grid, 
-	Row
-} from 'react-bootstrap';
-
-// ========= Component
+import { Col, Button, Form, FormControl, Grid, Row } from 'react-bootstrap';
 
 const TodoForm = (props) => {
-
 	let _currentDate = normalizeDate(new Date()); // formatted date
 	let _task, // todo task
 			_rank, // todo priority
@@ -24,21 +13,15 @@ const TodoForm = (props) => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		props.createTodo(
+		props.createTodo (
 			props.api,
-			{
-				date: _date.value,
-				task: _task.value, 
-				rank: _rank.value, 
-			}
+			{ date: _date.value, task: _task.value, rank: _rank.value }
 		);
 		_task.value = '';
 		_task.focus();
 	};
 
-	// ========= Styling  
-
-	// control spacing of elements
+	// +++++++++ Styling  
 	const spacing = { 
 		xs: { form: 12, rank: 3, date: 5, addBtn: 2, resetBtn: 2 }, 
 		sm: { form: 6, rank: 2, date: 2, addBtn: 1, resetBtn: 1 } 
@@ -49,23 +32,20 @@ const TodoForm = (props) => {
 		padding:10,
 		marginBottom: 10,
 	};
-
-	const styleButtons = {
-		// width: '4em'
-	};
-
-	// ========= 
+	// +++++++++ 
 
 	return (
 	<Grid className = 'TodoForm' style = { {marginTop: 100}} >
 
-					<Col xsHidden = { true } smHidden = { false }>
-						<TodoTitleBar/>
-					</Col>
+			<Col 
+				xsHidden = { true } 
+				smHidden = { false }
+			>
+				<TodoTitleBar/>
+			</Col>
+
 			<Form onSubmit = { handleSubmit } >
-
 				<Row style = { styleTop }>
-
 					<Col 
 						className = 'task' 
 						xs = { spacing.xs.form }
@@ -119,7 +99,6 @@ const TodoForm = (props) => {
 						sm = { spacing.sm.addBtn }
 					>
 						<Button 
-							style = { styleButtons }
 							className = { 'btn btn-success btn-sm' } 
 							type = 'submit' 
 							value = 'Add'
@@ -134,21 +113,17 @@ const TodoForm = (props) => {
 						sm = { spacing.sm.resetBtn }
 					> 
 						<Button 
-							style = { styleButtons }
 							className = { 'btn btn-warning btn-sm' } 
 							type = 'reset'
 						>
 							CLR 
 						</Button> 
 					</Col>
-
 				</Row>
 			</Form>
 		</Grid>
 	);
 };
-
-// ========= Props  
 
 TodoForm.propTypes = {
 	addTodo: PropTypes.func.isRequired,
@@ -156,7 +131,7 @@ TodoForm.propTypes = {
 	createTodo: PropTypes.func.isRequired,
 	_date: PropTypes.string.isRequired,
 	_rank: PropTypes.string.isRequired,
-	_task: PropTypes.string.isRequired,
+	_task: PropTypes.string.isRequired
 };
 
 TodoForm.defaultProps = {
@@ -165,7 +140,7 @@ TodoForm.defaultProps = {
 	createTodo: f => f,
 	_date: '2020-12-31',
 	_rank: '',
-	_task: '',
+	_task: ''
 };
 
 export default TodoForm;
