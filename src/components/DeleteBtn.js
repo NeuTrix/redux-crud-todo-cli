@@ -5,10 +5,11 @@ import { Button } from 'react-bootstrap';
 const DeleteBtn = (props) => {
 
 	const handleClick = (event) => {
+		let task = props.task
 		event.preventDefault();
 		// allow restricted global use of `confirm`
 		//eslint-disable-next-line
-		let _confirmed = confirm('DELETE this item?') 
+		let _confirmed = confirm(`You are deleting the task : \n\t  "${task}" \n  Are you sure ?` ) 
 			
 		if (_confirmed) {
 			return props.deleteTodo(props.api, props._id);
@@ -27,16 +28,16 @@ const DeleteBtn = (props) => {
 
 DeleteBtn.propTypes = {
 	api: PropTypes.string.isRequired,
+	task: PropTypes.string.isRequired,
 	deleteTodo: PropTypes.func.isRequired,
-	removeTodo: PropTypes.func.isRequired,
 	_id: PropTypes.string.isRequired
 };
 
 DeleteBtn.defaultProps = {
 
  	api: 'https://redux-todo-api.herokuapp.com/api/todos',
+ 	task: "default",
 	deleteTodo: f => f,
-	removeTodo: f => f,
 	_id: 'default',
 };
 

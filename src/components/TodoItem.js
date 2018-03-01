@@ -120,8 +120,9 @@ class TodoItem extends Component {
 				>
 					<DeleteBtn 
 						api = { this.props.api }
+						deleteTodo = { this.props.deleteTodo } 
+						task = { this.props.item.task }  
 						_id = { this.props.item._id } 
-						deleteTodo = { this.props.deleteTodo }   
 					/>
 				</Col>
 			</Row>
