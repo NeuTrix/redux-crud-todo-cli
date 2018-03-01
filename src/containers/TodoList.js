@@ -6,7 +6,7 @@ import { Col, Grid, Row } from 'react-bootstrap';
 import TodoItem from '../components/TodoItem';
 import TaskCounter from '../components/TaskCounter';
 
-// ========= Component ========= 
+// +++++++++ Component ========= 
 
 class TodoList extends Component {
 
@@ -47,7 +47,7 @@ class TodoList extends Component {
 	}
 } 
 
-// ========= PropTypes ========= 
+// +++++++++ PropTypes ========= 
 
 TodoList.propTypes = {
 	todoArray: PropTypes.array.isRequired,
