@@ -1,3 +1,4 @@
+// set date for todo items
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormControl } from 'react-bootstrap';
@@ -26,24 +27,22 @@ const CalendarBtn = (props) => {
 	);
 }; 
 
-// +++++++++ Props 
-
 CalendarBtn.propTypes = {
 	api: PropTypes.string.isRequired,
 	date: PropTypes.string.isRequired,
 	editTodo: PropTypes.func.isRequired,
-	_id: PropTypes.string.isRequired,
+	style: PropTypes.object,
 	updateDate: PropTypes.func.isRequired,
-	style: PropTypes.object
+	_id: PropTypes.string.isRequired,
 };
 
 CalendarBtn.defaultProps = {
  	api: 'https://redux-todo-api.herokuapp.com/api/todos',
 	date: '2020-11-14',
 	editTodo: f => f,
-	_id: "default",
+	style: { },
 	updateDate: f => f,
-	style: { }
+	_id: "default"
 };
 
 export default CalendarBtn;
