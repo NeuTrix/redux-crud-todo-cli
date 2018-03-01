@@ -8,8 +8,7 @@ const CalendarBtn = (props) => {
 
 	const handleDateChange = (event) => {
 		event.preventDefault();
-		let newDate = event.target.value;
-		props.updateDate(props._id, newDate );
+		props.updateDate(props._id, _date.value );
 		props.editTodo(props.api, props._id, { date: _date.value })
 	};
 
