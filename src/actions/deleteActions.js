@@ -6,13 +6,6 @@ export const DELETE_IS_POSTING  = 'DELETE_IS_POSTING';
 export const DELETE_HAS_SUCCEEDED = 'DELETE_HAS_SUCCEEDED';
 export const DELETE_HAS_ERRORED = 'DELETE_HAS_ERRORED';
 
-export function deleteIsPosting (bool) {
-	return {
-		type: DELETE_IS_POSTING,
-		payload: { status: bool }
-	};
-}
-
 export const deleteHasSucceeded = (todos) => {
 	return {
 		type: DELETE_HAS_SUCCEEDED,
@@ -26,6 +19,13 @@ export const deleteHasErrored = (bool) => {
 		payload: { status: bool }
 	};
 };
+
+export function deleteIsPosting (bool) {
+	return {
+		type: DELETE_IS_POSTING,
+		payload: { status: bool }
+	};
+}
 
 export function deleteTodo (api, _id) {
 	return (dispatch) => {
