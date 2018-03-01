@@ -26,7 +26,7 @@ const CalendarBtn = (props) => {
 	);
 }; 
 
-// ========= Props 
+// +++++++++ Props 
 
 CalendarBtn.propTypes = {
 	api: PropTypes.string.isRequired,
