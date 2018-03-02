@@ -89,15 +89,6 @@ describe ('The TodoTask Component', () => {
 			expect (Object.keys(_tasks.props()).length).to.eql(4);
 		});
 
-		it ('...has an "api" prop', () => {
-			expect (Object.keys(_tasks.props())).to.include('api');
-		});
-
-		it.only('... api has the correct value', () => {
-			let api = (_tasks.props().api);
-			expect (api).to.eql('https://redux-todo-api.herokuapp.com/api/todos');
-		});
-
 		it ('...has an item prop', () => {
 			expect (Object.keys(_tasks.props())).to.include('item');
 		});

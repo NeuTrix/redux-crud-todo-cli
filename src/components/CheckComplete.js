@@ -27,7 +27,6 @@ class CheckComplete extends Component {
 			// do not preventDefault- preserves animation
 			this.props.toggleComplete(this.props._id);
 			this.props.editTodo(
-				this.props.api, 
 				this.props._id, 
 				{ completed: !this.state.isChecked }
 			);
@@ -47,7 +46,6 @@ class CheckComplete extends Component {
 }
 
 CheckComplete.propTypes = {
-	api: PropTypes.string.isRequired,
 	completed: PropTypes.bool.isRequired,
 	editTodo: PropTypes.func.isRequired,
 	_id: PropTypes.string.isRequired,
@@ -55,7 +53,6 @@ CheckComplete.propTypes = {
 };
 
 CheckComplete.defaultProps = {
- 	api: 'https://redux-todo-api.herokuapp.com/api/todos',
 	completed: false,
 	editTodo: f => f,
 	toggleComplete: f => f,

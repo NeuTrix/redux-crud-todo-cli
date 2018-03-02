@@ -10,7 +10,7 @@ const CalendarBtn = (props) => {
 	const handleDateChange = (event) => {
 		event.preventDefault();
 		props.updateDate(props._id, _date.value );
-		props.editTodo(props.api, props._id, { date: _date.value });
+		props.editTodo(props._id, { date: _date.value });
 	};
 
 	return (
@@ -28,7 +28,6 @@ const CalendarBtn = (props) => {
 }; 
 
 CalendarBtn.propTypes = {
-	api: PropTypes.string.isRequired,
 	date: PropTypes.string.isRequired,
 	editTodo: PropTypes.func.isRequired,
 	style: PropTypes.object,
@@ -37,7 +36,6 @@ CalendarBtn.propTypes = {
 };
 
 CalendarBtn.defaultProps = {
- 	api: 'https://redux-todo-api.herokuapp.com/api/todos',
 	date: '2020-11-14',
 	editTodo: f => f,
 	style: { },

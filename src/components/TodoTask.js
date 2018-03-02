@@ -47,7 +47,6 @@ class TodoTask extends Component {
 		const	handleChange = (event) => {
 			event.preventDefault();
 			this.props.editTodo(
-				this.props.api, 
 				this.props.item._id, 
 				{ task: _task.value }
 			);
@@ -77,14 +76,12 @@ class TodoTask extends Component {
 }
 
 TodoTask.propTypes = {
-	api: PropTypes.string.isRequired,
 	item: PropTypes.object.isRequired,
 	style: PropTypes.object.isRequired,
 	editTodo: PropTypes.func.isRequired
 };
 
 TodoTask.defaultProps = {
- 	api: 'https://redux-todo-api.herokuapp.com/api/todos',
 	item: {
 		task: 'default',
 		completed: false

@@ -27,7 +27,9 @@ export function deleteIsPosting (bool) {
 	};
 }
 
-export function deleteTodo (api, _id) {
+export function deleteTodo (_id) {
+ 	let api: 'https://redux-todo-api.herokuapp.com/api/todos'
+
 	return (dispatch) => {
 		dispatch (deleteIsPosting (true));
 		axios.delete (`${api}/${_id}`)

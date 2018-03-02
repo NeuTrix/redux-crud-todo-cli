@@ -9,7 +9,7 @@ const Rank = (props) => {
 	const handleChange = (event) => {
 		event.preventDefault ();
 		props.updateRank (props._id, _rank.value);
-		props.editTodo (props.api, props._id, { rank: _rank.value });
+		props.editTodo (props._id, { rank: _rank.value });
 	};
 
 	return (
@@ -29,7 +29,6 @@ const Rank = (props) => {
 }; 
 
 Rank.propTypes = {
-	api: PropTypes.string.isRequired,
 	currRank: PropTypes.string.isRequired,
 	editTodo: PropTypes.func.isRequired,
 	updateRank: PropTypes.func.isRequired,
@@ -37,7 +36,6 @@ Rank.propTypes = {
 };
 
 Rank.defaultProps = {
- 	api: 'https://redux-todo-api.herokuapp.com/api/todos',
 	currRank: 'default',	
 	editTodo: f => f,
 	updateRank: f => f,

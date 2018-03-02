@@ -12,7 +12,7 @@ const DeleteBtn = (props) => {
 		let _confirmed = confirm(`You are deleting the task : \n\t  "${task}" \n  Are you sure ?` ) 
 			
 		if (_confirmed) {
-			return props.deleteTodo(props.api, props._id);
+			return props.deleteTodo(props._id);
 		} 
 	};
 
@@ -27,15 +27,12 @@ const DeleteBtn = (props) => {
 };
 
 DeleteBtn.propTypes = {
-	api: PropTypes.string.isRequired,
 	task: PropTypes.string.isRequired,
 	deleteTodo: PropTypes.func.isRequired,
 	_id: PropTypes.string.isRequired
 };
 
 DeleteBtn.defaultProps = {
-
- 	api: 'https://redux-todo-api.herokuapp.com/api/todos',
  	task: "default",
 	deleteTodo: f => f,
 	_id: 'default',

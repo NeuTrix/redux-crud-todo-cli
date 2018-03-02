@@ -26,10 +26,12 @@ export function todosIsLoading (bool)  {
 	};
 }
 
-export function startState (url) {
+export function startState () {
+ 	let api: 'https://redux-todo-api.herokuapp.com/api/todos'
+
 	return (dispatch) => {
 		dispatch (todosIsLoading(true));
-		fetch (url)
+		fetch (api)
 			.then ((response) => {
 				if (!response.ok) {
 					throw Error (response.statusText);

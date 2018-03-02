@@ -60,7 +60,6 @@ class TodoItem extends Component {
 					sm = { spacing.sm.chkbx } 
 				>
 					<CheckComplete
-						api = { this.props.api }
 						completed = { this.props.item.completed }
 						editTodo = { this.props.editTodo }
 						_id = { this.props.item._id }
@@ -75,7 +74,6 @@ class TodoItem extends Component {
 					style = { { marginBottom: 10 } }
 				>
 					<TodoTask 
-						api = { this.props.api }
 						className= 'task' 
 						item = { this.props.item }
 						required
@@ -91,7 +89,6 @@ class TodoItem extends Component {
 					sm = { spacing.sm.rank }
 				>
 					<Rank
-						api = { this.props.api }
 						editTodo = { this.props.editTodo }
 						_id = { this.props.item._id }
 						currRank = { this.props.item.rank }
@@ -105,7 +102,6 @@ class TodoItem extends Component {
 					sm = { spacing.sm.date }
 				>
 					<CalendarBtn
-						api = { this.props.api }
 						date = { this.props.item.date }
 						editTodo = { this.props.editTodo }
 						_id = { this.props.item._id }
@@ -119,7 +115,6 @@ class TodoItem extends Component {
 					sm = { spacing.sm.delBtn }
 				>
 					<DeleteBtn 
-						api = { this.props.api }
 						deleteTodo = { this.props.deleteTodo } 
 						task = { this.props.item.task }  
 						_id = { this.props.item._id } 
@@ -131,12 +126,10 @@ class TodoItem extends Component {
 } 
 
 TodoItem.propTypes = {
-	api: PropTypes.string.isRequired,
 	item: PropTypes.object.isRequired,
 };
 
 TodoItem.defaultProps ={
- 	api: 'https://redux-todo-api.herokuapp.com/api/todos',
 	item: { 
 		_id: 'default',
 		completed: false,
@@ -155,9 +148,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		deleteTodo:
-			(api, _id) => dispatch (deleteTodo (api, _id)),
+			(_id) => dispatch (deleteTodo (_id)),
 		editTodo:
-			(api, _id, update) => dispatch (editTodo (api, _id, update)), 
+			(_id, update) => dispatch (editTodo (_id, update)), 
 		removeTodo: 
 			(_id) => dispatch (_a.removeTodo (_id)),
 		toggleComplete: 

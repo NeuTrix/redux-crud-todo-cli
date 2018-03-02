@@ -60,12 +60,8 @@ describe ('The DeleteBtn Component', () => {
 
 	describe (' Then component PROPS...', () => {
 
-		it ('...DeleteBtn is passed (4) props', () => {
-			expect (Object.keys(_deletebtns.props()).length).to.eql(4);		
-		});
-
-		it ('...has an api prop', () => {
-			expect (Object.keys(_deletebtns.props())).to.include('api');
+		it ('...DeleteBtn is passed (3) props', () => {
+			expect (Object.keys(_deletebtns.props()).length).to.eql(3);		
 		});
 
 		it ('...has an deleteTodo prop', () => {
