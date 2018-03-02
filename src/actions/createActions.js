@@ -15,7 +15,7 @@ export const createHasSucceeded = (todos) => {
 
 export const createHasErrored = (bool) => {
 	return {
-		type: CREATE_HAS_ERRORED ,
+		type: CREATE_HAS_ERRORED,
 		payload: { status: bool }
 	};
 };
@@ -29,7 +29,7 @@ export function createIsPosting (bool)  {
   
 export function createTodo (data) {
 
- 	let api: 'https://redux-todo-api.herokuapp.com/api/todos'
+ 	let api = 'https://redux-todo-api.herokuapp.com/api/todos'
 
 	return (dispatch) => {
 		let newTodo; // the newly created todo item

@@ -53,13 +53,9 @@ describe('The CalendarBtn Component', () => {
 	describe('when rendering core components, it..', () => {
 		const dateBtns = calendarBtn().find('CalendarBtn');
 
-		it('CalendarBtn is passed (6) props', () => {
-			expect(Object.keys(dateBtns.props()).length).to.eql(6);
+		it('CalendarBtn is passed (5) props', () => {
+			expect(Object.keys(dateBtns.props()).length).to.eql(5);
 		});
-
-		it('has an api prop', () => {
-			expect(Object.keys(dateBtns.props())).to.include('api');
-		});	
 
 		it('has an date prop', () => {
 			expect(Object.keys(dateBtns.props())).to.include('date');

@@ -71,12 +71,8 @@ describe('The CheckComplete Component', () => {
 			console.log('*** Render the Props: ', _tasks.props()); 
 		});
 
-		it('...CheckComplete is passed (5) props', () => {
-			expect(Object.keys(_tasks.props()).length).to.eql(5);		
-		});
-
-		it('...has an api prop', () => {
-			expect(Object.keys(_tasks.props())).to.include('api');
+		it('...CheckComplete is passed (4) props', () => {
+			expect(Object.keys(_tasks.props()).length).to.eql(4);		
 		});
 
 		it('...has an completed prop', () => {
