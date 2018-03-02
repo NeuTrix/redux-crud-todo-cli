@@ -7,7 +7,7 @@ import Login from '../components/Login';
 import { connect } from 'react-redux';
 import { createTodo } from '../actions/createActions';
 import { Route, Link } from 'react-router-dom';
-import { Col, Row } from 'react-bootstrap'
+import { Col, Grid, Row } from 'react-bootstrap'
 import { startState } from '../actions/readActions';
 
 const main ={
@@ -23,34 +23,30 @@ class App extends Component {
 
 	render() {
 		return (
-			<Row>
-
-			<Col>
-			</Col>
-
-			<Col>
-				<Route path = '/login' component = { Login } />
-			</Col>
-
-			<Col>
-			</Col>
-
-
-			
+			<Grid>
+				<Row>
 					<Header/>		
-				<Col className="App">
-					<Route 
-						path = '/todos' 
-						render = { () =>  
-							<TodoForm createTodo = { this.props.createTodo } />
-						} 
-					/> 
-				</Col>
-			</Row>
+				</Row>
+				
+				<Row>
+				
+					<Col className="App">
+						<Route path = '/login' component = { Login } />
+						<Route 
+							exact path = '/' 
+							render = { () => 
+								<Row>
+									<TodoForm createTodo = { this.props.createTodo } />
+									<TodoList todoArray = { this.props.todoArray } />
+								</Row>
+							} 
+						/> 
+					</Col>
+				</Row>
+			</Grid>
 		);
 	}
 } 
-					{/*<TodoList todoArray = { this.props.todoArray } />*/}
 
 App.propTypes = { 
 	createTodo:    PropTypes.func.isRequired,

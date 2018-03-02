@@ -5,11 +5,11 @@ import '../containers/App.css';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 
 
-
+// use fixedTop attribute to fix header in place
 const Header = () => {
 
 	return(
-		<Navbar inverse collapseOnSelect fixedTop >
+		<Navbar inverse collapseOnSelect >
 			<Navbar.Header>
 				<Navbar.Brand>
 					<img src={logo} className="App-logo" alt="logo" />
