@@ -6,21 +6,23 @@ class App extends Component {
 	render () { 
 
 		const spacing = {
-			sm: {top: 1	, mid: 10, bot: 1}
+			// sm: {top: 1	, mid: 10, bot: 1}
 		};
 
 		const style = {
 			outline: '1px solid orange',
-			marginTop:250,
+			marginTop: 100,
 			textAlign: 'center'
 		};
 
 		return (
-			<Row>
-				<Col className ="Login" >
-					<h1> Login Page Here </h1>
-				</Col>
-			</Row>
+			<Grid>
+				<Row>
+					<Col className ="Login" xs = { 12 } style = { style }  >
+						<h1> Login Form Goes Here </h1>
+					</Col>
+				</Row>
+			</Grid>
 		);
 	}
 }

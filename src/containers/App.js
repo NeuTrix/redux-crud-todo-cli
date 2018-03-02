@@ -10,11 +10,6 @@ import { Route, Link } from 'react-router-dom';
 import { Col, Grid, Row } from 'react-bootstrap'
 import { startState } from '../actions/readActions';
 
-const main ={
-
-
-}
-
 class App extends Component {
 	
 	componentDidMount() {
@@ -28,17 +23,20 @@ class App extends Component {
 		}
 		return (
 			<div>
-				<Row  >
-					<Header  />		
-				</Row>
+				<Route 
+							path = '/' 
+							render = { (props) => 
+								<Header location = { props.location } />
+							} 
+						/> 
 				
 				<Row style = { style }>
 				
 					<Col className="App"  >
 						<Route path = '/login' component = { Login } />
 						<Route 
-							exact path = '/' 
-							render = { () => 
+							exact path = '/todos' 
+							render = { (props) => 
 								<Row>
 									<TodoForm createTodo = { this.props.createTodo } />
 									<TodoList todoArray = { this.props.todoArray } />
