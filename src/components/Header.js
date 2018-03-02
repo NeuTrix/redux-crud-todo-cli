@@ -18,11 +18,8 @@ const Header = (props) => {
 					<img src={logo} className="App-logo" alt="logo" />
 				</Navbar.Brand>
 
-				<Navbar.Brand
-		location = { props.location }
-
-				>
-					<Link to = '/login' >Redux-Todo</Link>
+				<Navbar.Brand>
+					<Link to = '/login'>Redux-Todo</Link>
 				</Navbar.Brand>
 
 				<Navbar.Toggle />

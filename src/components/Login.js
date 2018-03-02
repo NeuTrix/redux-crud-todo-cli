@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
-import { Col, Grid, Row } from 'react-bootstrap'; 
+import { 
+	Button, 
+	Col, 
+	Form, 
+	FormControl, 
+	Grid, 
+	Password,
+	Row 
+} from 'react-bootstrap';
 
-class App extends Component {
+class Login extends Component {
 
 	render () { 
 
-		const spacing = {
-			// sm: {top: 1	, mid: 10, bot: 1}
-		};
+	// +++++++++ Styling  
+	const spacing = { 
+		xs: { form: 11, rank: 3, date: 5, addBtn: 2, resetBtn: 2 }, 
+		sm: { form: 6, rank: 2, date: 2, addBtn: 1, resetBtn: 1 } 
+	};
 
 		const style = {
 			outline: '1px solid orange',
@@ -16,15 +26,25 @@ class App extends Component {
 		};
 
 		return (
-			<Grid>
-				<Row>
-					<Col className ="Login" xs = { 12 } style = { style }  >
-						<h1> Login Form Goes Here </h1>
-					</Col>
-				</Row>
+			<Grid style = { style }>
+				<Form className = 'Login' >
+					<Row>
+							<h1> Account Login  </h1>
+					</Row>
+					<Row >
+						<Col className ="username" xs = { 12 }  >
+							<p>username</p>
+						</Col>
+					</Row>
+					<Row>
+						<Col className ="password" xs = { 12 }  >
+							<Password>Passwordassword</Password>
+						</Col>
+					</Row>
+				</Form>
 			</Grid>
 		);
 	}
 }
 
-export default App;
+export default Login;

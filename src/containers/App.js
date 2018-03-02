@@ -29,7 +29,8 @@ class App extends Component {
 		}
 		return (
 			<div>
-				<Route path = '/' component = { Header } />
+				<Route path = '/' component = { Header } 
+				/>
 						
 				<Row style = { style }>
 				
