@@ -23,7 +23,7 @@ class TodoList extends Component {
 		});
 
 		return (
-			<Grid >
+			<Grid  >
 				<Row className = 'todoItems' >
 					<Col lg = { 12 } >
 						<TaskCounter todos = { _todoArray } />

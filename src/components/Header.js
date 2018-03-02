@@ -9,7 +9,7 @@ import { Nav, Navbar, NavItem } from 'react-bootstrap';
 const Header = () => {
 
 	return(
-		<Navbar inverse collapseOnSelect >
+		<Navbar inverse collapseOnSelect fixedTop >
 			<Navbar.Header>
 				<Navbar.Brand>
 					<img src={logo} className="App-logo" alt="logo" />

@@ -26,19 +26,20 @@ const TodoForm = (props) => {
 
 	// +++++++++ Styling  
 	const spacing = { 
-		xs: { form: 12, rank: 3, date: 5, addBtn: 2, resetBtn: 2 }, 
+		xs: { form: 11, rank: 3, date: 5, addBtn: 2, resetBtn: 2 }, 
 		sm: { form: 6, rank: 2, date: 2, addBtn: 1, resetBtn: 1 } 
 	};
 
 	const styleTop = {
 		backgroundColor: 'lightblue',
-		padding:10,
+		paddingRignt: 0,
+		paddingTop: 10,
 		marginBottom: 10,
 	};
 	// +++++++++ 
 
 	return (
-		<Grid className = 'TodoForm' style = { {marginTop: 100}} >
+		<Grid className = 'TodoForm'  >
 
 			<Col 
 				xsHidden = { true } 

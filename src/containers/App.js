@@ -22,15 +22,19 @@ class App extends Component {
 	}
 
 	render() {
+
+		const style = {
+			paddingTop: 60,
+		}
 		return (
-			<Grid>
-				<Row>
-					<Header/>		
+			<div>
+				<Row  >
+					<Header  />		
 				</Row>
 				
-				<Row>
+				<Row style = { style }>
 				
-					<Col className="App">
+					<Col className="App"  >
 						<Route path = '/login' component = { Login } />
 						<Route 
 							exact path = '/' 
@@ -43,7 +47,7 @@ class App extends Component {
 						/> 
 					</Col>
 				</Row>
-			</Grid>
+			</div>
 		);
 	}
 } 
