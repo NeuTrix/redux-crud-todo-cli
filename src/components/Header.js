@@ -2,22 +2,27 @@ import React from 'react';
 import logo from '../assets/logo.svg';
 import '../containers/App.css';
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 
 
 // use fixedTop attribute to fix header in place
-const Header = () => {
+const Header = (props) => {
 
-	return(
-		<Navbar inverse collapseOnSelect fixedTop >
+	return (
+		<Navbar inverse collapseOnSelect fixedTop 
+		>
 			<Navbar.Header>
 				<Navbar.Brand>
 					<img src={logo} className="App-logo" alt="logo" />
 				</Navbar.Brand>
 
-				<Navbar.Brand>
-					<Link to = '/todos' >Redux-Todo</Link>
+				<Navbar.Brand
+		location = { props.location }
+
+				>
+					<Link to = '/login' >Redux-Todo</Link>
 				</Navbar.Brand>
 
 				<Navbar.Toggle />
@@ -51,5 +56,13 @@ const Header = () => {
 		</Navbar>
 	);
 };
+
+Header.propTypes = {
+	location: PropTypes.object
+}
+
+Header.defaultProps = {
+	location: {}
+}
 
 export default Header;

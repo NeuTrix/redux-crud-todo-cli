@@ -17,19 +17,20 @@ class App extends Component {
 	}
 
 	render() {
+		
+		/*const Parent = (props) => {
+			return (
+				<Header location = { props.location } />
+			)
+		}*/
 
 		const style = {
 			paddingTop: 60,
 		}
 		return (
 			<div>
-				<Route 
-							path = '/' 
-							render = { (props) => 
-								<Header location = { props.location } />
-							} 
-						/> 
-				
+				<Route path = '/' component = { Header } />
+						
 				<Row style = { style }>
 				
 					<Col className="App"  >
@@ -73,4 +74,4 @@ const mapDispatchToProps = (dispatch) => {
 	};
 }; 
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+export default connect(mapStateToProps, mapDispatchToProps)(App);
