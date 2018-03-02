@@ -27,7 +27,10 @@ export function createIsPosting (bool)  {
 	};
 }
   
-export function createTodo (api, data) {
+export function createTodo (data) {
+
+ 	let api: 'https://redux-todo-api.herokuapp.com/api/todos'
+
 	return (dispatch) => {
 		let newTodo; // the newly created todo item
 		dispatch (createIsPosting (true));
