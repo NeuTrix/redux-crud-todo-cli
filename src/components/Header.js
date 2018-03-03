@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../assets/logo.svg';
 import '../containers/App.css';
-import { Link } from 'react-router-dom'
+import { Link, NavLink, } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
@@ -19,7 +19,7 @@ const Header = (props) => {
 				</Navbar.Brand>
 
 				<Navbar.Brand>
-					<Link to = '/login'>Redux-Todo</Link>
+					<NavLink to = '/todos'>Redux-Todo</NavLink>
 				</Navbar.Brand>
 
 				<Navbar.Toggle />

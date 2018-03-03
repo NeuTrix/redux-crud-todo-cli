@@ -7,6 +7,7 @@ import {
 	FormControl,
 	FormGroup, 
 	Grid, 
+	HelpBlock,
 	Password,
 	Row 
 } from 'react-bootstrap';
