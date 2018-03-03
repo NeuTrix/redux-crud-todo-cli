@@ -2,12 +2,25 @@ import React, { Component } from 'react';
 import { 
 	Button, 
 	Col, 
+	ControlLabel,
 	Form, 
-	FormControl, 
+	FormControl,
+	FormGroup, 
 	Grid, 
 	Password,
 	Row 
 } from 'react-bootstrap';
+
+
+function FieldGroup({ id, label, help, ...props }) {
+  return (
+    <FormGroup controlId={id}>
+      <ControlLabel>{label}</ControlLabel>
+      <FormControl {...props} />
+      {help && <HelpBlock>{help}</HelpBlock>}
+    </FormGroup>
+  );
+}
 
 class Login extends Component {
 
@@ -28,19 +41,20 @@ class Login extends Component {
 		return (
 			<Grid style = { style }>
 				<Form className = 'Login' >
-					<Row>
-							<h1> Account Login  </h1>
-					</Row>
-					<Row >
-						<Col className ="username" xs = { 12 }  >
-							<p>username</p>
-						</Col>
-					</Row>
-					<Row>
-						<Col className ="password" xs = { 12 }  >
-							<Password>Passwordassword</Password>
-						</Col>
-					</Row>
+
+				<FieldGroup
+			      id="formControlsEmail"
+			      type="email"
+			      label="Email address"
+			      placeholder="Enter email"
+			    />
+					<FieldGroup
+			      id="formControlsText"
+			      type="text"
+			      label="Username"
+			      placeholder="Enter email address or UserId"
+			    />
+			    
 				</Form>
 			</Grid>
 		);
