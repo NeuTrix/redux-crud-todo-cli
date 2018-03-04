@@ -40,9 +40,7 @@ const Header = (props) => {
 				</Nav>
 
 				<Nav pullRight>
-					<NavItem eventKey={ 3 } href = '/login' >
-			*login 
-					</NavItem>
+					<NavLink to = '/login'>Login</NavLink>
 
 					<NavItem eventKey={ 4 } href = '/signup' >
 			*sign up

@@ -7,7 +7,7 @@ import App from './containers/App';
 import { Provider }  from 'react-redux';
 import store from './store/store';
 
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 let root = document.getElementById('root')
 
@@ -15,7 +15,7 @@ ReactDOM.render(
 	
 	<Provider store = { store } >
 		<Router>
-			<App /> 
+			<Route path = '/' component = { App } />
 		</Router>
 	</Provider>, root
 );
