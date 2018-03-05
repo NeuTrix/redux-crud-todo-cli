@@ -11,21 +11,14 @@ import { Col, Grid, Row } from 'react-bootstrap'
 import { startState } from '../actions/readActions';
 
 class App extends Component {
-	
+	/*
 	componentDidMount() {
 		this.props.startApp();
-	}
+	}*/
 
 	render() {
 		
-		/*const Parent = (props) => {
-			return (
-				<Header location = { props.location } />
-			)
-		}*/
-
-
-		const Test = (
+		const HomePage = (
 			<Row style = { { paddingTop: 60 } } >
 				<TodoForm createTodo = { this.props.createTodo } />
 				<TodoList todoArray = { this.props.todoArray } />
@@ -33,26 +26,11 @@ class App extends Component {
 		)
 
 		return (
-			<div>
+			<Grid>
 				<Route path = '/' component = { Header } />
-				<Route path = '/' render = { (props) => Test } />
-						
-				<Row >
-				
-					<Col className="App"  >
-						<Route path = '/login' component = { Login } />
-						<Route 
-							exact path = '/todos' 
-							render = { (props) => 
-								<Row>
-									<TodoForm createTodo = { this.props.createTodo } />
-									<TodoList todoArray = { this.props.todoArray } />
-								</Row>
-							} 
-						/> 
-					</Col>
-				</Row>
-			</div>
+				<Route exact path = '/' render = { (props) => HomePage } />
+				<Route path = '/login' component = { Login } />
+			</Grid>
 		);
 	}
 } 
