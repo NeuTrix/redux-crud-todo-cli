@@ -51,10 +51,7 @@ class Registration extends Component {
   onSubmit(e) {
     // let api = 'localhost:3003/register'
     let api = 'https://redux-todo-api.herokuapp.com/register'
-    let data = {
-      username: this.state.username,
-      password: this.state.password
-    }
+    let data = this.state
     e.preventDefault();
     console.log(this.state)
     // axios.put('https://redux-todo-api.herokuapp.com/register', {
@@ -80,8 +77,6 @@ class Registration extends Component {
       md = { 4 } mdOffset = { 4 } 
       onSubmit = { this.onSubmit }
     >
-
-
       <Row>
         <Col sm = { 12 } >
         {this.refs._username}
