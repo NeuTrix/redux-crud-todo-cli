@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 
 	const style = {
-		color: 'lime'
+		color: 'lightblue'
 	}
 	const brandStyle = {
 		color: 'whitesmoke'
@@ -52,7 +52,7 @@ const Header = (props) => {
 					</NavItem>
 
 					<NavItem >
-						<NavLink to = '/signup' style = { style }>Signup</NavLink>
+						<NavLink to = '/register' style = { style }>Register</NavLink>
 					</NavItem>
 
 				</Nav>
