@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios'
 import PropTypes from 'prop-types'
 
 import { 
@@ -14,7 +13,6 @@ import {
   PageHeader,
   Row 
 } from 'react-bootstrap';
-
 
 class Registration extends Component {
 
@@ -56,7 +54,7 @@ class Registration extends Component {
   }
 
   render() {
-    let _username, _password
+    // let _Susername, _password
 
     return (
     <Grid 
@@ -65,7 +63,6 @@ class Registration extends Component {
     >
       <Row>
         <Col sm = { 12 } >
-        {this.refs._username}
           <PageHeader> Registration </PageHeader>
         </Col>
       </Row>
@@ -83,7 +80,6 @@ class Registration extends Component {
                   </ControlLabel>
 
                   <FormControl
-                    inputRef = { value => _username = value }
                     name = 'username'
                     type="text"
                     label="Username"
@@ -137,7 +133,6 @@ class Registration extends Component {
                     </HelpBlock>
 
                    <FormControl 
-                    inputRef = {value => _password = value}
                     type="password" 
                     name = "password"
                     label="Password" 
@@ -175,13 +170,12 @@ class Registration extends Component {
         </Grid>
       </Row>
     </Grid>
-
     );
   }
 }
 
 Registration.propTypes = {
-  userSignupRequest.PropTypes.func.isRequired
+  userSignupRequest: PropTypes.func.isRequired
 }
 
 Registration.defautProps = {
