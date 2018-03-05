@@ -66,23 +66,37 @@ class Registration extends Component {
       </Row>
 
       <Row>
-        <Col>
+        <Grid>
           <Form>
             <FormGroup
               validationState={this.getValidationState()}
             >
+
               <Row>
                 <Col style = { { margin: 15 } }>
                   <ControlLabel>
-                    Username (email)
+                    User email
                   </ControlLabel>
 
                   <FormControl
-                    inputRef = { value => this.state.usename = value }
+                    inputRef = { value => this.state.email = value }
                     name = 'email'
                     type="email"
                     label="Email address"
                     placeholder="Enter email address"
+                    xxx={ this.state.xxx }
+                    onChange={ this.handleChange }
+                  />
+                  <FormControl.Feedback />
+                </Col>
+
+                <Col style = { { margin: 15 } }>
+                  <FormControl
+                    inputRef = { value => this.state.emailConfirm = value }
+                    name = 'emailConfirm'
+                    type="emailConfirm"
+                    label="Email address"
+                    placeholder="Confirm email address"
                     xxx={ this.state.xxx }
                     onChange={ this.handleChange }
                   />
@@ -93,8 +107,12 @@ class Registration extends Component {
               <Row>
                 <Col style = { { margin: 15 } }>
                   <ControlLabel >
-                    Enter Password
+                    Password
                   </ControlLabel>
+
+                    <HelpBlock style = { { color: 'lightgrey' } } >
+                      Password must be at least 8 characters
+                    </HelpBlock>
 
                    <FormControl 
                     inputRef = {value => this.state.pword = value}
@@ -107,9 +125,21 @@ class Registration extends Component {
                 
                   <FormControl.Feedback />
 
-                  <HelpBlock style = { { color: 'lightgrey' } } >
-                    Password must be at least 8 characters
-                  </HelpBlock>
+                </Col>
+
+                <Col style = { { margin: 15 } }>
+
+                   <FormControl 
+                    inputRef = {value => this.state.pword = value}
+                    name = "passwordConfirm"
+                    type="passwordConfirm" 
+                    label="Confirm Password" 
+                    placeholder="Confirm your password"
+                    onChange={this.handleChange}
+                    />
+                
+                  <FormControl.Feedback />
+
                 </Col>
               </Row>
 
@@ -120,7 +150,7 @@ class Registration extends Component {
             </Button>
             
           </Form>
-        </Col>
+        </Grid>
       </Row>
     </Grid>
 
