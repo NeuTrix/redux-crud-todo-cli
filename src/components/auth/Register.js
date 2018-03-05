@@ -18,27 +18,26 @@ class Registration extends Component {
 
   constructor(props, context) {
     super(props, context);
-
+      // email: '',
+      // emailConfirm: '',
+      // passwordConfirm: '',
+      // pwordLength: ''
     this.state = {
       username: '',
-      email: '',
-      emailConfirm: '',
       password: '',
-      passwordConfirm: '',
-      pwordLength: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
-
+/*
   getValidationState() {
     const length = this.state.pwordLength.length;
     if (length > 7) return 'success';
     else if (length > 4) return 'warning';
     else if (length > 0) return 'error';
     return null;
-  }
+  }*/
 
   handleChange(e) {
     e.preventDefault();
@@ -50,25 +49,42 @@ class Registration extends Component {
   }
 
   onSubmit(e) {
+    // let api = 'localhost:3003/register'
     let api = 'https://redux-todo-api.herokuapp.com/register'
+    let data = {
+      username: this.state.username,
+      password: this.state.password
+    }
     e.preventDefault();
     console.log(this.state)
     // axios.put('https://redux-todo-api.herokuapp.com/register', {
     //   username: this.state.username, 
     //   password: this.state.password});
-    axios.get('https://google.com')
+    axios.post(api, data)
+    .then ((response) => {
+        if (response.status !== 201 ) {
+          throw Error (response.statusText);
+        } 
+      })
+      .catch ((err) => {
+        console.error (err);
+      });
 
   }
 
   render() {
+    let _username, _password
+
     return (
     <Grid 
       md = { 4 } mdOffset = { 4 } 
       onSubmit = { this.onSubmit }
     >
 
+
       <Row>
         <Col sm = { 12 } >
+        {this.refs._username}
           <PageHeader> Registration </PageHeader>
         </Col>
       </Row>
@@ -77,7 +93,6 @@ class Registration extends Component {
         <Grid>
           <Form>
             <FormGroup
-              validationState={this.getValidationState()}
             >
 
               <Row>
@@ -87,7 +102,7 @@ class Registration extends Component {
                   </ControlLabel>
 
                   <FormControl
-                    inputRef = { value => this.state.username = value }
+                    inputRef = { value => _username = value }
                     name = 'username'
                     type="text"
                     label="Username"
@@ -98,7 +113,7 @@ class Registration extends Component {
                   <FormControl.Feedback />
                 </Col>
 
-                <Col style = { { margin: 15 } }>
+               {/* <Col style = { { margin: 15 } }>
                   <ControlLabel>
                     Email 
                   </ControlLabel>
@@ -127,6 +142,7 @@ class Registration extends Component {
                   />
                   <FormControl.Feedback />
                 </Col>
+            */}
               </Row>
 
               <Row>
@@ -140,7 +156,7 @@ class Registration extends Component {
                     </HelpBlock>
 
                    <FormControl 
-                    inputRef = {value => this.state.password = value}
+                    inputRef = {value => _password = value}
                     type="password" 
                     name = "password"
                     label="Password" 
@@ -151,7 +167,7 @@ class Registration extends Component {
                   <FormControl.Feedback />
 
                 </Col>
-
+{/*
                 <Col style = { { margin: 15 } }>
 
                    <FormControl 
@@ -165,7 +181,7 @@ class Registration extends Component {
                 
                   <FormControl.Feedback />
 
-                </Col>
+                </Col>*/}
               </Row>
 
             </FormGroup>
