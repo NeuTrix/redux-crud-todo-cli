@@ -93,9 +93,9 @@ class Registration extends Component {
                 <Col style = { { margin: 15 } }>
                   <FormControl
                     inputRef = { value => this.state.emailConfirm = value }
+                    type="email"
                     name = 'emailConfirm'
-                    type="emailConfirm"
-                    label="Email address"
+                    label="Email Confirm"
                     placeholder="Confirm email address"
                     xxx={ this.state.xxx }
                     onChange={ this.handleChange }
@@ -116,8 +116,8 @@ class Registration extends Component {
 
                    <FormControl 
                     inputRef = {value => this.state.pword = value}
-                    name = "password"
                     type="password" 
+                    name = "password"
                     label="Password" 
                     placeholder="Enter your password"
                     onChange={this.handleChange}
@@ -131,9 +131,9 @@ class Registration extends Component {
 
                    <FormControl 
                     inputRef = {value => this.state.pword = value}
+                    type="password" 
                     name = "passwordConfirm"
-                    type="passwordConfirm" 
-                    label="Confirm Password" 
+                    label="Password Confirm" 
                     placeholder="Confirm your password"
                     onChange={this.handleChange}
                     />
