@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../assets/logo.svg';
 import '../containers/App.css';
-import { Link, NavLink, } from 'react-router-dom'
+import { Link, } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
@@ -25,7 +25,7 @@ const Header = (props) => {
 				</Navbar.Brand>
 
 				<Navbar.Brand>
-					<NavLink to = '/todos' style = { brandStyle }>Redux-Todo</NavLink>
+					<div to = '/todos' style = { brandStyle }>Redux-Todo</div>
 				</Navbar.Brand>
 
 				<Navbar.Toggle />
@@ -35,24 +35,24 @@ const Header = (props) => {
 
 				<Nav>
 					<NavItem >
-						<NavLink to = '/' style = { style }>Home</NavLink>
+						<Link to = '/' style = { style }>Home</Link>
 					</NavItem>
 				</Nav>
 
 				<Nav>
 					<NavItem >
-						<NavLink to = '/about' style = { style }>About</NavLink>
+						<Link to = '/about' style = { style }>About</Link>
 					</NavItem>
 				</Nav>
 
 				<Nav pullRight>
 
 					<NavItem >
-						<NavLink to = '/login' style = { style } >Login</NavLink>
+						<Link to = '/login' style = { style } >Login</Link>
 					</NavItem>
 
 					<NavItem >
-						<NavLink to = '/register' style = { style }>Register</NavLink>
+						<Link to = '/register' style = { style }>Register</Link>
 					</NavItem>
 
 				</Nav>

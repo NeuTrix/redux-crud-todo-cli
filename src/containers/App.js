@@ -6,8 +6,8 @@ import Header from '../components/Header';
 import Login from '../components/auth/Login';
 import { connect } from 'react-redux';
 import { createTodo } from '../actions/createActions';
-import { Route, Link } from 'react-router-dom';
-import { Col, Grid, Row } from 'react-bootstrap'
+import { Route } from 'react-router-dom';
+import { Grid, Row } from 'react-bootstrap'
 import { startState } from '../actions/readActions';
 
 class App extends Component {
@@ -27,7 +27,7 @@ class App extends Component {
 
 		return (
 			<Grid>
-			
+
 				<Row>
 					<Route path = '/' component = { Header } />
 				</Row>
