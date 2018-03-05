@@ -12,16 +12,17 @@ import {
 	Row 
 } from 'react-bootstrap';
 
-
 class Registration extends Component {
 
   constructor(props, context) {
     super(props, context);
 
-
     this.state = {
-      username: '',
+      email: '',
+      emailConfirm: '',
       password: '',
+      passwordConfirm: '',
+      timezone: '',
       pwordLength: ''
     };
 
@@ -51,8 +52,6 @@ class Registration extends Component {
     console.log(this.state)
   }
 
-
-  
   render() {
     return (
     <Grid 
@@ -80,7 +79,7 @@ class Registration extends Component {
 
                   <FormControl
                     inputRef = { value => this.state.usename = value }
-                    name = 'username'
+                    name = 'email'
                     type="email"
                     label="Email address"
                     placeholder="Enter email address"
@@ -116,7 +115,9 @@ class Registration extends Component {
 
             </FormGroup>
 
-            <Button type="submit">Sign Up</Button>
+            <Button type="submit" bsStyle = 'primary' >
+              Sign Up
+            </Button>
             
           </Form>
         </Col>
