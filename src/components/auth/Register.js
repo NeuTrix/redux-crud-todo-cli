@@ -1,28 +1,30 @@
 import React, { Component } from 'react';
+import axios from 'axios'
+import PropTypes from 'prop-types'
+
 import { 
-	Button, 
-	Col, 
-	ControlLabel,
-	Form, 
+  Button, 
+  Col, 
+  ControlLabel,
+  Form, 
   Grid,
-	FormControl,
-	FormGroup, 
-	HelpBlock,
+  FormControl,
+  FormGroup, 
+  HelpBlock,
   PageHeader,
-	Row 
+  Row 
 } from 'react-bootstrap';
 
-import axios from 'axios'
 
 class Registration extends Component {
 
   constructor(props, context) {
     super(props, context);
+    this.state = {
       // email: '',
       // emailConfirm: '',
       // passwordConfirm: '',
       // pwordLength: ''
-    this.state = {
       username: '',
       password: '',
     };
@@ -49,24 +51,8 @@ class Registration extends Component {
   }
 
   onSubmit(e) {
-    // let api = 'localhost:3003/register'
-    let api = 'https://redux-todo-api.herokuapp.com/register'
-    let data = this.state
-    e.preventDefault();
-    console.log(this.state)
-    // axios.put('https://redux-todo-api.herokuapp.com/register', {
-    //   username: this.state.username, 
-    //   password: this.state.password});
-    axios.post(api, data)
-    .then ((response) => {
-        if (response.status !== 201 ) {
-          throw Error (response.statusText);
-        } 
-      })
-      .catch ((err) => {
-        console.error (err);
-      });
-
+    e.preventDefault()   
+    this.props.userSignupRequest(this.state)
   }
 
   render() {
@@ -192,6 +178,14 @@ class Registration extends Component {
 
     );
   }
+}
+
+Registration.propTypes = {
+  userSignupRequest.PropTypes.func.isRequired
+}
+
+Registration.defautProps = {
+  userSignupRequest: f => f
 }
 
 export default Registration;
