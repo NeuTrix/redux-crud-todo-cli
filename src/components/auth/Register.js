@@ -21,12 +21,12 @@ class Registration extends Component {
 
     this.state = {
       username: '',
-      pword: '',
+      password: '',
       pwordLength: ''
     };
 
-    this.handleChangeEmail = this.handleChangeEmail.bind(this);
-    this.handleChangePword = this.handleChangePword.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   getValidationState() {
@@ -37,23 +37,31 @@ class Registration extends Component {
     return null;
   }
 
-  handleChangeEmail(e) {
+  handleChange(e) {
+    e.preventDefault();
+    this.setState({ [e.target.name]: e.target.value })
     // validate email format
     // this.setState({ xxx: e.target.xxx });
-    console.log(e.target.value)
-  }
-  handleChangePword(e) {
-    console.log(e.target.value)
-    //  validate password length
-    // this.setState({ pwordLength: e.target.pwordLength });
+    // ??? Test
+    console.log(`${e.target.name}: ${e.target.value}`)
   }
 
+  onSubmit(e) {
+    e.preventDefault();
+    console.log(this.state)
+  }
+
+
+  
   render() {
     return (
-    <Grid md = { 4 } mdOffset = { 4 } >
+    <Grid 
+      md = { 4 } mdOffset = { 4 } 
+      onSubmit = { this.onSubmit }
+    >
 
       <Row>
-        <Col sm = { 12} >
+        <Col sm = { 12 } >
           <PageHeader> Registration </PageHeader>
         </Col>
       </Row>
@@ -62,7 +70,6 @@ class Registration extends Component {
         <Col>
           <Form>
             <FormGroup
-              controlId="formBasicText"
               validationState={this.getValidationState()}
             >
               <Row>
@@ -72,14 +79,13 @@ class Registration extends Component {
                   </ControlLabel>
 
                   <FormControl
-                    id="formControlsEmail"
-                    inputRef = {value => this.state.usename = value}
+                    inputRef = { value => this.state.usename = value }
                     name = 'username'
                     type="email"
                     label="Email address"
                     placeholder="Enter email address"
-                    xxx={this.state.xxx}
-                    onChange={this.handleChangeEmail}
+                    xxx={ this.state.xxx }
+                    onChange={ this.handleChange }
                   />
                   <FormControl.Feedback />
                 </Col>
@@ -92,14 +98,12 @@ class Registration extends Component {
                   </ControlLabel>
 
                    <FormControl 
-                    id="formControlsPassword" 
                     inputRef = {value => this.state.pword = value}
-
                     name = "password"
                     type="password" 
                     label="Password" 
                     placeholder="Enter your password"
-                    onChange={this.handleChangePword}
+                    onChange={this.handleChange}
                     />
                 
                   <FormControl.Feedback />
