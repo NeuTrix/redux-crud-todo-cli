@@ -21,6 +21,8 @@ class Login extends Component {
     this.handleChange = this.handleChange.bind(this);
 
     this.state = {
+      username: '',
+      password: '',
       pwordLength: ''
     };
   }

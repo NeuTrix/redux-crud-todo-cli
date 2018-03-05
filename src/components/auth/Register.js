@@ -18,11 +18,15 @@ class Registration extends Component {
   constructor(props, context) {
     super(props, context);
 
-    this.handleChange = this.handleChange.bind(this);
 
     this.state = {
+      username: '',
+      pword: '',
       pwordLength: ''
     };
+
+    this.handleChangeEmail = this.handleChangeEmail.bind(this);
+    this.handleChangePword = this.handleChangePword.bind(this);
   }
 
   getValidationState() {
@@ -36,8 +40,10 @@ class Registration extends Component {
   handleChangeEmail(e) {
     // validate email format
     // this.setState({ xxx: e.target.xxx });
+    console.log(e.target.value)
   }
-  handleChange(e) {
+  handleChangePword(e) {
+    console.log(e.target.value)
     //  validate password length
     // this.setState({ pwordLength: e.target.pwordLength });
   }
@@ -67,6 +73,7 @@ class Registration extends Component {
 
                   <FormControl
                     id="formControlsEmail"
+                    inputRef = {value => this.state.usename = value}
                     name = 'username'
                     type="email"
                     label="Email address"
@@ -86,11 +93,13 @@ class Registration extends Component {
 
                    <FormControl 
                     id="formControlsPassword" 
+                    inputRef = {value => this.state.pword = value}
+
                     name = "password"
                     type="password" 
                     label="Password" 
                     placeholder="Enter your password"
-                    onChange={this.handleChange}
+                    onChange={this.handleChangePword}
                     />
                 
                   <FormControl.Feedback />
