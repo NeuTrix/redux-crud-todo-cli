@@ -4,6 +4,7 @@ import TodoList from '../containers/TodoList';
 import TodoForm from '../components/TodoForm';
 import Header from '../components/Header';
 import Login from '../components/auth/Login';
+import Register from '../components/auth/Register';
 import { connect } from 'react-redux';
 import { createTodo } from '../actions/createActions';
 import { Route } from 'react-router-dom';
@@ -35,6 +36,7 @@ class App extends Component {
 				<Row style = { { paddingTop: 60 } } >
 					<Route exact path = '/' render = { (props) => HomePage } />
 					<Route path = '/login' component = { Login } />
+					<Route path = '/register' component = { Register } />
 				</Row>
 				
 			</Grid>

@@ -4,6 +4,7 @@ import {
 	Col, 
 	ControlLabel,
 	Form, 
+  Grid,
 	FormControl,
 	FormGroup, 
 	HelpBlock,
@@ -43,11 +44,11 @@ class Login extends Component {
 
   render() {
     return (
-    <Col md = { 4 } mdOffset = { 4 } >
+    <Grid md = { 4 } mdOffset = { 4 } >
 
       <Row>
         <Col sm = { 12} >
-          <PageHeader> Registration </PageHeader>
+          <PageHeader> Login </PageHeader>
         </Col>
       </Row>
 
@@ -100,11 +101,12 @@ class Login extends Component {
 
             </FormGroup>
 
-            <Button type="submit">Submit</Button>
+            <Button type="submit">Login</Button>
+
           </Form>
         </Col>
       </Row>
-    </Col>
+    </Grid>
 
     );
   }

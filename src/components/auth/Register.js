@@ -4,17 +4,16 @@ import {
 	Col, 
 	ControlLabel,
 	Form, 
+  Grid,
 	FormControl,
 	FormGroup, 
-	Grid, 
 	HelpBlock,
   PageHeader,
-	Password,
 	Row 
 } from 'react-bootstrap';
 
 
-class Login extends React.Component {
+class Registration extends Component {
 
   constructor(props, context) {
     super(props, context);
@@ -40,71 +39,79 @@ class Login extends React.Component {
   }
   handleChange(e) {
     //  validate password length
-    this.setState({ pwordLength: e.target.pwordLength });
+    // this.setState({ pwordLength: e.target.pwordLength });
   }
 
   render() {
     return (
-    <Col md = { 4 } mdOffset = { 4} >
+    <Grid md = { 4 } mdOffset = { 4 } >
 
-    <PageHeader>
-      Registration <small>(i.e. get your own account)</small>
-    </PageHeader>
+      <Row>
+        <Col sm = { 12} >
+          <PageHeader> Registration </PageHeader>
+        </Col>
+      </Row>
 
-      <form>
-        <FormGroup
-          controlId="formBasicText"
-          validationState={this.getValidationState()}
-        >
-          <Row>
-            <Col style = { { margin: 15 } }>
-              <ControlLabel>
-                Username (email)
-              </ControlLabel>
+      <Row>
+        <Col>
+          <Form>
+            <FormGroup
+              controlId="formBasicText"
+              validationState={this.getValidationState()}
+            >
+              <Row>
+                <Col style = { { margin: 15 } }>
+                  <ControlLabel>
+                    Username (email)
+                  </ControlLabel>
 
-              <FormControl
-                id="formControlsEmail"
-                type="email"
-                label="Email address"
-                placeholder="Enter email address"
-                xxx={this.state.xxx}
-                onChange={this.handleChangeEmail}
-              />
-              <FormControl.Feedback />
-            </Col>
-          </Row>
+                  <FormControl
+                    id="formControlsEmail"
+                    name = 'username'
+                    type="email"
+                    label="Email address"
+                    placeholder="Enter email address"
+                    xxx={this.state.xxx}
+                    onChange={this.handleChangeEmail}
+                  />
+                  <FormControl.Feedback />
+                </Col>
+              </Row>
 
-          <Row>
-            <Col style = { { margin: 15 } }>
+              <Row>
+                <Col style = { { margin: 15 } }>
+                  <ControlLabel >
+                    Enter Password
+                  </ControlLabel>
 
-              <ControlLabel >
-                Enter Password
-              </ControlLabel>
+                   <FormControl 
+                    id="formControlsPassword" 
+                    name = "password"
+                    type="password" 
+                    label="Password" 
+                    placeholder="Enter your password"
+                    onChange={this.handleChange}
+                    />
+                
+                  <FormControl.Feedback />
 
-               <FormControl 
-                id="formControlsPassword" 
-                type="password" 
-                label="Password" 
-                placeholder="Enter your password"
-                pwordLength={this.state.pwordLength}
-                onChange={this.handleChange}
-                />
+                  <HelpBlock style = { { color: 'lightgrey' } } >
+                    Password must be at least 8 characters
+                  </HelpBlock>
+                </Col>
+              </Row>
+
+            </FormGroup>
+
+            <Button type="submit">Sign Up</Button>
             
-              <FormControl.Feedback />
-
-              <HelpBlock style = { { color: 'lightgrey' } } >
-                Password must be at least 8 characters
-              </HelpBlock>
-            </Col>
-          </Row>
-
-
-        </FormGroup>
-      </form>
-    </Col>
+          </Form>
+        </Col>
+      </Row>
+    </Grid>
 
     );
   }
 }
 
-export default Login;
+export default Registration;
