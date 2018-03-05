@@ -6,6 +6,12 @@ import PropTypes from 'prop-types'
 
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 
+	const style = {
+		color: 'lime'
+	}
+	const brandStyle = {
+		color: 'whitesmoke'
+	}
 
 // use fixedTop attribute to fix header in place
 const Header = (props) => {
@@ -19,7 +25,7 @@ const Header = (props) => {
 				</Navbar.Brand>
 
 				<Navbar.Brand>
-					<NavLink to = '/todos'>Redux-Todo</NavLink>
+					<NavLink to = '/todos' style = { brandStyle }>Redux-Todo</NavLink>
 				</Navbar.Brand>
 
 				<Navbar.Toggle />
@@ -28,23 +34,27 @@ const Header = (props) => {
 			<Navbar.Collapse>
 
 				<Nav>
-					<NavItem eventKey={ 2 } href = '/' >
-			*home 
+					<NavItem >
+						<NavLink to = '/' style = { style }>Home</NavLink>
 					</NavItem>
 				</Nav>
 
 				<Nav>
-					<NavItem eventKey={ 2 } href = '/about' >
-			*about 
+					<NavItem >
+						<NavLink to = '/about' style = { style }>About</NavLink>
 					</NavItem>
 				</Nav>
 
 				<Nav pullRight>
-					<NavLink to = '/login'>Login</NavLink>
 
-					<NavItem eventKey={ 4 } href = '/signup' >
-			*sign up
+					<NavItem >
+						<NavLink to = '/login' style = { style } >Login</NavLink>
 					</NavItem>
+
+					<NavItem >
+						<NavLink to = '/signup' style = { style }>Signup</NavLink>
+					</NavItem>
+
 				</Nav>
 
 			</Navbar.Collapse>
