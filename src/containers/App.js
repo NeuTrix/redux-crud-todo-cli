@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import TodoList from '../containers/TodoList';
 import TodoForm from '../components/TodoForm';
 import Header from '../components/Header';
-import Login from '../components/Login';
+import Login from '../components/auth/Login';
 import { connect } from 'react-redux';
 import { createTodo } from '../actions/createActions';
 import { Route, Link } from 'react-router-dom';
@@ -24,15 +24,20 @@ class App extends Component {
 			)
 		}*/
 
-		const style = {
-			paddingTop: 60,
-		}
+
+		const Test = (
+			<Row style = { { paddingTop: 60 } } >
+				<TodoForm createTodo = { this.props.createTodo } />
+				<TodoList todoArray = { this.props.todoArray } />
+			</Row>
+		)
+
 		return (
 			<div>
-				<Route path = '/' component = { Header } 
-				/>
+				<Route path = '/' component = { Header } />
+				<Route path = '/' render = { (props) => Test } />
 						
-				<Row style = { style }>
+				<Row >
 				
 					<Col className="App"  >
 						<Route path = '/login' component = { Login } />
