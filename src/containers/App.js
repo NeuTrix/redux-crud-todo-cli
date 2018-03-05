@@ -19,7 +19,7 @@ class App extends Component {
 	render() {
 		
 		const HomePage = (
-			<Row style = { { paddingTop: 60 } } >
+			<Row >
 				<TodoForm createTodo = { this.props.createTodo } />
 				<TodoList todoArray = { this.props.todoArray } />
 			</Row>
@@ -27,9 +27,16 @@ class App extends Component {
 
 		return (
 			<Grid>
-				<Route path = '/' component = { Header } />
-				<Route exact path = '/' render = { (props) => HomePage } />
-				<Route path = '/login' component = { Login } />
+			
+				<Row>
+					<Route path = '/' component = { Header } />
+				</Row>
+
+				<Row style = { { paddingTop: 60 } } >
+					<Route exact path = '/' render = { (props) => HomePage } />
+					<Route path = '/login' component = { Login } />
+				</Row>
+				
 			</Grid>
 		);
 	}

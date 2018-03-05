@@ -8,58 +8,103 @@ import {
 	FormGroup, 
 	Grid, 
 	HelpBlock,
+  PageHeader,
 	Password,
 	Row 
 } from 'react-bootstrap';
 
 
-function FieldGroup({ id, label, help, ...props }) {
-  return (
-    <FormGroup controlId={id}>
-      <ControlLabel>{label}</ControlLabel>
-      <FormControl {...props} />
-      {help && <HelpBlock>{help}</HelpBlock>}
-    </FormGroup>
-  );
-}
+class Login extends React.Component {
 
-class Login extends Component {
+  constructor(props, context) {
+    super(props, context);
 
-	render () { 
+    this.handleChange = this.handleChange.bind(this);
 
-	// +++++++++ Styling  
-	const spacing = { 
-		xs: { form: 11, rank: 3, date: 5, addBtn: 2, resetBtn: 2 }, 
-		sm: { form: 6, rank: 2, date: 2, addBtn: 1, resetBtn: 1 } 
-	};
+    this.state = {
+      pwordLength: ''
+    };
+  }
 
-		const style = {
-			outline: '1px solid orange',
-			marginTop: 100,
-			textAlign: 'center'
-		};
+  getValidationState() {
+    const length = this.state.pwordLength.length;
+    if (length > 7) return 'success';
+    else if (length > 4) return 'warning';
+    else if (length > 0) return 'error';
+    return null;
+  }
 
-		return (
-			<Grid style = { style }>
-				<Form className = 'Login' >
+  handleChangeEmail(e) {
+    // validate email format
+    // this.setState({ xxx: e.target.xxx });
+  }
+  handleChange(e) {
+    //  validate password length
+    this.setState({ pwordLength: e.target.pwordLength });
+  }
 
-				<FieldGroup
-			      id="formControlsEmail"
-			      type="email"
-			      label="Email address"
-			      placeholder="Enter email"
-			    />
-					<FieldGroup
-			      id="formControlsText"
-			      type="text"
-			      label="Username"
-			      placeholder="Enter email address or UserId"
-			    />
-			    
-				</Form>
-			</Grid>
-		);
-	}
+  render() {
+    return (
+    <Col md = { 4 } mdOffset = { 4} >
+
+    <PageHeader>
+      Registration <small>(i.e. get your own account)</small>
+    </PageHeader>
+
+      <form>
+        <FormGroup
+          controlId="formBasicText"
+          validationState={this.getValidationState()}
+        >
+          <Row>
+            <Col style = { { margin: 15 } }>
+              <ControlLabel>
+                Username (email)
+              </ControlLabel>
+
+              <FormControl
+                id="formControlsEmail"
+                type="email"
+                label="Email address"
+                placeholder="Enter email address"
+                xxx={this.state.xxx}
+                onChange={this.handleChangeEmail}
+              />
+              <FormControl.Feedback />
+            </Col>
+          </Row>
+
+          <Row>
+            <Col style = { { margin: 15 } }>
+
+              <ControlLabel >
+                Enter Password
+              </ControlLabel>
+
+               <FormControl 
+                id="formControlsPassword" 
+                type="password" 
+                label="Password" 
+                placeholder="Enter your password"
+                pwordLength={this.state.pwordLength}
+                onChange={this.handleChange}
+                />
+            
+              <FormControl.Feedback />
+
+              <HelpBlock style = { { color: 'lightgrey' } } >
+                Password must be at least 8 characters
+              </HelpBlock>
+            </Col>
+          </Row>
+
+
+        </FormGroup>
+      </form>
+    </Col>
+
+    );
+  }
 }
 
 export default Login;
