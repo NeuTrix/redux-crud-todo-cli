@@ -12,17 +12,19 @@ import {
 	Row 
 } from 'react-bootstrap';
 
+import axios from 'axios'
+
 class Registration extends Component {
 
   constructor(props, context) {
     super(props, context);
 
     this.state = {
+      username: '',
       email: '',
       emailConfirm: '',
       password: '',
       passwordConfirm: '',
-      timezone: '',
       pwordLength: ''
     };
 
@@ -48,8 +50,14 @@ class Registration extends Component {
   }
 
   onSubmit(e) {
+    let api = 'https://redux-todo-api.herokuapp.com/register'
     e.preventDefault();
     console.log(this.state)
+    // axios.put('https://redux-todo-api.herokuapp.com/register', {
+    //   username: this.state.username, 
+    //   password: this.state.password});
+    axios.get('https://google.com')
+
   }
 
   render() {
@@ -75,7 +83,24 @@ class Registration extends Component {
               <Row>
                 <Col style = { { margin: 15 } }>
                   <ControlLabel>
-                    User email
+                    Username 
+                  </ControlLabel>
+
+                  <FormControl
+                    inputRef = { value => this.state.username = value }
+                    name = 'username'
+                    type="text"
+                    label="Username"
+                    placeholder="Enter username"
+                    xxx={ this.state.xxx }
+                    onChange={ this.handleChange }
+                  />
+                  <FormControl.Feedback />
+                </Col>
+
+                <Col style = { { margin: 15 } }>
+                  <ControlLabel>
+                    Email 
                   </ControlLabel>
 
                   <FormControl
@@ -115,7 +140,7 @@ class Registration extends Component {
                     </HelpBlock>
 
                    <FormControl 
-                    inputRef = {value => this.state.pword = value}
+                    inputRef = {value => this.state.password = value}
                     type="password" 
                     name = "password"
                     label="Password" 
@@ -130,7 +155,7 @@ class Registration extends Component {
                 <Col style = { { margin: 15 } }>
 
                    <FormControl 
-                    inputRef = {value => this.state.pword = value}
+                    inputRef = {value => this.state.passwordConfirm = value}
                     type="password" 
                     name = "passwordConfirm"
                     label="Password Confirm" 
