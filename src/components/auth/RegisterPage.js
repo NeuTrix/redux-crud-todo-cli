@@ -16,7 +16,6 @@ class RegisterForm extends Component {
           <PageHeader> Registration </PageHeader>
         </Col>
       </Row>
-
       
     </Grid>
     );
