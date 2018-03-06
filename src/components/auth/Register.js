@@ -58,7 +58,7 @@ class Registration extends Component {
 
     return (
     <Grid 
-      md = { 4 } mdOffset = { 4 } 
+      md = { 4 } mdoffset = { 4 } 
       onSubmit = { this.onSubmit }
     >
       <Row>
@@ -178,7 +178,7 @@ Registration.propTypes = {
   userSignupRequest: PropTypes.func.isRequired
 }
 
-Registration.defautProps = {
+Registration.defaultProps = {
   userSignupRequest: f => f
 }
 

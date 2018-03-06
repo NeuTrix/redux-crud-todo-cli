@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../assets/logo.svg';
 import '../containers/App.css';
-import { Link, } from 'react-router-dom'
+import { IndexLinkContainer } from 'react-router-bootstrap'
 import PropTypes from 'prop-types'
 
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
@@ -17,47 +17,42 @@ import { Nav, Navbar, NavItem } from 'react-bootstrap';
 const Header = (props) => {
 
 	return (
-		<Navbar inverse collapseOnSelect fixedTop 
-		>
+		<Navbar inverse collapseOnSelect fixedTop >
+
 			<Navbar.Header>
 				<Navbar.Brand>
 					<img src={logo} className="App-logo" alt="logo" />
 				</Navbar.Brand>
-
 				<Navbar.Brand>
-					<div to = '/todos' style = { brandStyle }>Redux-Todo</div>
+					<div to = '/todos' style = { brandStyle }> Redux-Todo </div>
 				</Navbar.Brand>
-
 				<Navbar.Toggle />
 			</Navbar.Header>
 
 			<Navbar.Collapse>
-
 				<Nav>
-					<NavItem >
-						<Link to = '/' style = { style }>Home</Link>
-					</NavItem>
+					<IndexLinkContainer to = '/' style = { style }>
+						<NavItem > Home</NavItem>
+					</IndexLinkContainer>
 				</Nav>
 
 				<Nav>
-					<NavItem >
-						<Link to = '/about' style = { style }>About</Link>
-					</NavItem>
+					<IndexLinkContainer to = '/about' style = { style }>
+						<NavItem > About</NavItem>
+					</IndexLinkContainer>
 				</Nav>
 
 				<Nav pullRight>
+					<IndexLinkContainer to = '/login' style = { style } >
+						<NavItem > Login</NavItem>
+					</IndexLinkContainer>
 
-					<NavItem >
-						<Link to = '/login' style = { style } >Login</Link>
-					</NavItem>
-
-					<NavItem >
-						<Link to = '/register' style = { style }>Register</Link>
-					</NavItem>
-
+					<IndexLinkContainer to = '/register' style = { style }>
+						<NavItem > Register</NavItem>
+					</IndexLinkContainer>
 				</Nav>
-
 			</Navbar.Collapse>
+
 		</Navbar>
 	);
 };
