@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { 
   Button, Col, ControlLabel, Form, FormControl,
-  FormGroup, Grid, PageHeader, Row 
+  FormGroup, Row 
 } from 'react-bootstrap';
 
 class RegisterForm extends Component {

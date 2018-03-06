@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import RegisterForm from './RegisterForm';
 import { Col, Grid, PageHeader, Row } from 'react-bootstrap';
 
-class RegisterForm extends Component {
+class RegisterPage extends Component {
 
   render() {
 
@@ -16,18 +17,20 @@ class RegisterForm extends Component {
           <PageHeader> Registration </PageHeader>
         </Col>
       </Row>
+
+      <RegisterForm/>
       
     </Grid>
     );
   }
 }
 
-RegisterForm.propTypes = {
+RegisterPage.propTypes = {
   userSignupRequest: PropTypes.func.isRequired
 }
 
-RegisterForm.defaultProps = {
+RegisterPage.defaultProps = {
   userSignupRequest: f => f
 }
 
-export default RegisterForm;
+export default RegisterPage;
