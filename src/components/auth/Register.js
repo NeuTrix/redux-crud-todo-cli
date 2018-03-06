@@ -6,10 +6,9 @@ import {
   Col, 
   ControlLabel,
   Form, 
-  Grid,
   FormControl,
   FormGroup, 
-  HelpBlock,
+  Grid,
   PageHeader,
   Row 
 } from 'react-bootstrap';
@@ -19,25 +18,16 @@ class Registration extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      // email: '',
-      // emailConfirm: '',
-      // passwordConfirm: '',
-      // pwordLength: ''
       username: '',
+      email: '',
+      emailConfirm: '',
+      passwordConfirm: '',
       password: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
-/*
-  getValidationState() {
-    const length = this.state.pwordLength.length;
-    if (length > 7) return 'success';
-    else if (length > 4) return 'warning';
-    else if (length > 0) return 'error';
-    return null;
-  }*/
 
   handleChange(e) {
     e.preventDefault();
@@ -90,18 +80,16 @@ class Registration extends Component {
                   <FormControl.Feedback />
                 </Col>
 
-               {/* <Col style = { { margin: 15 } }>
+               <Col style = { { margin: 15 } }>
                   <ControlLabel>
                     Email 
                   </ControlLabel>
 
                   <FormControl
-                    inputRef = { value => this.state.email = value }
                     name = 'email'
                     type="email"
                     label="Email address"
                     placeholder="Enter email address"
-                    xxx={ this.state.xxx }
                     onChange={ this.handleChange }
                   />
                   <FormControl.Feedback />
@@ -109,17 +97,15 @@ class Registration extends Component {
 
                 <Col style = { { margin: 15 } }>
                   <FormControl
-                    inputRef = { value => this.state.emailConfirm = value }
                     type="email"
                     name = 'emailConfirm'
                     label="Email Confirm"
                     placeholder="Confirm email address"
-                    xxx={ this.state.xxx }
                     onChange={ this.handleChange }
                   />
                   <FormControl.Feedback />
                 </Col>
-            */}
+            }
               </Row>
 
               <Row>
@@ -127,10 +113,6 @@ class Registration extends Component {
                   <ControlLabel >
                     Password
                   </ControlLabel>
-
-                    <HelpBlock style = { { color: 'lightgrey' } } >
-                      Password must be at least 8 characters
-                    </HelpBlock>
 
                    <FormControl 
                     type="password" 
@@ -143,11 +125,10 @@ class Registration extends Component {
                   <FormControl.Feedback />
 
                 </Col>
-{/*
+
                 <Col style = { { margin: 15 } }>
 
                    <FormControl 
-                    inputRef = {value => this.state.passwordConfirm = value}
                     type="password" 
                     name = "passwordConfirm"
                     label="Password Confirm" 
@@ -157,7 +138,7 @@ class Registration extends Component {
                 
                   <FormControl.Feedback />
 
-                </Col>*/}
+                </Col>
               </Row>
 
             </FormGroup>
