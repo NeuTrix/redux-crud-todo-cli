@@ -5,11 +5,13 @@ import { Col, Row } from 'react-bootstrap';
 
 const styleTitle= {
 	background: '#006699',
+	paddingLeft: 10,
+	paddingRight: 10,
 	color: 'lightblue',
 	textAlign: 'left'
 };
 
-const spacing =  { sm: {task: 6, rank: 2, date: 2, action: 2 } };	
+const spacing =  { sm: {task: 5, rank: 2, date: 3, action: 2 } };	
 
 const TodoTitleBar = (props) => {
 
@@ -28,7 +30,7 @@ const TodoTitleBar = (props) => {
 			</Col>
 
 			<Col className = 'titleAction' sm = { spacing.sm.action } >
-					Action
+					Actions
 			</Col>
 		</Row>
 	);

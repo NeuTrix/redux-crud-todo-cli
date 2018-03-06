@@ -26,20 +26,19 @@ const TodoForm = (props) => {
 
 	// +++++++++ Styling  
 	const spacing = { 
-		xs: { form: 11, rank: 3, date: 5, addBtn: 2, resetBtn: 2 }, 
-		sm: { form: 6, rank: 2, date: 2, addBtn: 1, resetBtn: 1 } 
+		xs: { form: 12, rank: 3, date: 5, addBtn: 2, resetBtn: 2 }, 
+		sm: { form:5, rank: 2, date: 3, addBtn: 1, resetBtn: 1 } 
 	};
 
 	const styleTop = {
 		backgroundColor: 'lightblue',
-		paddingRignt: 0,
-		paddingTop: 10,
+		padding: 10,
 		marginBottom: 10,
 	};
 	// +++++++++ 
 
 	return (
-		<Grid className = 'TodoForm'  >
+		<Grid className = 'TodoForm'>
 
 			<Col 
 				xsHidden = { true } 
@@ -49,7 +48,7 @@ const TodoForm = (props) => {
 			</Col>
 
 			<Form onSubmit = { handleSubmit } >
-				<Row style = { styleTop }>
+				<Row style = { styleTop }  >
 					<Col 
 						className = 'task' 
 						xs = { spacing.xs.form }
@@ -59,7 +58,6 @@ const TodoForm = (props) => {
 							inputRef = { (input) => { _task = input;} } 
 							type = 'text'  
 							maxLength = { 55 } 
-							style = { { marginBottom: 10 } }
 							placeholder ='Enter a NEW task here...' 
 							required 
 						/>
@@ -119,7 +117,7 @@ const TodoForm = (props) => {
 						<Button 
 							className = { 'btn btn-warning btn-sm' } 
 							type = 'reset'
-						>
+						> 
 							CLR 
 						</Button> 
 					</Col>
