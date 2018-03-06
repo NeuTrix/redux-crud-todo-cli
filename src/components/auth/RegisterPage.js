@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import RegisterForm from './RegisterForm';
 import { Col, Grid, PageHeader, Row } from 'react-bootstrap';
 
 class RegisterPage extends Component {
 
-  render() {
+  render () {
+
+    const { userSignupRequest } = this.props;
 
     return (
     <Grid 
@@ -18,7 +21,9 @@ class RegisterPage extends Component {
         </Col>
       </Row>
 
-      <RegisterForm/>
+      <RegisterForm  
+        userSignupRequest = { userSignupRequest }  
+      />
       
     </Grid>
     );
@@ -33,4 +38,12 @@ RegisterPage.defaultProps = {
   userSignupRequest: f => f
 }
 
-export default RegisterPage;
+mapStateToProps = (state) => { 
+  return { } 
+}
+
+mapDispatchToProps = (dispatch) => {
+  userSignupRequest: (userSignupRequest) => dispatch(userSignupRequest)
+ }
+
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterPage);
