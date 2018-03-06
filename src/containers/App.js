@@ -4,7 +4,7 @@ import TodoList from '../containers/TodoList';
 import TodoForm from '../components/TodoForm';
 import Header from '../components/Header';
 import Login from '../components/auth/Login';
-import Register from '../components/auth/Register';
+import RegisterPage from '../components/auth/RegisterPage';
 import { connect } from 'react-redux';
 import { createTodo } from '../actions/createActions';
 import { Route } from 'react-router-dom';
@@ -12,10 +12,6 @@ import { Grid, Row } from 'react-bootstrap'
 import { startState } from '../actions/readActions';
 
 class App extends Component {
-	/*
-	componentDidMount() {
-		this.props.startApp();
-	}*/
 
 	render() {
 		
@@ -36,7 +32,7 @@ class App extends Component {
 				<Row style = { { paddingTop: 60 } } >
 					<Route exact path = '/' render = { (props) => HomePage } />
 					<Route path = '/login' component = { Login } />
-					<Route path = '/register' component = { Register } />
+					<Route path = '/register' component = { RegisterPage } />
 				</Row>
 				
 			</Grid>

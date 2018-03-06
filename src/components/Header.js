@@ -32,23 +32,23 @@ const Header = (props) => {
 			<Navbar.Collapse>
 				<Nav>
 					<IndexLinkContainer to = '/' style = { style }>
-						<NavItem > Home</NavItem>
+						<NavItem > Home </NavItem>
 					</IndexLinkContainer>
 				</Nav>
 
 				<Nav>
 					<IndexLinkContainer to = '/about' style = { style }>
-						<NavItem > About</NavItem>
+						<NavItem > About </NavItem>
 					</IndexLinkContainer>
 				</Nav>
 
 				<Nav pullRight>
 					<IndexLinkContainer to = '/login' style = { style } >
-						<NavItem > Login</NavItem>
+						<NavItem > Login </NavItem>
 					</IndexLinkContainer>
 
 					<IndexLinkContainer to = '/register' style = { style }>
-						<NavItem > Register</NavItem>
+						<NavItem > Register </NavItem>
 					</IndexLinkContainer>
 				</Nav>
 			</Navbar.Collapse>
