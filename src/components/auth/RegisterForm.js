@@ -4,8 +4,6 @@ import {
   Button, Col, ControlLabel, Form, FormControl,
   FormGroup, Row 
 } from 'react-bootstrap';
-import axios from 'axios';
-
 
 class RegisterForm extends Component {
 
