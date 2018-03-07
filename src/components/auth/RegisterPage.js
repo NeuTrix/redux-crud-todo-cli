@@ -40,4 +40,4 @@ RegisterPage.defaultProps = {
   userSignupRequest: f => f
 }
 
-export default connect((state) => { return { } }, { userSignupRequest } )(RegisterPage);
+export default connect(null, { userSignupRequest })(RegisterPage);
