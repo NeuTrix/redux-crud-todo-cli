@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import RegisterForm from './RegisterForm';
 import { Col, Grid, PageHeader, Row } from 'react-bootstrap';
-import userSignupRequest from /''
+import { userSignupRequest } from '../../actions/signupActions'
 
 class RegisterPage extends Component {
 
@@ -22,9 +22,7 @@ class RegisterPage extends Component {
         </Col>
       </Row>
 
-      <RegisterForm  
-        userSignupRequest = { userSignupRequest }  
-      />
+      <RegisterForm userSignupRequest = { userSignupRequest } />
     </Grid>
     );
   }
@@ -38,12 +36,4 @@ RegisterPage.defaultProps = {
   userSignupRequest: f => f
 }
 
-mapStateToProps = (state) => { 
-  return { } 
-}
-
-mapDispatchToProps = (dispatch) => {
-  userSignupRequest: (userSignupRequest) => dispatch(userSignupRequest)
- }
-
-export default connect(mapStateToProps, mapDispatchToProps)(RegisterPage);
+export default connect((state) => { }, { userSignupRequest } )(RegisterPage);
