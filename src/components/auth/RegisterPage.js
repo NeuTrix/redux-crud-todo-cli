@@ -12,18 +12,22 @@ class RegisterPage extends Component {
     const { userSignupRequest } = this.props;
 
     return (
-    <Grid 
-      md = { 4 } mdoffset = { 4 } 
-      onSubmit = { this.onSubmit }
-    >
-      <Row>
-        <Col sm = { 12 } >
-          <PageHeader> Registration </PageHeader>
-        </Col>
-      </Row>
 
-      <RegisterForm userSignupRequest = { userSignupRequest } />
-    </Grid>
+      <Grid 
+        md = { 4 } mdoffset = { 4 } 
+        onSubmit = { this.onSubmit }
+      >
+        <Row>
+          <Col sm = { 12 } >
+            <PageHeader> Registration </PageHeader>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <RegisterForm userSignupRequest = { userSignupRequest } />
+          </Col>
+        </Row>
+      </Grid>
     );
   }
 }
@@ -36,4 +40,4 @@ RegisterPage.defaultProps = {
   userSignupRequest: f => f
 }
 
-export default connect((state) => { }, { userSignupRequest } )(RegisterPage);
+export default connect((state) => { return { } }, { userSignupRequest } )(RegisterPage);

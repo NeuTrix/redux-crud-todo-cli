@@ -4,6 +4,8 @@ import {
   Button, Col, ControlLabel, Form, FormControl,
   FormGroup, Row 
 } from 'react-bootstrap';
+import axios from 'axios';
+
 
 class RegisterForm extends Component {
 
@@ -17,27 +19,25 @@ class RegisterForm extends Component {
       password: '',
     };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  handleChange(e) {
+  onChange(e) {
     e.preventDefault();
     this.setState({ [e.target.name]: e.target.value })
-    console.log(`${e.target.name}: ${e.target.value}`)
   }
 
   onSubmit(e) {
     e.preventDefault()   
-    this.props.userSignupRequest(this.state)
+    this.props.userSignupRequest(this.state);
   }
 
   render() {
 
     return (
 
-      <Form>
-
+      <Form  onSubmit = { this.onSubmit } >
         <FormGroup>
           <Row>
             <Col style = { { margin: 15 } }>
@@ -51,7 +51,7 @@ class RegisterForm extends Component {
                 label="Username"
                 placeholder="Enter username"
                 xxx={ this.state.xxx }
-                onChange={ this.handleChange }
+                onChange={ this.onChange }
               />
               <FormControl.Feedback />
             </Col>
@@ -66,7 +66,7 @@ class RegisterForm extends Component {
                 type="email"
                 label="Email address"
                 placeholder="Enter email address"
-                onChange={ this.handleChange }
+                onChange={ this.onChange }
               />
               <FormControl.Feedback />
             </Col>
@@ -77,7 +77,7 @@ class RegisterForm extends Component {
                 name = 'emailConfirm'
                 label="Email Confirm"
                 placeholder="Confirm email address"
-                onChange={ this.handleChange }
+                onChange={ this.onChange }
               />
               <FormControl.Feedback />
             </Col>
@@ -94,7 +94,7 @@ class RegisterForm extends Component {
                 name = "password"
                 label="Password" 
                 placeholder="Enter your password"
-                onChange={this.handleChange}
+                onChange={this.onChange}
                 />
               <FormControl.Feedback />
             </Col>
@@ -105,7 +105,7 @@ class RegisterForm extends Component {
                 name = "passwordConfirm"
                 label="Password Confirm" 
                 placeholder="Confirm your password"
-                onChange={this.handleChange}
+                onChange={this.onChange}
                 />
               <FormControl.Feedback />
             </Col>
@@ -114,7 +114,7 @@ class RegisterForm extends Component {
 
         <Button type="submit" bsStyle = 'primary' >
           Sign Up
-        </Button>
+        </Button> 
         
       </Form>
     )
