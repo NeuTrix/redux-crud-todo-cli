@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import RegisterForm from './RegisterForm';
 import { Col, Grid, PageHeader, Row } from 'react-bootstrap';
+import userSignupRequest from /''
 
 class RegisterPage extends Component {
 
@@ -24,7 +25,6 @@ class RegisterPage extends Component {
       <RegisterForm  
         userSignupRequest = { userSignupRequest }  
       />
-      
     </Grid>
     );
   }
