@@ -1,11 +1,14 @@
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, createStore, compose } from 'redux';
 import rootReducer from '../reducers';
 import { loadState, saveState } from './localStorage';
 import throttle from 'lodash/throttle';
 import thunk from 'redux-thunk';
 import promise from 'redux-promise-middleware';
 
-const middlewares = [ promise(), thunk ];
+const middlewares = [ 
+	promise(), 
+	thunk 
+	];
  
 // only adds redux-logger in the TEST_ENV
 if (process.env.NODE_ENV === 'development') {
@@ -23,7 +26,14 @@ if (process.env.NODE_ENV === 'development') {
 // state management: start the app with the current state in localStr
 const persistedState = loadState();
 
-const store = createStore(rootReducer, persistedState, applyMiddleware(...middlewares));
+const store = createStore(
+	rootReducer, 
+	persistedState, 
+	compose(
+		applyMiddleware(...middlewares),
+		window.devToolsExtension ? window.devToolsExtension() : f => f
+	)
+);
 
 // save the state anytime we have a change in the store
 // add lodash #throttle to prevent overuse of an expensive ...
