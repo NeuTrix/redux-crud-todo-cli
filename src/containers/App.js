@@ -10,6 +10,7 @@ import { createTodo } from '../actions/createActions';
 import { Route } from 'react-router-dom';
 import { Grid, Row } from 'react-bootstrap'
 import { startState } from '../actions/readActions';
+import FlashMessageList from '../components/flash/FlashMessageList'
 
 class App extends Component {
 
@@ -33,12 +34,16 @@ class App extends Component {
 					<Route path = '/' component = { Header } />
 				</Row>
 
+				<FlashMessageList>
+				</FlashMessageList>
+
 				<Row style = { { paddingTop: 60 } } >
 					<Route exact path = '/' render = { (props) => HomePage } />
 					<Route path = '/login' component = { Login } />
 					<Route path = '/register' component = { RegisterPage } />
 				</Row>
 				
+					{ this.props.children }
 			</Grid>
 		);
 	}
