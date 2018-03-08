@@ -25,10 +25,12 @@ class RegisterPage extends Component {
         </Row>
         <Row>
           <Col
-          sm = { 4 } smoffset = { 4 } 
-
+          md = { 4 } mdoffset = { 4 } 
+          style = {{backgroundColor: 'lime'}}
           >
-            <RegisterForm userSignupRequest = { userSignupRequest } />
+            <RegisterForm 
+
+            userSignupRequest = { userSignupRequest } />
           </Col>
         </Row>
       </Grid>
