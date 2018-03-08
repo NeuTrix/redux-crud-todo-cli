@@ -15,7 +15,7 @@ class RegisterForm extends Component {
       emailConfirm: '',
       password: '',
       passwordConfirm: '',
-      errors: {username: 'naughty'}
+      errors: { }
     };
 
     this.onChange = this.onChange.bind(this);
@@ -66,7 +66,7 @@ class RegisterForm extends Component {
               />
               <FormControl.Feedback />
               { errors.username && 
-                <span className = "help-block"> {errors.username} </span>
+                <HelpBlock> {errors.username} </HelpBlock>
               }
             </Col>
 
@@ -83,6 +83,10 @@ class RegisterForm extends Component {
                 onChange={ this.onChange }
               />
               <FormControl.Feedback />
+               <FormControl.Feedback />
+              { errors.email && 
+                <HelpBlock> {errors.email} </HelpBlock>
+              }
             </Col>
 
             <Col style = { { margin: 15 } }>
@@ -94,6 +98,10 @@ class RegisterForm extends Component {
                 onChange={ this.onChange }
               />
               <FormControl.Feedback />
+               <FormControl.Feedback />
+              { errors.emailConfirm && 
+                <HelpBlock> {errors.emailConfirm} </HelpBlock>
+              }
             </Col>
           </Row>
 
@@ -111,6 +119,10 @@ class RegisterForm extends Component {
                 onChange={this.onChange}
                 />
               <FormControl.Feedback />
+               <FormControl.Feedback />
+              { errors.password && 
+                <HelpBlock> {errors.password} </HelpBlock>
+              }
             </Col>
 
             <Col style = { { margin: 15 } }>
@@ -122,6 +134,9 @@ class RegisterForm extends Component {
                 onChange={this.onChange}
                 />
               <FormControl.Feedback />
+              { errors.passwordConfirm && 
+                <HelpBlock> {errors.passwordConfirm} </HelpBlock>
+              }
             </Col>
           </Row>
         </FormGroup>
