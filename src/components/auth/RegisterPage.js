@@ -16,13 +16,7 @@ class RegisterPage extends Component {
       <Grid 
         onSubmit = { this.onSubmit }
       >
-        <Row>
-          <Col 
-            sm = { 12 } 
-          >
-            <PageHeader> Registration </PageHeader>
-          </Col>
-        </Row>
+        
         <Row>
           <Col
           md = { 4 } mdoffset = { 4 } 

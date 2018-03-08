@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { 
   Button, Col, ControlLabel, Form, FormControl,
-  FormGroup, Row 
+  FormGroup, HelpBlock, PageHeader, Row 
 } from 'react-bootstrap';
 
 class RegisterForm extends Component {
@@ -13,8 +13,9 @@ class RegisterForm extends Component {
       username: '',
       email: '',
       emailConfirm: '',
-      passwordConfirm: '',
       password: '',
+      passwordConfirm: '',
+      errors: {username: 'naughty'}
     };
 
     this.onChange = this.onChange.bind(this);
@@ -27,16 +28,28 @@ class RegisterForm extends Component {
   }
 
   onSubmit(e) {
-    e.preventDefault()   
-    this.props.userSignupRequest(this.state);
+    e.preventDefault()  
+    this.setState({ errors: { } });
+    // returns a promise
+    this.props.userSignupRequest(this.state).then( 
+      () => { }, // if all is ok, else...
+      (err) => this.setState({ errors: err.response.data })
+    );
   }
 
   render() {
+    const { errors } = this.state;
 
     return (
-
       <Form  onSubmit = { this.onSubmit } >
         <FormGroup>
+          <Row>
+            <Col >
+              <PageHeader> Registration </PageHeader>
+            </Col>
+            <Col>
+            </Col>
+          </Row>
           <Row>
             <Col style = { { margin: 15 } }>
               <ControlLabel>
@@ -52,6 +65,9 @@ class RegisterForm extends Component {
                 onChange={ this.onChange }
               />
               <FormControl.Feedback />
+              { errors.username && 
+                <span className = "help-block"> {errors.username} </span>
+              }
             </Col>
 
            <Col style = { { margin: 15 } }>
