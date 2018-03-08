@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import classname from 'classnames';
 import { 
   Button, Col, ControlLabel, Form, FormControl,
   FormGroup, HelpBlock, PageHeader, Row 
@@ -15,7 +16,8 @@ class RegisterForm extends Component {
       emailConfirm: '',
       password: '',
       passwordConfirm: '',
-      errors: { }
+      errors: { },
+      isLoading: false
     };
 
     this.onChange = this.onChange.bind(this);
@@ -29,19 +31,18 @@ class RegisterForm extends Component {
 
   onSubmit(e) {
     e.preventDefault()  
-    this.setState({ errors: { } });
+    this.setState({ errors: { }, isLoading: true });
     // returns a promise
     this.props.userSignupRequest(this.state).then( 
       () => { }, // if all is ok, else...
-      (err) => this.setState({ errors: err.response.data })
+      (err) => this.setState({ errors: err.response.data, isLoading: false })
     );
   }
 
   render() {
     const { errors } = this.state;
-    const style = {
-      margin: 15
-    }
+    const style = { margin: 15 }
+    const styleErr = { color: 'red' }
 
     return (
       <Form  onSubmit = { this.onSubmit } >
@@ -52,7 +53,7 @@ class RegisterForm extends Component {
             </Col>
             <Col>
             </Col>
-          </Row>
+          </Row> 
           <Row>
             <Col style = { style } >
               <ControlLabel>
@@ -60,6 +61,7 @@ class RegisterForm extends Component {
               </ControlLabel>
 
               <FormControl
+               
                 name = 'username'
                 type="text"
                 label="Username"
@@ -69,7 +71,7 @@ class RegisterForm extends Component {
               />
               <FormControl.Feedback />
               { errors.username && 
-                <HelpBlock> {errors.username} </HelpBlock>
+                <HelpBlock style = { styleErr } > {errors.username} </HelpBlock>
               }
             </Col>
 
@@ -88,7 +90,7 @@ class RegisterForm extends Component {
               <FormControl.Feedback />
                <FormControl.Feedback />
               { errors.email && 
-                <HelpBlock> {errors.email} </HelpBlock>
+                <HelpBlock style = { styleErr } > {errors.email} </HelpBlock>
               }
             </Col>
 
@@ -103,7 +105,7 @@ class RegisterForm extends Component {
               <FormControl.Feedback />
                <FormControl.Feedback />
               { errors.emailConfirm && 
-                <HelpBlock> {errors.emailConfirm} </HelpBlock>
+                <HelpBlock style = { styleErr } > {errors.emailConfirm} </HelpBlock>
               }
             </Col>
           </Row>
@@ -124,7 +126,7 @@ class RegisterForm extends Component {
               <FormControl.Feedback />
                <FormControl.Feedback />
               { errors.password && 
-                <HelpBlock> {errors.password} </HelpBlock>
+                <HelpBlock style = { styleErr } > {errors.password} </HelpBlock>
               }
             </Col>
 
@@ -138,13 +140,13 @@ class RegisterForm extends Component {
                 />
               <FormControl.Feedback />
               { errors.passwordConfirm && 
-                <HelpBlock> {errors.passwordConfirm} </HelpBlock>
+                <HelpBlock style = { styleErr } > {errors.passwordConfirm} </HelpBlock>
               }
             </Col>
           </Row>
         </FormGroup>
 
-        <Button type="submit" bsStyle = 'primary' >
+        <Button disable = { this.state.isLoading } type="submit" bsStyle = 'primary' >
           Sign Up
         </Button> 
         
