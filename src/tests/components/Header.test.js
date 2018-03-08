@@ -9,7 +9,7 @@ import Header from '../../components/Header';
 
 describe('The Header Component w/ ReactDom', () => {
 
-	it.only('..renders the Header component w/ReactDom', () => {
+	xit('..renders the Header component w/ReactDom', () => {
 		const div = document.createElement('div');
 		ReactDom.render(
 			<Header/>,
