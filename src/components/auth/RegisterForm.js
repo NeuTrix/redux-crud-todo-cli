@@ -11,13 +11,13 @@ class RegisterForm extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      username: '',
       email: '',
       emailConfirm: '',
+      errors: { },
+      isLoading: false,
       password: '',
       passwordConfirm: '',
-      errors: { },
-      isLoading: false
+      username: '',
     };
 
     this.onChange = this.onChange.bind(this);
@@ -29,10 +29,21 @@ class RegisterForm extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
+  isValid(){
+    const { errors, isValid }  validateInput(this.state);
+
+    if(!isValid) {
+      this.state({ errors })
+    }
+    return isValid
+  }
+
   onSubmit(e) {
-    e.preventDefault()  
+    e.preventDefault() 
+    if (this.isValid) {
+
+    } 
     this.setState({ errors: { }, isLoading: true });
-    // returns a promise
     this.props.userSignupRequest(this.state).then( 
       () => { }, // if all is ok, else...
       (err) => this.setState({ errors: err.response.data, isLoading: false })
@@ -61,7 +72,6 @@ class RegisterForm extends Component {
               </ControlLabel>
 
               <FormControl
-               
                 name = 'username'
                 type="text"
                 label="Username"
