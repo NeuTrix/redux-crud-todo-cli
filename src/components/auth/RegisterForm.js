@@ -38,16 +38,20 @@ class RegisterForm extends Component {
 
   onSubmit(e) {
     e.preventDefault() 
-    if (this.isValid()) {
 
-    } 
-    this.setState({ errors: { }, isLoading: true });
-    this.props.userSignupRequest(this.state).then( 
-      () => { 
-        this.context.router.push('/');
-        }, // if all is ok, else...
-      (err) => this.setState({ errors: err.response.data, isLoading: false })
-    );
+    if (this.isValid()) {
+      this.setState({ errors: { }, isLoading: true }); // reset state
+      this.props.userSignupRequest(this.state)
+        .then( 
+          () => { 
+            this.context.router.history.push('/'); 
+          }, 
+          (err) => this.setState({ 
+            errors: err.response.data, 
+            isLoading: false 
+          })
+        );
+    }
   }
 
   render() {
