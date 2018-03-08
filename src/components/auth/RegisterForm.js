@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import validateInput from '../../helpers/signupValidator'
 import TextFieldGroup from './TextFieldGroup'
 import { Button, Col, Form, PageHeader, Row } from 'react-bootstrap';
+// import { browserHistory } from 'react-router'
 
 class RegisterForm extends Component {
 
@@ -30,19 +31,21 @@ class RegisterForm extends Component {
   isValid(){
     const { errors, isValid } = validateInput(this.state);
     if(!isValid) {
-      this.state({ errors });
+      this.setState({ errors });
     }
     return isValid
   }
 
   onSubmit(e) {
     e.preventDefault() 
-    if (this.isValid) {
+    if (this.isValid()) {
 
     } 
     this.setState({ errors: { }, isLoading: true });
     this.props.userSignupRequest(this.state).then( 
-      () => { }, // if all is ok, else...
+      () => { 
+        this.context.router.push('/');
+        }, // if all is ok, else...
       (err) => this.setState({ errors: err.response.data, isLoading: false })
     );
   }
@@ -119,6 +122,10 @@ RegisterForm.propTypes = {
 
 RegisterForm.defaultProps = {
   userSignupRequest: f => f
+}
+
+RegisterForm.contextTypes = {
+  router: PropTypes.object.isRequired
 }
 
 export default RegisterForm;
