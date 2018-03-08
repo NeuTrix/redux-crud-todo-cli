@@ -1,45 +1,53 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 import { 
   Col, ControlLabel, Form, FormControl,
   FormGroup, HelpBlock, Row 
 } from 'react-bootstrap';
 
-const options = {
-	label, 
-	name, 
-	onChange, 
-	placeholder, 
-	type 
-}
-
 const style = { margin: 15 }
 const styleErr = { color: 'red' }
 
 // +++++++++   +++++++++ 
 
-const TextFieldGroup = (options) => {
+const TextFieldGroup = ({ errors, label, name, onChange, placeholder, type }) => {
 
 	 <Col style = { style } >
 
-		<ControlLabel> { label } </ControlLabel>
+		 <div className = { classnames('form-group', { 'has-error': errors })} >
 
-		<FormControl
-			name =  { name }
-			placeholder =  { `Enter your ${ label }` }
-			type =  { type }
-			onChange =  { onChange }
-		/>
+			<ControlLabel> { label } </ControlLabel>
 
-		<FormControl.Feedback />
+			<FormControl
+				name =  { name }
+				placeholder =  { `Enter your ${ label }` }
+				type =  { type }
+				onChange =  { onChange }
+			/>
 
-		{ errors &&  
-			<HelpBlock style = { styleErr } > 
-				{errors} 
-			</HelpBlock>
-		}
+			<FormControl.Feedback />
 
+			{ errors &&  
+				<HelpBlock style = { styleErr } > {errors} </HelpBlock> 
+			}
+
+		</div>
 	</Col>
-
 }
+
+TextFieldGroup.propTypes = {
+	errors: PropTypes.string.isRequired,
+	label: PropTypes.string.isRequired,
+	name: PropTypes.string.isRequired,
+	placeholder: PropTypes.string.isRequired,
+	type: PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired,
+}
+
+TextFieldGroup.defaulProps = {
+	type: 'text',
+	onChange: f => f
+}
+
