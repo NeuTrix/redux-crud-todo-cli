@@ -13,7 +13,9 @@ import { startState } from '../actions/readActions';
 
 class App extends Component {
 
-	
+	componentDidMount() {
+		this.props.startApp()
+	}	
 
 	render() {
 		
