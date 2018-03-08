@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import RegisterForm from './RegisterForm';
-import { Col, Grid, PageHeader, Row } from 'react-bootstrap';
+import { Col, Grid, Row } from 'react-bootstrap';
 import { userSignupRequest } from '../../actions/signupActions'
 
 class RegisterPage extends Component {

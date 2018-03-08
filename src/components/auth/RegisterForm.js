@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classname from 'classnames';
+import validateInput from '../../helpers/signupValidator'
 import { 
   Button, Col, ControlLabel, Form, FormControl,
   FormGroup, HelpBlock, PageHeader, Row 
@@ -30,10 +30,10 @@ class RegisterForm extends Component {
   }
 
   isValid(){
-    const { errors, isValid }  validateInput(this.state);
+    const { errors, isValid } = validateInput(this.state);
 
     if(!isValid) {
-      this.state({ errors })
+      this.state({ errors });
     }
     return isValid
   }
@@ -52,8 +52,8 @@ class RegisterForm extends Component {
 
   render() {
     const { errors } = this.state;
-    const style = { margin: 15 }
-    const styleErr = { color: 'red' }
+   const style = { margin: 15 }
+  const styleErr = { color: 'red' }
 
     return (
       <Form  onSubmit = { this.onSubmit } >
@@ -85,24 +85,7 @@ class RegisterForm extends Component {
               }
             </Col>
 
-           <Col style = { style } >
-              <ControlLabel>
-                Email 
-              </ControlLabel>
-
-              <FormControl
-                name = 'email'
-                type="email"
-                label="Email address"
-                placeholder="Enter email address"
-                onChange={ this.onChange }
-              />
-              <FormControl.Feedback />
-               <FormControl.Feedback />
-              { errors.email && 
-                <HelpBlock style = { styleErr } > {errors.email} </HelpBlock>
-              }
-            </Col>
+          
 
             <Col style = { style } >
               <FormControl
@@ -112,7 +95,6 @@ class RegisterForm extends Component {
                 placeholder="Confirm email address"
                 onChange={ this.onChange }
               />
-              <FormControl.Feedback />
                <FormControl.Feedback />
               { errors.emailConfirm && 
                 <HelpBlock style = { styleErr } > {errors.emailConfirm} </HelpBlock>
@@ -133,7 +115,6 @@ class RegisterForm extends Component {
                 placeholder="Enter your password"
                 onChange={this.onChange}
                 />
-              <FormControl.Feedback />
                <FormControl.Feedback />
               { errors.password && 
                 <HelpBlock style = { styleErr } > {errors.password} </HelpBlock>
@@ -156,7 +137,7 @@ class RegisterForm extends Component {
           </Row>
         </FormGroup>
 
-        <Button disable = { this.state.isLoading } type="submit" bsStyle = 'primary' >
+        <Button disable = { this.state.isLoading.toString() } type="submit" bsStyle = 'primary' >
           Sign Up
         </Button> 
         

@@ -2,8 +2,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TodoTitleBar from './TodoTitleBar';
-import normalizeDate from '../myFunctions/normalizeDate';
-import { Col, Button, Form, FormControl, Grid, Row } from 'react-bootstrap';
+import normalizeDate from '../helpers/normalizeDate';
+import { Col, Button,  Form, FormControl, Grid, Row } from 'react-bootstrap';
 
 const TodoForm = (props) => {
 	let _currentDate = normalizeDate(new Date()); // formatted date

@@ -41,7 +41,8 @@
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^5.0.0",
     "redux-thunk": "^2.2.0",
-    "shortid": "^2.2.8"
+    "shortid": "^2.2.8",
+    "validator": "^9.4.1"
   },
   "devDependencies": {
     "babel-jest": "^22.0.4",
