@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import RegisterForm from './RegisterForm';
 import { Col, Grid, Row } from 'react-bootstrap';
 import { userSignupRequest } from '../../actions/signupActions'
+import { addFlashMessage } from '../../actions/flashActions'
 
 class RegisterPage extends Component {
 
@@ -15,7 +16,7 @@ class RegisterPage extends Component {
       border: '2px solid steelblue' 
     }
 
-    const { userSignupRequest } = this.props;
+    const { userSignupRequest, addFlashMessage } = this.props;
 
     return (
 
@@ -29,8 +30,9 @@ class RegisterPage extends Component {
           style = { style }
           >
             <RegisterForm 
-
-            userSignupRequest = { userSignupRequest } />
+            userSignupRequest = { userSignupRequest } 
+            addFlashMessage = { addFlashMessage } 
+            />
           </Col>
         </Row>
       </Grid>
@@ -39,11 +41,13 @@ class RegisterPage extends Component {
 }
 
 RegisterPage.propTypes = {
-  userSignupRequest: PropTypes.func.isRequired
+  userSignupRequest: PropTypes.func.isRequired,
+  addFlashMessage: PropTypes.func.isRequired
 }
 
 RegisterPage.defaultProps = {
-  userSignupRequest: f => f
+  userSignupRequest: f => f,
+  addFlashMessage: f => f
 }
 
-export default connect(null, { userSignupRequest })(RegisterPage);
+export default connect(null, { userSignupRequest, addFlashMessage })(RegisterPage);
