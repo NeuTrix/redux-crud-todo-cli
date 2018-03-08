@@ -16,6 +16,7 @@ class RegisterPage extends Component {
       border: '2px solid steelblue' 
     }
 
+    // deconstruction
     const { userSignupRequest, addFlashMessage } = this.props;
 
     return (

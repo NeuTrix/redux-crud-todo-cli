@@ -1,34 +1,26 @@
 // import action constants- allows JS to throw spelling errors
-import {
-	CREATE_IS_POSTING,
-	CREATE_HAS_SUCCEEDED,
-	CREATE_HAS_ERRORED,
-} from '../actions/createActions';
+import { ADD_FLASH_MESSAGE } from '../actions/typeConstants';
+import shortid from 'shortid';
 
-let initialState = {
-	createIsPosting: false,
-	createHasSucceeded: false,
-	createHasErrored: false
-}; 
-
-export const createReducer = (state = [], action = {}) => {
+export const flashMessages = (state = [], action = {}) => {
 
 	let payload = action.payload;
 
 	switch(action.type) {
 
-	/*case CREATE_IS_POSTING:
-		return {...state, ...{createIsPosting:payload.status}};
+	case ADD_FLASH_MESSAGE:
+		return [
+			...state, 
+			{ 
+				id: shortid.generate(),
+				type:	payload.message.type,
+				text: payload.message.text 
+			}
+		]
 	
-	case CREATE_HAS_SUCCEEDED:
-		return {...state, ...{createHasSucceeded:payload.status}};
-	
-	case CREATE_HAS_ERRORED:
-		return {...state, ...{createHasErrored:payload.status}};
-*/
 	default:
 		return state;
 	}
 };
 	
-export default createReducer;
+export default flashMessages;
