@@ -5,7 +5,7 @@ import apiReducer from './apiReducer';
 import createReducer from './createReducer';
 import deleteReducer from './deleteReducer';
 import editReducer from './editReducer';
-import flashMessages from './flashMessagesReducer'
+import flashMessages from './flashMessages'
 
 const todoApp = combineReducers({
 	// no need to provid a key/val pair if same names 
@@ -14,7 +14,7 @@ const todoApp = combineReducers({
 	createApi: createReducer,
 	deleteApi: deleteReducer,
 	editApi: editReducer,
-	flashMessages: flashMessagesReducer,
+	flashMessages: flashMessages
 });
 
 export default todoApp;
