@@ -39,19 +39,22 @@ class RegisterForm extends Component {
 
   render() {
     const { errors } = this.state;
+    const style = {
+      margin: 15
+    }
 
     return (
       <Form  onSubmit = { this.onSubmit } >
         <FormGroup>
           <Row>
-            <Col >
+            <Col style = { style } >
               <PageHeader> Registration </PageHeader>
             </Col>
             <Col>
             </Col>
           </Row>
           <Row>
-            <Col style = { { margin: 15 } }>
+            <Col style = { style } >
               <ControlLabel>
                 Username 
               </ControlLabel>
@@ -70,7 +73,7 @@ class RegisterForm extends Component {
               }
             </Col>
 
-           <Col style = { { margin: 15 } }>
+           <Col style = { style } >
               <ControlLabel>
                 Email 
               </ControlLabel>
@@ -89,7 +92,7 @@ class RegisterForm extends Component {
               }
             </Col>
 
-            <Col style = { { margin: 15 } }>
+            <Col style = { style } >
               <FormControl
                 type="email"
                 name = 'emailConfirm'
@@ -106,7 +109,7 @@ class RegisterForm extends Component {
           </Row>
 
           <Row>
-            <Col style = { { margin: 15 } }>
+            <Col style = { style } >
               <ControlLabel >
                 Password
               </ControlLabel>
@@ -125,7 +128,7 @@ class RegisterForm extends Component {
               }
             </Col>
 
-            <Col style = { { margin: 15 } }>
+            <Col style = { style } >
                <FormControl 
                 type="password" 
                 name = "passwordConfirm"

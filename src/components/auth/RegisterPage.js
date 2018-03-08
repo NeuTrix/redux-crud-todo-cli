@@ -9,6 +9,12 @@ class RegisterPage extends Component {
 
   render () {
 
+    const style = { 
+      backgroundColor: 'aliceblue', 
+      padding: 25,
+      border: '2px solid steelblue' 
+    }
+
     const { userSignupRequest } = this.props;
 
     return (
@@ -20,7 +26,7 @@ class RegisterPage extends Component {
         <Row>
           <Col
           md = { 4 } mdoffset = { 4 } 
-          style = {{backgroundColor: 'lime'}}
+          style = { style }
           >
             <RegisterForm 
 
