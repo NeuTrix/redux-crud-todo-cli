@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { apiCreate } from './apiAddress'
 
 import { addTodo } from './todoActions';
 
@@ -30,6 +31,7 @@ export function createIsPosting (bool)  {
 export function createTodo (data) {
 
  	let api = 'https://redux-todo-api.herokuapp.com/api/todos'
+ 	// let api = apiCreate()
 
 	return (dispatch) => {
 		let newTodo; // the newly created todo item

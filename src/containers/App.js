@@ -13,6 +13,8 @@ import { startState } from '../actions/readActions';
 
 class App extends Component {
 
+	
+
 	render() {
 		
 		const HomePage = (
