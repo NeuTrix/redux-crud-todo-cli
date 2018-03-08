@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import validateInput from '../../helpers/signupValidator'
 import TextFieldGroup from './TextFieldGroup'
-
-import { 
-  Button, Col, ControlLabel, Form, FormControl,
-  FormGroup, HelpBlock, PageHeader, Row 
-} from 'react-bootstrap';
+import { Button, Col, Form, PageHeader, Row } from 'react-bootstrap';
 
 class RegisterForm extends Component {
 
