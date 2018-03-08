@@ -44,6 +44,10 @@ class RegisterForm extends Component {
       this.props.userSignupRequest(this.state)
         .then( 
           () => { 
+            this.props.addFlashMessage({
+              type: 'success',
+              text: 'You have successfully registered. Welcome!'
+            })
             this.context.router.history.push('/'); 
           }, 
           (err) => this.setState({ 
@@ -121,11 +125,13 @@ class RegisterForm extends Component {
 };
 
 RegisterForm.propTypes = {
-  userSignupRequest: PropTypes.func.isRequired
+  userSignupRequest: PropTypes.func.isRequired,
+  addFlashMessage: PropTypes.func.isRequired
 }
 
 RegisterForm.defaultProps = {
   userSignupRequest: f => f
+  addFlashMessage: f => f
 }
 
 RegisterForm.contextTypes = {
