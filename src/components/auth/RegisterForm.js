@@ -33,7 +33,6 @@ class RegisterForm extends Component {
 
   isValid(){
     const { errors, isValid } = validateInput(this.state);
-
     if(!isValid) {
       this.state({ errors });
     }
@@ -53,97 +52,67 @@ class RegisterForm extends Component {
   }
 
   render() {
+    
     const { errors } = this.state;
-   const style = { margin: 15 }
-  const styleErr = { color: 'red' }
+    const style = { margin: 15 }
 
     return (
-      <Form  onSubmit = { this.onSubmit } >
-        <FormGroup>
-          <Row>
-            <Col style = { style } >
-              <PageHeader> Registration </PageHeader>
-            </Col>
-            <Col>
-            </Col>
-          </Row> 
-          <Row>
-            <Col style = { style } >
-              <ControlLabel>
-                Username 
-              </ControlLabel>
-
-              <FormControl
-                name = 'username'
-                type="text"
-                label="Username"
-                placeholder="Enter username"
-                xxx={ this.state.xxx }
-                onChange={ this.onChange }
-              />
-              <FormControl.Feedback />
-              { errors.username && 
-                <HelpBlock style = { styleErr } > {errors.username} </HelpBlock>
-              }
-            </Col>
-
-          
-
-            <Col style = { style } >
-              <FormControl
-                type="email"
-                name = 'emailConfirm'
-                label="Email Confirm"
-                placeholder="Confirm email address"
-                onChange={ this.onChange }
-              />
-               <FormControl.Feedback />
-              { errors.emailConfirm && 
-                <HelpBlock style = { styleErr } > {errors.emailConfirm} </HelpBlock>
-              }
-            </Col>
-          </Row>
-
-          <Row>
-            <Col style = { style } >
-              <ControlLabel >
-                Password
-              </ControlLabel>
-
-               <FormControl 
-                type="password" 
-                name = "password"
-                label="Password" 
-                placeholder="Enter your password"
-                onChange={this.onChange}
-                />
-               <FormControl.Feedback />
-              { errors.password && 
-                <HelpBlock style = { styleErr } > {errors.password} </HelpBlock>
-              }
-            </Col>
-
-            <Col style = { style } >
-               <FormControl 
-                type="password" 
-                name = "passwordConfirm"
-                label="Password Confirm" 
-                placeholder="Confirm your password"
-                onChange={this.onChange}
-                />
-              <FormControl.Feedback />
-              { errors.passwordConfirm && 
-                <HelpBlock style = { styleErr } > {errors.passwordConfirm} </HelpBlock>
-              }
-            </Col>
-          </Row>
-        </FormGroup>
-
-        <Button disable = { this.state.isLoading.toString() } type="submit" bsStyle = 'primary' >
-          Sign Up
-        </Button> 
-        
-      </Form>
+      <Row>
+        <Col style = { style } >
+          <PageHeader> Registration </PageHeader>
+        </Col>
+        <Col> 
+          <Form  onSubmit = { this.onSubmit } >
+            <TextFieldGroup 
+              errors = { errors.username }
+              label = 'Username' 
+              name = 'username'
+              onChange = { this.onChange }
+              placeholder = 'enter a username'
+              type = 'text'
+              value = { this.state.username}
+            />
+            <TextFieldGroup 
+              errors = { errors.email }
+              label = 'Email' 
+              name = 'email'
+              onChange = { this.onChange }
+              placeholder = 'enter your email address'
+              type = 'email'
+              value = { this.state.email}
+            />
+            <TextFieldGroup 
+              errors = { errors.emailConfirm }
+              name = 'emailConfirm'
+              placeholder = 'confirm your email address'
+              onChange = { this.onChange }
+              type = 'email'
+              value = { this.state.emailConfirm}
+            />
+            <TextFieldGroup 
+              errors = { errors.password }
+              label = 'Password' 
+              name = 'password'
+              onChange = { this.onChange }
+              placeholder = 'enter your password'
+              type = 'password'
+              value = { this.state.password}
+            />
+            <TextFieldGroup 
+              errors = { errors.passwordConfirm }
+              label = 'Confirm Password' 
+              name = 'passwordConfirm'
+              placeholder = 'confirm your password'
+              onChange = { this.onChange }
+              type = 'password'
+              value = { this.state.passwordConfirm}
+            />
+            <Button disable = { this.state.isLoading.toString() } type = 'submit' bsStyle = 'primary' >
+              Sign Up
+            </Button> 
+          </Form>
+        </Col> 
+      </Row> 
     )
   };
 };

@@ -25,8 +25,7 @@ class RegisterPage extends Component {
         
         <Row>
           <Col
-          sm = { 4 } smoffset = { 4 } 
-          lg = { 4 } lgoffset = { 4 } 
+          md = { 4 } mdoffset = { 4 } 
           style = { style }
           >
             <RegisterForm 
