@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import validateInput from '../../helpers/signupValidator'
+import validateInput from '../../helpers/loginValidator'
 import TextFieldGroup from './TextFieldGroup'
 import { Button, Col, Form, PageHeader, Row } from 'react-bootstrap';
 
@@ -24,7 +24,7 @@ class LoginForm extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  isValid(){
+  isValid() {
     const { errors, isValid } = validateInput(this.state);
     if(!isValid) {
       this.setState({ errors });
@@ -37,12 +37,12 @@ class LoginForm extends Component {
 
     if (this.isValid()) {
       this.setState({ errors: { }, isLoading: true }); // reset state
-      this.props.userSignupRequest(this.state)
+      this.props.userLoginRequest(this.state)
         .then( 
           () => { 
             this.props.addFlashMessage({
               type: 'success',
-              text: 'You have successfully registered. Welcome!'
+              text: ' Welcome! You have successfully logged in.'
             })
             this.context.router.history.push('/'); 
           }, 
@@ -99,12 +99,12 @@ class LoginForm extends Component {
 };
 
 LoginForm.propTypes = {
-  userSignupRequest: PropTypes.func.isRequired,
+  userLoginRequest: PropTypes.func.isRequired,
   addFlashMessage: PropTypes.func.isRequired
 }
 
 LoginForm.defaultProps = {
-  userSignupRequest: f => f,
+  userLoginRequest: f => f,
   addFlashMessage: f => f
 }
 
