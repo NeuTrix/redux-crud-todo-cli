@@ -18,12 +18,9 @@ class FlashMessage extends Component {
 	}
 };
 
-
 FlashMessage.propTypes = {
 	message: PropTypes.object.isRequired
 };
-
-
 
 export default FlashMessage;
 

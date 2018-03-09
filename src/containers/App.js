@@ -8,7 +8,7 @@ import RegisterPage from '../components/auth/RegisterPage';
 import { connect } from 'react-redux';
 import { createTodo } from '../actions/createActions';
 import { Route } from 'react-router-dom';
-import { Grid, Row } from 'react-bootstrap'
+import { Col, Grid, Row } from 'react-bootstrap'
 import { startState } from '../actions/readActions';
 import FlashMessageList from '../components/flash/FlashMessageList'
 
@@ -29,18 +29,20 @@ class App extends Component {
 
 		return (
 			<Grid>
-
 				<Row>
 					<Route path = '/' component = { Header } />
 				</Row>
 
-				<FlashMessageList>
-				</FlashMessageList>
-
 				<Row style = { { paddingTop: 60 } } >
+					<Col>
+						<FlashMessageList/>
+					</Col>
+
+					<Col>
 					<Route exact path = '/' render = { (props) => HomePage } />
 					<Route path = '/login' component = { Login } />
 					<Route path = '/register' component = { RegisterPage } />
+					</Col>
 				</Row>
 				
 					{ this.props.children }
