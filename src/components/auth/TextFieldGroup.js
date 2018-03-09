@@ -12,7 +12,7 @@ const TextFieldGroup = ({ errors, label, name, onChange, placeholder, type, valu
 	return (
 		 <Col style = { style } >
 
-			 <div className = { classnames('form-group', { 'has-error': errors })} >
+			 <div className = { classnames('form-group', { 'has-error': errors }) } >
 
 				<ControlLabel> { label } </ControlLabel>
 
