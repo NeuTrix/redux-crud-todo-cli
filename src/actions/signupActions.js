@@ -6,7 +6,7 @@ export function userSignupRequest (userData) {
 	// let api = 'https://redux-todo-api.herokuapp.com/api/users'
 	
 	return dispatch => {
-		console.log("working")
+		// console.log("working")
 		return axios.post(api, userData);
 	}
 }
