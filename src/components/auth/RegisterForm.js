@@ -76,7 +76,7 @@ class RegisterForm extends Component {
               onChange = { this.onChange }
               placeholder = 'enter a username'
               type = 'text'
-              value = { this.state.username}
+              value = { this.state.username }
             />
             <TextFieldGroup 
               errors = { errors.email }
@@ -85,7 +85,7 @@ class RegisterForm extends Component {
               onChange = { this.onChange }
               placeholder = 'enter your email address'
               type = 'email'
-              value = { this.state.email}
+              value = { this.state.email }
             />
             <TextFieldGroup 
               errors = { errors.emailConfirm }
@@ -93,7 +93,7 @@ class RegisterForm extends Component {
               placeholder = 'confirm your email address'
               onChange = { this.onChange }
               type = 'email'
-              value = { this.state.emailConfirm}
+              value = { this.state.emailConfirm }
             />
             <TextFieldGroup 
               errors = { errors.password }
@@ -102,7 +102,7 @@ class RegisterForm extends Component {
               onChange = { this.onChange }
               placeholder = 'enter your password'
               type = 'password'
-              value = { this.state.password}
+              value = { this.state.password }
             />
             <TextFieldGroup 
               errors = { errors.passwordConfirm }
@@ -111,7 +111,7 @@ class RegisterForm extends Component {
               placeholder = 'confirm your password'
               onChange = { this.onChange }
               type = 'password'
-              value = { this.state.passwordConfirm}
+              value = { this.state.passwordConfirm } 
             />
             <Button disable = { this.state.isLoading.toString() } type = 'submit' bsStyle = 'primary' >
               Sign Up

@@ -6,7 +6,7 @@ import { Col, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap';
 
 const TextFieldGroup = ({ errors, label, name, onChange, placeholder, type, value }) => {
 
-	const style = { margin: 10 }
+	const style = { margin: 0 }
 	const styleErr = { color: 'red' }
 
 	return (

@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import RegisterForm from './RegisterForm';
+import LoginForm from './LoginForm';
 import { Col, Grid, Row } from 'react-bootstrap';
 import { userSignupRequest } from '../../actions/signupActions'
 import { addFlashMessage } from '../../actions/flashActions'
 
-class RegisterPage extends Component {
+class LoginPage extends Component {
 
   render () {
 
     const style = { 
-      backgroundColor: 'aliceblue', 
+      backgroundColor: '#ccffcc', 
       padding: 25,
-      border: '2px solid steelblue' 
+      border: '2px solid darkgreen' 
     }
 
     // deconstruction
@@ -30,7 +30,7 @@ class RegisterPage extends Component {
           md = { 4 } mdoffset = { 4 } 
           style = { style }
           >
-            <RegisterForm 
+            <LoginForm 
             userSignupRequest = { userSignupRequest } 
             addFlashMessage = { addFlashMessage } 
             />
@@ -41,14 +41,14 @@ class RegisterPage extends Component {
   }
 }
 
-RegisterPage.propTypes = {
+LoginPage.propTypes = {
   userSignupRequest: PropTypes.func.isRequired,
   addFlashMessage: PropTypes.func.isRequired
 }
 
-RegisterPage.defaultProps = {
+LoginPage.defaultProps = {
   userSignupRequest: f => f,
   addFlashMessage: f => f
 }
 
-export default connect(null, { userSignupRequest, addFlashMessage })(RegisterPage);
+export default connect(null, { userSignupRequest, addFlashMessage })(LoginPage);

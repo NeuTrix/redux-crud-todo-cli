@@ -56,13 +56,13 @@ class LoginForm extends Component {
 
   render() {
     
-    const { errors } = this.state;
+    const { errors, identifier, password, isLoading } = this.state;
     const style = { margin: 15 }
 
     return (
       <Row>
         <Col style = { style } >
-          <PageHeader> Registration </PageHeader>
+          <PageHeader> Login </PageHeader>
         </Col>
         <Col> 
           <Form  onSubmit = { this.onSubmit } >
@@ -74,7 +74,7 @@ class LoginForm extends Component {
               onChange = { this.onChange }
               placeholder = 'enter a username -or- email'
               type = 'text'
-              value = { this.state.identifier}
+              value = { identifier }
             />
            
             <TextFieldGroup 
@@ -84,10 +84,10 @@ class LoginForm extends Component {
               onChange = { this.onChange }
               placeholder = 'enter your password'
               type = 'password'
-              value = { this.state.password}
+              value = { password }
             />
             
-            <Button disable = { this.state.isLoading.toString() } type = 'submit' bsStyle = 'primary' >
+            <Button disable = { isLoading.toString() } type = 'submit' bsStyle = 'success' >
               Sign Up
             </Button> 
 
