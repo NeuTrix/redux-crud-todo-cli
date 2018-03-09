@@ -41,8 +41,7 @@ class RegisterForm extends Component {
     if (this.isValid()) {
       this.setState({ errors: { }, isLoading: true }); // reset state
       this.props.userSignupRequest(this.state)
-        .then( 
-          () => { 
+        .then(() => { 
             this.props.addFlashMessage({
               type: 'success',
               text: ' Welcome! You have successfully Registered.'
@@ -53,7 +52,7 @@ class RegisterForm extends Component {
             errors: err.response.data, 
             isLoading: false 
           })
-        );
+        )
     }
   }
 
