@@ -38,8 +38,7 @@ class LoginForm extends Component {
     if (this.isValid()) {
       this.setState({ errors: { }, isLoading: true }); // reset state
       this.props.userLoginRequest(this.state)
-        .then( 
-          () => { 
+        .then(() => { 
             this.props.addFlashMessage({
               type: 'success',
               text: ' Welcome! You have successfully logged in.'
