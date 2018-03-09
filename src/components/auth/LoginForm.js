@@ -62,7 +62,7 @@ class LoginForm extends Component {
     return (
       <Row>
         <Col style = { style } >
-          <PageHeader> Login </PageHeader>
+          <PageHeader> Sign In </PageHeader>
         </Col>
         <Col> 
           <Form  onSubmit = { this.onSubmit } >
@@ -88,7 +88,7 @@ class LoginForm extends Component {
             />
             
             <Button disable = { isLoading.toString() } type = 'submit' bsStyle = 'success' >
-              Sign Up
+              Sign In
             </Button> 
 
           </Form>

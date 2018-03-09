@@ -44,7 +44,7 @@ const Header = (props) => {
 
 				<Nav pullRight>
 					<IndexLinkContainer to = '/login' style = { style } >
-						<NavItem > Login </NavItem>
+						<NavItem > Sign In </NavItem>
 					</IndexLinkContainer>
 
 					<IndexLinkContainer to = '/register' style = { style }>
