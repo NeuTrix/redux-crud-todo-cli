@@ -5,7 +5,6 @@ import {
 import shortid from 'shortid';
 import findIndex from 'lodash/findIndex';
 
-
 export const flashMessages = (state = [], action = {}) => {
 
 	let payload = action.payload;
