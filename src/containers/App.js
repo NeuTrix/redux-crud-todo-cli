@@ -8,9 +8,9 @@ import RegisterPage from '../components/auth/RegisterPage';
 import { connect } from 'react-redux';
 import { createTodo } from '../actions/createActions';
 import { Route } from 'react-router-dom';
-import { Col, Grid, Row } from 'react-bootstrap'
 import { startState } from '../actions/readActions';
 import FlashMessageList from '../components/flash/FlashMessageList'
+import { Col, Grid, Row } from 'react-bootstrap'
 
 class App extends Component {
 

@@ -1,6 +1,10 @@
-// import action constants- allows JS to throw spelling errors
-import { ADD_FLASH_MESSAGE } from '../actions/typeConstants';
+import { 
+	ADD_FLASH_MESSAGE, 
+	DELETE_FLASH_MESSAGE 
+} from '../actions/typeConstants';
 import shortid from 'shortid';
+import findIndex from 'lodash/findIndex';
+
 
 export const flashMessages = (state = [], action = {}) => {
 
@@ -16,7 +20,17 @@ export const flashMessages = (state = [], action = {}) => {
 				type:	payload.message.type,
 				text: payload.message.text 
 			}
-		]
+		];
+
+	case DELETE_FLASH_MESSAGE:
+		const index = findIndex(state, { id: payload.id })
+		if (index >= 0) {
+			return [
+				...state.slice(0, index),
+				...state.slice(index + 1)
+			]
+		}
+		return state;
 	
 	default:
 		return state;
