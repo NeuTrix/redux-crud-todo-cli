@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import LoginForm from './LoginForm';
 import { Col, Grid, Row } from 'react-bootstrap';
-// +++++++++ FIX  +++++++++ 
 import { userSignupRequest } from '../../actions/signupActions'
 import { userLoginRequest } from '../../actions/loginActions'
-// +++++++++ FIX  +++++++++ 
 import { addFlashMessage } from '../../actions/flashActions'
 
 class LoginPage extends Component {
