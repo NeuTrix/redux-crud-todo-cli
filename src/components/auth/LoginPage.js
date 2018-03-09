@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import LoginForm from './LoginForm';
 import { Col, Grid, Row } from 'react-bootstrap';
+// +++++++++ FIX  +++++++++ 
 import { userSignupRequest } from '../../actions/signupActions'
+// +++++++++ FIX  +++++++++ 
 import { addFlashMessage } from '../../actions/flashActions'
 
 class LoginPage extends Component {
@@ -20,23 +22,16 @@ class LoginPage extends Component {
     const { userSignupRequest, addFlashMessage } = this.props;
 
     return (
-
-      <Grid 
-        onSubmit = { this.onSubmit }
-      >
-        
-        <Row>
-          <Col
-          md = { 4 } mdoffset = { 4 } 
-          style = { style }
-          >
-            <LoginForm 
+    <Grid >
+      <Row>
+        <Col md = { 4 } mdoffset = { 4 }  style = { style } >
+          <LoginForm 
             userSignupRequest = { userSignupRequest } 
             addFlashMessage = { addFlashMessage } 
-            />
-          </Col>
-        </Row>
-      </Grid>
+          />
+        </Col>
+      </Row>
+    </Grid>
     );
   }
 }
