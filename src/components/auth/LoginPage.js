@@ -4,10 +4,8 @@ import { connect } from 'react-redux';
 import LoginForm from './LoginForm';
 import { Col, Grid, Row } from 'react-bootstrap';
 import { userSignupRequest } from '../../actions/signupActions'
-// import { userLoginRequest } from '../../actions/loginActions'
+import { userLoginRequest } from '../../actions/loginActions'
 import { addFlashMessage } from '../../actions/flashActions'
-
-let userLoginRequest
 
 class LoginPage extends Component {
 
