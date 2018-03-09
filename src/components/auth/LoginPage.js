@@ -5,6 +5,7 @@ import LoginForm from './LoginForm';
 import { Col, Grid, Row } from 'react-bootstrap';
 // +++++++++ FIX  +++++++++ 
 import { userSignupRequest } from '../../actions/signupActions'
+import { userLoginRequest } from '../../actions/loginActions'
 // +++++++++ FIX  +++++++++ 
 import { addFlashMessage } from '../../actions/flashActions'
 
@@ -19,7 +20,7 @@ class LoginPage extends Component {
     }
 
     // deconstruction
-    const { userSignupRequest, addFlashMessage } = this.props;
+    const { userSignupRequest, userLoginRequest,addFlashMessage } = this.props;
 
     return (
     <Grid >
@@ -27,6 +28,7 @@ class LoginPage extends Component {
         <Col md = { 4 } mdoffset = { 4 }  style = { style } >
           <LoginForm 
             userSignupRequest = { userSignupRequest } 
+            userLoginRequest = { userLoginRequest } 
             addFlashMessage = { addFlashMessage } 
           />
         </Col>
@@ -38,12 +40,14 @@ class LoginPage extends Component {
 
 LoginPage.propTypes = {
   userSignupRequest: PropTypes.func.isRequired,
+  userLoginRequest: PropTypes.func.isRequired,
   addFlashMessage: PropTypes.func.isRequired
 }
 
 LoginPage.defaultProps = {
   userSignupRequest: f => f,
+  userLoginRequest: f => f,
   addFlashMessage: f => f
 }
 
-export default connect(null, { userSignupRequest, addFlashMessage })(LoginPage);
+export default connect(null, { userSignupRequest, userLoginRequest, addFlashMessage })(LoginPage);
