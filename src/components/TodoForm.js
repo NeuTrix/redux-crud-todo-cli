@@ -32,8 +32,8 @@ const TodoForm = (props) => {
 
 	const styleTop = {
 		backgroundColor: 'lightblue',
-		padding: 3,
-		margin: 10,
+		padding: 5,
+		marginBottom: 10,
 	};
 
 	const styleField = {
