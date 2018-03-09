@@ -26,15 +26,19 @@ const TodoForm = (props) => {
 
 	// +++++++++ Styling  
 	const spacing = { 
-		xs: { form: 12, rank: 3, date: 5, addBtn: 2, resetBtn: 2 }, 
-		sm: { form:5, rank: 2, date: 3, addBtn: 1, resetBtn: 1 } 
+		xs: { form: 12, rank: 3, date: 4, addBtn: 2, resetBtn: 2 }, 
+		sm: { form: 4, rank: 2, date: 3, addBtn: 1, resetBtn: 1 } 
 	};
 
 	const styleTop = {
 		backgroundColor: 'lightblue',
-		padding: 10,
-		marginBottom: 10,
+		padding: 3,
+		margin: 10,
 	};
+
+	const styleField = {
+		margin: 3
+	}
 	// +++++++++ 
 
 	return (
@@ -50,6 +54,7 @@ const TodoForm = (props) => {
 			<Form onSubmit = { handleSubmit } >
 				<Row style = { styleTop }  >
 					<Col 
+						style = { styleField }
 						className = 'task' 
 						xs = { spacing.xs.form }
 						sm = { spacing.sm.form }
@@ -64,6 +69,7 @@ const TodoForm = (props) => {
 					</Col>
 
 					<Col 
+						style = { styleField }
 						className = 'rank' 
 						xs = { spacing.xs.rank }
 						sm = { spacing.sm.rank }
@@ -82,6 +88,7 @@ const TodoForm = (props) => {
 					</Col>
 
 					<Col 
+						style = { styleField }
 						className = 'date' 
 						xs = { spacing.xs.date }
 						sm = { spacing.sm.date }
@@ -96,6 +103,7 @@ const TodoForm = (props) => {
 					</Col>
 
 					<Col 
+						style = { styleField }
 						className = 'addBtn' 
 						xs = { spacing.xs.addBtn }
 						sm = { spacing.sm.addBtn }
@@ -110,6 +118,7 @@ const TodoForm = (props) => {
 					</Col>
 
 					<Col 
+						style = { styleField }
 						className = 'resetBtn' 
 						xs = { spacing.xs.resetBtn }
 						sm = { spacing.sm.resetBtn }
