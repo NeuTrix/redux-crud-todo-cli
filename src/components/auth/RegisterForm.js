@@ -27,7 +27,7 @@ class RegisterForm extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  isValid(){
+  isValid() {
     const { errors, isValid } = validateInput(this.state);
     if(!isValid) {
       this.setState({ errors });
@@ -45,7 +45,7 @@ class RegisterForm extends Component {
           () => { 
             this.props.addFlashMessage({
               type: 'success',
-              text: 'You have successfully registered. Welcome!'
+              text: ' Welcome! You have successfully Registered.'
             })
             this.context.router.history.push('/'); 
           }, 
