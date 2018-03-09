@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import { 
 	Button, 
@@ -46,7 +47,7 @@ class Login extends Component {
 
   render() {
     return (
-    <Grid md = { 4 } mdOffset = { 4 } >
+    <Grid md = { 4 } mdoffset = { 4 } >
 
       <Row>
         <Col sm = { 12} >
