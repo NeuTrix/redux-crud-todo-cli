@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { apiCreate } from './apiAddress'
 
 import { removeTodo } from './todoActions';
 
@@ -31,7 +30,6 @@ export function deleteIsPosting (bool) {
 export function deleteTodo (_id) {
  	
  	let api = 'https://redux-todo-api.herokuapp.com/api/todos'
- 	// let api = apiCreate ()
 
 	return (dispatch) => {
 		dispatch (deleteIsPosting (true));
