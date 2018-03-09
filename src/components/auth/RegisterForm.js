@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import validateInput from '../../helpers/signupValidator'
 import TextFieldGroup from './TextFieldGroup'
 import { Button, Col, Form, PageHeader, Row } from 'react-bootstrap';
-// import { browserHistory } from 'react-router'
 
 class RegisterForm extends Component {
 
