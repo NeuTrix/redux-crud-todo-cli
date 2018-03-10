@@ -38,7 +38,7 @@ class LoginForm extends Component {
     if (this.isValid()) {
       this.setState({ errors: { }, isLoading: true }); // reset state
       this.props.userLoginRequest(this.state)
-        .then(() => { 
+        /*.then(() => { 
             this.props.addFlashMessage({
               type: 'success',
               text: ' Welcome! You have successfully Loggedin.'
@@ -54,7 +54,7 @@ class LoginForm extends Component {
               errors: err.response.data, 
               isLoading: false 
             })
-        })
+        })*/
     }
   }
 
@@ -70,6 +70,12 @@ class LoginForm extends Component {
         </Col>
         <Col> 
           <Form  onSubmit = { this.onSubmit } >
+
+          { errors.form && 
+            <div className= 'alert alert-danger' > 
+              {errors.form}
+            </div>
+          }
 
             <TextFieldGroup 
               errors = { errors.identifier }
