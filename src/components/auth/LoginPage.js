@@ -1,54 +1,47 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import RegisterForm from './RegisterForm';
+import LoginForm from './LoginForm';
 import { Col, Grid, Row } from 'react-bootstrap';
-import { userSignupRequest } from '../../actions/signupActions'
+import { userLoginRequest } from '../../actions/loginActions'
 import { addFlashMessage } from '../../actions/flashActions'
 
-class RegisterPage extends Component {
+class LoginPage extends Component {
 
   render () {
 
     const style = { 
-      backgroundColor: 'aliceblue', 
+      backgroundColor: '#ccffcc', 
       padding: 25,
-      border: '2px solid steelblue' 
+      border: '2px solid darkgreen' 
     }
 
     // deconstruction
-    const { userSignupRequest, addFlashMessage } = this.props;
+    const { userLoginRequest, addFlashMessage } = this.props;
 
     return (
-
-      <Grid 
-        onSubmit = { this.onSubmit }
-      >
-        
-        <Row>
-          <Col
-          md = { 4 } mdoffset = { 4 } 
-          style = { style }
-          >
-            <RegisterForm 
-            userSignupRequest = { userSignupRequest } 
+    <Grid >
+      <Row>
+        <Col md = { 4 } mdoffset = { 4 }  style = { style } >
+          <LoginForm 
+            userLoginRequest = { userLoginRequest } 
             addFlashMessage = { addFlashMessage } 
-            />
-          </Col>
-        </Row>
-      </Grid>
+          />
+        </Col>
+      </Row>
+    </Grid>
     );
   }
 }
 
-RegisterPage.propTypes = {
-  userSignupRequest: PropTypes.func.isRequired,
+LoginPage.propTypes = {
+  userLoginRequest: PropTypes.func.isRequired,
   addFlashMessage: PropTypes.func.isRequired
 }
 
-RegisterPage.defaultProps = {
-  userSignupRequest: f => f,
+LoginPage.defaultProps = {
+  userLoginRequest: f => f,
   addFlashMessage: f => f
 }
 
-export default connect(null, { userSignupRequest, addFlashMessage })(RegisterPage);
+export default connect(null, { userLoginRequest, addFlashMessage })(LoginPage);

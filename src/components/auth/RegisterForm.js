@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import validateInput from '../../helpers/signupValidator'
 import TextFieldGroup from './TextFieldGroup'
 import { Button, Col, Form, PageHeader, Row } from 'react-bootstrap';
-// import { browserHistory } from 'react-router'
 
 class RegisterForm extends Component {
 
@@ -28,7 +27,7 @@ class RegisterForm extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  isValid(){
+  isValid() {
     const { errors, isValid } = validateInput(this.state);
     if(!isValid) {
       this.setState({ errors });
@@ -42,19 +41,23 @@ class RegisterForm extends Component {
     if (this.isValid()) {
       this.setState({ errors: { }, isLoading: true }); // reset state
       this.props.userSignupRequest(this.state)
-        .then( 
-          () => { 
+        .then((res) => { 
             this.props.addFlashMessage({
               type: 'success',
-              text: 'You have successfully registered. Welcome!'
+              text: `Welcome ${ res.data.username} ! You have successfully Registered.`
             })
             this.context.router.history.push('/'); 
           }, 
-          (err) => this.setState({ 
-            errors: err.response.data, 
-            isLoading: false 
-          })
-        );
+         (err) => {
+            this.props.addFlashMessage({
+              type: 'error',
+              text: `WARNING! Something went wrong.  Please try again:   ${ err }.`
+            });
+            this.setState({ 
+              errors: err.response.data, 
+              isLoading: false 
+            })
+        })
     }
   }
 
@@ -77,7 +80,7 @@ class RegisterForm extends Component {
               onChange = { this.onChange }
               placeholder = 'enter a username'
               type = 'text'
-              value = { this.state.username}
+              value = { this.state.username }
             />
             <TextFieldGroup 
               errors = { errors.email }
@@ -86,7 +89,7 @@ class RegisterForm extends Component {
               onChange = { this.onChange }
               placeholder = 'enter your email address'
               type = 'email'
-              value = { this.state.email}
+              value = { this.state.email }
             />
             <TextFieldGroup 
               errors = { errors.emailConfirm }
@@ -94,7 +97,7 @@ class RegisterForm extends Component {
               placeholder = 'confirm your email address'
               onChange = { this.onChange }
               type = 'email'
-              value = { this.state.emailConfirm}
+              value = { this.state.emailConfirm }
             />
             <TextFieldGroup 
               errors = { errors.password }
@@ -103,7 +106,7 @@ class RegisterForm extends Component {
               onChange = { this.onChange }
               placeholder = 'enter your password'
               type = 'password'
-              value = { this.state.password}
+              value = { this.state.password }
             />
             <TextFieldGroup 
               errors = { errors.passwordConfirm }
@@ -112,7 +115,7 @@ class RegisterForm extends Component {
               placeholder = 'confirm your password'
               onChange = { this.onChange }
               type = 'password'
-              value = { this.state.passwordConfirm}
+              value = { this.state.passwordConfirm } 
             />
             <Button disable = { this.state.isLoading.toString() } type = 'submit' bsStyle = 'primary' >
               Sign Up

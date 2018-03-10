@@ -20,19 +20,12 @@ class RegisterPage extends Component {
     const { userSignupRequest, addFlashMessage } = this.props;
 
     return (
-
-      <Grid 
-        onSubmit = { this.onSubmit }
-      >
-        
+      <Grid >
         <Row>
-          <Col
-          md = { 4 } mdoffset = { 4 } 
-          style = { style }
-          >
+          <Col md = { 4 } mdoffset = { 4 }  style = { style } >
             <RegisterForm 
-            userSignupRequest = { userSignupRequest } 
-            addFlashMessage = { addFlashMessage } 
+              userSignupRequest = { userSignupRequest } 
+              addFlashMessage = { addFlashMessage } 
             />
           </Col>
         </Row>

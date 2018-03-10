@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import TodoList from '../containers/TodoList';
 import TodoForm from '../components/TodoForm';
 import Header from '../components/Header';
-import Login from '../components/auth/Login';
+import LoginPage from '../components/auth/LoginPage';
 import RegisterPage from '../components/auth/RegisterPage';
 import { connect } from 'react-redux';
 import { createTodo } from '../actions/createActions';
@@ -40,7 +40,7 @@ class App extends Component {
 
 					<Col>
 					<Route exact path = '/' render = { (props) => HomePage } />
-					<Route path = '/login' component = { Login } />
+					<Route path = '/login' component = { LoginPage } />
 					<Route path = '/register' component = { RegisterPage } />
 					</Col>
 				</Row>
