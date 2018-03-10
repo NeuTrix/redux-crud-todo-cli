@@ -48,10 +48,21 @@ class RegisterForm extends Component {
             })
             this.context.router.history.push('/'); 
           }, 
-          (err) => this.setState({ 
+         (err) => {
+            this.props.addFlashMessage({
+              type: 'error',
+              text: `WARNING! Something went wrong.  Please try again:   ${ err }.`
+            });
+            this.setState({ 
+              errors: err.response.data, 
+              isLoading: false 
+            })
+          }
+
+        /*  (err) => this.setState({ 
             errors: err.response.data, 
             isLoading: false 
-          })
+          })*/
         )
     }
   }
