@@ -57,13 +57,7 @@ class RegisterForm extends Component {
               errors: err.response.data, 
               isLoading: false 
             })
-          }
-
-        /*  (err) => this.setState({ 
-            errors: err.response.data, 
-            isLoading: false 
-          })*/
-        )
+        })
     }
   }
 

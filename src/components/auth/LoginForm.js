@@ -38,17 +38,23 @@ class LoginForm extends Component {
     if (this.isValid()) {
       this.setState({ errors: { }, isLoading: true }); // reset state
       this.props.userLoginRequest(this.state)
-        .then(() => { 
+        .then((res) => { 
             this.props.addFlashMessage({
               type: 'success',
               text: ' Welcome! You have successfully logged in.'
-            })
+            });
             this.context.router.history.push('/'); 
           }, 
-          (err) => this.setState({ 
-            errors: err.response.data, 
-            isLoading: false 
-          })
+          (err) => {
+            this.props.addFlashMessage({
+              type: 'success',
+              text: ' Welcome! You have successfully logged in.'
+            });
+            this.setState({ 
+              errors: err.response.data, 
+              isLoading: false 
+            })
+          }
         );
     }
   }
