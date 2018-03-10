@@ -41,10 +41,10 @@ class RegisterForm extends Component {
     if (this.isValid()) {
       this.setState({ errors: { }, isLoading: true }); // reset state
       this.props.userSignupRequest(this.state)
-        .then(() => { 
+        .then((res) => { 
             this.props.addFlashMessage({
               type: 'success',
-              text: ' Welcome! You have successfully Registered.'
+              text: `Welcome ${ res.data.username} ! You have successfully Registered.`
             })
             this.context.router.history.push('/'); 
           }, 
