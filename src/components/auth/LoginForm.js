@@ -33,28 +33,20 @@ class LoginForm extends Component {
   }
 
   onSubmit(e) {
-    e.preventDefault() 
+    e.preventDefault();
 
     if (this.isValid()) {
       this.setState({ errors: { }, isLoading: true }); // reset state
       this.props.userLoginRequest(this.state)
-        /*.then(() => { 
-            this.props.addFlashMessage({
-              type: 'success',
-              text: ' Welcome! You have successfully Loggedin.'
-            })
-            this.context.router.history.push('/'); 
-          }, 
-         (err) => {
-            this.props.addFlashMessage({
-              type: 'error',
-              text: `WARNING! Something went wrong.  Please try again:   ${ err }.`
-            });
-            this.setState({ 
-              errors: err.response.data, 
-              isLoading: false 
-            })
-        })*/
+      .then(() => {
+        this.props.addFlashMessage({
+          type: 'success',
+          text: ' Welcome! You have successfully Registered.'
+        });
+        this.context.router.history.push('/');
+      },
+        (err) => { this.setState({errors: err.response.data.errors, isLoading: false})
+      });
     }
   }
 
