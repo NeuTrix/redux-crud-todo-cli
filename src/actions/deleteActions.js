@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import { baseApi } from './configApiAddress';
 import { removeTodo } from './todoActions';
 
 export const DELETE_IS_POSTING  = 'DELETE_IS_POSTING';
@@ -28,14 +28,9 @@ export function deleteIsPosting (bool) {
 }
 
 export function deleteTodo (_id) {
- 	
- 	let api = 'https://redux-todo-api.herokuapp.com/api/todos'
- 	// let api = 'http://localhost:3003/api/todos'
- 	
-
 	return (dispatch) => {
 		dispatch (deleteIsPosting (true));
-		axios.delete (`${api}/${_id}`)
+		axios.delete (`${baseApi}/${_id}`)
 			.then ((response) => {
 				if (response.status !== 200) {
 					throw Error (response.statusText);
