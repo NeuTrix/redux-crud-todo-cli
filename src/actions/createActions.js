@@ -28,10 +28,12 @@ export function createIsPosting (bool)  {
   
 export function createTodo (data) {
 
-	let api = 'http://localhost:3003/api/todos'
+	// let api = 'http://localhost:3003/api/todos'
+	let api = 'https://redux-todo-api.herokuapp.com/api/todos'
 
 	return (dispatch) => {
 		let newTodo; // the newly created todo item
+
 		dispatch (createIsPosting (true));
 		axios.post (api, data)
 			.then ((response) => {
