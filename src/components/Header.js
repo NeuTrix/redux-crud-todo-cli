@@ -24,7 +24,9 @@ const Header = (props) => {
 					<img src={logo} className="App-logo" alt="logo" />
 				</Navbar.Brand>
 				<Navbar.Brand>
-					<div to = '/todos' style = { brandStyle }> Redux-Todo </div>
+					<IndexLinkContainer to = '/' style = { style }>
+						<NavItem style = { brandStyle }> Redux-Todo </NavItem>
+					</IndexLinkContainer>
 				</Navbar.Brand>
 				<Navbar.Toggle />
 			</Navbar.Header>
