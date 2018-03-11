@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { baseApi } from './configApiAddress';
 import { addTodo } from './todoActions';
 
 export const CREATE_IS_POSTING  = 'CREATE_IS_POSTING';
@@ -29,10 +28,12 @@ export function createIsPosting (bool)  {
   
 export function createTodo (data) {
 
+	let api = 'http://localhost:3003/api/todos'
+
 	return (dispatch) => {
 		let newTodo; // the newly created todo item
 		dispatch (createIsPosting (true));
-		axios.post (`${baseApi}/api/todos`, data)
+		axios.post (api, data)
 			.then ((response) => {
 				if (response.status !== 201) {
 					throw Error (response.statusText);

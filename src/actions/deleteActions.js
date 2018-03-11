@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { baseApi } from './configApiAddress';
 import { removeTodo } from './todoActions';
 
 export const DELETE_IS_POSTING  = 'DELETE_IS_POSTING';
@@ -28,9 +27,12 @@ export function deleteIsPosting (bool) {
 }
 
 export function deleteTodo (_id) {
+
+	let api = 'http://localhost:3003/api/todos'
+
 	return (dispatch) => {
 		dispatch (deleteIsPosting (true));
-		axios.delete (`${baseApi}/${_id}`)
+		axios.delete (`${api}/${_id}`)
 			.then ((response) => {
 				if (response.status !== 200) {
 					throw Error (response.statusText);
