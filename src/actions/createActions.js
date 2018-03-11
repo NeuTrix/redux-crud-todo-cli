@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import { baseApi } from './apiAddress';
 import { addTodo } from './todoActions';
 
 export const CREATE_IS_POSTING  = 'CREATE_IS_POSTING';
@@ -29,12 +29,13 @@ export function createIsPosting (bool)  {
   
 export function createTodo (data) {
 
- 	let api = 'https://redux-todo-api.herokuapp.com/api/todos'
+ 	// let api = 'https://redux-todo-api.herokuapp.com/api/todos'
+ 	// let api = 'http://localhost:3003/api/todos'
 
 	return (dispatch) => {
 		let newTodo; // the newly created todo item
 		dispatch (createIsPosting (true));
-		axios.post (api, data)
+		axios.post (`${baseApi}/api/todos`, data)
 			.then ((response) => {
 				if (response.status !== 201) {
 					throw Error (response.statusText);
