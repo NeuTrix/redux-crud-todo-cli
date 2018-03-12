@@ -6,8 +6,12 @@ export function userLoginRequest(userData) {
 	// let api = 'https://redux-todo-api.herokuapp.com/api/auth'
 	
 	return dispatch => {
-		console.log("working")
-		return axios.post(api, userData);
+		  return axios.post(api, userData)
+			.then((res) => {
+				const token = res.data.token;
+				localStorage.setItem('jwtToken', token);
+				return res
+			})
 	}
 }
 
