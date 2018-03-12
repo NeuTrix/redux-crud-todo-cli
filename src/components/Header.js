@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from '../assets/logo.svg';
 import '../containers/App.css';
 import { IndexLinkContainer } from 'react-router-bootstrap'
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 
@@ -14,57 +15,83 @@ import { Nav, Navbar, NavItem } from 'react-bootstrap';
 	}
 
 // use fixedTop attribute to fix header in place
-const Header = (props) => {
+class Header extends Component {
 
-	return (
-		<Navbar inverse collapseOnSelect fixedTop >
+	render() {
 
-			<Navbar.Header>
-				<Navbar.Brand>
-					<img src={logo} className="App-logo" alt="logo" />
-				</Navbar.Brand>
-				<Navbar.Brand>
-					<IndexLinkContainer to = '/' style = { style }>
-						<NavItem style = { brandStyle }> Redux-Todo </NavItem>
-					</IndexLinkContainer>
-				</Navbar.Brand>
-				<Navbar.Toggle />
-			</Navbar.Header>
+		const { isAuthenticated, user } = this.props.authApi;
 
-			<Navbar.Collapse>
-				<Nav>
-					<IndexLinkContainer to = '/' style = { style }>
-						<NavItem > Home </NavItem>
-					</IndexLinkContainer>
-				</Nav>
+		const userLinks = (
+			<Nav pullRight>
+				<IndexLinkContainer to = '/logout' style = { style } >
+					<NavItem > Log Out </NavItem>
+				</IndexLinkContainer>
+			</Nav>
+		)
 
-				<Nav>
-					<IndexLinkContainer to = '/about' style = { style }>
-						<NavItem > About </NavItem>
-					</IndexLinkContainer>
-				</Nav>
+		const guestLinks = (
+			<Nav pullRight>
+				<IndexLinkContainer to = '/login' style = { style } >
+					<NavItem > Sign In </NavItem>
+				</IndexLinkContainer>
 
-				<Nav pullRight>
-					<IndexLinkContainer to = '/login' style = { style } >
-						<NavItem > Sign In </NavItem>
-					</IndexLinkContainer>
+				<IndexLinkContainer to = '/register' style = { style }>
+					<NavItem > Register </NavItem>
+				</IndexLinkContainer>
+			</Nav>
+		)
 
-					<IndexLinkContainer to = '/register' style = { style }>
-						<NavItem > Register </NavItem>
-					</IndexLinkContainer>
-				</Nav>
-			</Navbar.Collapse>
+		return(
+			<Navbar inverse collapseOnSelect fixedTop >
 
-		</Navbar>
-	);
+				<Navbar.Header>
+					<Navbar.Brand>
+						<img src={logo} className="App-logo" alt="logo" />
+					</Navbar.Brand>
+					<Navbar.Brand>
+						<IndexLinkContainer to = '/' style = { style }>
+							<NavItem style = { brandStyle }> Redux-Todo </NavItem>
+						</IndexLinkContainer>
+					</Navbar.Brand>
+					<Navbar.Toggle />
+				</Navbar.Header>
+
+				<Navbar.Collapse>
+					<Nav>
+						<IndexLinkContainer to = '/' style = { style }>
+							<NavItem > Home </NavItem>
+						</IndexLinkContainer>
+					</Nav>
+
+					<Nav>
+						<IndexLinkContainer to = '/about' style = { style }>
+							<NavItem > { isAuthenticated } </NavItem>
+						</IndexLinkContainer>
+					</Nav>
+					{ isAuthenticated ? userLinks : guestLinks }
+				</Navbar.Collapse>
+				
+			</Navbar>
+		);
+	}
 };
 
+
 Header.propTypes = {
-	location: PropTypes.object
+	authApi: PropTypes.object.isRequired
 }
 
 Header.defaultProps = {
-	location: {}
+	// authApi: false
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+	return { 
+		authApi: state.authApi,
+		user: state.authApi
+	}
+}
+
+// const mapDispatchToProps =(dispatch) => {};
+
+export default connect(mapStateToProps)(Header);

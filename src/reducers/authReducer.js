@@ -14,7 +14,7 @@ export const authReducer = (state = initialState, action = { }) => {
 
 		case SET_CURRENT_USER:
 			return {
-				isAuthenicated: !isEmpty(payload.user),
+				isAuthenticated: !isEmpty(payload.user),
 				user: payload.user
 			} 
 
