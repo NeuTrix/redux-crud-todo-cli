@@ -4,6 +4,9 @@ import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import App from './containers/App';
 import setAuthorizationToken from './components/auth/setAuthToken'
+import jwt from 'jsonwebtoken';
+import { setCurrentUser } from './actions/loginActions'
+
 
 import { Provider }  from 'react-redux';
 import store from './store/store';
@@ -11,8 +14,13 @@ import store from './store/store';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 let root = document.getElementById('root')
+let token = localStorage.jwtToken
 
-setAuthorizationToken(localStorage.jwtToken);
+if (token) {
+	setAuthorizationToken(token);
+	store.dispatch(setCurrentUser(jwt.decode(token)))
+} 
+
 
 ReactDOM.render(
 	
