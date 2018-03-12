@@ -15,6 +15,10 @@ import { Nav, Navbar, NavItem } from 'react-bootstrap';
 		color: 'whitesmoke'
 	}
 
+	const logoutStyle ={
+		color: 'lime'
+	}
+
 // use fixedTop attribute to fix header in place
 class Header extends Component {
 
@@ -30,7 +34,9 @@ class Header extends Component {
 		const userLinks = (
 			<Nav pullRight>
 				<NavItem onClick = { this.logout.bind(this)} >
-				 Log Out 
+					<span style = { logoutStyle }>
+					 Log Out 
+					</span>
 				</NavItem>
 			</Nav>
 		)
