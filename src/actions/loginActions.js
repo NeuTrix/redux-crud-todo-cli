@@ -12,6 +12,15 @@ export function setCurrentUser (user) {
 	}
 };
 
+export function logout(){
+	return dispatch => {
+		localStorage.removeItem('jwtToken');
+		setAuthorizationToken(false);
+		dispatch(setCurrentUser({}));
+		alert("You have successfully logged out.")
+	}
+}
+
 export function userLoginRequest(userData) {
 
 	let api = 'http://localhost:3003/api/auth'

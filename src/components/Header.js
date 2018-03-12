@@ -4,6 +4,7 @@ import '../containers/App.css';
 import { IndexLinkContainer } from 'react-router-bootstrap'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { logout } from '../actions/loginActions'
 
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 
@@ -17,15 +18,20 @@ import { Nav, Navbar, NavItem } from 'react-bootstrap';
 // use fixedTop attribute to fix header in place
 class Header extends Component {
 
-	render() {
+	logout(e) {
+		e.preventDefault();
+		this.props.logout();
+	}
 
+	render() {
+		
 		const { isAuthenticated, user } = this.props.authApi;
 
 		const userLinks = (
 			<Nav pullRight>
-				<IndexLinkContainer to = '/logout' style = { style } >
-					<NavItem > Log Out </NavItem>
-				</IndexLinkContainer>
+				<NavItem onClick = { this.logout.bind(this)} >
+				 Log Out 
+				</NavItem>
 			</Nav>
 		)
 
@@ -78,7 +84,8 @@ class Header extends Component {
 
 
 Header.propTypes = {
-	authApi: PropTypes.object.isRequired
+	authApi: PropTypes.object.isRequired,
+	logout: PropTypes.func.isRequired
 }
 
 Header.defaultProps = {
@@ -92,6 +99,4 @@ const mapStateToProps = (state) => {
 	}
 }
 
-// const mapDispatchToProps =(dispatch) => {};
-
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, { logout })(Header);
