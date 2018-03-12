@@ -15,6 +15,7 @@ const TodoForm = (props) => {
 		event.preventDefault();
 		props.createTodo (
 			{ 
+				
 				date: _date.value, 
 				task: _task.value, 
 				rank: _rank.value 
@@ -149,7 +150,7 @@ TodoForm.defaultProps = {
 	createTodo: f => f,
 	_date: '2020-12-31',
 	_rank: '',
-	_task: ''
+	_task: 'Default- not connected'
 };
 
 export default TodoForm;

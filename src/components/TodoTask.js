@@ -1,6 +1,7 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
 import { FormControl } from 'react-bootstrap';
+import shortid from 'shortid'
 
 class TodoTask extends Component {
 
@@ -88,7 +89,7 @@ TodoTask.defaultProps = {
 	},
 	style: {},
 	editTodo: f => f,
-	_id: 'default',
+	_id: shortid.generate() ,
 };
 
 export default TodoTask;
