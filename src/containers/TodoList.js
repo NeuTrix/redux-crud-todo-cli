@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Col, Grid, Row } from 'react-bootstrap';
 import TodoItem from '../components/TodoItem';
 import TaskCounter from '../components/TaskCounter';
+import shortid from 'shortid'
 
 class TodoList extends Component {
 	constructor (props) {
@@ -19,7 +20,7 @@ class TodoList extends Component {
 	render() {
 		let _todoArray = this.state.todoArray;
 		let todos = _todoArray.map(item => {
-			return <TodoItem key = { item._id } item = { item } />;
+			return <TodoItem key = { shortid.generate() } item = { item } />;
 		});
 
 		return (
