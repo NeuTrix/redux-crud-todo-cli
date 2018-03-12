@@ -1,5 +1,6 @@
 import axios from 'axios'
 import setAuthorizationToken from '../components/auth/setAuthToken'
+import jwt from 'jsonwebtoken'
 
 export function userLoginRequest(userData) {
 
@@ -12,6 +13,8 @@ export function userLoginRequest(userData) {
 				const token = res.data.token;
 				localStorage.setItem('jwtToken', token);
 				setAuthorizationToken(token);
+				// decode token
+				console.log('DECODE=>', jwt.decode(token));
 				return res
 			})
 	}
