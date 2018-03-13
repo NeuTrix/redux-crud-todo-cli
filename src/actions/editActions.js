@@ -12,7 +12,6 @@ export const editHasSucceeded = (bool) => {
 	};
 };
 
-
 export const editHasErrored = (bool) => {
 	return {
 		type: EDIT_HAS_ERRORED ,
@@ -35,19 +34,18 @@ export function editTodo (_id, data) {
  	// let api = 'https://redux-todo-api.herokuapp.com/api/todos'
  	
 // +++++++++ Ref +++++++++ 
-
 	return (dispatch) => {
-		let updatedTodo; // newly updated item from api
+
 		dispatch (editIsPosting(true));
+
 		axios.put (`${api}/${_id}`, data)
-			.then ((response) => {
-				if (response.status !== 200) {
-					throw Error (response.statusText);
+			.then ((res) => {
+				if (res.status !== 200) {
+					throw Error (res.statusText);
 				}	
-				updatedTodo = response.data;
+				dispatch (editItem (_id, res.data));
 			})
 			.then (() => {
-				dispatch (editItem (_id, updatedTodo));
 				dispatch (editIsPosting (false));
 				dispatch (editHasSucceeded (true));
 			})
