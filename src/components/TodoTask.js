@@ -1,6 +1,6 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
-import { Col, Button, Form, FormControl, Row } from 'react-bootstrap';
+import { Col, Button, Form, FormControl, Grid, Row } from 'react-bootstrap';
 import shortid from 'shortid'
 
 class TodoTask extends Component {
@@ -20,7 +20,7 @@ class TodoTask extends Component {
 
 		this.handleClick = this.handleClick.bind(this);
 		this.handleChange = this.handleChange.bind(this);
-		this.handleBlur = this.handleBlur.bind(this);
+		this.handleFocus = this.handleFocus.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
@@ -35,7 +35,15 @@ class TodoTask extends Component {
 
 	handleChange(e){
 		e.preventDefault()
-		// console.log(`====> Editing: ${e.target.value}!`)
+
+		let { isComplete, isEditing, editStyle, defStyle } = this.state
+
+		if (isComplete) {
+			alert(`completed is: "${isComplete}".\nPlease uncheck "completed" before continuing to edit`);
+			this.setState({ defStyle: this.props.style });
+		} else {
+			this.setState({ isEditing: true, defStyle: editStyle  });
+		}
 		this.setState({ task: e.target.value })
 	}
 
@@ -45,8 +53,9 @@ class TodoTask extends Component {
 		this.props.editTodo( _id, {task: task})
 	}
 
-	handleBlur(e){
+	handleFocus(e){
 		e.preventDefault()
+			e.target.setSelectionRange(0, e.target.value.length);
 	}
 	// handleClick (e)  {
 
@@ -70,7 +79,7 @@ class TodoTask extends Component {
 	// 	// let newt = e.target.value
 	// };
 
-	//  handleBlur (e)  {
+	//  handleFocus (e)  {
 	// 	e.preventDefault();
 	//  	let { task } = this.state
 	// 	// this.setState({ defStyle: this.props.style, isEditing: false });
@@ -81,18 +90,15 @@ class TodoTask extends Component {
 
 	render () {
 
-// +++++++++ Styling  
-	const space = { 
-		xs: { form: 10, btn: 2 }, 
-	};
+		const space = { 
+			xs: { form: 10, btn: 2 }, 
+		};
 
 		return (
 
-			<div>
+			<Grid>
 			<Row>
-						{`The state task: ${this.state.task}`}
-						{`_id: ${this.state._id}`}
-					<Form onSubmit = { this.handleSubmit } >
+				<Form onSubmit = { this.handleSubmit } >
 
 				<Col xs = { space.xs.form } >
 					<FormControl 
@@ -104,7 +110,7 @@ class TodoTask extends Component {
 						type = 'text'  
 						onClick = { this.handleClick }
 						onChange = { this.handleChange }
-						onBlur =  { this.handleBlur }
+						onFocus =  { this.handleFocus }
 					/> 
 				</Col>
 				<Col xs = { space.xs.btn } >
@@ -114,7 +120,7 @@ class TodoTask extends Component {
 				</Col>
 					</Form>
 			</Row>
-			</div>
+			</Grid>
 		);
 	}
 }
