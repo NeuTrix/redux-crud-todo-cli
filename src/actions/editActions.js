@@ -42,11 +42,13 @@ export function editTodo (_id, data) {
 			.then ((response) => {
 				if (response.status !== 200) {
 					throw Error (response.statusText);
-				}	
+				}	else {
+				dispatch (editItem (_id, updatedTodo));
+					
+				}
 				updatedTodo = response.data;
 			})
 			.then (() => {
-				dispatch (editItem (_id, updatedTodo));
 				dispatch (editIsPosting (false));
 				dispatch (editHasSucceeded (true));
 			})
