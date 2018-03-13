@@ -36,6 +36,7 @@ const isCompletedStyle = {
 	color: 'lightgrey',
 	textDecoration: 'line-through' 
 };
+
 // +++++++++ 
 
 class TodoItem extends Component {
@@ -131,13 +132,13 @@ TodoItem.propTypes = {
 
 TodoItem.defaultProps ={
 	item: { 
-		_id: 'default',
+		_id: 'Client default from TodoItem.js',
 		completed: false,
-		details: 'default',
+		details: 'Client default from TodoItem.js',
 		date: '1935-05-24',
-		owner: 'default',
-		rank: 'default',
-		task: 'default'
+		owner: 'Client default from TodoItem.js',
+		rank: 'Client default from TodoItem.js',
+		task: 'Client defaul from TodoItem.jst'
 	}, 
 };
 

@@ -8,69 +8,60 @@ class TodoTask extends Component {
 	constructor (props) {
 		super(props);
 		this.state = {
-			style: this.props.style,
-			isCompleted: this.props.item.completed,
-			isEditing: false
+			id: this.props.item._id,
+			defStyle: this.props.style,
+			isComplete: this.props.item.completed,
+			isEditing: false,
+			editStyle: { backgroundColor: 'aliceBlue', color: 'navy'}
 		};
+
+		this.handleClick = this.handleClick.bind(this);
+		this.handleChange = this.handleChange.bind(this);
+		this.handleBlur = this.handleBlur.bind(this);
 	}
 
 	componentWillReceiveProps (newProps) {
-		this.setState({ 
-			style: newProps.style,
-			isCompleted: newProps.item.completed 
-		});
+		this.setState({ defStyle: newProps.style, isComplete: newProps.item.completed });
 	}
 
+	handleClick (e)  {
+		e.preventDefault();
+		let { isComplete, isEditing, editStyle, defStyle } = this.state
+
+		if (isComplete) {
+			alert(`Current completed status is "${isComplete}".\nPlease uncheck "completed" before continuing to edit`);
+			this.setState({ defStyle: this.props.style });
+		} else {
+			this.setState({ isEditing: true, defStyle: editStyle  });
+			e.target.setSelectionRange(0, e.target.value.length);
+		}
+	};
+
+	handleChange (e)  {
+		e.preventDefault();
+		this.props.editTodo(this.props.item._id, { task: e.target.value });
+	};
+
+	 handleBlur (e)  {
+		e.preventDefault();
+		this.setState({ defStyle: this.props.style, isEditing: false });
+	};
+
+// +++++++++   +++++++++ 
+
 	render () {
-		let defaultStyle = this.props.style; // base style for component
-		let status = this.state.isCompleted; // completed status
-		let _task; // value derived from the form input
-
-		const isEditingStyle = {
-			backgroundColor: 'aliceBlue',
-			color: 'navy'
-		};
-
-		const handleClick = (event) => {
-			event.preventDefault();
-			let _task = event.target;
-
-			if (status) {
-				alert(`Current completed status is "${status}".\nPlease uncheck "completed" before continuing to edit`);
-				this.setState({ style: this.props.style });
-			} else {
-				this.setState({ isEditing: true });
-				this.setState({ style: isEditingStyle });
-				_task.setSelectionRange(0, _task.value.length);
-			}
-		};
-		
-		const	handleChange = (event) => {
-			event.preventDefault();
-			this.props.editTodo(
-				this.props.item._id, 
-				{ task: _task.value }
-			);
-		};
-
-		const handleBlur = (event) => {
-			event.preventDefault();
-			this.setState({ style: defaultStyle });
-			this.setState({ isEditing: false });
-		};
 
 		return (
 			<FormControl 
-				className= 'task' 
-				defaultValue= { this.props.item.task }
-				inputRef = { (value) => { _task = value; } }
+				className = 'task' 
+				name = 'task'
+				defaultValue = { this.props.item.task }
 				required
 				style = { this.state.style }
 				type = 'text'  
-
-				onClick = { handleClick }
-				onChange = { handleChange }
-				onBlur =  { handleBlur }
+				onClick = { this.handleClick }
+				onChange = { this.handleChange }
+				onBlur =  { this.handleBlur }
 			/> 
 		);
 	}
@@ -84,12 +75,12 @@ TodoTask.propTypes = {
 
 TodoTask.defaultProps = {
 	item: {
-		task: 'default',
+		task: 'default from TodoTask.js',
 		completed: false
 	},
 	style: {},
 	editTodo: f => f,
-	_id: shortid.generate() ,
+	_id: `tempTodoTaskId:${shortid.generate()}` ,
 };
 
 export default TodoTask;
