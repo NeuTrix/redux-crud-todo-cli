@@ -5,10 +5,10 @@ export const EDIT_IS_POSTING  = 'EDIT_IS_POSTING';
 export const EDIT_HAS_SUCCEEDED = 'EDIT_HAS_SUCCEEDED';
 export const EDIT_HAS_ERRORED = 'EDIT_HAS_ERRORED';
 
-export const editHasSucceeded = (todos) => {
+export const editHasSucceeded = (bool) => {
 	return {
 		type: EDIT_HAS_SUCCEEDED,
-		payload: { todos: todos }
+		payload: { status: bool }
 	};
 };
 
