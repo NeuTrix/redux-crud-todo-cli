@@ -22,13 +22,7 @@ export const addTodo = (todo) => {
 	return {
 		type: ADD_TODO,
 		payload: {
-			_id: todo._id,	
-			date: todo.date,
-			completed: todo.completed,
-			details: todo.details,
-			owner: todo.owner,
-			rank: todo.rank,
-			task: todo.task,
+			todo: todo
 		}
 	};
 };

@@ -36,18 +36,18 @@ export function createTodo (data) {
 // +++++++++ Ref  +++++++++ 
 
 	return (dispatch) => {
-		let newTodo; // the newly created todo item
 
 		dispatch (createIsPosting (true));
+
 		axios.post (api, data)
-			.then ((response) => {
-				if (response.status !== 201) {
-					throw Error (response.statusText);
-				}	
-				newTodo = response.data;
+			.then ((res) => {
+				if (res.status !== 201) {
+					throw Error (res.statusText);
+				}	else {
+				dispatch (addTodo (res.data.todo));
+				}
 			})
-			.then (() => {
-				dispatch (addTodo (newTodo));
+			.then ((res) => {
 				dispatch (createIsPosting (false));
 				dispatch (createHasSucceeded (true));
 			})
