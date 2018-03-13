@@ -43,7 +43,7 @@ export function editTodo (_id, data) {
 				if (res.status !== 200) {
 					throw Error (res.statusText);
 				} else {
-					dispatch (editItem (_id, res.data.success))
+					dispatch (editItem (_id, res.data.todo))
 				}
 			})
 			.then (() => {
