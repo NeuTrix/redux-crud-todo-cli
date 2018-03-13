@@ -12,6 +12,7 @@ export const editHasSucceeded = (bool) => {
 	};
 };
 
+
 export const editHasErrored = (bool) => {
 	return {
 		type: EDIT_HAS_ERRORED ,
