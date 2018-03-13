@@ -1,11 +1,9 @@
-
-
 // ... used to create new Todo items
 import React from 'react';
 import PropTypes from 'prop-types';
 import TodoTitleBar from './TodoTitleBar';
 import normalizeDate from '../helpers/normalizeDate';
-import { Col, Button,  Form, FormControl, Grid, Row } from 'react-bootstrap';
+import { Col, Button, Form, FormControl, Grid, Row } from 'react-bootstrap';
 
 // +++++++++ refactor +++++++++ 
 

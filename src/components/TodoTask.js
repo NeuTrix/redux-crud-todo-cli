@@ -30,12 +30,6 @@ class TodoTask extends Component {
 
 	handleClick(e) {
 		e.preventDefault()
-
-	}
-
-	handleChange(e){
-		e.preventDefault()
-
 		let { isComplete, isEditing, editStyle, defStyle } = this.state
 
 		if (isComplete) {
@@ -44,6 +38,10 @@ class TodoTask extends Component {
 		} else {
 			this.setState({ isEditing: true, defStyle: editStyle  });
 		}
+	}
+
+	handleChange(e){
+		e.preventDefault()
 		this.setState({ task: e.target.value })
 	}
 
@@ -57,70 +55,53 @@ class TodoTask extends Component {
 		e.preventDefault()
 			e.target.setSelectionRange(0, e.target.value.length);
 	}
-	// handleClick (e)  {
-
-	// 	e.preventDefault();
-	// 	let { isComplete, isEditing, editStyle, defStyle } = this.state
-
-	// 	if (isComplete) {
-	// 		alert(`Current completed status is "${isComplete}".\nPlease uncheck "completed" before continuing to edit`);
-	// 		this.setState({ defStyle: this.props.style });
-	// 	} else {
-	// 		this.setState({ isEditing: true, defStyle: editStyle  });
-	// 		e.target.setSelectionRange(0, e.target.value.length);
-	// 	}
-	// };
-
-	// handleChange (e)  {
-	// 	e.preventDefault();
-	// 	console.log(`====> Editing: ${e.target.value}!`)
-	// 	this.setState({ task: e.target.value})
-	// 	this.props.editTodo(this.props.item._id, { task: this.state.task });
-	// 	// let newt = e.target.value
-	// };
-
-	//  handleFocus (e)  {
-	// 	e.preventDefault();
-	//  	let { task } = this.state
-	// 	// this.setState({ defStyle: this.props.style, isEditing: false });
-	// };
-
-// +++++++++   +++++++++ 
-
-
+	
 	render () {
 
 		const space = { 
 			xs: { form: 10, btn: 2 }, 
+			sm: { form: 10, btn: 2 }, 
+			md: { form: 10, btn: 2 }, 
+			lg: { form: 10, btn: 2 }, 
 		};
 
 		return (
 
-			<Grid>
-			<Row>
-				<Form onSubmit = { this.handleSubmit } >
+			<div>
+				<Row>
+					<Form onSubmit = { this.handleSubmit } >
 
-				<Col xs = { space.xs.form } >
-					<FormControl 
-						className = 'task' 
-						name = 'task'
-						defaultValue = { this.props.item.task }
-						required
-						style = { this.state.style }
-						type = 'text'  
-						onClick = { this.handleClick }
-						onChange = { this.handleChange }
-						onFocus =  { this.handleFocus }
-					/> 
-				</Col>
-				<Col xs = { space.xs.btn } >
-						<Button type = 'submit' bsStyle = 'primary' >
-		          Edit
-		        </Button> 
-				</Col>
-					</Form>
-			</Row>
-			</Grid>
+					<Col 
+						xs = { space.xs.form } 
+						sm = { space.sm.form } 
+						md = { space.md.form } 
+						lg = { space.lg.form } 
+					>
+						<FormControl 
+							className = 'task' 
+							name = 'task'
+							defaultValue = { this.props.item.task }
+							required
+							style = { this.state.defStyle }
+							type = 'text'  
+							onClick = { this.handleClick }
+							onChange = { this.handleChange }
+							onFocus =  { this.handleFocus }
+						/> 
+					</Col>
+					<Col 
+						xs = { space.xs.btn } 
+						sm = { space.sm.btn } 
+						md = { space.md.btn } 
+						lg = { space.lg.btn } 
+					>
+							<Button type = 'submit' bsStyle = 'primary' >
+			          Edit
+			        </Button> 
+					</Col>
+						</Form>
+				</Row>
+			</div>
 		);
 	}
 }
