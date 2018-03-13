@@ -7,7 +7,10 @@ import TodoTitleBar from './TodoTitleBar';
 import normalizeDate from '../helpers/normalizeDate';
 import { Col, Button,  Form, FormControl, Grid, Row } from 'react-bootstrap';
 
+// +++++++++ refactor +++++++++ 
+
 const TodoForm = (props) => {
+
 	let _currentDate = normalizeDate(new Date()); // formatted date
 	let _task, // todo task
 		_rank, // todo priority
@@ -16,12 +19,7 @@ const TodoForm = (props) => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		props.createTodo (
-			{ 
-				
-				date: _date.value, 
-				task: _task.value, 
-				rank: _rank.value 
-			}
+			{ date: _date.value, task: _task.value, rank: _rank.value }
 		);
 		_task.value = '';
 		_task.focus();

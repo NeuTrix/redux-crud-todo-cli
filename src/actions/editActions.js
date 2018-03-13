@@ -26,30 +26,32 @@ export function editIsPosting (bool)  {
 	};
 }
 
-export function editTodo (_id, data) {
-
 // +++++++++ Ref +++++++++ 
-
  	let api = 'http://localhost:3003/api/todos'
  	// let api = 'https://redux-todo-api.herokuapp.com/api/todos'
- 	
 // +++++++++ Ref +++++++++ 
+
+export function editTodo (_id, data) {
+
 	return (dispatch) => {
 
 		dispatch (editIsPosting(true));
 
 		axios.put (`${api}/${_id}`, data)
+
 			.then ((res) => {
 				if (res.status !== 200) {
 					throw Error (res.statusText);
-				}	else {
-				dispatch (editItem (_id, res.data));
-
+				} else {
+					dispatch (editItem (_id, res.data.todo))
+				}
 			})
+
 			.then (() => {
 				dispatch (editIsPosting (false));
 				dispatch (editHasSucceeded (true));
 			})
+
 			.catch ((err) => {
 				dispatch (editHasErrored (true));
 				console.error(err);

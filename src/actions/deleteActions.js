@@ -26,8 +26,6 @@ export function deleteIsPosting (bool) {
 	};
 }
 
-export function deleteTodo (_id) {
-
 // +++++++++ Ref  +++++++++ 
 
 	let api = 'http://localhost:3003/api/todos' 
@@ -35,9 +33,14 @@ export function deleteTodo (_id) {
 
 // +++++++++ Ref  +++++++++ 
 
+export function deleteTodo (_id) {
+
 	return (dispatch) => {
+
 		dispatch (deleteIsPosting (true));
+
 		axios.delete (`${api}/${_id}`)
+
 			.then ((res) => {
 				if (res.status !== 200) {
 					throw Error (res.statusText);
@@ -45,7 +48,9 @@ export function deleteTodo (_id) {
 				dispatch (removeTodo (_id));
 				dispatch (deleteIsPosting (false));
 			})
+
 			.then (() => dispatch (deleteHasSucceeded (true)))
+			
 			.catch ((err) => { 
 				dispatch (deleteHasErrored (true)); 
 				console.error(err);
