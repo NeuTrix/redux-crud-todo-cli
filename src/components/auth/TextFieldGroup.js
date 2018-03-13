@@ -3,8 +3,15 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Col, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap';
 
-
-const TextFieldGroup = ({ errors, label, name, onChange, placeholder, type, value }) => {
+const TextFieldGroup = ({ 
+	errors, 
+	label, 
+	name, 
+	onChange, 
+	placeholder, 
+	type, 
+	value 
+}) => {
 
 	const style = { margin: 0 }
 	const styleErr = { color: 'red' }

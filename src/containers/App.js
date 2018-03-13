@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import LoginPage from '../components/auth/LoginPage';
 import LogOutPage from '../components/auth/LogOutPage';
 import RegisterPage from '../components/auth/RegisterPage';
+import AdminPage from '../components/auth/AdminPage';
 import { connect } from 'react-redux';
 import { createTodo } from '../actions/createActions';
 import { Route } from 'react-router-dom';
@@ -40,6 +41,7 @@ class App extends Component {
 					</Col>
 
 					<Col>
+					<Route path = '/admin' component = { AdminPage } />
 					<Route exact path = '/' render = { (props) => HomePage } />
 					<Route path = '/login' component = { LoginPage } />
 					<Route path = '/register' component = { RegisterPage } />
