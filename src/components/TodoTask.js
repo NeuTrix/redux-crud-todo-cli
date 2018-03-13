@@ -8,7 +8,8 @@ class TodoTask extends Component {
 	constructor (props) {
 		super(props);
 		this.state = {
-			id: this.props.item._id,
+			task: this.props.item,
+			_id: this.props.item._id,
 			defStyle: this.props.style,
 			isComplete: this.props.item.completed,
 			isEditing: false,
@@ -39,15 +40,18 @@ class TodoTask extends Component {
 
 	handleChange (e)  {
 		e.preventDefault();
-		this.props.editTodo(this.props.item._id, { task: e.target.value });
+		console.log(`====> Editing: ${e.target.value}!`)
+		// let newt = e.target.value
 	};
 
 	 handleBlur (e)  {
+	 	let { task } = this.state
+		this.props.editTodo(this.props.item._id, { task: task });
 		e.preventDefault();
-		this.setState({ defStyle: this.props.style, isEditing: false });
+		// this.setState({ defStyle: this.props.style, isEditing: false });
 	};
 
-// +++++++++   +++++++++ 
+// +++++++++   +++++++++  
 
 	render () {
 
@@ -77,10 +81,10 @@ TodoTask.defaultProps = {
 	item: {
 		task: 'default from TodoTask.js',
 		completed: false
+	// _id: `tempTodoTaskId:${shortid.generate()}` ,
 	},
 	style: {},
 	editTodo: f => f,
-	_id: `tempTodoTaskId:${shortid.generate()}` ,
 };
 
 export default TodoTask;
