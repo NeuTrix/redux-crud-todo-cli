@@ -8,11 +8,14 @@ class AdminPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    	option: 'OFF',
+			AllActions: '', 
+			AuthActions: '', 
     	CreateActions: '',
     	ReadActions: '',
     	UpdateActions: '',
     	DeleteActions: '',
+    	AuthActions: '',
+    	checked: 'Heroku',
     };
 
     this.onClick = this.onClick.bind(this);
@@ -27,30 +30,34 @@ class AdminPage extends Component {
   render() {
 
   	const { 
-			option,
+			AllActions, 
+			AuthActions, 
   		CreateActions,
 			ReadActions,
 			UpdateActions,
-			DeleteActions, 
+			DeleteActions,
+			checked,
 		} = this.state;
 
 		// +++++++++ Styling  
 		const space = { 
-			sm: { all: 3, crt: 3, rea: 3, upd: 4, del: 2, log: 2, sig: 2 }
-		};
+			xs: { all: 8, auth: 8, crt: 8, rea: 8, upd: 8, del: 8, ttl: 2 }
+			// xs: { all: 4, auth: 4, crt: 4, rea: 4, upd: 4, del: 4 }
+		}
 
     return (
-    	<Grid>
+    	<div fluid = 'true'>
+
         <Row>
-        	<Col  >
-		        <PageHeader> Walker! AdminPage </PageHeader>
+        	<Col xs = { space.xs.ttl } >
+		        <PageHeader> AdminPage </PageHeader>
 	        </Col>
         </Row>
 
         <Row>
-	        <Col sm = { space.sm.all } >
+	        <Col xs = { space.xs.all } >
 		        <HttpSelector 
-		        	checked = ''
+		        	checked = { checked }
 			        labels = { ['localHost:3003', 'Herok.app', 'OFF' ] }
 			        name = 'AllActions'
 							onClick = ''
@@ -58,58 +65,59 @@ class AdminPage extends Component {
 		        />
 	        </Col>
 
-         <Col sm = { space.sm.str } >
+         	<Col xs = { space.xs.auth } >
 		        <HttpSelector 
-		        	checked = ''
+		        	checked = { checked }
 			        labels = { ['localHost:3003', 'Herok.app', 'OFF' ] }
-			        name = 'AllActions'
+			        name = 'AuthActions'
 							onClick = ''
 			        values = { ['OFF','http://localhost:3003','https://redux-todo-api.herokuapp.com/' ] }
 		        />
 	        </Col>
 
-         <Col sm = { space.sm.crt } >
+         	<Col xs = { space.xs.crt } >
 		        <HttpSelector 
-		        	checked = ''
+		        	checked = { checked }
 			        labels = { ['localHost:3003', 'Herok.app', 'OFF' ] }
-			        name = 'AllActions'
+			        name = 'CreateActions'
 							onClick = ''
 			        values = { ['OFF','http://localhost:3003','https://redux-todo-api.herokuapp.com/' ] }
 		        />
 	        </Col>
 
-         <Col sm = { space.sm.rea } >
+
+         	<Col xs = { space.xs.rea } >
 		        <HttpSelector 
-		        	checked = ''
+		        	checked = { checked }
 			        labels = { ['localHost:3003', 'Herok.app', 'OFF' ] }
-			        name = 'AllActions'
+			        name = 'ReadActions'
 							onClick = ''
 			        values = { ['OFF','http://localhost:3003','https://redux-todo-api.herokuapp.com/' ] }
 		        />
 	        </Col> 
 
-	        <Col sm = { space.sm.upd } >
+	        <Col xs = { space.xs.upd } >
 		        <HttpSelector 
-		        	checked = ''
+		        	checked = { checked }
 			        labels = { ['localHost:3003', 'Herok.app', 'OFF' ] }
-			        name = 'AllActions'
+			        name = 'UpdateActions'
 							onClick = ''
 			        values = { ['OFF','http://localhost:3003','https://redux-todo-api.herokuapp.com/' ] }
 		        />
 	        </Col>
 
-         <Col sm = { space.sm.del } >
+         <Col xs = { space.xs.del } >
 		        <HttpSelector 
-		        	checked = ''
+		        	checked = { checked }
 			        labels = { ['localHost:3003', 'Herok.app', 'OFF' ] }
-			        name = 'AllActions'
+			        name = 'DeleteActions'
 							onClick = ''
 			        values = { ['OFF','http://localhost:3003','https://redux-todo-api.herokuapp.com/' ] }
 		        />
 	        </Col>
-
         </Row>
-    	</Grid>
+
+    	</div>
     );
   }
 }

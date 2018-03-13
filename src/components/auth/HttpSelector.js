@@ -17,7 +17,8 @@ const HttpSelector = ({
 	  border: `2px solid ${ color }`,
 	  backgroundColor: bgcolor,
 		color: color,
-		padding: 25
+		padding: 25,
+		margin: 10
 	 }
 
 	const styleCallOut = {
@@ -27,9 +28,18 @@ const HttpSelector = ({
 		fontSize: '0.75em',
 	  padding: 3, 
 	}
-	
+
+	const styleInner = {
+	  // border: `2px solid green`,
+	  // backgroundColor: '#ccffcc',
+		// fontSize: '0.75em',
+	  // color: 'darkgreen',
+	  paddingLeft: 20, 
+	}
+
   return (
   	<Col style = { style } >
+
   		<Row>
 	  		<h4>
 					<ControlLabel >{ name } </ControlLabel>
@@ -37,7 +47,7 @@ const HttpSelector = ({
   		</Row>
 
   		<Row>
-      	<Col >
+      	<Col lg = {12} >
 			    <span style = { styleCallOut }> 
 				    { `API: ${checked}` } 
 			    </span>
@@ -45,7 +55,7 @@ const HttpSelector = ({
   		</Row>
 
   		<Row>
-  			<Col>
+  			<Col style = { styleInner }>
 	    		<Form horizontal > 
 
 					<FormGroup  >
