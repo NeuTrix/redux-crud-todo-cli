@@ -40,10 +40,9 @@ class TodoTask extends Component {
 	}
 
 	handleSubmit(e){
+		e.preventDefault()
 		const { _id, task} = this.state
-		console.log( _id, task)
 		this.props.editTodo( _id, {task: task})
-		alert('edited')
 	}
 
 	handleBlur(e){
