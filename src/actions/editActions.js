@@ -42,8 +42,9 @@ export function editTodo (_id, data) {
 			.then ((res) => {
 				if (res.status !== 200) {
 					throw Error (res.statusText);
-				}	
+				}	else {
 				dispatch (editItem (_id, res.data));
+
 			})
 			.then (() => {
 				dispatch (editIsPosting (false));

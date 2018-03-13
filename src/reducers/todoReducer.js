@@ -73,6 +73,7 @@ const TodoReducer = (state = defaultState , action) => {
 		return Object.assign([], state, newState);
 	}
 
+// +++++++++ REFACTOR: Redundant vs edit item  +++++++++ 
 	case UPDATE_TASK: {
 		let _id = 	payload._id;
 		let _task = payload.task;
