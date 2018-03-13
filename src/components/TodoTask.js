@@ -1,7 +1,6 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
-import { Col, Button, Form, FormControl, Grid, Row } from 'react-bootstrap';
-import shortid from 'shortid'
+import { Col, Button, Form, FormControl, Row } from 'react-bootstrap';
 
 class TodoTask extends Component {
 
@@ -30,7 +29,7 @@ class TodoTask extends Component {
 
 	handleClick(e) {
 		e.preventDefault()
-		let { isComplete, isEditing, editStyle, defStyle } = this.state
+		let { isComplete, editStyle } = this.state
 
 		if (isComplete) {
 			alert(`completed is: "${isComplete}".\nPlease uncheck "completed" before continuing to edit`);

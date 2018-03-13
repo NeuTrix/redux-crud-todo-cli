@@ -4,7 +4,7 @@ import TodoList from '../containers/TodoList';
 import TodoForm from '../components/TodoForm';
 import Header from '../components/Header';
 import LoginPage from '../components/auth/LoginPage';
-import LogOutPage from '../components/auth/LogOutPage';
+// import LogOutPage from '../components/auth/LogOutPage';
 import RegisterPage from '../components/auth/RegisterPage';
 import AdminPage from '../components/auth/AdminPage';
 import { connect } from 'react-redux';

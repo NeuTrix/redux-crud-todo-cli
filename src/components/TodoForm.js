@@ -51,7 +51,9 @@ const TodoForm = (props) => {
 			</Col>
 
 			<Form onSubmit = { handleSubmit } >
+
 				<Row style = { styleTop }  >
+
 					<Col 
 						style = { styleField }
 						className = 'task' 
@@ -129,6 +131,7 @@ const TodoForm = (props) => {
 							CLR 
 						</Button> 
 					</Col>
+					
 				</Row>
 			</Form>
 		</Grid>

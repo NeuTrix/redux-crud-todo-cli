@@ -29,7 +29,7 @@ class Header extends Component {
 
 	render() {
 		
-		const { isAuthenticated, user } = this.props.authApi;
+		const { isAuthenticated } = this.props.authApi;
 
 		const userLinks = (
 			<Nav pullRight>

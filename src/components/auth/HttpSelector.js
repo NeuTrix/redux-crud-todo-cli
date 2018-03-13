@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
+// import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Col, ControlLabel, Form, FormGroup, Grid, PageHeader, Radio, Row } from 'react-bootstrap'
+import { Col, ControlLabel, Form, FormGroup, Radio, Row } from 'react-bootstrap'
 
 const HttpSelector = ({ 
 	checked = '', // reflects which item is checked

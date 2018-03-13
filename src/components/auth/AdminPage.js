@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import HttpSelector from './HttpSelector'
-import { Col, Form, FormGroup, Grid, PageHeader, Radio, Row } from 'react-bootstrap'
+import { Col, PageHeader, Row } from 'react-bootstrap'
 
 class AdminPage extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-			AllActions: '', 
-			AuthActions: '', 
-    	CreateActions: '',
-    	ReadActions: '',
-    	UpdateActions: '',
-    	DeleteActions: '',
-    	AuthActions: '',
+			// AllActions: '', 
+			// AuthActions: '', 
+   //  	CreateActions: '',
+   //  	DeleteActions: '',
+   //  	ReadActions: '',
+   //  	UpdateActions: '',
     	checked: 'Heroku',
     };
 
@@ -30,12 +29,12 @@ class AdminPage extends Component {
   render() {
 
   	const { 
-			AllActions, 
-			AuthActions, 
-  		CreateActions,
-			ReadActions,
-			UpdateActions,
-			DeleteActions,
+			// AllActions, 
+			// AuthActions, 
+  	// 	CreateActions,
+			// DeleteActions,
+			// ReadActions,
+			// UpdateActions,
 			checked,
 		} = this.state;
 
