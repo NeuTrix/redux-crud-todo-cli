@@ -4,7 +4,7 @@
 /*global TodoReducer it:true*/
 /*eslint no-undef: "error"*/
 
-/*// import axios from 'axios';
+// import axios from 'axios';
 import chai	from 'chai';
 import chaiHttp from 'chai-http';
 import { expect } from 'chai';
@@ -171,7 +171,7 @@ describe('The get todos INITIAL STATE  function', () => {
 	});
 
 });
-*/
+
 
 it('', () => {
 		
