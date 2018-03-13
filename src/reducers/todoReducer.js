@@ -20,7 +20,7 @@ const TodoReducer = (state = defaultState , action) => {
 		return payload.newState;
 
 	case ADD_TODO: 
-		return [...state, payload];
+		return [...state, payload.todo];
 
 	case EDIT_ITEM: {
 		let _id = 	payload._id;

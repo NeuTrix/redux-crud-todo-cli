@@ -38,9 +38,9 @@ export function deleteTodo (_id) {
 	return (dispatch) => {
 		dispatch (deleteIsPosting (true));
 		axios.delete (`${api}/${_id}`)
-			.then ((response) => {
-				if (response.status !== 200) {
-					throw Error (response.statusText);
+			.then ((res) => {
+				if (res.status !== 200) {
+					throw Error (res.statusText);
 				}	
 				dispatch (removeTodo (_id));
 				dispatch (deleteIsPosting (false));
