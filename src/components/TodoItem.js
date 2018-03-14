@@ -126,6 +126,7 @@ class TodoItem extends Component {
 					sm = { spacing.sm.delBtn }
 					md = { spacing.md.delBtn }
 					lg = { spacing.lg.delBtn }
+					mdPull = { 2 }
 				>
 					<DeleteBtn 
 						deleteTodo = { this.props.deleteTodo } 
