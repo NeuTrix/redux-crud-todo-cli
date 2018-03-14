@@ -38,7 +38,7 @@ export function userLoginRequest(userData) {
 				setAuthorizationToken(token);
 				// decode token
 				const user = jwtDecode(token)
-				console.log('DECODE=>', user);
+				// console.log('DECODE=>', user);
 				dispatch(setCurrentUser(user))
 				return res
 			})

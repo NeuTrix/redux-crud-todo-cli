@@ -8,10 +8,11 @@ export default function (ComposedComponent) {
 	class  Authenticate extends Component{
 
 		componentWillMount() {
-			if (!this.props.isAuthenticated) {
-				this.props.addFlashMessage({
-					type: 'error',
-					text: 'You must Sign In before accessing this page'
+			let _auth = this.props.isAuthenticated
+			if (!_auth) {
+				this.props.addFlashMessage ({
+					type: `error`,
+					text: `isAuthenticated: ${_auth} \n You must Sign In before accessing this page`
 				}); 
 					this.context.router.history.push('/login');
 			}

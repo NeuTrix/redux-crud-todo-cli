@@ -1,12 +1,12 @@
-import isEmpty from 'lodash/isEmpty'
 import { SET_CURRENT_USER } from '../actions/typeConstants'
+import isEmpty from 'lodash/isEmpty'
 
 const initialState = {
 	isAuthenicated: false,
 	user: {}
 }
 
-export const authReducer = (state = initialState, action = { }) => {
+export const authReducer = (state = initialState, action = {}) => {
 
 	let payload = action.payload
 
