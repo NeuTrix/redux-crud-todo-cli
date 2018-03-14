@@ -12,7 +12,8 @@ export default function (ComposedComponent) {
 			if (!_auth) {
 				this.props.addFlashMessage ({
 					type: `error`,
-					text: `isAuthenticated: ${_auth} \n You must Sign In before accessing this page`
+					text: `isAuthenticated: ${_auth} `
+					// `\n You must Sign In before accessing this page`
 				}); 
 					this.context.router.history.push('/login');
 			}
@@ -40,7 +41,7 @@ export default function (ComposedComponent) {
 	}
 
 	const mapStateToProps = (state) => {
-		isAuthenticated: state.authApi
+		return { isAuthenticated: state.authApi.isAuthenticated }
 	};
 
 	return connect(mapStateToProps, { addFlashMessage })(Authenticate);
