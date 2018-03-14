@@ -5,7 +5,7 @@ import { Jumbotron, Button } from 'react-bootstrap'
 const style ={
 	background: 'aliceblue',
 	border: ' 2px solid navy',
-	marginTop: 100,
+	marginTop: 50,
 }
 
 const HomePage = (props) => {
