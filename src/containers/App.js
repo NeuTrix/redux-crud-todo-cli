@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
+import AdminPage from '../components/auth/AdminPage';
+import FlashMessageList from '../components/flash/FlashMessageList'
+import Header from '../components/Header';
+import HomePage from '../components/HomePage';
+import LoginPage from '../components/auth/LoginPage';
+import RegisterPage from '../components/auth/RegisterPage';
 import TodoList from '../containers/TodoList';
 import TodoForm from '../components/TodoForm';
-import Header from '../components/Header';
-import LoginPage from '../components/auth/LoginPage';
-// import LogOutPage from '../components/auth/LogOutPage';
-import RegisterPage from '../components/auth/RegisterPage';
-import AdminPage from '../components/auth/AdminPage';
+import reqAuth from '../helpers/reqAuth';
+
 import { connect } from 'react-redux';
 import { createTodo } from '../actions/createActions';
 import { Route } from 'react-router-dom';
 import { startState } from '../actions/readActions';
-import FlashMessageList from '../components/flash/FlashMessageList'
 import { Col, Grid, Row } from 'react-bootstrap'
 
 class App extends Component {
@@ -22,7 +25,7 @@ class App extends Component {
 
 	render() {
 		
-		const HomePage = (
+		const TodosPage = (
 			<Row >
 				<TodoForm createTodo = { this.props.createTodo } />
 				<TodoList todoArray = { this.props.todoArray } />
@@ -42,17 +45,24 @@ class App extends Component {
 
 					<Col>
 					<Route path = '/admin' component = { AdminPage } />
-					<Route exact path = '/' render = { (props) => HomePage } />
-					<Route path = '/login' component = { LoginPage } />
 					<Route path = '/register' component = { RegisterPage } />
+					<Route path = '/login' component = { LoginPage } />
+					<Route exact path = '/' component = { HomePage } />
+					<Route 
+						exact path = '/todos' 
+						render = { (props) => TodosPage } 
+					/>
 					</Col>
+
 				</Row>
-				
 					{ this.props.children }
+				
 			</Grid>
 		);
 	}
 } 
+
+// +++++++++ ? this.props.children  +++++++++ 
 
 App.propTypes = { 
 	createTodo:    PropTypes.func.isRequired,

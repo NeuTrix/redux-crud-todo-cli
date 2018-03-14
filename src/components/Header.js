@@ -73,6 +73,11 @@ class Header extends Component {
 						<IndexLinkContainer to = '/' style = { style }>
 							<NavItem > Home </NavItem>
 						</IndexLinkContainer>
+					</Nav><Nav>
+
+						<IndexLinkContainer to = '/todos' style = { style }>
+							<NavItem > Todos </NavItem>
+						</IndexLinkContainer>
 					</Nav>
 
 					<Nav>
