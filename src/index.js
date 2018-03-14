@@ -21,7 +21,6 @@ if (token) {
 	store.dispatch(setCurrentUser(jwt.decode(token)))
 } 
 
-
 ReactDOM.render(
 	
 	<Provider store = { store } >

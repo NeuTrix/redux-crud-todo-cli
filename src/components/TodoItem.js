@@ -110,7 +110,7 @@ class TodoItem extends Component {
 					xs = { spacing.xs.date }
 					sm = { spacing.sm.date }
 					md = { spacing.md.date }
-					md = { spacing.lg.date }
+					lg = { spacing.lg.date }
 				>
 					<CalendarBtn
 						date = { this.props.item.date }
