@@ -4,7 +4,7 @@ import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import App from './containers/App';
 import setAuthorizationToken from './components/auth/setAuthToken'
-import jwt from 'jsonwebtoken';
+import jwtDecode from 'jwt-decode'
 import { setCurrentUser } from './actions/loginActions'
 
 
@@ -18,7 +18,7 @@ let token = localStorage.jwtToken
 
 if (token) {
 	setAuthorizationToken(token);
-	store.dispatch(setCurrentUser(jwt.decode(token)))
+	store.dispatch(setCurrentUser(jwtDecode(token)))
 } 
 
 ReactDOM.render(
