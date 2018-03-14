@@ -12,20 +12,25 @@ export default function (ComposedComponent) {
 			if (!_auth) {
 				this.props.addFlashMessage ({
 					type: `error`,
-					text: `isAuthenticated: ${_auth} `
-					// `\n You must Sign In before accessing this page`
+					text: `You must Sign In before accessing this page`
 				}); 
 					this.context.router.history.push('/login');
+			}
+		}
+
+		componentWillUpdate(nextProps) {
+			if(!nextProps.isAuthenticated) {
+				this.context.router.history.push('/');
 			}
 		}
 
 		render () {
 			return (
 				<div>
-				<h1>
-					So... this worked?
-				</h1>
-				<ComposedComponent { ...this.props } /> 
+					<h1>
+						So... you have stuff to do?
+					</h1>
+					<ComposedComponent { ...this.props } /> 
 				</div>
 			);
 		}
