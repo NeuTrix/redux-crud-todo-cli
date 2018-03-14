@@ -13,7 +13,7 @@ const HomePage = (props) => {
   	<Jumbotron style = { style } >
 		  <h1>MERN stack Todo Project</h1>
 		  <p>
-		    A simple CRUD application to explore Mongo, Express, React|Redux, and Node
+		    A simple CRUD app to explore Mongo, Express, React|Redux, and Node
 		  </p>
 		  <p> Login or Register to explore 
 		  </p>

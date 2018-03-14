@@ -9,7 +9,7 @@ import LoginPage from '../components/auth/LoginPage';
 import RegisterPage from '../components/auth/RegisterPage';
 import TodoList from '../containers/TodoList';
 import TodoForm from '../components/TodoForm';
-import reqAuth from '../helpers/reqAuth';
+import requireAuth from '../helpers/requireAuth';
 
 import { connect } from 'react-redux';
 import { createTodo } from '../actions/createActions';
@@ -50,7 +50,7 @@ class App extends Component {
 					<Route exact path = '/' component = { HomePage } />
 					<Route 
 						exact path = '/todos' 
-						render = { (props) => TodosPage } 
+						component = { requireAuth(React.render = (props) => TodosPage) } 
 					/>
 					</Col>
 
