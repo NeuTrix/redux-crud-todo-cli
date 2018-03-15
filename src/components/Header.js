@@ -29,14 +29,15 @@ class Header extends Component {
 
 	render() {
 		
-		const { isAuthenticated } = this.props.authApi;
+		const { isAuthenticated, user } = this.props.authApi;
 
 		const userLinks = (
 			<Nav pullRight>
 				<NavItem onClick = { this.logout.bind(this)} >
-					<span style = { logoutStyle }>
-					 Log Out 
-					</span>
+					
+					<span style = {{ color: 'orange' }}>Welcome {user.username}!</span>
+					{ '   :   ' }
+					<span style = { logoutStyle }>Log Out</span>
 				</NavItem>
 			</Nav>
 		)
