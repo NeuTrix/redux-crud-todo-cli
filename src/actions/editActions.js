@@ -27,8 +27,8 @@ export function editIsPosting (bool)  {
 }
 
 // +++++++++ Ref +++++++++ 
- 	// let api = 'https://redux-todo-api.herokuapp.com/api/todos'
- 	let api = 'http://localhost:3003/api/todos'
+ 	// let api = 'http://localhost:3003/api/todos'
+ 	let api = 'https://redux-todo-api.herokuapp.com/api/todos'
 // +++++++++ Ref +++++++++ 
 
 export function editTodo (_id, data) {
