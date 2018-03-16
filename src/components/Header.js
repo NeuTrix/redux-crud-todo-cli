@@ -41,7 +41,7 @@ class Header extends Component {
 			<Nav pullRight>
 				<NavItem onClick = { this.logout.bind(this)} >
 					
-					<span style = {{ color: 'orange' }}>Welcome {user.username}!</span>
+					<span style = { style }>Welcome {user.username}!</span>
 					{ '   :   ' }
 					<span style = { logoutStyle }>Log Out</span>
 				</NavItem>
