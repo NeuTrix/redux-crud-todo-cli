@@ -79,7 +79,7 @@ describe ('The editHasSucceeded SUCCESS action creator', () => {
 		expect (aSuccess).to.have.property ('payload');
 	});
 
-	it.only ('... payload has a "status" property', () => {
+	it ('... payload has a "status" property', () => {
 		expect (aSuccess.payload).to.have.property ('status');
 	});
 

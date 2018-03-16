@@ -22,7 +22,7 @@ import {
 
 chai.use(chaiHttp);
 
-describe('The apiActions LOADING action creator', () => {
+describe.only('The apiActions LOADING action creator', () => {
 
 	let loading;
 
