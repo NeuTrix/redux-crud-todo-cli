@@ -84,8 +84,8 @@ describe ('The editHasSucceeded SUCCESS action creator', () => {
 	});
 
 	it ('... payload.status has a boolean value', () => {
-		expect (aSuccess.payload).to.have.property ('bool')
-			.to.be.an('array');
+		expect (aSuccess.payload).to.have.property ('status')
+			.to.be.an('boolean');
 	});
 });
 
