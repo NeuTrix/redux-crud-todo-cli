@@ -1,4 +1,5 @@
-import fetch from 'cross-fetch';
+// import fetch from 'cross-fetch';
+import axios from 'axios'
 import { todosSetInitialState } from './todoActions';
 
 export const TODOS_IS_LOADING  = 'TODOS_IS_LOADING';
@@ -35,10 +36,10 @@ export function startState () {
 
 		dispatch (todosIsLoading(true));
 
-		fetch (`${ url }/api/todos`)
-			.then ((response) => {
-				if (!response.ok) {
-					throw Error (response.statusText);
+		return axios.get(`${ url }/api/todos`)
+			.then ((res) => {
+				if (!res.ok) {
+					throw Error (res.statusText);
 				}	
 				dispatch (todosIsLoading (false));
 				return response;
