@@ -55,11 +55,11 @@ describe ('The editIsPosting POSTING action creator', () => {
 describe ('The editHasSucceeded SUCCESS action creator', () => {
 
 	let aSuccess; // success action 
-	let todos; // array for testing
+	let bool; // array for testing
 
 	beforeAll (() => {
-		todos = [1,2,3];
-		aSuccess = actions.editHasSucceeded (todos);
+		bool = true;
+		aSuccess = actions.editHasSucceeded (bool);
 	});
 
 	it ('... is an available function', () => {
@@ -79,12 +79,12 @@ describe ('The editHasSucceeded SUCCESS action creator', () => {
 		expect (aSuccess).to.have.property ('payload');
 	});
 
-	it ('... payload has a "todos" property', () => {
-		expect (aSuccess.payload).to.have.property ('todos');
+	it.only ('... payload has a "status" property', () => {
+		expect (aSuccess.payload).to.have.property ('status');
 	});
 
-	it ('... payload.todos has a boolean value', () => {
-		expect (aSuccess.payload).to.have.property ('todos')
+	it ('... payload.status has a boolean value', () => {
+		expect (aSuccess.payload).to.have.property ('bool')
 			.to.be.an('array');
 	});
 });
