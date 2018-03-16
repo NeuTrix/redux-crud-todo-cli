@@ -4,7 +4,8 @@ import '../containers/App.css';
 import { IndexLinkContainer } from 'react-router-bootstrap'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { logout } from '../actions/loginActions'
+import { logout } from '../actions/loginActions';
+import { readTodos } from '../actions/readActions';
 
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 
@@ -25,6 +26,11 @@ class Header extends Component {
 	logout(e) {
 		e.preventDefault();
 		this.props.logout();
+	}
+
+	onClick(e){
+		// e.preventDefault();
+		this.props.readTodos();
 	}
 
 	render() {
@@ -77,7 +83,7 @@ class Header extends Component {
 					</Nav><Nav>
 
 						<IndexLinkContainer to = '/todos' style = { style }>
-							<NavItem > Todos </NavItem>
+							<NavItem onClick = { this.onClick.bind(this) }> Todos </NavItem>
 						</IndexLinkContainer>
 					</Nav>
 
@@ -97,7 +103,8 @@ class Header extends Component {
 
 Header.propTypes = {
 	authApi: PropTypes.object.isRequired,
-	logout: PropTypes.func.isRequired
+	logout: PropTypes.func.isRequired,
+	readTodos: PropTypes.func.isRequired
 }
 
 Header.defaultProps = {
@@ -111,4 +118,4 @@ const mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps, { logout })(Header);
+export default connect(mapStateToProps, { logout, readTodos })(Header);

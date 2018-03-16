@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDom from 'react-dom'
 import PropTypes from 'prop-types';
 
 import AdminPage from '../components/auth/AdminPage';
@@ -50,7 +51,7 @@ class App extends Component {
 					<Route exact path = '/' component = { HomePage } />
 					<Route 
 						exact path = '/todos' 
-						component = { requireAuth(React.render = (props) => TodosPage) } 
+						component = { requireAuth(ReactDom.render = (props) => TodosPage) } 
 					/>
 					</Col>
 

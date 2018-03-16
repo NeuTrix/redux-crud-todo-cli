@@ -1,4 +1,3 @@
-// import fetch from 'cross-fetch';
 import axios from 'axios'
 import { todosSetInitialState } from './todoActions';
 
@@ -38,15 +37,15 @@ export function readTodos () {
 
 		return axios.get(`${ url }/api/todos`)
 			.then ((res) => {
-				if (!res.ok) {
-					throw Error (res.statusText);
-				}	
-				dispatch (todosIsLoading (false));
-				return res;
+				if (!res.status === 200) {
+					throw Error (res.status);
+				}	else {
+					dispatch (todosIsLoading (false))
+					return res.data
+				}
 			})
-			.then ((res) => res.json ())
 			.then ((todos) => dispatch (todosSetInitialState (todos)))
-			.then (() => { dispatch (todosHasFetched (true)); })
+			.then (() =>  dispatch (todosHasFetched (true)))
 			.catch ((err) => {
 				dispatch (todosHasErrored (true));
 				console.error (err);
