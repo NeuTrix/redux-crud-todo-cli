@@ -18,11 +18,11 @@ import {
 	todosHasErrored,
 	todosHasFetched,
 	startState
-} from '../../actions/apiActions';
+} from '../../actions/readActions';
 
 chai.use(chaiHttp);
 
-describe.only('The apiActions LOADING action creator', () => {
+describe.only('The readActions LOADING action creator', () => {
 
 	let loading;
 
@@ -60,7 +60,7 @@ describe.only('The apiActions LOADING action creator', () => {
 	});
 });
 
-describe ('The apiActions ERROR action creator', () => {
+describe ('The readActions ERROR action creator', () => {
 
 	let anErr;
 
@@ -94,7 +94,7 @@ describe ('The apiActions ERROR action creator', () => {
 	});
 });
 
-describe ('The apiActions SUCCESS action creator', () => {
+describe ('The readActions SUCCESS action creator', () => {
 
 	let hasData;
 	let url = 'http://localhost:3003/api/todos';
