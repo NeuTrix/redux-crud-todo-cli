@@ -87,6 +87,7 @@ describe ('The TodoReducer CRUD suite', () => {
 		beforeAll(() => {
 
 			newItem = { 
+				_id: 'createdID',
 				date: '2017-12-31',
 				completed: true,
 				details: 'TodoReducer test suite',
@@ -100,7 +101,7 @@ describe ('The TodoReducer CRUD suite', () => {
 			modLength = addedTodoToList.length;
 			_task = addedTodoToList[modLength -1];
 			_id = _task._id;
-
+			console.log(_task)
 		});
 
 		it ('... the new "addedTodoToList" is an array', () => {
@@ -112,7 +113,7 @@ describe ('The TodoReducer CRUD suite', () => {
 			expect (modLength).to.eql (initialLength + 1);
 		});
 
-		it ('... has the expected _id property', () => {
+		it ('... has an _id property', () => {
 			expect (_task).to.have.property('_id');
 		});
 
