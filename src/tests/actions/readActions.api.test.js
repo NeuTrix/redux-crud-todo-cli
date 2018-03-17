@@ -99,11 +99,7 @@ describe ('The apiActions SUCCESS action creator', () => {
 
 	let hasData;
 	let url = 'http://localhost:3003/api/todos';
-	let testState = [
-		{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Get some Milk', rank: 'High' },
-		{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Kiss my daughter', rank: 'Med' },
-		{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Celebrate life!', rank: 'Low' },
-	];
+	let testState = true;
 
 	beforeAll(() => {
 		hasData = todosHasFetched(testState);
@@ -126,12 +122,13 @@ describe ('The apiActions SUCCESS action creator', () => {
 		expect(hasData).to.have.property('payload');
 	});
 
-	it('... payload has a "todos" property', () => {
-		expect(hasData.payload).to.have.property('todos');
+	it ('... payload has a "todos" property', () => {
+		expect(hasData.payload).to.have.property('status')
+			.to.eql(true);
 	});
 
-	it('... payload.todos is an array', () => {
-		expect(hasData.payload.todos).to.be.an('array');
+	it('... payload.todos is an object', () => {
+		expect(hasData.payload.todos).to.be.an('object');
 	});
 });
 
@@ -149,7 +146,7 @@ describe('The get todos INITIAL STATE  function', () => {
 			});
 	});
 
-	it.only('... can make a successful axios Read call', (done) => {
+	it('... can make a successful axios Read call', (done) => {
 
 		axios.get(api)
 			.then((res) => {
