@@ -37,7 +37,7 @@ const store = createStore(
 );
 
 store.subscribe(() => {
-
+	// consider some action here...
 });
 
 // save the state anytime we have a change in the store
