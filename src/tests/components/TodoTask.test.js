@@ -78,7 +78,7 @@ describe ('The TodoTask Component', () => {
 	});
 
 	describe (' When rendering, for Props...', () => {
-		it.only ('Inspection for Rendering', () => {
+		it ('Inspection for Rendering', () => {
 			// to inspect testing objects
 			// console.log('*** the Component: ', mountedTodoTask.debug())
 			console.log('*** Render the State: ', _state); 
@@ -102,7 +102,7 @@ describe ('The TodoTask Component', () => {
 		});
 	});
 
-	describe.only ('The component STATE', () => {
+	describe ('The component STATE', () => {
 		xit ('...has (8) state items', () => {
 			expect (Object.keys(_state).length).to.eql(7);
 		});

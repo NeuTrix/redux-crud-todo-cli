@@ -53,17 +53,17 @@ describe('The TodoItem Component', () => {
 			console.log('********** props beforeEach',  _tasks.props());
 		});
 
-		it('always renders an outer Row', () => {
-			expect(rows.length).to.be.eql(1);
+		it(' renders (2) outer Rows', () => {
+			expect(rows.length).to.be.eql(2);
 		});
 
 		it('renders an outer Row that wraps all components', () => {
 			expect (wrappingRow.children()).to.eql(todoItem().children());
 		});
 
-		it('always renders (5) Cols', () => {
+		it('always renders (7) Cols', () => {
 			const cols = todoItem().find('Col');
-			expect(cols.length).to.be.eql(5);
+			expect(cols.length).to.be.eql(7);
 		});
 	});
 
