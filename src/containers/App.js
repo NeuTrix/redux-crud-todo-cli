@@ -20,10 +20,6 @@ import { Col, Grid, Row } from 'react-bootstrap'
 
 class App extends Component {
 
-	componentDidMount() {
-		this.props.readTodos()
-	}	
-
 	render() {
 		
 		const TodosPage = (
@@ -76,7 +72,8 @@ App.propTypes = {
 
 App.defaultProps = {
 	// createTodo: f => f,
-	// todoArray: [ ]
+	todoArray: [ ],
+	user_id: "Default from APP.js"
 };
 
 const mapStateToProps = (state) => {

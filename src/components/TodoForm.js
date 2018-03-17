@@ -157,7 +157,8 @@ TodoForm.defaultProps = {
 	createTodo: f => f,
 	_date: '2020-12-31',
 	_rank: '',
-	_task: 'Default- not connected'
+	_task: 'Default- not connected',
+	user_id: "Default from APP.js"
 };
 
 export default TodoForm;
