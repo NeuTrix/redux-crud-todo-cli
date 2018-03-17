@@ -21,7 +21,7 @@ import { Col, Grid, Row } from 'react-bootstrap'
 class App extends Component {
 
 	componentDidMount() {
-		this.props.startApp()
+		this.props.readTodos()
 	}	
 
 	render() {
@@ -84,7 +84,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		createTodo: (task) => { dispatch (createTodo (task)); },
-		startApp: () => { dispatch(readTodos()); }
+		readTodos: () => { dispatch(readTodos()); }
 	};
 }; 
 
