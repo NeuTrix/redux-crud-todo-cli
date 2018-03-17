@@ -36,6 +36,7 @@ export function createTodo (data) {
 		dispatch (createIsPosting (true));
 
 		axios.post (`${ url }/api/todos`, data)
+
 			.then ((res) => {
 				if (res.status !== 201) {
 					throw Error (res.statusText);

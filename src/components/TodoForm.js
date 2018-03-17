@@ -18,10 +18,10 @@ const TodoForm = (props) => {
 		event.preventDefault();
 		props.createTodo (
 			{ 
-				date: _date.value, 
-				task: _task.value, 
-				rank: _rank.value,
-			 	owner: props.user_id 
+					date: _date.value, 
+					task: _task.value, 
+					rank: _rank.value,
+				 	owner: props.user_id 
 				})
 
 		_task.value = '';

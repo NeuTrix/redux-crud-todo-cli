@@ -94,7 +94,7 @@ describe ('The readActions ERROR action creator', () => {
 	});
 });
 
-describe ('The readActions SUCCESS action creator', () => {
+xdescribe ('The readActions SUCCESS action creator', () => {
 
 	let hasData;
 	let url = 'http://localhost:3003/api/todos';
