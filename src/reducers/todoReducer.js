@@ -18,6 +18,7 @@ const TodoReducer = (state = defaultState , action) => {
 	switch (type) {
 	case TODOS_SET_INITIAL_STATE: 
 		return payload.newState;
+		return Object.assign([ ], state, payload.newState);
 
 	case ADD_TODO: 
 		return [...state, payload.todo];
