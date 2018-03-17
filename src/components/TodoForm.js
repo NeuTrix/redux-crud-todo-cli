@@ -17,8 +17,13 @@ const TodoForm = (props) => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		props.createTodo (
-			{ date: _date.value, task: _task.value, rank: _rank.value }
-		);
+			{ 
+				date: _date.value, 
+				task: _task.value, 
+				rank: _rank.value,
+			 	owner: props.user_id 
+				})
+
 		_task.value = '';
 		_task.focus();
 	};
@@ -143,7 +148,8 @@ TodoForm.propTypes = {
 	createTodo: PropTypes.func.isRequired,
 	_date: PropTypes.string.isRequired,
 	_rank: PropTypes.string.isRequired,
-	_task: PropTypes.string.isRequired
+	_task: PropTypes.string.isRequired,
+	user_id: PropTypes.string.isRequired
 };
 
 TodoForm.defaultProps = {
