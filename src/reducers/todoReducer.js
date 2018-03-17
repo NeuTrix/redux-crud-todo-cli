@@ -9,7 +9,7 @@ import {
 	UPDATE_TASK
 } from '../actions/todoActions';
 
-let defaultState =[ {	task: 'Initial Task from TodoReducer' } ];
+let defaultState =[ {	task: 'Welcome! Start by entering new Todo\'s in the box above.' } ];
 
 const TodoReducer = (state = defaultState , action) => {
 	let payload  = action.payload;
