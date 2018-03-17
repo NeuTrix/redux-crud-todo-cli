@@ -5,7 +5,7 @@ import { deleteTodo } from '../../actions/deleteActions';
 import { editTodo } from '../../actions/editActions';
 import { userLoginRequest } from '../../actions/loginActions';
 import { userSignupRequest } from '../../actions/signupActions';
-import { startState } from '../../actions/readActions';
+import { readTodos } from '../../actions/readActions';
 import { 
 	getHeroku, 
 	getLocal 
@@ -26,7 +26,7 @@ describe ('The serverSwitchActions', () => {
 			expect()
 		});
 
-		it ('... sets the startState api to heroku', () => {
+		it ('... sets the readTodos api to heroku', () => {
 
 		});
 

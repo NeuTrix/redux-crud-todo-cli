@@ -17,7 +17,7 @@ import {
 	todosIsLoading,
 	todosHasErrored,
 	todosHasFetched,
-	startState
+	readTodos
 } from '../../actions/apiActions';
 
 chai.use(chaiHttp);
@@ -166,7 +166,7 @@ describe('The get todos INITIAL STATE  function', () => {
 
 	it('.. the function returns an array object', () => {
 		let dispatch = store.dispatch;
-		let data = startState(api);
+		let data = readTodos(api);
 		let test = store.dispatch(data);
 	});
 

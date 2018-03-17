@@ -4,7 +4,7 @@ import axios from 'axios';
 import deepFreeze from 'deep-freeze';
 import store from '../../store/store';
 import { expect } from 'chai';
-import { startState } from '../../actions/readActions';
+import { readTodos } from '../../actions/readActions';
 import * as _a from '../../actions/createActions';
 
 describe ('The apiReducer action suite', () => {
@@ -64,7 +64,7 @@ describe ('The apiReducer action suite', () => {
 		// let todosBefore = store.getState().todos;
 
 		beforeAll(() => {
-			startState(api);
+			readTodos(api);
 			// let afterTodo = store.getState().todos;
 		});
 

@@ -27,7 +27,7 @@ export function todosIsLoading (bool)  {
 	};
 }
 
-export function startState () {
+export function readTodos () {
 
  	let url = 'https://redux-todo-api.herokuapp.com'
  	// let url = 'http://localhost:3003'
@@ -42,9 +42,9 @@ export function startState () {
 					throw Error (res.statusText);
 				}	
 				dispatch (todosIsLoading (false));
-				return response;
+				return res;
 			})
-			.then ((response) => response.json ())
+			.then ((res) => res.json ())
 			.then ((todos) => dispatch (todosSetInitialState (todos)))
 			.then (() => { dispatch (todosHasFetched (true)); })
 			.catch ((err) => {

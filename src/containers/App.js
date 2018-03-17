@@ -14,7 +14,7 @@ import requireAuth from '../helpers/requireAuth';
 import { connect } from 'react-redux';
 import { createTodo } from '../actions/createActions';
 import { Route } from 'react-router-dom';
-import { startState } from '../actions/readActions';
+import { readTodos } from '../actions/readActions';
 import { Col, Grid, Row } from 'react-bootstrap'
 
 class App extends Component {
@@ -83,7 +83,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		createTodo: (task) => { dispatch (createTodo (task)); },
-		startApp: () => { dispatch(startState()); }
+		startApp: () => { dispatch(readTodos()); }
 	};
 }; 
 
