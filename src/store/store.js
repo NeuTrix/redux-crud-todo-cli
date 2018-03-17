@@ -28,24 +28,26 @@ const persistedState = loadState();
 
 const store = createStore(
 	rootReducer, 
-	persistedState, 
+	// persistedState, 
 	compose(
 		applyMiddleware(...middlewares),
 		window.devToolsExtension ? window.devToolsExtension() : f => f
 	)
 );
 
+
+
 // save the state anytime we have a change in the store
 // add lodash #throttle to prevent overuse of an expensive ...
 // ... JSON #stringify method in the saveState fn.
 
-store.subscribe(throttle(() => {
+/*store.subscribe(throttle(() => {
 	saveState({ 
 		// pass specific object to limit scope of state saved
 		// e.g. not save state of a visibility filter
 		todos: store.getState().todos
 	});
 	// limits the store update
-}, 1000));
+}, 1000));*/
 
 export default store;

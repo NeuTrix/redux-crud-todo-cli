@@ -101,7 +101,7 @@ describe ('The TodoReducer CRUD suite', () => {
 			modLength = addedTodoToList.length;
 			_task = addedTodoToList[modLength -1];
 			_id = _task._id;
-			console.log(_task)
+			// console.log(_task)
 		});
 
 		it ('... the new "addedTodoToList" is an array', () => {
