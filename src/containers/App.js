@@ -28,7 +28,10 @@ class App extends Component {
 		
 		const TodosPage = (
 			<Row >
-				<TodoForm createTodo = { this.props.createTodo } />
+				<TodoForm 
+					createTodo = { this.props.createTodo } 
+					owner = { this.props.user_id }
+				/>
 				<TodoList todoArray = { this.props.todoArray } />
 			</Row>
 		)
@@ -67,17 +70,19 @@ class App extends Component {
 
 App.propTypes = { 
 	createTodo:    PropTypes.func.isRequired,
-	todoArray: 	PropTypes.array.isRequired
+	todoArray: 	PropTypes.array.isRequired,
+	user_id: PropTypes.string.isRequired
 };
 
 App.defaultProps = {
-	createTodo: f => f,
-	todoArray: [ ]
+	// createTodo: f => f,
+	// todoArray: [ ]
 };
 
 const mapStateToProps = (state) => {
 	return {
-		todoArray: state.todos
+		todoArray: state.todos,
+		user_id: state.authApi.user._id
 	};
 }; 
 
