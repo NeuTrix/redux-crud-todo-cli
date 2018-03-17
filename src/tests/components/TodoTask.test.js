@@ -78,7 +78,7 @@ describe ('The TodoTask Component', () => {
 	});
 
 	describe (' When rendering, for Props...', () => {
-		it ('Inspection for Rendering', () => {
+		xit ('Inspection for Rendering', () => {
 			// to inspect testing objects
 			// console.log('*** the Component: ', mountedTodoTask.debug())
 			console.log('*** Render the State: ', _state); 
