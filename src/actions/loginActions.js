@@ -25,13 +25,13 @@ export function userLoginRequest(userData) {
 
 // +++++++++ Ref +++++++++ 
 
-	// let api = 'http://localhost:3003/api/auth'
-	let api = 'https://redux-todo-api.herokuapp.com/api/auth'
+	// let api = 'http://localhost:3003/api'
+	let api = 'https://redux-todo-api.herokuapp.com'
 
 // +++++++++ Ref +++++++++ 
 
 	return dispatch => {
-		  return axios.post(api, userData)
+		  return axios.post(`${ api }/api/auth`, userData)
 			.then((res) => {
 				const token = res.data.token;
 				localStorage.setItem('jwtToken', token);

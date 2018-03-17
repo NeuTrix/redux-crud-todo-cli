@@ -27,9 +27,9 @@ export function deleteIsPosting (bool) {
 }
 
 // +++++++++ Ref  +++++++++ 
-
-	// let api = 'http://localhost:3003/api/todos' 
-	let api = 'https://redux-todo-api.herokuapp.com/api/todos'
+	let
+	let api = 'http://localhost:3003/api/todos' 
+	// let api = 'https://redux-todo-api.herokuapp.com/api/todos'
 
 // +++++++++ Ref  +++++++++ 
 

@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 import axios from 'axios';
 
-describe('The API request object actions', () => {
+xdescribe('The API request object actions', () => {
 	let todos; // array
 	let _task; // initial test item
 	let _last; // last test item
