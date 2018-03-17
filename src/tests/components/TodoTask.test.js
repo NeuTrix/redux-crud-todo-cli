@@ -78,15 +78,15 @@ describe ('The TodoTask Component', () => {
 	});
 
 	describe (' When rendering, for Props...', () => {
-		xit ('Inspection for Rendering', () => {
+		it.only ('Inspection for Rendering', () => {
 			// to inspect testing objects
 			// console.log('*** the Component: ', mountedTodoTask.debug())
 			console.log('*** Render the State: ', _state); 
 			console.log('*** Render the Props: ', _tasks.props()); 
 		});
 
-		it ('...TodoTask is passed (4) props', () => {
-			expect (Object.keys(_tasks.props()).length).to.eql(4);
+		it ('...TodoTask is passed (3) props', () => {
+			expect (Object.keys(_tasks.props()).length).to.eql(3);
 		});
 
 		it ('...has an item prop', () => {
@@ -102,13 +102,23 @@ describe ('The TodoTask Component', () => {
 		});
 	});
 
-	describe ('The component STATE', () => {
-		it ('...has (3) state items', () => {
-			expect (Object.keys(_state).length).to.eql(3);
+	describe.only ('The component STATE', () => {
+		xit ('...has (8) state items', () => {
+			expect (Object.keys(_state).length).to.eql(7);
 		});
 
-		it ('...has style ', () => {
-			expect (_state).to.have.property('style');
+
+		it ('...has item ', () => {
+			expect (_state).to.have.property('item');
+		});
+
+
+		it ('...has task ', () => {
+			expect (_state).to.have.property('task');
+		});
+
+		it ('...has defStyle ', () => {
+			expect (_state).to.have.property('defStyle');
 		});
 
 		it ('... starts with a false isEditing ', () => {
@@ -116,8 +126,17 @@ describe ('The TodoTask Component', () => {
 				.to.eql(false);
 		});
 
-		it ('...has isCompleted ', () => {
-			expect (_state).to.have.property('isCompleted');
+		it ('...has isComplete ', () => {
+			expect (_state).to.have.property('isComplete');
+		});
+
+		it ('...has editStyle ', () => {
+			expect (_state).to.have.property('editStyle');
+		});
+
+
+		it ('...has _id ', () => {
+			expect (_state).to.have.property('_id');
 		});
 		
 	});
