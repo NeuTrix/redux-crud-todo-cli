@@ -20,13 +20,17 @@ import { Col, Grid, Row } from 'react-bootstrap'
 
 class App extends Component {
 
+	/*componentDidMount () {
+
+	}*/
+
 	render() {
 		
 		const TodosPage = (
 			<Row >
 				<TodoForm 
 					createTodo = { this.props.createTodo } 
-					owner = { this.props.user_id }
+					owner = { this.props.user._id }
 				/>
 				<TodoList todoArray = { this.props.todoArray } />
 			</Row>
@@ -67,19 +71,19 @@ class App extends Component {
 App.propTypes = { 
 	createTodo:    PropTypes.func.isRequired,
 	todoArray: 	PropTypes.array.isRequired,
-	user_id: PropTypes.string.isRequired
+	user: PropTypes.object.isRequired
 };
 
 App.defaultProps = {
 	// createTodo: f => f,
 	todoArray: [ ],
-	user_id: "Default from APP.js"
+	user: "Default USER from APP.js"
 };
 
 const mapStateToProps = (state) => {
 	return {
 		todoArray: state.todos,
-		user_id: state.authApi.user._id
+		user: state.authApi.user
 	};
 }; 
 

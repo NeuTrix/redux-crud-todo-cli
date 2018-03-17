@@ -21,7 +21,7 @@ const TodoForm = (props) => {
 					date: _date.value, 
 					task: _task.value, 
 					rank: _rank.value,
-				 	owner: props.user_id 
+				 	owner: props.owner 
 				})
 
 		_task.value = '';
@@ -149,7 +149,7 @@ TodoForm.propTypes = {
 	_date: PropTypes.string.isRequired,
 	_rank: PropTypes.string.isRequired,
 	_task: PropTypes.string.isRequired,
-	user_id: PropTypes.string.isRequired
+	owner: PropTypes.string.isRequired
 };
 
 TodoForm.defaultProps = {
@@ -158,7 +158,7 @@ TodoForm.defaultProps = {
 	_date: '2020-12-31',
 	_rank: '',
 	_task: 'Default- not connected',
-	user_id: "Default from APP.js"
+	owner: "Default from APP.js"
 };
 
 export default TodoForm;

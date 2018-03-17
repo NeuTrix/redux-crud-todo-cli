@@ -41,7 +41,7 @@ export function createTodo (data) {
 				if (res.status !== 201) {
 					throw Error (res.statusText);
 				}	else {
-				dispatch (addTodo (res.data.todo));
+					dispatch (addTodo (res.data.todo));
 				}
 			})
 			.then ((res) => {
