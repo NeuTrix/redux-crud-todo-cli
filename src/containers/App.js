@@ -20,10 +20,6 @@ import { Col, Grid, Row } from 'react-bootstrap'
 
 class App extends Component {
 
-	/*componentDidMount () {
-
-	}*/
-
 	render() {
 		
 		const TodosPage = (
