@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import  PropTypes  from 'prop-types';
-import { Jumbotron, Button } from 'react-bootstrap'
+import React from 'react';
+import { Jumbotron } from 'react-bootstrap'
+// import  PropTypes  from 'prop-types';
 
 const style ={
 	background: 'aliceblue',
