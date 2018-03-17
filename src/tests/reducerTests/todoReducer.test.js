@@ -6,7 +6,7 @@ import store from '../../store/store';
 import shortid from 'shortid';
 import * as actions from '../../actions/todoActions';
 
-describe ('The TODOS_SET_INITIAL_STATE reducer', () => {
+describe ('The READ_ALL_TODOS reducer', () => {
 
 	describe ('The iniital state', () => {
 		let	firstState = store.getState ().todos;
@@ -22,8 +22,8 @@ describe ('The TODOS_SET_INITIAL_STATE reducer', () => {
 	});
 
 	describe ('the todosSetInitialState action creator', () => {
-		it ('... has a type of "TODOS_SET_INITIAL_STATE"', () => {
-			expect (actions.todosSetInitialState ()).to.have.property('type').to.eql ('TODOS_SET_INITIAL_STATE');
+		it ('... has a type of "READ_ALL_TODOS"', () => {
+			expect (actions.todosSetInitialState ()).to.have.property('type').to.eql ('READ_ALL_TODOS');
 		});
 
 		it ('... it has a payload prop of "newState" ', () => {

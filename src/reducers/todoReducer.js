@@ -2,7 +2,7 @@ import {
 	ADD_TODO,
 	EDIT_ITEM,
 	REMOVE_TODO,
-	TODOS_SET_INITIAL_STATE, 
+	READ_ALL_TODOS, 
 	TOGGLE_COMPLETE,
 	UPDATE_DATE,
 	UPDATE_RANK,
@@ -16,7 +16,7 @@ const TodoReducer = (state = defaultState , action) => {
 	let type = action.type;
 
 	switch (type) {
-	case TODOS_SET_INITIAL_STATE: 
+	case READ_ALL_TODOS: 
 		return payload.newState;
 		return Object.assign([ ], state, payload.newState);
 

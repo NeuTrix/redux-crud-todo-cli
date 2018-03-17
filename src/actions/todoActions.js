@@ -1,4 +1,4 @@
-export const TODOS_SET_INITIAL_STATE = 'TODOS_SET_INITIAL_STATE';
+export const READ_ALL_TODOS = 'READ_ALL_TODOS';
 export const ADD_TODO = 'ADD_TODO';
 export const EDIT_ITEM  = 'EDIT_ITEM';
 export const REMOVE_TODO = 'REMOVE_TODO';
@@ -10,7 +10,7 @@ export const UPDATE_DATE = 'UPDATE_DATE';
 
 export function todosSetInitialState(initialState) {
 	return {
-		type: TODOS_SET_INITIAL_STATE,
+		type: READ_ALL_TODOS,
 		payload: {
 			newState: initialState
 		}
