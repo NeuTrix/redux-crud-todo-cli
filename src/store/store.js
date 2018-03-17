@@ -24,9 +24,10 @@ if (process.env.NODE_ENV === 'development') {
 }*/
 
 // state management: start the app with the current state in localStr
-const persistedState = loadState();
+// const persistedState = loadState();
 
 const store = createStore(
+	
 	rootReducer, 
 	// persistedState, 
 	compose(
@@ -35,7 +36,9 @@ const store = createStore(
 	)
 );
 
+store.subscribe(() => {
 
+});
 
 // save the state anytime we have a change in the store
 // add lodash #throttle to prevent overuse of an expensive ...
