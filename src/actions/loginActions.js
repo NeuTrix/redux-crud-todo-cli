@@ -17,29 +17,28 @@ export function logout(){
 		localStorage.removeItem('jwtToken');
 		setAuthorizationToken(false);
 		dispatch(setCurrentUser({}));
+		
 		alert("You have successfully logged out.")
 	}
 }
 
 export function userLoginRequest(userData) {
 
-// +++++++++ Ref +++++++++ 
-
-	// let api = 'http://localhost:3003/api'
-	let api = 'https://redux-todo-api.herokuapp.com'
-
-// +++++++++ Ref +++++++++ 
+	let url = 'https://redux-todo-api.herokuapp.com'
+	// let url = 'http://localhost:3003'
 
 	return dispatch => {
-		  return axios.post(`${ api }/api/auth`, userData)
+
+		  return axios.post(`${ url }/api/auth`, userData)
 			.then((res) => {
+
 				const token = res.data.token;
 				localStorage.setItem('jwtToken', token);
+
 				setAuthorizationToken(token);
-				// decode token
 				const user = jwtDecode(token)
-				// console.log('DECODE=>', user);
 				dispatch(setCurrentUser(user))
+
 				return res
 			})
 	}

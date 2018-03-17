@@ -26,20 +26,16 @@ export function deleteIsPosting (bool) {
 	};
 }
 
-// +++++++++ Ref  +++++++++ 
-	let
-	let api = 'http://localhost:3003/api/todos' 
-	// let api = 'https://redux-todo-api.herokuapp.com/api/todos'
-
-// +++++++++ Ref  +++++++++ 
-
 export function deleteTodo (_id) {
+
+	let url = 'https://redux-todo-api.herokuapp.com'
+	// let url = 'http://localhost:3003' 
 
 	return (dispatch) => {
 
 		dispatch (deleteIsPosting (true));
 
-		axios.delete (`${api}/${_id}`)
+		axios.delete (`${ url }/api/todos/${ _id }`)
 
 			.then ((res) => {
 				if (res.status !== 200) {

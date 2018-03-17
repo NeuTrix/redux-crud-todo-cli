@@ -28,14 +28,14 @@ export function todosIsLoading (bool)  {
 
 export function startState () {
 
-// +++++++++ 	Ref  +++++++++ 	
- 	let api = 'http://localhost:3003/api/todos'
- 	// let api = 'https://redux-todo-api.herokuapp.com/api/todos'
-// +++++++++ Ref  +++++++++ 
+ 	let url = 'https://redux-todo-api.herokuapp.com'
+ 	// let url = 'http://localhost:3003'
 
 	return (dispatch) => {
+
 		dispatch (todosIsLoading(true));
-		fetch (api)
+
+		fetch (`${ url }/api/todos`)
 			.then ((response) => {
 				if (!response.ok) {
 					throw Error (response.statusText);

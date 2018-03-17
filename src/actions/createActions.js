@@ -28,18 +28,14 @@ export function createIsPosting (bool)  {
 
 export function createTodo (data) {
 
-// +++++++++ Ref  +++++++++ 
-
-	// let api = 'http://localhost:3003'
-	let api = 'https://redux-todo-api.herokuapp.com'
-
-// +++++++++ Ref  +++++++++ 
+	let url = 'https://redux-todo-api.herokuapp.com'
+	// let url = 'http://localhost:3003'
 
 	return (dispatch) => {
 
 		dispatch (createIsPosting (true));
 
-		axios.post (`${api}/api/todos`, data)
+		axios.post (`${ url }/api/todos`, data)
 			.then ((res) => {
 				if (res.status !== 201) {
 					throw Error (res.statusText);
