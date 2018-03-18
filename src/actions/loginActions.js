@@ -29,7 +29,7 @@ export function userLoginRequest(userData) {
 
 	return dispatch => {
 
-		  return axios.post(`${ url }/api/auth`, userData)
+		  return axios.post(`${ url }/api/auth/login`, userData)
 			.then((res) => {
 
 				const token = res.data.token;
