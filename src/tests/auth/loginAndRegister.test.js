@@ -1,6 +1,7 @@
 /* eslint-env node, mocha, chai, jest */
 import { expect } from 'chai';
 import axios from 'axios';
+import * as stub from "../pro";
 
 describe('The API request object actions', () => {
 	// let url = 'https://redux-todo-api.herokuapp.com'
