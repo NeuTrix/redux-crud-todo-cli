@@ -1,12 +1,12 @@
 /* eslint-env node, mocha, chai, jest */
 import { expect } from 'chai';
 import axios from 'axios';
-import * as stub from "../pro";
+import * as stub from "../stubProfile";
 
 describe('The API request object actions', () => {
 	// let url = 'https://redux-todo-api.herokuapp.com'
 	let url = 'https://localhost:3003'
-	let user = // array
+	let user_01 = stub.user_01
 	let _task; // initial test item
 	let _last; // last test item
 
