@@ -6,7 +6,7 @@ export function userSignupRequest (userData) {
 	// let url = 'http://localhost:3003'
 	
 	return dispatch => {
-		return axios.post(`${ url }/api/users`, userData);
+		return axios.post(`${ url }/api/auth/register`, userData);
 	}
 }
 
