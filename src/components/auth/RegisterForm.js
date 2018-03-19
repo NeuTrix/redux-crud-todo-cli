@@ -44,9 +44,9 @@ class RegisterForm extends Component {
         .then((res) => { 
             this.props.addFlashMessage({
               type: 'success',
-              text: `Welcome ${ res.data.username} ! You have successfully Registered.`
+              text: `Welcome ${ res.data.username} ! You have successfully Registered and Logged In.`
             })
-            this.context.router.history.push('/'); 
+            this.context.router.history.push('/todos'); 
           }, 
          (err) => {
             this.props.addFlashMessage({
