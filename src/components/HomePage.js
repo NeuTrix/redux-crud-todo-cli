@@ -22,8 +22,8 @@ const styleBtn = {
 // +++++++++ Styling  
 	const space = { 
 		xs: { head: 12, list: 10, btns: 12 }, 
-		sm: { head: 12, list: 10, btns: 11 }, 
-		md: { head: 12, list: 12, btns: 11 }, 
+		sm: { head: 12, list: 10, btns: 5 }, 
+		md: { head: 12, list: 12, btns: 5 }, 
 	};
 
 const HomePage = (props) => {
@@ -66,8 +66,8 @@ const HomePage = (props) => {
 	  			<ButtonToolbar>
 		  			<Col 
 		  				xs = { space.xs.btns } xsPush = { 3 }
-		  				sm = { space.sm.btns } 
-		  				md = { space.md.btns } 
+		  				sm = { space.sm.btns } smPush = { 4 }
+		  				md = { space.md.btns } mdPush = { 5 }
  							
 	  				>
 	  					<Link to = '/login' >
