@@ -7,13 +7,13 @@ const style ={
 	border: ' 2px solid navy',
 	marginRight: 17,
 	padding: 10,
-	paddingRight: 20,
+	// paddingRight: 20,
 	textAlign: 'center',
 	borderRadius: 5,
 }
 
 const styleBtn = {
-	width: 80
+	width: 75
 }
 
 // +++++++++ Styling  
@@ -52,13 +52,13 @@ const HomePage = (props) => {
 	  		</Row>
 
 	  		<Row>
-		  	
-	  			<Col xs = { space.xs.regs } xsPush = { 1 } >
-	  				<Button style = { styleBtn } > Register</Button>
-	  			</Col>
 	  			
-	  			<Col xs = { space.xs.logn }  >
+	  			<Col xs = { space.xs.logn } bsSize = 'xsmall' xsPush = { 1 }  >
 	  				<Button style = { styleBtn } > Sign in </Button>
+	  			</Col>
+		  	
+	  			<Col xs = { space.xs.regs } bsSize = 'xsmall' xsPull = { 1 } >
+	  				<Button style = { styleBtn } > Register</Button>
 	  			</Col>
 
 	  		</Row>
