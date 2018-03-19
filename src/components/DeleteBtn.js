@@ -5,11 +5,10 @@ import { Button } from 'react-bootstrap';
 const DeleteBtn = (props) => {
 
 	const handleClick = (event) => {
-		let task = props.task
 		event.preventDefault();
 		// allow restricted global use of `confirm`
 		//eslint-disable-next-line
-		let _confirmed = confirm(`You are deleting the task : \n\t  "${task}" \n  Are you sure ?` ) 
+		let _confirmed = confirm(`You are deleting the task : \n\t  "${props.task}" \n  Are you sure ?` ) 
 			
 		if (_confirmed) {
 			return props.deleteTodo(props._id);
@@ -21,9 +20,10 @@ const DeleteBtn = (props) => {
 		<Button 
 			onClick= { handleClick } 
 			className= { 'deleteBtn btn btn-sm pull-right' }
-			style = { { color: 'lightgrey' } }
+			style = { { color: 'lightgrey', 
+			border: 'none', backgroundColor: 'transparent' } }
 		> 
-			<span style = { { fontSize: '1.5em' } } >
+			<span style = { { color: 'pink', fontSize: '1.5em ' } } >
 			&times;
 			</span> 
 

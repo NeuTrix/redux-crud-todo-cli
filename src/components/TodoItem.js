@@ -2,7 +2,6 @@ import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
 import { Col, Row } from 'react-bootstrap';
 import Rank from '../components/Rank';
-import DeleteBtn from '../components/DeleteBtn';
 import CalendarBtn from '../components/CalendarBtn';
 import CheckComplete from '../components/CheckComplete';
 import TodoTask from '../components/TodoTask';
@@ -87,6 +86,7 @@ class TodoItem extends Component {
 						style = { style }
 						type = 'text'  
 						editTodo = { this.props.editTodo }
+						deleteTodo = { this.props.deleteTodo } 
 					/> 
 				</Col>
 
@@ -120,20 +120,6 @@ class TodoItem extends Component {
 					/>
 				</Col>
 	
-				<Col 
-					className = 'deleteBtn'
-					xs = { spacing.xs.delBtn } 
-					sm = { spacing.sm.delBtn }
-					md = { spacing.md.delBtn }
-					lg = { spacing.lg.delBtn }
-					mdPull = { 2 }
-				>
-					<DeleteBtn 
-						deleteTodo = { this.props.deleteTodo } 
-						task = { this.props.item.task }  
-						_id = { this.props.item._id } 
-					/>
-				</Col>
 			</Row>
 		);
 	}

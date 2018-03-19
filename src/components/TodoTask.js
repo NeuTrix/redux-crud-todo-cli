@@ -1,6 +1,7 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
 import { Col, Button, Form, FormControl, Row } from 'react-bootstrap';
+import DeleteBtn from '../components/DeleteBtn';
 
 class TodoTask extends Component {
 
@@ -58,10 +59,10 @@ class TodoTask extends Component {
 	render () {
 
 		const space = { 
-			xs: { form: 10, btn: 2 }, 
-			sm: { form: 10, btn: 2 }, 
-			md: { form: 10, btn: 2 }, 
-			lg: { form: 10, btn: 2 }, 
+			xs: { form: 8, delt: 1, edit: 2 }, 
+			sm: { form: 8, delt: 1, edit: 2 }, 
+			md: { form: 8, delt: 1, edit: 2 }, 
+			lg: { form: 8, delt: 1, edit: 2 }, 
 		};
 
 		return (
@@ -89,10 +90,24 @@ class TodoTask extends Component {
 						/> 
 					</Col>
 					<Col 
-						xs = { space.xs.btn } 
-						sm = { space.sm.btn } 
-						md = { space.md.btn } 
-						lg = { space.lg.btn } 
+						xs = { space.xs.delt } 
+						sm = { space.sm.delt } 
+						md = { space.md.delt } 
+						lg = { space.lg.delt }
+						xsPull = { 1 }
+					>
+						<DeleteBtn 
+							task = { this.props.item.task } 
+							_id = { this.props.item._id }
+							deleteTodo = { this.props.deleteTodo } 
+						/>
+					</Col>
+
+					<Col 
+						xs = { space.xs.edit } 
+						sm = { space.sm.edit } 
+						md = { space.md.edit } 
+						lg = { space.lg.edit } 
 					>
 							<Button type = 'submit' bsStyle = 'primary' >
 			          Edit
@@ -106,12 +121,14 @@ class TodoTask extends Component {
 }
 
 TodoTask.propTypes = {
+	deleteTodo: PropTypes.func.isRequired,
 	editTodo: PropTypes.func.isRequired,
 	item: PropTypes.object.isRequired,
 	style: PropTypes.object.isRequired,
 };
 
 TodoTask.defaultProps = {
+	deleteTodo: f => f,
 	editTodo: f => f,
 	item: {
 		task: 'default from TodoTask.js',
