@@ -1,23 +1,25 @@
 import React from 'react';
-import { Button, Col, Grid, Jumbotron, Row } from 'react-bootstrap'
+import { Button, ButtonToolbar, Col, Grid, Jumbotron, Row } from 'react-bootstrap'
 // import  PropTypes  from 'prop-types';
 
 const style ={
 	background: 'aliceblue',
 	border: ' 2px solid navy',
-	// marginRight: 17,
+	borderRadius: 5,
+	color: 'navy',
 	padding: 10,
 	textAlign: 'center',
-	borderRadius: 5,
 }
 
 const styleBtn = {
+	marginTop: 15,
 	width: 75
 }
 
 // +++++++++ Styling  
 	const space = { 
-		xs: { head: 12, list: 10, logn: 6, regs: 6 } 
+		xs: { head: 12, list: 10, logn: 6, regs: 6 }, 
+		sm: { head: 12, list: 10, logn: 6, regs: 6 }, 
 	};
 
 const HomePage = (props) => {
@@ -25,14 +27,19 @@ const HomePage = (props) => {
 		<Grid>
 	  	<Col style = { style } >
 	  		<Row>
-	  			<Col xs = { space.xs.head} >
+	  			<Col 
+	  				xs = { space.xs.head } 
+  				>
 					  <h2>MERN Todo </h2>
-					  <p> Fullstack CRUD application: </p>
+					  <p> Fullstack CRUD application featuring: </p>
 	  			</Col>
 	  		</Row>
 
 	  		<Row>
-	  			<Col xs = { space.xs.list } xsPush = { 2 } >
+	  			<Col 
+	  				xs = { space.xs.list } 
+	  				xsPush = { 2 } 
+  				>
 						<ul>
 					  	<li style = { { textAlign: "left", fontSize: "1em"}} >
 						  	Mongo | Mongoose
@@ -51,15 +58,26 @@ const HomePage = (props) => {
 	  		</Row>
 
 	  		<Row>
-	  			
-	  			<Col xs = { space.xs.logn } bsSize = 'xsmall' xsPush = { 1 }  >
-	  				<Button style = { styleBtn } > Sign in </Button>
-	  			</Col>
-		  	
-	  			<Col xs = { space.xs.regs } bsSize = 'xsmall' xsPull = { 1 } >
-	  				<Button style = { styleBtn } > Register</Button>
-	  			</Col>
-
+	  			<ButtonToolbar>
+		  			<Col 
+		  				xs = { space.xs.logn } 
+		  				bsSize = 'xsmall' 
+		  				xsPush = { 2 }  
+	  				>
+		  				<Button style = { styleBtn } bsStyle = 'success'> 
+			  				Sign in 
+	  					</Button>
+		  			</Col>
+			  	
+		  			<Col 
+		  				xs = { space.xs.regs } 
+		  				bsSize = 'xsmall' 
+	  				>
+		  				<Button style = { styleBtn } bsStyle = 'primary'> 
+			  				Register
+	  					</Button>
+		  			</Col>
+	  			</ButtonToolbar>
 	  		</Row>
 
 			</Col>
