@@ -5,9 +5,8 @@ import { Button, Col, Grid, Jumbotron, Row } from 'react-bootstrap'
 const style ={
 	background: 'aliceblue',
 	border: ' 2px solid navy',
-	marginRight: 17,
+	// marginRight: 17,
 	padding: 10,
-	// paddingRight: 20,
 	textAlign: 'center',
 	borderRadius: 5,
 }
@@ -18,7 +17,7 @@ const styleBtn = {
 
 // +++++++++ Styling  
 	const space = { 
-		xs: { head: 12, list: 12, logn: 6, regs: 6 } 
+		xs: { head: 12, list: 10, logn: 6, regs: 6 } 
 	};
 
 const HomePage = (props) => {
@@ -33,7 +32,7 @@ const HomePage = (props) => {
 	  		</Row>
 
 	  		<Row>
-	  			<Col xs = { space.xs.list } >
+	  			<Col xs = { space.xs.list } xsPush = { 2 } >
 						<ul>
 					  	<li style = { { textAlign: "left", fontSize: "1em"}} >
 						  	Mongo | Mongoose

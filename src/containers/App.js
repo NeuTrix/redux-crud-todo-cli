@@ -45,12 +45,13 @@ class App extends Component {
 				</Row>
 
 				<Row style = { { paddingTop: 60 } } >
-					<Col xs = { 10 } >
-						<Route exact path = '/' component = { HomePage } />
-					</Col>
 
 					<Col>
 						<FlashMessageList/>
+					</Col>
+					
+					<Col xs = { 12 } >
+						<Route exact path = '/' component = { HomePage } />
 					</Col>
 
 					<Col>
