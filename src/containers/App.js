@@ -37,25 +37,30 @@ class App extends Component {
 		)
 
 		return (
+
 			<Grid>
+
 				<Row>
 					<Route path = '/' component = { Header } />
 				</Row>
 
 				<Row style = { { paddingTop: 60 } } >
+					<Col xs = { 10 } >
+						<Route exact path = '/' component = { HomePage } />
+					</Col>
+
 					<Col>
 						<FlashMessageList/>
 					</Col>
 
 					<Col>
-					<Route path = '/admin' component = { AdminPage } />
-					<Route path = '/register' component = { RegisterPage } />
-					<Route path = '/login' component = { LoginPage } />
-					<Route exact path = '/' component = { HomePage } />
-					<Route 
-						exact path = '/todos' 
-						component = { requireAuth(ReactDom.render = (props) => TodosPage) } 
-					/>
+						<Route path = '/admin' component = { AdminPage } />
+						<Route path = '/login' component = { LoginPage } />
+						<Route path = '/register' component = { RegisterPage } />
+						<Route 
+							exact path = '/todos' 
+							component = { requireAuth(ReactDom.render = (props) => TodosPage) } 
+						/>
 					</Col>
 
 				</Row>
