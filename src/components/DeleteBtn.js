@@ -19,9 +19,13 @@ const DeleteBtn = (props) => {
 	return (
 		<Button 
 			onClick= { handleClick } 
-			className= { 'deleteBtn btn btn-danger btn-sm pull-right' }
+			className= { 'deleteBtn btn btn-sm pull-right' }
+			style = { { color: 'lightgrey' } }
 		> 
-			Delete 
+			<span style = { { fontSize: '1.5em' } } >
+			&times;
+			</span> 
+
 		</Button>
 	);
 };
