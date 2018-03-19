@@ -13,7 +13,8 @@ import { Nav, Navbar, NavItem } from 'react-bootstrap';
 		color: 'lightblue'
 	}
 	const brandStyle = {
-		color: 'whitesmoke'
+		color: 'whitesmoke',
+		fontSize: '0.75em'
 	}
 
 	const logoutStyle ={

@@ -1,25 +1,29 @@
 import React from 'react';
 import { Button, ButtonToolbar, Col, Grid, Jumbotron, Row } from 'react-bootstrap'
-// import  PropTypes  from 'prop-types';
+import { Link } from 'react-router-dom'
 
 const style ={
 	background: 'aliceblue',
 	border: ' 2px solid navy',
 	borderRadius: 5,
 	color: 'navy',
-	padding: 10,
+	padding: 8,
 	textAlign: 'center',
 }
 
 const styleBtn = {
 	marginTop: 15,
-	width: 75
+	marginLeft: 1,
+	marginRight: 1,
+	color: 'whitesmoke',
+	width: 70
 }
 
 // +++++++++ Styling  
 	const space = { 
-		xs: { head: 12, list: 10, logn: 6, regs: 6 }, 
-		sm: { head: 12, list: 10, logn: 6, regs: 6 }, 
+		xs: { head: 12, list: 10, btns: 12 }, 
+		sm: { head: 12, list: 10, btns: 11 }, 
+		md: { head: 12, list: 12, btns: 11 }, 
 	};
 
 const HomePage = (props) => {
@@ -37,8 +41,9 @@ const HomePage = (props) => {
 
 	  		<Row>
 	  			<Col 
-	  				xs = { space.xs.list } 
-	  				xsPush = { 2 } 
+	  				xs = { space.xs.list } xsPush = { 2 } 
+	  				sm = { space.sm.list } smPush = { 4 } 
+	  				md = { space.md.list } mdPush = { 4 } 
   				>
 						<ul>
 					  	<li style = { { textAlign: "left", fontSize: "1em"}} >
@@ -60,22 +65,24 @@ const HomePage = (props) => {
 	  		<Row>
 	  			<ButtonToolbar>
 		  			<Col 
-		  				xs = { space.xs.logn } 
-		  				bsSize = 'xsmall' 
-		  				xsPush = { 2 }  
+		  				xs = { space.xs.btns } xsPush = { 3 }
+		  				sm = { space.sm.btns } 
+		  				md = { space.md.btns } 
+ 							
 	  				>
-		  				<Button style = { styleBtn } bsStyle = 'success'> 
-			  				Sign in 
-	  					</Button>
-		  			</Col>
+	  					<Link to = '/login' >
+			  				<Button  bsSize = 'small'style = { styleBtn } bsStyle = 'success'> 
+				  				Sign in 
+		  					</Button>
+	  					</Link >
 			  	
-		  			<Col 
-		  				xs = { space.xs.regs } 
-		  				bsSize = 'xsmall' 
-	  				>
-		  				<Button style = { styleBtn } bsStyle = 'primary'> 
+
+		  			
+	  					<Link to = '/register' >
+			  				<Button style = { styleBtn } bsSize = 'small'   bsStyle = 'primary'> 
 			  				Register
-	  					</Button>
+		  					</Button>
+	  					</Link >
 		  			</Col>
 	  			</ButtonToolbar>
 	  		</Row>
