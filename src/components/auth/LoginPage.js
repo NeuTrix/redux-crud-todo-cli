@@ -22,7 +22,7 @@ class LoginPage extends Component {
     return (
     <Grid >
       <Row>
-        <Col md = { 4 } mdoffset = { 4 }  style = { style } >
+        <Col md = { 4 } mdOffset = { 4 }  style = { style } >
           <LoginForm 
             userLoginRequest = { userLoginRequest } 
             addFlashMessage = { addFlashMessage } 
