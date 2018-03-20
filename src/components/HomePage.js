@@ -44,7 +44,7 @@ const HomePage = (props) => {
 	  			<Col 
 	  				xs = { space.xs.list } xsPush = { 2 } 
 	  				sm = { space.sm.list } smPush = { 4 } 
-	  				md = { space.md.list } mdPush = { 4 } 
+	  				md = { space.md.list } mdPush = { 5 } 
 						lg = { space.lg.list } lgPush = { 5 } 
   				>
 						<ul>
