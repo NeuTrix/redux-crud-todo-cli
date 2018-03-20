@@ -41,7 +41,9 @@ class App extends Component {
 			<Grid>
 
 				<Row>
-					<Route path = '/' component = { Header } />
+					<Col xs = { 12 }  >
+						<Route path = '/' component = { Header } />
+					</Col>
 				</Row>
 
 				<Row style = { { paddingTop: 60 } } >
@@ -50,11 +52,8 @@ class App extends Component {
 						<FlashMessageList/>
 					</Col>
 					
-					<Col xs = { 12 } >
-						<Route exact path = '/' component = { HomePage } />
-					</Col>
-
 					<Col>
+						<Route exact path = '/' component = { HomePage } />
 						<Route path = '/admin' component = { AdminPage } />
 						<Route path = '/login' component = { LoginPage } />
 						<Route path = '/register' component = { RegisterPage } />
