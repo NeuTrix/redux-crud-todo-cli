@@ -22,9 +22,9 @@ const styleBtn = {
 // +++++++++ Styling  
 	const space = { 
 		xs: { head: 12, list: 12, btns: 12 }, 
-		sm: { head: 12, list: 10, btns: 12 }, 
-		md: { head: 12, list: 10, btns: 12 }, 
-		lg: { head: 12, list: 10, btns: 12 }, 
+		sm: { head: 12, list: 12, btns: 12 }, 
+		md: { head: 12, list: 12, btns: 12 }, 
+		lg: { head: 12, list: 12, btns: 12 }, 
 	};
 
 const HomePage = (props) => {
@@ -43,9 +43,9 @@ const HomePage = (props) => {
 	  		<Row>
 	  			<Col 
 	  				xs = { space.xs.list } xsOffset = { 2 } 
-	  				sm = { space.sm.list } smPush = { 4 } 
-	  				md = { space.md.list } mdPush = { 5 } 
-						lg = { space.lg.list } lgPush = { 5 } 
+	  				sm = { space.sm.list } smOffset = { 4 } 
+	  				md = { space.md.list } mdOffset = { 5 } 
+						lg = { space.lg.list } lgOffset = { 5 } 
   				>
 						<ul>
 					  	<li style = { { textAlign: "left", fontSize: "1em"}} >
@@ -68,9 +68,9 @@ const HomePage = (props) => {
 	  			<ButtonToolbar>
 		  			<Col 
 		  				xs = { space.xs.btns } xsOffset = { 3 }
-		  				sm = { space.sm.btns } smPush = { 4 }
-		  				md = { space.md.btns } mdPush = { 5 }
-		  				lg = { space.lg.btns } lgPush = { 5 }
+		  				sm = { space.sm.btns } smOffset = { 5 }
+		  				md = { space.md.btns } mdOffset = { 4 }
+		  				lg = { space.lg.btns } lgOffset = { 5 }
  							
 	  				>
 	  					<Link to = '/login' >
