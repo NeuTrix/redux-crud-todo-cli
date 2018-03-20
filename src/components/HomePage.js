@@ -21,10 +21,10 @@ const styleBtn = {
 
 // +++++++++ Styling  
 	const space = { 
-		xs: { head: 12, list: 10, btns: 12 }, 
-		sm: { head: 12, list: 10, btns: 5 }, 
-		md: { head: 12, list: 12, btns: 5 }, 
-		lg: { head: 12, list: 12, btns: 5 }, 
+		xs: { head: 12, list: 12, btns: 12 }, 
+		sm: { head: 12, list: 10, btns: 12 }, 
+		md: { head: 12, list: 10, btns: 12 }, 
+		lg: { head: 12, list: 10, btns: 12 }, 
 	};
 
 const HomePage = (props) => {
@@ -42,7 +42,7 @@ const HomePage = (props) => {
 
 	  		<Row>
 	  			<Col 
-	  				xs = { space.xs.list } xsPush = { 2 } 
+	  				xs = { space.xs.list } xsOffset = { 2 } 
 	  				sm = { space.sm.list } smPush = { 4 } 
 	  				md = { space.md.list } mdPush = { 5 } 
 						lg = { space.lg.list } lgPush = { 5 } 
@@ -67,7 +67,7 @@ const HomePage = (props) => {
 	  		<Row>
 	  			<ButtonToolbar>
 		  			<Col 
-		  				xs = { space.xs.btns } xsPush = { 3 }
+		  				xs = { space.xs.btns } xsOffset = { 3 }
 		  				sm = { space.sm.btns } smPush = { 4 }
 		  				md = { space.md.btns } mdPush = { 5 }
 		  				lg = { space.lg.btns } lgPush = { 5 }
