@@ -24,6 +24,7 @@ const styleBtn = {
 		xs: { head: 12, list: 10, btns: 12 }, 
 		sm: { head: 12, list: 10, btns: 5 }, 
 		md: { head: 12, list: 12, btns: 5 }, 
+		lg: { head: 12, list: 12, btns: 5 }, 
 	};
 
 const HomePage = (props) => {
@@ -44,6 +45,7 @@ const HomePage = (props) => {
 	  				xs = { space.xs.list } xsPush = { 2 } 
 	  				sm = { space.sm.list } smPush = { 4 } 
 	  				md = { space.md.list } mdPush = { 4 } 
+						lg = { space.lg.list } lgPush = { 5 } 
   				>
 						<ul>
 					  	<li style = { { textAlign: "left", fontSize: "1em"}} >
@@ -68,6 +70,7 @@ const HomePage = (props) => {
 		  				xs = { space.xs.btns } xsPush = { 3 }
 		  				sm = { space.sm.btns } smPush = { 4 }
 		  				md = { space.md.btns } mdPush = { 5 }
+		  				lg = { space.lg.btns } lgPush = { 5 }
  							
 	  				>
 	  					<Link to = '/login' >
@@ -75,8 +78,6 @@ const HomePage = (props) => {
 				  				Sign in 
 		  					</Button>
 	  					</Link >
-			  	
-
 		  			
 	  					<Link to = '/register' >
 			  				<Button style = { styleBtn } bsSize = 'small'   bsStyle = 'primary'> 
