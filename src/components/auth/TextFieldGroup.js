@@ -13,7 +13,7 @@ const TextFieldGroup = ({
 	value 
 }) => {
 
-	const style = { margin: 0 }
+	const style = { }
 	const styleErr = { color: 'red' }
 
 	return (
@@ -21,7 +21,7 @@ const TextFieldGroup = ({
 
 			 <div className = { classnames('form-group', { 'has-error': errors }) } >
 
-				<ControlLabel> { label } </ControlLabel>
+				{ label && <ControlLabel> { label } </ControlLabel> }
 
 				<FormControl
 					name =  { name }
