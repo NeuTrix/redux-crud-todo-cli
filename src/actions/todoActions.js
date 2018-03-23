@@ -1,14 +1,24 @@
-export const READ_ALL_TODOS = 'READ_ALL_TODOS';
 export const ADD_TODO = 'ADD_TODO';
 export const EDIT_ITEM  = 'EDIT_ITEM';
+export const READ_ALL_TODOS = 'READ_ALL_TODOS';
 export const REMOVE_TODO = 'REMOVE_TODO';
+export const RESET_TODOS_STATE = 'RESET_TODOS_STATE';
 export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
 export const UPDATE_ITEM = 'UPDATE_TASK'; // Updates entire item obj.
 export const UPDATE_TASK = 'UPDATE_TASK';
 export const UPDATE_RANK = 'UPDATE_RANK';
 export const UPDATE_DATE = 'UPDATE_DATE';
 
-export function todosSetInitialState(initialState) {
+export const resetTodosState = (resetState) => {
+	return {
+		type: RESET_TODOS_STATE,
+		payload: {
+			resetState: resetState
+		}
+	};
+}
+
+export const todosSetInitialState = (initialState) => {
 	return {
 		type: READ_ALL_TODOS,
 		payload: {

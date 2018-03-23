@@ -1,8 +1,9 @@
 import {
 	ADD_TODO,
 	EDIT_ITEM,
-	REMOVE_TODO,
 	READ_ALL_TODOS, 
+	REMOVE_TODO,
+	RESET_TODOS_STATE,
 	TOGGLE_COMPLETE,
 	UPDATE_DATE,
 	UPDATE_RANK,
@@ -16,6 +17,9 @@ const TodoReducer = (state = [ ] , action) => {
 	switch (type) {
 	case READ_ALL_TODOS: 
 		return Object.assign([ ], state, payload.newState);
+
+	case RESET_TODOS_STATE: 
+		return payload.resetState;
 
 	case ADD_TODO: 
 		return [...state, payload.todo];

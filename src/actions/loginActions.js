@@ -1,7 +1,8 @@
 import axios from 'axios'
-import setAuthorizationToken from '../components/auth/setAuthToken'
-import jwtDecode from 'jwt-decode'
-import { SET_CURRENT_USER } from './typeConstants'
+import setAuthorizationToken from '../components/auth/setAuthToken';
+import { resetTodosState } from './todoActions';
+import jwtDecode from 'jwt-decode';
+import { SET_CURRENT_USER } from './typeConstants';
 
 export function setCurrentUser (user) {
 	return {
@@ -14,9 +15,11 @@ export function setCurrentUser (user) {
 
 export function logout(){
 	return dispatch => {
+		// reset the environment
 		localStorage.removeItem('jwtToken');
 		setAuthorizationToken(false);
-		dispatch(setCurrentUser({}));
+		dispatch(setCurrentUser({})); 
+		dispatch(resetTodosState([]));
 		
 		alert("You have successfully logged out.")
 	}
