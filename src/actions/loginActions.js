@@ -29,6 +29,7 @@ export function userLoginRequest(userData) {
 
 	return dispatch => {
 
+		  // return axios.post('/api/auth/login', userData)
 		  return axios.post(`${ url }/api/auth/login`, userData)
 			.then((res) => {
 
