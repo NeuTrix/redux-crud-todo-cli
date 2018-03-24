@@ -85,8 +85,8 @@ describe ('The TodoTask Component', () => {
 			console.log('*** Render the Props: ', _tasks.props()); 
 		});
 
-		it ('...TodoTask is passed (3) props', () => {
-			expect (Object.keys(_tasks.props()).length).to.eql(3);
+		it ('...TodoTask is passed (4) props', () => {
+			expect (Object.keys(_tasks.props()).length).to.eql(4);
 		});
 
 		it ('...has an item prop', () => {

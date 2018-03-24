@@ -9,15 +9,16 @@ import * as actions from '../../actions/todoActions';
 describe ('The READ_ALL_TODOS reducer', () => {
 
 	describe ('The iniital state', () => {
-		let	firstState = store.getState ().todos;
+		let	firstState = store.getState().todos;
 		deepFreeze (firstState);
 
 		it ('... has a default state array ', () => {
 			expect (firstState).to.be.an ('array');
 		});
 
-		it ('... has at least 1 initial item', () => {
-			expect (firstState.length).to.be.above (0);
+		// ui starts empty
+		it ('... starts with not todo items', () => {
+			expect (firstState.length).to.eql(0);
 		});
 	});
 

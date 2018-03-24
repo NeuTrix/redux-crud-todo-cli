@@ -6,13 +6,13 @@ import { editTodo } from '../../actions/editActions';
 import { userLoginRequest } from '../../actions/loginActions';
 import { userSignupRequest } from '../../actions/signupActions';
 import { readTodos } from '../../actions/readActions';
-import { 
+/*import { 
 	getHeroku, 
 	getLocal 
 } from '../../actions/admin/serverSwitchActions.js'
+*/
 
-
-describe ('The serverSwitchActions', () => {
+xdescribe ('The serverSwitchActions', () => {
 
 	let apiLocal = 'http://localhost:3003/api/todos' 
 	let apiHeroku = 'https://redux-todo-api.herokuapp.com/api/todos'
