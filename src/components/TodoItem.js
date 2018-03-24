@@ -12,10 +12,10 @@ import * as _a from '../actions/todoActions';
 
 // +++++++++ Styling 
 const spacing = { 
-	xs: { chkbx: 1, task: 10, rank: 2, date: 4, delBtn: 3},
-	sm: { chkbx: 1, task: 10, rank: 2, date: 4, delBtn: 3},
-	md: { chkbx: 1, task: 10, rank: 2, date: 4, delBtn: 3},
-	lg: { chkbx: 1, task: 10, rank: 2, date: 4, delBtn: 3},
+	xs: { chkbx: 1, task: 10, rank: 2, date: 4 },
+	sm: { chkbx: 1, task: 10, rank: 2, date: 4 },
+	md: { chkbx: 1, task: 10, rank: 2, date: 4 },
+	lg: { chkbx: 1, task: 10, rank: 2, date: 4 },
 };
 
 const todosBoxStyle = {
