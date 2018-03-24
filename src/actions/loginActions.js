@@ -32,7 +32,7 @@ export function userLoginRequest(userData) {
 
 				const user = jwtDecode(token)
 				dispatch(setCurrentUser(user));
-				// dispatch(readTodos());
+				dispatch(readTodos());
 
 				return res
 			})
