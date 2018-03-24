@@ -1,6 +1,7 @@
 import axios from 'axios'
 import setAuthorizationToken from '../components/auth/setAuthToken';
 import { resetTodosState } from './todoActions';
+import { readTodos } from './readActions';
 import jwtDecode from 'jwt-decode';
 import { SET_CURRENT_USER } from './typeConstants';
 
@@ -14,7 +15,7 @@ export function setCurrentUser (user) {
 };
 
 export function logout(){
-	
+
 	return dispatch => {
 		// reset the environment
 		localStorage.removeItem('jwtToken');
@@ -42,7 +43,8 @@ export function userLoginRequest(userData) {
 
 				setAuthorizationToken(token);
 				const user = jwtDecode(token)
-				dispatch(setCurrentUser(user))
+				dispatch(setCurrentUser(user));
+				dispatch(readTodos());
 
 				return res
 			})
