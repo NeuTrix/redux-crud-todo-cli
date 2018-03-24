@@ -31,8 +31,8 @@ const TodoForm = (props) => {
 	// +++++++++ Styling  
 
 	const spacing = { 
-		xs: { form: 12, rank: 4, date: 5, addBtn: 2 }, 
-		sm: { form: 4, rank: 2, date: 3, addBtn: 1 } 
+		xs: { form: 10, addBtn: 1, rank: 5, date: 6,  }, 
+		sm: { form: 4, addBtn: 1, rank: 2, date: 3,  } 
 	};
 
 	const styleTop = {
@@ -78,6 +78,29 @@ const TodoForm = (props) => {
 
 					<Col 
 						style = { styleField }
+						className = 'addBtn' 
+						xs = { spacing.xs.addBtn }
+						sm = { spacing.sm.addBtn }
+						xsPull = { 1 }
+					>
+						<Button 
+							className = { 'btn btn-sm' } 
+							type = 'submit' 
+							value = 'Add'
+							style = { { 
+								border: '1px solid grey', 
+								backgroundColor: 'whitesmoke' 
+							} }
+						>
+							<span style = { { color: 'green', fontSize: '1.5em ' } } >
+								&#x0002B;
+							</span> 
+						</Button>
+
+					</Col>
+
+					<Col 
+						style = { styleField }
 						className = 'rank' 
 						xs = { spacing.xs.rank }
 						sm = { spacing.sm.rank }
@@ -108,21 +131,6 @@ const TodoForm = (props) => {
 							bsSize = 'sm'
 							required 
 						/> 
-					</Col>
-
-					<Col 
-						style = { styleField }
-						className = 'addBtn' 
-						xs = { spacing.xs.addBtn }
-						sm = { spacing.sm.addBtn }
-					>
-						<Button 
-							className = { 'btn btn-success btn-sm' } 
-							type = 'submit' 
-							value = 'Add'
-						>
-							ADD
-						</Button>
 					</Col>
 
 				</Row>
