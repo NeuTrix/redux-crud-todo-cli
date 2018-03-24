@@ -32,7 +32,8 @@ const TodoForm = (props) => {
 
 	const spacing = { 
 		xs: { form: 10, addBtn: 1, rank: 5, date: 6,  }, 
-		sm: { form: 4, addBtn: 1, rank: 2, date: 3,  } 
+		sm: { form: 4, addBtn: 1, rank: 2, date: 3,  } ,
+		md: { form: 6, addBtn: 1, rank: 2, date: 2,  } 
 	};
 
 	const styleTop = {
@@ -59,6 +60,7 @@ const TodoForm = (props) => {
 						className = 'task' 
 						xs = { spacing.xs.form }
 						sm = { spacing.sm.form }
+						md = { spacing.md.form }
 					> 
 						<FormControl 
 							inputRef = { (input) => { _task = input;} } 
@@ -74,6 +76,7 @@ const TodoForm = (props) => {
 						className = 'addBtn' 
 						xs = { spacing.xs.addBtn }
 						sm = { spacing.sm.addBtn }
+						md = { spacing.md.addBtn }
 					>
 						<Button 
 							className = { 'btn btn-sm' } 
@@ -96,6 +99,7 @@ const TodoForm = (props) => {
 						className = 'rank' 
 						xs = { spacing.xs.rank }
 						sm = { spacing.sm.rank }
+						md = { spacing.md.rank }
 					> 
 						<FormControl 
 							componentClass = 'select' 
@@ -115,6 +119,7 @@ const TodoForm = (props) => {
 						className = 'date' 
 						xs = { spacing.xs.date }
 						sm = { spacing.sm.date }
+						md = { spacing.md.date }
 					>
 						<FormControl 
 							inputRef = { (input) => { _date = input; } } 
