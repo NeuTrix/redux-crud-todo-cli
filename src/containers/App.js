@@ -21,21 +21,24 @@ import { Col, Grid, Row } from 'react-bootstrap'
 class App extends Component {
 
 	render() {
+
+	const style = {
+		padding: 10,
+	}
 		
-		const TodosPage = (
-			<Row >
-				<TodoForm 
-					createTodo = { this.props.createTodo } 
-					owner = { this.props.user._id }
-				/>
-				<TodoList todoArray = { this.props.todoArray } />
-			</Row>
-		)
+	const TodosPage = (
+		<Row >
+			<TodoForm 
+				createTodo = { this.props.createTodo } 
+				owner = { this.props.user._id }
+			/>
+			<TodoList todoArray = { this.props.todoArray } />
+		</Row>
+	)
 
 		return (
 
-			<Grid>
-
+			<Grid >
 				<Row>
 					<Col xs = { 12 }  >
 						<Route path = '/' component = { Header } />
@@ -48,7 +51,7 @@ class App extends Component {
 						<FlashMessageList/>
 					</Col>
 					
-					<Col>
+					<Col style = { style } >
 						<Route exact path = '/' component = { HomePage } />
 						<Route path = '/admin' component = { AdminPage } />
 						<Route path = '/login' component = { LoginPage } />
