@@ -18,8 +18,9 @@ class TodoTask extends Component {
 			editStyle: { backgroundColor: 'aliceBlue', color: 'navy'}
 		};
 
-		this.handleClick = this.handleClick.bind(this);
+		this.handleBlur = this.handleBlur.bind(this);
 		this.handleChange = this.handleChange.bind(this);
+		this.handleClick = this.handleClick.bind(this);
 		this.handleFocus = this.handleFocus.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
@@ -55,6 +56,12 @@ class TodoTask extends Component {
 		e.preventDefault()
 			e.target.setSelectionRange(0, e.target.value.length);
 	}
+
+	handleBlur(e){
+		e.preventDefault()
+		const { _id, task} = this.state
+		this.props.editTodo( _id, {task: task})
+	}
 	
 	render () {
 
@@ -87,6 +94,7 @@ class TodoTask extends Component {
 							onClick = { this.handleClick }
 							onChange = { this.handleChange }
 							onFocus =  { this.handleFocus }
+							onBlur = { this.handleBlur}
 						/> 
 					</Col>
 					<Col 
@@ -103,16 +111,6 @@ class TodoTask extends Component {
 						/>
 					</Col>
 
-					<Col 
-						xs = { space.xs.edit } 
-						sm = { space.sm.edit } 
-						md = { space.md.edit } 
-						lg = { space.lg.edit } 
-					>
-							<Button type = 'submit' bsStyle = 'primary' >
-			          Edit
-			        </Button> 
-					</Col>
 						</Form>
 				</Row>
 			</div>
