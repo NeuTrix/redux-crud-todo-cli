@@ -14,6 +14,7 @@ export function setCurrentUser (user) {
 };
 
 export function logout(){
+	
 	return dispatch => {
 		// reset the environment
 		localStorage.removeItem('jwtToken');
