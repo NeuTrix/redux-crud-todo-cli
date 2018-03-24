@@ -19,7 +19,9 @@ const TodoReducer = (state = [ ] , action) => {
 		return Object.assign([ ], state, payload.newState);
 
 	case RESET_TODOS_STATE: 
-		return payload.resetState;
+		return state.filter (todo => { 
+			todo === undefined || todo === null
+		});
 
 	case ADD_TODO: 
 		return [...state, payload.todo];
