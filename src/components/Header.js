@@ -27,6 +27,7 @@ class Header extends Component {
 	logout(e) {
 		e.preventDefault();
 		this.props.logout();
+		this.context.router.history.push('/');
 	}
 
 	onClick(e){
@@ -110,6 +111,11 @@ Header.propTypes = {
 
 Header.defaultProps = {
 	// authApi: false
+}
+
+
+Header.contextTypes = {
+  router: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = (state) => {

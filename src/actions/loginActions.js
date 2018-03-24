@@ -47,8 +47,8 @@ export function logout(){
 		setAuthorizationToken(false);
 		dispatch(setCurrentUser({})); 
 		dispatch(resetTodosState([]));
-		
 		alert("You have successfully logged out.")
+		
 	}
 }
 
