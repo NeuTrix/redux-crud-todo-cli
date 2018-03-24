@@ -11,7 +11,7 @@ const styleTitle= {
 	textAlign: 'left'
 };
 
-const spacing =  { sm: {task: 5, rank: 2, date: 3, action: 2 } };	
+const spacing =  { sm: {task: 7, rank: 2, date: 3} };	
 
 const TodoTitleBar = (props) => {
 

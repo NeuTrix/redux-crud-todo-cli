@@ -50,13 +50,6 @@ const TodoForm = (props) => {
 	return (
 		<Grid className = 'TodoForm'>
 
-			<Col 
-				xsHidden = { true } 
-				smHidden = { false }
-			>
-				<TodoTitleBar/>
-			</Col>
-
 			<Form onSubmit = { handleSubmit } >
 
 				<Row style = { styleTop }  >
