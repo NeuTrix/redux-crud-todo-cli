@@ -81,7 +81,6 @@ const TodoForm = (props) => {
 						className = 'addBtn' 
 						xs = { spacing.xs.addBtn }
 						sm = { spacing.sm.addBtn }
-						xsPull = { 1 }
 					>
 						<Button 
 							className = { 'btn btn-sm' } 
@@ -89,10 +88,10 @@ const TodoForm = (props) => {
 							value = 'Add'
 							style = { { 
 								border: '1px solid grey', 
-								backgroundColor: 'whitesmoke' 
+								backgroundColor: 'black' 
 							} }
 						>
-							<span style = { { color: 'green', fontSize: '1.5em ' } } >
+							<span style = { { color: 'lime', fontSize: '1.25em ' } } >
 								&#x0002B;
 							</span> 
 						</Button>
