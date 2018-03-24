@@ -8,7 +8,7 @@ const style ={
 	borderRadius: 5,
 	color: 'navy',
 	padding: 8,
-	marginRight: 10,
+	marginRight: 5,
 	textAlign: 'center',
 }
 
@@ -22,10 +22,10 @@ const styleBtn = {
 
 // +++++++++ Styling  
 	const space = { 
-		xs: { head: 12, list: 12, btns: 12 }, 
-		sm: { head: 12, list: 12, btns: 4 }, 
-		md: { head: 12, list: 12, btns: 12 }, 
-		lg: { head: 12, list: 12, btns: 12 }, 
+		xs: { head: 12, list: 9, btns: 4 }, 
+		sm: { head: 12, list: 4, btns: 4 }, 
+		md: { head: 12, list: 4, btns: 4 }, 
+		lg: { head: 12, list: 4, btns: 4 }, 
 	};
 
 const HomePage = (props) => {
@@ -43,10 +43,10 @@ const HomePage = (props) => {
 
 	  		<Row>
 	  			<Col 
-	  				xs = { space.xs.list } xsOffset = { 2 } 
+	  				xs = { space.xs.list } xsOffset = { 3 } 
 	  				sm = { space.sm.list } smOffset = { 4 } 
-	  				md = { space.md.list } mdOffset = { 5 } 
-						lg = { space.lg.list } lgOffset = { 5 } 
+	  				md = { space.md.list } mdOffset = { 4 } 
+						lg = { space.lg.list } lgOffset = { 4 } 
   				>
 						<ul>
 					  	<li style = { { textAlign: "left", fontSize: "1em"}} >
@@ -67,25 +67,25 @@ const HomePage = (props) => {
 
 	  		<Row>
 		  			<Col 
-		  				xs = { space.xs.btns } xsOffset = { 3 }
-		  				sm = { space.sm.btns } smOffset = { 5 }
+		  				xs = { space.xs.btns } xsOffset = { 4 }
+		  				sm = { space.sm.btns } smOffset = { 4 }
 		  				md = { space.md.btns } mdOffset = { 4 }
-		  				lg = { space.lg.btns } lgOffset = { 5 }
+		  				lg = { space.lg.btns } lgOffset = { 4 }
 	  				>
-	  			<ButtonToolbar>
-	  					<Link to = '/login' >
-			  				<Button  bsSize = 'small'style = { styleBtn } bsStyle = 'success'> 
-				  				Sign in 
-		  					</Button>
-	  					</Link >
-		  			
-	  					<Link to = '/register' >
-			  				<Button style = { styleBtn } bsSize = 'small'   bsStyle = 'primary'> 
-			  				Register
-		  					</Button>
-	  					</Link >
+			  			<ButtonToolbar>
+			  					<Link to = '/login' >
+					  				<Button  bsSize = 'small'style = { styleBtn } bsStyle = 'success'> 
+						  				Sign in 
+				  					</Button>
+			  					</Link >
+				  			
+			  					<Link to = '/register' >
+					  				<Button style = { styleBtn } bsSize = 'small'   bsStyle = 'primary'> 
+					  				Register
+				  					</Button>
+			  					</Link >
 
-	  			</ButtonToolbar>
+			  			</ButtonToolbar>
 		  			</Col>
 	  		</Row>
 
