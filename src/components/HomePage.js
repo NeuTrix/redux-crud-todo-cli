@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ButtonToolbar, Col, Grid, Jumbotron, Row } from 'react-bootstrap'
+import { Button, ButtonToolbar, Col, Grid, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const style ={
