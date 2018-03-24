@@ -29,8 +29,9 @@ const TodoForm = (props) => {
 	};
 
 	// +++++++++ Styling  
+
 	const spacing = { 
-		xs: { form: 12, rank: 3, date: 4, addBtn: 2 }, 
+		xs: { form: 12, rank: 4, date: 5, addBtn: 2 }, 
 		sm: { form: 4, rank: 2, date: 3, addBtn: 1 } 
 	};
 
@@ -43,6 +44,7 @@ const TodoForm = (props) => {
 	const styleField = {
 		margin: 3
 	}
+
 	// +++++++++ 
 
 	return (
