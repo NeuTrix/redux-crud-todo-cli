@@ -21,7 +21,7 @@ const TodoReducer = (state = [ ] , action) => {
 
 	case RESET_TODOS_STATE: 
 		return state.filter (todo => { 
-			todo === undefined || todo === null
+			return todo === undefined || todo === null
 		});
 
 	case ADD_TODO: 
