@@ -15,6 +15,7 @@ const TodoReducer = (state = [ ] , action) => {
 	let type = action.type;
 
 	switch (type) {
+		
 	case READ_ALL_TODOS: 
 		return Object.assign([ ], state, payload.newState);
 

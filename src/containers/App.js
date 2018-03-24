@@ -21,7 +21,7 @@ import { Col, Grid, Row } from 'react-bootstrap'
 class App extends Component {
 
 	componentWillMount () {
-		this.props.readTodos()
+		// this.props.readTodos()
 	}
 
 	render() {

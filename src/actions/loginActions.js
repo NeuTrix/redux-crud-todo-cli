@@ -14,19 +14,6 @@ export function setCurrentUser (user) {
 	}
 };
 
-export function logout(){
-
-	return dispatch => {
-		// reset the environment
-		localStorage.removeItem('jwtToken');
-		setAuthorizationToken(false);
-		dispatch(setCurrentUser({})); 
-		dispatch(resetTodosState([]));
-		
-		alert("You have successfully logged out.")
-	}
-}
-
 export function userLoginRequest(userData) {
 
 	let url = 'https://redux-todo-api.herokuapp.com'
@@ -40,14 +27,28 @@ export function userLoginRequest(userData) {
 
 				const token = res.data.token;
 				localStorage.setItem('jwtToken', token);
-
+				
 				setAuthorizationToken(token);
+
 				const user = jwtDecode(token)
 				dispatch(setCurrentUser(user));
-				dispatch(readTodos());
+				// dispatch(readTodos());
 
 				return res
 			})
+	}
+}
+
+export function logout(){
+
+	return dispatch => {
+		// reset the environment
+		localStorage.removeItem('jwtToken');
+		setAuthorizationToken(false);
+		dispatch(setCurrentUser({})); 
+		dispatch(resetTodosState([]));
+		
+		alert("You have successfully logged out.")
 	}
 }
 

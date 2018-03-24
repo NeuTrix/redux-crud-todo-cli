@@ -8,7 +8,7 @@ import promise from 'redux-promise-middleware';
 const middlewares = [ 
 	promise(), 
 	thunk 
-	];
+];
  
 // only adds redux-logger in the TEST_ENV
 if (process.env.NODE_ENV === 'development') {
@@ -26,7 +26,7 @@ if (process.env.NODE_ENV === 'development') {
 // state management: start the app with the current state in localStr
 // const persistedState = loadState();
 
-const store = createStore(
+const store = createStore (
 	
 	rootReducer, 
 	// persistedState, 

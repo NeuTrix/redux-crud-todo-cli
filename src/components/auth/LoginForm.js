@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import validateInput from '../../helpers/loginValidator'
 import TextFieldGroup from './TextFieldGroup'
+
 import { Button, Col, Form, PageHeader, Row } from 'react-bootstrap';
 
 class LoginForm extends Component {
@@ -40,11 +41,11 @@ class LoginForm extends Component {
       this.props.userLoginRequest(this.state)
         .then((res) => {
           console.log(res)
-          // console.log(currentUser)
         this.props.addFlashMessage({
           type: 'success',
           text: `Welcome ${ res.data.username }! You have successfully Logged In.`
-        });
+        })
+
         this.context.router.history.push('/todos');
       },
         (err) => { this.setState({errors: err.response.data.errors, isLoading: false})
@@ -103,17 +104,19 @@ class LoginForm extends Component {
 };
 
 LoginForm.propTypes = {
+  addFlashMessage: PropTypes.func.isRequired,
+  currUser: PropTypes.object.isRequired,
   userLoginRequest: PropTypes.func.isRequired,
-  addFlashMessage: PropTypes.func.isRequired
 }
 
 LoginForm.defaultProps = {
+  addFlashMessage: f => f,
+  currUser: { },
   userLoginRequest: f => f,
-  addFlashMessage: f => f
 }
 
 LoginForm.contextTypes = {
-  router: PropTypes.object.isRequired
+  router: PropTypes.object.isRequired,
 }
 
 export default LoginForm;
