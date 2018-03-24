@@ -74,7 +74,7 @@ App.propTypes = {
 };
 
 App.defaultProps = {
-	// createTodo: f => f,
+	createTodo: f => f,
 	todoArray: [ ],
 	user: "Default USER from APP.js"
 };
