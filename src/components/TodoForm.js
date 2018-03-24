@@ -30,8 +30,8 @@ const TodoForm = (props) => {
 
 	// +++++++++ Styling  
 	const spacing = { 
-		xs: { form: 12, rank: 3, date: 4, addBtn: 2, resetBtn: 2 }, 
-		sm: { form: 4, rank: 2, date: 3, addBtn: 1, resetBtn: 1 } 
+		xs: { form: 12, rank: 3, date: 4, addBtn: 2 }, 
+		sm: { form: 4, rank: 2, date: 3, addBtn: 1 } 
 	};
 
 	const styleTop = {
@@ -123,25 +123,12 @@ const TodoForm = (props) => {
 						</Button>
 					</Col>
 
-					<Col 
-						style = { styleField }
-						className = 'resetBtn' 
-						xs = { spacing.xs.resetBtn }
-						sm = { spacing.sm.resetBtn }
-					> 
-						<Button 
-							className = { 'btn btn-warning btn-sm' } 
-							type = 'reset'
-						> 
-							CLR 
-						</Button> 
-					</Col>
-					
 				</Row>
 			</Form>
 		</Grid>
 	);
 };
+	
 
 TodoForm.propTypes = {
 	addTodo: PropTypes.func.isRequired,
