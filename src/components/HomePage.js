@@ -8,6 +8,7 @@ const style ={
 	borderRadius: 5,
 	color: 'navy',
 	padding: 8,
+	marginRight: 10,
 	textAlign: 'center',
 }
 
@@ -22,7 +23,7 @@ const styleBtn = {
 // +++++++++ Styling  
 	const space = { 
 		xs: { head: 12, list: 12, btns: 12 }, 
-		sm: { head: 12, list: 12, btns: 12 }, 
+		sm: { head: 12, list: 12, btns: 4 }, 
 		md: { head: 12, list: 12, btns: 12 }, 
 		lg: { head: 12, list: 12, btns: 12 }, 
 	};
@@ -65,14 +66,13 @@ const HomePage = (props) => {
 	  		</Row>
 
 	  		<Row>
-	  			<ButtonToolbar>
 		  			<Col 
 		  				xs = { space.xs.btns } xsOffset = { 3 }
 		  				sm = { space.sm.btns } smOffset = { 5 }
 		  				md = { space.md.btns } mdOffset = { 4 }
 		  				lg = { space.lg.btns } lgOffset = { 5 }
- 							
 	  				>
+	  			<ButtonToolbar>
 	  					<Link to = '/login' >
 			  				<Button  bsSize = 'small'style = { styleBtn } bsStyle = 'success'> 
 				  				Sign in 
@@ -84,8 +84,9 @@ const HomePage = (props) => {
 			  				Register
 		  					</Button>
 	  					</Link >
-		  			</Col>
+
 	  			</ButtonToolbar>
+		  			</Col>
 	  		</Row>
 
 			</Col>
