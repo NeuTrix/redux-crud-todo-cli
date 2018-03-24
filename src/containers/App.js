@@ -20,10 +20,6 @@ import { Col, Grid, Row } from 'react-bootstrap'
 
 class App extends Component {
 
-	componentWillMount () {
-		// this.props.readTodos()
-	}
-
 	render() {
 		
 		const TodosPage = (
@@ -70,8 +66,6 @@ class App extends Component {
 		);
 	}
 } 
-
-// +++++++++ ? this.props.children  +++++++++ 
 
 App.propTypes = { 
 	createTodo:    PropTypes.func.isRequired,
