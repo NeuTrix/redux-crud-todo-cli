@@ -66,10 +66,10 @@ class TodoTask extends Component {
 	render () {
 
 		const space = { 
-			xs: { form: 8, delt: 1 }, 
-			sm: { form: 8, delt: 1 }, 
-			md: { form: 8, delt: 1 }, 
-			lg: { form: 8, delt: 1 }, 
+			xs: { form: 11, delt: 1 }, 
+			sm: { form: 11, delt: 1 }, 
+			md: { form: 11, delt: 1 }, 
+			lg: { form: 11, delt: 1 }, 
 		};
 
 		return (
