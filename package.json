@@ -62,5 +62,5 @@
     "jest": "^22.0.4",
     "react-addons-test-utils": "^15.6.2",
     "tree-list": "^1.0.0"
-  },
+  }
 }
