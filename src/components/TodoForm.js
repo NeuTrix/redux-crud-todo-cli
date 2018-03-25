@@ -60,6 +60,9 @@ const TodoForm = (props) => {
 
 	return (
 		<Grid className = 'TodoForm'>
+			<h1>
+				Do the things...
+			</h1>
 
 			<Form onSubmit = { handleSubmit } >
 
@@ -115,12 +118,13 @@ const TodoForm = (props) => {
 							value = 'Add'
 							style = { { 
 								border: '1px solid grey', 
-								backgroundColor: 'navy' 
+								backgroundColor: 'whitesmoke', 
+								color: 'green',
 							} }
 						>
 							<Glyphicon 
 								glyph = 'plus'
-								style = { { color: 'lime', fontSize: '1.25em ' } }
+								style = { {  fontSize: '1.35em' } }
 							 />
 						</Button>
 

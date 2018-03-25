@@ -27,9 +27,6 @@ export default function (ComposedComponent) {
 		render () {
 			return (
 				<div>
-					<h1>
-						So... you have stuff to do?
-					</h1>
 					<ComposedComponent { ...this.props } /> 
 				</div>
 			);
