@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'react-bootstrap';
+import { Button, Glyphicon } from 'react-bootstrap';
 
 const DeleteBtn = (props) => {
 
@@ -23,9 +23,10 @@ const DeleteBtn = (props) => {
 			style = { { color: 'lightgrey', 
 			border: 'none', backgroundColor: 'transparent' } }
 		> 
-			<span style = { { color: 'pink', fontSize: '1.5em ' } } >
-			&times;
-			</span> 
+			<Glyphicon 
+				style = { { color: 'pink', fontSize: '1.5em', paddingTop: 4 } }
+				glyph = 'remove' 
+			 /> 
 
 		</Button>
 		
