@@ -1,7 +1,13 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
-import { Col, Form, FormControl, Row } from 'react-bootstrap';
 import DeleteBtn from '../components/DeleteBtn';
+import { 
+	Col, 
+	Form, 
+	FormControl, 
+	Row 
+} from 'react-bootstrap';
+
 
 class TodoTask extends Component {
 
