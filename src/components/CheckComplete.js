@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Checkbox } from 'react-bootstrap';
 
-const checkStyle ={
-	// paddingLeft: 10,
-};
-
 class CheckComplete extends Component {
 			
 	constructor (props) {
@@ -26,18 +22,17 @@ class CheckComplete extends Component {
 		const handleToggle = (event) => {
 			// do not preventDefault- preserves animation
 			this.props.toggleComplete(this.props._id);
-			this.props.editTodo(
+			this.props.editTodo ( 
 				this.props._id, 
 				{ completed: !this.state.isChecked }
 			);
 		};
 
-		return( 
+		return (  
 			<Checkbox 
 				className = 'checkComplete'
 				defaultChecked = { this.props.completed }
 				type = 'checkbox' 
-				style = { checkStyle }
 				onClick = { handleToggle } 
 			> 
 			</Checkbox>
@@ -55,8 +50,8 @@ CheckComplete.propTypes = {
 CheckComplete.defaultProps = {
 	completed: false,
 	editTodo: f => f,
-	toggleComplete: f => f,
 	_id: 'default' ,
+	toggleComplete: f => f,
 };
 
 export default CheckComplete;
