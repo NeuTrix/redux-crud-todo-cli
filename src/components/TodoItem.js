@@ -12,10 +12,10 @@ import * as _a from '../actions/todoActions';
 
 // +++++++++ Styling 
 const spacing = { 
-	xs: { chkbx: 1, rank: 2, task: 5,  date: 2 },
-	sm: { chkbx: 1, rank: 2, task: 5,  date: 2 },
-	md: { chkbx: 1, rank: 2, task: 5,  date: 2 },
-	lg: { chkbx: 1, rank: 1, task: 8,  date: 2 },
+	xs: { chkbx: 1, task: 11, date: 6, rank: 6 },
+	sm: { chkbx: 1, task: 5,  date: 2, rank: 2 },
+	md: { chkbx: 1, task: 5,  date: 2, rank: 2 },
+	lg: { chkbx: 1, task: 8,  date: 2, rank: 1 },
 };
 
 const todosBoxStyle = {
@@ -73,23 +73,8 @@ class TodoItem extends Component {
 				</Col>
 
 				<Col 
-					className = 'rank'
-					xs = { spacing.xs.rank } 
-					sm = { spacing.sm.rank }
-					md = { spacing.md.rank }
-					lg = { spacing.lg.rank }
-				>
-					<Rank
-						editTodo = { this.props.editTodo }
-						_id = { this.props.item._id }
-						currRank = { this.props.item.rank }
-						updateRank= { this.props.updateRank }   
-					/>
-				</Col >
-
-				<Col 
 					className = 'todoTask'
-					xs = { spacing.xs.task } 
+					xs = { spacing.xs.task }  
 					sm = { spacing.sm.task } 
 					md = { spacing.md.task } 
 					lg = { spacing.lg.task } 
@@ -104,6 +89,21 @@ class TodoItem extends Component {
 						deleteTodo = { this.props.deleteTodo } 
 					/> 
 				</Col>
+
+				<Col 
+					className = 'rank'
+					xs = { spacing.xs.rank }  
+					sm = { spacing.sm.rank }
+					md = { spacing.md.rank }
+					lg = { spacing.lg.rank }
+				>
+					<Rank
+						editTodo = { this.props.editTodo }
+						_id = { this.props.item._id }
+						currRank = { this.props.item.rank }
+						updateRank= { this.props.updateRank }   
+					/>
+				</Col >
 
 				<Col 	
 					className = 'calendarBtn'

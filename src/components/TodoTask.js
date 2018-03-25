@@ -72,10 +72,10 @@ class TodoTask extends Component {
 	render () {
 
 		const space = { 
-			xs: { form: 11, delt: 1 }, 
-			sm: { form: 11, delt: 1 }, 
-			md: { form: 11, delt: 1 }, 
-			lg: { form: 11, delt: 1 }, 
+			xs: { form: 10, delt: 1 }, 
+			sm: { form: 10, delt: 1 }, 
+			md: { form: 10, delt: 1 }, 
+			lg: { form: 10, delt: 1 }, 
 		};
 
 		return (
@@ -104,11 +104,10 @@ class TodoTask extends Component {
 						/> 
 					</Col>
 					<Col 
-						xs = { space.xs.delt } 
+						xs = { space.xs.delt } xsPull = { 1 }
 						sm = { space.sm.delt } 
 						md = { space.md.delt } 
 						lg = { space.lg.delt }
-						xsPull = { 1 }
 					>
 						<DeleteBtn 
 							task = { this.props.item.task } 
