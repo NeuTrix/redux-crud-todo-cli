@@ -15,18 +15,26 @@ const DeleteBtn = (props) => {
 		} 
 	};
 
+	const styleGlyph = { 
+		color: 'pink', 
+		fontSize: '1.5em', 
+		paddingTop: 4 
+	}
+
+	const styleBtn = { 
+		color: 'lightgrey', 
+		border: 'none', 
+		backgroundColor: 'transparent' 
+	}
+
 	return (
 
 		<Button 
+			className= { 'btn btn-sm' }
+			style = { styleBtn }
 			onClick= { handleClick } 
-			className= { 'deleteBtn btn btn-sm pull-right' }
-			style = { { color: 'lightgrey', 
-			border: 'none', backgroundColor: 'transparent' } }
 		> 
-			<Glyphicon 
-				style = { { color: 'pink', fontSize: '1.5em', paddingTop: 4 } }
-				glyph = 'remove' 
-			 /> 
+			<Glyphicon glyph = 'remove' style  = { styleGlyph } /> 
 
 		</Button>
 		
