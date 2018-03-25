@@ -66,10 +66,10 @@ class TodoTask extends Component {
 	render () {
 
 		const space = { 
-			xs: { form: 8, delt: 1, edit: 2 }, 
-			sm: { form: 8, delt: 1, edit: 2 }, 
-			md: { form: 8, delt: 1, edit: 2 }, 
-			lg: { form: 8, delt: 1, edit: 2 }, 
+			xs: { form: 8, delt: 1 }, 
+			sm: { form: 8, delt: 1 }, 
+			md: { form: 8, delt: 1 }, 
+			lg: { form: 8, delt: 1 }, 
 		};
 
 		return (
@@ -120,14 +120,12 @@ class TodoTask extends Component {
 
 TodoTask.propTypes = {
 	deleteTodo: PropTypes.func.isRequired,
-	editTodo: PropTypes.func.isRequired,
 	item: PropTypes.object.isRequired,
 	style: PropTypes.object.isRequired,
 };
 
 TodoTask.defaultProps = {
 	deleteTodo: f => f,
-	editTodo: f => f,
 	item: {
 		task: 'default from TodoTask.js',
 		completed: false
