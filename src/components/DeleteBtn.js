@@ -17,14 +17,14 @@ const DeleteBtn = (props) => {
 
 	const styleGlyph = { 
 		color: 'pink', 
-		fontSize: '1.5em', 
+		// fontSize: '1.5em', 
 		paddingTop: 4 
 	}
 
 	const styleBtn = { 
 		color: 'lightgrey', 
-		border: 'none', 
-		backgroundColor: 'transparent' 
+		border: '1px solid lightgrey', 
+		backgroundColor: 'white' 
 	}
 
 	return (

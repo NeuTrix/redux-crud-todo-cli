@@ -12,9 +12,9 @@ import * as _a from '../actions/todoActions';
 
 // +++++++++ Styling 
 const spacing = { 
-	xs: { chkbx: 1, task: 11, date: 6, rank: 6 },
+	xs: { chkbx: 1, task: 10, date: 6, rank: 6 },
 	sm: { chkbx: 1, task: 5,  date: 2, rank: 2 },
-	md: { chkbx: 1, task: 6,  date: 2, rank: 2 },
+	md: { chkbx: 1, task: 7,  date: 2, rank: 2 },
 	lg: { chkbx: 1, task: 8,  date: 2, rank: 1 },
 };
 

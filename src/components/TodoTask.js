@@ -81,7 +81,7 @@ class TodoTask extends Component {
 		return (
 
 			<div>
-				<Row>
+				<Row style = {{ marginBottom: 4}} >
 					<Form onSubmit = { this.handleSubmit } >
 
 					<Col 
@@ -104,6 +104,7 @@ class TodoTask extends Component {
 						/> 
 					</Col>
 					<Col 
+						className = 'delete'
 						xs = { space.xs.delt } 
 						sm = { space.sm.delt } 
 						md = { space.md.delt } 

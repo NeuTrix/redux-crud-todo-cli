@@ -117,8 +117,8 @@ const TodoForm = (props) => {
 							type = 'submit' 
 							value = 'Add'
 							style = { { 
-								border: '1px solid grey', 
-								backgroundColor: 'whitesmoke', 
+								border: '1px solid lightgrey', 
+								backgroundColor: 'white', 
 								color: 'green',
 							} }
 						>
