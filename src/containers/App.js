@@ -32,7 +32,10 @@ class App extends Component {
 				createTodo = { this.props.createTodo } 
 				owner = { this.props.user._id }
 			/>
-			<TodoList todoArray = { this.props.todoArray } />
+			<TodoList 
+				todoArray = { this.props.todoArray } 
+				readTodos = { this.props.readTodos } 
+			/>
 		</Row>
 	)
 
