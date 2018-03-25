@@ -61,9 +61,9 @@ describe('The TodoItem Component', () => {
 			expect (wrappingRow.children()).to.eql(todoItem().children());
 		});
 
-		it('always renders (7) Cols', () => {
+		it('always renders (6) Cols', () => {
 			const cols = todoItem().find('Col');
-			expect(cols.length).to.be.eql(7);
+			expect(cols.length).to.be.eql(6);
 		});
 	});
 
