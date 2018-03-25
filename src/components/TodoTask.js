@@ -1,6 +1,6 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
-import { Col, Button, Form, FormControl, Row } from 'react-bootstrap';
+import { Col, Form, FormControl, Row } from 'react-bootstrap';
 import DeleteBtn from '../components/DeleteBtn';
 
 class TodoTask extends Component {
