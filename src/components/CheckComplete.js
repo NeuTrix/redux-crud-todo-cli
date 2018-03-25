@@ -29,6 +29,7 @@ class CheckComplete extends Component {
 		};
 
 		const style = {
+			paddingTop: 3,
 			color: 'steelblue',
 			fontSize: '1.5em',
 		}

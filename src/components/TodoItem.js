@@ -20,7 +20,8 @@ const spacing = {
 
 const todosBoxStyle = {
 	marginTop: 10,
-	paddingTop: 10,
+	paddingTop: 5,
+	paddingBottom: 5,
 	border: '1px solid lightgrey',
 	borderRadius: 5,
 	backgroundColor: 'whitesmoke'
