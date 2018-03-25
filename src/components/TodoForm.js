@@ -71,7 +71,7 @@ const TodoForm = (props) => {
 				<Col
 					xs = { spacing.xs.pen }
 					sm = { spacing.sm.pen }
-					xsHidden = 'true'
+					xsHidden = { true }
 						
 					md = { spacing.md.pen } 
 					style = {{
