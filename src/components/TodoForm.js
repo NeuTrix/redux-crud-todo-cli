@@ -2,7 +2,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import normalizeDate from '../helpers/normalizeDate';
-import { Col, Button, Form, FormControl, Grid, Row } from 'react-bootstrap';
+import { 
+	Button, 
+	Clearfix,
+	Col, 
+	Form, 
+	FormControl, 
+	Glyphicon,
+	Grid, 
+	Row 
+} from 'react-bootstrap';
 
 // +++++++++ refactor +++++++++ 
 
@@ -30,9 +39,9 @@ const TodoForm = (props) => {
 	// +++++++++ Styling  
 
 	const spacing = { 
-		xs: { form: 10, addBtn: 1, rank: 5, date: 6,  }, 
-		sm: { form: 4, addBtn: 1, rank: 2, date: 3,  } ,
-		md: { form: 6, addBtn: 1, rank: 2, date: 2,  } 
+		xs: { pen: 1, form: 11, addBtn: 1, rank: 5, date: 6,  }, 
+		sm: { pen: 1, form: 4, addBtn: 1, rank: 2, date: 3,  } ,
+		md: { pen: 1, form: 6, addBtn: 1, rank: 2, date: 2,  } 
 	};
 
 	const styleTop = {
@@ -42,7 +51,7 @@ const TodoForm = (props) => {
 	};
 
 	const styleField = {
-		margin: 3
+		textAlign: 'left'
 	}
 
 	// +++++++++ 
@@ -54,13 +63,34 @@ const TodoForm = (props) => {
 
 				<Row style = { styleTop }  >
 
+				<Col
+					xs = { spacing.xs.pen }
+					sm = { spacing.sm.pen }
+					xsHidden = 'true'
+						
+					md = { spacing.md.pen } 
+					style = {{
+						textAlign: 'right', 
+					}}
+				>
+				<Glyphicon 
+					glyph = 'pencil' 
+					style = {{ 
+						color: 'steelblue', 
+						fontSize: '1.5em',  
+						paddingTop: 5
+					}} />
+					
+					</Col>
+
 					<Col 
 						style = { styleField }
 						className = 'task' 
 						xs = { spacing.xs.form }
 						sm = { spacing.sm.form }
-						md = { spacing.md.form }
+						md = { spacing.md.form } 
 					> 
+						
 						<FormControl 
 							inputRef = { (input) => { _task = input;} } 
 							type = 'text'  
@@ -69,13 +99,14 @@ const TodoForm = (props) => {
 							required 
 						/>
 					</Col>
-
+					<Clearfix visibleSmBlock />
 					<Col 
 						style = { styleField }
 						className = 'addBtn' 
 						xs = { spacing.xs.addBtn }
 						sm = { spacing.sm.addBtn }
-						md = { spacing.md.addBtn }
+							
+						md = { spacing.md.addBtn } 
 					>
 						<Button 
 							className = { 'btn btn-sm' } 
@@ -83,12 +114,13 @@ const TodoForm = (props) => {
 							value = 'Add'
 							style = { { 
 								border: '1px solid grey', 
-								backgroundColor: 'black' 
+								backgroundColor: 'navy' 
 							} }
 						>
-							<span style = { { color: 'lime', fontSize: '1.25em ' } } >
-								&#x0002B;
-							</span> 
+							<Glyphicon 
+								glyph = 'plus'
+								style = { { color: 'lime', fontSize: '1.25em ' } }
+							 />
 						</Button>
 
 					</Col>
@@ -102,9 +134,8 @@ const TodoForm = (props) => {
 					> 
 						<FormControl 
 							componentClass = 'select' 
-							bsSize = 'sm'
-							defaultValue = 'Med'
 							inputRef = { (value) => { _rank = value; } } 
+							defaultValue = 'Med'
 						>
 							<option value = 'High'>High</option>
 							<option value = 'Med'>Med</option>
@@ -121,10 +152,9 @@ const TodoForm = (props) => {
 						md = { spacing.md.date }
 					>
 						<FormControl 
+							defaultValue = { _currentDate } 
 							inputRef = { (input) => { _date = input; } } 
 							type = 'date'
-							defaultValue = { _currentDate } 
-							bsSize = 'sm'
 							required 
 						/> 
 					</Col>
