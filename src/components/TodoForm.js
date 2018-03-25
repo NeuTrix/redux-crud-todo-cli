@@ -39,8 +39,8 @@ const TodoForm = (props) => {
 	// +++++++++ Styling  
 
 	const spacing = { 
-		xs: { pen: 1, form: 11, addBtn: 1, rank: 6, date: 6,  }, 
-		sm: { pen: 1, form: 4, addBtn: 1, rank: 2, date: 3,  } ,
+		xs: { pen: 1, form: 10, addBtn: 1, rank: 6, date: 6,  }, 
+		sm: { pen: 1, form: 10, addBtn: 1, rank: 6, date: 6,  } ,
 		md: { pen: 1, form: 6, addBtn: 1, rank: 2, date: 2,  } 
 	};
 
@@ -108,8 +108,8 @@ const TodoForm = (props) => {
 					<Col 
 						style = { styleField }
 						className = 'addBtn' 
-						xs = { spacing.xs.addBtn } xsPull = { 1 }
-						sm = { spacing.sm.addBtn }
+						xs = { spacing.xs.addBtn } 
+						sm = { spacing.sm.addBtn } 
 						md = { spacing.md.addBtn } 
 					>
 						<Button 
