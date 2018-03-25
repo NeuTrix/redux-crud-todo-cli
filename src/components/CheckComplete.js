@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Checkbox } from 'react-bootstrap';
 
 const checkStyle ={
-	paddingLeft: 10,
+	// paddingLeft: 10,
 };
 
 class CheckComplete extends Component {

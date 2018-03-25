@@ -12,16 +12,15 @@ import * as _a from '../actions/todoActions';
 
 // +++++++++ Styling 
 const spacing = { 
-	xs: { chkbx: 1, task: 10, rank: 2, date: 4 },
-	sm: { chkbx: 1, task: 10, rank: 2, date: 4 },
-	md: { chkbx: 1, task: 10, rank: 2, date: 4 },
-	lg: { chkbx: 1, task: 10, rank: 2, date: 4 },
+	xs: { chkbx: 1, task: 5, rank: 2, date: 2 },
+	sm: { chkbx: 1, task: 5, rank: 2, date: 2 },
+	md: { chkbx: 1, task: 5, rank: 2, date: 2 },
+	lg: { chkbx: 1, task: 8, rank: 1, date: 2 },
 };
 
 const todosBoxStyle = {
 	marginTop: 10,
-	paddingBottom: 10,
-	padding: 10,
+	paddingTop: 10,
 	border: '1px solid lightgrey',
 	borderRadius: 5,
 	backgroundColor: 'whitesmoke'
@@ -44,7 +43,8 @@ class TodoItem extends Component {
 
 	render () {
 
-		let style = {};
+		let style 
+
 		if (this.props.item.completed) {
 			style = isCompletedStyle; 
 		} else {
@@ -72,25 +72,6 @@ class TodoItem extends Component {
 				</Col>
 
 				<Col 
-					className = 'todoTask'
-					xs = { spacing.xs.task } 
-					sm = { spacing.sm.task } 
-					md = { spacing.md.task } 
-					lg = { spacing.lg.task } 
-					style = { { marginBottom: 10 } }
-				>
-					<TodoTask 
-						className= 'task' 
-						item = { this.props.item }
-						required
-						style = { style }
-						type = 'text'  
-						editTodo = { this.props.editTodo }
-						deleteTodo = { this.props.deleteTodo } 
-					/> 
-				</Col>
-
-				<Col 
 					className = 'rank'
 					xs = { spacing.xs.rank } 
 					sm = { spacing.sm.rank }
@@ -104,6 +85,25 @@ class TodoItem extends Component {
 						updateRank= { this.props.updateRank }   
 					/>
 				</Col >
+
+				<Col 
+					className = 'todoTask'
+					xs = { spacing.xs.task } 
+					sm = { spacing.sm.task } 
+					md = { spacing.md.task } 
+					lg = { spacing.lg.task } 
+				>
+					<TodoTask 
+						className= 'task' 
+						item = { this.props.item }
+						required
+						style = { style }
+						type = 'text'  
+						editTodo = { this.props.editTodo }
+						deleteTodo = { this.props.deleteTodo } 
+					/> 
+				</Col>
+
 
 				<Col 	
 					className = 'calendarBtn'
