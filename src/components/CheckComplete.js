@@ -35,7 +35,7 @@ class CheckComplete extends Component {
 		}
 
 		const checked = ( 
-			<Glyphicon style = { style } glyph = 'ok' /> 
+			<Glyphicon style = { style } glyph = 'check' /> 
 		)
 		
 		const unchecked = ( 
