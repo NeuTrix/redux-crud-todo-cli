@@ -104,7 +104,6 @@ class TodoItem extends Component {
 					/> 
 				</Col>
 
-
 				<Col 	
 					className = 'calendarBtn'
 					xs = { spacing.xs.date }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Checkbox } from 'react-bootstrap';
+import { Col, Glyphicon } from 'react-bootstrap';
 
 class CheckComplete extends Component {
 			
@@ -28,14 +28,30 @@ class CheckComplete extends Component {
 			);
 		};
 
+		const style = {
+			color: 'steelblue',
+			fontSize: '1.5em',
+		}
+
+		const checked = ( 
+			<Glyphicon style = { style } glyph = 'ok' /> 
+		)
+		
+		const unchecked = ( 
+			<Glyphicon style = { style } glyph = 'unchecked' /> 
+		)
+
+
 		return (  
-			<Checkbox 
+
+			<Col 
 				className = 'checkComplete'
 				defaultChecked = { this.props.completed }
-				type = 'checkbox' 
 				onClick = { handleToggle } 
+				style = { { textAlign: 'right' }}
 			> 
-			</Checkbox>
+				{ this.state.isChecked ? checked : unchecked }
+			</Col>
 		);
 	}
 }
