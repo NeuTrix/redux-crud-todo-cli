@@ -15,14 +15,14 @@ const CalendarBtn = (props) => {
 
 	return (
 		<FormControl 
-			bsSize = 'sm'
 			className ='calendarBtn' 
 			defaultValue = { props.date.slice(0,10) } 
 			inputRef =  { (value) => _date = value }
-			onChange = { handleDateChange }
 			required 
 			style = { props.style }
 			type = 'date'
+			
+			onChange = { handleDateChange }
 		/> 
 	);
 }; 

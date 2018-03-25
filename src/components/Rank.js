@@ -15,7 +15,6 @@ const Rank = (props) => {
 	return (
 		<FormControl
 			className= 'rank' 
-			bsSize = 'sm'
 			componentClass = "select" 
 			defaultValue = {props.currRank}
 			onChange = { handleChange } 
