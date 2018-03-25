@@ -15,8 +15,10 @@ class TodoList extends Component {
 		};
 	}
 
+// +++++++++   +++++++++ 
+
 	componentDidMount () {
-		if(isEmpty(this.state.todoArray)) {
+		if(isEmpty(this.props.todoArray) || isEmpty(this.state.todoArray)) {
 			this.props.readTodos();
 		}
 	}
