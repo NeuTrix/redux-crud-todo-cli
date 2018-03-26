@@ -12,7 +12,7 @@ import * as _a from '../actions/todoActions';
 
 // +++++++++ Styling 
 const spacing = { 
-	xs: { chkbx: 1, task: 6, rank: 3, date: 2 },
+	xs: { chkbx: 1, task: 10, rank: 3, date: 5},
 	sm: { chkbx: 1, task: 6, rank: 3, date: 2 },
 	md: { chkbx: 1, task: 7, rank: 2, date: 2 },
 	lg: { chkbx: 1, task: 8, rank: 1, date: 2 },
@@ -92,7 +92,7 @@ class TodoItem extends Component {
 
 				<Col 
 					className = 'rank'
-					xs = { spacing.xs.rank }  
+					xs = { spacing.xs.rank }  xsOffset = {1}
 					sm = { spacing.sm.rank }
 					md = { spacing.md.rank }
 					lg = { spacing.lg.rank }

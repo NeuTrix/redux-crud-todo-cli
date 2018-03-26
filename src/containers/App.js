@@ -24,7 +24,7 @@ class App extends Component {
 	render() {
 
 	const style = {
-		// padding: 5,
+		padding: 10,
 	}
 		
 	const TodosPage = (
