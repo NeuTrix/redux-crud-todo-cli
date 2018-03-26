@@ -39,7 +39,7 @@ const TodoForm = (props) => {
 	// +++++++++ Styling  
 
 	const spacing = { 
-		xs: { pen: 1, form: 10, addBtn: 2, rank: 5, date: 5,  }, 
+		xs: { pen: 1, form: 10, addBtn: 2, rank: 4, date: 6,  }, 
 		sm: { pen: 1, form: 10, addBtn: 1, rank: 6, date: 6,  } ,
 		md: { pen: 1, form: 7, addBtn: 1, rank: 1, date: 2,  } 
 	};
