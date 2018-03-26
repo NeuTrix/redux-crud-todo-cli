@@ -1,20 +1,26 @@
-# MERN-CRUD project: redux_crud_todolist 
+# MERN-CRUD project: 
 This is a basic CRUD application deployed on the MERN stack (Mongo, Express, React, and Nodejs).  The project is a decoupled architecture with <a href="https://github.com/NeuTrix/redux-todo-api" target="_blank" > the API repo</a> and its <a href="https://documenter.getpostman.com/view/2246102/collection/RVnb9GaY" target="blank" >  the API docmentation </a> in these links.
 
 ## Project features
 
-- Responsive web design utilizing React, Redux, and Bootstrap
-- Redux immutable state architecture with logger
-- Decoupled architecture with asynchronus CRUD actions 
-- Secure user accounts with validation, JWT, and use of ENV variables
+- Decoupled architecture with asynchronus CRUD actions
 - TDD approach with Jest, Enzyme, Chai
-- Data persistence via mlab.com
 - Deployment via Heroku (client and api)
 
-## Deployment on Heroku
+*frontend*
+- Responsive web design utilizing React, Redux, and Bootstrap
+- Redux immutable state architecture with logger
 
-- [The Client](https://redux-crud-project.herokuapp.com)
-- [API documentation](https://documenter.getpostman.com/view/2246102/collection/RVnb9GaY)
+*backend*
+- Secure user accounts with validation, JWT, and use of ENV variables
+- Data persistence via mlab.com
+
+## Deployment 
+Application deployed on Heroku:
+
+- [The Client](https://redux-crud-project.herokuapp.com) -or-
+https://redux-crud-project.herokuapp.com
+- [API documentation](https://documenter.getpostman.com/view/2246102/collection/RVnb9GaY) -or- https://documenter.getpostman.com/view/2246102/collection/RVnb9GaY
 
 ## Installation
 
@@ -35,7 +41,6 @@ Backend
 - Express
 - Mongo
 - Mongoose 
-
 
 ## Note: Testing Error
 
