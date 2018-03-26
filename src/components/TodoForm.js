@@ -39,14 +39,14 @@ const TodoForm = (props) => {
 	// +++++++++ Styling  
 
 	const spacing = { 
-		xs: { pen: 1, form: 10, addBtn: 2, rank: 6, date: 6,  }, 
+		xs: { pen: 1, form: 10, addBtn: 2, rank: 5, date: 5,  }, 
 		sm: { pen: 1, form: 10, addBtn: 1, rank: 6, date: 6,  } ,
-		md: { pen: 1, form: 6, addBtn: 1, rank: 2, date: 2,  } 
+		md: { pen: 1, form: 7, addBtn: 1, rank: 1, date: 2,  } 
 	};
 
 	const styleTop = {
 		backgroundColor: 'lightblue',
-		padding: 5,
+		padding: 10,
 		marginBottom: 10,
 		marginTop: 20
 	};
@@ -64,12 +64,6 @@ const TodoForm = (props) => {
 			<Form onSubmit = { handleSubmit } >
 
 				<Row style = { styleTop }  >
-
-				<Col>
-					<h1>
-						Do the things...
-					</h1>
-				</Col>
 
 				<Col
 					xs = { spacing.xs.pen }

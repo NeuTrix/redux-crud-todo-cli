@@ -74,8 +74,8 @@ class TodoTask extends Component {
 		const space = { 
 			xs: { form: 10, delt: 1 }, 
 			sm: { form: 10, delt: 1 }, 
-			md: { form: 10, delt: 1 }, 
-			lg: { form: 10, delt: 1 }, 
+			md: { form: 11, delt: 1 }, 
+			lg: { form: 11, delt: 1 }, 
 		};
 
 		return (
@@ -105,9 +105,9 @@ class TodoTask extends Component {
 					</Col>
 					<Col 
 						className = 'delete'
-						xs = { space.xs.delt } 
-						sm = { space.sm.delt } 
-						md = { space.md.delt } 
+						xs = { space.xs.delt } xsPull = {1}
+						sm = { space.sm.delt } smPull = {0}
+						md = { space.md.delt } mdPull = {0}
 						lg = { space.lg.delt }
 					>
 						<DeleteBtn 

@@ -12,7 +12,7 @@ const TaskCounter = (props) => {
 	};
 
 	const spacing = {
-		xs: { title: 4, badge: 2 },
+		xs: { title: 5, badge: 2 },
 		sm: { title: 2, badge: 1 },
 		md: { title: 2, badge: 1 }
 	};
