@@ -1,30 +1,41 @@
-# redux_crud_todolist (WIP)
-This is a basic CRUD application deployed on the MERN stack (Mongo, Express, React, and Nodejs).  The project is a decoupled architecture with <a href="https://github.com/NeuTrix/redux-todo-api" target="_blank" > The API </a> and its <a href="https://documenter.getpostman.com/collection/view/2246102-0bd120ea-5a37-b359-9a55-00e7a2d242c3" target="blank" >  docmentation </a> in separate repos
+# MERN-CRUD project: redux_crud_todolist 
+This is a basic CRUD application deployed on the MERN stack (Mongo, Express, React, and Nodejs).  The project is a decoupled architecture with <a href="https://github.com/NeuTrix/redux-todo-api" target="_blank" > the API repo</a> and its <a href="https://documenter.getpostman.com/view/2246102/collection/RVnb9GaY" target="blank" >  the API docmentation </a> in these links.
 
-## Project Background
+## Project features
 
-This is a React and Redux application with immutable state and
-asynchronus CRUD actions for Todo list application.
+- a responsive web design utilizing React, Redux, and Bootstrap
+- Redux immutable state architecture with logger
+- Decoupled architecture with asynchronus CRUD actions 
+- Secure user accounts with validation, JWT, and use of ENV variables
+- TDD approach with Jest, Enzyme, Chai
+- Data persistence via mlab.com
+- Deployment via Heroku (client and api)
 
-- Standalone CRUD frontend app utilizing ReactJS / Redux framework
-- TDD approach
-- Support with datapersistence via localStorage
-- Deployment via Heroku
+#Deployment on Heroku
+- [The Client](https://redux-crud-project.herokuapp.com)
+- [API documentation](https://documenter.getpostman.com/view/2246102/collection/RVnb9GaY)
 
-## The stack
+## Installation
+- run the app `npm start`
+- run the tests `npm t` or `npm test`
 
+## Application:
+
+Frontend
+- CSS (Bootstrap)
 - ReactJS
 - Redux
 - React Router
-- BootStrap
-- Mongo/Mongoose db set up on mlab cloud
+
+Database
+- Mongo
+- Mongoose 
 
 ## Testing Error
 After intial `yarn`, this error appears:
 `TypeError: environment.teardown is not a function`
 
-Need to go to the offending lines (112 and 144
-) and comment the out.
+Need to go to the offending "environment" lines in the file and comment them out.
 
 ```javascript
 // line 112...
@@ -37,25 +48,3 @@ const start = Date.now();
       // yield environment.teardown();
     }
 ```
-
-# Application:
-
-- React front end
-- Redux for state management
-- Bootstrap CSS
-- CRUD actions for Todo list (Create, Read, Update, Delete)
-- Data persists in localStorage
-- Deployed on Heroku: https://redux-crud-project.herokuapp.com/
-
-- Debugging Mongoose and testing suit in alt branch
-
-## Web resources
-- tutorial at: https://coursework.vschool.io/mongoose-crud/
-- Testing resource: https://medium.freecodecamp.org/the-right-way-to-test-react-components-548a4736ab22
-
-## Testing
-
-
-# UI Optimization
-### Chrome
-- iPhone X
