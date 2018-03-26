@@ -71,7 +71,7 @@ class Header extends Component {
 					</Navbar.Brand>
 					<Navbar.Brand>
 						<IndexLinkContainer to = '/' style = { style }>
-							<NavItem style = { brandStyle }> Redux-Todo </NavItem>
+							<NavItem style = { brandStyle }> Todo! </NavItem>
 						</IndexLinkContainer>
 					</Navbar.Brand>
 					<Navbar.Toggle />
