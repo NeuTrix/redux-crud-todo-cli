@@ -8,6 +8,7 @@ import Header from '../components/Header';
 import HomePage from '../components/HomePage';
 import LoginPage from '../components/auth/LoginPage';
 import RegisterPage from '../components/auth/RegisterPage';
+import TaskCounter from '../components/TaskCounter';
 import TodoList from '../containers/TodoList';
 import TodoForm from '../components/TodoForm';
 import requireAuth from '../helpers/requireAuth';
@@ -23,19 +24,26 @@ class App extends Component {
 	render() {
 
 	const style = {
-		padding: 10,
+		// padding: 5,
 	}
 		
 	const TodosPage = (
 		<Row >
-			<TodoForm 
-				createTodo = { this.props.createTodo } 
-				owner = { this.props.user._id }
-			/>
-			<TodoList 
-				todoArray = { this.props.todoArray } 
-				readTodos = { this.props.readTodos } 
-			/>
+			<Col >
+				<TaskCounter todos = { this.props.todoArray } />
+			</Col>
+			<Col>
+				<TodoForm 
+					createTodo = { this.props.createTodo } 
+					owner = { this.props.user._id }
+				/>
+			</Col>
+			<Col>
+				<TodoList 
+					todoArray = { this.props.todoArray } 
+					readTodos = { this.props.readTodos } 
+				/>
+			</Col>
 		</Row>
 	)
 

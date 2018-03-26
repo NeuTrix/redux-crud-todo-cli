@@ -81,43 +81,43 @@ class TodoTask extends Component {
 		return (
 
 			<div>
-				<Row style = {{ marginBottom: 4}} >
+				<Row style = {{ marginBottom: 4 }} >
 					<Form onSubmit = { this.handleSubmit } >
 
-					<Col 
-						xs = { space.xs.form } 
-						sm = { space.sm.form } 
-						md = { space.md.form } 
-						lg = { space.lg.form } 
-					>
-						<FormControl 
-							className = 'task' 
-							name = 'task'
-							defaultValue = { this.props.item.task }
-							required
-							style = { this.state.defStyle }
-							type = 'text'  
-							onClick = { this.handleClick }
-							onChange = { this.handleChange }
-							onFocus =  { this.handleFocus }
-							onBlur = { this.handleBlur}
-						/> 
-					</Col>
-					<Col 
-						className = 'delete'
-						xs = { space.xs.delt } xsPull = {1}
-						sm = { space.sm.delt } smPull = {0}
-						md = { space.md.delt } mdPull = {0}
-						lg = { space.lg.delt }
-					>
-						<DeleteBtn 
-							task = { this.props.item.task } 
-							_id = { this.props.item._id }
-							deleteTodo = { this.props.deleteTodo } 
-						/>
-					</Col>
+						<Col 
+							xs = { space.xs.form } 
+							sm = { space.sm.form } 
+							md = { space.md.form } 
+							lg = { space.lg.form } 
+						>
+							<FormControl 
+								className = 'task' 
+								name = 'task'
+								defaultValue = { this.props.item.task }
+								required
+								style = { this.state.defStyle }
+								type = 'text'  
+								onClick = { this.handleClick }
+								onChange = { this.handleChange }
+								onFocus =  { this.handleFocus }
+								onBlur = { this.handleBlur}
+							/> 
+						</Col>
+						<Col 
+							className = 'delete'
+							xs = { space.xs.delt } 
+							sm = { space.sm.delt } 
+							md = { space.md.delt } 
+							lg = { space.lg.delt }
+						>
+							<DeleteBtn 
+								task = { this.props.item.task } 
+								_id = { this.props.item._id }
+								deleteTodo = { this.props.deleteTodo } 
+							/>
+						</Col>
 
-						</Form>
+					</Form>
 				</Row>
 			</div>
 		);

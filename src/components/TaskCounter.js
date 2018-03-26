@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col } from 'react-bootstrap';
+import { Col, Grid, Row,  } from 'react-bootstrap';
 
 const TaskCounter = (props) => {
 
@@ -27,29 +27,31 @@ const TaskCounter = (props) => {
 	}
 
 	return ( 
-		<Row style = { styleRow } >
-			<Col
-				xs = { spacing.xs.title } 
-				sm = { spacing.sm.title } 
-				md = { spacing.md.title } 
-				style = {{ paddingTop: 7 }}
-			>
-				Todos Count:   
-			</Col>
-			
-			<Col
-				style =  { styleCount }
-				xs = { spacing.xs.badge } 
-				sm = { spacing.sm.badge } 
-				md = { spacing.md.badge } 
+		<Grid>
+			<Row style = { styleRow } >
+				<Col
+					xs = { spacing.xs.title } 
+					sm = { spacing.sm.title } 
+					md = { spacing.md.title } 
+					style = {{ paddingTop: 7 }}
+				>
+					Todos Count:   
+				</Col>
+				
+				<Col
+					style =  { styleCount }
+					xs = { spacing.xs.badge } 
+					sm = { spacing.sm.badge } 
+					md = { spacing.md.badge } 
 
-			>
-				<span > 
-					{ props.todos.length }
-				</span>
+				>
+					<span > 
+						{ props.todos.length }
+					</span>
 
-			</Col>
-		</Row>
+				</Col>
+			</Row>
+		</Grid>
 	);
 
 };

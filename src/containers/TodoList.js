@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Col, Grid, Row } from 'react-bootstrap';
 import TodoItem from '../components/TodoItem';
-import TaskCounter from '../components/TaskCounter';
 import shortid from 'shortid'
 import isEmpty from 'lodash/isEmpty'
 
@@ -37,9 +36,7 @@ class TodoList extends Component {
 		return (
 			<Grid  >
 				<Row className = 'todoItems' >
-					<Col lg = { 12 } >
-						<TaskCounter todos = { _todoArray } />
-					</Col>
+					
 					<Col lg = { 12 } >
 						{ todos.reverse() } 
 					</Col>

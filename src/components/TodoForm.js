@@ -47,8 +47,8 @@ const TodoForm = (props) => {
 	const styleTop = {
 		backgroundColor: 'lightblue',
 		padding: 10,
-		marginBottom: 10,
-		marginTop: 20
+		// marginBottom: 5,
+		// marginTop: 20
 	};
 
 	const styleField = {
@@ -96,7 +96,7 @@ const TodoForm = (props) => {
 						<FormControl 
 							inputRef = { (input) => { _task = input;} } 
 							type = 'text'  
-							maxLength = { 55 } 
+							maxLength = { 25 } 
 							placeholder ='Enter a NEW task here...' 
 							required 
 						/>
