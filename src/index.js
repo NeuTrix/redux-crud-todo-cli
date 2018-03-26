@@ -7,7 +7,6 @@ import setAuthorizationToken from './components/auth/setAuthToken'
 import jwtDecode from 'jwt-decode'
 import { setCurrentUser } from './actions/loginActions'
 
-
 import { Provider }  from 'react-redux';
 import store from './store/store';
 
