@@ -3,7 +3,7 @@ This is a basic CRUD application deployed on the MERN stack (Mongo, Express, Rea
 
 ## Project features
 
-- a responsive web design utilizing React, Redux, and Bootstrap
+- Responsive web design utilizing React, Redux, and Bootstrap
 - Redux immutable state architecture with logger
 - Decoupled architecture with asynchronus CRUD actions 
 - Secure user accounts with validation, JWT, and use of ENV variables
@@ -11,28 +11,35 @@ This is a basic CRUD application deployed on the MERN stack (Mongo, Express, Rea
 - Data persistence via mlab.com
 - Deployment via Heroku (client and api)
 
-#Deployment on Heroku
+## Deployment on Heroku
+
 - [The Client](https://redux-crud-project.herokuapp.com)
 - [API documentation](https://documenter.getpostman.com/view/2246102/collection/RVnb9GaY)
 
 ## Installation
+
+- run `yarn` or `npm install`
 - run the app `npm start`
 - run the tests `npm t` or `npm test`
 
 ## Application:
 
 Frontend
-- CSS (Bootstrap)
-- ReactJS
-- Redux
-- React Router
+- CSS (Bootstrap-responsive design)
+- ReactJS (front end view)
+- Redux (appllication state management)
+- React Router (cli side routing)
+- axios (ajax calls)
 
-Database
+Backend
+- Express
 - Mongo
 - Mongoose 
 
-## Testing Error
-After intial `yarn`, this error appears:
+
+## Note: Testing Error
+
+After running intial `yarn` or `npm install`, this error appears:
 `TypeError: environment.teardown is not a function`
 
 Need to go to the offending "environment" lines in the file and comment them out.
