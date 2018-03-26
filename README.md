@@ -1,5 +1,5 @@
 # redux_crud_todolist (WIP)
-This is a basic CRUD application deployed on the MERN stack (Mongo, Express, React, and Nodejs).  The project is a decoupled architecture with <a href="https://github.com/NeuTrix/redux-todo-api" target="_blank" > The API </a> and its [docmentation] in separate repos
+This is a basic CRUD application deployed on the MERN stack (Mongo, Express, React, and Nodejs).  The project is a decoupled architecture with <a href="https://github.com/NeuTrix/redux-todo-api" target="_blank" > The API </a> and its <a href="https://documenter.getpostman.com/collection/view/2246102-0bd120ea-5a37-b359-9a55-00e7a2d242c3" target="blank" >  docmentation </a> in separate repos
 
 ## Project Background
 
