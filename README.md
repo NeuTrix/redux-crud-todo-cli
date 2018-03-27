@@ -25,7 +25,7 @@ https://redux-crud-project.herokuapp.com
 ## Installation
 
 - run `yarn` or `npm install`
-- run the app `npm start`
+- run the app `npm start`.  Client server will spin up on `http:\localhost:3000`
 - run the tests `npm t` or `npm test`
 
 ## Application:
