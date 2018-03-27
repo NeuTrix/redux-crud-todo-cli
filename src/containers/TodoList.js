@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Col, Grid, Row } from 'react-bootstrap';
 import TodoItem from '../components/TodoItem';
 import shortid from 'shortid'
-import isEmpty from 'lodash/isEmpty'
 
 class TodoList extends Component {
 	

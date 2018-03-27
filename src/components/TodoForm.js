@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import normalizeDate from '../helpers/normalizeDate';
 import { 
 	Button, 
-	Clearfix,
 	Col, 
 	Form, 
 	FormControl, 
