@@ -13,8 +13,8 @@ const TaskCounter = (props) => {
 
 	const spacing = {
 		xs: { refr: 2, title: 5, badge: 2 },
-		sm: { refr: 2, title: 1, badge: 1 },
-		md: { refr: 2, title: 1, badge: 1 }
+		sm: { refr: 1, title: 2, badge: 1 },
+		md: { refr: 1, title: 2, badge: 1 }
 	};
 
 	const styleCount = {
