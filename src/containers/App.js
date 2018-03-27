@@ -30,7 +30,10 @@ class App extends Component {
 	const TodosPage = (
 		<Row >
 			<Col >
-				<TaskCounter todos = { this.props.todoArray } />
+				<TaskCounter 
+					todos = { this.props.todoArray } 
+					readTodos = { this.props.readTodos } 
+					/>
 			</Col>
 			<Col>
 				<TodoForm 
@@ -41,7 +44,6 @@ class App extends Component {
 			<Col>
 				<TodoList 
 					todoArray = { this.props.todoArray } 
-					readTodos = { this.props.readTodos } 
 				/>
 			</Col>
 		</Row>

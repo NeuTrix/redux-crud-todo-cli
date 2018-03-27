@@ -17,9 +17,7 @@ class TodoList extends Component {
 // +++++++++   +++++++++ 
 
 	componentDidMount () {
-		if(isEmpty(this.props.todoArray) || isEmpty(this.state.todoArray)) {
-			this.props.readTodos();
-		}
+	
 	}
 
 	componentWillReceiveProps (newProps) {
@@ -27,7 +25,9 @@ class TodoList extends Component {
 			todoArray: newProps.todoArray			
 		});
 	}
+
 	render() {
+		
 		let _todoArray = this.state.todoArray;
 		let todos = _todoArray.map(item => {
 			return <TodoItem key = { shortid.generate() } item = { item } />;
@@ -48,12 +48,10 @@ class TodoList extends Component {
 
 TodoList.propTypes = {
 	todoArray: PropTypes.array.isRequired,
-	readTodos: PropTypes.func.isRequired,
 };
 
 TodoList.defaultProps = { 
 	todoArray: [],
-	readTodos: f => f,
 };
 
 export default TodoList;

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Col, Grid, Row,  } from 'react-bootstrap';
+import { Button, Col, Glyphicon, Grid, Row,  } from 'react-bootstrap';
 
 const TaskCounter = (props) => {
 
@@ -12,9 +12,9 @@ const TaskCounter = (props) => {
 	};
 
 	const spacing = {
-		xs: { title: 5, badge: 2 },
-		sm: { title: 2, badge: 1 },
-		md: { title: 2, badge: 1 }
+		xs: { refr: 2, title: 5, badge: 2 },
+		sm: { refr: 2, title: 1, badge: 1 },
+		md: { refr: 2, title: 1, badge: 1 }
 	};
 
 	const styleCount = {
@@ -26,9 +26,30 @@ const TaskCounter = (props) => {
 		textAlign: 'center',
 	}
 
+	const onClick = (e) => {
+		e.preventDefault()
+		props.readTodos()
+	};
+
 	return ( 
 		<Grid>
 			<Row style = { styleRow } >
+
+				<Col
+					xs = { spacing.xs.refr } 
+					sm = { spacing.sm.refr } 
+					md = { spacing.md.refr } 
+				>
+					<Button
+						onClick = { onClick }
+					>
+						<Glyphicon 
+							glyph = 'refresh'
+							style = {{ color: 'steelblue', fontSize: '1em' }}
+						/>  
+					</Button>
+				</Col>
+
 				<Col
 					xs = { spacing.xs.title } 
 					sm = { spacing.sm.title } 
@@ -57,10 +78,12 @@ const TaskCounter = (props) => {
 };
 
 TaskCounter.propTypes = {
-	todos: PropTypes.array.isRequired,
+	readTodos: PropTypes.func.isRequired,
+	todos: PropTypes.array.isRequired
 };
 
 TaskCounter.defaultProps = {
+	readTodos: f => f,
 	todos: [1,2,3,4,5]
 };
 
