@@ -21,6 +21,10 @@ import { Col, Grid, Row } from 'react-bootstrap'
 
 class App extends Component {
 
+	componentDidMount() {
+		this.props.readTodos();
+	}
+
 	render() {
 
 	const style = {
