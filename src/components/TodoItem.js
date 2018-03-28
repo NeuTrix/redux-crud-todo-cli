@@ -15,7 +15,7 @@ const spacing = {
 	xs: { chkbx: 1, task: 10, rank: 3, date: 5},
 	sm: { chkbx: 1, task: 6, rank: 3, date: 2 },
 	md: { chkbx: 1, task: 7, rank: 2, date: 2 },
-	lg: { chkbx: 1, task: 8, rank: 1, date: 2 },
+	lg: { chkbx: 1, task: 6, rank: 2, date: 2 },
 };
 
 const todosBoxStyle = {
