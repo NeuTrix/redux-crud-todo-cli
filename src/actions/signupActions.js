@@ -15,7 +15,7 @@ export function setCurrentUser (user) {
 export function userSignupRequest (userData) {
 
 	let url = 'https://redux-todo-api.herokuapp.com'
-	// let url = 'http://localhost:3003'
+	// let url = 'http://localhost:8080'
 	
 	return dispatch => {
 		return axios.post(`${ url }/api/auth/register`, userData)

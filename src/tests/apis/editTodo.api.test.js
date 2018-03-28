@@ -10,7 +10,7 @@ import { editTodo } from '../../actions/editActions'
 
 describe ('The editTodo function structure', () => {
 
- 	let api = 'http://localhost:3003/api/todos';
+ 	let api = 'http://localhost:8080/api/todos';
 	let _id = shortid.generate()
 	let data ={task:"fix this" }
 	let dispatch = store.dispatch

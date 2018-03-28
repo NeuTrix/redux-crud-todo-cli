@@ -57,30 +57,30 @@ class AdminPage extends Component {
 	        <Col xs = { space.xs.all } >
 		        <HttpSelector 
 		        	checked = { checked }
-			        labels = { ['localHost:3003', 'Herok.app', 'OFF' ] }
+			        labels = { ['localhost:8080', 'Herok.app', 'OFF' ] }
 			        name = 'AllActions'
 							onClick = ''
-			        values = { ['OFF','http://localhost:3003','https://redux-todo-api.herokuapp.com/' ] }
+			        values = { ['OFF','http://localhost:8080','https://redux-todo-api.herokuapp.com/' ] }
 		        />
 	        </Col>
 
          	<Col xs = { space.xs.auth } >
 		        <HttpSelector 
 		        	checked = { checked }
-			        labels = { ['localHost:3003', 'Herok.app', 'OFF' ] }
+			        labels = { ['localhost:8080', 'Herok.app', 'OFF' ] }
 			        name = 'AuthActions'
 							onClick = ''
-			        values = { ['OFF','http://localhost:3003','https://redux-todo-api.herokuapp.com/' ] }
+			        values = { ['OFF','http://localhost:8080','https://redux-todo-api.herokuapp.com/' ] }
 		        />
 	        </Col>
 
          	<Col xs = { space.xs.crt } >
 		        <HttpSelector 
 		        	checked = { checked }
-			        labels = { ['localHost:3003', 'Herok.app', 'OFF' ] }
+			        labels = { ['localhost:8080', 'Herok.app', 'OFF' ] }
 			        name = 'CreateActions'
 							onClick = ''
-			        values = { ['OFF','http://localhost:3003','https://redux-todo-api.herokuapp.com/' ] }
+			        values = { ['OFF','http://localhost:8080','https://redux-todo-api.herokuapp.com/' ] }
 		        />
 	        </Col>
 
@@ -88,30 +88,30 @@ class AdminPage extends Component {
          	<Col xs = { space.xs.rea } >
 		        <HttpSelector 
 		        	checked = { checked }
-			        labels = { ['localHost:3003', 'Herok.app', 'OFF' ] }
+			        labels = { ['localhost:8080', 'Herok.app', 'OFF' ] }
 			        name = 'ReadActions'
 							onClick = ''
-			        values = { ['OFF','http://localhost:3003','https://redux-todo-api.herokuapp.com/' ] }
+			        values = { ['OFF','http://localhost:8080','https://redux-todo-api.herokuapp.com/' ] }
 		        />
 	        </Col> 
 
 	        <Col xs = { space.xs.upd } >
 		        <HttpSelector 
 		        	checked = { checked }
-			        labels = { ['localHost:3003', 'Herok.app', 'OFF' ] }
+			        labels = { ['localhost:8080', 'Herok.app', 'OFF' ] }
 			        name = 'UpdateActions'
 							onClick = ''
-			        values = { ['OFF','http://localhost:3003','https://redux-todo-api.herokuapp.com/' ] }
+			        values = { ['OFF','http://localhost:8080','https://redux-todo-api.herokuapp.com/' ] }
 		        />
 	        </Col>
 
          <Col xs = { space.xs.del } >
 		        <HttpSelector 
 		        	checked = { checked }
-			        labels = { ['localHost:3003', 'Herok.app', 'OFF' ] }
+			        labels = { ['localhost:8080', 'Herok.app', 'OFF' ] }
 			        name = 'DeleteActions'
 							onClick = ''
-			        values = { ['OFF','http://localhost:3003','https://redux-todo-api.herokuapp.com/' ] }
+			        values = { ['OFF','http://localhost:8080','https://redux-todo-api.herokuapp.com/' ] }
 		        />
 	        </Col>
         </Row>

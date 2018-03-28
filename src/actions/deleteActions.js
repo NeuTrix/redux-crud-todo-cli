@@ -29,7 +29,7 @@ export function deleteIsPosting (bool) {
 export function deleteTodo (_id) {
 
 	let url = 'https://redux-todo-api.herokuapp.com'
-	// let url = 'http://localhost:3003' 
+	// let url = 'http://localhost:8080' 
 
 	return (dispatch) => {
 

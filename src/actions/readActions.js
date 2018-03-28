@@ -29,7 +29,7 @@ export function todosIsLoading (bool)  {
 export function readTodos () {
 
  	let url = 'https://redux-todo-api.herokuapp.com'
- 	// let url = 'http://localhost:3003'
+ 	// let url = 'http://localhost:8080'
 
 	return (dispatch) => {
 

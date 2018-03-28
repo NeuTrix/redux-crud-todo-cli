@@ -2,7 +2,7 @@ import axios from 'axios';
 import chai, { expect } from 'chai';
 
 xdescribe('the axios test', () => {
-	let api = 'http://localhost:3003/api/todos';
+	let api = 'http://localhost:8080/api/todos';
 	let todoList; 
 
 	const runTest = (url) => {

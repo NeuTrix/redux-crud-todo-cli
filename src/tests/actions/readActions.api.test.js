@@ -99,7 +99,7 @@ describe ('The apiActions ERROR action creator', () => {
 describe ('The apiActions SUCCESS action creator', () => {
 
 	let hasData;
-	let url = 'http://localhost:3003/api/todos';
+	let url = 'http://localhost:8080/api/todos';
 	let testState = true;
 
 	beforeAll(() => {
