@@ -31,4 +31,3 @@ export const EDIT_ITEM  					= 'EDIT_ITEM';
 export const TODOS_INITIAL_STATE 	= 'TODOS_INITIAL_STATE';
 export const REMOVE_TODO 					= 'REMOVE_TODO';
 export const RESET_TODOS_STATE		= 'RESET_TODOS_STATE';
-export const TOGGLE_COMPLETE 			= 'TOGGLE_COMPLETE';

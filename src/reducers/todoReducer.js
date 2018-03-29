@@ -1,10 +1,13 @@
 import * as mod from '../actions/typeConstants';
 
-const TodoReducer = (state = [] , action) => {
+const TodoReducer = (state = [] , action = {}) => {
 	let payload  = action.payload;
 	let type = action.type;
 
 	switch (type) {
+
+		case mod.TODOS_INITIAL_STATE: 
+			return Object.assign([], state, payload.newState);
 
 		case mod.ADD_TODO: 
 			return [...state, payload.todo];
@@ -25,10 +28,8 @@ const TodoReducer = (state = [] , action) => {
 				}
 			});
 			return Object.assign([], state, editedTask);
+			// return [...state, ...editedTask ]
 		}
-
-		case mod.TODOS_INITIAL_STATE: 
-			return Object.assign([], state, payload.newState);
 		
 		case mod.REMOVE_TODO:{
 			let _id = payload._id;
@@ -43,23 +44,12 @@ const TodoReducer = (state = [] , action) => {
 			return state;
 		}
 
+// +++++++++ ??  +++++++++ 
+
 		case mod.RESET_TODOS_STATE: 
 			return state.filter (todo => { 
 			return todo === undefined || todo === null
 		});
-
-		case mod.TOGGLE_COMPLETE: {
-			let _id = payload._id;
-			let matchId = (task) => { return task._id === _id; };
-			let targetIndex = state.findIndex(matchId);
-			let newState = state.map((task, index) => {
-				if (index !== targetIndex ) {
-					return task;
-				}
-				return Object.assign({}, task, {completed:!task.completed});
-			});
-			return Object.assign([], state, newState);
-		}
 
 		default: {
 			return state;

@@ -71,8 +71,8 @@ describe('The CheckComplete Component', () => {
 			console.log('*** Render the Props: ', _tasks.props()); 
 		});
 
-		it('...CheckComplete is passed (4) props', () => {
-			expect(Object.keys(_tasks.props()).length).to.eql(4);		
+		it('...CheckComplete is passed (3) props', () => {
+			expect(Object.keys(_tasks.props()).length).to.eql(3);		
 		});
 
 		it('...has an completed prop', () => {
@@ -87,9 +87,6 @@ describe('The CheckComplete Component', () => {
 			expect(Object.keys(_tasks.props())).to.include('_id');
 		});
 
-		it('...has an toggleComplete prop', () => {
-			expect(Object.keys(_tasks.props())).to.include('toggle');
-		});
 	});
 
 	describe('The component STATE', () => {
@@ -102,30 +99,4 @@ describe('The CheckComplete Component', () => {
 		});
 	});
 
-	xdescribe('..after toggline', () => {
-		beforeEach(() => {
-			_tasks.props().completed = true;
-		});
-		let _tasks1 = checkComp().find('CheckComplete'); // wrapper
-		let _state1 = checkComp().state(); // mounted state 
-
-		it('Inspection: Editing', () => {
-			// to inspect testing objects
-			console.log('*** Edit State: ', _state); 
-			console.log('*** Edit Props: ', _tasks1.props()); 
-			console.log('*** Edit Props: ', _tasks1); 
-		});
-
-		it('...has an completed prop true', () => {
-			expect(Object.keys(_tasks1.props())).to.include('completed');
-		});
-
-		it('...completed props = true', () => {
-			expect(_tasks1.props().completed).to.eql(true);
-		});
-
-		xit('...changes isChecked state to true', () => {
-			expect(_state1.isChecked).to.eql(true);
-		});
-	});
 });

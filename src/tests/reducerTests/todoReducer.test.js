@@ -143,20 +143,6 @@ describe ('The TodoReducer CRUD suite', () => {
 		});
 	});
 	
-	describe ('The TOGGLE_COMPLETE function', () => {
-		it ('... initial task completed is "true" ', () => {
-			expect (_task.completed).to.eql (true);
-		});
-
-		it ('changes the task completed status to false', () => {
-			store.dispatch (actions.toggleComplete(_id));
-			toggledTodoToList = store.getState ().todos;
-
-			let new_task = toggledTodoToList[ modLength - 1 ];
-			expect (new_task.completed).to.eql (false);
-		});
-	});
-
 	describe ('The REMOVE_TODO function', () => {
 		let removedTodoFromList, postLength;
 

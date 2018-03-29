@@ -21,7 +21,6 @@ class CheckComplete extends Component {
 
 		const handleToggle = (event) => {
 			// do not preventDefault- preserves animation
-			this.props.toggle(this.props._id);
 			this.props.editTodo ( 
 				this.props._id, 
 				{ completed: !this.state.isChecked }
@@ -42,7 +41,6 @@ class CheckComplete extends Component {
 			<Glyphicon style = { style } glyph = 'unchecked' /> 
 		)
 
-
 		return (  
 
 			<Col 
@@ -58,17 +56,15 @@ class CheckComplete extends Component {
 }
 
 CheckComplete.propTypes = {
+	_id: PropTypes.string.isRequired,
 	completed: PropTypes.bool.isRequired,
 	editTodo: PropTypes.func.isRequired,
-	_id: PropTypes.string.isRequired,
-	toggle: PropTypes.func.isRequired
 };
 
 CheckComplete.defaultProps = {
+	_id: 'default' ,
 	completed: false,
 	editTodo: f => f,
-	_id: 'default' ,
-	toggle: f => f,
 };
 
 export default CheckComplete;
