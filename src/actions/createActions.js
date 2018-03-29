@@ -1,9 +1,13 @@
 import axios from 'axios';
 import { addTodo } from './todoActions';
 
-export const CREATE_IS_POSTING  = 'CREATE_IS_POSTING';
-export const CREATE_HAS_SUCCEEDED = 'CREATE_HAS_SUCCEEDED';
-export const CREATE_HAS_ERRORED = 'CREATE_HAS_ERRORED';
+import {
+	CREATE_IS_POSTING,
+	CREATE_HAS_SUCCEEDED,
+	CREATE_HAS_ERRORED,
+} from '../actions/typeConstants';
+
+// +++++++++   +++++++++ 
 
 export const createHasSucceeded = (todos) => {
 	return {
@@ -26,10 +30,11 @@ export function createIsPosting (bool)  {
 	};
 }
 
+// +++++++++   +++++++++ 
+
 export function createTodo (data) {
 
 	let url = 'https://redux-todo-api.herokuapp.com'
-	// let url = 'http://localhost:8080'
 
 	return (dispatch) => {
 
