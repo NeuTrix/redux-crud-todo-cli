@@ -11,7 +11,7 @@ export const CREATE_IS_POSTING 		= 'CREATE_IS_POSTING';
 export const CREATE_HAS_SUCCEEDED = 'CREATE_HAS_SUCCEEDED';
 export const CREATE_HAS_ERRORED 	= 'CREATE_HAS_ERRORED';
 
-// deleteAcions.js (deleteReducer)
+// editAcions.js (editReducer)
 export const EDIT_IS_POSTING  = 'EDIT_IS_POSTING';
 export const EDIT_HAS_SUCCEEDED = 'EDIT_HAS_SUCCEEDED';
 export const EDIT_HAS_ERRORED = 'EDIT_HAS_ERRORED';

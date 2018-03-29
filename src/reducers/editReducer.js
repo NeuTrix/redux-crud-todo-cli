@@ -1,15 +1,8 @@
-// import action constants- allows JS to throw spelling errors
 import {
 	EDIT_IS_POSTING,
 	EDIT_HAS_SUCCEEDED,
 	EDIT_HAS_ERRORED,
-} from '../actions/editActions';
-
-/*import {
-	EDIT_IS_POSTING,
-	EDIT_HAS_SUCCEEDED,
-	EDIT_HAS_ERRORED,
-} from '../actions/typeConstants';*/
+} from '../actions/typeConstants';
 
 let initialState = {
 	editIsPosting: false,

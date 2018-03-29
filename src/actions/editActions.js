@@ -2,9 +2,9 @@ import axios from 'axios';
 import { editItem } from './todoActions';
 
 import {
-	DELETE_IS_POSTING,
-	DELETE_HAS_SUCCEEDED,
-	DELETE_HAS_ERRORED,
+	EDIT_HAS_SUCCEEDED,
+	EDIT_HAS_ERRORED ,
+	EDIT_IS_POSTING,
 } from '../actions/typeConstants';
 
 // +++++++++   +++++++++ 
