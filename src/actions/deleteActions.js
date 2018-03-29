@@ -1,9 +1,13 @@
 import axios from 'axios';
 import { removeTodo } from './todoActions';
 
-export const DELETE_IS_POSTING  = 'DELETE_IS_POSTING';
-export const DELETE_HAS_SUCCEEDED = 'DELETE_HAS_SUCCEEDED';
-export const DELETE_HAS_ERRORED = 'DELETE_HAS_ERRORED';
+import {
+	DELETE_IS_POSTING,
+	DELETE_HAS_SUCCEEDED,
+	DELETE_HAS_ERRORED,
+} from '../actions/typeConstants';
+
+// +++++++++   +++++++++ 
 
 export const deleteHasSucceeded = (todos) => {
 	return {
@@ -25,6 +29,8 @@ export function deleteIsPosting (bool) {
 		payload: { status: bool }
 	};
 }
+
+// +++++++++   +++++++++ 
 
 export function deleteTodo (_id) {
 

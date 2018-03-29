@@ -16,6 +16,10 @@ export const EDIT_IS_POSTING  = 'EDIT_IS_POSTING';
 export const EDIT_HAS_SUCCEEDED = 'EDIT_HAS_SUCCEEDED';
 export const EDIT_HAS_ERRORED = 'EDIT_HAS_ERRORED';
 
+// deleteAcions.js (deleteReducer)
+export const DELETE_IS_POSTING  = 'DELETE_IS_POSTING';
+export const DELETE_HAS_SUCCEEDED = 'DELETE_HAS_SUCCEEDED';
+export const DELETE_HAS_ERRORED = 'DELETE_HAS_ERRORED';
 
 // flash Messages
 export const ADD_FLASH_MESSAGE = 'ADD_FLASH_MESSAGE';
