@@ -3,9 +3,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormControl } from 'react-bootstrap';
 
+// +++++++++   +++++++++ 
+
 const CalendarBtn = (props) => {
 
-	let _date; // caputure component value
+	let _date;
 
 	const handleDateChange = (event) => {
 		event.preventDefault();
@@ -24,6 +26,8 @@ const CalendarBtn = (props) => {
 		/> 
 	);
 }; 
+
+// +++++++++   +++++++++ 
 
 CalendarBtn.propTypes = {
 	_id: PropTypes.string.isRequired,

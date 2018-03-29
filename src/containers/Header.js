@@ -8,7 +8,7 @@ import { logout } from '../actions/loginActions';
 import { readTodos } from '../actions/readActions';
 
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
-
+// +++++++++   +++++++++ 
 	const style = {
 		color: 'lightblue'
 	}
@@ -21,7 +21,6 @@ import { Nav, Navbar, NavItem } from 'react-bootstrap';
 		color: 'lime'
 	}
 
-// use fixedTop attribute to fix header in place
 class Header extends Component {
 
 	logout(e) {
@@ -36,7 +35,6 @@ class Header extends Component {
 	}
 
 	render() {
-		
 		const { isAuthenticated, user } = this.props.authApi;
 
 		const userLinks = (
@@ -62,7 +60,7 @@ class Header extends Component {
 			</Nav>
 		)
 
-		return(
+		return (
 			<Navbar inverse collapseOnSelect fixedTop >
 
 				<Navbar.Header>
@@ -102,17 +100,11 @@ class Header extends Component {
 	}
 };
 
-
 Header.propTypes = {
 	authApi: PropTypes.object.isRequired,
 	logout: PropTypes.func.isRequired,
 	readTodos: PropTypes.func.isRequired
 }
-
-Header.defaultProps = {
-	// authApi: false
-}
-
 
 Header.contextTypes = {
   router: PropTypes.object.isRequired,

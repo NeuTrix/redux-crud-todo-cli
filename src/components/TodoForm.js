@@ -2,96 +2,59 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import normalizeDate from '../helpers/normalizeDate';
-import { 
-	Button, 
-	Col, 
-	Form, 
-	FormControl, 
-	Glyphicon,
-	Grid, 
-	Row 
-} from 'react-bootstrap';
+import { Button, Col, Form, FormControl, Glyphicon, Grid, Row } from 'react-bootstrap';
 
-// +++++++++ refactor +++++++++ 
+const style = {
+	top: { backgroundColor: 'lightblue', padding: 10 },
+	field: { textAlign: 'left', marginBottom: 5 },
+	plus: { fontSize: '1.35em' },
+	add: { border: '1px solid lightgrey', backgroundColor: 'white', color: 'green'},
+	pen: { textAlign: 'right', color: 'steelblue', paddingTop: 8},
+}
 
-const TodoForm = (props) => {
+const spacing = { 
+	xs: { pen: 1, form: 10, addBtn: 2, rank: 4, date: 6 }, 
+	sm: { pen: 1, form: 10, addBtn: 1, rank: 6, date: 6 },
+	md: { pen: 1, form: 6, addBtn: 1, rank: 2, date: 2 } 
+};
 
+
+export const TodoForm = (props) => {
+	let _task, _rank, _date; 
 	let _currentDate = normalizeDate(new Date()); // formatted date
-	let _task, // todo task
-		_rank, // todo priority
-		_date; // todo due date
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		props.createTodo (
-			{ 
-					date: _date.value, 
-					task: _task.value, 
-					rank: _rank.value,
-				 	owner: props.owner 
-				})
-
+		props.createTodo ({ 
+			date: _date.value, 
+			task: _task.value, 
+			rank: _rank.value,
+		 	owner: props.owner 
+		})
 		_task.value = '';
 		_task.focus();
 	};
 
-	// +++++++++ Styling  
-
-	const spacing = { 
-		xs: { pen: 1, form: 10, addBtn: 2, rank: 4, date: 6,  }, 
-		sm: { pen: 1, form: 10, addBtn: 1, rank: 6, date: 6,  } ,
-		md: { pen: 1, form: 6, addBtn: 1, rank: 2, date: 2,  } 
-	};
-
-	const styleTop = {
-		backgroundColor: 'lightblue',
-		padding: 10,
-		// marginBottom: 5,
-		// marginTop: 20
-	};
-
-	const styleField = {
-		textAlign: 'left',
-		marginBottom: 5,
-	}
-
-	// +++++++++ 
-
 	return (
 		<Grid className = 'TodoForm'>
-
 			<Form onSubmit = { handleSubmit } >
-
-				<Row style = { styleTop }  >
-
-				<Col
-					xs = { spacing.xs.pen }
-					sm = { spacing.sm.pen }
-					xsHidden = { true }
-						
-					md = { spacing.md.pen } 
-					style = {{
-						textAlign: 'right', 
-					}}
-				>
-				<Glyphicon 
-					glyph = 'pencil' 
-					style = {{ 
-						color: 'steelblue', 
-						fontSize: '1.5em',  
-						paddingTop: 5
-					}} />
-					
+				<Row style = { style.top }  >
+					<Col
+						xs = { spacing.xs.pen } xsHidden = { true }
+						sm = { spacing.sm.pen }
+						md = { spacing.md.pen } 
+						style = { style.pen } 
+					>
+						<Glyphicon glyph = 'pencil' />
 					</Col>
 
 					<Col 
-						style = { styleField }
 						className = 'task' 
+						style = { style.field }
 						xs = { spacing.xs.form }
 						sm = { spacing.sm.form }
 						md = { spacing.md.form } 
 					> 
-						
 						<FormControl 
 							inputRef = { (input) => { _task = input;} } 
 							type = 'text'  
@@ -110,22 +73,14 @@ const TodoForm = (props) => {
 							className = { 'btn btn-sm' } 
 							type = 'submit' 
 							value = 'Add'
-							style = { { 
-								border: '1px solid lightgrey', 
-								backgroundColor: 'white', 
-								color: 'green',
-							} }
+							style = { style.add }
 						>
-							<Glyphicon 
-								glyph = 'plus'
-								style = { {  fontSize: '1.35em' } }
-							 />
+							<Glyphicon glyph = 'plus'style = { style.glyph }/>
 						</Button>
-
 					</Col>
 
 					<Col 
-						style = { styleField }
+						style = { style.field }
 						className = 'rank' 
 						xs = { spacing.xs.rank }
 						sm = { spacing.sm.rank }
@@ -139,12 +94,10 @@ const TodoForm = (props) => {
 							<option value = 'High'>High</option>
 							<option value = 'Med'>Med</option>
 							<option value = 'Low'>Low</option>
-
 			    	</FormControl>
 					</Col>
-
 					<Col 
-						style = { styleField }
+						style = { style.field }
 						className = 'date' 
 						xs = { spacing.xs.date }
 						sm = { spacing.sm.date }
@@ -157,14 +110,12 @@ const TodoForm = (props) => {
 							required 
 						/> 
 					</Col>
-
 				</Row>
 			</Form>
 		</Grid>
 	);
 };
 	
-
 TodoForm.propTypes = {
 	addTodo: PropTypes.func.isRequired,
 	createTodo: PropTypes.func.isRequired,

@@ -9,7 +9,6 @@ import { connect } from 'react-redux';
 import { deleteTodo, removeTodo } from '../actions/deleteActions';
 import { editTodo } from '../actions/editActions';
 
-// +++++++++ Styling 
 const spacing = { 
 	xs: { chkbx: 1, task: 10, rank: 3, date: 5},
 	sm: { chkbx: 1, task: 6, rank: 3, date: 2 },
@@ -37,7 +36,7 @@ const isCompletedStyle = {
 	textDecoration: 'line-through' 
 };
 
-// +++++++++ 
+// +++++++++   +++++++++ 
 
 class TodoItem extends Component {
 
@@ -120,6 +119,8 @@ class TodoItem extends Component {
 		);
 	}
 } 
+
+// +++++++++   +++++++++ 
 
 TodoItem.propTypes = {
 	item: PropTypes.object.isRequired,

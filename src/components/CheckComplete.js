@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Col, Glyphicon } from 'react-bootstrap';
 
+const style = {
+	paddingTop: 3,
+	color: 'steelblue',
+	fontSize: '1.5em',
+}
+
+// +++++++++   +++++++++ 
+
 class CheckComplete extends Component {
 			
 	constructor (props) {
@@ -19,19 +27,13 @@ class CheckComplete extends Component {
 
 	render() {
 
-		const handleToggle = (event) => {
-			// do not preventDefault- preserves animation
+		const handleToggle = (e) => {
+			e.preventDefault()
 			this.props.editTodo ( 
 				this.props._id, 
 				{ completed: !this.state.isChecked }
 			);
 		};
-
-		const style = {
-			paddingTop: 3,
-			color: 'steelblue',
-			fontSize: '1.5em',
-		}
 
 		const checked = ( 
 			<Glyphicon style = { style } glyph = 'check' /> 
@@ -42,7 +44,6 @@ class CheckComplete extends Component {
 		)
 
 		return (  
-
 			<Col 
 				className = 'checkComplete'
 				defaultChecked = { this.props.completed }
@@ -54,6 +55,8 @@ class CheckComplete extends Component {
 		);
 	}
 }
+
+// +++++++++   +++++++++ 
 
 CheckComplete.propTypes = {
 	_id: PropTypes.string.isRequired,

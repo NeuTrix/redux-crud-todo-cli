@@ -46,9 +46,7 @@ class App extends Component {
 				/>
 			</Col>
 			<Col>
-				<TodoList 
-					todoArray = { this.props.todoArray } 
-				/>
+				<TodoList todoArray = { this.props.todoArray } />
 			</Col>
 		</Row>
 	)
@@ -94,7 +92,7 @@ App.propTypes = {
 };
 
 App.defaultProps = {
-	// createTodo: f => f,
+	createTodo: f => f,
 	todoArray: [ ],
 	user: "Default USER from APP.js"
 };

@@ -1,13 +1,16 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
 import DeleteBtn from '../components/DeleteBtn';
-import { 
-	Col, 
-	Form, 
-	FormControl, 
-	Row 
-} from 'react-bootstrap';
+import { Col, Form, FormControl, Row } from 'react-bootstrap';
 
+const space = { 
+	xs: { form: 10, delt: 1 }, 
+	sm: { form: 10, delt: 1 }, 
+	md: { form: 11, delt: 1 }, 
+	lg: { form: 11, delt: 1 }, 
+};
+
+// +++++++++   +++++++++ 
 
 class TodoTask extends Component {
 
@@ -70,20 +73,11 @@ class TodoTask extends Component {
 	}
 	
 	render () {
-
-		const space = { 
-			xs: { form: 10, delt: 1 }, 
-			sm: { form: 10, delt: 1 }, 
-			md: { form: 11, delt: 1 }, 
-			lg: { form: 11, delt: 1 }, 
-		};
-
+		
 		return (
-
 			<div>
 				<Row style = {{ marginBottom: 4 }} >
 					<Form onSubmit = { this.handleSubmit } >
-
 						<Col 
 							xs = { space.xs.form } 
 							sm = { space.sm.form } 
@@ -116,13 +110,14 @@ class TodoTask extends Component {
 								deleteTodo = { this.props.deleteTodo } 
 							/>
 						</Col>
-
 					</Form>
 				</Row>
 			</div>
 		);
 	}
 }
+
+// +++++++++   +++++++++ 
 
 TodoTask.propTypes = {
 	deleteTodo: PropTypes.func.isRequired,
