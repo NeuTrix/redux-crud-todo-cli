@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import AdminPage from '../components/auth/AdminPage';
 import FlashMessageList from '../components/flash/FlashMessageList'
-import Header from '../components/Header';
+import Header from '../containers/Header';
 import HomePage from '../components/HomePage';
 import LoginPage from '../components/auth/LoginPage';
 import RegisterPage from '../components/auth/RegisterPage';

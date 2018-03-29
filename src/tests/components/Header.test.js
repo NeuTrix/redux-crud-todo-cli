@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 
 import { shallow, mount, render } from 'enzyme';
-import Header from '../../components/Header';
+import Header from '../../containers/Header';
 
 describe('The Header Component w/ ReactDom', () => {
 

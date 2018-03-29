@@ -27,7 +27,6 @@ const DeleteBtn = (props) => {
 	}
 
 	return (
-
 		<Button 
 			className= { 'btn btn-sm' }
 			style = { styleBtn }
