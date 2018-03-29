@@ -27,12 +27,12 @@ export const todosSetInitialState = (newState) => {
 		payload: { newState }
 	};
 }
-export const removeTodo = (_id) => {
-	return {
-		type: mod.REMOVE_TODO,
-		payload: { _id }
-	};
-};
+// export const removeTodo = (_id) => {
+// 	return {
+// 		type: mod.REMOVE_TODO,
+// 		payload: { _id }
+// 	};
+// };
 
 
 

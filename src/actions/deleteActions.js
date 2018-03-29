@@ -1,6 +1,14 @@
 import axios from 'axios';
-import { removeTodo } from './todoActions';
 import * as mod from './typeConstants';
+
+// +++++++++ Actions +++++++++ 
+
+export const removeTodo = (_id) => {
+	return {
+		type: mod.REMOVE_TODO,
+		payload: { _id }
+	};
+};
 
 export const deleteHasSucceeded = (bool) => {
 	return {
@@ -22,6 +30,8 @@ export function deleteIsPosting (bool) {
 		payload: { status: bool }
 	};
 }
+
+// +++++++++ Functions +++++++++ 
 
 const url = 'https://redux-todo-api.herokuapp.com'
 
