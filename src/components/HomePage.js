@@ -20,27 +20,23 @@ const styleBtn = {
 	width: 70
 }
 
-// +++++++++ Styling  
-	const space = { 
-		xs: { head: 12, list: 9, btns: 4 }, 
-		sm: { head: 12, list: 4, btns: 4 }, 
-		md: { head: 12, list: 4, btns: 4 }, 
-		lg: { head: 12, list: 4, btns: 4 }, 
-	};
+const space = { 
+	xs: { head: 12, list: 9, btns: 4 }, 
+	sm: { head: 12, list: 4, btns: 4 }, 
+	md: { head: 12, list: 4, btns: 4 }, 
+	lg: { head: 12, list: 4, btns: 4 }, 
+};
 
 const HomePage = (props) => {
   return (
 		<Grid>
 	  	<Col style = { style } >
 	  		<Row>
-	  			<Col 
-	  				xs = { space.xs.head } 
-  				>
+	  			<Col xs = { space.xs.head } >
 					  <h2>MERN Todo </h2>
 					  <p> Fullstack CRUD application featuring: </p>
 	  			</Col>
 	  		</Row>
-
 	  		<Row>
 	  			<Col 
 	  				xs = { space.xs.list } xsOffset = { 3 } 
@@ -64,7 +60,6 @@ const HomePage = (props) => {
 						</ul>
 	  			</Col>
 	  		</Row>
-
 	  		<Row>
 		  			<Col 
 		  				xs = { space.xs.btns } xsOffset = { 4 }
@@ -73,22 +68,20 @@ const HomePage = (props) => {
 		  				lg = { space.lg.btns } lgOffset = { 4 }
 	  				>
 			  			<ButtonToolbar>
-			  					<Link to = '/login' >
-					  				<Button  bsSize = 'small'style = { styleBtn } bsStyle = 'success'> 
-						  				Sign in 
-				  					</Button>
-			  					</Link >
-				  			
-			  					<Link to = '/register' >
-					  				<Button style = { styleBtn } bsSize = 'small'   bsStyle = 'primary'> 
-					  				Register
-				  					</Button>
-			  					</Link >
-
+		  					<Link to = '/login' >
+				  				<Button  bsSize = 'small'style = { styleBtn } bsStyle = 'success'> 
+					  				Sign in 
+			  					</Button>
+		  					</Link >
+			  			
+		  					<Link to = '/register' >
+				  				<Button style = { styleBtn } bsSize = 'small'   bsStyle = 'primary'> 
+				  				Register
+			  					</Button>
+		  					</Link >
 			  			</ButtonToolbar>
 		  			</Col>
 	  		</Row>
-
 			</Col>
 		</Grid>
   );
