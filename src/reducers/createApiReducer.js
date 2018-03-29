@@ -6,7 +6,7 @@ let initState = {
 	createHasErrored: false
 }; 
 
-export const createReducer = (state = initState, action = {}) => {
+export const createApiReducer = (state = initState, action = {}) => {
 
 	let payload = action.payload;
 
@@ -35,4 +35,4 @@ export const createReducer = (state = initState, action = {}) => {
 	}
 };
 	
-export default createReducer;
+export default createApiReducer;
