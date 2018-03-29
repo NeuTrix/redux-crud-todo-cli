@@ -1,8 +1,4 @@
-import {
-	DELETE_IS_POSTING,
-	DELETE_HAS_SUCCEEDED,
-	DELETE_HAS_ERRORED,
-} from '../actions/typeConstants';
+import * as mod from '../actions/typeConstants';
 
 let initialState = {
 	deleteIsPosting: false,
@@ -14,16 +10,25 @@ export const deleteReducer = (state = initialState, action) => {
 
 	let payload = action.payload;
 
-	switch(action.type) {
+	switch (action.type) {
 
-	case DELETE_IS_POSTING:
-		return {...state, ...{deleteIsPosting:payload.status}};
+	case mod.DELETE_IS_POSTING:
+		return {
+			...state, 
+			...{ deleteIsPosting:payload.status }
+		};
 	
-	case DELETE_HAS_SUCCEEDED:
-		return {...state, ...{deleteHasSucceeded:payload.status}};
+	case mod.DELETE_HAS_SUCCEEDED:
+		return {
+			...state, 
+			...{ deleteHasSucceeded:payload.status }
+		};
 	
-	case DELETE_HAS_ERRORED:
-		return {...state, ...{deleteHasErrored:payload.status}};
+	case mod.DELETE_HAS_ERRORED:
+		return {
+			...state, 
+			...{ deleteHasErrored:payload.status }
+		};
 
 	default:
 		return state;

@@ -13,17 +13,20 @@ export const editReducer = (state = initialState, action) => {
 	switch (action.type) {
 
 	case mod.EDIT_IS_POSTING:
-		return { ...state, 
+		return { 
+			...state, 
 			...{ editIsPosting:payload.status } 
 		};
 	
 	case mod.EDIT_HAS_SUCCEEDED:
-		return { ...state, 
+		return { 
+			...state, 
 			...{ editHasSucceeded:payload.status } 
 		};
 	
 	case mod.EDIT_HAS_ERRORED:
-		return { ...state, 
+		return { 
+			...state, 
 			...{ editHasErrored:payload.status } 
 		};
 

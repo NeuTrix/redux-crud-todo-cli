@@ -19,7 +19,7 @@ export const flashMessages = (state = [], action = {}) => {
 				type:	payload.message.type,
 				text: payload.message.text 
 			}
-		];
+		]
 
 	case DELETE_FLASH_MESSAGE:
 		const index = findIndex(state, { _id: payload._id })
