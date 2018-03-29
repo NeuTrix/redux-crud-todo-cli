@@ -1,7 +1,7 @@
 import React from 'react';
 // import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Col, ControlLabel, Form, FormGroup, Radio, Row } from 'react-bootstrap'
+import { Col, ControlLabel, Form, FormGroup, Radio, Row } from 'react-bootstrap';
 
 const HttpSelector = ({ 
 	checked = '', // reflects which item is checked
@@ -20,15 +20,15 @@ const HttpSelector = ({
 		color: color,
 		padding: 25,
 		margin: 10
-	 }
+	 };
 
 	const styleCallOut = {
-	  border: `2px solid green`,
+	  border: '2px solid green',
 	  backgroundColor: '#ccffcc',
 	  color: 'darkgreen',
 		fontSize: '0.75em',
 	  padding: 3, 
-	}
+	};
 
 	const styleInner = {
 	  // border: `2px solid green`,
@@ -36,9 +36,9 @@ const HttpSelector = ({
 		// fontSize: '0.75em',
 	  // color: 'darkgreen',
 	  paddingLeft: 20, 
-	}
+	};
 
-  return (
+	return (
   	<Col style = { style } >
 
   		<Row>
@@ -59,9 +59,9 @@ const HttpSelector = ({
   			<Col style = { styleInner }>
 	    		<Form horizontal > 
 
-					<FormGroup  >
+						<FormGroup  >
 
-						<Radio 
+							<Radio 
 				      name = { name } 
 				      value = { values[ 0 ] }
 				      onClick = { onClick} 
@@ -88,8 +88,8 @@ const HttpSelector = ({
       	</Col>
 			</Row>
   	</Col>
-  );
-}
+	);
+};
 
 HttpSelector.propTypes = {
 	checked: PropTypes.string.isRequired,
@@ -97,9 +97,9 @@ HttpSelector.propTypes = {
 	name: PropTypes.string.isRequired,
 	values: PropTypes.array.isRequired,
 	onClick: PropTypes.func.isRequired,
-// +++++++++   +++++++++ 
+	// +++++++++   +++++++++ 
 	bgcolor: PropTypes.string,
 	color: PropTypes.string,
-}
+};
 
 export default HttpSelector;

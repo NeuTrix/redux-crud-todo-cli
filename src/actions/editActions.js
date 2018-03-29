@@ -33,7 +33,7 @@ export const editHasErrored = (bool) => {
 
 // +++++++++ Functions +++++++++ 
 
-const url = 'https://redux-todo-api.herokuapp.com'
+const url = 'https://redux-todo-api.herokuapp.com';
 
 export function editTodo (_id, data) {
 	return (dispatch) => {
@@ -43,7 +43,7 @@ export function editTodo (_id, data) {
 				if (res.status !== 200) {
 					throw Error (res.statusText);
 				} else {
-					dispatch (editItem (_id, res.data.todo))
+					dispatch (editItem (_id, res.data.todo));
 				}
 			})
 			.then (() => {

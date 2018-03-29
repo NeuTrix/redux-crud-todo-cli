@@ -12,26 +12,26 @@ export const createApiReducer = (state = initState, action = {}) => {
 
 	switch (action.type) {
 
-		case mod.CREATE_IS_POSTING:
-			return {
-				...state, 
-				...{ createIsPosting: payload.status }
-			};
+	case mod.CREATE_IS_POSTING:
+		return {
+			...state, 
+			...{ createIsPosting: payload.status }
+		};
 		
-		case mod.CREATE_HAS_SUCCEEDED:
-			return {
-				...state, 
-				...{ createHasSucceeded: payload.status }
-			};
+	case mod.CREATE_HAS_SUCCEEDED:
+		return {
+			...state, 
+			...{ createHasSucceeded: payload.status }
+		};
 		
-		case mod.CREATE_HAS_ERRORED:
-			return {
-				...state, 
-				...{ createHasErrored: payload.status }
-			};
+	case mod.CREATE_HAS_ERRORED:
+		return {
+			...state, 
+			...{ createHasErrored: payload.status }
+		};
 
-		default:
-			return state;
+	default:
+		return state;
 	}
 };
 	

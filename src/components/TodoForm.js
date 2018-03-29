@@ -10,7 +10,7 @@ const style = {
 	plus: { fontSize: '1.35em' },
 	add: { border: '1px solid lightgrey', backgroundColor: 'white', color: 'green'},
 	pen: { textAlign: 'right', color: 'steelblue', paddingTop: 8},
-}
+};
 
 const spacing = { 
 	xs: { pen: 1, form: 10, addBtn: 2, rank: 4, date: 6 }, 
@@ -18,6 +18,7 @@ const spacing = {
 	md: { pen: 1, form: 6, addBtn: 1, rank: 2, date: 2 } 
 };
 
+// +++++++++   +++++++++ 
 
 export const TodoForm = (props) => {
 	let _task, _rank, _date; 
@@ -30,7 +31,7 @@ export const TodoForm = (props) => {
 			task: _task.value, 
 			rank: _rank.value,
 		 	owner: props.owner 
-		})
+		});
 		_task.value = '';
 		_task.focus();
 	};
@@ -115,7 +116,9 @@ export const TodoForm = (props) => {
 		</Grid>
 	);
 };
-	
+
+// +++++++++   +++++++++ 
+
 TodoForm.propTypes = {
 	addTodo: PropTypes.func.isRequired,
 	createTodo: PropTypes.func.isRequired,
@@ -131,7 +134,7 @@ TodoForm.defaultProps = {
 	_date: '2020-12-31',
 	_rank: '',
 	_task: 'Default- not connected',
-	owner: "Default from APP.js"
+	owner: 'Default from APP.js'
 };
 
 export default TodoForm;

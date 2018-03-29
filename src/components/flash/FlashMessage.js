@@ -12,14 +12,14 @@ class FlashMessage extends Component {
 
 	onClick (e) {
 		e.preventDefault();
-		this.props.deleteFlashMessage(this.props.message.id)
+		this.props.deleteFlashMessage(this.props.message.id);
 	}
 
 	render () {
 		
 		const { type, text } = this.props.message;
 
-    return (
+		return (
     	<Col className = { classnames('alert', {
     		'alert-success': type === 'success',
     		'alert-danger': type === 'error'
@@ -31,11 +31,11 @@ class FlashMessage extends Component {
     			<span>&times;</span>
   			</Button>
 
-        { text }
+				{ text }
     	</Col>
-    );
+		);
 	}
-};
+}
 
 FlashMessage.propTypes = {
 	message: PropTypes.object.isRequired,
@@ -44,7 +44,7 @@ FlashMessage.propTypes = {
 
 FlashMessage.defaultProps = {
 	deleteFlashMessage: f => f
-}
+};
 
 export default FlashMessage;
 

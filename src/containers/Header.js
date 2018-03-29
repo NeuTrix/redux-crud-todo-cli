@@ -1,25 +1,27 @@
 import React, { Component } from 'react';
 import logo from '../assets/logo.svg';
 import '../containers/App.css';
-import { IndexLinkContainer } from 'react-router-bootstrap'
+import { IndexLinkContainer } from 'react-router-bootstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logout } from '../actions/loginActions';
 import { readTodos } from '../actions/readActions';
 
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
-// +++++++++   +++++++++ 
-	const style = {
-		color: 'lightblue'
-	}
-	const brandStyle = {
-		color: 'whitesmoke',
-		fontSize: '0.75em'
-	}
 
-	const logoutStyle ={
-		color: 'lime'
-	}
+const style = {
+	color: 'lightblue'
+};
+const brandStyle = {
+	color: 'whitesmoke',
+	fontSize: '0.75em'
+};
+
+const logoutStyle ={
+	color: 'lime'
+};
+
+// +++++++++   +++++++++ 
 
 class Header extends Component {
 
@@ -46,7 +48,7 @@ class Header extends Component {
 					<span style = { logoutStyle }>Log Out</span>
 				</NavItem>
 			</Nav>
-		)
+		);
 
 		const guestLinks = (
 			<Nav pullRight>
@@ -58,7 +60,7 @@ class Header extends Component {
 					<NavItem > Register </NavItem>
 				</IndexLinkContainer>
 			</Nav>
-		)
+		);
 
 		return (
 			<Navbar inverse collapseOnSelect fixedTop >
@@ -98,23 +100,25 @@ class Header extends Component {
 			</Navbar>
 		);
 	}
-};
+}
+
+// +++++++++   +++++++++ 
 
 Header.propTypes = {
 	authApi: PropTypes.object.isRequired,
 	logout: PropTypes.func.isRequired,
 	readTodos: PropTypes.func.isRequired
-}
+};
 
 Header.contextTypes = {
-  router: PropTypes.object.isRequired,
-}
+	router: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = (state) => {
 	return { 
 		authApi: state.authApi,
 		user: state.authApi
-	}
-}
+	};
+};
 
 export default connect(mapStateToProps, { logout, readTodos })(Header);

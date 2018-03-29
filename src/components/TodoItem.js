@@ -42,7 +42,7 @@ class TodoItem extends Component {
 
 	render () {
 
-		let style 
+		let style; 
 
 		if (this.props.item.completed) {
 			style = isCompletedStyle; 

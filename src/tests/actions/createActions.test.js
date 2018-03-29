@@ -1,39 +1,39 @@
 import chai, { expect } 	from 'chai';
 import deepFreeze from 'deep-freeze';
-import TodoReducer from '../../reducers/todoReducer'
+import TodoReducer from '../../reducers/todoReducer';
 import * as mod from '../../actions/createActions';
  
 describe ('the basic CREATE_ITEM case', () => {
 
-	const todo1 = { _id:101, task:'Test Item before', owner: 'First' }
-	const startState = [ todo1 ]
+	const todo1 = { _id:101, task:'Test Item before', owner: 'First' };
+	const startState = [ todo1 ];
 	deepFreeze(startState);
 
-	const todo2 = { _id:202, task:'Test Item before', owner: 'Second' }
-	let createdState = TodoReducer(startState, mod.addTodo(todo2))
+	const todo2 = { _id:202, task:'Test Item before', owner: 'Second' };
+	let createdState = TodoReducer(startState, mod.addTodo(todo2));
 
-	let _id = 202
-	let findTask = (task) =>  task._id === _id
-	let startTaskArr = startState.filter(findTask)
-	let createdTaskArr = createdState.filter(findTask)
+	let _id = 202;
+	let findTask = (task) =>  task._id === _id;
+	let startTaskArr = startState.filter(findTask);
+	let createdTaskArr = createdState.filter(findTask);
 
 	it ('... does not exist in the starting state', () => {
-		expect(startTaskArr.length).to.eql(0)
+		expect(startTaskArr.length).to.eql(0);
 	});
 
 	it ('... changes the length of the state', () => {
-		expect(createdState.length).to.eql(startState.length + 1)
+		expect(createdState.length).to.eql(startState.length + 1);
 	});
 
 	it ('... added a new "task" to the state', () => {
-		expect(createdTaskArr[0]._id).to.eql(202)
+		expect(createdTaskArr[0]._id).to.eql(202);
 	});
 
 	it ('... created the correct properties', () => {
 		expect(createdTaskArr[0]).to.have.property('_id')
-			.eql(202)
+			.eql(202);
 		expect(createdTaskArr[0]).to.have.property('owner')
-			.eql('Second')
+			.eql('Second');
 	});
 });
 

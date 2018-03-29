@@ -1,32 +1,32 @@
 import chai, { expect } 	from 'chai';
 import deepFreeze from 'deep-freeze';
-import TodoReducer from '../../reducers/todoReducer'
+import TodoReducer from '../../reducers/todoReducer';
 import * as mod from '../../actions/deleteActions';
  
 describe ('the basic DELETE_ITEM case', () => {
 
-	const todo1 = { _id:101, task:'Test Item before', owner: 'First' }
-	const todo2 = { _id:202, task:'Test Item before', owner: 'Second' }
-	const startState = [ todo1, todo2 ]
+	const todo1 = { _id:101, task:'Test Item before', owner: 'First' };
+	const todo2 = { _id:202, task:'Test Item before', owner: 'Second' };
+	const startState = [ todo1, todo2 ];
 	deepFreeze(startState);
 
-	let _id = 202
-	let deletedState = TodoReducer(startState, mod.removeTodo(_id))
+	let _id = 202;
+	let deletedState = TodoReducer(startState, mod.removeTodo(_id));
 
-	let findTask = (task) =>  task._id === _id
-	let startTaskArr = startState.filter(findTask)
-	let deletedTaskArr = deletedState.filter(findTask)
+	let findTask = (task) =>  task._id === _id;
+	let startTaskArr = startState.filter(findTask);
+	let deletedTaskArr = deletedState.filter(findTask);
 
 	it ('... exists in the starting state', () => {
-		expect(startTaskArr[0]._id).to.eql(202)
+		expect(startTaskArr[0]._id).to.eql(202);
 	});
 
 	it ('... changes the length of the state', () => {
-		expect(deletedState.length).to.eql(startState.length - 1)
+		expect(deletedState.length).to.eql(startState.length - 1);
 	});
 
 	it ('... deleted the  "task" from the state', () => {
-		expect(deletedTaskArr[0]).to.eql(undefined)
+		expect(deletedTaskArr[0]).to.eql(undefined);
 	});
 });
 

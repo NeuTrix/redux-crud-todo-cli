@@ -1,36 +1,36 @@
 import chai, { expect } 	from 'chai';
 import deepFreeze from 'deep-freeze';
-import TodoReducer from '../../reducers/todoReducer'
+import TodoReducer from '../../reducers/todoReducer';
 import * as mod from '../../actions/editActions';
  
 describe ('the basic EDIT_ITEM case', () => {
 
-	const todo1 = { _id:101, task:'Test Item before', owner: 'First' }
-	const todo2 = { _id:202, task:'Test Item before', owner: 'Second' }
-	const startState = [ todo1, todo2 ]
+	const todo1 = { _id:101, task:'Test Item before', owner: 'First' };
+	const todo2 = { _id:202, task:'Test Item before', owner: 'Second' };
+	const startState = [ todo1, todo2 ];
 	deepFreeze(startState);
 
-	let _id = 101, edit = { task: "GOT EDITED!" }
-	let editedState = TodoReducer(startState, mod.editItem(_id, edit))
+	let _id = 101, edit = { task: 'GOT EDITED!' };
+	let editedState = TodoReducer(startState, mod.editItem(_id, edit));
 
-	let findTask = (task) =>  task._id === _id
-	let startTask = startState.filter(findTask)[0]
-	let editedTask = editedState.filter(findTask)[0]
+	let findTask = (task) =>  task._id === _id;
+	let startTask = startState.filter(findTask)[0];
+	let editedTask = editedState.filter(findTask)[0];
 
 	it ('... doesn\'t change the length of the state', () => {
-		expect(editedState.length).to.eql(startState.length)
+		expect(editedState.length).to.eql(startState.length);
 	});
 
 	it ('... changed the "task" value of the target item', () => {
-		expect(editedTask.task).not.to.eql(startTask.task)
-		expect(editedTask.task).to.eql('GOT EDITED!')
+		expect(editedTask.task).not.to.eql(startTask.task);
+		expect(editedTask.task).to.eql('GOT EDITED!');
 	});
 
 	it ('... retained it\'s other properties', () => {
 		expect(editedTask).to.have.property('_id')
-			.eql(101)
+			.eql(101);
 		expect(editedTask).to.have.property('owner')
-			.eql('First')
+			.eql('First');
 	});
 });
 

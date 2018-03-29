@@ -6,7 +6,7 @@ const style = {
 	paddingTop: 3,
 	color: 'steelblue',
 	fontSize: '1.5em',
-}
+};
 
 // +++++++++   +++++++++ 
 
@@ -28,7 +28,7 @@ class CheckComplete extends Component {
 	render() {
 
 		const handleToggle = (e) => {
-			e.preventDefault()
+			e.preventDefault();
 			this.props.editTodo ( 
 				this.props._id, 
 				{ completed: !this.state.isChecked }
@@ -37,11 +37,11 @@ class CheckComplete extends Component {
 
 		const checked = ( 
 			<Glyphicon style = { style } glyph = 'check' /> 
-		)
+		);
 		
 		const unchecked = ( 
 			<Glyphicon style = { style } glyph = 'unchecked' /> 
-		)
+		);
 
 		return (  
 			<Col 

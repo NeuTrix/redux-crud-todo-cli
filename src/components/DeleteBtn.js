@@ -5,13 +5,13 @@ import { Button, Glyphicon } from 'react-bootstrap';
 const styleGlyph = { 
 	color: 'pink', 
 	paddingTop: 4 
-}
+};
 
 const styleBtn = { 
 	color: 'lightgrey', 
 	border: '1px solid lightgrey', 
 	backgroundColor: 'white' 
-}
+};
 
 const DeleteBtn = (props) => {
 
@@ -44,7 +44,7 @@ DeleteBtn.propTypes = {
 };
 
 DeleteBtn.defaultProps = {
- 	task: "default",
+ 	task: 'default',
 	_id: 'default',
 	deleteTodo: f => f,
 };

@@ -6,36 +6,36 @@ const TodoReducer = (state = [] , action = {}) => {
 
 	switch (type) {
 
-		case mod.READ_SAVED_TODOS: {
-			return [ ...state, ...payload.savedState ]
-		}
+	case mod.READ_SAVED_TODOS: {
+		return [ ...state, ...payload.savedState ];
+	}
 
-		case mod.ADD_TODO: 
-			return [...state, payload.todo];
+	case mod.ADD_TODO: 
+		return [...state, payload.todo];
 
-		case mod.EDIT_ITEM: {
-			let _id = payload._id
-			let task = state.filter(task => task._id === _id)
-			let editedTask = { ...task[0], ...payload.edit }
-			return state.map(task => task._id === _id ? editedTask : task)
-		};
+	case mod.EDIT_ITEM: {
+		let _id = payload._id;
+		let task = state.filter(task => task._id === _id);
+		let editedTask = { ...task[0], ...payload.edit };
+		return state.map(task => task._id === _id ? editedTask : task);
+	}
 
-		case mod.REMOVE_TODO: {
-			let _id = payload._id;
-			let matchId = (task) => { return task._id === _id; };
-			if (state.some(matchId)) {
-				let index = state.findIndex(matchId);
-				return [ 
-					...state.slice(0, index),  
-					...state.slice(index + 1) 
-				];
-			} 
-			return state;
-		}
+	case mod.REMOVE_TODO: {
+		let _id = payload._id;
+		let matchId = (task) => { return task._id === _id; };
+		if (state.some(matchId)) {
+			let index = state.findIndex(matchId);
+			return [ 
+				...state.slice(0, index),  
+				...state.slice(index + 1) 
+			];
+		} 
+		return state;
+	}
 
-		default: {
-			return state;
-		}
+	default: {
+		return state;
+	}
 	} 
 }; 
 

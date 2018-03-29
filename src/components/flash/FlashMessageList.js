@@ -23,16 +23,16 @@ class FlashMessagesList extends Component {
 
 		return (
 			<div> { messages } </div>
-		)
+		);
 	}
 }
 
 FlashMessagesList.propTypes = {
 	messages: PropTypes.array.isRequired,
 	deleteFlashMessage: PropTypes.func.isRequired
-}
+};
 
 export default connect(
 	mapStateToProps, { deleteFlashMessage }
 // Implement map dispatch to props
-)(FlashMessagesList)
+)(FlashMessagesList);

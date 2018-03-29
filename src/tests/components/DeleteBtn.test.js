@@ -34,7 +34,7 @@ describe ('The DeleteBtn Component', () => {
 			deleteTodo: f => f,
 			removeTodo: f => f,
 			_id: 'default',
-		}
+		};
 		mountDeleteBtn = undefined;
 	});
 

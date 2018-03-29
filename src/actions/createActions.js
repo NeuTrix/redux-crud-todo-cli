@@ -33,7 +33,7 @@ export const createHasErrored = (bool) => {
 
 // +++++++++ Functions +++++++++ 
 
-const url = 'https://redux-todo-api.herokuapp.com'
+const url = 'https://redux-todo-api.herokuapp.com';
 
 export function createTodo(data) {
 	return (dispatch) => {

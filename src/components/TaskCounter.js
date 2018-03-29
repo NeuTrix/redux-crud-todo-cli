@@ -16,7 +16,7 @@ const styleCount = {
 	color: 'lime',
 	fontSize: '1.5em',
 	textAlign: 'center',
-}
+};
 
 const spacing = {
 	xs: { refr: 2, title: 5, badge: 2 },
@@ -24,11 +24,13 @@ const spacing = {
 	md: { refr: 1, title: 2, badge: 1 }
 };
 
+// +++++++++   +++++++++ 
+
 const TaskCounter = (props) => {
 
 	const onClick = (e) => {
-		e.preventDefault()
-		props.readTodos()
+		e.preventDefault();
+		props.readTodos();
 	};
 
 	return ( 
@@ -65,9 +67,10 @@ const TaskCounter = (props) => {
 			</Row>
 		</Grid>
 	);
-
 };
 
+
+// +++++++++   +++++++++ 
 TaskCounter.propTypes = {
 	readTodos: PropTypes.func.isRequired,
 	todos: PropTypes.array.isRequired

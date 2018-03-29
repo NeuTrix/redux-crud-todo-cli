@@ -13,8 +13,8 @@ const TextFieldGroup = ({
 	value 
 }) => {
 
-	const style = { }
-	const styleErr = { color: 'red' }
+	const style = { };
+	const styleErr = { color: 'red' };
 
 	return (
 		 <Col style = { style } >
@@ -50,12 +50,12 @@ TextFieldGroup.propTypes = {
 	type: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired,
 	value: PropTypes.string.isRequired,
-}
+};
 
 TextFieldGroup.defaultProps = {
 	type: 'text',
 	onChange: f => f
-}
+};
 
-export default TextFieldGroup
+export default TextFieldGroup;
 

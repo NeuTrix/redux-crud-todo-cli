@@ -12,26 +12,26 @@ export const deleteApiReducer = (state = initState, action = {}) => {
 
 	switch (action.type) {
 
-		case mod.DELETE_IS_POSTING:
-			return {
-				...state, 
-				...{ deleteIsPosting: payload.status }
-			};
+	case mod.DELETE_IS_POSTING:
+		return {
+			...state, 
+			...{ deleteIsPosting: payload.status }
+		};
 		
-		case mod.DELETE_HAS_SUCCEEDED:
-			return {
-				...state, 
-				...{ deleteHasSucceeded: payload.status }
-			};
+	case mod.DELETE_HAS_SUCCEEDED:
+		return {
+			...state, 
+			...{ deleteHasSucceeded: payload.status }
+		};
 		
-		case mod.DELETE_HAS_ERRORED:
-			return {
-				...state, 
-				...{ deleteHasErrored: payload.status }
-			};
+	case mod.DELETE_HAS_ERRORED:
+		return {
+			...state, 
+			...{ deleteHasErrored: payload.status }
+		};
 
-		default:
-			return state;
+	default:
+		return state;
 	}
 };
 	

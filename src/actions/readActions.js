@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 import * as mod from './typeConstants';
 
 // +++++++++ Actions +++++++++ 
@@ -8,14 +8,14 @@ export const readSavedTodos = (savedState) => {
 		type: mod.READ_SAVED_TODOS,
 		payload: { savedState }
 	};
-}
+};
 
 export const todosIsLoading = (bool) => {
 	return {
 		type: mod.TODOS_IS_LOADING,
 		payload: { status: bool }
 	};
-}
+};
 	
 export const todosHasFetched = (bool) => {
 	return {
@@ -34,7 +34,7 @@ export const todosHasErrored = (bool) => {
 
 // +++++++++ Functions +++++++++ 
 
-const url = 'https://redux-todo-api.herokuapp.com'
+const url = 'https://redux-todo-api.herokuapp.com';
 
 export function readTodos () {
 	return (dispatch) => {
@@ -45,7 +45,7 @@ export function readTodos () {
 					throw Error (res.status);
 				}	else {
 					dispatch (todosIsLoading (false));
-					return res.data
+					return res.data;
 				}
 			})
 			.then ((todos) => dispatch (readSavedTodos (todos)))

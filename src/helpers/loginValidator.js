@@ -1,6 +1,6 @@
 /* eslint-env node, mocha */
-import validator from 'validator'
-import isEmpty from 'lodash/isEmpty'
+import validator from 'validator';
+import isEmpty from 'lodash/isEmpty';
 
 export default function validateInput(data) {
 	
@@ -17,5 +17,5 @@ export default function validateInput(data) {
 	return {
 		errors,
 		isValid: isEmpty(errors)
-	}
+	};
 }

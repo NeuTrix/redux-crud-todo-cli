@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Col, Grid, Row } from 'react-bootstrap';
 import TodoItem from '../components/TodoItem';
-import shortid from 'shortid'
+import shortid from 'shortid';
+
+// +++++++++   +++++++++ 
 
 class TodoList extends Component {
 	
@@ -11,12 +13,6 @@ class TodoList extends Component {
 		this.state = { 
 			todoArray: this.props.todoArray			
 		};
-	}
-
-// +++++++++   +++++++++ 
-
-	componentDidMount () {
-	
 	}
 
 	componentWillReceiveProps (newProps) {
@@ -44,6 +40,8 @@ class TodoList extends Component {
 		);
 	}
 } 
+
+// +++++++++   +++++++++ 
 
 TodoList.propTypes = {
 	todoArray: PropTypes.array.isRequired,

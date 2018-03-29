@@ -39,8 +39,8 @@ class TodoTask extends Component {
 	}
 
 	handleClick(e) {
-		e.preventDefault()
-		let { isComplete, editStyle } = this.state
+		e.preventDefault();
+		let { isComplete, editStyle } = this.state;
 
 		if (isComplete) {
 			alert(`completed is: "${isComplete}".\nPlease uncheck "completed" before continuing to edit`);
@@ -51,25 +51,25 @@ class TodoTask extends Component {
 	}
 
 	handleChange(e){
-		e.preventDefault()
-		this.setState({ task: e.target.value })
+		e.preventDefault();
+		this.setState({ task: e.target.value });
 	}
 
 	handleSubmit(e){
-		e.preventDefault()
-		const { _id, task} = this.state
-		this.props.editTodo( _id, {task: task})
+		e.preventDefault();
+		const { _id, task} = this.state;
+		this.props.editTodo( _id, {task: task});
 	}
 
 	handleFocus(e){
-		e.preventDefault()
-			e.target.setSelectionRange(0, e.target.value.length);
+		e.preventDefault();
+		e.target.setSelectionRange(0, e.target.value.length);
 	}
 
 	handleBlur(e){
-		e.preventDefault()
-		const { _id, task} = this.state
-		this.props.editTodo( _id, {task: task})
+		e.preventDefault();
+		const { _id, task} = this.state;
+		this.props.editTodo( _id, {task: task});
 	}
 	
 	render () {

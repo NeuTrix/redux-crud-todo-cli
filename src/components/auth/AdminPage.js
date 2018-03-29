@@ -1,32 +1,32 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
-import HttpSelector from './HttpSelector'
-import { Col, PageHeader, Row } from 'react-bootstrap'
+import HttpSelector from './HttpSelector';
+import { Col, PageHeader, Row } from 'react-bootstrap';
 
 class AdminPage extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
+	constructor(props) {
+		super(props);
+		this.state = {
 			// AllActions: '', 
 			// AuthActions: '', 
-   //  	CreateActions: '',
-   //  	DeleteActions: '',
-   //  	ReadActions: '',
-   //  	UpdateActions: '',
+			//  	CreateActions: '',
+			//  	DeleteActions: '',
+			//  	ReadActions: '',
+			//  	UpdateActions: '',
     	checked: 'Heroku',
-    };
+		};
 
-    this.onClick = this.onClick.bind(this);
-  }
-
-	onClick(e){
-		e.preventDefault()
-		this.setState({ option: [e.target.value] })
-		console.log(e.target.value)
+		this.onClick = this.onClick.bind(this);
 	}
 
-  render() {
+	onClick(e){
+		e.preventDefault();
+		this.setState({ option: [e.target.value] });
+		console.log(e.target.value);
+	}
+
+	render() {
 
   	const { 
 			// AllActions, 
@@ -42,18 +42,18 @@ class AdminPage extends Component {
 		const space = { 
 			xs: { all: 8, auth: 8, crt: 8, rea: 8, upd: 8, del: 8, ttl: 2 }
 			// xs: { all: 4, auth: 4, crt: 4, rea: 4, upd: 4, del: 4 }
-		}
+		};
 
-    return (
+		return (
     	<div fluid = 'true'>
 
-        <Row>
+				<Row>
         	<Col xs = { space.xs.ttl } >
 		        <PageHeader> AdminPage </PageHeader>
 	        </Col>
-        </Row>
+				</Row>
 
-        <Row>
+				<Row>
 	        <Col xs = { space.xs.all } >
 		        <HttpSelector 
 		        	checked = { checked }
@@ -105,7 +105,7 @@ class AdminPage extends Component {
 		        />
 	        </Col>
 
-         <Col xs = { space.xs.del } >
+					<Col xs = { space.xs.del } >
 		        <HttpSelector 
 		        	checked = { checked }
 			        labels = { ['localhost:8080', 'Herok.app', 'OFF' ] }
@@ -114,11 +114,11 @@ class AdminPage extends Component {
 			        values = { ['OFF','http://localhost:8080','https://redux-todo-api.herokuapp.com/' ] }
 		        />
 	        </Col>
-        </Row>
+				</Row>
 
     	</div>
-    );
-  }
+		);
+	}
 }
 
 export default AdminPage;

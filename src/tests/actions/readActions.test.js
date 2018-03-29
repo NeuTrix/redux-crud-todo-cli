@@ -1,21 +1,21 @@
 import chai, { expect } 	from 'chai';
 import deepFreeze from 'deep-freeze';
-import TodoReducer from '../../reducers/todoReducer'
+import TodoReducer from '../../reducers/todoReducer';
 import * as mod from '../../actions/readActions';
  
 describe ('the basic READ_ITEM case', () => {
 
-	const startState = [ ]
+	const startState = [ ];
 	deepFreeze(startState);
 
-	const todo1 = { _id:101, task:'Test Item before', owner: 'First' }
-	const todo2 = { _id:202, task:'Test Item before', owner: 'Second' }
-	const newState = [ todo1, todo2 ]
+	const todo1 = { _id:101, task:'Test Item before', owner: 'First' };
+	const todo2 = { _id:202, task:'Test Item before', owner: 'Second' };
+	const newState = [ todo1, todo2 ];
 
-	let readState=TodoReducer(startState, mod.readSavedTodos(newState))
+	let readState=TodoReducer(startState, mod.readSavedTodos(newState));
 
 	it ('... changes the length of the state', () => {
-		expect(readState.length).to.eql(startState.length + 2)
+		expect(readState.length).to.eql(startState.length + 2);
 	});
 
 });

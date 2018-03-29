@@ -1,5 +1,5 @@
 
-export const user_01 = {
+/*export const user_01 = {
     username: HenryPimm,
     email: hp@pimmindustries.com,
     emailConfirm: hp@pimmindustries.com,
@@ -21,7 +21,7 @@ export const user_03 = {
     emailConfirm:ww@ww.com,
     password:Woman,
     passwordConfirm:Woman,
-}
+}*/
 
 // export const newTask = {
 //   date: '1936-05-24T00:00:00.000Z',

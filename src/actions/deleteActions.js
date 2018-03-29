@@ -33,7 +33,7 @@ export const deleteHasErrored = (bool) => {
 
 // +++++++++ Functions +++++++++ 
 
-const url = 'https://redux-todo-api.herokuapp.com'
+const url = 'https://redux-todo-api.herokuapp.com';
 
 export function deleteTodo (_id) {
 	return (dispatch) => {

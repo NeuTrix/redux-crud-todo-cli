@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, ButtonToolbar, Col, Grid, Row } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Button, ButtonToolbar, Col, Grid, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const style ={
 	background: 'aliceblue',
@@ -10,7 +10,7 @@ const style ={
 	padding: 8,
 	marginRight: 5,
 	textAlign: 'center',
-}
+};
 
 const styleBtn = {
 	marginTop: 15,
@@ -18,7 +18,7 @@ const styleBtn = {
 	marginRight: 1,
 	color: 'whitesmoke',
 	width: 70
-}
+};
 
 const space = { 
 	xs: { head: 12, list: 9, btns: 4 }, 
@@ -27,8 +27,10 @@ const space = {
 	lg: { head: 12, list: 4, btns: 4 }, 
 };
 
+// +++++++++   +++++++++ 
+
 const HomePage = (props) => {
-  return (
+	return (
 		<Grid>
 	  	<Col style = { style } >
 	  		<Row>
@@ -45,16 +47,16 @@ const HomePage = (props) => {
 						lg = { space.lg.list } lgOffset = { 4 } 
   				>
 						<ul>
-					  	<li style = { { textAlign: "left", fontSize: "1em"}} >
+					  	<li style = { { textAlign: 'left', fontSize: '1em'}} >
 						  	Mongo | Mongoose
 					  	</li>
-					  	<li style = { { textAlign: "left", fontSize: "1em"}} >
+					  	<li style = { { textAlign: 'left', fontSize: '1em'}} >
 						  	Express
 					  	</li>
-					  	<li style = { { textAlign: "left", fontSize: "1em"}} >
+					  	<li style = { { textAlign: 'left', fontSize: '1em'}} >
 						  	React | Redux
 					  	</li>
-					  	<li style = { { textAlign: "left", fontSize: "1em"}} >
+					  	<li style = { { textAlign: 'left', fontSize: '1em'}} >
 						  	Node
 					  	</li>
 						</ul>
@@ -84,7 +86,7 @@ const HomePage = (props) => {
 	  		</Row>
 			</Col>
 		</Grid>
-  );
-}
+	);
+};
 
 export default HomePage;
