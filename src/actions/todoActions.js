@@ -7,12 +7,12 @@ export const addTodo = (todo) => {
 	};
 };
 
-export const editItem = ( _id, edit) => {
-	return {
-		type: mod.EDIT_ITEM,
-		payload: { _id, edit }
-	};
-};
+// export const editItem = ( _id, edit) => {
+// 	return {
+// 		type: mod.EDIT_ITEM,
+// 		payload: { _id, edit }
+// 	};
+// };
 
 export const readSavedTodos = (resetState) => {
 	return {

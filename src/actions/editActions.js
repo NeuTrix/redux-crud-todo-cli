@@ -1,6 +1,14 @@
 import axios from 'axios';
-import { editItem } from './todoActions';
 import * as mod from './typeConstants';
+
+// +++++++++ Actions +++++++++ 
+
+export const editItem = (_id, edit) => {
+	return {
+		type: mod.EDIT_ITEM,
+		payload: { _id, edit }
+	};
+};
 
 export const editHasSucceeded = (bool) => {
 	return {
@@ -22,6 +30,8 @@ export function editIsPosting (bool)  {
 		payload: { status: bool }
 	};
 }
+
+// +++++++++ Functions +++++++++ 
 
 const url = 'https://redux-todo-api.herokuapp.com'
 
