@@ -49,10 +49,12 @@ export function createTodo (data) {
 					dispatch (addTodo (res.data.todo));
 				}
 			})
+			
 			.then ((res) => {
 				dispatch (createIsPosting (false));
 				dispatch (createHasSucceeded (true));
 			})
+			
 			.catch ((err) => {
 				dispatch (createHasErrored (true));
 				console.error (err);

@@ -1,9 +1,8 @@
-// import action constants- allows JS to throw spelling errors
 import {
 	DELETE_IS_POSTING,
 	DELETE_HAS_SUCCEEDED,
 	DELETE_HAS_ERRORED,
-} from '../actions/deleteActions';
+} from '../actions/typeConstants';
 
 let initialState = {
 	deleteIsPosting: false,

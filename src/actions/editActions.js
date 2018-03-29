@@ -1,9 +1,13 @@
 import axios from 'axios';
 import { editItem } from './todoActions';
 
-export const EDIT_IS_POSTING  = 'EDIT_IS_POSTING';
-export const EDIT_HAS_SUCCEEDED = 'EDIT_HAS_SUCCEEDED';
-export const EDIT_HAS_ERRORED = 'EDIT_HAS_ERRORED';
+import {
+	DELETE_IS_POSTING,
+	DELETE_HAS_SUCCEEDED,
+	DELETE_HAS_ERRORED,
+} from '../actions/typeConstants';
+
+// +++++++++   +++++++++ 
 
 export const editHasSucceeded = (bool) => {
 	return {
@@ -26,11 +30,11 @@ export function editIsPosting (bool)  {
 	};
 }
 
+// +++++++++   +++++++++ 
 
 export function editTodo (_id, data) {
  	
  	let url = 'https://redux-todo-api.herokuapp.com'
- 	// let url = 'http://localhost:8080'
 
 	return (dispatch) => {
 
@@ -45,6 +49,7 @@ export function editTodo (_id, data) {
 					dispatch (editItem (_id, res.data.todo))
 				}
 			})
+			
 			.then (() => {
 				dispatch (editIsPosting (false));
 				dispatch (editHasSucceeded (true));
