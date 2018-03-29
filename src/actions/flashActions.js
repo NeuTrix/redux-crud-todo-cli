@@ -1,5 +1,7 @@
-import { ADD_FLASH_MESSAGE } from './typeConstants'
-import { DELETE_FLASH_MESSAGE } from './typeConstants'
+import { 
+	ADD_FLASH_MESSAGE,
+	DELETE_FLASH_MESSAGE  
+} from './typeConstants'
 
 export function addFlashMessage(message) {
 	return {

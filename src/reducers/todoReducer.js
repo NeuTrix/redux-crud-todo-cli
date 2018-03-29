@@ -8,7 +8,7 @@ import {
 	UPDATE_DATE,
 	UPDATE_RANK,
 	UPDATE_TASK
-} from '../actions/todoActions';
+} from '../actions/typeConstants';
 
 const TodoReducer = (state = [ ] , action) => {
 	let payload  = action.payload;
