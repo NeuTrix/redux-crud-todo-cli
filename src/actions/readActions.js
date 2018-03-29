@@ -49,8 +49,11 @@ export function readTodos () {
 					return res.data
 				}
 			})
+			
 			.then ((todos) => dispatch (todosSetInitialState (todos)))
+			
 			.then (() =>  dispatch (todosHasFetched (true)))
+			
 			.catch ((err) => {
 				dispatch (todosHasErrored (true));
 				console.error (err);

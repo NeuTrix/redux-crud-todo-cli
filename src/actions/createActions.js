@@ -1,31 +1,27 @@
 import axios from 'axios';
 import { addTodo } from './todoActions';
 
-import {
-	CREATE_IS_POSTING,
-	CREATE_HAS_SUCCEEDED,
-	CREATE_HAS_ERRORED,
-} from '../actions/typeConstants';
+import * as action from '../actions/typeConstants';
 
 // +++++++++   +++++++++ 
 
 export const createHasSucceeded = (todos) => {
 	return {
-		type: CREATE_HAS_SUCCEEDED,
+		type: action.CREATE_HAS_SUCCEEDED,
 		payload: { todos: todos }
 	};
 };
 
 export const createHasErrored = (bool) => {
 	return {
-		type: CREATE_HAS_ERRORED,
+		type: action.CREATE_HAS_ERRORED,
 		payload: { status: bool }
 	};
 };
 
 export function createIsPosting (bool)  {
 	return {
-		type: CREATE_IS_POSTING,
+		type: action.CREATE_IS_POSTING,
 		payload: { status: bool }
 	};
 }

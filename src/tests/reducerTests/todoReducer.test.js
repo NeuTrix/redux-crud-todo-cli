@@ -157,34 +157,6 @@ describe ('The TodoReducer CRUD suite', () => {
 		});
 	});
 
-	describe ('The UPDATE_TASK function', () => {
-		it ('... can update the todo items tasks', () => {
-			let updatedTodoToList = store.getState ().todos;
-			let new_task = updatedTodoToList[ modLength - 1 ];
-			expect (new_task.task).to.eql (newItem.task);
-		});
-	});
-
-	describe ('The UPDATE_RANK function', () => {
-		it ('... can update the todo items rank', () => {
-			let content = 'Low';
-			store.dispatch (actions.updateRank(_id, content));
-			let updatedTodoToList = store.getState ().todos;
-			let new_task = updatedTodoToList[ modLength - 1 ];
-			expect (new_task.rank).to.eql (content);
-		});
-	});
-
-	describe ('The UPDATE_DATE function', () => {
-		it ('... can update the todo items date', () => {
-			let content = new Date(); 
-			store.dispatch (actions.updateDate(_id, content));
-			let updatedTodoToList = store.getState ().todos;
-			let new_task = updatedTodoToList[ modLength - 1 ];
-			expect (new_task.date).to.eql (content);
-		});
-	});
-
 	describe ('The REMOVE_TODO function', () => {
 		let removedTodoFromList, postLength;
 

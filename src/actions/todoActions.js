@@ -1,96 +1,45 @@
-import {
-	ADD_TODO,
-	EDIT_ITEM,
-	READ_ALL_TODOS, 
-	REMOVE_TODO,
-	RESET_TODOS_STATE,
-	TOGGLE_COMPLETE,
-	UPDATE_DATE,
-	UPDATE_RANK,
-	UPDATE_TASK
-} from '../actions/typeConstants';
+import * as action from '../actions/typeConstants'
+
+export const addTodo = (todo) => {
+	return {
+		type: action.ADD_TODO,
+		payload: { todo }
+	};
+};
+
+export const editItem = ( _id, edit) => {
+	return {
+		type: action.EDIT_ITEM,
+		payload: { _id,  edit }
+	};
+};
 
 export const resetTodosState = (resetState) => {
 	return {
-		type: RESET_TODOS_STATE,
-		payload: {
-			resetState: resetState
-		}
+		type: action.RESET_TODOS_STATE,
+		payload: { resetState }
 	};
 }
 
-export const todosSetInitialState = (initialState) => {
+export const todosSetInitialState = (newState) => {
 	return {
-		type: READ_ALL_TODOS,
-		payload: {
-			newState: initialState
-		}
+		type: action.READ_ALL_TODOS,
+		payload: { newState }
 	};
 }
-
-export const addTodo = (todo) => {
-// ??? can this just be 'todo'
+export const removeTodo = (_id) => {
 	return {
-		type: ADD_TODO,
-		payload: {
-			todo: todo
-		}
+		type: action.REMOVE_TODO,
+		payload: { _id }
 	};
 };
 
-export const editItem = (id, _update) => {
+export const toggleComplete = (_id) => {
 	return {
-		type: EDIT_ITEM,
-		payload: {
-			_id: id,
-			update: _update
-		}
+		type: action.TOGGLE_COMPLETE,
+		payload: { _id }
 	};
 };
 
-export const removeTodo = (id) => {
-	return {
-		type: REMOVE_TODO,
-		payload: {_id: id}
-	};
-};
-
-export const toggleComplete = (id) => {
-	return {
-		type: TOGGLE_COMPLETE,
-		payload: {_id: id}
-	};
-};
-
-//updates task only
-export const updateTask = (id, _task) => {
-	return {
-		type: UPDATE_TASK,
-		payload: {
-			_id: id,
-			task: _task
-		}
-	};
-};
-
-export const updateRank = (id, _rank) => {
-	return {
-		type: UPDATE_RANK,
-		payload: {
-			_id: id,
-			rank: _rank
-		}
-	};
-};
-
-export const updateDate = (id, _date) => {
-	return {
-		type: UPDATE_DATE,
-		payload: {
-			_id: id,
-			date: _date
-		}
-	};
-};
 
 
