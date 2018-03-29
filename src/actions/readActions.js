@@ -1,9 +1,13 @@
 import axios from 'axios'
 import { todosSetInitialState } from './todoActions';
 
-export const TODOS_IS_LOADING  = 'TODOS_IS_LOADING';
-export const TODOS_HAS_ERRORED = 'TODOS_HAS_ERRORED';
-export const TODOS_HAS_FETCHED = 'TODOS_HAS_FETCHED';
+import {
+	TODOS_IS_LOADING,
+	TODOS_HAS_FETCHED,
+	TODOS_HAS_ERRORED,
+} from '../actions/typeConstants';
+
+// +++++++++   +++++++++ 
 
 export const todosHasFetched = (bool) => {
 	return {
@@ -26,10 +30,11 @@ export function todosIsLoading (bool)  {
 	};
 }
 
+// +++++++++   +++++++++ 
+
 export function readTodos () {
 
  	let url = 'https://redux-todo-api.herokuapp.com'
- 	// let url = 'http://localhost:8080'
 
 	return (dispatch) => {
 

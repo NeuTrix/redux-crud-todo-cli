@@ -3,6 +3,7 @@ import setAuthorizationToken from '../components/auth/setAuthToken';
 import { resetTodosState } from './todoActions';
 import { readTodos } from './readActions';
 import jwtDecode from 'jwt-decode';
+
 import { SET_CURRENT_USER } from './typeConstants';
 
 export function setCurrentUser (user) {

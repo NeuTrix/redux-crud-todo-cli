@@ -1,10 +1,3 @@
-// import action constants- allows JS to throw spelling errors
-/*import {
-	CREATE_IS_POSTING,
-	CREATE_HAS_SUCCEEDED,
-	CREATE_HAS_ERRORED,
-} from '../actions/createActions';*/
-
 import {
 	CREATE_IS_POSTING,
 	CREATE_HAS_SUCCEEDED,
