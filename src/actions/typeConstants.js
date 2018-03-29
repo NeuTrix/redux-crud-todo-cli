@@ -26,9 +26,9 @@ export const ADD_FLASH_MESSAGE 		= 'ADD_FLASH_MESSAGE';
 export const DELETE_FLASH_MESSAGE = 'DELETE_FLASH_MESSAGE';
 
 // todoActions (todoReducer)
-export const ADD_TODO = 'ADD_TODO';
-export const EDIT_ITEM  = 'EDIT_ITEM';
-export const READ_ALL_TODOS = 'READ_ALL_TODOS';
-export const REMOVE_TODO = 'REMOVE_TODO';
-export const RESET_TODOS_STATE = 'RESET_TODOS_STATE';
-export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
+export const ADD_TODO 						= 'ADD_TODO';
+export const EDIT_ITEM  					= 'EDIT_ITEM';
+export const TODOS_INITIAL_STATE 	= 'TODOS_INITIAL_STATE';
+export const REMOVE_TODO 					= 'REMOVE_TODO';
+export const RESET_TODOS_STATE		= 'RESET_TODOS_STATE';
+export const TOGGLE_COMPLETE 			= 'TOGGLE_COMPLETE';

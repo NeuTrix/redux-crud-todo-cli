@@ -1,40 +1,35 @@
 import axios from 'axios';
 import { editItem } from './todoActions';
-
-import {
-	EDIT_HAS_SUCCEEDED,
-	EDIT_HAS_ERRORED ,
-	EDIT_IS_POSTING,
-} from './typeConstants';
+import * as mod from './typeConstants';
 
 export const editHasSucceeded = (bool) => {
 	return {
-		type: EDIT_HAS_SUCCEEDED,
+		type: mod.EDIT_HAS_SUCCEEDED,
 		payload: { status: bool }
 	};
 };
 
 export const editHasErrored = (bool) => {
 	return {
-		type: EDIT_HAS_ERRORED ,
+		type: mod.EDIT_HAS_ERRORED ,
 		payload: { status: bool }
 	};
 };
 
 export function editIsPosting (bool)  {
 	return {
-		type: EDIT_IS_POSTING,
+		type: mod.EDIT_IS_POSTING,
 		payload: { status: bool }
 	};
 }
 
-export function editTodo (_id, data) {
- 	let url = 'https://redux-todo-api.herokuapp.com'
+const url = 'https://redux-todo-api.herokuapp.com'
 
+export function editTodo (_id, data) {
 	return (dispatch) => {
-		axios.put (`${ url }/api/todos/${ _id }`, data)
-			dispatch (editIsPosting(true))
+		return axios.put (`${ url }/api/todos/${ _id }`, data)
 			.then ((res) => {
+				dispatch (editIsPosting(true));
 				if (res.status !== 200) {
 					throw Error (res.statusText);
 				} else {

@@ -1,35 +1,35 @@
 import axios from 'axios';
 import { removeTodo } from './todoActions';
-import * as action from './typeConstants';
+import * as mod from './typeConstants';
 
-export const deleteHasSucceeded = (todos) => {
+export const deleteHasSucceeded = (bool) => {
 	return {
-		type: action.DELETE_HAS_SUCCEEDED,
-		payload: { todos }
+		type: mod.DELETE_HAS_SUCCEEDED,
+		payload: { status: bool }
 	};
 };
 
 export const deleteHasErrored = (bool) => {
 	return {
-		type: action.DELETE_HAS_ERRORED,
+		type: mod.DELETE_HAS_ERRORED,
 		payload: { status: bool }
 	};
 };
 
 export function deleteIsPosting (bool) {
 	return {
-		type: action.DELETE_IS_POSTING,
+		type: mod.DELETE_IS_POSTING,
 		payload: { status: bool }
 	};
 }
 
-export function deleteTodo (_id) {
-	let url = 'https://redux-todo-api.herokuapp.com'
+const url = 'https://redux-todo-api.herokuapp.com'
 
+export function deleteTodo (_id) {
 	return (dispatch) => {
-			dispatch (deleteIsPosting (true));
-		axios.delete (`${ url }/api/todos/${ _id }`)
+		return axios.delete (`${ url }/api/todos/${ _id }`)
 			.then ((res) => {
+				dispatch (deleteIsPosting (true));
 				if (res.status !== 200) {
 					throw Error (res.statusText);
 				}	

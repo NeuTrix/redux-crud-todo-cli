@@ -88,7 +88,7 @@ describe('The CheckComplete Component', () => {
 		});
 
 		it('...has an toggleComplete prop', () => {
-			expect(Object.keys(_tasks.props())).to.include('toggleComplete');
+			expect(Object.keys(_tasks.props())).to.include('toggle');
 		});
 	});
 

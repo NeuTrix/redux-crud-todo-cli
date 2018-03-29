@@ -1,35 +1,35 @@
 import axios from 'axios';
 import { addTodo } from './todoActions';
-import * as action from './typeConstants';
+import * as mod from './typeConstants';
 
-export const createHasSucceeded = (todos) => {
+export const createHasSucceeded = (bool) => {
 	return {
-		type: action.CREATE_HAS_SUCCEEDED,
-		payload: { todos }
+		type: mod.CREATE_HAS_SUCCEEDED,
+		payload: { status: bool }
 	};
 };
 
 export const createHasErrored = (bool) => {
 	return {
-		type: action.CREATE_HAS_ERRORED,
+		type: mod.CREATE_HAS_ERRORED,
 		payload: { status: bool }
 	};
 };
 
 export function createIsPosting (bool)  {
 	return {
-		type: action.CREATE_IS_POSTING,
+		type: mod.CREATE_IS_POSTING,
 		payload: { status: bool }
 	};
 }
 
+const url = 'https://redux-todo-api.herokuapp.com'
+
 export function createTodo(data) {
-	let url = 'https://redux-todo-api.herokuapp.com'
-	
 	return (dispatch) => {
-			dispatch (createIsPosting (true));
-		axios.post (`${ url }/api/todos`, data)
+		return axios.post (`${ url }/api/todos`, data)
 			.then ((res) => {
+				dispatch (createIsPosting (true));
 				if (res.status !== 201) {
 					throw Error (res.statusText);
 				}	else {

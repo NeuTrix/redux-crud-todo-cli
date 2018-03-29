@@ -98,7 +98,6 @@ class TodoItem extends Component {
 					lg = { spacing.lg.rank }
 				>
 					<Rank
-						editTodo = { this.props.editTodo }
 						_id = { this.props.item._id }
 						currRank = { this.props.item.rank }
 						editTodo= { this.props.editTodo }   
@@ -114,7 +113,6 @@ class TodoItem extends Component {
 				>
 					<CalendarBtn
 						date = { this.props.item.date }
-						editTodo = { this.props.editTodo }
 						_id = { this.props.item._id }
 						editTodo = { this.props.editTodo }   
 					/>

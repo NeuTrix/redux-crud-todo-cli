@@ -88,9 +88,9 @@ describe('The TodoItem Component', () => {
 			expect(dates.length).to.be.eql(1);
 		});
 
-		it('CalendarBtn is passed (5) props', () => {
+		it('CalendarBtn is passed (4) props', () => {
 			const checkboxes = todoItem().find('CalendarBtn');
-			expect(Object.keys(checkboxes.props()).length).to.eql(5);
+			expect(Object.keys(checkboxes.props()).length).to.eql(4);
 		});
 
 		it('always renders a DeleteBtn component ', () => {
