@@ -8,7 +8,7 @@ import TodoTask from '../components/TodoTask';
 import { connect } from 'react-redux';
 import { deleteTodo } from '../actions/deleteActions';
 import { editTodo } from '../actions/editActions';
-import * as _a from '../actions/todoActions';
+import { removeTodo, toggleComplete } from '../actions/todoActions';
 
 // +++++++++ Styling 
 const spacing = { 
@@ -68,7 +68,7 @@ class TodoItem extends Component {
 						completed = { this.props.item.completed }
 						editTodo = { this.props.editTodo }
 						_id = { this.props.item._id }
-						toggleComplete = { this.props.toggleComplete }   	
+						toggle = { this.props.toggle }   	
 					/>
 				</Col>
 
@@ -149,8 +149,8 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		deleteTodo: (_id) => dispatch (deleteTodo (_id)),
 		editTodo: (_id, edit) => dispatch (editTodo (_id, edit)), 
-		removeTodo: (_id) => dispatch (_a.removeTodo (_id)),
-		toggleComplete: (_id, task) => dispatch (_a.toggleComplete (_id, task)),
+		removeTodo: (_id) => dispatch (removeTodo (_id)),
+		toggle: (_id, task) => dispatch (toggleComplete (_id, task)),
 	};
 };
 
