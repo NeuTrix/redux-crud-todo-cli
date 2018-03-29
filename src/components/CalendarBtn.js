@@ -33,7 +33,7 @@ CalendarBtn.propTypes = {
 };
 
 CalendarBtn.defaultProps = {
-	_id: 'default'
+	_id: 'default',
 	date: '2020-11-14',
 	style: { },
 	editTodo: f => f,

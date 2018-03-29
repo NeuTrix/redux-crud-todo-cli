@@ -17,7 +17,6 @@ const DeleteBtn = (props) => {
 
 	const styleGlyph = { 
 		color: 'pink', 
-		// fontSize: '1.5em', 
 		paddingTop: 4 
 	}
 
@@ -35,22 +34,20 @@ const DeleteBtn = (props) => {
 			onClick= { handleClick } 
 		> 
 			<Glyphicon glyph = 'remove' style  = { styleGlyph } /> 
-
 		</Button>
-		
 	);
 };
 
 DeleteBtn.propTypes = {
+	_id: PropTypes.string.isRequired,
 	task: PropTypes.string.isRequired,
 	deleteTodo: PropTypes.func.isRequired,
-	_id: PropTypes.string.isRequired
 };
 
 DeleteBtn.defaultProps = {
  	task: "default",
-	deleteTodo: f => f,
 	_id: 'default',
+	deleteTodo: f => f,
 };
 
 export default DeleteBtn;
