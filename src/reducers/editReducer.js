@@ -5,6 +5,12 @@ import {
 	EDIT_HAS_ERRORED,
 } from '../actions/editActions';
 
+/*import {
+	EDIT_IS_POSTING,
+	EDIT_HAS_SUCCEEDED,
+	EDIT_HAS_ERRORED,
+} from '../actions/typeConstants';*/
+
 let initialState = {
 	editIsPosting: false,
 	editHasSucceeded: false,
