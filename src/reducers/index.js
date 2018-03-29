@@ -9,7 +9,6 @@ import flashMessages from './flashMessages';
 import authReducer from './authReducer';
 
 const todoApp = combineReducers({
-	// no need to provid a key/val pair if same names 
 	todos: todoReducer,
 	todosApi: apiReducer,
 	createApi: createReducer,

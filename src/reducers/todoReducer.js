@@ -34,8 +34,11 @@ const TodoReducer = (state = [] , action) => {
 			let _id = payload._id;
 			let matchId = (task) => { return task._id === _id; };
 			if (state.some(matchId)) {
-				let ndx = state.findIndex(matchId);
-				return [ ...state.slice(0, ndx),  ...state.slice(ndx+1) ];
+				let index = state.findIndex(matchId);
+				return [ 
+					...state.slice(0, index),  
+					...state.slice(index + 1) 
+				];
 			} 
 			return state;
 		}
