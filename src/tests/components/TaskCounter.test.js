@@ -38,9 +38,9 @@ describe ('The TaskCounter Component', () => {
 			expect (_tasks.length).to.be.eql(1);
 		});
 
-		it ('always renders a Badge', () => {
+	/*	it ('always renders a Badge', () => {
 			expect (badges.length).to.be.eql(1);
-		});
+		});*/
 	});
 
 	describe ('... returns a correct count', () => {
@@ -59,8 +59,8 @@ describe ('The TaskCounter Component', () => {
 			console.log('*** Render the Props: ', _tasks.props()); 
 		});
 
-		it ('...TaskCounter is passed (1) props', () => {
-			expect (Object.keys(_tasks.props()).length).to.eql(1);		
+		it ('...TaskCounter is passed (2) props', () => {
+			expect (Object.keys(_tasks.props()).length).to.eql(2);		
 		});
 
 		it ('...has an todos prop', () => {

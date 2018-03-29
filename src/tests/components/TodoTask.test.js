@@ -85,8 +85,8 @@ describe ('The TodoTask Component', () => {
 			console.log('*** Render the Props: ', _tasks.props()); 
 		});
 
-		it ('...TodoTask is passed (4) props', () => {
-			expect (Object.keys(_tasks.props()).length).to.eql(4);
+		it ('...TodoTask is passed (3) props', () => {
+			expect (Object.keys(_tasks.props()).length).to.eql(3);
 		});
 
 		it ('...has an item prop', () => {
@@ -97,8 +97,8 @@ describe ('The TodoTask Component', () => {
 			expect (Object.keys(_tasks.props())).to.include('style');
 		});
 
-		it ('...has an editTodo prop', () => {
-			expect (Object.keys(_tasks.props())).to.include('editTodo');
+		it ('...has an deleteTodo prop', () => {
+			expect (Object.keys(_tasks.props())).to.include('deleteTodo');
 		});
 	});
 
