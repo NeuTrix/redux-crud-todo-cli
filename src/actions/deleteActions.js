@@ -2,8 +2,6 @@ import axios from 'axios';
 import { removeTodo } from './todoActions';
 import * as action from './typeConstants';
 
-// +++++++++   +++++++++ 
-
 export const deleteHasSucceeded = (todos) => {
 	return {
 		type: action.DELETE_HAS_SUCCEEDED,
@@ -25,18 +23,12 @@ export function deleteIsPosting (bool) {
 	};
 }
 
-// +++++++++   +++++++++ 
-
 export function deleteTodo (_id) {
-
 	let url = 'https://redux-todo-api.herokuapp.com'
 
 	return (dispatch) => {
-
-		dispatch (deleteIsPosting (true));
-
+			dispatch (deleteIsPosting (true));
 		axios.delete (`${ url }/api/todos/${ _id }`)
-
 			.then ((res) => {
 				if (res.status !== 200) {
 					throw Error (res.statusText);
@@ -44,9 +36,7 @@ export function deleteTodo (_id) {
 				dispatch (removeTodo (_id));
 				dispatch (deleteIsPosting (false));
 			})
-
 			.then (() => dispatch (deleteHasSucceeded (true)))
-			
 			.catch ((err) => { 
 				dispatch (deleteHasErrored (true)); 
 				console.error(err);

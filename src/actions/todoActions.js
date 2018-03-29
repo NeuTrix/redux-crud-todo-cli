@@ -10,7 +10,7 @@ export const addTodo = (todo) => {
 export const editItem = ( _id, edit) => {
 	return {
 		type: action.EDIT_ITEM,
-		payload: { _id,  edit }
+		payload: { _id, edit }
 	};
 };
 
