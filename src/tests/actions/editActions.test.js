@@ -1,18 +1,8 @@
-/* eslint-env jest, mocha, chai */
-/*global TodoReducer it:true*/
-/*eslint no-undef: "error"*/
-
-import chai	from 'chai';
-import chaiHttp from 'chai-http';
-import { expect } from 'chai';
+import chai, { expect } 	from 'chai';
 import deepFreeze from 'deep-freeze';
-import store from '../../store/store';
-
-import * as mod from '../../actions/editActions';
 import TodoReducer from '../../reducers/todoReducer'
+import * as mod from '../../actions/editActions';
  
-chai.use (chaiHttp);
-
 describe ('the basic EDIT_ITEM case', () => {
 
 	const todo1 = { _id:101, task:'Test Item before', owner: 'First' }
@@ -153,7 +143,9 @@ describe ('The editHasErrored ERROR action creator', () => {
 	});
 });
 
-
+/* eslint-env jest, mocha, chai */
+/*global TodoReducer it:true*/
+/*eslint no-undef: "error"*/
 
 
 
