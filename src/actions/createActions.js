@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { addTodo } from './todoActions';
-
-import * as action from '../actions/typeConstants';
+import * as action from './typeConstants';
 
 // +++++++++   +++++++++ 
 

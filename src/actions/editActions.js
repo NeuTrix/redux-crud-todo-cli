@@ -5,7 +5,7 @@ import {
 	EDIT_HAS_SUCCEEDED,
 	EDIT_HAS_ERRORED ,
 	EDIT_IS_POSTING,
-} from '../actions/typeConstants';
+} from './typeConstants';
 
 // +++++++++   +++++++++ 
 

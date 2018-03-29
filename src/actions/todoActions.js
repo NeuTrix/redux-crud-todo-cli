@@ -1,4 +1,4 @@
-import * as action from '../actions/typeConstants'
+import * as action from './typeConstants'
 
 export const addTodo = (todo) => {
 	return {
