@@ -34,12 +34,5 @@ export const removeTodo = (_id) => {
 	};
 };
 
-export const toggleComplete = (_id) => {
-	return {
-		type: mod.TOGGLE_COMPLETE,
-		payload: { _id }
-	};
-};
-
 
 
