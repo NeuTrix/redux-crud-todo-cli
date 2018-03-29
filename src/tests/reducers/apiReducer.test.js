@@ -5,7 +5,7 @@ import { expect } from 'chai';
 import store from '../../store/store';
 import * as _a from '../../actions/readActions';
 
-describe('The apiReducer action suite', () => {
+describe('The readReducer action suite', () => {
 	let initialState;
 
 	beforeAll(() => {

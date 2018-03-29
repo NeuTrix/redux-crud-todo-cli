@@ -1,4 +1,4 @@
-// readtActions (apiReducer)
+// readtActions (readReducer)
 export const TODOS_IS_LOADING		 	= 'TODOS_IS_LOADING';
 export const TODOS_HAS_FETCHED		= 'TODOS_HAS_FETCHED';
 export const TODOS_HAS_ERRORED		= 'TODOS_HAS_ERRORED';

@@ -3,7 +3,7 @@
 import deepFreeze from 'deep-freeze';
 import { expect } from 'chai';
 import store from '../../store/store';
-import * as actions from '../../actions/editActions';
+import * as mod from '../../actions/editActions';
 
 describe('The editReducer action suite', () => {
 	let initialState;
@@ -14,7 +14,7 @@ describe('The editReducer action suite', () => {
 
 	describe('The POSTING reducer', () => {
 		afterAll(() => {
-			store.dispatch(actions.editIsPosting(false));
+			store.dispatch(mod.editIsPosting(false));
 		});
 
 		it('... has an isLoading prop set to false', () => {
@@ -25,7 +25,7 @@ describe('The editReducer action suite', () => {
 
 	describe('The SUCCESS reducer', () => {
 		afterEach(() => {
-			store.dispatch(actions.editHasSucceeded(false));
+			store.dispatch(mod.editHasSucceeded(false));
 		});
 
 		it('... the initialState has an editHasSucceeded prop set to false', () => {
@@ -36,7 +36,7 @@ describe('The editReducer action suite', () => {
 
 	describe('The ERROR reducer', () => {
 		afterAll(() => {
-			store.dispatch(actions.editHasErrored(false));
+			store.dispatch(mod.editHasErrored(false));
 		});
 
 		it('... initialState has a false editHasErrored prop', () => {

@@ -6,7 +6,7 @@ const initState = {
 	todosHasErrored: false
 }
 
-export const apiReducer = (state = initState, action = {}) => {
+export const readReducer = (state = initState, action = {}) => {
 	let payload = action.payload;
 
 	switch(action.type) {
@@ -34,4 +34,4 @@ export const apiReducer = (state = initState, action = {}) => {
 	}
 };
 	
-export default apiReducer;
+export default readReducer;

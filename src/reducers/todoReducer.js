@@ -13,24 +13,12 @@ const TodoReducer = (state = [] , action = {}) => {
 			return [...state, payload.todo];
 
 		case mod.EDIT_ITEM: {
-			let _id = 	payload._id;
-			let edit = payload.edit; // an edit object
+			let _id = payload._id
+			let task = state.filter(task => task._id === _id)
+			let editedTask = { ...task[0], ...payload.edit }
+			return state.map(task => task._id === _id ? editedTask : task)
+		};
 
-			let matchId = (task) => { return task._id === _id; };
-			let targetIndex = state.findIndex(matchId);
-
-			let editedTask = state.map((task, index) => {
-				if (index !== targetIndex ) {
-					return task;
-				} else {
-					// spread operator will replace the editd properties
-					return { ...task, ...edit };
-				}
-			});
-			return Object.assign([], state, editedTask);
-			// return [...state, ...editedTask ]
-		}
-		
 		case mod.REMOVE_TODO:{
 			let _id = payload._id;
 			let matchId = (task) => { return task._id === _id; };

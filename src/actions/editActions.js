@@ -1,6 +1,13 @@
 import axios from 'axios';
-import { editItem } from './todoActions';
+// import { editItem } from './todoActions';
 import * as mod from './typeConstants';
+
+export const editItem = ( _id, edit) => {
+	return {
+		type: mod.EDIT_ITEM,
+		payload: { _id, edit }
+	};
+};
 
 export const editHasSucceeded = (bool) => {
 	return {

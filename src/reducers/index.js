@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
 import todoReducer from './todoReducer';
-import apiReducer from './apiReducer';
+import readReducer from './readReducer';
 import createReducer from './createReducer';
 import deleteReducer from './deleteReducer';
 import editReducer from './editReducer';
@@ -10,7 +10,7 @@ import authReducer from './authReducer';
 
 const todoApp = combineReducers({
 	todos: todoReducer,
-	todosApi: apiReducer,
+	todosApi: readReducer,
 	createApi: createReducer,
 	deleteApi: deleteReducer,
 	editApi: editReducer,

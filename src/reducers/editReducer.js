@@ -6,7 +6,7 @@ let initState = {
 	editHasErrored: false
 }; 
 
-export const editReducer = (state = initState, action) => {
+export const editReducer = (state = initState, action = {}) => {
 
 	let payload = action.payload;
 

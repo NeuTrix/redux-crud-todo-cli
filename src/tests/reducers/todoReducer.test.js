@@ -4,14 +4,52 @@ import deepFreeze from 'deep-freeze';
 import { expect } from 'chai';
 import store from '../../store/store';
 import shortid from 'shortid';
-import * as actions from '../../actions/todoActions';
+import * as mod from '../../actions/todoActions';
+import TodoReducer from '../../reducers/todoReducer'
+
+describe ('the basic EDIT_ITEM case', () => {
+
+	const todo1 = { _id:101, task:'Test Item before', owner: 'First' }
+	const todo2 = { _id:202, task:'Test Item before', owner: 'Second' }
+	const startState = [ todo1, todo2 ]
+	deepFreeze(startState);
+
+	let _id = 101, edit = { task: "GOT EDITED!" }
+	let editedState = TodoReducer(startState, mod.editItem(_id, edit))
+
+	let findTask = (task) =>  task._id === _id
+	let startTask = startState.filter(findTask)[0]
+	let editedTask = editedState.filter(findTask)[0]
+
+	it ('... doesn\'t change the length of the state', () => {
+		expect(editedState.length).to.eql(startState.length)
+	});
+
+	it ('... changed the "task" value of the target item', () => {
+		expect(editedTask.task).not.to.eql(startTask.task)
+		expect(editedTask.task).to.eql('GOT EDITED!')
+	});
+
+	it ('... retained it\'s other properties', () => {
+		expect(editedTask).to.have.property('_id')
+			.eql(101)
+		expect(editedTask).to.have.property('owner')
+			.eql('First')
+	});
+
+});
+
 
 describe ('The TODOS_INITIAL_STATE reducer', () => {
 
-	describe ('The iniital state', () => {
 		let	firstState = store.getState().todos;
 		deepFreeze (firstState);
 
+	describe ('The Edit action', () => {
+
+	});	
+
+	describe ('The iniital state', () => {
 		it ('... has a default state array ', () => {
 			expect (firstState).to.be.an ('array');
 		});
@@ -24,12 +62,12 @@ describe ('The TODOS_INITIAL_STATE reducer', () => {
 
 	describe ('the todosSetInitialState action creator', () => {
 		it ('... has a type of "TODOS_INITIAL_STATE"', () => {
-			expect (actions.todosSetInitialState ()).to.have.property('type').to.eql ('TODOS_INITIAL_STATE');
+			expect (mod.todosSetInitialState ()).to.have.property('type').to.eql ('TODOS_INITIAL_STATE');
 		});
 
 		it ('... it has a payload prop of "newState" ', () => {
-			expect (actions.todosSetInitialState ()).to.have.property('payload');
-			expect (actions.todosSetInitialState ().payload).to.have.property('newState');
+			expect (mod.todosSetInitialState ()).to.have.property('payload');
+			expect (mod.todosSetInitialState ().payload).to.have.property('newState');
 		});
 	});
 
@@ -45,7 +83,7 @@ describe ('The TODOS_INITIAL_STATE reducer', () => {
 		let newState;
 
 		beforeAll(() => {
-			store.dispatch (actions.todosSetInitialState (initialState));
+			store.dispatch (mod.todosSetInitialState (initialState));
 			newState = store.getState ().todos;
 		});
 
@@ -97,7 +135,7 @@ describe ('The TodoReducer CRUD suite', () => {
 				task: '**** ADDED a new TODO ****',
 			};
 
-			store.dispatch (actions.addTodo(newItem));
+			store.dispatch (mod.addTodo(newItem));
 			addedTodoToList = store.getState ().todos;
 			modLength = addedTodoToList.length;
 			_task = addedTodoToList[modLength -1];
@@ -147,7 +185,7 @@ describe ('The TodoReducer CRUD suite', () => {
 		let removedTodoFromList, postLength;
 
 		beforeAll (() => {
-			store.dispatch (actions.removeTodo (_id));
+			store.dispatch (mod.removeTodo (_id));
 			removedTodoFromList = store.getState ().todos;
 			postLength = removedTodoFromList.length; 
 		});
