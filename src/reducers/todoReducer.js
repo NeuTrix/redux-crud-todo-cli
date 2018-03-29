@@ -6,8 +6,9 @@ const TodoReducer = (state = [] , action = {}) => {
 
 	switch (type) {
 
-		case mod.TODOS_INITIAL_STATE: 
-			return Object.assign([], state, payload.newState);
+		case mod.READ_SAVED_TODOS: {
+			return [ ...state, ...payload.savedState ]
+		}
 
 		case mod.ADD_TODO: 
 			return [...state, payload.todo];
@@ -32,11 +33,6 @@ const TodoReducer = (state = [] , action = {}) => {
 			return state;
 		}
 
-		case mod.READ_SAVED_TODOS: {
-			let select = todo => todo === undefined || todo === null
-			return state.filter(select)
-		}
-		
 		default: {
 			return state;
 		}

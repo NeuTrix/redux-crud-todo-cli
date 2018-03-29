@@ -1,8 +1,7 @@
 import axios from 'axios'
 import jwtDecode from 'jwt-decode';
 import setAuthorizationToken from '../components/auth/setAuthToken';
-import { readTodos } from './readActions';
-import { readSavedTodos } from './todoActions';
+import { readTodos, readSavedTodos } from './readActions';
 import * as mod from './typeConstants';
 
 export function setCurrentUser (user) {

@@ -10,6 +10,13 @@ export const addTodo = (todo) => {
 	};
 };
 
+export function createIsPosting (bool)  {
+	return {
+		type: mod.CREATE_IS_POSTING,
+		payload: { status: bool }
+	};
+}
+
 export const createHasSucceeded = (bool) => {
 	return {
 		type: mod.CREATE_HAS_SUCCEEDED,
@@ -24,14 +31,8 @@ export const createHasErrored = (bool) => {
 	};
 };
 
-export function createIsPosting (bool)  {
-	return {
-		type: mod.CREATE_IS_POSTING,
-		payload: { status: bool }
-	};
-}
-
 // +++++++++ Functions +++++++++ 
+
 const url = 'https://redux-todo-api.herokuapp.com'
 
 export function createTodo(data) {

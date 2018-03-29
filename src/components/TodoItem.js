@@ -1,14 +1,13 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
-import { Col, Row } from 'react-bootstrap';
 import Rank from '../components/Rank';
 import CalendarBtn from '../components/CalendarBtn';
 import CheckComplete from '../components/CheckComplete';
 import TodoTask from '../components/TodoTask';
+import { Col, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { deleteTodo } from '../actions/deleteActions';
+import { deleteTodo, removeTodo } from '../actions/deleteActions';
 import { editTodo } from '../actions/editActions';
-import { removeTodo } from '../actions/todoActions';
 
 // +++++++++ Styling 
 const spacing = { 

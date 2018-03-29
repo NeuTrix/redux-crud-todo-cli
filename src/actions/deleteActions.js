@@ -10,6 +10,13 @@ export const removeTodo = (_id) => {
 	};
 };
 
+export function deleteIsPosting (bool) {
+	return {
+		type: mod.DELETE_IS_POSTING,
+		payload: { status: bool }
+	};
+}
+
 export const deleteHasSucceeded = (bool) => {
 	return {
 		type: mod.DELETE_HAS_SUCCEEDED,
@@ -23,13 +30,6 @@ export const deleteHasErrored = (bool) => {
 		payload: { status: bool }
 	};
 };
-
-export function deleteIsPosting (bool) {
-	return {
-		type: mod.DELETE_IS_POSTING,
-		payload: { status: bool }
-	};
-}
 
 // +++++++++ Functions +++++++++ 
 

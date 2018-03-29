@@ -10,6 +10,13 @@ export const editItem = (_id, edit) => {
 	};
 };
 
+export function editIsPosting (bool)  {
+	return {
+		type: mod.EDIT_IS_POSTING,
+		payload: { status: bool }
+	};
+}
+
 export const editHasSucceeded = (bool) => {
 	return {
 		type: mod.EDIT_HAS_SUCCEEDED,
@@ -23,13 +30,6 @@ export const editHasErrored = (bool) => {
 		payload: { status: bool }
 	};
 };
-
-export function editIsPosting (bool)  {
-	return {
-		type: mod.EDIT_IS_POSTING,
-		payload: { status: bool }
-	};
-}
 
 // +++++++++ Functions +++++++++ 
 
