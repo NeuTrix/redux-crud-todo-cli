@@ -8,7 +8,6 @@ const Rank = (props) => {
 
 	const handleChange = (event) => {
 		event.preventDefault ();
-		props.updateRank (props._id, _rank.value);
 		props.editTodo (props._id, { rank: _rank.value });
 	};
 
@@ -28,17 +27,16 @@ const Rank = (props) => {
 }; 
 
 Rank.propTypes = {
+	_id: PropTypes.string.isRequired,
 	currRank: PropTypes.string.isRequired,
+
 	editTodo: PropTypes.func.isRequired,
-	updateRank: PropTypes.func.isRequired,
-	_id: PropTypes.string.isRequired
 };
 
 Rank.defaultProps = {
+	_id: 'default',
 	currRank: 'default',	
 	editTodo: f => f,
-	updateRank: f => f,
-	_id: 'default'
 };
 
 export default Rank;

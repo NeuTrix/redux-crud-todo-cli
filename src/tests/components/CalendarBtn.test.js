@@ -53,8 +53,8 @@ describe('The CalendarBtn Component', () => {
 	describe('when rendering core components, it..', () => {
 		const dateBtns = calendarBtn().find('CalendarBtn');
 
-		it('CalendarBtn is passed (5) props', () => {
-			expect(Object.keys(dateBtns.props()).length).to.eql(5);
+		it('CalendarBtn is passed (4) props', () => {
+			expect(Object.keys(dateBtns.props()).length).to.eql(4);
 		});
 
 		it('has an date prop', () => {
@@ -67,10 +67,6 @@ describe('The CalendarBtn Component', () => {
 
 		it('has an _id prop', () => {
 			expect(Object.keys(dateBtns.props())).to.include('_id');
-		});
-
-		it('has an updateDate prop', () => {
-			expect(Object.keys(dateBtns.props())).to.include('updateDate');
 		});
 
 		it('has an style prop', () => {

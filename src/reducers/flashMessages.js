@@ -22,7 +22,7 @@ export const flashMessages = (state = [], action = {}) => {
 		];
 
 	case DELETE_FLASH_MESSAGE:
-		const index = findIndex(state, { id: payload.id })
+		const index = findIndex(state, { _id: payload._id })
 		if (index >= 0) {
 			return [
 				...state.slice(0, index),

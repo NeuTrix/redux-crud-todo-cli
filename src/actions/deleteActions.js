@@ -1,31 +1,27 @@
 import axios from 'axios';
-import { removeTodo } from './todoActions';
 
-import {
-	DELETE_IS_POSTING,
-	DELETE_HAS_SUCCEEDED,
-	DELETE_HAS_ERRORED,
-} from '../actions/typeConstants';
+import { removeTodo } from './todoActions';
+import * as action from '../actions/typeConstants';
 
 // +++++++++   +++++++++ 
 
 export const deleteHasSucceeded = (todos) => {
 	return {
-		type: DELETE_HAS_SUCCEEDED,
-		payload: { todos: todos }
+		type: action.DELETE_HAS_SUCCEEDED,
+		payload: { todos }
 	};
 };
 
 export const deleteHasErrored = (bool) => {
 	return {
-		type: DELETE_HAS_ERRORED,
+		type: action.DELETE_HAS_ERRORED,
 		payload: { status: bool }
 	};
 };
 
 export function deleteIsPosting (bool) {
 	return {
-		type: DELETE_IS_POSTING,
+		type: action.DELETE_IS_POSTING,
 		payload: { status: bool }
 	};
 }

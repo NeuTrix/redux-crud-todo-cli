@@ -101,7 +101,7 @@ class TodoItem extends Component {
 						editTodo = { this.props.editTodo }
 						_id = { this.props.item._id }
 						currRank = { this.props.item.rank }
-						updateRank= { this.props.updateRank }   
+						editTodo= { this.props.editTodo }   
 					/>
 				</Col >
 
@@ -116,7 +116,7 @@ class TodoItem extends Component {
 						date = { this.props.item.date }
 						editTodo = { this.props.editTodo }
 						_id = { this.props.item._id }
-						updateDate = { this.props.updateDate }   
+						editTodo = { this.props.editTodo }   
 					/>
 				</Col>
 	
@@ -147,20 +147,10 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		deleteTodo:
-			(_id) => dispatch (deleteTodo (_id)),
-		editTodo:
-			(_id, update) => dispatch (editTodo (_id, update)), 
-		removeTodo: 
-			(_id) => dispatch (_a.removeTodo (_id)),
-		toggleComplete: 
-			(_id, task) => dispatch (_a.toggleComplete (_id, task)),
-		updateDate: 
-			(_id, date) => dispatch (_a.updateDate (_id, date)),
-		updateTask: 
-			(_id, task) => dispatch (_a.updateTask (_id, task)),
-		updateRank: 
-			(_id, rank) => dispatch (_a.updateRank (_id, rank)),
+		deleteTodo: (_id) => dispatch (deleteTodo (_id)),
+		editTodo: (_id, edit) => dispatch (editTodo (_id, edit)), 
+		removeTodo: (_id) => dispatch (_a.removeTodo (_id)),
+		toggleComplete: (_id, task) => dispatch (_a.toggleComplete (_id, task)),
 	};
 };
 

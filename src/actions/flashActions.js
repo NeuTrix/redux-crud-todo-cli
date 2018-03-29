@@ -6,18 +6,14 @@ import {
 export function addFlashMessage(message) {
 	return {
 		type: ADD_FLASH_MESSAGE,
-		payload: {
-			message: message
-		}
+		payload: { message }
 	}
 }
 
-export function deleteFlashMessage(id) {
+export function deleteFlashMessage(_id) {
 	return {
 		type: DELETE_FLASH_MESSAGE,
-		payload: {
-			id: id
-		}
+		payload: { _id }
 	}
 }
 

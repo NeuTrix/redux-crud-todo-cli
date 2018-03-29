@@ -9,7 +9,6 @@ const CalendarBtn = (props) => {
 
 	const handleDateChange = (event) => {
 		event.preventDefault();
-		props.updateDate(props._id, _date.value );
 		props.editTodo(props._id, { date: _date.value });
 	};
 
@@ -28,18 +27,17 @@ const CalendarBtn = (props) => {
 }; 
 
 CalendarBtn.propTypes = {
-	date: PropTypes.string.isRequired,
-	editTodo: PropTypes.func.isRequired,
-	style: PropTypes.object,
-	updateDate: PropTypes.func.isRequired,
 	_id: PropTypes.string.isRequired,
+	date: PropTypes.string.isRequired,
+	style: PropTypes.object,
+	
+	editTodo: PropTypes.func.isRequired,
 };
 
 CalendarBtn.defaultProps = {
 	date: '2020-11-14',
 	editTodo: f => f,
 	style: { },
-	updateDate: f => f,
 	_id: 'default'
 };
 
