@@ -34,7 +34,7 @@ const TodoReducer = (state = [] , action = {}) => {
 
 // +++++++++ ??  +++++++++ 
 
-		case mod.RESET_TODOS_STATE: 
+		case mod.READ_SAVED_TODOS: 
 			return state.filter (todo => { 
 			return todo === undefined || todo === null
 		});

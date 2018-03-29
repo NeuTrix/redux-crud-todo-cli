@@ -14,9 +14,9 @@ export const editItem = ( _id, edit) => {
 	};
 };
 
-export const resetTodosState = (resetState) => {
+export const readSavedTodos = (resetState) => {
 	return {
-		type: mod.RESET_TODOS_STATE,
+		type: mod.READ_SAVED_TODOS,
 		payload: { resetState }
 	};
 }
