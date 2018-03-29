@@ -6,7 +6,7 @@ let initState = {
 	deleteHasErrored: false
 }; 
 
-export const deleteReducer = (state = initState, action = {}) => {
+export const deleteApiReducer = (state = initState, action = {}) => {
 
 	let payload = action.payload;
 
@@ -35,4 +35,4 @@ export const deleteReducer = (state = initState, action = {}) => {
 	}
 };
 	
-export default deleteReducer;
+export default deleteApiReducer;

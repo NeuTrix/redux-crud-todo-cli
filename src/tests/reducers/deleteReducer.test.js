@@ -5,7 +5,7 @@ import { expect } from 'chai';
 import store from '../../store/store';
 import * as actions from '../../actions/deleteActions';
 
-describe ('The deleteReducer action suite', () => {
+describe ('The deleteApiReducer action suite', () => {
 	let initialState;
 	beforeAll (() => {
 		initialState = store.getState().deleteApi;
