@@ -5,7 +5,7 @@ import { expect } from 'chai';
 import store from '../../store/store';
 import * as mod from '../../actions/editActions';
 
-describe('The editReducer action suite', () => {
+describe('The editApiReducer action suite', () => {
 	let initialState;
 	beforeAll(() => {
 		initialState = store.getState().editApi;

@@ -1,12 +1,12 @@
 import * as mod from '../actions/typeConstants';
 
-let initState = {
+const initState = {
 	editIsPosting: false,
 	editHasSucceeded: false,
 	editHasErrored: false
-}; 
+}
 
-export const editReducer = (state = initState, action = {}) => {
+export const editApiReducer = (state = initState, action = {}) => {
 
 	let payload = action.payload;
 
@@ -35,4 +35,4 @@ export const editReducer = (state = initState, action = {}) => {
 	}
 };
 	
-export default editReducer;
+export default editApiReducer;
