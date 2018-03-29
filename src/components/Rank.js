@@ -29,7 +29,6 @@ const Rank = (props) => {
 Rank.propTypes = {
 	_id: PropTypes.string.isRequired,
 	currRank: PropTypes.string.isRequired,
-
 	editTodo: PropTypes.func.isRequired,
 };
 
