@@ -5,8 +5,6 @@ import ReactDom from 'react-dom';
 import { shallow, mount, render } from 'enzyme';
 import Header from '../../components/Header';
 
-
-
 describe('The Header Component w/ ReactDom', () => {
 
 	xit('..renders the Header component w/ReactDom', () => {

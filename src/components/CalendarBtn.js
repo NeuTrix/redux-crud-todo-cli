@@ -1,4 +1,4 @@
-// set date for todo items
+// sets the date for todo items
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormControl } from 'react-bootstrap';
@@ -20,7 +20,6 @@ const CalendarBtn = (props) => {
 			required 
 			style = { props.style }
 			type = 'date'
-			
 			onChange = { handleDateChange }
 		/> 
 	);
@@ -30,15 +29,14 @@ CalendarBtn.propTypes = {
 	_id: PropTypes.string.isRequired,
 	date: PropTypes.string.isRequired,
 	style: PropTypes.object,
-	
 	editTodo: PropTypes.func.isRequired,
 };
 
 CalendarBtn.defaultProps = {
-	date: '2020-11-14',
-	editTodo: f => f,
-	style: { },
 	_id: 'default'
+	date: '2020-11-14',
+	style: { },
+	editTodo: f => f,
 };
 
 export default CalendarBtn;
