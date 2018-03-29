@@ -1,11 +1,11 @@
 import * as mod from './typeConstants'
 
-export const addTodo = (todo) => {
-	return {
-		type: mod.ADD_TODO,
-		payload: { todo }
-	};
-};
+// export const addTodo = (todo) => {
+// 	return {
+// 		type: mod.ADD_TODO,
+// 		payload: { todo }
+// 	};
+// };
 
 // export const editItem = ( _id, edit) => {
 // 	return {

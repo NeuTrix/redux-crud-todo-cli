@@ -1,177 +1,151 @@
-/* eslint-env jest, mocha, chai */
-
-// ======== esllint
-/*global TodoReducer it:true*/
-/*eslint no-undef: "error"*/
-
-// import axios from 'axios';
-import chai	from 'chai';
-import chaiHttp from 'chai-http';
-import { expect } from 'chai';
-import store from '../../store/store';
-
+import chai, { expect } 	from 'chai';
 import deepFreeze from 'deep-freeze';
-import shortid from 'shortid';
+import TodoReducer from '../../reducers/todoReducer'
+import * as mod from '../../actions/createActions';
+ 
+describe ('the basic CREATE_ITEM case', () => {
 
-// import action creators
-import { 
-	todosIsLoading,
-	todosHasErrored,
-	todosHasFetched,
-	readTodos
-} from '../../actions/readActions';
+	const todo1 = { _id:101, task:'Test Item before', owner: 'First' }
+	const startState = [ todo1 ]
+	deepFreeze(startState);
 
-chai.use(chaiHttp);
+	const todo2 = { _id:202, task:'Test Item before', owner: 'Second' }
+	let createdState = TodoReducer(startState, mod.addTodo(todo2))
 
-describe('The readActions LOADING action creator', () => {
+	let _id = 202
+	let findTask = (task) =>  task._id === _id
+	let startTask = startState.filter(findTask)
+	let createdTask = createdState.filter(findTask)
 
-	let loading;
-
-	beforeAll(() => {
-		loading = todosIsLoading(false);
+	it ('... does not exist in the starting state', () => {
+		expect(startTask.length).to.eql(0)
 	});
 
-	it('... is an available function', () => {
-		expect(loading).to.exist;
+	it ('... changes the length of the state', () => {
+		expect(createdState.length).to.eql(startState.length + 1)
 	});
 
-	it('... has a "type" property', () => {
-		expect(loading).to.have.property('type');
+	it ('... added a new "task" to the state', () => {
+		expect(createdTask[0]._id).to.eql(202)
 	});
 
-	it('... has a type of "TODOS_IS_LOADING" ', () => {
-		expect(loading.type).to.exist
-			.to.eql('TODOS_IS_LOADING');
-	});
-
-	it('... type is a string', () => {
-		expect(loading.type).to.be.a('string');
-	});
-	
-	it('... has a "payload" property', () => {
-		expect(loading).to.have.property('payload');
-	});
-
-	it('... payload has a "status" property', () => {
-		expect(loading.payload).to.have.property('status');
-	});
-
-	it('... payload.status has a boolean value', () => {
-		expect(loading.payload).to.have.property('status');
+	it ('... created the correct properties', () => {
+		expect(createdTask[0]).to.have.property('_id')
+			.eql(202)
+		expect(createdTask[0]).to.have.property('owner')
+			.eql('Second')
 	});
 });
 
-describe ('The readActions ERROR action creator', () => {
+describe ('The createIsPosting POSTING action creator', () => {
+
+	let loading; // action variable
+
+	beforeAll (() => {
+		loading = mod.createIsPosting (false);
+	});
+
+	it ('... is an available function', () => {
+		expect (loading).to.exist;
+	});
+
+	it ('... has a "type" property', () => {
+		expect (loading).to.have.property ('type');
+	});
+
+	it ('... has a type of "CREATE_IS_POSTING" ', () => {
+		expect (loading.type).to.exist
+			.to.eql('CREATE_IS_POSTING');
+	});
+
+	it ('... type is a string', () => {
+		expect (loading.type).to.be.a('string');
+	});
+	
+	it ('... has a "payload" property', () => {
+		expect (loading).to.have.property ('payload');
+	});
+
+	it ('... payload has a "status" property', () => {
+		expect (loading.payload).to.have.property ('status');
+	});
+
+	it ('... payload.status has a boolean value', () => {
+		expect (loading.payload).to.have.property ('status');
+	});
+});
+
+describe ('The createHasSucceeded SUCCESS action creator', () => {
+
+	let aSuccess; // success action 
+	let bool; // array for testing
+
+	beforeAll (() => {
+		bool = true;
+		aSuccess = mod.createHasSucceeded (bool);
+	});
+
+	it ('... is an available function', () => {
+		expect (aSuccess).to.exist;
+	});
+
+	it ('... has a "type" property', () => {
+		expect (aSuccess).to.have.property ('type');
+	});
+
+	it ('... has a type of "CREATE_HAS_SUCCEEDED" ', () => {
+		expect (aSuccess.type).to.exist
+			.to.eql('CREATE_HAS_SUCCEEDED');
+	});
+
+	it ('... has a "payload" property', () => {
+		expect (aSuccess).to.have.property ('payload');
+	});
+
+	it ('... payload has a "status" property', () => {
+		expect (aSuccess.payload).to.have.property ('status');
+	});
+
+	it ('... payload.status has a boolean value', () => {
+		expect (aSuccess.payload).to.have.property ('status')
+			.to.be.an('boolean');
+	});
+});
+
+describe ('The createHasErrored ERROR action creator', () => {
 
 	let anErr;
 
-	beforeAll(() => {
-		anErr = todosHasErrored(false);
+	beforeAll (() => {
+		anErr = mod.createHasErrored (false);
 	});
 
-	it('... is an available function', () => {
-		expect(anErr).to.exist;
+	it ('... is an available function', () => {
+		expect (anErr).to.exist;
 	});
 
-	it('... has a "type" property', () => {
-		expect(anErr).to.have.property('type');
+	it ('... has a "type" property', () => {
+		expect (anErr).to.have.property ('type');
 	});
 
-	it('... has a type of "TODOS_HAS_ERRORED" ', () => {
-		expect(anErr.type).to.exist
-			.to.eql('TODOS_HAS_ERRORED');
+	it ('... has a type of "CREATE_HAS_ERRORED" ', () => {
+		expect (anErr.type).to.exist
+			.to.eql('CREATE_HAS_ERRORED');
 	});
 
-	it('... has a "payload" property', () => {
-		expect(anErr).to.have.property('payload');
+	it ('... has a "payload" property', () => {
+		expect (anErr).to.have.property ('payload');
 	});
 
-	it('... payload has a "status" property', () => {
-		expect(anErr.payload).to.have.property('status');
+	it ('... payload has a "status" property', () => {
+		expect (anErr.payload).to.have.property ('status');
 	});
 
-	it('... payload.status has a boolean value', () => {
-		expect(anErr.payload).to.have.property('status');
-	});
-});
-
-xdescribe ('The readActions SUCCESS action creator', () => {
-
-	let hasData;
-	let url = 'http://localhost:8080/api/todos';
-	let testState = [
-		{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Get some Milk', rank: 'High' },
-		{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Kiss my daughter', rank: 'Med' },
-		{ _id: shortid.generate(), date: 	'2020-01-01', completed: false, task:'Celebrate life!', rank: 'Low' },
-	];
-
-	beforeAll(() => {
-		hasData = todosHasFetched(testState);
-	});
-
-	it('... is an available function', () => {
-		expect(hasData).to.exist;
-	});
-
-	it('... has a "type" property', () => {
-		expect(hasData).to.have.property('type');
-	});
-
-	it('... has a type of "TODOS_HAS_FETCHED" ', () => {
-		expect(hasData.type).to.exist
-			.to.eql('TODOS_HAS_FETCHED');
-	});
-
-	it('... has a "payload" property', () => {
-		expect(hasData).to.have.property('payload');
-	});
-
-	it('... payload has a "todos" property', () => {
-		expect(hasData.payload).to.have.property('todos');
-	});
-
-	it('... payload.todos is an array', () => {
-		expect(hasData.payload.todos).to.be.an('array');
+	it ('... payload.status has a boolean value', () => {
+		expect (anErr.payload).to.have.property ('status');
 	});
 });
 
-// need authorization
-xdescribe('The get todos INITIAL STATE  function', () => {
-
-	let api = 'https://redux-todo-api.herokuapp.com/api/todos';
-
-	it('... connection to api returns status 200', (done) => {
-		chai.request(api)
-			.get('/')
-			.end((err,res) => {
-				expect(res).to.have.status(200);
-				done();
-			});
-	});
-
-	it('... can make a successful axios Read call', () => {
-
-	})
-
-	it('... base connection returns a new json array object', (done) => {
-		let data; 
-
-		chai.request(api)
-			.get('/')
-			.end((err,res) => {
-				expect(res).to.be.json;
-				expect(res.body).to.be.an('array');
-				done();
-			});
-	});
-
-	it('.. the function returns an array object', () => {
-		let dispatch = store.dispatch;
-		let data = readTodos(api);
-		let test = store.dispatch(data);
-	});
-});
-
-
-
-
+/* eslint-env jest, mocha, chai */
+/*global TodoReducer it:true*/
+/*eslint no-undef: "error"*/

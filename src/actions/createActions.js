@@ -1,6 +1,14 @@
 import axios from 'axios';
-import { addTodo } from './todoActions';
 import * as mod from './typeConstants';
+
+// +++++++++ Actions +++++++++ 
+
+export const addTodo = (todo) => {
+	return {
+		type: mod.ADD_TODO,
+		payload: { todo }
+	};
+};
 
 export const createHasSucceeded = (bool) => {
 	return {
@@ -23,6 +31,7 @@ export function createIsPosting (bool)  {
 	};
 }
 
+// +++++++++ Functions +++++++++ 
 const url = 'https://redux-todo-api.herokuapp.com'
 
 export function createTodo(data) {
