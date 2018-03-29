@@ -1,30 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Col, Glyphicon, Grid, Row,  } from 'react-bootstrap';
+import { Button, Col, Glyphicon, Grid, Row } from 'react-bootstrap';
+
+const styleRow = {
+	color: 'steelblue',
+	outline: '1px solid lightgrey',
+	padding: 10,
+	borderRadius: 10
+};
+
+const styleCount = {
+	backgroundColor: 'black',
+	border: '2px solid navy',
+	borderRadius: 10,
+	color: 'lime',
+	fontSize: '1.5em',
+	textAlign: 'center',
+}
+
+const spacing = {
+	xs: { refr: 2, title: 5, badge: 2 },
+	sm: { refr: 1, title: 2, badge: 1 },
+	md: { refr: 1, title: 2, badge: 1 }
+};
 
 const TaskCounter = (props) => {
-
-	const styleRow = {
-		color: 'steelblue',
-		outline: '1px solid lightgrey',
-		padding: 10,
-		borderRadius: 10
-	};
-
-	const spacing = {
-		xs: { refr: 2, title: 5, badge: 2 },
-		sm: { refr: 1, title: 2, badge: 1 },
-		md: { refr: 1, title: 2, badge: 1 }
-	};
-
-	const styleCount = {
-		backgroundColor: 'black',
-		border: '2px solid navy',
-		borderRadius: 10,
-		color: 'lime',
-		fontSize: '1.5em',
-		textAlign: 'center',
-	}
 
 	const onClick = (e) => {
 		e.preventDefault()
@@ -34,22 +34,18 @@ const TaskCounter = (props) => {
 	return ( 
 		<Grid>
 			<Row style = { styleRow } >
-
 				<Col
 					xs = { spacing.xs.refr } 
 					sm = { spacing.sm.refr } 
 					md = { spacing.md.refr } 
 				>
-					<Button
-						onClick = { onClick }
-					>
+					<Button onClick = { onClick } >
 						<Glyphicon 
 							glyph = 'refresh'
 							style = {{ color: 'steelblue', fontSize: '1em' }}
 						/>  
 					</Button>
 				</Col>
-
 				<Col
 					xs = { spacing.xs.title } 
 					sm = { spacing.sm.title } 
@@ -58,18 +54,13 @@ const TaskCounter = (props) => {
 				>
 					Todos Count:   
 				</Col>
-				
 				<Col
 					style =  { styleCount }
 					xs = { spacing.xs.badge } 
 					sm = { spacing.sm.badge } 
 					md = { spacing.md.badge } 
-
 				>
-					<span > 
-						{ props.todos.length }
-					</span>
-
+					<span > { props.todos.length } </span>
 				</Col>
 			</Row>
 		</Grid>
