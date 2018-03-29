@@ -19,7 +19,7 @@ const TodoReducer = (state = [] , action = {}) => {
 			return state.map(task => task._id === _id ? editedTask : task)
 		};
 
-		case mod.REMOVE_TODO:{
+		case mod.REMOVE_TODO: {
 			let _id = payload._id;
 			let matchId = (task) => { return task._id === _id; };
 			if (state.some(matchId)) {
@@ -32,13 +32,11 @@ const TodoReducer = (state = [] , action = {}) => {
 			return state;
 		}
 
-// +++++++++ ??  +++++++++ 
-
-		case mod.READ_SAVED_TODOS: 
-			return state.filter (todo => { 
-			return todo === undefined || todo === null
-		});
-
+		case mod.READ_SAVED_TODOS: {
+			let select = todo => todo === undefined || todo === null
+			return state.filter(select)
+		}
+		
 		default: {
 			return state;
 		}
