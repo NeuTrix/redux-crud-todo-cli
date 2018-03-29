@@ -39,7 +39,6 @@ describe ('the basic EDIT_ITEM case', () => {
 
 });
 
-
 describe ('The TODOS_INITIAL_STATE reducer', () => {
 
 		let	firstState = store.getState().todos;
