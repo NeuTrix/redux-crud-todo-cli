@@ -1,6 +1,6 @@
 import * as mod from '../actions/typeConstants';
 
-const TodoReducer = (state=[{task:'Do the things!'}], action={}) => {
+const TodoReducer = (state = [], action = {}) => {
 	let _pay  = action.payload;
 
 	switch (action.type) {
