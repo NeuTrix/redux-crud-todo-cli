@@ -1,6 +1,5 @@
 import * as mod from '../actions/typeConstants';
 import shortid from 'shortid';
-import findIndex from 'lodash/findIndex';
 
 export const flashReducer = (state = [], action = {}) => {
 
