@@ -1,32 +1,28 @@
 import * as mod from '../actions/typeConstants';
 
-const TodoReducer = (state = [] , action = {}) => {
-	let payload  = action.payload;
-	let type = action.type;
+const TodoReducer = (state=[{task:'Do the things!'}], action={}) => {
+	
+	let _pay  = action.payload;
 
-	switch (type) {
+	switch (action.type) {
 
-	case mod.READ_SAVED_TODOS: {
-		return [ ...payload.savedState ];
-	}
+		case mod.READ_SAVED_TODOS: {
+			return [ ..._pay.savedState ];
+		}
 
-	case mod.ADD_TODO: 
-		return [ ...state, payload.todo ];
+		case mod.ADD_TODO: 
+			return [ ...state, _pay.todo ];
 
-	case mod.EDIT_ITEM: {
-		let _id = payload._id;
-		let task = state.filter(task => task._id === _id);
-		let editedTask = { ...task[0], ...payload.edit };
-		return state.map(task => task._id === _id ? editedTask : task);
-	}
+		case mod.EDIT_ITEM: {
+			return state.map (task => 
+				task._id === _pay._id ? { ...task, ..._pay.edit } : task )
+		}
 
-	case mod.REMOVE_TODO: {
-		return state.filter( task => task._id !== payload._id )
-	}
+		case mod.REMOVE_TODO: {
+			return state.filter( task => task._id !== _pay._id )
+		}
 
-	default: {
-		return state;
-	}
+		default: return state 
 	} 
 }; 
 
