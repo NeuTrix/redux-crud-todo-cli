@@ -21,7 +21,7 @@ export const DELETE_IS_POSTING  	= 'DELETE_IS_POSTING';
 export const DELETE_HAS_SUCCEEDED = 'DELETE_HAS_SUCCEEDED';
 export const DELETE_HAS_ERRORED 	= 'DELETE_HAS_ERRORED';
 
-// flashActions (flashMessages)
+// flashActions (flashReducer)
 export const ADD_FLASH_MESSAGE 		= 'ADD_FLASH_MESSAGE';
 export const DELETE_FLASH_MESSAGE = 'DELETE_FLASH_MESSAGE';
 

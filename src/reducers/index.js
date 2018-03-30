@@ -5,7 +5,7 @@ import readApiReducer from './readApiReducer';
 import createApiReducer from './createApiReducer';
 import deleteApiReducer from './deleteApiReducer';
 import editApiReducer from './editApiReducer';
-import flashMessages from './flashMessages';
+import flashReducer from './flashReducer';
 import authReducer from './authReducer';
 
 const todoApp = combineReducers({
@@ -14,7 +14,7 @@ const todoApp = combineReducers({
 	createApi: createApiReducer,
 	deleteApi: deleteApiReducer,
 	editApi: editApiReducer,
-	flashMessages: flashMessages,
+	flashMessages: flashReducer,
 	authApi: authReducer
 });
 

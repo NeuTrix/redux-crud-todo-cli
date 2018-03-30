@@ -13,6 +13,3 @@ export function deleteFlashMessage(_id) {
 		payload: { _id }
 	};
 }
-
-
-
