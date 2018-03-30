@@ -11,7 +11,7 @@ const TodoReducer = (state = [] , action = {}) => {
 	}
 
 	case mod.ADD_TODO: 
-		return [...state, payload.todo];
+		return [ ...state, payload.todo ];
 
 	case mod.EDIT_ITEM: {
 		let _id = payload._id;
@@ -21,16 +21,7 @@ const TodoReducer = (state = [] , action = {}) => {
 	}
 
 	case mod.REMOVE_TODO: {
-		let _id = payload._id;
-		let matchId = (task) => { return task._id === _id; };
-		if (state.some(matchId)) {
-			let index = state.findIndex(matchId);
-			return [ 
-				...state.slice(0, index),  
-				...state.slice(index + 1) 
-			];
-		} 
-		return state;
+		return state.filter( task => task._id !== payload._id )
 	}
 
 	default: {
