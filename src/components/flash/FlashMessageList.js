@@ -4,18 +4,12 @@ import PropTypes from 'prop-types';
 import FlashMessage from './FlashMessage';
 import { deleteFlashMessage } from '../../actions/flashActions';
 
-function mapStateToProps(state) {
-	return {
-		messages: state.flashMessages
-	};
-}
-
 class FlashMessagesList extends Component {
 
 	render () {
 		const messages = this.props.messages.map((message) => 
 			<FlashMessage 
-				key = { message.id } 
+				key = { message._id } 
 				message = { message } 
 				deleteFlashMessage = { this.props.deleteFlashMessage }
 			/>
@@ -31,6 +25,12 @@ FlashMessagesList.propTypes = {
 	messages: PropTypes.array.isRequired,
 	deleteFlashMessage: PropTypes.func.isRequired
 };
+
+function mapStateToProps(state) {
+	return {
+		messages: state.flashMessages
+	};
+}
 
 export default connect(
 	mapStateToProps, { deleteFlashMessage }

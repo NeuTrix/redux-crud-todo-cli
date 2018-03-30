@@ -12,7 +12,7 @@ class FlashMessage extends Component {
 
 	onClick (e) {
 		e.preventDefault();
-		this.props.deleteFlashMessage(this.props.message.id);
+		this.props.deleteFlashMessage(this.props.message._id);
 	}
 
 	render () {
