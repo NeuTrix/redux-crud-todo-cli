@@ -8,8 +8,6 @@ const TodoReducer = (state = [] , action = {}) => {
 
 	case mod.READ_SAVED_TODOS: {
 		return [ ...payload.savedState ];
-		// return Object.assign([], state, payload.savedState)
-		// return state.filter(task => )
 	}
 
 	case mod.ADD_TODO: 
