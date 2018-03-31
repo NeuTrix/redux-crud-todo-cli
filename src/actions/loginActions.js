@@ -31,12 +31,13 @@ export function userLoginRequest(userData) {
 
 // reset the environment
 export function logout(){
-	return dispatch => {
 		localStorage.removeItem('jwtToken');
 		setAuthorizationToken(false);
-		dispatch(setCurrentUser({})); 
+	return dispatch => {
+		dispatch(setCurrentUser({}))
 		dispatch(addFlashMessage({ type: 'success', text:'You are now logged out.'}))
-		dispatch(readTodos([]));
+			dispatch(readTodos([]))
+
 	};
 }
 

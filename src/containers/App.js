@@ -27,7 +27,9 @@ const style = {
 class App extends Component {
 
 	componentDidMount() {
-		this.props.fetchTodos();
+		if (this.props.isAuthenticated) { 
+			return 	this.props.fetchTodos() 
+		}
 	}
 
 	render() {
@@ -86,27 +88,24 @@ class App extends Component {
 
 App.propTypes = { 
 	createTodo:    PropTypes.func.isRequired,
+	fetchTodos:    PropTypes.func.isRequired,
+	isAuthenticated: PropTypes.bool,
 	todoArray: 	PropTypes.array.isRequired,
 	user: PropTypes.object.isRequired
 };
 
-App.defaultProps = {
-	createTodo: f => f,
-	todoArray: [ ],
-	user: 'Default USER from APP.js'
-};
-
 const mapStateToProps = (state) => {
 	return {
+		isAuthenticated: state.authApi.isAuthenticated,
 		todoArray: state.todos,
-		user: state.authApi.user
+		user: state.authApi.user,
 	};
 }; 
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		createTodo: (task) => { dispatch (createTodo (task)); },
-		fetchTodos: () => { dispatch(fetchTodos()); }
+		createTodo: (task) => { dispatch (createTodo (task)) },
+		fetchTodos: () => { dispatch(fetchTodos()) }
 	};
 }; 
 
