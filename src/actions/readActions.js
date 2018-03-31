@@ -3,7 +3,7 @@ import * as mod from './typeConstants';
 
 // +++++++++ Actions +++++++++ 
 
-export const readSavedTodos = (savedState) => {
+export const readTodos = (savedState) => {
 	return {
 		type: mod.READ_SAVED_TODOS,
 		payload: { savedState }
@@ -48,7 +48,7 @@ export function fetchTodos () {
 					return res.data;
 				}
 			})
-			.then ((todos) => dispatch (readSavedTodos (todos)))
+			.then ((todos) => dispatch (readTodos (todos)))
 			.then (() =>  dispatch (todosHasFetched (true)))
 			.catch ((err) => {
 				dispatch (todosHasErrored (true));

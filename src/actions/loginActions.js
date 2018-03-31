@@ -1,7 +1,7 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import setAuthorizationToken from '../components/auth/setAuthToken';
-import { fetchTodos, readSavedTodos } from './readActions';
+import { fetchTodos, readTodos } from './readActions';
 import { addFlashMessage } from './flashActions';
 import * as mod from './typeConstants';
 
@@ -36,7 +36,7 @@ export function logout(){
 		setAuthorizationToken(false);
 		dispatch(setCurrentUser({})); 
 		dispatch(addFlashMessage({ type: 'success', text:'You are now logged out.'}))
-		dispatch(readSavedTodos([]));
+		dispatch(readTodos([]));
 	};
 }
 
