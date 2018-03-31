@@ -8,6 +8,11 @@ class FlashMessage extends Component {
 	constructor (props) {
 		super(props);
 		this.onClick = this.onClick.bind(this);
+		this.closeMessage = this.closeMessage.bind(this);
+	}
+
+	closeMessage() {
+		return this.props.deleteFlashMessage(this.props.message._id);
 	}
 
 	onClick (e) {
@@ -17,11 +22,15 @@ class FlashMessage extends Component {
 
 	render () {
 		
+		setTimeout(this.closeMessage, 7000)
+
 		const { type, text } = this.props.message;
 
 		return (
     	<Col className = { classnames('alert', {
     		'alert-success': type === 'success',
+    		'alert-warning': type === 'warning',
+    		'alert-info': type === 'info',
     		'alert-danger': type === 'error'
     	}) } >
     		<Button 

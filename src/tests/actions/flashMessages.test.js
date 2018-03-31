@@ -70,7 +70,6 @@ describe ('FLASH message actions', () => {
 			deepFreeze(messages)
 		let added = messages[0]
 
-			console.log(added)
 		it ('... adds a new object to the array', () => {
 			expect(nextMessages.length).to.eql(init_msg.length + 1)
 			expect(messages.length).to.eql(nextMessages.length + 1)
@@ -82,10 +81,8 @@ describe ('FLASH message actions', () => {
 		});
 
 		it ('... can delete a message', () => {
-			console.log(messages.length, added._id)
 			let newMsgs = 
 				flashReducer(messages, mod.deleteFlashMessage(added._id))
-			console.log(newMsgs.length, added._id)
 			expect(newMsgs.length).to.eql(messages.length - 1)
 		});
 
