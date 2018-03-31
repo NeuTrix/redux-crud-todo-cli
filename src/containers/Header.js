@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logout } from '../actions/loginActions';
 import { readTodos } from '../actions/readActions';
+import { addFlashMessage } from '../actions/flashActions';
 
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 
@@ -26,7 +27,8 @@ const logoutStyle ={
 class Header extends Component {
 
 	logout(e) {
-		e.preventDefault();
+		e.preventDefault()
+		// this.props.addFlashMessage({ type: 'success', text:'You are now logged out.'})
 		this.props.logout();
 		this.context.router.history.push('/');
 	}
@@ -121,4 +123,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, { logout, readTodos })(Header);
+export default connect(mapStateToProps, { logout, readTodos, addFlashMessage })(Header);
