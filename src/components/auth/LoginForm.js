@@ -44,7 +44,6 @@ class LoginForm extends Component {
 						type: 'success',
 						text: `Welcome ${ res.data.username }! You have successfully Logged In.`
 					});
-
 					this.context.router.history.push('/todos');
 				},
 				(err) => { this.setState({errors: err.response.data.errors, isLoading: false});
@@ -52,7 +51,7 @@ class LoginForm extends Component {
 		}
 	}
 
-	render() {
+	render () {
     
 		const { errors, identifier, password, isLoading } = this.state;
 		const style = { margin: 15 };
