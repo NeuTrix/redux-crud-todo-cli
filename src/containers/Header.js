@@ -6,20 +6,21 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logout } from '../actions/loginActions';
 import { fetchTodos } from '../actions/readActions';
-import { addFlashMessage } from '../actions/flashActions';
 
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 
 const style = {
-	color: 'lightblue'
+	color: 'lightblue',
+	textAlign: 'center'
 };
 const brandStyle = {
 	color: 'whitesmoke',
-	fontSize: '0.75em'
+	fontSize: '0.5em'
 };
 
 const logoutStyle ={
-	color: 'lime'
+	color: 'lime',
+	textAlign: 'center'
 };
 
 // +++++++++   +++++++++ 
@@ -28,7 +29,6 @@ class Header extends Component {
 
 	logout(e) {
 		e.preventDefault()
-		// this.props.addFlashMessage({ type: 'success', text:'You are now logged out.'})
 		this.props.logout();
 		this.context.router.history.push('/');
 	}
@@ -42,11 +42,8 @@ class Header extends Component {
 		const { isAuthenticated, user } = this.props.authApi;
 
 		const userLinks = (
-			<Nav pullRight>
+			<Nav pullRight style = { style }>
 				<NavItem onClick = { this.logout.bind(this)} >
-					
-					<span style = { style }>Welcome {user.username}!</span>
-					{ '   :   ' }
 					<span style = { logoutStyle }>Log Out</span>
 				</NavItem>
 			</Nav>
@@ -64,17 +61,24 @@ class Header extends Component {
 			</Nav>
 		);
 
+		const welcome = (
+			<span style = { style } >hi {user.username}!</span>
+		)
+
+
 		return (
 			<Navbar inverse collapseOnSelect fixedTop >
-
 				<Navbar.Header>
 					<Navbar.Brand>
 						<img src={logo} className="App-logo" alt="logo" />
 					</Navbar.Brand>
 					<Navbar.Brand>
-						<IndexLinkContainer to = '/' style = { style }>
-							<NavItem style = { brandStyle }> Todo! </NavItem>
+						<IndexLinkContainer to = '/' >
+							<NavItem style = { style }> Todo! </NavItem>
 						</IndexLinkContainer>
+					</Navbar.Brand>
+					<Navbar.Brand>
+						{ isAuthenticated ? welcome : '' } 
 					</Navbar.Brand>
 					<Navbar.Toggle />
 				</Navbar.Header>
@@ -90,13 +94,7 @@ class Header extends Component {
 							<NavItem onClick = { this.onClick.bind(this) }> Todos </NavItem>
 						</IndexLinkContainer>
 					</Nav>
-
-					<Nav>
-						<IndexLinkContainer to = '/about' style = { style }>
-							<NavItem > { isAuthenticated } </NavItem>
-						</IndexLinkContainer>
-					</Nav>
-					{ isAuthenticated ? userLinks : guestLinks }
+						{ isAuthenticated ? userLinks : guestLinks }
 				</Navbar.Collapse>
 				
 			</Navbar>
@@ -123,4 +121,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, { logout, fetchTodos, addFlashMessage })(Header);
+export default connect(mapStateToProps, { logout, fetchTodos })(Header);
