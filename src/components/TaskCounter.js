@@ -30,7 +30,7 @@ const TaskCounter = (props) => {
 
 	const onClick = (e) => {
 		e.preventDefault();
-		props.readTodos();
+		props.fetchTodos();
 	};
 
 	return ( 
@@ -72,12 +72,12 @@ const TaskCounter = (props) => {
 
 // +++++++++   +++++++++ 
 TaskCounter.propTypes = {
-	readTodos: PropTypes.func.isRequired,
+	fetchTodos: PropTypes.func.isRequired,
 	todos: PropTypes.array.isRequired
 };
 
 TaskCounter.defaultProps = {
-	readTodos: f => f,
+	fetchTodos: f => f,
 	todos: [1,2,3,4,5]
 };
 

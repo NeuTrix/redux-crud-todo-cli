@@ -1,7 +1,7 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import setAuthorizationToken from '../components/auth/setAuthToken';
-import { readTodos, readSavedTodos } from './readActions';
+import { fetchTodos, readSavedTodos } from './readActions';
 import { addFlashMessage } from './flashActions';
 import * as mod from './typeConstants';
 
@@ -23,7 +23,7 @@ export function userLoginRequest(userData) {
 				localStorage.setItem('jwtToken', token);
 				setAuthorizationToken (token);
 				dispatch(setCurrentUser (user));
-				dispatch(readTodos());
+				dispatch(fetchTodos());
 				return res;
 			});
 	};

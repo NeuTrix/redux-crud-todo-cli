@@ -36,7 +36,7 @@ export const todosHasErrored = (bool) => {
 
 const url = 'https://redux-todo-api.herokuapp.com';
 
-export function readTodos () {
+export function fetchTodos () {
 	return (dispatch) => {
 		return axios.get(`${ url }/api/todos`)
 			.then ((res) => {

@@ -15,7 +15,7 @@ import requireAuth from '../helpers/requireAuth';
 import { connect } from 'react-redux';
 import { createTodo } from '../actions/createActions';
 import { Route } from 'react-router-dom';
-import { readTodos } from '../actions/readActions';
+import { fetchTodos } from '../actions/readActions';
 import { Col, Grid, Row } from 'react-bootstrap';
 
 const style = {
@@ -27,7 +27,7 @@ const style = {
 class App extends Component {
 
 	componentDidMount() {
-		this.props.readTodos();
+		this.props.fetchTodos();
 	}
 
 	render() {
@@ -37,7 +37,7 @@ class App extends Component {
 				<Col >
 					<TaskCounter 
 						todos = { this.props.todoArray } 
-						readTodos = { this.props.readTodos } 
+						fetchTodos = { this.props.fetchTodos } 
 					/>
 				</Col>
 				<Col>
@@ -106,7 +106,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		createTodo: (task) => { dispatch (createTodo (task)); },
-		readTodos: () => { dispatch(readTodos()); }
+		fetchTodos: () => { dispatch(fetchTodos()); }
 	};
 }; 
 

@@ -5,7 +5,7 @@ import { IndexLinkContainer } from 'react-router-bootstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logout } from '../actions/loginActions';
-import { readTodos } from '../actions/readActions';
+import { fetchTodos } from '../actions/readActions';
 import { addFlashMessage } from '../actions/flashActions';
 
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
@@ -35,7 +35,7 @@ class Header extends Component {
 
 	onClick(e){
 		// e.preventDefault();
-		this.props.readTodos();
+		this.props.fetchTodos();
 	}
 
 	render() {
@@ -109,7 +109,7 @@ class Header extends Component {
 Header.propTypes = {
 	authApi: PropTypes.object.isRequired,
 	logout: PropTypes.func.isRequired,
-	readTodos: PropTypes.func.isRequired
+	fetchTodos: PropTypes.func.isRequired
 };
 
 Header.contextTypes = {
@@ -123,4 +123,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, { logout, readTodos, addFlashMessage })(Header);
+export default connect(mapStateToProps, { logout, fetchTodos, addFlashMessage })(Header);
