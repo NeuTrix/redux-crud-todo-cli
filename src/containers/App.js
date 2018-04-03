@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
+import AboutPage from '../components/AboutPage';
 import AdminPage from '../components/auth/AdminPage';
 import FlashMessageList from '../components/flash/FlashMessageList';
 import Header from '../containers/Header';
@@ -67,6 +68,7 @@ class App extends Component {
 					</Col>
 					<Col style = { style } >
 						<Route exact path = '/' component = { HomePage } />
+						<Route path = '/about' component = { AboutPage } />
 						<Route path = '/admin' component = { AdminPage } />
 						<Route path = '/login' component = { LoginPage } />
 						<Route path = '/register' component = { RegisterPage } />
