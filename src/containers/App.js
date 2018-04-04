@@ -25,9 +25,11 @@ const style = {
 };
 
 const bgstyle = {
-	marginTop: 50,
 	backgroundImage: 'url('+ image +')',
-	height: '200%',
+	backgroundAttachment: 'fixed',
+	backgroundPosition: 'center',
+	backgroundImageSize: 'cover',
+	backgroundSize:  'cover',
 	paddingBottom:400
 }
 // +++++++++   +++++++++ 
