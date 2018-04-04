@@ -32,6 +32,14 @@ const bgstyle = {
 	backgroundSize:  'cover',
 	paddingBottom:400
 }
+
+const styleCounter = {
+	// position: 'sticky', 
+	// top: 50,
+	// backgroundColor: 'navy',
+	// marginBottom: 40,
+}
+
 // +++++++++   +++++++++ 
 
 class App extends Component {
@@ -47,7 +55,7 @@ class App extends Component {
 
 		const TodosPage = (
 			<Row >
-				<Col >
+				<Col style = { styleCounter } >
 					<TaskCounter 
 						todos = { this.props.todoArray } 
 						fetchTodos = { this.props.fetchTodos } 

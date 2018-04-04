@@ -9,6 +9,8 @@ const styleRow = {
 	borderRadius: 10
 };
 
+
+
 const styleCount = {
 	backgroundColor: 'black',
 	border: '2px solid navy',
@@ -34,7 +36,7 @@ const TaskCounter = (props) => {
 	};
 
 	return ( 
-		<Grid>
+		<Grid >
 			<Row style = { styleRow } >
 				<Col
 					xs = { spacing.xs.refr } 
