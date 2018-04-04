@@ -5,6 +5,7 @@ import AboutPage from '../components/AboutPage';
 import AdminPage from '../components/auth/AdminPage';
 import FlashMessageList from '../components/flash/FlashMessageList';
 import Header from '../containers/Header';
+import image from '../assets/futureBack.png'
 import HomePage from '../components/HomePage';
 import LoginPage from '../components/auth/LoginPage';
 import RegisterPage from '../components/auth/RegisterPage';
@@ -23,6 +24,12 @@ const style = {
 	padding: 10,
 };
 
+const bgstyle = {
+	marginTop: 50,
+	backgroundImage: 'url('+ image +')',
+	height: '200%',
+	paddingBottom:400
+}
 // +++++++++   +++++++++ 
 
 class App extends Component {
@@ -34,6 +41,7 @@ class App extends Component {
 	}
 
 	render() {
+		
 
 		const TodosPage = (
 			<Row >
@@ -56,7 +64,7 @@ class App extends Component {
 		);
 
 		return (
-			<Grid >
+			<Grid style = { bgstyle } fluid = {true}  >
 				<Row>
 					<Col xs = { 12 }  >
 						<Route path = '/' component = { Header } />

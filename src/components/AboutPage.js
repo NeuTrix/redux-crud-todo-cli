@@ -1,28 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import image from '../assets/futureBack.png'
+import { Grid } from 'react-bootstrap'
 
 const AboutPage = (props) => {
 
+	
+
 	return(
 
-		<div>
+<Grid >
+	
 
-			<div 
-				className= "LI-profile-badge"  
-				data-version = "v1" 
-				data-size = "medium" 
-				data-local = "en_US" 
-				data-type = "vertical" 
-				data-theme = "light" 
-				data-vanity = "walkermj"
-			>
-				<a 
-					className="LI-simple-link" 
-					href='https://www.linkedin.com/in/walkermj?trk=profile-badge'
-				> Michael Jay Walker </a>
-			</div>
+
+</Grid>
 		
-		</div>
 		)
 };
 

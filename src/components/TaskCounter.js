@@ -52,7 +52,7 @@ const TaskCounter = (props) => {
 					xs = { spacing.xs.title } 
 					sm = { spacing.sm.title } 
 					md = { spacing.md.title } 
-					style = {{ paddingTop: 7 }}
+					style = {{ paddingTop: 7, color: 'whitesmoke' }}
 				>
 					Todos Count:   
 				</Col>
