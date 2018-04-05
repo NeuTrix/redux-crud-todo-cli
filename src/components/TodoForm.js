@@ -5,11 +5,11 @@ import normalizeDate from '../helpers/normalizeDate';
 import { Button, Col, Form, FormControl, Glyphicon, Grid, Row } from 'react-bootstrap';
 
 const style = {
-	top: { backgroundColor: 'lightblue', padding: 10 },
+	top: { backgroundColor: '#236C9C', padding: 10 },
 	field: { textAlign: 'left', marginBottom: 5 },
 	plus: { fontSize: '1.35em' },
 	add: { border: '1px solid lightgrey', backgroundColor: 'white', color: 'green'},
-	pen: { textAlign: 'right', color: 'steelblue', paddingTop: 8},
+	pen: { textAlign: 'right', color: 'whitesmoke', paddingTop: 8},
 };
 
 const spacing = { 
@@ -59,7 +59,6 @@ export const TodoForm = (props) => {
 						<FormControl 
 							inputRef = { (input) => { _task = input;} } 
 							type = 'text'  
-							maxLength = { 25 } 
 							placeholder ='Enter a NEW task here...' 
 							required 
 						/>

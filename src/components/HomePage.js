@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom';
 
 const style = {
 	background: 'aliceblue',
-	border: ' 2px solid navy',
-	borderRadius: 5,
 	color: 'navy',
-	padding: 8,
 	marginRight: 5,
+	opacity: 0.7,
+	padding: 8,
 	textAlign: 'center',
 };
 

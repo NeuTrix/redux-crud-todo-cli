@@ -4,15 +4,14 @@ import { Button, Col, Glyphicon, Grid, Row } from 'react-bootstrap';
 
 const styleRow = {
 	color: 'steelblue',
-	outline: '1px solid lightgrey',
+	backgroundColor: 'aliceblue',
+	opacity: 0.8,
 	padding: 10,
-	borderRadius: 10
 };
 
 const styleCount = {
 	backgroundColor: 'black',
 	border: '2px solid navy',
-	borderRadius: 10,
 	color: 'lime',
 	fontSize: '1.5em',
 	textAlign: 'center',
