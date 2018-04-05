@@ -107,8 +107,8 @@ class Header extends Component {
 				
 			</Navbar>
 		);
-	}
 }
+	}
 
 // +++++++++   +++++++++ 
 
