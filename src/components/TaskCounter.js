@@ -9,8 +9,6 @@ const styleRow = {
 	borderRadius: 10
 };
 
-
-
 const styleCount = {
 	backgroundColor: 'black',
 	border: '2px solid navy',
@@ -71,8 +69,8 @@ const TaskCounter = (props) => {
 	);
 };
 
-
 // +++++++++   +++++++++ 
+	
 TaskCounter.propTypes = {
 	fetchTodos: PropTypes.func.isRequired,
 	todos: PropTypes.array.isRequired

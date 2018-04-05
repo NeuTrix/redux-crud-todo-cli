@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import logo from '../assets/logo.svg';
-import '../containers/App.css';
-import { IndexLinkContainer } from 'react-router-bootstrap';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { logout } from '../actions/loginActions';
-import { fetchTodos } from '../actions/readActions';
 
+import '../containers/App.css';
+import logo from '../assets/logo.svg';
+import { connect } from 'react-redux';
+import { fetchTodos } from '../actions/readActions';
+import { IndexLinkContainer } from 'react-router-bootstrap';
+import { logout } from '../actions/loginActions';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 
 const style = {
@@ -51,6 +51,7 @@ class Header extends Component {
 
 		const guestLinks = (
 			<Nav pullRight>
+
 				<IndexLinkContainer to = '/login' style = { style } >
 					<NavItem > Sign In </NavItem>
 				</IndexLinkContainer>
@@ -58,43 +59,50 @@ class Header extends Component {
 				<IndexLinkContainer to = '/register' style = { style }>
 					<NavItem > Register </NavItem>
 				</IndexLinkContainer>
+
 			</Nav>
 		);
 
 		const welcome = (
-			<span style = { style } >hi {user.username}!</span>
+			<span style = { style } > hi { user.username }! </span>
 		)
 
-
 		return (
+
 			<Navbar inverse collapseOnSelect fixedTop >
+
 				<Navbar.Header>
-					<Navbar.Brand>
-						<img src={logo} className="App-logo" alt="logo" />
-					</Navbar.Brand>
+
 					<Navbar.Brand>
 						<IndexLinkContainer to = '/' >
-							<NavItem style = { style }> Todo! </NavItem>
+							<img src= { logo } className= "App-logo" alt= "logo" />
 						</IndexLinkContainer>
 					</Navbar.Brand>
-					<Navbar.Brand>
+
+					<Navbar.Brand >
 						{ isAuthenticated ? welcome : '' } 
 					</Navbar.Brand>
+
 					<Navbar.Toggle />
 				</Navbar.Header>
 
+
 				<Navbar.Collapse>
+
 					<Nav>
 						<IndexLinkContainer to = '/' style = { style }>
 							<NavItem > Home </NavItem>
 						</IndexLinkContainer>
-					</Nav><Nav>
+					</Nav>
 
+					<Nav>
 						<IndexLinkContainer to = '/todos' style = { style }>
 							<NavItem onClick = { this.onClick.bind(this) }> Todos </NavItem>
 						</IndexLinkContainer>
 					</Nav>
+
 						{ isAuthenticated ? userLinks : guestLinks }
+					
 				</Navbar.Collapse>
 				
 			</Navbar>

@@ -51,7 +51,6 @@ class App extends Component {
 	}
 
 	render() {
-		
 
 		const TodosPage = (
 			<Row >
