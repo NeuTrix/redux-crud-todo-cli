@@ -10,9 +10,9 @@ const styleRow = {
 };
 
 const styleCount = {
-	backgroundColor: '#286D9A',
+	backgroundColor: '#0E3656',
 	border: '2px solid navy',
-	color: 'orange',
+	color: 'lime',
 	fontSize: '1.5em',
 	textAlign: 'center',
 };

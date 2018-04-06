@@ -10,7 +10,7 @@ import { deleteTodo, removeTodo } from '../actions/deleteActions';
 import { editTodo } from '../actions/editActions';
 
 const spacing = { 
-	xs: { chkbx: 1, task: 10, rank: 3, date: 5},
+	xs: { chkbx: 1, task: 11, rank: 4, date: 6},
 	sm: { chkbx: 1, task: 6, rank: 3, date: 2 },
 	md: { chkbx: 1, task: 7, rank: 2, date: 2 },
 	lg: { chkbx: 1, task: 6, rank: 2, date: 2 },

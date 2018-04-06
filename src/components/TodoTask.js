@@ -99,6 +99,7 @@ class TodoTask extends Component {
 						</Col>
 						<Col 
 							className = 'delete'
+							style = {{ textAlign: 'left' }}
 							xs = { space.xs.delt } 
 							sm = { space.sm.delt } 
 							md = { space.md.delt } 
