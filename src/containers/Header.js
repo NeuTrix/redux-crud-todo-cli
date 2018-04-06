@@ -19,7 +19,7 @@ const brandStyle = {
 };
 
 const logoutStyle ={
-	color: 'lime',
+	color: 'orange',
 	textAlign: 'center'
 };
 

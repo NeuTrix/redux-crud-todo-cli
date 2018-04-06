@@ -10,9 +10,9 @@ const styleRow = {
 };
 
 const styleCount = {
-	backgroundColor: 'black',
+	backgroundColor: '#286D9A',
 	border: '2px solid navy',
-	color: 'lime',
+	color: 'orange',
 	fontSize: '1.5em',
 	textAlign: 'center',
 };
@@ -43,7 +43,7 @@ const TaskCounter = (props) => {
 					<Button onClick = { onClick } >
 						<Glyphicon 
 							glyph = 'refresh'
-							style = {{ color: 'steelblue', fontSize: '1em' }}
+							style = {{ color: '#286D9A', fontSize: '1em' }}
 						/>  
 					</Button>
 				</Col>
@@ -51,7 +51,7 @@ const TaskCounter = (props) => {
 					xs = { spacing.xs.title } 
 					sm = { spacing.sm.title } 
 					md = { spacing.md.title } 
-					style = {{ paddingTop: 7, color: 'whitesmoke' }}
+					style = {{ paddingTop: 7, color: '#286D9A' }}
 				>
 					Todos Count:   
 				</Col>
