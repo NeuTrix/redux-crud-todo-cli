@@ -21,8 +21,8 @@ This is a basic CRUD application deployed on the MERN stack (Mongo, Express, Rea
 ## Deployment 
 Application deployed on Heroku:
 
-- [The Client](https://redux-crud-project.herokuapp.com) -or-
-https://redux-crud-project.herokuapp.com
+- [The Client](https://react-todo-walker.herokuapp.com/) -or-
+https://react-todo-walker.herokuapp.com/
 - [API documentation](https://documenter.getpostman.com/view/2246102/collection/RVnb9GaY) -or- https://documenter.getpostman.com/view/2246102/collection/RVnb9GaY
 
 ## Installation
