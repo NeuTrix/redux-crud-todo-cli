@@ -1,5 +1,5 @@
 # MERN-CRUD project: 
-This is a basic CRUD application deployed on the MERN stack (Mongo, Express, React, and Nodejs).  The project is a decoupled architecture with <a href="https://github.com/NeuTrix/redux-todo-api" target="_blank" > the API repo</a> and its <a href="https://documenter.getpostman.com/view/2246102/collection/RVnb9GaY" target="blank" >  the API docmentation </a> and the [API GitHub repo](https://github.com/NeuTrix/redux-todo-api)
+This is a basic CRUD application deployed on the MERN stack (Mongo, Express, React, and Nodejs).  The project represents a decoupled architecture with the [Client Application here](https://react-todo-walker.herokuapp.com/), the [API docmentation here](https://documenter.getpostman.com/view/2246102/collection/RVnb9GaY), and the [API GitHub repo here.](https://github.com/NeuTrix/redux-todo-api)
 
 <img width="300" alt="screen shot 2018-03-28 at 5 11 37 pm" src="https://user-images.githubusercontent.com/8140653/38062947-8c760652-32ab-11e8-92bf-b03d5dbba989.png"> <img width="150" alt="screen shot 2018-03-28 at 5 11 53 pm" src="https://user-images.githubusercontent.com/8140653/38062918-62830a3e-32ab-11e8-9a23-87c2cd010701.png"> <img width="150" alt="screen shot 2018-03-28 at 5 10 48 pm" src="https://user-images.githubusercontent.com/8140653/38062950-91d43e48-32ab-11e8-8fbb-f4d7af4fe489.png"> <img width="150" alt="screen shot 2018-03-28 at 5 10 38 pm" src="https://user-images.githubusercontent.com/8140653/38062951-95cdb164-32ab-11e8-9287-a99686c3f013.png">
 
@@ -21,8 +21,8 @@ This is a basic CRUD application deployed on the MERN stack (Mongo, Express, Rea
 ## Deployment 
 Application deployed on Heroku:
 
-- [The Client](https://redux-crud-project.herokuapp.com) -or-
-https://redux-crud-project.herokuapp.com
+- [The Client](https://react-todo-walker.herokuapp.com/) -or-
+https://react-todo-walker.herokuapp.com/
 - [API documentation](https://documenter.getpostman.com/view/2246102/collection/RVnb9GaY) -or- https://documenter.getpostman.com/view/2246102/collection/RVnb9GaY
 
 ## Installation
