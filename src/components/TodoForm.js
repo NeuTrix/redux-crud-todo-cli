@@ -15,17 +15,24 @@ import {
 } from 'react-bootstrap';
 
 const style = {
-	top: { backgroundColor: '#236C9C', padding: 10 },
+	top: { 
+		backgroundColor: '#236C9C', 
+		paddingTop: 8, 
+		paddingBottom: 5 
+	},
 	field: { textAlign: 'left', marginBottom: 5 },
-	plus: { fontSize: '1.35em' },
-	add: { border: '1px solid lightgrey', backgroundColor: 'white', color: 'green'},
-	pen: { textAlign: 'right', color: 'whitesmoke', paddingTop: 8},
+	plus: { fontSize: '1.25em', color: '#68c615' },
+	add: 	{ 
+		border: '1px solid lightgrey', 
+		backgroundColor: 'white', 	
+		color: 'green'
+	},
 };
 
-const spacing = { 
-	xs: { pen: 1, form: 10, addBtn: 2, rank: 4, date: 6 }, 
-	sm: { pen: 1, form: 10, addBtn: 1, rank: 6, date: 6 },
-	md: { pen: 1, form: 6, addBtn: 1, rank: 2, date: 2 } 
+const space = { 
+	xs: { form: 12, addBtn: 2, rank: 4, date: 6 }, 
+	sm: { form: 11, addBtn: 1, rank: 6, date: 6 },
+	md: { form: 8, addBtn: 1, rank: 1, date: 2 } 
 };
 
 // +++++++++   +++++++++ 
@@ -56,21 +63,14 @@ export const TodoForm = (props) => {
 		<Grid className = 'TodoForm'>
 			<Form onSubmit = { handleSubmit } >
 				<Row style = { style.top }  >
-					<Col
-						xs = { spacing.xs.pen } xsHidden = { true }
-						sm = { spacing.sm.pen }
-						md = { spacing.md.pen } 
-						style = { style.pen } 
-					>
-						<Glyphicon glyph = 'pencil' />
-					</Col>
+					
 
 					<Col 
 						className = 'task' 
 						style = { style.field }
-						xs = { spacing.xs.form }
-						sm = { spacing.sm.form }
-						md = { spacing.md.form } 
+						xs = { space.xs.form }
+						sm = { space.sm.form }
+						md = { space.md.form } 
 					> 
 						<FormControl 
 							inputRef = { (input) => { _task = input;} } 
@@ -79,11 +79,12 @@ export const TodoForm = (props) => {
 							required 
 						/>
 					</Col>
+
 					<Col 
 						className = 'addBtn' 
-						xs = { spacing.xs.addBtn } 
-						sm = { spacing.sm.addBtn } 
-						md = { spacing.md.addBtn } 
+						xs = { space.xs.addBtn } 
+						sm = { space.sm.addBtn } 
+						md = { space.md.addBtn } 
 					>
 						<OverlayTrigger 
 							placement = 'bottom' 
@@ -95,7 +96,7 @@ export const TodoForm = (props) => {
 								value = 'Add'
 								style = { style.add }
 							>
-								<Glyphicon glyph = 'plus'style = { style.glyph }/>
+								<Glyphicon glyph = 'plus'style = { style.plus }/>
 							</Button>
 						</OverlayTrigger>
 					</Col>
@@ -103,9 +104,9 @@ export const TodoForm = (props) => {
 					<Col 
 						style = { style.field }
 						className = 'rank' 
-						xs = { spacing.xs.rank }
-						sm = { spacing.sm.rank }
-						md = { spacing.md.rank }
+						xs = { space.xs.rank }
+						sm = { space.sm.rank }
+						md = { space.md.rank }
 					> 
 						<FormControl 
 							componentClass = 'select' 
@@ -117,12 +118,13 @@ export const TodoForm = (props) => {
 							<option value = 'Low'>Low</option>
 			    	</FormControl>
 					</Col>
+
 					<Col 
 						style = { style.field }
 						className = 'date' 
-						xs = { spacing.xs.date }
-						sm = { spacing.sm.date }
-						md = { spacing.md.date }
+						xs = { space.xs.date }
+						sm = { space.sm.date }
+						md = { space.md.date }
 					>
 						<FormControl 
 							defaultValue = { _currentDate } 
@@ -131,6 +133,7 @@ export const TodoForm = (props) => {
 							required 
 						/> 
 					</Col>
+
 				</Row>
 			</Form>
 		</Grid>
