@@ -12,8 +12,8 @@ import { editTodo } from '../actions/editActions';
 const spacing = { 
 	xs: { chkbx: 1, task: 11, rank: 4, date: 6},
 	sm: { chkbx: 1, task: 6, rank: 3, date: 2 },
-	md: { chkbx: 1, task: 7, rank: 2, date: 2 },
-	lg: { chkbx: 1, task: 6, rank: 2, date: 2 },
+	md: { chkbx: 1, task: 6, rank: 2, date: 2 },
+	// lg: { chkbx: 1, task: 6, rank: 2, date: 2 },
 };
 
 const todosBoxStyle = {
@@ -70,7 +70,6 @@ class TodoItem extends Component {
 						xs = { spacing.xs.chkbx } 
 						sm = { spacing.sm.chkbx } 
 						md = { spacing.md.chkbx } 
-						lg = { spacing.lg.chkbx } 
 					>
 						<CheckComplete
 							completed = { this.props.item.completed }
@@ -85,7 +84,6 @@ class TodoItem extends Component {
 					xs = { spacing.xs.task }  
 					sm = { spacing.sm.task } 
 					md = { spacing.md.task } 
-					lg = { spacing.lg.task } 
 				>
 					<TodoTask 
 						className= 'task' 
@@ -103,7 +101,6 @@ class TodoItem extends Component {
 					xs = { spacing.xs.rank }  xsOffset = {1}
 					sm = { spacing.sm.rank }
 					md = { spacing.md.rank }
-					lg = { spacing.lg.rank }
 				>
 					<Rank
 						_id = { this.props.item._id }
@@ -117,7 +114,6 @@ class TodoItem extends Component {
 					xs = { spacing.xs.date }
 					sm = { spacing.sm.date }
 					md = { spacing.md.date }
-					lg = { spacing.lg.date }
 				>
 					<CalendarBtn
 						date = { this.props.item.date }
