@@ -4,7 +4,7 @@ import Rank from '../components/Rank';
 import CalendarBtn from '../components/CalendarBtn';
 import CheckComplete from '../components/CheckComplete';
 import TodoTask from '../components/TodoTask';
-import { Col, OverlayTrigger, Row, Tooltip } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { deleteTodo, removeTodo } from '../actions/deleteActions';
 import { editTodo } from '../actions/editActions';
@@ -13,7 +13,6 @@ const spacing = {
 	xs: { chkbx: 1, task: 11, rank: 4, date: 6},
 	sm: { chkbx: 1, task: 6, rank: 3, date: 2 },
 	md: { chkbx: 1, task: 6, rank: 2, date: 2 },
-	// lg: { chkbx: 1, task: 6, rank: 2, date: 2 },
 };
 
 const todosBoxStyle = {
@@ -50,34 +49,23 @@ class TodoItem extends Component {
 			style = defaultStyle; 
 		}
 
-		const tooltipComplete = (
-			<Tooltip id = 'tooltipComplete' >
-				Toggle Complete status
-			</Tooltip>
-		)
-
 		return (
 			<Row 
 				className = 'todoItem'
 				style = { todosBoxStyle }  
 			>
-				<OverlayTrigger 
-					placement = 'bottom' 
-					overlay = { tooltipComplete }  
+				<Col 
+					className = 'checkComplete'
+					xs = { spacing.xs.chkbx } 
+					sm = { spacing.sm.chkbx } 
+					md = { spacing.md.chkbx } 
 				>
-					<Col 
-						className = 'checkComplete'
-						xs = { spacing.xs.chkbx } 
-						sm = { spacing.sm.chkbx } 
-						md = { spacing.md.chkbx } 
-					>
-						<CheckComplete
-							completed = { this.props.item.completed }
-							editTodo = { this.props.editTodo }
-							_id = { this.props.item._id }
-						/>
-					</Col>
-				</OverlayTrigger>
+					<CheckComplete
+						completed = { this.props.item.completed }
+						editTodo = { this.props.editTodo }
+						_id = { this.props.item._id }
+					/>
+				</Col>
 
 				<Col 
 					className = 'todoTask'
@@ -121,7 +109,6 @@ class TodoItem extends Component {
 						editTodo = { this.props.editTodo }   
 					/>
 				</Col>
-	
 			</Row>
 		);
 	}

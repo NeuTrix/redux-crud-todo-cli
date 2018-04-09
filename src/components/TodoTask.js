@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
 import DeleteBtn from '../components/DeleteBtn';
-import { Col, Form, FormControl, OverlayTrigger, Row, Tooltip, } from 'react-bootstrap';
+import { Col, Form, FormControl, Row } from 'react-bootstrap';
 
 const space = { 
 	xs: { form: 10, delt: 1 }, 
@@ -74,12 +74,6 @@ class TodoTask extends Component {
 	
 	render () {
 		
-		const tooltipDelete = (
-			<Tooltip id = 'tooltipDelete' >
-				Delete this task
-			</Tooltip>
-		)
-		
 		return (
 			<div>
 				<Row style = {{ marginBottom: 4 }} >
@@ -104,10 +98,6 @@ class TodoTask extends Component {
 							/> 
 						</Col>
 
-						<OverlayTrigger 
-							placement = 'bottom'
-							overlay = { tooltipDelete } 
-						>
 							<Col 
 								className = 'delete'
 								style = {{ textAlign: 'left' }}
@@ -122,7 +112,6 @@ class TodoTask extends Component {
 									deleteTodo = { this.props.deleteTodo } 
 								/>
 							</Col>
-						</OverlayTrigger>
 
 					</Form>
 				</Row>

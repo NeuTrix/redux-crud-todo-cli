@@ -9,8 +9,6 @@ import {
 	FormControl, 
 	Glyphicon, 
 	Grid, 
-	OverlayTrigger,
-	Tooltip, 
 	Row 
 } from 'react-bootstrap';
 
@@ -53,12 +51,6 @@ export const TodoForm = (props) => {
 		_task.focus();
 	};
 
-	const tooltipAdd = (
-		<Tooltip id = 'tooltipAdd' >
-			Add a new todo task
-		</Tooltip>
-	) 
-
 	return (
 		<Grid className = 'TodoForm'>
 			<Form onSubmit = { handleSubmit } >
@@ -72,33 +64,28 @@ export const TodoForm = (props) => {
 						md = { space.md.form } 
 					> 
 						<FormControl 
-							inputRef = { (input) => { _task = input;} } 
+							inputRef = { (input) => { _task = input } } 
 							type = 'text'  
 							placeholder ='Enter a NEW task here...' 
 							required 
 						/>
 					</Col>
 
-					<OverlayTrigger 
-							placement = 'bottom' 
-							overlay = { tooltipAdd }  
+					<Col 
+						className = 'addBtn' 
+						xs = { space.xs.addBtn } 
+						sm = { space.sm.addBtn } 
+						md = { space.md.addBtn } 
+					>
+						<Button 
+							className = { 'btn btn-sm' } 
+							type = 'submit' 
+							value = 'Add'
+							style = { style.add }
 						>
-						<Col 
-							className = 'addBtn' 
-							xs = { space.xs.addBtn } 
-							sm = { space.sm.addBtn } 
-							md = { space.md.addBtn } 
-						>
-							<Button 
-								className = { 'btn btn-sm' } 
-								type = 'submit' 
-								value = 'Add'
-								style = { style.add }
-							>
-								<Glyphicon glyph = 'plus'style = { style.plus }/>
-							</Button>
-						</Col>
-					</OverlayTrigger>
+							<Glyphicon glyph = 'plus'style = { style.plus }/>
+						</Button>
+					</Col>
 
 					<Col 
 						style = { style.field }
@@ -109,7 +96,7 @@ export const TodoForm = (props) => {
 					> 
 						<FormControl 
 							componentClass = 'select' 
-							inputRef = { (value) => { _rank = value; } } 
+							inputRef = { (value) => { _rank = value } } 
 							defaultValue = 'Med'
 						>
 							<option value = 'High'>High</option>
@@ -127,7 +114,7 @@ export const TodoForm = (props) => {
 					>
 						<FormControl 
 							defaultValue = { _currentDate } 
-							inputRef = { (input) => { _date = input; } } 
+							inputRef = { (input) => { _date = input } } 
 							type = 'date'
 							required 
 						/> 
