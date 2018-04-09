@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Col, Glyphicon, Grid, Row } from 'react-bootstrap';
+import { Button, Col, Glyphicon, Grid, OverlayTrigger, Row, Tooltip } from 'react-bootstrap';
 
 const styleRow = {
 	color: 'steelblue',
@@ -32,21 +32,33 @@ const TaskCounter = (props) => {
 		props.fetchTodos();
 	};
 
+	const tooltipRefresh = (
+		<Tooltip  id = 'tooltipRefresh' >
+			Refresh Todos list
+		</Tooltip>
+	)
+
 	return ( 
 		<Grid >
 			<Row style = { styleRow } >
-				<Col
-					xs = { spacing.xs.refr } 
-					sm = { spacing.sm.refr } 
-					md = { spacing.md.refr } 
+
+				<OverlayTrigger
+					placement = 'bottom'
+					overlay = { tooltipRefresh }
 				>
-					<Button onClick = { onClick } >
-						<Glyphicon 
-							glyph = 'refresh'
-							style = {{ color: '#286D9A', fontSize: '1em' }}
-						/>  
-					</Button>
-				</Col>
+					<Col
+						xs = { spacing.xs.refr } 
+						sm = { spacing.sm.refr } 
+						md = { spacing.md.refr } 
+					>
+						<Button onClick = { onClick } >
+							<Glyphicon 
+								glyph = 'refresh'
+								style = {{ color: '#286D9A', fontSize: '1em' }}
+							/>  
+						</Button>
+					</Col>
+				</OverlayTrigger>
 				<Col
 					xs = { spacing.xs.title } 
 					sm = { spacing.sm.title } 

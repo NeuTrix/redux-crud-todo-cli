@@ -63,7 +63,6 @@ export const TodoForm = (props) => {
 		<Grid className = 'TodoForm'>
 			<Form onSubmit = { handleSubmit } >
 				<Row style = { style.top }  >
-					
 
 					<Col 
 						className = 'task' 
@@ -80,15 +79,15 @@ export const TodoForm = (props) => {
 						/>
 					</Col>
 
-					<Col 
-						className = 'addBtn' 
-						xs = { space.xs.addBtn } 
-						sm = { space.sm.addBtn } 
-						md = { space.md.addBtn } 
-					>
-						<OverlayTrigger 
+					<OverlayTrigger 
 							placement = 'bottom' 
-							overlay = {tooltipAdd }  
+							overlay = { tooltipAdd }  
+						>
+						<Col 
+							className = 'addBtn' 
+							xs = { space.xs.addBtn } 
+							sm = { space.sm.addBtn } 
+							md = { space.md.addBtn } 
 						>
 							<Button 
 								className = { 'btn btn-sm' } 
@@ -98,8 +97,8 @@ export const TodoForm = (props) => {
 							>
 								<Glyphicon glyph = 'plus'style = { style.plus }/>
 							</Button>
-						</OverlayTrigger>
-					</Col>
+						</Col>
+					</OverlayTrigger>
 
 					<Col 
 						style = { style.field }

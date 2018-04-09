@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
 import DeleteBtn from '../components/DeleteBtn';
-import { Col, Form, FormControl, Row } from 'react-bootstrap';
+import { Col, Form, FormControl, OverlayTrigger, Row, Tooltip, } from 'react-bootstrap';
 
 const space = { 
 	xs: { form: 10, delt: 1 }, 
@@ -74,6 +74,12 @@ class TodoTask extends Component {
 	
 	render () {
 		
+		const tooltipDelete = (
+			<Tooltip id = 'tooltipDelete' >
+				Delete this task
+			</Tooltip>
+		)
+		
 		return (
 			<div>
 				<Row style = {{ marginBottom: 4 }} >
@@ -97,20 +103,27 @@ class TodoTask extends Component {
 								onBlur = { this.handleBlur}
 							/> 
 						</Col>
-						<Col 
-							className = 'delete'
-							style = {{ textAlign: 'left' }}
-							xs = { space.xs.delt } 
-							sm = { space.sm.delt } 
-							md = { space.md.delt } 
-							lg = { space.lg.delt }
+
+						<OverlayTrigger 
+							placement = 'bottom'
+							overlay = { tooltipDelete } 
 						>
-							<DeleteBtn 
-								task = { this.props.item.task } 
-								_id = { this.props.item._id }
-								deleteTodo = { this.props.deleteTodo } 
-							/>
-						</Col>
+							<Col 
+								className = 'delete'
+								style = {{ textAlign: 'left' }}
+								xs = { space.xs.delt } 
+								sm = { space.sm.delt } 
+								md = { space.md.delt } 
+								lg = { space.lg.delt }
+							>
+								<DeleteBtn 
+									task = { this.props.item.task } 
+									_id = { this.props.item._id }
+									deleteTodo = { this.props.deleteTodo } 
+								/>
+							</Col>
+						</OverlayTrigger>
+
 					</Form>
 				</Row>
 			</div>
