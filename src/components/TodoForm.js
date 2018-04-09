@@ -2,7 +2,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import normalizeDate from '../helpers/normalizeDate';
-import { Button, Col, Form, FormControl, Glyphicon, Grid, Row } from 'react-bootstrap';
+import { 
+	Button, 
+	Col, 
+	Form, 
+	FormControl, 
+	Glyphicon, 
+	Grid, 
+	OverlayTrigger,
+	Tooltip, 
+	Row 
+} from 'react-bootstrap';
 
 const style = {
 	top: { backgroundColor: '#236C9C', padding: 10 },
@@ -35,6 +45,12 @@ export const TodoForm = (props) => {
 		_task.value = '';
 		_task.focus();
 	};
+
+	const tooltipAdd = (
+		<Tooltip id = 'tooltipAdd' >
+			Add a new todo task
+		</Tooltip>
+	) 
 
 	return (
 		<Grid className = 'TodoForm'>
@@ -69,14 +85,19 @@ export const TodoForm = (props) => {
 						sm = { spacing.sm.addBtn } 
 						md = { spacing.md.addBtn } 
 					>
-						<Button 
-							className = { 'btn btn-sm' } 
-							type = 'submit' 
-							value = 'Add'
-							style = { style.add }
+						<OverlayTrigger 
+							placement = 'bottom' 
+							overlay = {tooltipAdd }  
 						>
-							<Glyphicon glyph = 'plus'style = { style.glyph }/>
-						</Button>
+							<Button 
+								className = { 'btn btn-sm' } 
+								type = 'submit' 
+								value = 'Add'
+								style = { style.add }
+							>
+								<Glyphicon glyph = 'plus'style = { style.glyph }/>
+							</Button>
+						</OverlayTrigger>
 					</Col>
 
 					<Col 
