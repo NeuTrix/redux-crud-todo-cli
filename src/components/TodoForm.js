@@ -64,7 +64,7 @@ export const TodoForm = (props) => {
 						md = { space.md.form } 
 					> 
 						<FormControl 
-							inputRef = { (input) => { _task = input } } 
+							inputRef = { (input) => { _task = input; } } 
 							type = 'text'  
 							placeholder ='Enter a NEW task here...' 
 							required 
@@ -96,7 +96,7 @@ export const TodoForm = (props) => {
 					> 
 						<FormControl 
 							componentClass = 'select' 
-							inputRef = { (value) => { _rank = value } } 
+							inputRef = { (value) => { _rank = value; } } 
 							defaultValue = 'Med'
 						>
 							<option value = 'High'>High</option>
@@ -114,7 +114,7 @@ export const TodoForm = (props) => {
 					>
 						<FormControl 
 							defaultValue = { _currentDate } 
-							inputRef = { (input) => { _date = input } } 
+							inputRef = { (input) => { _date = input; } } 
 							type = 'date'
 							required 
 						/> 

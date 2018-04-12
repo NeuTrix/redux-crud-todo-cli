@@ -1,3 +1,3 @@
-	xit ('... faketest', () => {
+xit ('... faketest', () => {
 		
-	});
+});

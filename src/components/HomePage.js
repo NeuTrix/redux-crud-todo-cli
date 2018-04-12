@@ -16,7 +16,7 @@ const styleBtn = {
 	width: 70
 };
 
-const styleList = { fontSize: '1em', textAlign: 'left' }
+const styleList = { fontSize: '1em', textAlign: 'left' };
 
 const space = { 
 	xs: { head: 12, list: 8, btns1: 3, btns2: 3 }, 

@@ -98,20 +98,20 @@ class TodoTask extends Component {
 							/> 
 						</Col>
 
-							<Col 
-								className = 'delete'
-								style = {{ textAlign: 'left' }}
-								xs = { space.xs.delt } 
-								sm = { space.sm.delt } 
-								md = { space.md.delt } 
-								lg = { space.lg.delt }
-							>
-								<DeleteBtn 
-									task = { this.props.item.task } 
-									_id = { this.props.item._id }
-									deleteTodo = { this.props.deleteTodo } 
-								/>
-							</Col>
+						<Col 
+							className = 'delete'
+							style = {{ textAlign: 'left' }}
+							xs = { space.xs.delt } 
+							sm = { space.sm.delt } 
+							md = { space.md.delt } 
+							lg = { space.lg.delt }
+						>
+							<DeleteBtn 
+								task = { this.props.item.task } 
+								_id = { this.props.item._id }
+								deleteTodo = { this.props.deleteTodo } 
+							/>
+						</Col>
 
 					</Form>
 				</Row>

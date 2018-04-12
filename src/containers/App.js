@@ -5,7 +5,7 @@ import AboutPage from '../components/AboutPage';
 import AdminPage from '../components/auth/AdminPage';
 import FlashMessageList from '../components/flash/FlashMessageList';
 import Header from '../containers/Header';
-import image from '../assets/futureBack.png'
+import image from '../assets/futureBack.png';
 import HomePage from '../components/HomePage';
 import LoginPage from '../components/auth/LoginPage';
 import RegisterPage from '../components/auth/RegisterPage';
@@ -31,14 +31,14 @@ const bgstyle = {
 	backgroundImageSize: 'cover',
 	backgroundSize:  'cover',
 	paddingBottom:400
-}
+};
 
 const styleCounter = {
 	// position: 'sticky', 
 	// top: 50,
 	// backgroundColor: 'navy',
 	// marginBottom: 40,
-}
+};
 
 // +++++++++   +++++++++ 
 
@@ -46,7 +46,7 @@ class App extends Component {
 
 	componentDidMount() {
 		if (this.props.isAuthenticated) { 
-			return 	this.props.fetchTodos() 
+			return 	this.props.fetchTodos(); 
 		}
 	}
 
@@ -123,8 +123,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		createTodo: (task) => { dispatch (createTodo (task)) },
-		fetchTodos: () => { dispatch(fetchTodos()) }
+		createTodo: (task) => { dispatch (createTodo (task)); },
+		fetchTodos: () => { dispatch(fetchTodos()); }
 	};
 }; 
 

@@ -18,7 +18,7 @@ export const flashReducer = (state = [], action = {}) => {
 		];
 
 	case mod.DELETE_FLASH_MESSAGE:
-		return state.filter( msg => msg._id !== _pay._id)
+		return state.filter( msg => msg._id !== _pay._id);
 
 	default:
 		return state;

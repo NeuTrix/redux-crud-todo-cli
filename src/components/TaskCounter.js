@@ -36,7 +36,7 @@ const TaskCounter = (props) => {
 		<Tooltip  id = 'tooltipRefresh' >
 			Refresh Todos list
 		</Tooltip>
-	)
+	);
 
 	return ( 
 		<Grid >

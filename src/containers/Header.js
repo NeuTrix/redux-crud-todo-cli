@@ -18,7 +18,7 @@ const logoutStyle ={ color: 'lime', textAlign: 'center' };
 class Header extends Component {
 
 	logout(e) {
-		e.preventDefault()
+		e.preventDefault();
 		this.props.logout();
 		this.context.router.history.push('/');
 	}
@@ -55,7 +55,7 @@ class Header extends Component {
 
 		const welcome = (
 			<span style = { style } > hi { user.username }! </span>
-		)
+		);
 
 		return (
 
@@ -91,14 +91,14 @@ class Header extends Component {
 						</IndexLinkContainer>
 					</Nav>
 
-						{ isAuthenticated ? userLinks : guestLinks }
+					{ isAuthenticated ? userLinks : guestLinks }
 					
 				</Navbar.Collapse>
 				
 			</Navbar>
 		);
-}
 	}
+}
 
 // +++++++++   +++++++++ 
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import image from '../assets/futureBack.png'
-import { Grid } from 'react-bootstrap'
+import image from '../assets/futureBack.png';
+import { Grid } from 'react-bootstrap';
 
 const AboutPage = (props) => {
 
@@ -9,13 +9,13 @@ const AboutPage = (props) => {
 
 	return(
 
-<Grid >
+		<Grid >
 	
 
 
-</Grid>
+		</Grid>
 		
-		)
+	);
 };
 
-export default AboutPage
+export default AboutPage;
