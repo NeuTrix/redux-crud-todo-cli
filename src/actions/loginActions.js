@@ -4,6 +4,7 @@ import setAuthorizationToken from '../components/auth/setAuthToken';
 import { fetchTodos, readTodos } from './readActions';
 import { addFlashMessage } from './flashActions';
 import * as mod from './typeConstants';
+import {url} from '../helpers/apiHelper.js'
 
 export function setCurrentUser (user) {
 	return {
@@ -12,7 +13,7 @@ export function setCurrentUser (user) {
 	};
 }
 
-const url = 'https://redux-todo-api.herokuapp.com';
+// const url = 'https://redux-todo-api.herokuapp.com';
 
 export function userLoginRequest(userData) {
 	return dispatch => {

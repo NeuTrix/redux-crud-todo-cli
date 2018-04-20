@@ -2,6 +2,7 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import setAuthorizationToken from '../components/auth/setAuthToken';
 import * as mod from './typeConstants';
+import {url} from '../helpers/apiHelper.js'
 
 export function setCurrentUser (user) {
 	return {
@@ -10,7 +11,7 @@ export function setCurrentUser (user) {
 	};
 }
 
-const url = 'https://redux-todo-api.herokuapp.com';
+// const url = 'https://redux-todo-api.herokuapp.com';
 	
 export function userSignupRequest (userData) {
 	return dispatch => {

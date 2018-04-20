@@ -1,7 +1,6 @@
 import axios from 'axios';
 import * as mod from './typeConstants';
-
-// +++++++++ Actions +++++++++ 
+import {url} from '../helpers/apiHelper.js'
 
 export const readTodos = (savedState) => {
 	return {
@@ -34,7 +33,7 @@ export const todosHasErrored = (bool) => {
 
 // +++++++++ Functions +++++++++ 
 
-const url = 'https://redux-todo-api.herokuapp.com';
+// const url = 'https://redux-todo-api.herokuapp.com';
 
 export function fetchTodos () {
 	return (dispatch) => {
