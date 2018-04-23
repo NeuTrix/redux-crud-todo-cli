@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
+import image from '../assets/futureBack.png';
+
 import AboutPage from '../components/AboutPage';
-import AdminPage from '../components/auth/AdminPage';
 import FlashMessageList from '../components/flash/FlashMessageList';
 import Header from '../containers/Header';
-import image from '../assets/futureBack.png';
 import HomePage from '../components/HomePage';
 import LoginPage from '../components/auth/LoginPage';
 import RegisterPage from '../components/auth/RegisterPage';
@@ -21,8 +21,20 @@ import { fetchTodos } from '../actions/readActions';
 import { Col, Grid, Row } from 'react-bootstrap';
 
 const style = {
+	display: 'grid',
+	gridTemplateColumn: '1fr',
+	gridTemplateRows: '1fr 5fr 1fr 1fr',
+	gridTemplateAreas: ' "header" "form" "main" "view" ',
+
 	padding: 10,
 };
+
+const placement = {
+	header: { gridArea: 'header' },
+	form : { gridArea: 'form'},
+	main: { gridArea: 'main' },
+	view: { gridArea: 'view'},
+}
 
 const bgstyle = {
 	backgroundImage: 'url('+ image +')',
@@ -73,20 +85,27 @@ class App extends Component {
 		);
 
 		return (
+			<div style = { style } >
+
 			<Grid style = { bgstyle } fluid = {true}  >
+
 				<Row>
 					<Col xs = { 12 }  >
+					<div placement = { placement.header} >
 						<Route path = '/' component = { Header } />
+						</div>
 					</Col>
 				</Row>
+
 				<Row style = { { paddingTop: 60 } } >
+
 					<Col>
 						<FlashMessageList/>
 					</Col>
-					<Col style = { style } >
+
+					<Col >
 						<Route exact path = '/' component = { HomePage } />
 						<Route path = '/about' component = { AboutPage } />
-						<Route path = '/admin' component = { AdminPage } />
 						<Route path = '/login' component = { LoginPage } />
 						<Route path = '/register' component = { RegisterPage } />
 						<Route 
@@ -96,9 +115,11 @@ class App extends Component {
 							} 
 						/>
 					</Col>
+
 				</Row>
-				{ this.props.children }
 			</Grid>
+			</div>
+
 		);
 	}
 } 

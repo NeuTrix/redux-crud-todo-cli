@@ -28,6 +28,8 @@ class Header extends Component {
 		this.props.fetchTodos();
 	}
 
+	
+
 	render() {
 		const { isAuthenticated, user } = this.props.authApi;
 
@@ -58,6 +60,8 @@ class Header extends Component {
 		);
 
 		return (
+
+
 
 			<Navbar inverse collapseOnSelect fixedTop >
 
