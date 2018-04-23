@@ -24,24 +24,24 @@ const gridStyle = {
 	display: 'grid',
 	gridTemplateColumn: '1fr',
 	gridTemplateRows: '1fr 5fr 1fr 1fr',
-	gridTemplateAreas: ' "header" "form" "main" "view" ',
+	gridTemplateAreas: ' "header" "new_todo" "main" "select_view" ',
 };
 
 const appStyle = {
 	paddingTop: 60,
-	// backgroundImage: 'url('+ image +')',
-	// backgroundAttachment: 'fixed',
-	// backgroundPosition: 'center',
-	// backgroundImageSize: 'cover',
-	// backgroundSize:  'cover',
+	backgroundImage: 'url('+ image +')',
+	backgroundAttachment: 'fixed',
+	backgroundPosition: 'center',
+	backgroundImageSize: 'cover',
+	backgroundSize:  'cover',
 	// paddingBottom:400
 }
 
 const placement = {
 	header: { gridArea: 'header' },
-	form : { gridArea: 'form'},
+	new_todo : { gridArea: 'new_todo'},
 	main: { gridArea: 'main' },
-	view: { gridArea: 'view'},
+	select_view: { gridArea: 'select_view'},
 }
 
 const bgstyle = {
@@ -99,13 +99,13 @@ class App extends Component {
 						<Route  path = '/' component = { Header } />
 					</div>
 
-				<div id = 'app_main' style = { { paddingTop: 60 } } >
+				<div id = 'app_grid'>
 
-					<div>
+					<div id = 'app_message' style = { placement.main } >
 						<FlashMessageList/>
 					</div>
 
-					<Col >
+					<div id = 'app_main' style = { placement.main, appStyle} >
 						<Route exact path = '/' component = { HomePage } />
 						<Route path = '/about' component = { AboutPage } />
 						<Route path = '/login' component = { LoginPage } />
@@ -116,7 +116,7 @@ class App extends Component {
 								requireAuth(ReactDom.render = (props) => TodosPage) 
 							} 
 						/>
-					</Col>
+					</div>
 
 				</div>
 
