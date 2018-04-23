@@ -28,9 +28,14 @@ class Header extends Component {
 		this.props.fetchTodos();
 	}
 
-	
-
 	render() {
+	const gridStyle = {
+		display: 'grid',
+		// gridArea: this.props.placement.gridArea
+		gridArea: 'form',
+		backgroundColor: 'orange',
+	}
+
 		const { isAuthenticated, user } = this.props.authApi;
 
 		const userLinks = (
@@ -61,7 +66,7 @@ class Header extends Component {
 
 		return (
 
-
+			<div style = { gridStyle } >
 
 			<Navbar inverse collapseOnSelect fixedTop >
 
@@ -100,6 +105,9 @@ class Header extends Component {
 				</Navbar.Collapse>
 				
 			</Navbar>
+
+			</div>
+
 		);
 	}
 }
@@ -109,6 +117,7 @@ class Header extends Component {
 Header.propTypes = {
 	authApi: PropTypes.object.isRequired,
 	logout: PropTypes.func.isRequired,
+	placement: PropTypes.string,
 	fetchTodos: PropTypes.func.isRequired
 };
 

@@ -20,14 +20,22 @@ import { Route } from 'react-router-dom';
 import { fetchTodos } from '../actions/readActions';
 import { Col, Grid, Row } from 'react-bootstrap';
 
-const style = {
+const gridStyle = {
 	display: 'grid',
 	gridTemplateColumn: '1fr',
 	gridTemplateRows: '1fr 5fr 1fr 1fr',
 	gridTemplateAreas: ' "header" "form" "main" "view" ',
-
-	padding: 10,
 };
+
+const appStyle = {
+	paddingTop: 60,
+	// backgroundImage: 'url('+ image +')',
+	// backgroundAttachment: 'fixed',
+	// backgroundPosition: 'center',
+	// backgroundImageSize: 'cover',
+	// backgroundSize:  'cover',
+	// paddingBottom:400
+}
 
 const placement = {
 	header: { gridArea: 'header' },
@@ -37,12 +45,7 @@ const placement = {
 }
 
 const bgstyle = {
-	backgroundImage: 'url('+ image +')',
-	backgroundAttachment: 'fixed',
-	backgroundPosition: 'center',
-	backgroundImageSize: 'cover',
-	backgroundSize:  'cover',
-	paddingBottom:400
+
 };
 
 const styleCounter = {
@@ -65,6 +68,8 @@ class App extends Component {
 	render() {
 
 		const TodosPage = (
+
+			<div id = 'todosPage' >	
 			<Row >
 				<Col style = { styleCounter } >
 					<TaskCounter 
@@ -82,26 +87,23 @@ class App extends Component {
 					<TodoList todoArray = { this.props.todoArray } />
 				</Col>
 			</Row>
+
+			</div>	
+
 		);
 
 		return (
-			<div style = { style } >
+			<div id = 'app_page' style = { gridStyle } >
 
-			<Grid style = { bgstyle } fluid = {true}  >
+					<div id = 'app_header'  style = { placement.header } >
+						<Route  path = '/' component = { Header } />
+					</div>
 
-				<Row>
-					<Col xs = { 12 }  >
-					<div placement = { placement.header} >
-						<Route path = '/' component = { Header } />
-						</div>
-					</Col>
-				</Row>
+				<div id = 'app_main' style = { { paddingTop: 60 } } >
 
-				<Row style = { { paddingTop: 60 } } >
-
-					<Col>
+					<div>
 						<FlashMessageList/>
-					</Col>
+					</div>
 
 					<Col >
 						<Route exact path = '/' component = { HomePage } />
@@ -116,8 +118,9 @@ class App extends Component {
 						/>
 					</Col>
 
-				</Row>
-			</Grid>
+				</div>
+
+
 			</div>
 
 		);
