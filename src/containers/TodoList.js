@@ -25,7 +25,11 @@ class TodoList extends Component {
 		
 		let _todoArray = this.state.todoArray;
 		let todos = _todoArray.map(item => {
-			return <TodoItem key = { shortid.generate() } item = { item } />;
+			return <TodoItem 
+				key = { shortid.generate() } 
+				item = { item } 
+				deleteTodo = { this.props.deleteTodo }
+			/>;
 		});
 
 		return (
@@ -45,10 +49,12 @@ class TodoList extends Component {
 
 TodoList.propTypes = {
 	todoArray: PropTypes.array.isRequired,
+	deleteTodo: PropTypes.func.isRequired,
 };
 
 TodoList.defaultProps = { 
 	todoArray: [],
+	deleteTodo: f => f,
 };
 
 export default TodoList;

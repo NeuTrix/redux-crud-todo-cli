@@ -41,7 +41,6 @@ class TodoForm extends Component {
 			rank: 'Med',
 		 	owner: this.props.owner ,
 		}
-
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
 	}
@@ -60,7 +59,7 @@ class TodoForm extends Component {
 	render () {
 		return (
 			<form 
-				class = 'TodoForm' 
+				className = 'TodoForm' 
 				style = { gridStyle } 
 				onSubmit = { this.handleSubmit } 
 			>
@@ -112,13 +111,13 @@ class TodoForm extends Component {
 // +++++++++ PROPS +++++++++ 
 
 TodoForm.propTypes = {
-	addTodo: PropTypes.func.isRequired,
+	// addTodo: PropTypes.func.isRequired,
 	createTodo: PropTypes.func.isRequired,
 	owner: PropTypes.string.isRequired
 };
 
 TodoForm.defaultProps = {
-	addTodo: f => f,
+	// addTodo: f => f,
 	createTodo: f => f,
 	owner: 'Default from APP.js'
 };

@@ -17,6 +17,7 @@ import TodoForm from '../components/TodoForm';
 
 import { connect } from 'react-redux';
 import { createTodo } from '../actions/createActions';
+import { deleteTodo } from '../actions/deleteActions';
 import { fetchTodos } from '../actions/readActions';
 import { Route } from 'react-router-dom';
 
@@ -74,7 +75,10 @@ class App extends Component {
 					<Route path = '/register' component = { RegisterPage } />
 					<Route exact path = '/todos' component = { 
 						requireAuth ( ReactDom.render = props => 
-						<TodoList todoArray = { this.props.todoArray } />)
+						<TodoList 
+							todoArray = { this.props.todoArray }
+							deleteTodo = { this.props.deleteTodo}	
+						/>)
 					} />
 				</div>
 
@@ -95,6 +99,7 @@ class App extends Component {
 
 App.propTypes = { 
 	createTodo:    		PropTypes.func.isRequired,
+	deleteTodo:    		PropTypes.func.isRequired,
 	fetchTodos:    		PropTypes.func.isRequired,
 	isAuthenticated: 	PropTypes.bool,
 	todoArray: 				PropTypes.array.isRequired,
@@ -112,6 +117,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		createTodo: (task) => { dispatch (createTodo (task)); },
+		deleteTodo: (task) => { dispatch (deleteTodo (task)); },
 		fetchTodos: () => 		{ dispatch(fetchTodos()); },
 	};
 }; 

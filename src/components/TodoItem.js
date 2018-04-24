@@ -1,138 +1,136 @@
-import React, { Component }  from 'react';
+// ... Component to create new Todo items
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Rank from '../components/Rank';
-import CalendarBtn from '../components/CalendarBtn';
-import CheckComplete from '../components/CheckComplete';
-import TodoTask from '../components/TodoTask';
-import { Col, Row } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import { deleteTodo, removeTodo } from '../actions/deleteActions';
-import { editTodo } from '../actions/editActions';
+import normalizeDate from '../helpers/normalizeDate';
 
-const spacing = { 
-	xs: { chkbx: 1, task: 11, rank: 4, date: 6},
-	sm: { chkbx: 1, task: 6, rank: 3, date: 2 },
-	md: { chkbx: 1, task: 6, rank: 2, date: 2 },
-};
+// +++++++++ CSS  +++++++++ 
 
-const todosBoxStyle = {
-	marginTop: 10,
-	paddingTop: 5,
-	paddingBottom: 5,
-	border: '1px solid lightgrey',
+const gridStyle = {
+	display: 'grid',
+	gridTemplateAreas: 
+	` "task task task task " 
+		" done priority date action" ` ,
+	gridTemplateColumn: 'repeat (4, 1fr)',
+	gridTemplateRow: 50,
+	gridGap: 5,
+
+	backgroundColor: 'whitesmoke',
+	padding: 5,
+	border: '2px solid grey',
 	borderRadius: 5,
-	backgroundColor: 'whitesmoke'
-};
+}
 
-const defaultStyle = {
-	backgroundColor: 'white', 
-	color: 'black'
-};
+const placement = {
+	task: { gridArea: 'task' },
+	action: { gridArea: 'action' },
+	priority: { gridArea: 'priority' },
+	date: { gridArea: 'date' },
+}
 
-const isCompletedStyle = {
-	backgroundColor: 'whitesmoke', 
-	color: 'lightgrey',
-	textDecoration: 'line-through' 
-};
-
-// +++++++++   +++++++++ 
+// +++++++++ COMPONENT +++++++++ 
 
 class TodoItem extends Component {
 
-	render () {
+	constructor (props) {
 
-		let style; 
+		super(props);
 
-		if (this.props.item.completed) {
-			style = isCompletedStyle; 
-		} else {
-			style = defaultStyle; 
+		this.state = {
+			date: normalizeDate(new Date()) ,
+			task: '', 
+			rank: 'Med',
+		 	owner: this.props.owner ,
 		}
-
-		return (
-			<Row 
-				className = 'todoItem'
-				style = { todosBoxStyle }  
-			>
-				<Col 
-					className = 'checkComplete'
-					xs = { spacing.xs.chkbx } 
-					sm = { spacing.sm.chkbx } 
-					md = { spacing.md.chkbx } 
-				>
-					<CheckComplete
-						completed = { this.props.item.completed }
-						editTodo = { this.props.editTodo }
-						_id = { this.props.item._id }
-					/>
-				</Col>
-
-				<Col 
-					className = 'todoTask'
-					xs = { spacing.xs.task }  
-					sm = { spacing.sm.task } 
-					md = { spacing.md.task } 
-				>
-					<TodoTask 
-						className= 'task' 
-						item = { this.props.item }
-						required
-						style = { style }
-						type = 'text'  
-						editTodo = { this.props.editTodo }
-						deleteTodo = { this.props.deleteTodo } 
-					/> 
-				</Col>
-
-				<Col 
-					className = 'rank'
-					xs = { spacing.xs.rank }  xsOffset = {1}
-					sm = { spacing.sm.rank }
-					md = { spacing.md.rank }
-				>
-					<Rank
-						_id = { this.props.item._id }
-						currRank = { this.props.item.rank }
-						editTodo= { this.props.editTodo }   
-					/>
-				</Col >
-
-				<Col 	
-					className = 'calendarBtn'
-					xs = { spacing.xs.date }
-					sm = { spacing.sm.date }
-					md = { spacing.md.date }
-				>
-					<CalendarBtn
-						date = { this.props.item.date }
-						_id = { this.props.item._id }
-						editTodo = { this.props.editTodo }   
-					/>
-				</Col>
-			</Row>
-		);
+		this.handleSubmit = this.handleSubmit.bind(this)
+		this.handleChange = this.handleChange.bind(this)
+		this.handleClick = this.handleClick.bind(this)
 	}
-} 
 
-// +++++++++   +++++++++ 
+	handleSubmit(e) {
+		e.preventDefault ();
+		// this.props.createTodo (this.state);
+		this.setState ({ task: ''})
+	};
+
+	handleChange(e) {
+		e.preventDefault();
+		this.setState ({ [ e.target.name ]: e.target.value })
+	}
+
+	handleClick(e) {
+		e.preventDefault();
+		console.log(this.props.item._id)
+		// allow restricted global use of `confirm`
+		//eslint-disable-next-line
+		let _confirmed = confirm(`You are deleting the task : \n\t  "${this.props.item.task}" \n  Are you sure ?` ) 
+			
+		if (_confirmed) {
+			this.props.deleteTodo(this.props.item._id)
+		} 
+	}
+
+	render () {
+		return (
+			<form 
+				className = 'TodoItem' 
+				style = { gridStyle } 
+				onSubmit = { this.handleSubmit } 
+			>
+				<input 
+					style = { placement.task }
+					type = 'text'
+					name = 'task'
+					value = { this.props.item.task }
+					onChange = { this.handleChange }
+				/>
+
+				<select
+					style = { placement.priority } 
+					name = 'rank'
+					type = 'select'
+					value = { this.props.item.rank }
+					onChange = { this.handleChange }
+			 	> 
+					<option value = 'High'> High	</option>
+					<option value = 'Med'>	Med		</option>
+					<option value = 'Low'>	Low		</option>
+				</select>
+
+				<input 
+					style = { placement.date } 
+					name = 'date' 
+					type = 'date'
+					onChange = { this.handleChange }
+					defaultValue = { this.props.item.date }
+				/>
+
+				<button 
+					style = { placement.action } 
+					type = "button"
+					onClick = { this.handleClick}
+				> Delete </button> 
+
+			</form>
+		)
+	}
+};
+
+// +++++++++ PROPS +++++++++ 
 
 TodoItem.propTypes = {
 	item: PropTypes.object.isRequired,
+	deleteTodo: PropTypes.func.isRequired,
+	createTodo: PropTypes.func.isRequired,
+	owner: PropTypes.string.isRequired
 };
 
-TodoItem.defaultProps ={
-	item: { 
-		_id: 'Client default from TodoItem.js',
-		completed: false,
-		details: 'Client default from TodoItem.js',
-		date: '1935-05-24',
-		owner: 'Client default from TodoItem.js',
-		rank: 'Client default from TodoItem.js',
-		task: 'Client defaul from TodoItem.jst'
-	}, 
+TodoItem.defaultProps = {
+	deleteTodo: f => f,
+	createTodo: f => f,
+	owner: 'Default from APP.js'
 };
 
-const mapStateToProps = (state, ownProps) => {
+/*const mapStateToProps = (state, ownProps) => {
 	return { item: ownProps.item };	
 };
 
@@ -144,4 +142,6 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoItem);
+export default connect(mapStateToProps, mapDispatchToProps)(TodoItem);*/
+
+export default TodoItem;
