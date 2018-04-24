@@ -21,28 +21,24 @@ import { Route } from 'react-router-dom';
 import { fetchTodos } from '../actions/readActions';
 import { Col, Grid, Row } from 'react-bootstrap';
 
+// +++++++++ CSS  +++++++++ 
+
 const gridStyle = {
 	display: 'grid',
-	gridTemplateAreas: ' "header" "new_todo" "main" ',
+	gridTemplateAreas: ' "header" "message" "counter" "new_todo"  "main" ',
 	gridTemplateColumn: '1fr',
 	gridTemplateRows: 'auto',
 }
 
 const placement = {
-	header: { gridArea: 'header' },
-	new_todo: { gridArea: 'new_todo', zIndex: 10, position: 'fixed', paddingTop: 60 },
+	header: { gridArea: 'header',paddingBottom: 60 },
+	message: { gridArea: 'message', margin: 10 },
+	counter: { gridArea: 'counter' },
+	new_todo: { gridArea: 'new_todo'},
 	main: { gridArea: 'main' },
-	// select_view: { gridArea: 'select_view'},
 }
 
-const styleCounter = {
-	// position: 'sticky', 
-	// top: 50,
-	// backgroundColor: 'navy',
-	// marginBottom: 40,
-};
-
-// +++++++++   +++++++++ 
+// +++++++++  COMPONENT +++++++++ 
 
 class App extends Component {
 
@@ -54,39 +50,33 @@ class App extends Component {
 
 	render() {
 
-		const TodosPage = (
+		const authTodoList = ( 
+			requireAuth (
+				ReactDom.render = (props) => 
+				<TodoList todoArray = { this.props.todoArray } /> 
+			)
+		)
 
-			<div id = 'todosPage' style = { placement.main }  >	
-
-				<Col >
-					<TaskCounter 
-					style = { styleCounter } 
-						todos = { this.props.todoArray } 
-						fetchTodos = { this.props.fetchTodos } 
-					/>
-				</Col>
-
-				<Col>
-					<TodoList todoArray = { this.props.todoArray } />
-				</Col>
-
-			</div>	
-		);
+		const fullCount = ( props =>
+				<TaskCounter 
+					todos = { this.props.todoArray } 
+					fetchTodos = { this.props.fetchTodos } 
+				/> 
+		)
 
 		return (
 			<div className = 'App'  id = 'app_grid' style = { gridStyle } >
+
+				<div id = 'app_message' style = { placement.message } >
+					<FlashMessageList />
+				</div>
 
 				<div id = 'app_header'  style = { placement.header } >
 					<Route  path = '/' component = { Header } />
 				</div>
 
-
 				<div id = 'app_new_todo' style = { placement.new_todo } >
-					<Route exact path = '/todos' render = { props => <TodoForm/> } />
-				</div>
-
-				<div id = 'app_message' style = { placement.main } >
-					<FlashMessageList/>
+					<Route exact path = '/todos' component = { TodoForm } />
 				</div>
 
 				<div id = 'app_main' style = { placement.main } >
@@ -94,14 +84,15 @@ class App extends Component {
 					<Route path = '/about' component = { AboutPage } />
 					<Route path = '/login' component = { LoginPage } />
 					<Route path = '/register' component = { RegisterPage } />
-					<Route exact path = '/todos' component = { 
-							requireAuth(ReactDom.render = (props) => TodosPage) 
-						} 
-					/>
+					<Route exact path = '/todos' component = { authTodoList }/>
+				</div>
+
+				<div id = 'app_task_count' style = { placement.counter } >
+					<Route exact path = '/todos' render = { fullCount } 
+				 />
 				</div>
 
 			</div>
-
 		);
 	}
 } 
