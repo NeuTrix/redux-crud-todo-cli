@@ -23,33 +23,17 @@ import { Col, Grid, Row } from 'react-bootstrap';
 
 const gridStyle = {
 	display: 'grid',
-	gridTemplateColumn: '1fr',
-	gridTemplateRows: '50px 50px 1fr 50px',
 	gridTemplateAreas: ' "header" "new_todo" "main" ',
-	// gridTemplateAreas: ' "header" "new_todo" "main" "select_view" ',
-// };
-
-// const appStyle = {
-	// paddingTop: 60,
-	// backgroundImage: 'url('+ image +')',
-	// backgroundAttachment: 'fixed',
-	// backgroundPosition: 'center',
-	// backgroundImageSize: 'cover',
-	// backgroundSize:  'cover',
-	// height: '100%',
-	// paddingBottom:400
+	gridTemplateColumn: '1fr',
+	gridTemplateRows: 'auto',
 }
 
 const placement = {
 	header: { gridArea: 'header' },
-	new_todo : { gridArea: 'new_todo'},
+	new_todo: { gridArea: 'new_todo', zIndex: 10, position: 'fixed', paddingTop: 60 },
 	main: { gridArea: 'main' },
 	// select_view: { gridArea: 'select_view'},
 }
-
-const bgstyle = {
-
-};
 
 const styleCounter = {
 	// position: 'sticky', 
@@ -73,19 +57,12 @@ class App extends Component {
 		const TodosPage = (
 
 			<div id = 'todosPage' style = { placement.main }  >	
+
 				<Col >
 					<TaskCounter 
 					style = { styleCounter } 
 						todos = { this.props.todoArray } 
 						fetchTodos = { this.props.fetchTodos } 
-					/>
-				</Col>
-
-				<Col>
-					<TodoForm 
-						createTodo = { this.props.createTodo } 
-						owner = { this.props.user._id }
-						style = { { position: 'fixed'}}
 					/>
 				</Col>
 
@@ -97,10 +74,15 @@ class App extends Component {
 		);
 
 		return (
-			<div className = 'App'  id = 'app_grid' style = { gridStyle  } >
+			<div className = 'App'  id = 'app_grid' style = { gridStyle } >
 
 				<div id = 'app_header'  style = { placement.header } >
 					<Route  path = '/' component = { Header } />
+				</div>
+
+
+				<div id = 'app_new_todo' style = { placement.new_todo } >
+					<Route exact path = '/todos' render = { props => <TodoForm/> } />
 				</div>
 
 				<div id = 'app_message' style = { placement.main } >
