@@ -9,10 +9,10 @@ const gridStyle = {
 	display: 'grid',
 	gridTemplateAreas: 
 	` "task task task " 
-		"action priority date" ` ,
+		" priority date action" ` ,
 	gridTemplateColumn: '30px 30px 30px',
 	gridTemplateRow: 50,
-	gridRowGap: 5,
+	gridGap: 5,
 
 	backgroundColor: 'transparent',
 	padding: 5,
@@ -38,7 +38,7 @@ class TodoForm extends Component {
 		let _currentDate = normalizeDate(new Date()); // formatted date
 		
 		this.state = {
-			date: normalizeDate(new Date()),
+			date: '',
 			task: '', 
 			rank: '',
 		 	owner: this.props.owner ,
@@ -52,6 +52,7 @@ class TodoForm extends Component {
 		e.preventDefault();
 		this.props.createTodo (this.state);
 		this.setState ({ task: ''})
+		console.log(this.state)
 	};
 
 	handleChange(e) {
@@ -74,20 +75,24 @@ class TodoForm extends Component {
 					required
 				/>
 
+				<div 
+					id = 'priority' 
+					style = { placement.priority } >
+			 	</div>
+
+				<input 
+					name = 'date' 
+					type = 'date'
+					defaultValue = { normalizeDate(new Date()) }
+					style = { placement.date } 
+				/>
+
 				<button 
-					id = 'action' 
+					name = 'action' 
 					type = "Submit"
 					style = { placement.action } 
-				> 
-					Submit 
-				</button>
-
-				<div id = 'priority' style = { placement.priority } >
-			 	</div>
-
-				<div id = 'date' style = { placement.date } >
-					date
-			 	</div>
+					
+				/> 
 
 			</form>
 		)

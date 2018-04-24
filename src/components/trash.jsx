@@ -45,6 +45,11 @@ const style = {
 	// },
 };
 
+	<CalendarBtn
+						date = { this.props.item.date }
+						_id = { this.props.item._id }
+						editTodo = { this.props.editTodo }   
+					/>
 
 
 // +++++++++   +++++++++ 

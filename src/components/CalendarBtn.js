@@ -17,7 +17,6 @@ const CalendarBtn = (props) => {
 	return (
 		<FormControl 
 			className ='calendarBtn' 
-			defaultValue = { props.date.slice(0,10) } 
 			inputRef =  { (value) => _date = value }
 			required 
 			style = { props.style }

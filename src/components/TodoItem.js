@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
 import Rank from '../components/Rank';
-import CalendarBtn from '../components/CalendarBtn';
+// import CalendarBtn from '../components/CalendarBtn';
 import CheckComplete from '../components/CheckComplete';
 import TodoTask from '../components/TodoTask';
 import { Col, Row } from 'react-bootstrap';
@@ -103,11 +103,7 @@ class TodoItem extends Component {
 					sm = { spacing.sm.date }
 					md = { spacing.md.date }
 				>
-					<CalendarBtn
-						date = { this.props.item.date }
-						_id = { this.props.item._id }
-						editTodo = { this.props.editTodo }   
-					/>
+				
 				</Col>
 			</Row>
 		);
