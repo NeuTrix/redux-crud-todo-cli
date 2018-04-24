@@ -1,5 +1,5 @@
 // ... used to create new Todo items
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import normalizeDate from '../helpers/normalizeDate';
 import { 
@@ -12,118 +12,95 @@ import {
 	Row 
 } from 'react-bootstrap';
 
-const style = {
-	top: { 
-		backgroundColor: '#236C9C', 
-		paddingTop: 8, 
-		paddingBottom: 5 
-	},
-	field: { textAlign: 'left', marginBottom: 5 },
-	plus: { fontSize: '1.25em', color: '#68c615' },
-	add: 	{ 
-		border: '1px solid lightgrey', 
-		backgroundColor: 'white', 	
-		color: 'green'
-	},
-};
+// +++++++++ CSS  +++++++++ 
 
-const space = { 
-	xs: { form: 12, addBtn: 2, rank: 4, date: 6 }, 
-	sm: { form: 11, addBtn: 1, rank: 6, date: 6 },
-	md: { form: 8, addBtn: 1, rank: 1, date: 2 } 
-};
+const gridStyle = {
+	display: 'grid',
+	gridTemplateAreas: 
+	` "task task task " 
+		"action priority date" ` ,
+	gridTemplateColumn: '30px 30px 30px',
+	gridTemplateRow: 50,
+	height: 50,
+	width: 'auto'
+}
 
-// +++++++++   +++++++++ 
+const placement = {
+	task: { 
+		gridArea: 'task', 
+},
+	action: { gridArea: 'action' },
+	priority: { gridArea: 'priority' },
+	date: { gridArea: 'date' },
+}
 
-export const TodoForm = (props) => {
-	let _task, _rank, _date; 
-	let _currentDate = normalizeDate(new Date()); // formatted date
+// +++++++++ COMPONENT +++++++++ 
 
-	const handleSubmit = (event) => {
-		event.preventDefault();
-		props.createTodo ({ 
-			date: _date.value, 
-			task: _task.value, 
-			rank: _rank.value,
-		 	owner: props.owner 
-		});
-		_task.value = '';
-		_task.focus();
+class TodoForm extends Component {
+
+	constructor (props) {
+
+		super(props);
+
+		let _currentDate = normalizeDate(new Date()); // formatted date
+		
+		this.state = {
+			date: normalizeDate(new Date()),
+			task: 'enter a new task here', 
+			rank: '',
+		 	owner: this.props.owner ,
+		}
+
+		this.handleSubmit = this.handleSubmit.bind(this)
+		this.handleChange = this.handleChange.bind(this)
+	}
+
+	handleSubmit(e) {
+		e.preventDefault();
+		this.props.createTodo (this.state);
 	};
 
-	return (
-		<Grid className = 'TodoForm'>
-			<Form onSubmit = { handleSubmit } >
-				<Row style = { style.top }  >
+	handleChange(e) {
+		e.preventDefault();
+		this.setState({ [ e.target.name ]: e.target.value})
+		console.log(this.state)
+	}
 
-					<Col 
-						className = 'task' 
-						style = { style.field }
-						xs = { space.xs.form }
-						sm = { space.sm.form }
-						md = { space.md.form } 
-					> 
-						<FormControl 
-							inputRef = { (input) => { _task = input; } } 
-							type = 'text'  
-							placeholder ='Enter a NEW task here...' 
-							required 
-						/>
-					</Col>
+	render () {
+		return (
+			<form style = { gridStyle } onSubmit = { this.handleSubmit } >
 
-					<Col 
-						className = 'addBtn' 
-						xs = { space.xs.addBtn } 
-						sm = { space.sm.addBtn } 
-						md = { space.md.addBtn } 
-					>
-						<Button 
-							className = { 'btn btn-sm' } 
-							type = 'submit' 
-							value = 'Add'
-							style = { style.add }
-						>
-							<Glyphicon glyph = 'plus'style = { style.plus }/>
-						</Button>
-					</Col>
+				<input 
+					placeholder = { this.state.task } 
+					onChange = { this.handleChange }
+					style = { placement.task }
+					name = 'task'
+					autoFocus
+					required
+				/>
 
-					<Col 
-						style = { style.field }
-						className = 'rank' 
-						xs = { space.xs.rank }
-						sm = { space.sm.rank }
-						md = { space.md.rank }
-					> 
-						<FormControl 
-							componentClass = 'select' 
-							inputRef = { (value) => { _rank = value; } } 
-							defaultValue = 'Med'
-						>
-							<option value = 'High'>High</option>
-							<option value = 'Med'>Med</option>
-							<option value = 'Low'>Low</option>
-			    	</FormControl>
-					</Col>
+				<button 
+					id = 'action' 
+					type = "Submit"
+					style = { placement.action } 
+				> 
+					Submit 
+				</button>
 
-					<Col 
-						style = { style.field }
-						className = 'date' 
-						xs = { space.xs.date }
-						sm = { space.sm.date }
-						md = { space.md.date }
-					>
-						<FormControl 
-							defaultValue = { _currentDate } 
-							inputRef = { (input) => { _date = input; } } 
-							type = 'date'
-							required 
-						/> 
-					</Col>
 
-				</Row>
-			</Form>
-		</Grid>
-	);
+				<div id = 'priority' style = { placement.priority } >
+					{this.state.task}
+			 	</div>
+
+				<div id = 'date' style = { placement.date } >
+					date
+			 	</div>
+
+
+
+			</form>
+		)
+	}
 };
 
 // +++++++++   +++++++++ 
