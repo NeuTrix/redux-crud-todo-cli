@@ -35,7 +35,7 @@ const placement = {
 	message: { gridArea: 'message', margin: 10 },
 	counter: { gridArea: 'counter' },
 	new_todo: { gridArea: 'new_todo'},
-	main: { gridArea: 'main' },
+	main: { gridArea: 'main', paddingBottom: 50 },
 }
 
 // +++++++++  COMPONENT +++++++++ 
@@ -51,18 +51,11 @@ class App extends Component {
 	render() {
 
 		const authTodoList = ( 
-			requireAuth (
-				ReactDom.render = (props) => 
+			requireAuth ( ReactDom.render = (props) => 
 				<TodoList todoArray = { this.props.todoArray } /> 
 			)
 		)
 
-		const fullCount = ( props =>
-				<TaskCounter 
-					todos = { this.props.todoArray } 
-					fetchTodos = { this.props.fetchTodos } 
-				/> 
-		)
 
 		return (
 			<div className = 'App'  id = 'app_grid' style = { gridStyle } >
@@ -76,7 +69,12 @@ class App extends Component {
 				</div>
 
 				<div id = 'app_new_todo' style = { placement.new_todo } >
-					<Route exact path = '/todos' component = { TodoForm } />
+					<Route exact path = '/todos' render = { props =>
+						<TodoForm 
+							createTodo = { this.props.createTodo } 
+							owner = { this.props.user._id }
+						/> 
+					}/>
 				</div>
 
 				<div id = 'app_main' style = { placement.main } >
@@ -88,7 +86,11 @@ class App extends Component {
 				</div>
 
 				<div id = 'app_task_count' style = { placement.counter } >
-					<Route exact path = '/todos' render = { fullCount } 
+					<Route exact path = '/todos' render = { props =>
+						<TaskCounter 
+							todos = { this.props.todoArray } 
+							fetchTodos = { this.props.fetchTodos } 
+						/>  } 
 				 />
 				</div>
 
