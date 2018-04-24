@@ -21,7 +21,7 @@ const gridStyle = {
 }
 
 const placement = {
-	task: { gridArea: 'task' },
+	task: { gridArea: 'task', paddingLeft: '1em', },
 	action: { gridArea: 'action' },
 	priority: { gridArea: 'priority' },
 	date: { gridArea: 'date' },

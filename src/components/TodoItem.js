@@ -22,11 +22,14 @@ const gridStyle = {
 }
 
 const placement = {
-	task: { gridArea: 'task' },
+	task: { 
+		gridArea: 'task',
+		paddingLeft: '1em',
+	},
 	done: { 
 		gridArea: 'done',
 		justifySelf: 'center',
-		alignSelf: 'center',		
+		alignSelf: 'center',	
 	 },
 	action: { gridArea: 'action' },
 	priority: { gridArea: 'priority' },
@@ -65,6 +68,11 @@ class TodoItem extends Component {
 		this.setState ({ [ e.target.name ]: e.target.value })
 	}
 
+	handleFocus(e) {
+		e.preventDefault();
+		e.target.setSelectionRange(0, e.target.value.length);
+	}
+
 	handleDelete(e) {
 		e.preventDefault();
 		// allow restricted global use of `confirm`
@@ -98,6 +106,7 @@ class TodoItem extends Component {
 					type = 'text'
 					value = { this.props.item.task }
 					onChange = { this.handleChange }
+					onFocus = { this.handleFocus }
 				/>
 
 				<input
