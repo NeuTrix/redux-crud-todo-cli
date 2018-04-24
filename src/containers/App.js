@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
 import image from '../assets/futureBack.png';
+import requireAuth from '../helpers/requireAuth';
 import './App.css';
 
 import AboutPage from '../components/AboutPage';
@@ -13,32 +14,29 @@ import RegisterPage from '../components/auth/RegisterPage';
 import TaskCounter from '../components/TaskCounter';
 import TodoList from '../containers/TodoList';
 import TodoForm from '../components/TodoForm';
-import requireAuth from '../helpers/requireAuth';
 
 import { connect } from 'react-redux';
 import { createTodo } from '../actions/createActions';
-import { Route } from 'react-router-dom';
 import { fetchTodos } from '../actions/readActions';
-import { Col, Grid, Row } from 'react-bootstrap';
+import { Route } from 'react-router-dom';
 
-// +++++++++ CSS  +++++++++ 
+// +++++++++ CSS +++++++++ 
 
 const gridStyle = {
 	display: 'grid',
-	gridTemplateAreas: ' "header" "message" "counter" "new_todo"  "main" ',
+	gridTemplateAreas: ' "header" "status_bar" "new_todo"  "main" ',
 	gridTemplateColumn: '1fr',
 	gridTemplateRows: 'auto',
 }
 
 const placement = {
-	header: { gridArea: 'header',paddingBottom: 60 },
-	message: { gridArea: 'message', margin: 10 },
-	counter: { gridArea: 'counter' },
+	header: { gridArea: 'header',paddingBottom: 40 },
+	status_bar: { gridArea: 'status_bar', margin: 10 },
 	new_todo: { gridArea: 'new_todo'},
 	main: { gridArea: 'main', paddingBottom: 50 },
 }
 
-// +++++++++  COMPONENT +++++++++ 
+// +++++++++ COMPONENT +++++++++ 
 
 class App extends Component {
 
@@ -49,18 +47,10 @@ class App extends Component {
 	}
 
 	render() {
-
-		const authTodoList = ( 
-			requireAuth ( ReactDom.render = (props) => 
-				<TodoList todoArray = { this.props.todoArray } /> 
-			)
-		)
-
-
 		return (
 			<div className = 'App'  id = 'app_grid' style = { gridStyle } >
 
-				<div id = 'app_message' style = { placement.message } >
+				<div id = 'app_status_bar' style = { placement.status_bar } >
 					<FlashMessageList />
 				</div>
 
@@ -74,7 +64,7 @@ class App extends Component {
 							createTodo = { this.props.createTodo } 
 							owner = { this.props.user._id }
 						/> 
-					}/>
+					} />
 				</div>
 
 				<div id = 'app_main' style = { placement.main } >
@@ -82,24 +72,26 @@ class App extends Component {
 					<Route path = '/about' component = { AboutPage } />
 					<Route path = '/login' component = { LoginPage } />
 					<Route path = '/register' component = { RegisterPage } />
-					<Route exact path = '/todos' component = { authTodoList }/>
+					<Route exact path = '/todos' component = { 
+						requireAuth ( ReactDom.render = props => 
+						<TodoList todoArray = { this.props.todoArray } />)
+					} />
 				</div>
 
-				<div id = 'app_task_count' style = { placement.counter } >
+				<div id = 'app_task_count' style = { placement.status_bar } >
 					<Route exact path = '/todos' render = { props =>
 						<TaskCounter 
 							todos = { this.props.todoArray } 
 							fetchTodos = { this.props.fetchTodos } 
-						/>  } 
-				 />
+						/>  
+					} />
 				</div>
-
 			</div>
 		);
 	}
 } 
 
-// +++++++++   +++++++++ 
+// +++++++++ PROPS +++++++++ 
 
 App.propTypes = { 
 	createTodo:    PropTypes.func.isRequired,
