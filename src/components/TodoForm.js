@@ -35,10 +35,10 @@ class TodoForm extends Component {
 
 		super(props);
 
-		let _currentDate = normalizeDate(new Date()); // formatted date
+		// let _currentDate = normalizeDate(new Date()); // formatted date
 		
 		this.state = {
-			date: '',
+			date: normalizeDate(new Date()) ,
 			task: '', 
 			rank: '',
 		 	owner: this.props.owner ,
@@ -66,11 +66,11 @@ class TodoForm extends Component {
 
 				<input 
 					type = 'text'
+					name = 'task'
 					value = { this.state.task }
 					onChange = { this.handleChange }
 					style = { placement.task }
 					placeholder = 'enter a new task here'
-					name = 'task'
 					autoFocus
 					required
 				/>
@@ -83,7 +83,8 @@ class TodoForm extends Component {
 				<input 
 					name = 'date' 
 					type = 'date'
-					defaultValue = { normalizeDate(new Date()) }
+					onChange = { this.handleChange }
+					defaultValue = { this.state.date }
 					style = { placement.date } 
 				/>
 
