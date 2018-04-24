@@ -94,7 +94,7 @@ class TodoForm extends Component {
 					name = 'date' 
 					type = 'date'
 					onChange = { this.handleChange }
-					defaultValue = { this.state.date }
+					value = { this.state.date }
 				/>
 
 				<button 
