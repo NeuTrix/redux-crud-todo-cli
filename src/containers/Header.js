@@ -30,9 +30,6 @@ class Header extends Component {
 
 	render() {
 	const gridStyle = {
-		display: 'grid',
-		// gridArea: this.props.placement.gridArea
-		gridArea: 'form',
 		backgroundColor: 'orange',
 	}
 

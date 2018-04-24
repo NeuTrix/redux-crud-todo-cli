@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
 import image from '../assets/futureBack.png';
+import './App.css';
 
 import AboutPage from '../components/AboutPage';
 import FlashMessageList from '../components/flash/FlashMessageList';
@@ -23,17 +24,19 @@ import { Col, Grid, Row } from 'react-bootstrap';
 const gridStyle = {
 	display: 'grid',
 	gridTemplateColumn: '1fr',
-	gridTemplateRows: '1fr 5fr 1fr 1fr',
-	gridTemplateAreas: ' "header" "new_todo" "main" "select_view" ',
-};
+	gridTemplateRows: '50px 50px 1fr 50px',
+	gridTemplateAreas: ' "header" "new_todo" "main" ',
+	// gridTemplateAreas: ' "header" "new_todo" "main" "select_view" ',
+// };
 
-const appStyle = {
-	paddingTop: 60,
-	backgroundImage: 'url('+ image +')',
-	backgroundAttachment: 'fixed',
-	backgroundPosition: 'center',
-	backgroundImageSize: 'cover',
-	backgroundSize:  'cover',
+// const appStyle = {
+	// paddingTop: 60,
+	// backgroundImage: 'url('+ image +')',
+	// backgroundAttachment: 'fixed',
+	// backgroundPosition: 'center',
+	// backgroundImageSize: 'cover',
+	// backgroundSize:  'cover',
+	// height: '100%',
 	// paddingBottom:400
 }
 
@@ -41,7 +44,7 @@ const placement = {
 	header: { gridArea: 'header' },
 	new_todo : { gridArea: 'new_todo'},
 	main: { gridArea: 'main' },
-	select_view: { gridArea: 'select_view'},
+	// select_view: { gridArea: 'select_view'},
 }
 
 const bgstyle = {
@@ -61,7 +64,7 @@ class App extends Component {
 
 	componentDidMount() {
 		if (this.props.isAuthenticated) { 
-			return 	this.props.fetchTodos(); 
+			return this.props.fetchTodos(); 
 		}
 	}
 
@@ -69,57 +72,51 @@ class App extends Component {
 
 		const TodosPage = (
 
-			<div id = 'todosPage' >	
-			<Row >
-				<Col style = { styleCounter } >
+			<div id = 'todosPage' style = { placement.main }  >	
+				<Col >
 					<TaskCounter 
+					style = { styleCounter } 
 						todos = { this.props.todoArray } 
 						fetchTodos = { this.props.fetchTodos } 
 					/>
 				</Col>
+
 				<Col>
 					<TodoForm 
 						createTodo = { this.props.createTodo } 
 						owner = { this.props.user._id }
+						style = { { position: 'fixed'}}
 					/>
 				</Col>
+
 				<Col>
 					<TodoList todoArray = { this.props.todoArray } />
 				</Col>
-			</Row>
 
 			</div>	
-
 		);
 
 		return (
-			<div id = 'app_page' style = { gridStyle } >
+			<div className = 'App'  id = 'app_grid' style = { gridStyle  } >
 
-					<div id = 'app_header'  style = { placement.header } >
-						<Route  path = '/' component = { Header } />
-					</div>
-
-				<div id = 'app_grid'>
-
-					<div id = 'app_message' style = { placement.main } >
-						<FlashMessageList/>
-					</div>
-
-					<div id = 'app_main' style = { placement.main, appStyle} >
-						<Route exact path = '/' component = { HomePage } />
-						<Route path = '/about' component = { AboutPage } />
-						<Route path = '/login' component = { LoginPage } />
-						<Route path = '/register' component = { RegisterPage } />
-						<Route 
-							exact path = '/todos' 
-							component = { 
-								requireAuth(ReactDom.render = (props) => TodosPage) 
-							} 
-						/>
-					</div>
-
+				<div id = 'app_header'  style = { placement.header } >
+					<Route  path = '/' component = { Header } />
 				</div>
 
+				<div id = 'app_message' style = { placement.main } >
+					<FlashMessageList/>
+				</div>
+
+				<div id = 'app_main' style = { placement.main } >
+					<Route exact path = '/' component = { HomePage } />
+					<Route path = '/about' component = { AboutPage } />
+					<Route path = '/login' component = { LoginPage } />
+					<Route path = '/register' component = { RegisterPage } />
+					<Route exact path = '/todos' component = { 
+							requireAuth(ReactDom.render = (props) => TodosPage) 
+						} 
+					/>
+				</div>
 
 			</div>
 
