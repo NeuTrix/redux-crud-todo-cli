@@ -37,7 +37,7 @@ class TodoForm extends Component {
 		
 		this.state = {
 			date: normalizeDate(new Date()),
-			task: 'enter a new task here', 
+			task: '', 
 			rank: '',
 		 	owner: this.props.owner ,
 		}
@@ -46,9 +46,19 @@ class TodoForm extends Component {
 		this.handleChange = this.handleChange.bind(this)
 	}
 
+	reset() {
+		this.setState ({
+			date: normalizeDate(new Date()),
+			task: '', 
+			rank: '',
+		})
+	}
+
 	handleSubmit(e) {
 		e.preventDefault();
 		this.props.createTodo (this.state);
+		this.reset()
+		
 	};
 
 	handleChange(e) {
@@ -61,11 +71,11 @@ class TodoForm extends Component {
 			<form style = { gridStyle } onSubmit = { this.handleSubmit } >
 
 				<input 
-					placeholder = { this.state.task } 
+					value = { this.state.task }
 					onChange = { this.handleChange }
 					style = { placement.task }
+					placeholder = 'enter a new task here'
 					name = 'task'
-					autoFocus
 					required
 				/>
 
