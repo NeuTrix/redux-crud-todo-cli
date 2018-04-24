@@ -10,7 +10,6 @@ import { logout } from '../actions/loginActions';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 
 const style = { color: 'lightblue', textAlign: 'center' };
-const brandStyle = { color: 'whitesmoke', fontSize: '0.5em' };
 const logoutStyle ={ color: 'lime', textAlign: 'center' };
 
 // +++++++++   +++++++++ 
