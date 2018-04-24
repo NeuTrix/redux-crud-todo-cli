@@ -1,16 +1,7 @@
-// ... used to create new Todo items
+// ... Component to create new Todo items
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import normalizeDate from '../helpers/normalizeDate';
-import { 
-	Button, 
-	Col, 
-	Form, 
-	FormControl, 
-	Glyphicon, 
-	Grid, 
-	Row 
-} from 'react-bootstrap';
 
 // +++++++++ CSS  +++++++++ 
 
@@ -62,8 +53,7 @@ class TodoForm extends Component {
 
 	handleChange(e) {
 		e.preventDefault();
-		this.setState({ [ e.target.name ]: e.target.value})
-		console.log(this.state)
+		this.setState ({ [ e.target.name ]: e.target.value })
 	}
 
 	render () {
@@ -87,7 +77,6 @@ class TodoForm extends Component {
 					Submit 
 				</button>
 
-
 				<div id = 'priority' style = { placement.priority } >
 					{this.state.task}
 			 	</div>
@@ -95,8 +84,6 @@ class TodoForm extends Component {
 				<div id = 'date' style = { placement.date } >
 					date
 			 	</div>
-
-
 
 			</form>
 		)
