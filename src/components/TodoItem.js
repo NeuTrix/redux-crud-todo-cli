@@ -2,14 +2,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import normalizeDate from '../helpers/normalizeDate';
+import CheckComplete from './CheckComplete';
 
-// +++++++++ CSS  +++++++++ 
+// +++++++++ CSS +++++++++ 
 
 const gridStyle = {
 	display: 'grid',
 	gridTemplateAreas: 
 	` "task task task task " 
-		" done priority date action" ` ,
+		"done priority date action" ` ,
 	gridTemplateColumn: 'repeat (4, 1fr)',
 	gridTemplateRow: 50,
 	gridGap: 5,
@@ -22,6 +23,11 @@ const gridStyle = {
 
 const placement = {
 	task: { gridArea: 'task' },
+	done: { 
+		gridArea: 'done',
+		justifySelf: 'center',
+		alignSelf: 'center',		
+	 },
 	action: { gridArea: 'action' },
 	priority: { gridArea: 'priority' },
 	date: { gridArea: 'date' },
@@ -36,14 +42,16 @@ class TodoItem extends Component {
 		super(props);
 
 		this.state = {
-			date: normalizeDate(new Date()) ,
+			date: this.props.item.date.slice(0.10),
 			task: '', 
 			rank: 'Med',
 		 	owner: this.props.owner ,
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
-		this.handleClick = this.handleClick.bind(this)
+		this.handleDelete = this.handleDelete.bind(this)
+		this.handleDelete = this.handleDelete.bind(this)
+		this.handleEdit 	= this.handleEdit.bind(this)
 	}
 
 	handleSubmit(e) {
@@ -57,13 +65,21 @@ class TodoItem extends Component {
 		this.setState ({ [ e.target.name ]: e.target.value })
 	}
 
-	handleClick(e) {
+	handleDelete(e) {
 		e.preventDefault();
-		console.log(this.props.item._id)
 		// allow restricted global use of `confirm`
 		//eslint-disable-next-line
-		let _confirmed = confirm(`You are deleting the task : \n\t  "${this.props.item.task}" \n  Are you sure ?` ) 
-			
+		let _confirmed = confirm(`Do you want to delete the task : \n\t  "${this.props.item.task}" ?` ) 
+		if (_confirmed) {
+			this.props.deleteTodo(this.props.item._id)
+		} 
+	}
+
+	handleEdit(e) {
+		e.preventDefault();
+		// allow restricted global use of `confirm`
+		//eslint-disable-next-line
+		let _confirmed = confirm(`Do you want to delete the task : \n\t  "${this.props.item.task}" ?` ) 
 		if (_confirmed) {
 			this.props.deleteTodo(this.props.item._id)
 		} 
@@ -77,16 +93,22 @@ class TodoItem extends Component {
 				onSubmit = { this.handleSubmit } 
 			>
 				<input 
+					name = 'task'
 					style = { placement.task }
 					type = 'text'
-					name = 'task'
 					value = { this.props.item.task }
 					onChange = { this.handleChange }
 				/>
 
+				<input
+					name = 'complete'
+					style = { placement.done }
+					type = 'checkbox'
+				/>
+
 				<select
-					style = { placement.priority } 
 					name = 'rank'
+					style = { placement.priority } 
 					type = 'select'
 					value = { this.props.item.rank }
 					onChange = { this.handleChange }
@@ -97,17 +119,18 @@ class TodoItem extends Component {
 				</select>
 
 				<input 
-					style = { placement.date } 
 					name = 'date' 
+					style = { placement.date } 
 					type = 'date'
 					onChange = { this.handleChange }
-					defaultValue = { this.props.item.date }
+					value = { this.props.item.date.slice(0,10) }
 				/>
 
 				<button 
+					name = 'delete'
 					style = { placement.action } 
 					type = "button"
-					onClick = { this.handleClick}
+					onClick = { this.handleDelete}
 				> Delete </button> 
 
 			</form>
@@ -118,30 +141,18 @@ class TodoItem extends Component {
 // +++++++++ PROPS +++++++++ 
 
 TodoItem.propTypes = {
-	item: PropTypes.object.isRequired,
-	deleteTodo: PropTypes.func.isRequired,
 	createTodo: PropTypes.func.isRequired,
+	deleteTodo: PropTypes.func.isRequired,
+	editTodo: PropTypes.func.isRequired,
+	item: PropTypes.object.isRequired,
 	owner: PropTypes.string.isRequired
 };
 
 TodoItem.defaultProps = {
-	deleteTodo: f => f,
-	createTodo: f => f,
+	createTodo: f => alert("default function triggered"),
+	deleteTodo: f => alert("default function triggered"),
+	editTodo: f => alert("default function triggered"),
 	owner: 'Default from APP.js'
 };
-
-/*const mapStateToProps = (state, ownProps) => {
-	return { item: ownProps.item };	
-};
-
-const mapDispatchToProps = (dispatch) => {
-	return {
-		deleteTodo: (_id) => dispatch (deleteTodo (_id)),
-		editTodo: (_id, edit) => dispatch (editTodo (_id, edit)), 
-		removeTodo: (_id) => dispatch (removeTodo (_id)),
-	};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TodoItem);*/
 
 export default TodoItem;

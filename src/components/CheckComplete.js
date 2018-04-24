@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Col, Glyphicon } from 'react-bootstrap';
 
 const style = {
-	paddingTop: 3,
+	// paddingTop: 3,
 	color: 'steelblue',
 	fontSize: '1.5em',
 };
