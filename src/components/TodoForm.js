@@ -35,12 +35,10 @@ class TodoForm extends Component {
 
 		super(props);
 
-		// let _currentDate = normalizeDate(new Date()); // formatted date
-		
 		this.state = {
 			date: normalizeDate(new Date()) ,
 			task: '', 
-			rank: '',
+			rank: 'Med',
 		 	owner: this.props.owner ,
 		}
 
@@ -49,10 +47,9 @@ class TodoForm extends Component {
 	}
 
 	handleSubmit(e) {
-		e.preventDefault();
+		e.preventDefault ();
 		this.props.createTodo (this.state);
 		this.setState ({ task: ''})
-		console.log(this.state)
 	};
 
 	handleChange(e) {
@@ -62,38 +59,50 @@ class TodoForm extends Component {
 
 	render () {
 		return (
-			<form style = { gridStyle } onSubmit = { this.handleSubmit } >
-
+			<form 
+				class = 'TodoForm' 
+				style = { gridStyle } 
+				onSubmit = { this.handleSubmit } 
+			>
 				<input 
+					id = 'new_item_task'
+					style = { placement.task }
 					type = 'text'
 					name = 'task'
 					value = { this.state.task }
 					onChange = { this.handleChange }
-					style = { placement.task }
 					placeholder = 'enter a new task here'
 					autoFocus
 					required
 				/>
 
-				<div 
-					id = 'priority' 
-					style = { placement.priority } >
-			 	</div>
+				<select
+					id = 'new_item_priority' 
+					style = { placement.priority } 
+					name = 'rank'
+					type = 'select'
+					value = { this.state.rank }
+					onChange = { this.handleChange }
+			 	> 
+					<option value = 'High'> High	</option>
+					<option value = 'Med'>	Med		</option>
+					<option value = 'Low'>	Low		</option>
+				</select>
 
 				<input 
+					id = 'new_item_date'
+					style = { placement.date } 
 					name = 'date' 
 					type = 'date'
 					onChange = { this.handleChange }
 					defaultValue = { this.state.date }
-					style = { placement.date } 
 				/>
 
 				<button 
-					name = 'action' 
-					type = "Submit"
+					id = 'new_item_submit'
 					style = { placement.action } 
-					
-				/> 
+					type = "Submit"
+				> Add </button> 
 
 			</form>
 		)
