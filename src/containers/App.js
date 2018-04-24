@@ -94,26 +94,26 @@ class App extends Component {
 // +++++++++ PROPS +++++++++ 
 
 App.propTypes = { 
-	createTodo:    PropTypes.func.isRequired,
-	fetchTodos:    PropTypes.func.isRequired,
-	isAuthenticated: PropTypes.bool,
-	todoArray: 	PropTypes.array.isRequired,
-	user: PropTypes.object.isRequired
+	createTodo:    		PropTypes.func.isRequired,
+	fetchTodos:    		PropTypes.func.isRequired,
+	isAuthenticated: 	PropTypes.bool,
+	todoArray: 				PropTypes.array.isRequired,
+	user: 						PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => {
 	return {
-		isAuthenticated: state.authApi.isAuthenticated,
-		todoArray: state.todos,
-		user: state.authApi.user,
+		isAuthenticated: 	state.authApi.isAuthenticated,
+		todoArray: 				state.todos,
+		user: 						state.authApi.user,
 	};
 }; 
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		createTodo: (task) => { dispatch (createTodo (task)); },
-		fetchTodos: () => { dispatch(fetchTodos()); }
+		fetchTodos: () => 		{ dispatch(fetchTodos()); },
 	};
 }; 
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect (mapStateToProps, mapDispatchToProps) (App);
