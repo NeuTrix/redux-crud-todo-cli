@@ -12,14 +12,16 @@ const gridStyle = {
 		"action priority date" ` ,
 	gridTemplateColumn: '30px 30px 30px',
 	gridTemplateRow: 50,
-	height: 50,
-	width: 'auto'
+	gridRowGap: 5,
+
+	backgroundColor: 'transparent',
+	padding: 5,
+	border: '2px solid lime',
+	borderRadius: 5,
 }
 
 const placement = {
-	task: { 
-		gridArea: 'task', 
-},
+	task: { gridArea: 'task' },
 	action: { gridArea: 'action' },
 	priority: { gridArea: 'priority' },
 	date: { gridArea: 'date' },
@@ -46,19 +48,10 @@ class TodoForm extends Component {
 		this.handleChange = this.handleChange.bind(this)
 	}
 
-	reset() {
-		this.setState ({
-			date: normalizeDate(new Date()),
-			task: '', 
-			rank: '',
-		})
-	}
-
 	handleSubmit(e) {
 		e.preventDefault();
 		this.props.createTodo (this.state);
-		this.reset()
-		
+		this.setState ({ task: ''})
 	};
 
 	handleChange(e) {
@@ -71,11 +64,13 @@ class TodoForm extends Component {
 			<form style = { gridStyle } onSubmit = { this.handleSubmit } >
 
 				<input 
+					type = 'text'
 					value = { this.state.task }
 					onChange = { this.handleChange }
 					style = { placement.task }
 					placeholder = 'enter a new task here'
 					name = 'task'
+					autoFocus
 					required
 				/>
 
@@ -88,7 +83,6 @@ class TodoForm extends Component {
 				</button>
 
 				<div id = 'priority' style = { placement.priority } >
-					{this.state.task}
 			 	</div>
 
 				<div id = 'date' style = { placement.date } >
@@ -100,23 +94,17 @@ class TodoForm extends Component {
 	}
 };
 
-// +++++++++   +++++++++ 
+// +++++++++ PROPS +++++++++ 
 
 TodoForm.propTypes = {
 	addTodo: PropTypes.func.isRequired,
 	createTodo: PropTypes.func.isRequired,
-	_date: PropTypes.string.isRequired,
-	_rank: PropTypes.string.isRequired,
-	_task: PropTypes.string.isRequired,
 	owner: PropTypes.string.isRequired
 };
 
 TodoForm.defaultProps = {
 	addTodo: f => f,
 	createTodo: f => f,
-	_date: '2020-12-31',
-	_rank: '',
-	_task: 'Default- not connected',
 	owner: 'Default from APP.js'
 };
 
