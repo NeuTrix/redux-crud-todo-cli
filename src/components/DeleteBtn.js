@@ -6,8 +6,7 @@ import PropTypes from 'prop-types';
 const style = {
 	basic: {
 		display: 'flex',
-		justifySelf: 'center',
-		alignSelf: 'center',
+		justifyContent: 'center',
 		color: 'lightgrey', 
 		border: '1px solid lightgrey', 
 		backgroundColor: 'white' 
@@ -31,12 +30,12 @@ const DeleteBtn = (props) => {
 	}
 
 	return (
-		<div onClick= { handleDelete } style = { style.basic } > 
+		<button onClick= { handleDelete } style = { style.basic } > 
 			<i 
 				className = "fa fa-trash fa-lg" 
 				style = { style.glyph } 
 			> </i>
-		</div>
+		</button>
 	);
 };
 
