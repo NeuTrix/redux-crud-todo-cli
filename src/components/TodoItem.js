@@ -122,7 +122,7 @@ class TodoItem extends Component {
 					onFocus = { this.handleFocus }
 					onBlur = { this.handleBlur }
 				/>
-{(this.state.date)}
+				
 				<input
 					name = 'complete'
 					style = { placement.done }
