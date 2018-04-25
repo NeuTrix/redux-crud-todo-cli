@@ -47,9 +47,15 @@ class TodoItem extends Component {
 		// 	color: isComplete ? '#bbbbbb': 'grey',
 		// }
 
+<<<<<<< HEAD
 		// this.handleBlur 	= this.handleBlur.bind(this)
 		// this.handleChange = this.handleChange.bind(this)
 		// this.handleEdit 	= this.handleEdit.bind(this)
+=======
+		this.handleBlur 	= this.handleBlur.bind(this)
+		this.handleChange = this.handleChange.bind(this)
+		this.handleEdit 	= this.handleEdit.bind(this)
+>>>>>>> 2018-04-25GridRefactor
 		this.handleSubmit = this.handleSubmit.bind(this)
 	}
 
@@ -63,6 +69,7 @@ class TodoItem extends Component {
 	// 	this.setState ({ [ e.target.name ]: e.target.value })
 	// }
 
+<<<<<<< HEAD
 	// handleEdit(e) {
 	// 	e.preventDefault();
 	// 	if (this.state.completed) {
@@ -70,6 +77,15 @@ class TodoItem extends Component {
 	// 	} 
 	// 		e.target.setSelectionRange(0, e.target.value.length);
 	// }
+=======
+	handleEdit(e) {
+		e.preventDefault();
+		if (this.state.completed) {
+			alert('Please uncheck `completed` before editing')
+		} 
+			e.target.setSelectionRange(0, e.target.value.length);
+	}
+>>>>>>> 2018-04-25GridRefactor
 
 	handleSubmit(e) {
 		e.preventDefault ();
@@ -129,6 +145,7 @@ class TodoItem extends Component {
 
 				<DeleteBtn 
 					name = 'delete'
+					type = 'button'
 					style = {{ gridArea: 'delete' }} 
 					task = { task }
 					_id  = { _id }
