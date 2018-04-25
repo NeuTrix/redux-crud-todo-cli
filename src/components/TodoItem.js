@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import CheckComplete from './CheckComplete';
 import DeleteBtn from './DeleteBtn';
 
-
 // +++++++++ CSS +++++++++ 
 
 const gridStyle = {
@@ -127,6 +126,7 @@ class TodoItem extends Component {
 
 				<DeleteBtn 
 					name = 'delete'
+					type = 'button'
 					style = {{ gridArea: 'delete' }} 
 					task = { task }
 					_id  = { _id }

@@ -30,12 +30,12 @@ const DeleteBtn = (props) => {
 	}
 
 	return (
-		<button onClick= { handleDelete } style = { style.basic } > 
+		<div onClick= { handleDelete } style = { style.basic } > 
 			<i 
 				className = "fa fa-trash fa-lg" 
 				style = { style.glyph } 
 			> </i>
-		</button>
+		</div>
 	);
 };
 
