@@ -1,64 +1,59 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Col, Glyphicon } from 'react-bootstrap';
+import { Glyphicon } from 'react-bootstrap';
+
+// +++++++++ CSS +++++++++ 
 
 const style = {
-	display: 'flex',
-	color: 'steelblue',
-	fontSize: '1.25em',
-	justifySelf: 'left',
-	alignSelf: 'center',
+	basic: {display: 'flex', justifySelf: 'left', alignSelf: 'center'},
+	glyph: {color: 'steelblue', fontSize: '1.5em'}, 
 };
 
-// +++++++++   +++++++++ 
+// +++++++++ COMPONENT +++++++++ 
 
 class CheckComplete extends Component {
 			
 	constructor (props) {
 		super (props);
-		this.state = {
-			isChecked: this.props.completed
-		};
+		this.state = { completed: this.props.completed };
+		this.handleToggle = this.handleToggle.bind(this)
 	}
 
 	componentWillReceiveProps (newProps) {
-		this.setState({ 
-			isChecked: newProps.completed,
-		});
+		this.setState({ completed: newProps.completed });
 	}
 
+	handleToggle (e) {
+		e.preventDefault();
+		this.props.editTodo ( 
+			this.props._id, 
+			{ completed: ! this.state.completed }
+		);
+	};
+
 	render() {
-
-		const handleToggle = (e) => {
-			e.preventDefault();
-			this.props.editTodo ( 
-				this.props._id, 
-				{ completed: !this.state.isChecked }
-			);
-		};
-
 		const checked = ( 
-			<Glyphicon style = { style } glyph = 'check' /> 
+			<Glyphicon style = { style.glyph } glyph = 'check' /> 
 		);
 		
 		const unchecked = ( 
-			<Glyphicon style = { style } glyph = 'unchecked' /> 
+			<Glyphicon style = { style.glyph } glyph = 'unchecked' /> 
 		);
 
 		return (  
-			<Col 
+			<div 
 				className = 'checkComplete'
 				defaultChecked = { this.props.completed }
-				onClick = { handleToggle } 
-				style = { style }
+				onClick = { this.handleToggle } 
+				style = { style.basic }
 			> 
-				{ this.state.isChecked ? checked : unchecked }
-			</Col>
+				{ this.state.completed ? checked : unchecked }
+			</div>
 		);
 	}
 }
 
-// +++++++++   +++++++++ 
+// +++++++++ PROPS +++++++++ 
 
 CheckComplete.propTypes = {
 	_id: PropTypes.string.isRequired,
@@ -67,9 +62,9 @@ CheckComplete.propTypes = {
 };
 
 CheckComplete.defaultProps = {
-	_id: 'default' ,
+	_id : '',
 	completed: false,
-	editTodo: f => f,
+	editTodo: f => alert('default: check `CheckComplete` status'),
 };
 
 export default CheckComplete;

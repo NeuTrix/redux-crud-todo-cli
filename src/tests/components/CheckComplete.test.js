@@ -94,8 +94,8 @@ describe('The CheckComplete Component', () => {
 			expect(Object.keys(_state).length).to.eql(1);
 		});
 
-		it('... has an isChecked state ', () => {
-			expect(_state).to.have.property('isChecked');
+		it('... has a completed state ', () => {
+			expect(_state).to.have.property('completed');
 		});
 	});
 
