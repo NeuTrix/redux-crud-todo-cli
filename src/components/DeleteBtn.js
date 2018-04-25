@@ -5,14 +5,14 @@ import PropTypes from 'prop-types';
 
 const style = {
 	basic: {
+		display: 'flex',
+		justifyContent: 'center',
 		color: 'lightgrey', 
 		border: '1px solid lightgrey', 
 		backgroundColor: 'white' 
 	},
-	glyph: {
-		color: 'pink', 
-		paddingTop: 4 
-	}
+
+	glyph: { color: 'tomato' }
 }
 
 // +++++++++ COMPONENT  +++++++++ 
@@ -30,11 +30,11 @@ const DeleteBtn = (props) => {
 	}
 
 	return (
-		<button 
-			onClick= { handleDelete } 
-		> 
-			<i className = "fa fa-trash fa-lg" style = { style.glyph }  >
-			</i>
+		<button onClick= { handleDelete } style = { style.basic } > 
+			<i 
+				className = "fa fa-trash fa-lg" 
+				style = { style.glyph } 
+			> </i>
 		</button>
 	);
 };
@@ -46,7 +46,7 @@ DeleteBtn.propTypes = {
 };
 
 DeleteBtn.defaultProps = {
-	deleteTodo: f => 	alert('default fn.  Check deleteTodo props.') ,
+	deleteTodo: f => alert('default fn. Check deleteTodo props.') ,
 	_id: 'default',
  	task: 'default',
 };
