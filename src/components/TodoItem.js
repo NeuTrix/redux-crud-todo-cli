@@ -63,7 +63,7 @@ class TodoItem extends Component {
 	handleBlur(e) {
 		// const { task } = this.state;
 		e.preventDefault();
-		// this.props.editTodo(this.props.item._id, this.state)
+		this.props.editTodo(this.props.item._id, this.state)
 	}
 
 	handleChange(e) {
@@ -118,6 +118,7 @@ class TodoItem extends Component {
 					defaultValue = { this.state.task }
 					onChange = { this.handleChange }
 					onFocus = { this.handleFocus }
+					onBlur = { this.handleBlur }
 				/>
 
 				<input
