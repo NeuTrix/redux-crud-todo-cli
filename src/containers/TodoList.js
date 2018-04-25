@@ -29,6 +29,7 @@ class TodoList extends Component {
 				key = { shortid.generate() } 
 				item = { item } 
 				deleteTodo = { this.props.deleteTodo }
+				editTodo = { this.props.editTodo }
 			/>;
 		});
 
@@ -50,11 +51,13 @@ class TodoList extends Component {
 TodoList.propTypes = {
 	todoArray: PropTypes.array.isRequired,
 	deleteTodo: PropTypes.func.isRequired,
+	editTodo: PropTypes.func.isRequired,
 };
 
 TodoList.defaultProps = { 
 	todoArray: [],
-	deleteTodo: f => f,
+	deleteTodo: f => alert('default function.  check component props'),
+	editTodo: f => alert('default function.  check component props'),
 };
 
 export default TodoList;

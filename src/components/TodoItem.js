@@ -45,32 +45,30 @@ class TodoItem extends Component {
 		super(props);
 
 		this.state = {
+			completed: this.props.item.completed,
 			date: this.props.item.date.slice(0.10),
-			task: '', 
-			rank: 'Med',
-		 	owner: this.props.owner ,
+			rank: this.props.item.rank,
+			task: this.props.item.task, 
+		 	owner: this.props.item.owner,
 		}
-		this.handleSubmit = this.handleSubmit.bind(this)
+
+		this.handleBlur 	= this.handleBlur.bind(this)
 		this.handleChange = this.handleChange.bind(this)
 		this.handleDelete = this.handleDelete.bind(this)
-		this.handleDelete = this.handleDelete.bind(this)
 		this.handleEdit 	= this.handleEdit.bind(this)
+		this.handleFocus 	= this.handleFocus.bind(this)
+		this.handleSubmit = this.handleSubmit.bind(this)
 	}
 
-	handleSubmit(e) {
-		e.preventDefault ();
-		// this.props.createTodo (this.state);
-		this.setState ({ task: ''})
-	};
+	handleBlur(e) {
+		// const { task } = this.state;
+		e.preventDefault();
+		// this.props.editTodo(this.props.item._id, this.state)
+	}
 
 	handleChange(e) {
 		e.preventDefault();
 		this.setState ({ [ e.target.name ]: e.target.value })
-	}
-
-	handleFocus(e) {
-		e.preventDefault();
-		e.target.setSelectionRange(0, e.target.value.length);
 	}
 
 	handleDelete(e) {
@@ -87,11 +85,23 @@ class TodoItem extends Component {
 		e.preventDefault();
 		// allow restricted global use of `confirm`
 		//eslint-disable-next-line
-		let _confirmed = confirm(`Do you want to delete the task : \n\t  "${this.props.item.task}" ?` ) 
-		if (_confirmed) {
-			this.props.deleteTodo(this.props.item._id)
-		} 
+		// let _confirmed = confirm(`Do you want to delete the task : \n\t  "${this.props.item.task}" ?` ) 
+		// if (_confirmed) {
+		// 	this.props.deleteTodo(this.props.item._id)
+		// } 
 	}
+
+	handleFocus(e) {
+		e.preventDefault();
+		e.target.setSelectionRange(0, e.target.value.length);
+	}
+
+	handleSubmit(e) {
+		e.preventDefault ();
+		let currState = this.state 
+		this.props.editTodo (this.props.item._id, currState);
+		// this.setState(currState)
+	};
 
 	render () {
 		return (
@@ -100,11 +110,12 @@ class TodoItem extends Component {
 				style = { gridStyle } 
 				onSubmit = { this.handleSubmit } 
 			>
+			{ this.state.task }
 				<input 
 					name = 'task'
 					style = { placement.task }
 					type = 'text'
-					value = { this.props.item.task }
+					defaultValue = { this.state.task }
 					onChange = { this.handleChange }
 					onFocus = { this.handleFocus }
 				/>
@@ -119,7 +130,7 @@ class TodoItem extends Component {
 					name = 'rank'
 					style = { placement.priority } 
 					type = 'select'
-					value = { this.props.item.rank }
+					defaultValue = { this.state.rank }
 					onChange = { this.handleChange }
 			 	> 
 					<option value = 'High'> High	</option>
@@ -132,7 +143,7 @@ class TodoItem extends Component {
 					style = { placement.date } 
 					type = 'date'
 					onChange = { this.handleChange }
-					value = { this.props.item.date.slice(0,10) }
+					defaultValue = { this.state.date }
 				/>
 
 				<button 
@@ -150,7 +161,6 @@ class TodoItem extends Component {
 // +++++++++ PROPS +++++++++ 
 
 TodoItem.propTypes = {
-	createTodo: PropTypes.func.isRequired,
 	deleteTodo: PropTypes.func.isRequired,
 	editTodo: PropTypes.func.isRequired,
 	item: PropTypes.object.isRequired,
@@ -158,7 +168,6 @@ TodoItem.propTypes = {
 };
 
 TodoItem.defaultProps = {
-	createTodo: f => alert("default function triggered"),
 	deleteTodo: f => alert("default function triggered"),
 	editTodo: f => alert("default function triggered"),
 	owner: 'Default from APP.js'
