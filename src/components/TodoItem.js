@@ -48,7 +48,14 @@ class TodoItem extends Component {
 			date: (this.props.item.date ? this.props.item.date.slice(0,10) :''),
 			rank: this.props.item.rank,
 			task: this.props.item.task, 
-		 	owner: this.props.item.owner,
+		}
+
+		this.styleComplete = {
+			gridArea: 'task',
+			paddingLeft: '1em',
+			backgroundColor: 'whitesmoke',
+			textDecoration: 'line-through',
+			color: '#bbbbbb',
 		}
 
 		this.handleBlur 	= this.handleBlur.bind(this)
@@ -57,6 +64,12 @@ class TodoItem extends Component {
 		this.handleEdit 	= this.handleEdit.bind(this)
 		this.handleSubmit = this.handleSubmit.bind(this)
 	}
+
+isComplete() {
+	let basic = this.styleBasic;
+	let comp = this.styleComplete;
+	return this.state.completed ? comp : placement.task
+}
 
 // *
 	handleBlur(e) {
@@ -114,7 +127,7 @@ class TodoItem extends Component {
 			>
 				<input 
 					name = 'task'
-					style = { placement.task }
+					style = { this.isComplete() }
 					type = 'text'
 					defaultValue = { this.state.task }
 					onBlur = { this.handleBlur }
