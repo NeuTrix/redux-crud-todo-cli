@@ -2,8 +2,7 @@
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
 
-
-// +++++++++   +++++++++ 
+// +++++++++ COMPONENT  +++++++++ 
 
 class TodoTask extends Component {
 
@@ -11,64 +10,56 @@ class TodoTask extends Component {
 		super(props);
 
 		this.state = {
-			item: this.props.item,
-			task: this.props.item.task,
-			_id: this.props.item._id,
-			defStyle: this.props.style,
-			isComplete: this.props.item.completed,
-			isEditing: false,
-			editStyle: { backgroundColor: 'aliceBlue', color: 'navy'}
+			task: this.props.task,
+			_id: this.props._id,
 		};
 
-		this.handleBlur = this.handleBlur.bind(this);
-		this.handleChange = this.handleChange.bind(this);
-		this.handleClick = this.handleClick.bind(this);
-		this.handleFocus = this.handleFocus.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
-	}
+		const isComplete = this.state.completed 
 
-	componentWillReceiveProps (newProps) {
-		this.setState({ defStyle: newProps.style, isComplete: newProps.item.completed });
-	}
-
-	handleClick(e) {
-		e.preventDefault();
-		let { isComplete, editStyle } = this.state;
-
-		if (isComplete) {
-			alert(`completed is: "${isComplete}".\nPlease uncheck "completed" before continuing to edit`);
-			this.setState({ defStyle: this.props.style });
-		} else {
-			this.setState({ isEditing: true, defStyle: editStyle  });
+		this.style = {
+			display: 'grid',
+			paddingLeft: '1em',
+			backgroundColor: isComplete ?'whitesmoke' : 'orange',
+			textDecoration: isComplete ?'line-through': 'none',
+			color: isComplete ? '#bbbbbb': 'grey',
 		}
+
+		this.handleBlur 	= this.handleBlur.bind(this)
+		this.handleChange = this.handleChange.bind(this)
+		this.handleEdit 	= this.handleEdit.bind(this)
+		this.handleSubmit = this.handleSubmit.bind(this)
+
 	}
 
-	handleChange(e){
+	handleBlur(e) {
 		e.preventDefault();
-		this.setState({ task: e.target.value });
+		this.props.editTodo(this.props._id, this.state)
 	}
 
-	handleSubmit(e){
+	handleChange(e) {
 		e.preventDefault();
-		const { _id, task} = this.state;
-		this.props.editTodo( _id, {task: task});
+		this.setState ({ task: e.target.value })
 	}
 
-	handleFocus(e){
+	handleEdit(e) {
 		e.preventDefault();
-		e.target.setSelectionRange(0, e.target.value.length);
+		if (this.state.completed) {
+			alert('Please uncheck `completed` before editing')
+		} 
+			e.target.setSelectionRange(0, e.target.value.length);
 	}
 
-	handleBlur(e){
-		e.preventDefault();
-		const { _id, task} = this.state;
-		this.props.editTodo( _id, {task: task});
-	}
-	
+	handleSubmit(e) {
+		e.preventDefault ();
+		this.props.editTodo (this.props._id, this.state);
+	};
+
 	render () {
-		
+		// const { task, _id } = this.state;
+
 		return (
 			<input 
+			style = { this.state.style }
 				type = 'text'
 				defaultValue = { this.state.task }
 				onBlur = { this.handleBlur }
@@ -79,21 +70,16 @@ class TodoTask extends Component {
 	}
 }
 
-// +++++++++   +++++++++ 
+// +++++++++ PROPS +++++++++ 
 
 TodoTask.propTypes = {
-	deleteTodo: PropTypes.func.isRequired,
-	item: PropTypes.object.isRequired,
-	style: PropTypes.object.isRequired,
+	editTodo: PropTypes.func.isRequired,
+	_id: PropTypes.string.isRequired,
+	task: PropTypes.string.isRequired,
 };
 
 TodoTask.defaultProps = {
-	deleteTodo: f => f,
-	item: {
-		task: 'default from TodoTask.js',
-		completed: false
-	},
-	style: {},
+	editTodo: f => alert('error: TodoTask editTodo fn not rendering'),
 };
 
 export default TodoTask;

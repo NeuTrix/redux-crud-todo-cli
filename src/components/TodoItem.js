@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import CheckComplete from './CheckComplete';
 import DeleteBtn from './DeleteBtn';
-
+import TodoTask from './TodoTask';
 
 // +++++++++ CSS +++++++++ 
 
@@ -11,14 +11,13 @@ const gridStyle = {
 	display: 'grid',
 	gridTemplateAreas: 
 	` "task task task task " 
-		"done priority date delete" ` ,
+	"done rank date delete" ` ,
 	gridTemplateColumn: 'repeat (4, 1fr)',
-	gridTemplateRow: 50,
 	gridGap: 5,
 
 	backgroundColor: 'whitesmoke',
 	opacity: '0.95',
-	padding: 5,
+	// padding: 5,
 	border: '2px solid grey',
 	borderRadius: 5,
 }
@@ -29,6 +28,7 @@ class TodoItem extends Component {
 
 	constructor (props) {
 		super(props);
+
 		this.state = {
 			completed: this.props.item.completed,
 			date: (this.props.item.date.slice(0,10) :''),
@@ -37,39 +37,39 @@ class TodoItem extends Component {
 			_id: this.props.item._id,
 		}
 
-		const isComplete = this.state.completed 
+		// const isComplete = this.state.completed 
 
-		this.style = {
-			gridArea: 'task',
-			paddingLeft: '1em',
-			backgroundColor: isComplete ?'whitesmoke' : 'white',
-			textDecoration: isComplete ?'line-through': 'none',
-			color: isComplete ? '#bbbbbb': 'grey',
-		}
+		// this.style = {
+		// 	gridArea: 'task',
+		// 	paddingLeft: '1em',
+		// 	backgroundColor: isComplete ?'whitesmoke' : 'white',
+		// 	textDecoration: isComplete ?'line-through': 'none',
+		// 	color: isComplete ? '#bbbbbb': 'grey',
+		// }
 
-		this.handleBlur 	= this.handleBlur.bind(this)
-		this.handleChange = this.handleChange.bind(this)
-		this.handleEdit 	= this.handleEdit.bind(this)
+		// this.handleBlur 	= this.handleBlur.bind(this)
+		// this.handleChange = this.handleChange.bind(this)
+		// this.handleEdit 	= this.handleEdit.bind(this)
 		this.handleSubmit = this.handleSubmit.bind(this)
 	}
 
-	handleBlur(e) {
-		e.preventDefault();
-		this.props.editTodo(this.props.item._id, this.state)
-	}
+	// handleBlur(e) {
+	// 	e.preventDefault();
+	// 	this.props.editTodo(this.props.item._id, this.state)
+	// }
 
-	handleChange(e) {
-		e.preventDefault();
-		this.setState ({ [ e.target.name ]: e.target.value })
-	}
+	// handleChange(e) {
+	// 	e.preventDefault();
+	// 	this.setState ({ [ e.target.name ]: e.target.value })
+	// }
 
-	handleEdit(e) {
-		e.preventDefault();
-		if (this.state.completed) {
-			alert('Please uncheck `completed` before editing')
-		} 
-			e.target.setSelectionRange(0, e.target.value.length);
-	}
+	// handleEdit(e) {
+	// 	e.preventDefault();
+	// 	if (this.state.completed) {
+	// 		alert('Please uncheck `completed` before editing')
+	// 	} 
+	// 		e.target.setSelectionRange(0, e.target.value.length);
+	// }
 
 	handleSubmit(e) {
 		e.preventDefault ();
@@ -77,7 +77,7 @@ class TodoItem extends Component {
 	};
 
 	render () {
-		const { completed, date, rank, task, _id } = this.state
+		const { task, _id } = this.state
 
 		return (
 			<form 
@@ -85,14 +85,16 @@ class TodoItem extends Component {
 				style = { gridStyle } 
 				onSubmit = { this.handleSubmit } 
 			>
-				<input 
+				<TodoTask 
 					name = 'task'
-					style = { this.style}
-					type = 'text'
-					defaultValue = { this.state.task }
-					onBlur = { this.handleBlur }
-					onChange = { this.handleChange }
-					onFocus = { this.handleEdit }
+					style = {{ gridArea: 'task',
+					width: 
+					'100%', 
+						gridColumnEnd: 'span 4',
+					outline: '5px solid orange' }}
+					_id = { _id }
+					task = { task }
+					editTodo = { this.props.editTodo }
 				/>
 
 				<CheckComplete
@@ -105,7 +107,7 @@ class TodoItem extends Component {
 
 				<select
 					name = 'rank'
-					style = {{ gridArea: 'priority'}} 
+					style = {{ gridArea: 'rank'}} 
 					type = 'select'
 					defaultValue = { this.state.rank }
 					onBlur = { this.handleBlur }
