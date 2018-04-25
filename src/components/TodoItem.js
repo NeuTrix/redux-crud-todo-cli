@@ -56,13 +56,11 @@ class TodoItem extends Component {
 		this.handleChange = this.handleChange.bind(this)
 		this.handleDelete = this.handleDelete.bind(this)
 		this.handleEdit 	= this.handleEdit.bind(this)
-		this.handleFocus 	= this.handleFocus.bind(this)
 		this.handleSubmit = this.handleSubmit.bind(this)
 	}
 
 // *
 	handleBlur(e) {
-		// const { task } = this.state;
 		e.preventDefault();
 		this.props.editTodo(this.props.item._id, this.state)
 	}
@@ -86,18 +84,20 @@ class TodoItem extends Component {
 
 	handleEdit(e) {
 		e.preventDefault();
-		// allow restricted global use of `confirm`
-		//eslint-disable-next-line
-		// let _confirmed = confirm(`Do you want to delete the task : \n\t  "${this.props.item.task}" ?` ) 
-		// if (_confirmed) {
-		// 	this.props.deleteTodo(this.props.item._id)
-		// } 
-	}
+		if (! this.state.completed) {
+			e.target.setSelectionRange(0, e.target.value.length);
+			
+		} else {
 
-// *
-	handleFocus(e) {
-		e.preventDefault();
-		e.target.setSelectionRange(0, e.target.value.length);
+			// let completedStyle = { 
+			// 	textDecoration: 'line-through', 
+			// 	backgroundColor: 'lightgrey', 
+			// 	color: 'darkgrey'
+			// }
+
+			// placement.task = {...placement.task, ...completedStyle }
+			alert('Please uncheck `completed` box before editing')
+		}
 	}
 
 // *
@@ -119,10 +119,10 @@ class TodoItem extends Component {
 					type = 'text'
 					defaultValue = { this.state.task }
 					onChange = { this.handleChange }
-					onFocus = { this.handleFocus }
+					onFocus = { this.handleEdit }
 					onBlur = { this.handleBlur }
 				/>
-				
+
 				<input
 					name = 'complete'
 					style = { placement.done }
