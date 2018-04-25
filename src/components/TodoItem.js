@@ -1,7 +1,6 @@
 // ... Component to create new Todo items
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import normalizeDate from '../helpers/normalizeDate';
 import CheckComplete from './CheckComplete';
 
 // +++++++++ CSS +++++++++ 
@@ -46,7 +45,8 @@ class TodoItem extends Component {
 
 		this.state = {
 			completed: this.props.item.completed,
-			date: this.props.item.date.slice(0.10),
+			// date: normalizeDate(this.props.item.date),
+			date: this.props.item.date.slice(0,10),
 			rank: this.props.item.rank,
 			task: this.props.item.task, 
 		 	owner: this.props.item.owner,
@@ -122,7 +122,7 @@ class TodoItem extends Component {
 					onFocus = { this.handleFocus }
 					onBlur = { this.handleBlur }
 				/>
-
+{(this.state.date)}
 				<input
 					name = 'complete'
 					style = { placement.done }
