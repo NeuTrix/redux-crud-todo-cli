@@ -49,7 +49,6 @@ class TodoItem extends Component {
 
 		this.handleBlur 	= this.handleBlur.bind(this)
 		this.handleChange = this.handleChange.bind(this)
-		this.handleDelete = this.handleDelete.bind(this)
 		this.handleEdit 	= this.handleEdit.bind(this)
 		this.handleSubmit = this.handleSubmit.bind(this)
 	}
@@ -62,16 +61,6 @@ class TodoItem extends Component {
 	handleChange(e) {
 		e.preventDefault();
 		this.setState ({ [ e.target.name ]: e.target.value })
-	}
-
-	handleDelete(e) {
-		e.preventDefault();
-		// allow restricted global use of `confirm`
-		//eslint-disable-next-line
-		// let _confirmed = confirm(`Do you want to delete the task : \n\t  "${this.props.item.task}" ?` ) 
-		// if (_confirmed) {
-		// 	this.props.deleteTodo(this.props.item._id)
-		// } 
 	}
 
 	handleEdit(e) {
@@ -88,7 +77,7 @@ class TodoItem extends Component {
 	};
 
 	render () {
-		const { completed, date, rank, task, _id } = this.state
+		const { task, _id } = this.state
 
 		return (
 			<form 
@@ -138,6 +127,7 @@ class TodoItem extends Component {
 
 				<DeleteBtn 
 					name = 'delete'
+					type = 'button'
 					style = {{ gridArea: 'delete' }} 
 					task = { task }
 					_id  = { _id }
