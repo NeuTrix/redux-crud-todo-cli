@@ -20,9 +20,14 @@ const gridStyle = {
 	borderRadius: 5,
 }
 
-const placement = {
+const style = {
 	task: { gridArea: 'task', paddingLeft: '1em', },
-	action: { gridArea: 'action' },
+	action: { 
+		gridArea: 'action', 
+		border: '2px solid lime', 
+		backgroundColor: '#104165', 
+		color: "lime" 
+	},
 	priority: { gridArea: 'priority' },
 	date: { gridArea: 'date' },
 }
@@ -65,7 +70,7 @@ class TodoForm extends Component {
 			>
 				<input 
 					id = 'new_item_task'
-					style = { placement.task }
+					style = { style.task }
 					type = 'text'
 					name = 'task'
 					value = { this.state.task }
@@ -77,7 +82,7 @@ class TodoForm extends Component {
 
 				<select
 					id = 'new_item_priority' 
-					style = { placement.priority } 
+					style = { style.priority } 
 					name = 'rank'
 					type = 'select'
 					value = { this.state.rank }
@@ -90,7 +95,7 @@ class TodoForm extends Component {
 
 				<input 
 					id = 'new_item_date'
-					style = { placement.date } 
+					style = { style.date } 
 					name = 'date' 
 					type = 'date'
 					onChange = { this.handleChange }
@@ -99,9 +104,10 @@ class TodoForm extends Component {
 
 				<button 
 					id = 'new_item_submit'
-					style = { placement.action } 
+					style = { style.action } 
 					type = "Submit"
-				> Add </button> 
+				> <i className = "fa fa-plus fa-lg" ></i> 
+				</button> 
 
 			</form>
 		)
