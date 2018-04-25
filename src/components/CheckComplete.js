@@ -5,8 +5,12 @@ import { Glyphicon } from 'react-bootstrap';
 // +++++++++ CSS +++++++++ 
 
 const style = {
-	basic: {display: 'flex', justifySelf: 'left', alignSelf: 'center'},
-	glyph: {color: 'steelblue', fontSize: '1.5em'}, 
+	basic: {
+		display: 'flex', 
+		justifySelf: 'left', 
+		alignSelf: 'top',
+	},
+	glyph: { color: 'steelblue',  fontSize: '1.5em' }, 
 };
 
 // +++++++++ COMPONENT +++++++++ 
@@ -43,7 +47,6 @@ class CheckComplete extends Component {
 		return (  
 			<div 
 				className = 'checkComplete'
-				defaultChecked = { this.props.completed }
 				onClick = { this.handleToggle } 
 				style = { style.basic }
 			> 

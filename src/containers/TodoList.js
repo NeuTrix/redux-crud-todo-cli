@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Col, Grid, Row } from 'react-bootstrap';
 import TodoItem from '../components/TodoItem';
 import shortid from 'shortid';
 
-// +++++++++   +++++++++ 
+const style = {
+	display: 'grid',
+	gridTemplateColumns: '1fr',
+	gridTemplateRows: 'auto',
+	gridRowGap: 5,
+}
 
 class TodoList extends Component {
 	
@@ -16,15 +20,13 @@ class TodoList extends Component {
 	}
 
 	componentWillReceiveProps (newProps) {
-		this.setState({
-			todoArray: newProps.todoArray			
-		});
+		this.setState({ todoArray: newProps.todoArray });
 	}
 
 	render() {
+		let _todoArray = this.state.todoArray; 
 		
-		let _todoArray = this.state.todoArray;
-		let todos = _todoArray.map(item => {
+		let todos = _todoArray.map (item => {
 			return <TodoItem 
 				key = { shortid.generate() } 
 				item = { item } 
@@ -34,14 +36,9 @@ class TodoList extends Component {
 		});
 
 		return (
-			<Grid  >
-				<Row className = 'todoItems' >
-					
-					<Col lg = { 12 } >
-						{ todos.reverse() } 
-					</Col>
-				</Row>
-			</Grid>
+			<div className = 'todoItems' style = { style } >
+					{ todos.reverse() } 
+			</div>
 		);
 	}
 } 

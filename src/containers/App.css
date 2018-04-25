@@ -4,15 +4,13 @@
 }
 
 .App {
-
 	background-image: url('../assets/futureBack.png');
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;
-	/*backgroundAttachment: fixed;*/
-	/*min-height: 100%;*/
-	paddingBottom:400;
-	min-height: 400px;
+	padding: 10px;
+	padding-bottom:400px;
+	min-height: 760px;
 }
 
 @keyframes App-logo-spin {

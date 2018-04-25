@@ -15,6 +15,7 @@ const gridStyle = {
 	gridGap: 5,
 
 	backgroundColor: 'whitesmoke',
+	opacity: '0.95',
 	padding: 5,
 	border: '2px solid grey',
 	borderRadius: 5,
@@ -42,7 +43,7 @@ class TodoItem extends Component {
 			textDecoration: isComplete ?'line-through': 'none',
 			color: isComplete ? '#bbbbbb': 'grey',
 		}
-		
+
 		this.handleBlur 	= this.handleBlur.bind(this)
 		this.handleChange = this.handleChange.bind(this)
 		this.handleDelete = this.handleDelete.bind(this)

@@ -28,6 +28,7 @@ const gridStyle = {
 	gridTemplateAreas: ' "header" "status_bar" "new_todo"  "main" ',
 	gridTemplateColumn: '1fr',
 	gridTemplateRows: 'auto',
+	gridGap: '5px',
 }
 
 const placement = {
