@@ -1,3 +1,5 @@
+// Component removed. Saving test template
+
 /* eslint-env mocha, chai */
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -5,16 +7,16 @@ import { expect } from 'chai';
 import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import store from '../../store/store';
-import TodoTask from '../../components/TodoTask';
+// import TodoTask from '../../components/TodoTask';
 
 it ('renders without crashing', () => {
-	const div = document.createElement('div');
-	ReactDOM.render(
-		<TodoTask  />, div
-	);
+	// const div = document.createElement('div');
+	// ReactDOM.render(
+	// 	<TodoTask  />, div
+	// );
 });
 
-describe ('The TodoTask Component', () => {
+xdescribe ('The TodoTask Component', () => {
 	let props; // default props to clear objects before each test
 	let mountedTodoTask; // the mounted object
 

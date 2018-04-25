@@ -53,9 +53,9 @@ describe ('The DeleteBtn Component', () => {
 			expect (deleteButtons.length).to.be.eql(1);
 		});
 
-		it ('always renders (1) inner Button component ', () => {
-			expect (_buttons.length).to.be.eql(1);
-		});
+		// xit ('always renders (1) inner Button component ', () => {
+		// 	expect (_buttons.length).to.be.eql(1);
+		// });
 	});
 
 	describe (' Then component PROPS...', () => {
