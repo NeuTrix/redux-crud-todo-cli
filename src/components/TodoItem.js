@@ -45,8 +45,7 @@ class TodoItem extends Component {
 
 		this.state = {
 			completed: this.props.item.completed,
-			// date: normalizeDate(this.props.item.date),
-			date: this.props.item.date.slice(0,10),
+			date: (this.props.item.date ? this.props.item.date.slice(0,10) :''),
 			rank: this.props.item.rank,
 			task: this.props.item.task, 
 		 	owner: this.props.item.owner,
@@ -118,15 +117,17 @@ class TodoItem extends Component {
 					style = { placement.task }
 					type = 'text'
 					defaultValue = { this.state.task }
+					onBlur = { this.handleBlur }
 					onChange = { this.handleChange }
 					onFocus = { this.handleEdit }
-					onBlur = { this.handleBlur }
 				/>
 
-				<input
+				<CheckComplete
 					name = 'complete'
+					_id = { this.props.item._id }
+					completed = { this.state.completed }
+					editTodo = { this.props.editTodo }
 					style = { placement.done }
-					type = 'checkbox'
 				/>
 
 				<select
@@ -134,6 +135,7 @@ class TodoItem extends Component {
 					style = { placement.priority } 
 					type = 'select'
 					defaultValue = { this.state.rank }
+					onBlur = { this.handleBlur }
 					onChange = { this.handleChange }
 			 	> 
 					<option value = 'High'> High	</option>
@@ -145,6 +147,7 @@ class TodoItem extends Component {
 					name = 'date' 
 					style = { placement.date } 
 					type = 'date'
+					onBlur = { this.handleBlur }
 					onChange = { this.handleChange }
 					defaultValue = { this.state.date }
 				/>
@@ -171,6 +174,7 @@ TodoItem.propTypes = {
 };
 
 TodoItem.defaultProps = {
+	item: {},
 	deleteTodo: f => alert("default function triggered"),
 	editTodo: f => alert("default function triggered"),
 	owner: 'Default from APP.js'
