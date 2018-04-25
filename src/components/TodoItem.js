@@ -60,17 +60,20 @@ class TodoItem extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this)
 	}
 
+// *
 	handleBlur(e) {
 		// const { task } = this.state;
 		e.preventDefault();
 		this.props.editTodo(this.props.item._id, this.state)
 	}
 
+// *
 	handleChange(e) {
 		e.preventDefault();
 		this.setState ({ [ e.target.name ]: e.target.value })
 	}
 
+// *
 	handleDelete(e) {
 		e.preventDefault();
 		// allow restricted global use of `confirm`
@@ -91,16 +94,16 @@ class TodoItem extends Component {
 		// } 
 	}
 
+// *
 	handleFocus(e) {
 		e.preventDefault();
 		e.target.setSelectionRange(0, e.target.value.length);
 	}
 
+// *
 	handleSubmit(e) {
 		e.preventDefault ();
-		let currState = this.state 
-		this.props.editTodo (this.props.item._id, currState);
-		// this.setState(currState)
+		this.props.editTodo (this.props.item._id, this.state);
 	};
 
 	render () {
@@ -110,7 +113,6 @@ class TodoItem extends Component {
 				style = { gridStyle } 
 				onSubmit = { this.handleSubmit } 
 			>
-			{ this.state.task }
 				<input 
 					name = 'task'
 					style = { placement.task }
