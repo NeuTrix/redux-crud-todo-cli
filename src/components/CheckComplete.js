@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import { Col, Glyphicon } from 'react-bootstrap';
 
 const style = {
-	// paddingTop: 3,
+	display: 'flex',
 	color: 'steelblue',
-	fontSize: '1.5em',
+	fontSize: '1.25em',
+	justifySelf: 'left',
+	alignSelf: 'center',
 };
 
 // +++++++++   +++++++++ 
@@ -48,7 +50,7 @@ class CheckComplete extends Component {
 				className = 'checkComplete'
 				defaultChecked = { this.props.completed }
 				onClick = { handleToggle } 
-				style = { { textAlign: 'right' }}
+				style = { style }
 			> 
 				{ this.state.isChecked ? checked : unchecked }
 			</Col>
