@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
+import 'font-awesome/css/font-awesome.min.css';
 import './index.css';
 import App from './containers/App';
 import setAuthorizationToken from './components/auth/setAuthToken';

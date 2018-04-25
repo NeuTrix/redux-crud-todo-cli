@@ -5,11 +5,7 @@ import { Glyphicon } from 'react-bootstrap';
 // +++++++++ CSS +++++++++ 
 
 const style = {
-	basic: {
-		display: 'flex', 
-		justifySelf: 'left', 
-		alignSelf: 'top',
-	},
+	basic: { display: 'flex', justifySelf: 'left', alignSelf: 'top' },
 	glyph: { color: 'steelblue',  fontSize: '1.5em' }, 
 };
 

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import CheckComplete from './CheckComplete';
 
+
 // +++++++++ CSS +++++++++ 
 
 const gridStyle = {
@@ -91,7 +92,6 @@ class TodoItem extends Component {
 				style = { gridStyle } 
 				onSubmit = { this.handleSubmit } 
 			>
-
 				<input 
 					name = 'task'
 					style = { this.style}
@@ -101,6 +101,7 @@ class TodoItem extends Component {
 					onChange = { this.handleChange }
 					onFocus = { this.handleEdit }
 				/>
+
 
 				<CheckComplete
 					name = 'complete'

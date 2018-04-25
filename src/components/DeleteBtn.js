@@ -2,51 +2,57 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Glyphicon } from 'react-bootstrap';
 
-const styleGlyph = { 
-	color: 'pink', 
-	paddingTop: 4 
-};
+// +++++++++ CSS  +++++++++ 
 
-const styleBtn = { 
-	color: 'lightgrey', 
-	border: '1px solid lightgrey', 
-	backgroundColor: 'white' 
-};
+const style = {
+
+	basic: {
+		color: 'lightgrey', 
+		border: '1px solid lightgrey', 
+		backgroundColor: 'white' 
+	},
+
+	glyph: {
+		color: 'pink', 
+		paddingTop: 4 
+	}
+}
+
+// +++++++++ COMPONENT  +++++++++ 
 
 const DeleteBtn = (props) => {
 
-	const handleClick = (event) => {
-		event.preventDefault();
+	const handleDelete(e) => {
+		e.preventDefault();
 		// allow restricted global use of `confirm`
-		//eslint-disable-next-line
-		let _confirmed = confirm(`You are deleting the task : \n\t  "${props.task}" \n  Are you sure ?` ) 
-			
+		// eslint-disable-next-line
+		let _confirmed = confirm(`Do you want to delete the task : \n\t  "${props.item.task}" ?` ) 
 		if (_confirmed) {
-			return props.deleteTodo(props._id);
+			props.deleteTodo(props.item._id)
 		} 
-	};
+	}
 
 	return (
-		<Button 
+		<button 
 			className= { 'btn btn-sm' }
 			style = { styleBtn }
 			onClick= { handleClick } 
 		> 
 			<Glyphicon glyph = 'remove' style  = { styleGlyph } /> 
-		</Button>
+		</button>
 	);
 };
 
 DeleteBtn.propTypes = {
+	deleteTodo: PropTypes.func.isRequired,
 	_id: PropTypes.string.isRequired,
 	task: PropTypes.string.isRequired,
-	deleteTodo: PropTypes.func.isRequired,
 };
 
 DeleteBtn.defaultProps = {
- 	task: 'default',
+	deleteTodo: f => 	alert('default fn.  Check deleteTodo props.') ,
 	_id: 'default',
-	deleteTodo: f => f,
+ 	task: 'default',
 };
 
 export default DeleteBtn;
