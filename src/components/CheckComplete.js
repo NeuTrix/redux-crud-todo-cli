@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Glyphicon } from 'react-bootstrap';
 
 // +++++++++ CSS +++++++++ 
 
 const style = {
-	basic: { display: 'flex', justifySelf: 'left', alignSelf: 'top' },
-	glyph: { color: 'steelblue',  fontSize: '1.5em' }, 
+	basic: { 
+		display: 'flex', 
+		justifySelf: 'left', 
+		alignSelf: 'center' ,
+	},
+
+	glyph: { 
+		display: 'flex',
+		text:"red",
+		color: 'steelblue',  
+		fontSize: '1.5em' ,
+		justifySelf: 'left', 
+		alignSelf: 'center' 
+	}, 
 };
 
 // +++++++++ COMPONENT +++++++++ 
@@ -19,9 +30,9 @@ class CheckComplete extends Component {
 		this.handleToggle = this.handleToggle.bind(this)
 	}
 
-	componentWillReceiveProps (newProps) {
-		this.setState({ completed: newProps.completed });
-	}
+	// componentWillReceiveProps (newProps) {
+	// 	this.setState({ completed: newProps.completed });
+	// }
 
 	handleToggle (e) {
 		e.preventDefault();
@@ -33,20 +44,18 @@ class CheckComplete extends Component {
 
 	render() {
 		const checked = ( 
-			<Glyphicon style = { style.glyph } glyph = 'check' /> 
+			<i className = "fa fa-check-square-o fa-lg" style = { style.glyph }> </i>
 		);
 		
 		const unchecked = ( 
-			<Glyphicon style = { style.glyph } glyph = 'unchecked' /> 
+			<i className = "fa fa-square-o fa-lg" style = { style.glyph }> </i>
 		);
 
 		return (  
-			<div 
-				className = 'checkComplete'
+			<div className = 'checkComplete'
 				onClick = { this.handleToggle } 
 				style = { style.basic }
-			> 
-				{ this.state.completed ? checked : unchecked }
+			> { this.state.completed ? checked : unchecked }
 			</div>
 		);
 	}

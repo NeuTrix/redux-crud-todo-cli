@@ -3,12 +3,17 @@ import PropTypes from 'prop-types';
 import TodoItem from '../components/TodoItem';
 import shortid from 'shortid';
 
+// +++++++++ CSS +++++++++ 
+
 const style = {
 	display: 'grid',
+	gridTemplateAreas: `"todoItems"`,
 	gridTemplateColumns: '1fr',
 	gridTemplateRows: 'auto',
 	gridRowGap: 5,
 }
+
+// +++++++++ COMPONENT  +++++++++ 
 
 class TodoList extends Component {
 	
@@ -36,14 +41,14 @@ class TodoList extends Component {
 		});
 
 		return (
-			<div className = 'todoItems' style = { style } >
+			<div className = 'TodoList' style = { style } >
 					{ todos.reverse() } 
 			</div>
 		);
 	}
 } 
 
-// +++++++++   +++++++++ 
+// +++++++++ PROPS +++++++++ 
 
 TodoList.propTypes = {
 	todoArray: PropTypes.array.isRequired,

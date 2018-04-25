@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import CheckComplete from './CheckComplete';
+import DeleteBtn from './DeleteBtn';
 
 
 // +++++++++ CSS +++++++++ 
@@ -33,6 +34,7 @@ class TodoItem extends Component {
 			date: (this.props.item.date.slice(0,10) :''),
 			rank: this.props.item.rank,
 			task: this.props.item.task, 
+			_id: this.props.item._id,
 		}
 
 		const isComplete = this.state.completed 
@@ -66,10 +68,10 @@ class TodoItem extends Component {
 		e.preventDefault();
 		// allow restricted global use of `confirm`
 		//eslint-disable-next-line
-		let _confirmed = confirm(`Do you want to delete the task : \n\t  "${this.props.item.task}" ?` ) 
-		if (_confirmed) {
-			this.props.deleteTodo(this.props.item._id)
-		} 
+		// let _confirmed = confirm(`Do you want to delete the task : \n\t  "${this.props.item.task}" ?` ) 
+		// if (_confirmed) {
+		// 	this.props.deleteTodo(this.props.item._id)
+		// } 
 	}
 
 	handleEdit(e) {
@@ -86,6 +88,8 @@ class TodoItem extends Component {
 	};
 
 	render () {
+		const { completed, date, rank, task, _id } = this.state
+
 		return (
 			<form 
 				className = 'TodoItem' 
@@ -101,7 +105,6 @@ class TodoItem extends Component {
 					onChange = { this.handleChange }
 					onFocus = { this.handleEdit }
 				/>
-
 
 				<CheckComplete
 					name = 'complete'
@@ -133,12 +136,13 @@ class TodoItem extends Component {
 					defaultValue = { this.state.date }
 				/>
 
-				<button 
+				<DeleteBtn 
 					name = 'delete'
 					style = {{ gridArea: 'delete' }} 
-					type = "button"
-					onClick = { this.handleDelete}
-				> Delete </button> 
+					task = { task }
+					_id  = { _id }
+					deleteTodo = { this.props.deleteTodo }
+				/> 
 
 			</form>
 		)

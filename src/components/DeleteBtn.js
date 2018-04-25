@@ -1,17 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Glyphicon } from 'react-bootstrap';
 
 // +++++++++ CSS  +++++++++ 
 
 const style = {
-
 	basic: {
 		color: 'lightgrey', 
 		border: '1px solid lightgrey', 
 		backgroundColor: 'white' 
 	},
-
 	glyph: {
 		color: 'pink', 
 		paddingTop: 4 
@@ -22,23 +19,22 @@ const style = {
 
 const DeleteBtn = (props) => {
 
-	const handleDelete(e) => {
+	const handleDelete = (e) => {
 		e.preventDefault();
 		// allow restricted global use of `confirm`
 		// eslint-disable-next-line
-		let _confirmed = confirm(`Do you want to delete the task : \n\t  "${props.item.task}" ?` ) 
+		let _confirmed = confirm(`Do you want to delete the task : \n\t  "${props.task}" ?` ) 
 		if (_confirmed) {
-			props.deleteTodo(props.item._id)
+			props.deleteTodo(props._id)
 		} 
 	}
 
 	return (
 		<button 
-			className= { 'btn btn-sm' }
-			style = { styleBtn }
-			onClick= { handleClick } 
+			onClick= { handleDelete } 
 		> 
-			<Glyphicon glyph = 'remove' style  = { styleGlyph } /> 
+			<i className = "fa fa-trash fa-lg" style = { style.glyph }  >
+			</i>
 		</button>
 	);
 };
