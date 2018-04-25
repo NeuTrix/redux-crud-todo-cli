@@ -1,15 +1,7 @@
 
 import React, { Component }  from 'react';
 import PropTypes from 'prop-types';
-import DeleteBtn from '../components/DeleteBtn';
-import { Col, Form, FormControl, Row } from 'react-bootstrap';
 
-const space = { 
-	xs: { form: 10, delt: 1 }, 
-	sm: { form: 10, delt: 1 }, 
-	md: { form: 11, delt: 1 }, 
-	lg: { form: 11, delt: 1 }, 
-};
 
 // +++++++++   +++++++++ 
 
@@ -76,47 +68,13 @@ class TodoTask extends Component {
 	render () {
 		
 		return (
-			<div>
-				<Row style = {{ marginBottom: 4 }} >
-					<Form onSubmit = { this.handleSubmit } >
-						<Col 
-							xs = { space.xs.form } 
-							sm = { space.sm.form } 
-							md = { space.md.form } 
-							lg = { space.lg.form } 
-						>
-							<FormControl 
-								className = 'task' 
-								name = 'task'
-								defaultValue = { this.props.item.task }
-								required
-								style = { this.state.defStyle }
-								type = 'text'  
-								onClick = { this.handleClick }
-								onChange = { this.handleChange }
-								onFocus =  { this.handleFocus }
-								onBlur = { this.handleBlur}
-							/> 
-						</Col>
-
-						<Col 
-							className = 'delete'
-							style = {{ textAlign: 'left' }}
-							xs = { space.xs.delt } 
-							sm = { space.sm.delt } 
-							md = { space.md.delt } 
-							lg = { space.lg.delt }
-						>
-							<DeleteBtn 
-								task = { this.props.item.task } 
-								_id = { this.props.item._id }
-								deleteTodo = { this.props.deleteTodo } 
-							/>
-						</Col>
-
-					</Form>
-				</Row>
-			</div>
+			<input 
+				type = 'text'
+				defaultValue = { this.state.task }
+				onBlur = { this.handleBlur }
+				onChange = { this.handleChange }
+				onFocus = { this.handleEdit }
+			/>
 		);
 	}
 }
