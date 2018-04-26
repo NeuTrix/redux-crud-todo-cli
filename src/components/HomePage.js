@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// +++++++++ CSS +++++++++ 
+
 const style = {
-// grid layout
+
+	// grid layout
 	grid : {
 		display: 'grid',
 		gridTemplateAreas: 
@@ -14,21 +17,33 @@ const style = {
 		gridTemplateColumns: 'repeat(4, 1fr)',
 		gridGap: '25px 5px',
 
-	  //  base styling
 		background: 'white',
-		// opacity: '0.8',
 		padding: 15,
 	},
 
 	//callouts
+	title: { 
+		gridArea: 'title' 
+	},
 
-	title: { gridArea: 'title' },
-	subt: { gridArea: 'subt', border: 'none', background: 'white' },
-	apps: { color: 'orange', borderColor: 'orange', opacity: 1, },
-	feats: { color: 'steelblue', borderColor: 'steelblue' },
+	subt: { 
+		gridArea: 'subt', 
+		border: 'none', 
+		background: 'white' 
+	},
+
+	apps: { 
+		color: 'orange', 
+		borderColor: 'orange', 
+		opacity: 1, 
+	},
+
+	feats: { 
+		color: 'steelblue', 
+		borderColor: 'steelblue' 
+	},
 
 	// buttons
-
 	login: { 
 		backgroundColor: 'lightgreen', 
 		borderColor: 'green',
@@ -42,60 +57,88 @@ const style = {
 	},
 };
 
-// +++++++++ COMPONENT  +++++++++ 
+// +++++++++ COMPONENT +++++++++ 
 
 const HomePage = (props) => {
 	return (
 		<div className = 'box ' style = { style.grid } >
 			
-			<div className = 'box material' style = {{ gridArea: 'title'}, style.title} > 
+			<div 
+				className = 'box material' 
+				style = {{ gridArea: 'title'}, style.title} > 
 				<h3>React-Todo (beta)</h3> 
 			</div>  
 
-			<div className = 'box' style = { style.subt } > 
+			<div 
+				className = 'box' 
+				style = { style.subt } > 
 				<h5>... a little Fullstack MERN CRUD web app featuring:</h5> 
 			</div>  
 
-			<div className = 'box material' className = 'callout box material' style = {{ gridColumn: '1 / 2' }, style.apps } >  
+			<div 
+				className = 'callout box material' 
+				style = {{ gridColumn: '1 / 2' }, style.apps } 
+			>  
 				<h4>Mongo</h4>
 			</div> 
 
-			<div className = 'callout box material' style = {{ gridColumn: '2 / 3' }, style.apps } >  
+			<div 
+				className = 'callout box material' 
+				style = {{ gridColumn: '2 / 3' }, style.apps } 
+			>  
 				<h4>Express</h4>
 			</div> 
 
-			<div className = 'callout box material' style = {{ gridColumn: '4 / 5' }, style.apps } >  
+			<div 
+				className = 'callout box material' 
+				style = {{ gridColumn: '4 / 5' }, style.apps } 
+			>  
 				<h4>React</h4>
 			</div> 
 
-			<div className = 'callout box material' style = {{ gridColumn: '3 / 4' }, style.apps } >  
+			<div 
+				className = 'callout box material' 
+				style = {{ gridColumn: '3 / 4' }, style.apps } 
+			>  
 				<h4>NodeJS</h4>
 			</div> 
 
-			<div className = 'callout box material' style = {{ gridColumn: '1 / 2' }, style.feats } >  
+			<div 
+				className = 'callout box material' 
+				style = {{ gridColumn: '1 / 2' }, style.feats } 
+			>  
 				<h5>Decoupled</h5>
 			</div> 
 
-			<div className = 'callout box material' style = {{ gridColumn: '2 / 3' }, style.feats } >  
+			<div 
+				className = 'callout box material' 
+				style = {{ gridColumn: '2 / 3' }, style.feats } 
+			>  
 				<h5>CSS Grid</h5>
 			</div> 
 
-			<div className = 'callout box material' style = {{ gridColumn: '4 / 5' }, style.feats } >  
+			<div 
+				className = 'callout box material' 
+				style = {{ gridColumn: '4 / 5' }, style.feats } 
+			>  
 				<h5>Redux</h5>
 			</div> 
 
-			<div className = 'callout box material' style = {{ gridColumn: '3 / 4' }, style.feats } >  
+			<div 
+				className = 'callout box material' 
+				style = {{ gridColumn: '3 / 4' }, style.feats } 
+			>  
 				<h5>Login/Auth</h5>
 			</div> 
 
-			<Link to = '/login' style = {{ gridArea: 'login'}} >
-				<button className = 'button material' style = { style.login } >  
+			<Link to = '/login' style = {{ gridArea: 'login' }} >
+				<button className= 'button material' style= { style.login } >
 					Login
 				</button>  
 			</Link >
 
-			<Link to = '/register' style = {{ gridArea: 'regis'}} >
-				<button className = 'button material' style = { style.regis } >  
+			<Link to = '/register' style = {{ gridArea: 'regis'} } >
+				<button className= 'button material' style= { style.regis } >
 					Register
 				</button>  
 			</Link>
