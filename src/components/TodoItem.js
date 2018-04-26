@@ -127,7 +127,6 @@ class TodoItem extends Component {
 				<DeleteBtn 
 					name = 'delete'
 					type = 'button'
-					style = {{ gridArea: 'delete' }} 
 					task = { task }
 					_id  = { _id }
 					deleteTodo = { this.props.deleteTodo }

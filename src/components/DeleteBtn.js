@@ -5,10 +5,11 @@ import PropTypes from 'prop-types';
 
 const style = {
 	basic: {
+		gridArea: 'delete',
 		display: 'flex',
 		justifyContent: 'center',
 		color: 'lightgrey', 
-		border: '1px solid lightgrey', 
+		borderColor: '1px solid lightgrey', 
 		backgroundColor: 'white' 
 	},
 
