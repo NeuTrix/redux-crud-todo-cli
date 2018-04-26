@@ -16,6 +16,7 @@ const style = {
 
 	  //  base styling
 		background: 'white',
+		// opacity: '0.8',
 		padding: 15,
 	},
 
@@ -23,8 +24,8 @@ const style = {
 
 	title: { gridArea: 'title' },
 	subt: { gridArea: 'subt', border: 'none', background: 'white' },
-	apps: { color: 'orange', borderColor: 'orange' },
-	feats: { color: 'navy', borderColor: 'navy' },
+	apps: { color: 'orange', borderColor: 'orange', opacity: 1, },
+	feats: { color: 'steelblue', borderColor: 'steelblue' },
 
 	// buttons
 
@@ -36,8 +37,8 @@ const style = {
 
 	regis: { 
 		backgroundColor: 'lightblue',
-		borderColor: 'navy',
-		color: 'navy',
+		borderColor: 'steelblue',
+		color: 'steelblue',
 	},
 };
 
@@ -48,7 +49,7 @@ const HomePage = (props) => {
 		<div className = 'box ' style = { style.grid } >
 			
 			<div className = 'box material' style = {{ gridArea: 'title'}, style.title} > 
-				<h3>Li'l Todo (beta)</h3> 
+				<h3>React-Todo (beta)</h3> 
 			</div>  
 
 			<div className = 'box' style = { style.subt } > 

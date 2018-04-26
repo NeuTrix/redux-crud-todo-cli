@@ -14,28 +14,32 @@
 }
 
 .button {
-	border: 2px solid grey;
-	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: .95;
+	
 	font-weight: bold;
 	height: 30px;
 	width: 80px;
+	border: 2px solid grey;
+	border-radius: 2px;
 }
 
 .material {
-	box-shadow: 2px 5px 5px lightgrey;
+	box-shadow: 2px 2px 5px lightgrey;
 }
 
 .box {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	opacity: 0.9;
-	z-index: 1px;
+	opacity: .95;
 
 	color: grey;
 	background-color: whitesmoke;
 	border: 3px solid grey;
-	border-radius: 5px;
+	border-radius: 2px;
 }
 
 .callout {
