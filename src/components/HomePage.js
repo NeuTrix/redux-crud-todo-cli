@@ -60,6 +60,7 @@ const style = {
 // +++++++++ COMPONENT +++++++++ 
 
 const HomePage = (props) => {
+	
 	return (
 		<div className = 'box ' style = { style.grid } >
 			
