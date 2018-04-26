@@ -13,6 +13,32 @@
 	min-height: 760px;
 }
 
+.button {
+	border: 2px solid grey;
+	border-radius: 5px;
+	font-weight: bold;
+	height: 30px;
+	width: 80px;
+}
+
+.box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0.9;
+
+	color: grey;
+	background-color: whitesmoke;
+	border: 3px solid grey;
+	border-radius: 5px;
+}
+
+.callout {
+	background-color: white;
+	height: 70px;
+	width: 80px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
