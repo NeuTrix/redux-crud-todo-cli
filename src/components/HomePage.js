@@ -22,7 +22,7 @@ const style = {
 	//callouts
 
 	title: { gridArea: 'title' },
-	subt: { gridArea: 'subt',border: 'none' },
+	subt: { gridArea: 'subt', border: 'none', background: 'white' },
 	apps: { color: 'orange', borderColor: 'orange' },
 	feats: { color: 'navy', borderColor: 'navy' },
 
@@ -45,9 +45,9 @@ const style = {
 
 const HomePage = (props) => {
 	return (
-		<div className = 'box' style = { style.grid } >
+		<div className = 'box ' style = { style.grid } >
 			
-			<div className = 'box' style = {{ gridArea: 'title'}, style.title} > 
+			<div className = 'box material' style = {{ gridArea: 'title'}, style.title} > 
 				<h3>Li'l Todo (beta)</h3> 
 			</div>  
 
@@ -55,46 +55,46 @@ const HomePage = (props) => {
 				<h5>... a little Fullstack MERN CRUD web app featuring:</h5> 
 			</div>  
 
-			<div className = 'box' className = 'callout box' style = {{ gridColumn: '1 / 2' }, style.apps } >  
+			<div className = 'box material' className = 'callout box material' style = {{ gridColumn: '1 / 2' }, style.apps } >  
 				<h4>Mongo</h4>
 			</div> 
 
-			<div className = 'callout box' style = {{ gridColumn: '2 / 3' }, style.apps } >  
+			<div className = 'callout box material' style = {{ gridColumn: '2 / 3' }, style.apps } >  
 				<h4>Express</h4>
 			</div> 
 
-			<div className = 'callout box' style = {{ gridColumn: '4 / 5' }, style.apps } >  
+			<div className = 'callout box material' style = {{ gridColumn: '4 / 5' }, style.apps } >  
 				<h4>React</h4>
 			</div> 
 
-			<div className = 'callout box' style = {{ gridColumn: '3 / 4' }, style.apps } >  
+			<div className = 'callout box material' style = {{ gridColumn: '3 / 4' }, style.apps } >  
 				<h4>NodeJS</h4>
 			</div> 
 
-			<div className = 'callout box' style = {{ gridColumn: '1 / 2' }, style.feats } >  
+			<div className = 'callout box material' style = {{ gridColumn: '1 / 2' }, style.feats } >  
 				<h5>Decoupled</h5>
 			</div> 
 
-			<div className = 'callout box' style = {{ gridColumn: '2 / 3' }, style.feats } >  
+			<div className = 'callout box material' style = {{ gridColumn: '2 / 3' }, style.feats } >  
 				<h5>CSS Grid</h5>
 			</div> 
 
-			<div className = 'callout box' style = {{ gridColumn: '4 / 5' }, style.feats } >  
+			<div className = 'callout box material' style = {{ gridColumn: '4 / 5' }, style.feats } >  
 				<h5>Redux</h5>
 			</div> 
 
-			<div className = 'callout box' style = {{ gridColumn: '3 / 4' }, style.feats } >  
+			<div className = 'callout box material' style = {{ gridColumn: '3 / 4' }, style.feats } >  
 				<h5>Login/Auth</h5>
 			</div> 
 
 			<Link to = '/login' style = {{ gridArea: 'login'}} >
-				<button className = 'button' style = { style.login } >  
+				<button className = 'button material' style = { style.login } >  
 					Login
 				</button>  
 			</Link >
 
 			<Link to = '/register' style = {{ gridArea: 'regis'}} >
-				<button className = 'button' style = { style.regis } >  
+				<button className = 'button material' style = { style.regis } >  
 					Register
 				</button>  
 			</Link>

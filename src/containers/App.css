@@ -21,11 +21,16 @@
 	width: 80px;
 }
 
+.material {
+	box-shadow: 2px 5px 5px lightgrey;
+}
+
 .box {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	opacity: 0.9;
+	z-index: 1px;
 
 	color: grey;
 	background-color: whitesmoke;
