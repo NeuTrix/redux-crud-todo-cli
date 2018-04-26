@@ -8,9 +8,10 @@ grid : {
 	gridTemplateAreas: 
 	` "title title title title"
 	  "subt subt subt subt"
-	  "apps apps apps apps"
+	  "apps apps apps apps" 
 	  ".. login regis .."   `,
-
+	// gridAutoFlow: 'row',
+	gridTemplateColumns: 'repeat(4, 1fr)',
   //  base styling
 	background: 'aliceblue',
 	color: 'navy',
@@ -29,7 +30,7 @@ grid : {
 	},
 
 	apps: { 
-		gridArea: 'apps',
+		color: 'red',
 	},
 
 	login: { 
@@ -51,39 +52,36 @@ const HomePage = (props) => {
 		<div style = { style.grid } >
 			
 			<div style = {{ gridArea: 'title'}} > 
-				<h1>Li'l Todo app (beta)</h1> 
+				<h3>Li'l Todo app (beta)</h3> 
 			</div>  
 
 			<div style = { style.subt } > 
-				<h2>MERN stack application</h2> 
+				<h4>... a little MERN stack | CRUD web app :</h4> 
 			</div>  
 
-			<div style = { style.apps } >  
-				<h3>Mongo | Mongoose</h3>
+			<div style = {{ gridColumn: '1 / 2' }, style.apps } >  
+				<p>Mongoose</p>
 			</div> 
 
-			<div style = { style.apps } >  
-				<h3>Express</h3>
-				
+			<div style = {{ gridColumn: '2 / 3' }, style.apps } >  
+				<p>Express </p>
 			</div> 
 
-			<div style = { style.apps } >  
-				<h3>React | Redux</h3>
-				
+			<div style = {{ gridColumn: '4 / 5' }, style.apps } >  
+				<p>React</p>
 			</div> 
 
-			<div style = { style.apps } >  
-				<h3>NodeJS </h3>
-				
-			</div>  
+			<div style = {{ gridColumn: '3 / 4' }, style.apps } >  
+				<p>NodeJS </p>
+			</div> 
 
 			<div style = { style.login } >  
-				<button>
+				<button> Login
 				</button>
 			</div>  
 
-			<div style = { style.signin } >  
-				<button>
+			<div style = { style.regis } >  
+				<button> Register
 				</button>
 			</div>  
 
