@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import * as mod from '../helpers/cssConstants';
 
 const style = {
 grid : {
@@ -12,6 +13,8 @@ grid : {
 	  ".. login regis .."   `,
 	// gridAutoFlow: 'row',
 	gridTemplateColumns: 'repeat(4, 1fr)',
+	gridGap: '25px 5px',
+
   //  base styling
 	background: 'aliceblue',
 	color: 'navy',
@@ -30,7 +33,11 @@ grid : {
 	},
 
 	apps: { 
-		color: 'red',
+		color: 'orange',
+		border: '3px solid orange',
+		backgroundColor: '#ffdd77',
+		borderRadius: 5,
+		minHeight: 50,
 	},
 
 	login: { 
