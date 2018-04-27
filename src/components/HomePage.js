@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import LoginButton from './LoginButton';
 import RegisterButton from './RegisterButton';
+import Stamp from './Stamp';
 
 // +++++++++ CSS +++++++++ 
 
@@ -13,8 +14,8 @@ const style = {
 		gridTemplateAreas: 
 		` "title title title title"
 		  "subt subt subt subt"
-		  "apps apps apps apps" 
-		  "apps apps apps apps" 
+		  "stamp stamp stamp stamp" 
+		  "stamp stamp stamp stamp" 
 		  " .. login register .."   `,
 		gridTemplateColumns: 'repeat(4, 1fr)',
 		gridGap: '25px 5px',
@@ -34,11 +35,7 @@ const style = {
 		background: 'white' 
 	},
 
-	apps: { 
-		color: 'orange', 
-		borderColor: 'orange', 
-		opacity: 1, 
-	},
+	
 
 	feats: { 
 		color: 'steelblue', 
@@ -46,6 +43,11 @@ const style = {
 	},
 
 };
+
+const apps=  { 
+		color: 'orange', 
+		borderColor: 'orange', 
+	}
 
 // +++++++++ COMPONENT +++++++++ 
 
@@ -68,28 +70,29 @@ const HomePage = (props) => {
 
 			<div 
 				className = 'callout box material' 
-				style = {{ gridColumn: '1 / 2' }, style.apps } 
+				style = {{ gridColumn: '1 / 2' }}
+				style = { style.stamp }
 			>  
 				<h4>Mongo</h4>
 			</div> 
 
 			<div 
 				className = 'callout box material' 
-				style = {{ gridColumn: '2 / 3' }, style.apps } 
+				style = {{ gridColumn: '2 / 3' }, style.stamp } 
 			>  
 				<h4>Express</h4>
 			</div> 
 
 			<div 
 				className = 'callout box material' 
-				style = {{ gridColumn: '4 / 5' }, style.apps } 
+				style = {{ gridColumn: '4 / 5' }, style.stamp } 
 			>  
 				<h4>React</h4>
 			</div> 
 
 			<div 
 				className = 'callout box material' 
-				style = {{ gridColumn: '3 / 4' }, style.apps } 
+				style = {{ gridColumn: '3 / 4' }, style.stamp } 
 			>  
 				<h4>NodeJS</h4>
 			</div> 
@@ -115,16 +118,13 @@ const HomePage = (props) => {
 				<h5>Redux</h5>
 			</div> 
 
-			<div 
-				className = 'callout box material' 
-				style = {{ gridColumn: '3 / 4' }, style.feats } 
-			>  
-				<h5>Login/Auth</h5>
-			</div> 
+			<Stamp area= '3 / 4' color= 'steelblue' name= 'Secure Login'/>
+			
 
 			<LoginButton area = 'login' />
 
 			<RegisterButton area = 'register' />
+
 
 		</div>
 	);
