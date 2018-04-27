@@ -15,7 +15,7 @@
 
 /* center single dimension elements */
 .mat {
-	box-shadow: 2px 2px 5px #cccccc;
+	box-shadow: 1px 1px 5px #cccccc;
 }
 
 .ctr {
@@ -29,14 +29,14 @@
 	font-weight: bold;
 	height: 40px;
 	width: 80px;
-	border: 2px solid grey;
+	border: 1px solid grey;
 	border-radius: 7px;
 }
 
 .box {
 	color: grey;
 	background-color: whitesmoke;
-	border: 3px solid grey;
+	border: 1px solid grey;
 	border-radius: 2px;
 }
 

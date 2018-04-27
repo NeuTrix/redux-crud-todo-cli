@@ -1,44 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Col, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap';
+import { FormControl } from 'react-bootstrap';
 
-const TextFieldGroup = ({ 
-	errors, 
-	label, 
-	name, 
-	onChange, 
-	placeholder, 
-	type, 
-	value 
-}) => {
+const style = {
+	backgroundColor: 'whitesmoke',
+	height: 40,
+	width: '100%',
+	padding: 10,
+}
+const TextFieldGroup = (props) => {
 
-	const style = { };
-	const styleErr = { color: 'red' };
+	const { errors, label, placeholder } = props
 
 	return (
-		 <Col style = { style } >
+		 <div className = { classnames('form-group', { 'has-error': errors }) } >
 
-			 <div className = { classnames('form-group', { 'has-error': errors }) } >
+			{ label && <h3> { label } </h3> }
 
-				{ label && <ControlLabel> { label } </ControlLabel> }
+			<input
+				className = 'control box mat'
+				style = { style }
+				name =  { props.name }
+				onChange =  { props.onChange }
+				placeholder =  { placeholder }
+				type =  { props.type }
+				value = { props.value }
+			/>
 
-				<FormControl
-					name =  { name }
-					onChange =  { onChange }
-					placeholder =  { placeholder }
-					type =  { type }
-					value = { value }
-				/>
+			{ errors &&  
+				<span id = 'helpBlock' style = {{ color: 'red' }} > 
+				{ `WARNING: ${ errors }!. Please re-${ placeholder }` } 
+				</span> 
+			}
 
-				<FormControl.Feedback />
-
-				{ errors &&  
-					<HelpBlock style = { styleErr } > { `WARNING: ${ errors }!.  Please re-${ placeholder }` } </HelpBlock> 
-				}
-
-			</div>
-		</Col>
+		</div>
 	);
 };
 
@@ -53,8 +49,9 @@ TextFieldGroup.propTypes = {
 };
 
 TextFieldGroup.defaultProps = {
+	name: `default`,
+	onChange: f => alert(`default error: see TextFieldGroup`),
 	type: 'text',
-	onChange: f => f
 };
 
 export default TextFieldGroup;
