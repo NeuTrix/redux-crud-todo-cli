@@ -2,11 +2,33 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import validateInput from '../../helpers/signupValidator';
 import TextFieldGroup from './TextFieldGroup';
+import BasicButton from '../buttons/BasicButton';
+
 import { Button, Col, Form, PageHeader, Row } from 'react-bootstrap';
+
+// +++++++++  CSS  +++++++++ 
+
+const style = {
+	display: 'grid',
+	gridTemplate: `
+		"title"
+		"form" 
+		"form" 
+		"form" 
+		"form" 
+		"form" 
+		"submit" `,
+	gridAutoflow: 'row',
+	gridRowGap: '10px',
+	padding: 15,
+}
+
+// +++++++++  COMPONENT  +++++++++ 
 
 class RegisterForm extends Component {
 
 	constructor(props, context) {
+
 		super(props, context);
 		this.state = {
 			email: '',
@@ -64,64 +86,80 @@ class RegisterForm extends Component {
 	render() {
     
 		const { errors } = this.state;
-		const style = { margin: 15 };
 
 		return (
-			<Row>
-				<Col style = { style } >
-					<PageHeader> Registration </PageHeader>
-				</Col>
-				<Col> 
-					<Form  onSubmit = { this.onSubmit } >
-						<TextFieldGroup 
-							errors = { errors.username }
-							label = 'Username' 
-							name = 'username'
-							onChange = { this.onChange }
-							placeholder = 'Enter a username'
-							type = 'text'
-							value = { this.state.username }
-						/>
-						<TextFieldGroup 
-							errors = { errors.email }
-							label = 'Email' 
-							name = 'email'
-							onChange = { this.onChange }
-							placeholder = 'Enter your email address'
-							type = 'email'
-							value = { this.state.email }
-						/>
-						<TextFieldGroup 
-							errors = { errors.emailConfirm }
-							name = 'emailConfirm'
-							placeholder = 'Confirm your email address'
-							onChange = { this.onChange }
-							type = 'email'
-							value = { this.state.emailConfirm }
-						/>
-						<TextFieldGroup 
-							errors = { errors.password }
-							label = 'Password' 
-							name = 'password'
-							onChange = { this.onChange }
-							placeholder = 'Enter your password'
-							type = 'password'
-							value = { this.state.password }
-						/>
-						<TextFieldGroup 
-							errors = { errors.passwordConfirm }
-							name = 'passwordConfirm'
-							placeholder = 'Confirm your password'
-							onChange = { this.onChange }
-							type = 'password'
-							value = { this.state.passwordConfirm } 
-						/>
-						<Button disable = { this.state.isLoading.toString() } type = 'submit' bsStyle = 'primary' >
-              Sign Up
-						</Button> 
-					</Form>
-				</Col> 
-			</Row> 
+			<form 
+				id = 'registerForm'
+				className = 'box' 
+				style = { style } 
+				onSubmit = { this.onSubmit } 
+			>
+				<h1 style = {{ gridArea: 'title' }} > Register </h1>
+
+					<TextFieldGroup 
+						style = {{ gridArea: 'form' }} 
+						errors = { errors.username }
+						label = 'Username' 
+						name = 'username'
+						onChange = { this.onChange }
+						placeholder = 'Enter a username'
+						type = 'text'
+						value = { this.state.username }
+					/>
+					<TextFieldGroup 
+						style = {{ gridArea: 'form' }} 
+						errors = { errors.email }
+						label = 'Email' 
+						name = 'email'
+						onChange = { this.onChange }
+						placeholder = 'Enter your email address'
+						type = 'email'
+						value = { this.state.email }
+					/>
+					<TextFieldGroup 
+						style = {{ gridArea: 'form' }} 
+						errors = { errors.emailConfirm }
+						name = 'emailConfirm'
+						placeholder = 'Confirm your email address'
+						onChange = { this.onChange }
+						type = 'email'
+						value = { this.state.emailConfirm }
+					/>
+					<TextFieldGroup 
+						style = {{ gridArea: 'form' }} 
+						errors = { errors.password }
+						label = 'Password' 
+						name = 'password'
+						onChange = { this.onChange }
+						placeholder = 'Enter your password'
+						type = 'password'
+						value = { this.state.password }
+					/>
+					<TextFieldGroup 
+						style = {{ gridArea: 'form' }} 
+						errors = { errors.passwordConfirm }
+						name = 'passwordConfirm'
+						placeholder = 'Confirm your password'
+						onChange = { this.onChange }
+						type = 'password'
+						value = { this.state.passwordConfirm } 
+					/>
+
+					 <div
+							style = {{ gridArea: 'submit', justifySelf: 'center' }}
+		        >
+							<BasicButton 
+								className = 'ctr'
+								area = 'submit'
+								type = 'submit' 
+								color = 'steelblue'
+								bgColor = 'aliceblue'
+								name = 'Register!' 
+								disable = { this.state.isLoading.toString()} 
+							/>
+		        </div>
+
+					</form>
 		);
 	}
 }

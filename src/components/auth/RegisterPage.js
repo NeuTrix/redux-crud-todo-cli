@@ -11,15 +11,13 @@ class RegisterPage extends Component {
 	render () {
 
 		const style = { 
-			backgroundColor: 'aliceblue', 
 			padding: 25,
-			border: '2px solid steelblue' 
 		};
 
 		const { userSignupRequest, addFlashMessage } = this.props;
 
 		return (
-			<Grid >
+			<div className = 'box' >
 				<Row>
 					<Col md = { 4 } mdOffset = { 4 }  style = { style } >
 						<RegisterForm 
@@ -28,7 +26,7 @@ class RegisterPage extends Component {
 						/>
 					</Col>
 				</Row>
-			</Grid>
+			</div>
 		);
 	}
 }

@@ -52,7 +52,7 @@ const HomePage = (props) => {
 
 			<LinkedButton 
 				name = 'Register' 
-				bgColor = 'lightblue'
+				bgColor = 'aliceblue'
 				color = 'steelblue'
 				area = 'register' 
 				path = '/register'
