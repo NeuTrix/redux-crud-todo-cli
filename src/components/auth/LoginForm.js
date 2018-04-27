@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import validateInput from '../../helpers/loginValidator';
 import TextFieldGroup from './TextFieldGroup';
+import LoginButton from './LoginButton';
 
 import { Button, Col, Form, PageHeader, Row } from 'react-bootstrap';
 
@@ -93,6 +94,8 @@ class LoginForm extends Component {
 						<Button disable = { isLoading.toString() } type = 'submit' bsStyle = 'success' >
               Sign In
 						</Button> 
+
+						<LoginButton />
 
 					</Form>
 				</Col> 

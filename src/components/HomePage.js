@@ -1,6 +1,6 @@
 import React from 'react';
-import LoginButton from './LoginButton';
-import RegisterButton from './RegisterButton';
+import LoginButton from './auth/LoginButton';
+import RegisterButton from './auth/RegisterButton';
 import Stamp from './Stamp';
 
 // +++++++++  CSS  +++++++++ 
