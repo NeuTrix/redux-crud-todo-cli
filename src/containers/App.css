@@ -15,10 +15,10 @@
 
 /* center single dimension elements */
 .mat {
-	box-shadow: 1px 1px 5px #cccccc;
+	box-shadow: 1px 2px 2px #cccccc;
 }
 
-.engr { 
+.engrave { 
 	color:#cccccc;
   text-shadow: 
     0px 1px 0px rgba(255,255,255,.1), 
