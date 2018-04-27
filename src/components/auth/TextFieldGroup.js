@@ -20,7 +20,7 @@ const TextFieldGroup = (props) => {
 			{ label && <h3> { label } </h3> }
 
 			<input
-				className = 'control box mat'
+				className = 'box mat'
 				style = { style }
 				name =  { props.name }
 				onChange =  { props.onChange }

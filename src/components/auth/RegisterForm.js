@@ -16,8 +16,8 @@ const style = {
 		"form" 
 		"form" 
 		"submit" `,
-	gridRowGap: '10px',
-	padding: 15,
+	gridRowGap: '5px',
+	padding: '0px 15px 0px 15px',
 	color: 'steelblue'
 }
 
@@ -96,7 +96,7 @@ class RegisterForm extends Component {
 				className = 'engr'
 				 style = {{ gridArea: 'title' }} 
 				 > 
-					 Register 
+					 Registration 
 			 </h1>
 
 				<TextFieldGroup 
@@ -155,7 +155,7 @@ class RegisterForm extends Component {
 						type = 'submit' 
 						color = 'steelblue'
 						bgColor = 'aliceblue'
-						name = 'Register!' 
+						name = 'Register' 
 						disable = { this.state.isLoading.toString()} 
 					/>
         </div>

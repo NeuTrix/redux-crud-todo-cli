@@ -33,7 +33,7 @@ Stamp.propTypes = {
 
 Stamp.defaultProps = {
 	bgColor: 'white',
-	fsize: '1.0em',
+	// fsize: '1.0em',
 	h: 75,
 	w: 80,
 }

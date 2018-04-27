@@ -48,14 +48,14 @@
 .boxClr {
 	color: grey;
 	background-color: transparent;
-	border: 1px solid grey;
+	border: 1px solid #bbbbbb;
 	border-radius: 2px;
 }
 
 .box {
 	color: grey;
 	background-color: whitesmoke;
-	border: 1px solid grey;
+	border: 1px solid #bbbbbb;
 	border-radius: 2px;
 }
 

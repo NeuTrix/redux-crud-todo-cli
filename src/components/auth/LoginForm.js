@@ -13,8 +13,9 @@ const style = {
 		"form"
 		"form"
 		"submit" `,
-	gridRowGap: '10px',
-	padding: 15,
+	gridRowGap: '5px',
+	padding: '0px 15px 0px 15px',
+	color: 'darkgreen'
 }
 
 // +++++++++  COMPONENT  +++++++++ 
@@ -73,16 +74,16 @@ class Loginform extends Component {
 		return (
 			<form 
 				id = 'loginForm'
-				className = 'box' 
+				className = 'boxClr' 
 				style = { style } 
 				onSubmit = { this.onSubmit } 
 			>
-				<h1 style = {{ gridArea: 'title' }} > Log In </h1>
-
-				{ errors.form && <div className= 'alert alert-danger' > 
-          	{errors.form}
-          </div>
-				}
+				<h1 
+					className = 'engr' 
+					style = {{ gridArea: 'title' }} 
+				> 
+					Log In 
+				</h1>
 
 				<TextFieldGroup 
 					style = {{ gridArea: 'form' }} 
