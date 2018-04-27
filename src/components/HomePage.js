@@ -1,73 +1,33 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import LoginButton from './LoginButton';
 import RegisterButton from './RegisterButton';
 import Stamp from './Stamp';
 
-// +++++++++ CSS +++++++++ 
-
+// +++++++++  CSS  +++++++++ 
 const style = {
-
-	// grid layout
-	grid : {
-		display: 'grid',
-		gridTemplateAreas: 
-		` "title title title title"
-		  "subt subt subt subt"
-		  "stamp stamp stamp stamp" 
-		  "stamp stamp stamp stamp" 
-		  " ... login register ..."   `,
-		gridTemplateColumns: 'repeat(4, 1fr)',
-		gridGap: '25px 5px',
-
-		background: 'white',
-		padding: 10,
-	},
-
-	//callouts
-	title: { 
-		gridArea: 'title' 
-	},
-
-	subt: { 
-		gridArea: 'subt', 
-		border: 'none', 
-		background: 'white' 
-	},
-
-	
-
-	feats: { 
-		color: 'steelblue', 
-		borderColor: 'steelblue' 
-	},
-
+	display: 'grid',
+	gridTemplateAreas: 
+	` "title title title title"
+	  "subtitle subtitle subtitle subtitle"
+	  "stamp stamp stamp stamp" 
+	  "stamp stamp stamp stamp" 
+	  " ... login register ..."   `,
+	gridTemplateColumns: 'repeat(4, 1fr)',
+	gridGap: '25px 5px',
+	background: 'white',
+	padding: 10,
 };
 
-const apps=  { 
-		color: 'orange', 
-		borderColor: 'orange', 
-	}
-
-// +++++++++ COMPONENT +++++++++ 
-
+// +++++++++ COMPONENT  +++++++++ 
 const HomePage = (props) => {
-	
 	return (
-		<div className = 'box ' style = { style.grid } >
-			
-			<div 
-				className = 'box material' 
-				style = {{ gridArea: 'title'}, style.title} > 
+		<div className = 'box ' style = { style } >
+			<div className= 'box ctr mat' style= {{ gridArea: 'title' }}> 
 				<h3>React-Todo (beta)</h3> 
 			</div>  
-
-			<div 
-				className = 'box' 
-				style = { style.subt } > 
+			<div className = 'ctr' style = {{ gridArea: 'subtitle' }} > 
 				<h5>... a little Fullstack MERN CRUD web app featuring:</h5> 
 			</div>  
-
 			<Stamp area= '3/1' color= 'steelblue' name= 'Mongo'/>
 			<Stamp area= '3/2' color= 'steelblue' name= 'Express'/>
 			<Stamp area= '3/3' color= 'steelblue' name= 'React'/>
@@ -76,10 +36,8 @@ const HomePage = (props) => {
 			<Stamp area= '4/2' color= 'green' name= 'CSS Grid'/>
 			<Stamp area= '4/3' color= 'orange' name= 'Decoupled'/>
 			<Stamp area= '4/4' color= 'orange' name= 'Secure Login'/>
-			
 			<LoginButton area = 'login' />
 			<RegisterButton area = 'register' />
-
 		</div>
 	);
 };

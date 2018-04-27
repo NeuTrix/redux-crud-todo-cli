@@ -76,7 +76,7 @@ class TodoItem extends Component {
 	};
 
 	render () {
-		const { completed, date, rank, task, _id } = this.state
+		const { task, _id } = this.state
 
 		return (
 			<form 

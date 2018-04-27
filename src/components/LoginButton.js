@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const style = { 
-	
 	backgroundColor: 'lightgreen', 
 	borderColor: 'green',
 	color: 'green',
@@ -12,11 +11,11 @@ const style = {
 const LoginButton = ({ area }) => {
 	return (
 		<Link to = '/login' style = {{ gridArea: area }} >
-			<button className= 'button material' style= { style } >
+			<button className= 'button mat' style= { style } >
 				Login
 			</button>  
 		</Link >
-		)
+	)
 }
 
 LoginButton.propTypes = {

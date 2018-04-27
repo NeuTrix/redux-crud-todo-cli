@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // +++++++++ CSS  +++++++++ 
-
 const style = {
 	basic: {
 		gridArea: 'delete',
@@ -12,12 +11,10 @@ const style = {
 		borderColor: '1px solid lightgrey', 
 		backgroundColor: 'white' 
 	},
-
 	glyph: { color: 'tomato' }
 }
 
 // +++++++++ COMPONENT  +++++++++ 
-
 const DeleteBtn = (props) => {
 
 	const handleDelete = (e) => {

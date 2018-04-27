@@ -1,8 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-
-// +++++++++ COMPONENT  +++++++++ 
 
 const Stamp = (props) => {
 
@@ -17,31 +14,27 @@ const Stamp = (props) => {
 	}
 
 	return (
-		<button className= 'stamp box material' style = { style } >
+		<button className= 'box ctr stamp mat' style = { style } >
 			{ props.name } 
 		</button>  
-		)
+	)
 }
-
-// +++++++++  PROPS  +++++++++ 
 
 Stamp.propTypes = {
 	area: PropTypes.string.isRequired, // identify grid layout area
 	bgColor: PropTypes.string, // define the background color
 	color: PropTypes.string, // define the color theme
 	fsize: PropTypes.string, // define the size of the font for name
-	h: PropTypes.string, // define the height
-	w: PropTypes.string, // define the width
+	h: PropTypes.number, // define the height
+	w: PropTypes.number, // define the width
 	name: PropTypes.string.isRequired, // used for display
 }
 
 Stamp.defaultProps = {
 	bgColor: 'white',
 	fsize: '1.0em',
-	h: 80,
+	h: 75,
 	w: 80,
 }
-
-
 
 export default Stamp
