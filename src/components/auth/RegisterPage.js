@@ -8,8 +8,12 @@ import { connect } from 'react-redux';
 const RegisterPage = (props) => {
 
 	return (
-		<div className = 'boxClr' style= {{ padding: 25,
- }} >
+		
+		<div 
+			id = 'registerPage' 
+			className = 'boxClr' 
+			style= {{ padding: 25 }} 
+		>
 			<RegisterForm 
 				userSignupRequest = { props.userSignupRequest } 
 				addFlashMessage = { props.addFlashMessage } 

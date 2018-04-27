@@ -8,8 +8,13 @@ import { connect } from 'react-redux';
 const LoginPage = (props) => {
 	
 	return (
-		<div id = 'loginPage' style= {{ padding: 25 }}  >
-			<LoginForm  className = 'box paper'  
+		
+		<div 
+			id = 'loginPage' 
+			className = 'boxClr' 
+			style= {{ padding: 25 }}  
+		>
+			<LoginForm   
 				userLoginRequest = { props.userLoginRequest } 
 				addFlashMessage = { props.addFlashMessage } 
 			/>
