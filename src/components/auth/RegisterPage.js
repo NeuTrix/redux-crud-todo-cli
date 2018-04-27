@@ -5,14 +5,18 @@ import { userSignupRequest } from '../../actions/signupActions';
 import { addFlashMessage } from '../../actions/flashActions';
 import { connect } from 'react-redux';
 
+const style = {
+	padding: 25,
+}
+
 const RegisterPage = (props) => {
 
 	return (
-		
+
 		<div 
 			id = 'registerPage' 
-			className = 'boxClr' 
-			style= {{ padding: 25 }} 
+			className = 'boxClr engrBox' 
+			style= { style } 
 		>
 			<RegisterForm 
 				userSignupRequest = { props.userSignupRequest } 

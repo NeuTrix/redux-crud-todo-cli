@@ -32,6 +32,14 @@
     0px -1px 0.5px rgba(0,0,0,.5);
 }
 
+.engrBox { 
+	border: 3px solid #bbbbbb;
+	color:#bbbbbb;
+  box-shadow: 
+    0px 1px 0px rgba(255,255,255,.1), 
+    0px -1px 0.5px rgba(0,0,0,.5);
+}
+
 .ctr {
 	display: flex;
 	justify-content: center;
@@ -49,7 +57,6 @@
 .boxClr {
 	color: grey;
 	background-color: transparent;
-	border: 1px solid #bbbbbb;
 	border-radius: 2px;
 }
 

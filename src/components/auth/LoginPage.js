@@ -5,14 +5,18 @@ import { userLoginRequest } from '../../actions/loginActions';
 import { addFlashMessage } from '../../actions/flashActions';
 import { connect } from 'react-redux';
 
+const style = {
+	padding: 20,
+}
+
 const LoginPage = (props) => {
 	
 	return (
-		
+
 		<div 
 			id = 'loginPage' 
-			className = 'boxClr' 
-			style= {{ padding: 25 }}  
+			className = 'boxClr engrBox' 
+			style= { style }  
 		>
 			<LoginForm   
 				userLoginRequest = { props.userLoginRequest } 

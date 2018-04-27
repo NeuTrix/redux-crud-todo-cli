@@ -13,7 +13,7 @@ const style = {
 		"form"
 		"form"
 		"submit" `,
-	gridRowGap: '5px',
+	gridRowGap: '20px',
 	padding: '0px 15px 0px 15px',
 	color: 'darkgreen'
 }
