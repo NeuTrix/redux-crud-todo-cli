@@ -7,25 +7,13 @@ import BasicButton from '../buttons/BasicButton';
 // +++++++++  CSS  +++++++++ 
 
 const style = {
-	grid: {
-		display: 'grid',
-		gridTemplate: `
-			"title"
-			"form" 'auto'
-			"submit" `,
-		gridRowGap: '10px',
-		padding: 15,
-	},
-
-	title: { 
-		gridArea: 'title', 
-		fontSize: '3em',
-	},
-
-	submit: { 
-		gridArea: 'submit', 
-		justifySelf: 'center',
-	},
+	display: 'grid',
+	gridTemplate: `
+		"title"
+		"form" 'auto'
+		"submit" `,
+	gridRowGap: '10px',
+	padding: 15,
 }
 
 // +++++++++  COMPONENT  +++++++++ 
@@ -33,6 +21,7 @@ const style = {
 class Loginform extends Component {
 
 	constructor (props, context) {
+		
 		super(props, context);
 		this.state = {
 			identifier: '',
@@ -84,10 +73,10 @@ class Loginform extends Component {
 			<form 
 				id = 'loginForm'
 				className = 'box' 
-				style = { style.grid } 
+				style = { style } 
 				onSubmit = { this.onSubmit } 
 			>
-				<div style = { style.title } > Log In </div>
+				<h1 style = {{ gridArea: 'title' }} > Log In </h1>
 
 				{ errors.form && <div className= 'alert alert-danger' > 
           	{errors.form}
@@ -116,7 +105,7 @@ class Loginform extends Component {
 					value = { password }
 				/>
         <div
-					style = { style.submit }
+					style = {{ gridArea: 'submit', justifySelf: 'center' }}
         >
 					<BasicButton 
 						className = 'ctr'
