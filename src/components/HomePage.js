@@ -14,7 +14,6 @@ const style = {
 	  " ... login register ..."   `,
 	gridTemplateColumns: 'repeat(4, 1fr)',
 	gridGap: '25px 5px',
-	background: 'white',
 	padding: 10,
 };
 
@@ -23,9 +22,9 @@ const style = {
 const HomePage = (props) => {
 	
 	return (
-		<div className = 'box ' style = { style } >
+		<div className = ' ' style = { style } >
 
-			<div className= 'box ctr mat' style= {{ gridArea: 'title' }}> 
+			<div className= 'boxClr ctr mat engr' style= {{ gridArea: 'title' }}> 
 				<h3>React-Todo (beta)</h3> 
 			</div>  
 

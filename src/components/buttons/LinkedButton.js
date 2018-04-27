@@ -13,7 +13,7 @@ const LinkedButton = ({ area, bgColor, color, name, path }) => {
 
 	return (
 		<Link to = { path } style = {{ gridArea: area }} >
-			<button className= 'button mat' style= { style } >
+			<button className= 'btn mat opac' style= { style } >
 				{ name }
 			</button>  
 		</Link >

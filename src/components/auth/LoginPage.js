@@ -9,7 +9,7 @@ const LoginPage = (props) => {
 	
 	return (
 		<div id = 'loginPage' style= {{ padding: 25 }}  >
-			<LoginForm  className = 'box'  
+			<LoginForm  className = 'box paper'  
 				userLoginRequest = { props.userLoginRequest } 
 				addFlashMessage = { props.addFlashMessage } 
 			/>

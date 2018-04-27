@@ -11,10 +11,11 @@ const Stamp = (props) => {
 		fontSize: props.fsize,
 		height: props.h,
 		width: props.w,
+		opacity: .6,
 	}
 
 	return (
-		<button className= 'box ctr stamp mat' style = { style } >
+		<button className= 'box ctr mat ' style = { style } >
 			{ props.name } 
 		</button>  
 	)

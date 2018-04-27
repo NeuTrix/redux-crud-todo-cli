@@ -11,7 +11,7 @@ const BasicButton = ({ area, bgColor, color, name }) => {
 	}
 
 	return (
-		<button className= 'button mat' style= { style } >
+		<button className= 'btn mat opac' style= { style } >
 			{ name }
 		</button>  
 	)

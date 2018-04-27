@@ -4,7 +4,8 @@
 }
 
 .App {
-	background-image: url('../assets/futureBack.png');
+	/*background-image: url('../assets/futureBack.png');*/
+	background-image: url('../assets/watercolor-paper-2.jpg');
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;
@@ -15,13 +16,12 @@
 
 /* center single dimension elements */
 .mat {
-	box-shadow: 1px 2px 2px #cccccc;
+	box-shadow: 1px 1px 2px #aaaaaa;
 }
 
 .paper {
 	background-image: url('../assets/watercolor-paper-2.jpg');
 	background-repeat: no-repeat;
-	opacity: 89%
 }
 /* engraving effect */
 .engr { 
@@ -35,15 +35,21 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	opacity: .95;
 }
 
-.button {
+.btn {
 	font-weight: bold;
 	height: 40px;
 	width: 80px;
 	border: 1px solid grey;
-	border-radius: 7px;
+	border-radius: 2px;
+}
+
+.boxClr {
+	color: grey;
+	background-color: transparent;
+	border: 1px solid grey;
+	border-radius: 2px;
 }
 
 .box {
@@ -51,6 +57,10 @@
 	background-color: whitesmoke;
 	border: 1px solid grey;
 	border-radius: 2px;
+}
+
+.opac {
+	opacity: 0.6;
 }
 
 @keyframes App-logo-spin {
