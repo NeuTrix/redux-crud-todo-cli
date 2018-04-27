@@ -7,14 +7,13 @@ const RegisterButton = ({ area, name, color }) => {
 	const style = {
 		color,
 		borderColor: color,
+		gridArea: area
 	}
 
 	return (
-		<Link to = '/register' style = {{ gridArea: area }} >
-			<button className= 'stamp box material' style = { style } >
-				<h4> { name } </h4>
-			</button>  
-		</Link >
+		<button className= 'stamp box material' style = { style } >
+			<h4> { name } </h4>
+		</button>  
 		)
 }
 

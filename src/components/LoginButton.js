@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const style = { 
+	
 	backgroundColor: 'lightgreen', 
 	borderColor: 'green',
 	color: 'green',
