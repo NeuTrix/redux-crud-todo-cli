@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { FormControl } from 'react-bootstrap';
 
 const style = {
+	color: 'steelblue',
 	backgroundColor: 'whitesmoke',
 	height: 40,
 	width: '100%',
