@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import validateInput from '../../helpers/loginValidator';
 import TextFieldGroup from './TextFieldGroup';
 import BasicButton from '../BasicButton';
+import LinkedButton from '../LinkedButton';
 
 import { Button, Col, Form, PageHeader, Row } from 'react-bootstrap';
 
@@ -91,9 +92,18 @@ class LoginForm extends Component {
 							value = { password }
 						/>
             
-						<BasicButton disable = { isLoading.toString()} type = 'submit' name = 'Sign Me up!' />
+						<BasicButton 
+							disable = { isLoading.toString()} 
+							type = 'submit' 
+							name = 'Sign in!' 
+						/>
 
-
+						<LinkedButton 
+							bgColor = 'lime'
+							color = 'purple'
+							name = 'TEST ME!'
+							path = '/todos'
+						/>
 
 					</Form>
 				</Col> 

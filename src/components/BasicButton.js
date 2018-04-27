@@ -18,7 +18,7 @@ const BasicButton = ({ area, bgColor, color, name }) => {
 }
 
 BasicButton.propTypes = {
-	area: PropTypes.string.isRequired, // indicates grid area
+	area: PropTypes.string, // indicates grid area
 	color: PropTypes.string, // indicates link color
 	bgColor: PropTypes.string, // indicates link color
 	name: PropTypes.string.isRequired, // altenative name for
