@@ -23,4 +23,8 @@ LoginButton.propTypes = {
 	path: PropTypes.string.isRequired, // indicates link path
 }
 
+LoginButton.defaultProps = {
+	path: '/',
+}
+
 export default LoginButton

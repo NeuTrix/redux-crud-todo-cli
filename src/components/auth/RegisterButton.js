@@ -8,9 +8,9 @@ const style = {
 	color: 'steelblue',
 }
 
-const RegisterButton = ({ area }) => {
+const RegisterButton = ({ area, path }) => {
 	return (
-		<Link to = '/register' style = {{ gridArea: area }} >
+		<Link to = { path } style = {{ gridArea: area }} >
 			<button className = 'button ctr mat' style = { style } >
 				Register
 			</button>  
@@ -19,7 +19,12 @@ const RegisterButton = ({ area }) => {
 }
 
 RegisterButton.propTypes = {
-	area: PropTypes.string.isRequired
+	area: PropTypes.string.isRequired, // indicates grid area
+	path: PropTypes.string.isRequired, // indicates link path
+}
+
+RegisterButton.defaultProps = {
+	path: '/'
 }
 
 export default RegisterButton

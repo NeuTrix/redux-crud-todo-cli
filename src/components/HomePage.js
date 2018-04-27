@@ -37,7 +37,7 @@ const HomePage = (props) => {
 			<Stamp area= '4/3' color= 'orange' name= 'Decoupled'/>
 			<Stamp area= '4/4' color= 'orange' name= 'Secure Login'/>
 			<LoginButton area = 'login' path = '/login' />
-			<RegisterButton area = 'register' />
+			<RegisterButton area = 'register' path = '/register'/>
 		</div>
 	);
 };
