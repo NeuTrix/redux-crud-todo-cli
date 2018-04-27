@@ -4,8 +4,6 @@ import LoginButton from './LoginButton';
 import RegisterButton from './RegisterButton';
 import Stamp from './Stamp';
 
-import logo from '../assets/logo.svg';
-
 // +++++++++ CSS +++++++++ 
 
 const style = {
@@ -70,13 +68,13 @@ const HomePage = (props) => {
 				<h5>... a little Fullstack MERN CRUD web app featuring:</h5> 
 			</div>  
 
-			<Stamp area= '3/1' color= 'steelblue' name= 'Decoupled'/>
-			<Stamp area= '3/2' color= 'steelblue' name= {<img src= { logo } className= "App-logo" alt= "logo" />} />
-			<Stamp area= '3/3' color= 'steelblue' name= 'Express'/>
-			<Stamp area= '3/4' color= 'steelblue' name= 'React'/>
-			<Stamp area= '4/1' color= 'steelblue' name= 'NodeJS'/>
+			<Stamp area= '3/1' color= 'steelblue' name= 'Mongo'/>
+			<Stamp area= '3/2' color= 'steelblue' name= 'Express'/>
+			<Stamp area= '3/3' color= 'steelblue' name= 'React'/>
+			<Stamp area= '3/4' color= 'steelblue' name= 'NodeJS'/>
+			<Stamp area= '4/1' color= 'steelblue' name= 'Redux'/>
 			<Stamp area= '4/2' color= 'steelblue' name= 'CSS Grid'/>
-			<Stamp area= '4/3' color= 'steelblue' name= 'Redux'/>
+			<Stamp area= '4/3' color= 'steelblue' name= 'Decoupled'/>
 			<Stamp area= '4/4' color= 'steelblue' name= 'Secure Login'/>
 			
 			<LoginButton area = 'login' />

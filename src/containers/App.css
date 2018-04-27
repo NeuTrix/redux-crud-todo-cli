@@ -42,11 +42,6 @@
 	border-radius: 2px;
 }
 
-.stamp {
-	background-color: white;
-	height: 70px;
-	width: 80px;
-}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

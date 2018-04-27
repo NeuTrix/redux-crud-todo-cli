@@ -2,25 +2,46 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const RegisterButton = ({ area, name, color }) => {
+// +++++++++ COMPONENT  +++++++++ 
+
+const Stamp = (props) => {
 
 	const style = {
-		color,
-		borderColor: color,
-		gridArea: area
+		gridArea: props.area,
+		color: props.color,
+		borderColor: props.color,
+		backgroundColor: props.bgColor,
+		fontSize: props.fsize,
+		height: props.h,
+		width: props.w,
 	}
 
 	return (
 		<button className= 'stamp box material' style = { style } >
-			<h4> { name } </h4>
+			{ props.name } 
 		</button>  
 		)
 }
 
-RegisterButton.propTypes = {
+// +++++++++  PROPS  +++++++++ 
+
+Stamp.propTypes = {
 	area: PropTypes.string.isRequired, // identify grid layout area
-	color: PropTypes.string.isRequired, // define the color theme
+	bgColor: PropTypes.string, // define the background color
+	color: PropTypes.string, // define the color theme
+	fsize: PropTypes.string, // define the size of the font for name
+	h: PropTypes.string, // define the height
+	w: PropTypes.string, // define the width
 	name: PropTypes.string.isRequired, // used for display
 }
 
-export default RegisterButton
+Stamp.defaultProps = {
+	bgColor: 'white',
+	fsize: '1.0em',
+	h: 80,
+	w: 85,
+}
+
+
+
+export default Stamp
