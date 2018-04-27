@@ -21,7 +21,7 @@ const Stamp = (props) => {
 }
 
 Stamp.propTypes = {
-	area: PropTypes.string.isRequired, // identify grid layout area
+	area: PropTypes.string, // identify grid layout area
 	bgColor: PropTypes.string, // define the background color
 	color: PropTypes.string, // define the color theme
 	fsize: PropTypes.string, // define the size of the font for name
