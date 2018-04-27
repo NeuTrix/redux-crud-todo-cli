@@ -11,7 +11,7 @@ const style = {
 const RegisterButton = ({ area }) => {
 	return (
 		<Link to = '/register' style = {{ gridArea: area }} >
-			<button className= 'button material' style= { style } >
+			<button className = 'button material' style = { style } >
 				Register
 			</button>  
 		</Link >
