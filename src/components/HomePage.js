@@ -36,7 +36,7 @@ const HomePage = (props) => {
 			<Stamp area= '4/2' color= 'green' name= 'CSS Grid'/>
 			<Stamp area= '4/3' color= 'orange' name= 'Decoupled'/>
 			<Stamp area= '4/4' color= 'orange' name= 'Secure Login'/>
-			<LoginButton area = 'login' />
+			<LoginButton area = 'login' path = '/login' />
 			<RegisterButton area = 'register' />
 		</div>
 	);
