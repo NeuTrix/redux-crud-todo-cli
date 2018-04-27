@@ -4,30 +4,31 @@ import validateInput from '../../helpers/loginValidator';
 import TextFieldGroup from './TextFieldGroup';
 import BasicButton from '../buttons/BasicButton';
 
+// +++++++++  CSS  +++++++++ 
+
 const style = {
 	grid: {
 		display: 'grid',
-		gridTemplateAreas: `
+		gridTemplate: `
 			"title"
-			"form"
+			"form" 'auto'
 			"submit" `,
 		gridRowGap: '10px',
-		gridTemplateRows: 'repeat(3,1fr)',
-
-		border: 'none',
-	},
-
-	form: {
-		gridArea: 'form',
 		padding: 15,
 	},
 
 	title: { 
 		gridArea: 'title', 
 		fontSize: '3em',
-		padding: 20,	 
-	}
+	},
+
+	submit: { 
+		gridArea: 'submit', 
+		justifySelf: 'center',
+	},
 }
+
+// +++++++++  COMPONENT  +++++++++ 
 
 class Loginform extends Component {
 
@@ -80,40 +81,45 @@ class Loginform extends Component {
 		const { errors, identifier, password, isLoading } = this.state;
 
 		return (
-			<div className = 'box' style = { style.grid }>
-				<div style = { style.title } > Log In 
-				</div>
-						
-				<form  onSubmit = { this.onSubmit } >
+			<form 
+				id = 'loginForm'
+				className = 'box' 
+				style = { style.grid } 
+				onSubmit = { this.onSubmit } 
+			>
+				<div style = { style.title } > Log In </div>
 
-					{ errors.form && 
-	          <div className= 'alert alert-danger' > 
-	          	{errors.form}
-	          </div>
-					}
+				{ errors.form && <div className= 'alert alert-danger' > 
+          	{errors.form}
+          </div>
+				}
 
-					<TextFieldGroup 
-					style = { style.form } 
-						errors = { errors.identifier }
-						label = 'Username / Email' 
-						name = 'identifier'
-						onChange = { this.onChange }
-						placeholder = 'enter a username -or- email'
-						type = 'text'
-						value = { identifier }
-					/>
-         
-					<TextFieldGroup 
-						errors = { errors.password }
-						label = 'Password' 
-						name = 'password'
-						onChange = { this.onChange }
-						placeholder = 'enter your password'
-						type = 'password'
-						value = { password }
-					/>
-          
+				<TextFieldGroup 
+					style = {{ gridArea: 'form' }} 
+					errors = { errors.identifier }
+					label = 'Username / Email' 
+					name = 'identifier'
+					onChange = { this.onChange }
+					placeholder = 'enter a username -or- email'
+					type = 'text'
+					value = { identifier }
+				/>
+       
+				<TextFieldGroup 
+					style = {{ gridArea: 'form' }} 
+					errors = { errors.password }
+					label = 'Password' 
+					name = 'password'
+					onChange = { this.onChange }
+					placeholder = 'enter your password'
+					type = 'password'
+					value = { password }
+				/>
+        <div
+					style = { style.submit }
+        >
 					<BasicButton 
+						className = 'ctr'
 						area = 'submit'
 						type = 'submit' 
 						color = 'green'
@@ -121,9 +127,9 @@ class Loginform extends Component {
 						name = 'Log in!' 
 						disable = { isLoading.toString()} 
 					/>
-				</form>
+        </div>
 
-			</div> 
+			</form>
 		);
 	}
 }
