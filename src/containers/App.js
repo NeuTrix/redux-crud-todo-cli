@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import requireAuth from '../helpers/requireAuth';
 import './App.css';
 
-import AboutPage from '../components/AboutPage';
 import FlashMessageList from '../components/flash/FlashMessageList';
 import Header from '../containers/Header';
 import HomePage from '../components/HomePage';
@@ -71,7 +70,6 @@ class App extends Component {
 
 				<div id = 'app_main' style = { placement.main } >
 					<Route exact path = '/' component = { HomePage } />
-					<Route path = '/about' component = { AboutPage } />
 					<Route path = '/login' component = { LoginPage } />
 					<Route path = '/register' component = { RegisterPage } />
 					<Route exact path = '/todos' component = { 

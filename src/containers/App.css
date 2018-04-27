@@ -13,12 +13,19 @@
 	min-height: 760px;
 }
 
-.button {
+/* center single dimension elements */
+.mat {
+	box-shadow: 2px 2px 5px lightgrey;
+}
+
+.ctr {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	opacity: .95;
-	
+}
+
+.button {
 	font-weight: bold;
 	height: 30px;
 	width: 80px;
@@ -26,16 +33,7 @@
 	border-radius: 2px;
 }
 
-.material {
-	box-shadow: 2px 2px 5px lightgrey;
-}
-
 .box {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	opacity: .95;
-
 	color: grey;
 	background-color: whitesmoke;
 	border: 3px solid grey;
