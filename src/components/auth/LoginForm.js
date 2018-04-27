@@ -95,7 +95,7 @@ class LoginForm extends Component {
               Sign In
 						</Button> 
 
-						<LoginButton />
+						<LoginButton path/>
 
 					</Form>
 				</Col> 

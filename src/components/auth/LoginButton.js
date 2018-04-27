@@ -24,7 +24,7 @@ LoginButton.propTypes = {
 }
 
 LoginButton.defaultProps = {
-	path: '/',
+	path: '#',
 }
 
 export default LoginButton

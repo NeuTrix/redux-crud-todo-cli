@@ -24,7 +24,7 @@ RegisterButton.propTypes = {
 }
 
 RegisterButton.defaultProps = {
-	path: '/'
+	path: '#'
 }
 
 export default RegisterButton
