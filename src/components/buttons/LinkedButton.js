@@ -29,7 +29,7 @@ LinkedButton.propTypes = {
 }
 
 LinkedButton.defaultProps = {
-	name: 'Log in',
+	name: 'Name Me!',
 	path: '#',
 }
 

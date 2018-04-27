@@ -2,12 +2,34 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import validateInput from '../../helpers/loginValidator';
 import TextFieldGroup from './TextFieldGroup';
-import BasicButton from '../BasicButton';
-import LinkedButton from '../LinkedButton';
+import BasicButton from '../buttons/BasicButton';
 
-import { Button, Col, Form, PageHeader, Row } from 'react-bootstrap';
+const style = {
+	grid: {
+		display: 'grid',
+		gridArea: `
+			"title"
+			"form"
+			"submit" `,
+		gridRowGap: '10px',
 
-class LoginForm extends Component {
+		border: 'none',
+	},
+
+	form: {
+		gridArea: 'form',
+		padding: 15,
+	},
+
+	title: { 
+		gridArea: 'title', 
+		fontSize: '3em',
+		padding: 20,	 
+	}
+
+}
+
+class Loginform extends Component {
 
 	constructor (props, context) {
 		super(props, context);
@@ -56,76 +78,69 @@ class LoginForm extends Component {
 	render () {
     
 		const { errors, identifier, password, isLoading } = this.state;
-		const style = { margin: 15 };
 
 		return (
-			<Row>
-				<Col style = { style } >
-					<PageHeader> Sign In </PageHeader>
-				</Col>
-				<Col> 
-					<Form  onSubmit = { this.onSubmit } >
+			<div className = 'box' style = { style.grid }>
+				<div style = { style.title } > Log In 
+				</div>
+						
+				<form  onSubmit = { this.onSubmit } >
 
-						{ errors.form && 
-            <div className= 'alert alert-danger' > 
-            	{errors.form}
-            </div>
-						}
+					{ errors.form && 
+	          <div className= 'alert alert-danger' > 
+	          	{errors.form}
+	          </div>
+					}
 
-						<TextFieldGroup 
-							errors = { errors.identifier }
-							label = 'Username / Email' 
-							name = 'identifier'
-							onChange = { this.onChange }
-							placeholder = 'enter a username -or- email'
-							type = 'text'
-							value = { identifier }
-						/>
-           
-						<TextFieldGroup 
-							errors = { errors.password }
-							label = 'Password' 
-							name = 'password'
-							onChange = { this.onChange }
-							placeholder = 'enter your password'
-							type = 'password'
-							value = { password }
-						/>
-            
-						<BasicButton 
-							disable = { isLoading.toString()} 
-							type = 'submit' 
-							name = 'Sign in!' 
-						/>
+					<TextFieldGroup 
+					style = { style.form } 
+						errors = { errors.identifier }
+						label = 'Username / Email' 
+						name = 'identifier'
+						onChange = { this.onChange }
+						placeholder = 'enter a username -or- email'
+						type = 'text'
+						value = { identifier }
+					/>
+         
+					<TextFieldGroup 
+						errors = { errors.password }
+						label = 'Password' 
+						name = 'password'
+						onChange = { this.onChange }
+						placeholder = 'enter your password'
+						type = 'password'
+						value = { password }
+					/>
+          
+					<BasicButton 
+						type = 'submit' 
+						color = 'green'
+						bgColor = 'lime'
+						name = 'Log in!' 
+						disable = { isLoading.toString()} 
+					/>
+				</form>
 
-						<LinkedButton 
-							bgColor = 'lime'
-							color = 'purple'
-							name = 'TEST ME!'
-							path = '/todos'
-						/>
-
-					</Form>
-				</Col> 
-			</Row> 
+			</div> 
 		);
 	}
 }
 
-LoginForm.propTypes = {
+Loginform.propTypes = {
 	addFlashMessage: PropTypes.func.isRequired,
 	currUser: PropTypes.object.isRequired,
 	userLoginRequest: PropTypes.func.isRequired,
 };
 
-LoginForm.defaultProps = {
+Loginform.defaultProps = {
 	addFlashMessage: f => f,
 	currUser: { },
 	userLoginRequest: f => f,
 };
 
-LoginForm.contextTypes = {
+Loginform.contextTypes = {
 	router: PropTypes.object.isRequired,
 };
 
-export default LoginForm;
+export default Loginform;

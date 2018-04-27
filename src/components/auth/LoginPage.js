@@ -1,37 +1,28 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import LoginForm from './LoginForm';
-import { Col, Grid, Row } from 'react-bootstrap';
 import { userLoginRequest } from '../../actions/loginActions';
 import { addFlashMessage } from '../../actions/flashActions';
-
-class LoginPage extends Component {
-
-	render () {
+import { connect } from 'react-redux';
 
 		const style = { 
-			backgroundColor: '#ccffcc', 
-			padding: 25,
-			border: '2px solid darkgreen' 
+			display: 'grid',
+			gridTemplateAreas: `"main"`,
+			gridTemplateColumn: '1fr',
+			padding: 15,
+			backgroundColor: 'yellow',
 		};
 
-		// deconstruction
-		const { userLoginRequest, addFlashMessage } = this.props;
+const LoginPage = ({userLoginRequest, addFlashMessage}) => {
 
 		return (
-			<Grid >
-				<Row>
-					<Col md = { 4 } mdOffset = { 4 }  style = { style } >
-						<LoginForm 
-							userLoginRequest = { userLoginRequest } 
-							addFlashMessage = { addFlashMessage } 
-						/>
-					</Col>
-				</Row>
-			</Grid>
-		);
-	}
+			<div style = { style } >
+				<LoginForm className = 'box' id ='loginPage'  
+					userLoginRequest = { userLoginRequest } 
+					addFlashMessage = { addFlashMessage } 
+				/>
+			</div>
+		)
 }
 
 LoginPage.propTypes = {

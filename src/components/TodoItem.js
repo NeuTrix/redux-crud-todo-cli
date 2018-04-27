@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import CheckComplete from './CheckComplete';
-import DeleteBtn from './DeleteBtn';
+import DeleteBtn from './buttons/DeleteBtn';
 
 // +++++++++ CSS +++++++++ 
 
