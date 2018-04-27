@@ -91,7 +91,12 @@ class RegisterForm extends Component {
 				style = { style } 
 				onSubmit = { this.onSubmit } 
 			>
-				<h1 style = {{ gridArea: 'title' }} > Register </h1>
+				<h1 
+					className = 'engr'
+				 style = {{ gridArea: 'title' }} 
+				 > 
+					 Register 
+			 </h1>
 
 				<TextFieldGroup 
 					style = {{ gridArea: 'form' }} 

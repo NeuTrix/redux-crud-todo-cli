@@ -68,7 +68,7 @@ class Loginform extends Component {
 
 	render () {
     
-		const { errors, identifier, password, isLoading } = this.state;
+		const { errors, identifier, password } = this.state;
 
 		return (
 			<form 
@@ -115,10 +115,9 @@ class Loginform extends Component {
 						color = 'darkgreen'
 						bgColor = 'palegreen'
 						name = 'Log in!' 
-						disable = { isLoading.toString()} 
+						disable = { this.state.isLoading.toString()} 
 					/>
         </div>
-
 			</form>
 		);
 	}
