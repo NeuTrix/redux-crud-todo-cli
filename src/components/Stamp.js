@@ -39,7 +39,7 @@ Stamp.defaultProps = {
 	bgColor: 'white',
 	fsize: '1.0em',
 	h: 80,
-	w: 85,
+	w: 80,
 }
 
 
