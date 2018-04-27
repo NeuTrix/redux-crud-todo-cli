@@ -18,6 +18,7 @@ const style = {
 		"submit" `,
 	gridRowGap: '10px',
 	padding: 15,
+	
 }
 
 // +++++++++  COMPONENT  +++++++++ 
@@ -87,12 +88,12 @@ class RegisterForm extends Component {
 		return (
 			<form 
 				id = 'registerForm'
-				className = 'box' 
+				className = 'box paper' 
 				style = { style } 
 				onSubmit = { this.onSubmit } 
 			>
 				<h1 
-					className = 'engrave'
+				className = 'engr'
 				 style = {{ gridArea: 'title' }} 
 				 > 
 					 Register 

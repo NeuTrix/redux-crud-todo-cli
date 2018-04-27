@@ -18,8 +18,14 @@
 	box-shadow: 1px 2px 2px #cccccc;
 }
 
-.engrave { 
-	color:#cccccc;
+.paper {
+	background-image: url('../assets/watercolor-paper-2.jpg');
+	background-repeat: no-repeat;
+	opacity: 89%
+}
+/* engraving effect */
+.engr { 
+	color:#bbbbbb;
   text-shadow: 
     0px 1px 0px rgba(255,255,255,.1), 
     0px -1px 0.5px rgba(0,0,0,.5);
