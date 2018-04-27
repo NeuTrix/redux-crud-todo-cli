@@ -68,63 +68,17 @@ const HomePage = (props) => {
 				<h5>... a little Fullstack MERN CRUD web app featuring:</h5> 
 			</div>  
 
-			<div 
-				className = 'callout box material' 
-				style = {{ gridColumn: '1 / 2' }}
-				style = { style.stamp }
-			>  
-				<h4>Mongo</h4>
-			</div> 
-
-			<div 
-				className = 'callout box material' 
-				style = {{ gridColumn: '2 / 3' }, style.stamp } 
-			>  
-				<h4>Express</h4>
-			</div> 
-
-			<div 
-				className = 'callout box material' 
-				style = {{ gridColumn: '4 / 5' }, style.stamp } 
-			>  
-				<h4>React</h4>
-			</div> 
-
-			<div 
-				className = 'callout box material' 
-				style = {{ gridColumn: '3 / 4' }, style.stamp } 
-			>  
-				<h4>NodeJS</h4>
-			</div> 
-
-			<div 
-				className = 'callout box material' 
-				style = {{ gridColumn: '1 / 2' }, style.feats } 
-			>  
-				<h5>Decoupled</h5>
-			</div> 
-
-			<div 
-				className = 'callout box material' 
-				style = {{ gridColumn: '2 / 3' }, style.feats } 
-			>  
-				<h5>CSS Grid</h5>
-			</div> 
-
-			<div 
-				className = 'callout box material' 
-				style = {{ gridColumn: '4 / 5' }, style.feats } 
-			>  
-				<h5>Redux</h5>
-			</div> 
-
-			<Stamp area= '3 / 4' color= 'steelblue' name= 'Secure Login'/>
+			<Stamp area= 'stamp' color= 'steelblue' name= 'Decoupled'/>
+			<Stamp area= 'stamp' color= 'steelblue' name= 'Mongo'/>
+			<Stamp area= 'stamp' color= 'steelblue' name= 'Express'/>
+			<Stamp area= 'stamp' color= 'steelblue' name= 'React'/>
+			<Stamp area= 'stamp' color= 'steelblue' name= 'NodeJS'/>
+			<Stamp area= 'stamp' color= 'steelblue' name= 'CSS Grid'/>
+			<Stamp area= 'stamp' color= 'steelblue' name= 'Redux'/>
+			<Stamp area= 'stamp' color= 'steelblue' name= 'Secure Login'/>
 			
-
 			<LoginButton area = 'login' />
-
 			<RegisterButton area = 'register' />
-
 
 		</div>
 	);
