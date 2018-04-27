@@ -6,7 +6,7 @@ import { FormControl } from 'react-bootstrap';
 const style = {
 	color: '#steelblue',
 	backgroundColor: 'whitesmoke',
-	height: 40,
+	height: 15,
 	width: '100%',
 	padding: 10,
 }
