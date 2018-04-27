@@ -10,7 +10,8 @@ const style = {
 	display: 'grid',
 	gridTemplate: `
 		"title"
-		"form" 'auto'
+		"form"
+		"form"
 		"submit" `,
 	gridRowGap: '10px',
 	padding: 15,
@@ -21,7 +22,7 @@ const style = {
 class Loginform extends Component {
 
 	constructor (props, context) {
-		
+
 		super(props, context);
 		this.state = {
 			identifier: '',
@@ -111,8 +112,8 @@ class Loginform extends Component {
 						className = 'ctr'
 						area = 'submit'
 						type = 'submit' 
-						color = 'green'
-						bgColor = 'lime'
+						color = 'darkgreen'
+						bgColor = 'palegreen'
 						name = 'Log in!' 
 						disable = { isLoading.toString()} 
 					/>

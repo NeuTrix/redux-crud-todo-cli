@@ -29,7 +29,7 @@ const TextFieldGroup = (props) => {
 			/>
 
 			{ errors &&  
-				<span id = 'helpBlock' style = {{ color: 'red' }} > 
+				<span id = 'helpBlock' style = {{ color: 'tomato' }} > 
 				{ `WARNING: ${ errors }!. Please re-${ placeholder }` } 
 				</span> 
 			}

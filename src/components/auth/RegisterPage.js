@@ -1,34 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import RegisterForm from './RegisterForm';
-import { Col, Grid, Row } from 'react-bootstrap';
 import { userSignupRequest } from '../../actions/signupActions';
 import { addFlashMessage } from '../../actions/flashActions';
+import { connect } from 'react-redux';
 
-class RegisterPage extends Component {
+const RegisterPage = (props) => {
 
-	render () {
-
-		const style = { 
-			padding: 25,
-		};
-
-		const { userSignupRequest, addFlashMessage } = this.props;
-
-		return (
-			<div className = 'box' >
-				<Row>
-					<Col md = { 4 } mdOffset = { 4 }  style = { style } >
-						<RegisterForm 
-							userSignupRequest = { userSignupRequest } 
-							addFlashMessage = { addFlashMessage } 
-						/>
-					</Col>
-				</Row>
-			</div>
-		);
-	}
+	return (
+		<div className = 'box' style= {{ padding: 25 }} >
+			<RegisterForm 
+				userSignupRequest = { props.userSignupRequest } 
+				addFlashMessage = { props.addFlashMessage } 
+			/>
+		</div>
+	)
 }
 
 RegisterPage.propTypes = {

@@ -5,19 +5,13 @@ import { userLoginRequest } from '../../actions/loginActions';
 import { addFlashMessage } from '../../actions/flashActions';
 import { connect } from 'react-redux';
 
-const style = { 
-	display: 'grid',
-	gridTemplateAreas: `"main"`,
-	gridTemplate: '1fr/1fr',
-	padding: 15,
-};
-
-const LoginPage = ({userLoginRequest, addFlashMessage}) => {
+const LoginPage = (props) => {
+	
 	return (
-		<div id = 'loginPage' style = { style } >
+		<div id = 'loginPage' style= {{ padding: 25 }}  >
 			<LoginForm  className = 'box'  
-				userLoginRequest = { userLoginRequest } 
-				addFlashMessage = { addFlashMessage } 
+				userLoginRequest = { props.userLoginRequest } 
+				addFlashMessage = { props.addFlashMessage } 
 			/>
 		</div>
 	)
