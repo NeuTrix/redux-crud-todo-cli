@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 		const style = { 
 			display: 'grid',
 			gridTemplateAreas: `"main"`,
-			gridTemplateColumn: '1fr',
+			gridTemplate: '1fr/1fr',
 			padding: 15,
 			backgroundColor: 'yellow',
 		};
@@ -16,8 +16,8 @@ import { connect } from 'react-redux';
 const LoginPage = ({userLoginRequest, addFlashMessage}) => {
 
 		return (
-			<div style = { style } >
-				<LoginForm className = 'box' id ='loginPage'  
+			<div id = 'loginPage' style = { style } >
+				<LoginForm  className = 'box'  
 					userLoginRequest = { userLoginRequest } 
 					addFlashMessage = { addFlashMessage } 
 				/>

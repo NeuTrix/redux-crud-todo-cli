@@ -7,11 +7,12 @@ import BasicButton from '../buttons/BasicButton';
 const style = {
 	grid: {
 		display: 'grid',
-		gridArea: `
+		gridTemplateAreas: `
 			"title"
 			"form"
 			"submit" `,
 		gridRowGap: '10px',
+		gridTemplateRows: 'repeat(3,1fr)',
 
 		border: 'none',
 	},
@@ -26,7 +27,6 @@ const style = {
 		fontSize: '3em',
 		padding: 20,	 
 	}
-
 }
 
 class Loginform extends Component {
@@ -114,6 +114,7 @@ class Loginform extends Component {
 					/>
           
 					<BasicButton 
+						area = 'submit'
 						type = 'submit' 
 						color = 'green'
 						bgColor = 'lime'
