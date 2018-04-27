@@ -26,9 +26,7 @@ BasicButton.propTypes = {
 }
 
 BasicButton.defaultProps = {
-	// bgColor: 'lightgreen', 
-	// color: 'green',
-	// name: 'Log in',
+	name: 'Name Me!'
 }
 
 export default BasicButton
