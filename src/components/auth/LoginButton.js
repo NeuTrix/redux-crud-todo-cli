@@ -8,11 +8,11 @@ const style = {
 	color: 'green',
 }
 
-const LoginButton = ({ area, path }) => {
+const LoginButton = ({ area, name, path }) => {
 	return (
 		<Link to = { path } style = {{ gridArea: area }} >
 			<button className= 'button mat' style= { style } >
-				Log in
+				{ name }
 			</button>  
 		</Link >
 	)
@@ -21,10 +21,12 @@ const LoginButton = ({ area, path }) => {
 LoginButton.propTypes = {
 	area: PropTypes.string.isRequired, // indicates grid area
 	path: PropTypes.string.isRequired, // indicates link path
+	name: PropTypes.string.isRequired, // altenative name for
 }
 
 LoginButton.defaultProps = {
 	path: '#',
+	name: 'Log in',
 }
 
 export default LoginButton
