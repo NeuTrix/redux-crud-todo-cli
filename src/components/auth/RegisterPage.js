@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 const RegisterPage = (props) => {
 
 	return (
-		<div className = 'box' style= {{ padding: 25,
+		<div className = 'boxClr' style= {{ padding: 25,
  }} >
 			<RegisterForm 
 				userSignupRequest = { props.userSignupRequest } 

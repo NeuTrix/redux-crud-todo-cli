@@ -18,7 +18,7 @@ const style = {
 		"submit" `,
 	gridRowGap: '10px',
 	padding: 15,
-	
+	color: 'steelblue'
 }
 
 // +++++++++  COMPONENT  +++++++++ 
@@ -88,7 +88,7 @@ class RegisterForm extends Component {
 		return (
 			<form 
 				id = 'registerForm'
-				className = 'box paper' 
+				className = 'boxclr' 
 				style = { style } 
 				onSubmit = { this.onSubmit } 
 			>
