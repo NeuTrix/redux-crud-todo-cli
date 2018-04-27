@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LoginButton from './LoginButton';
+import RegisterButton from './RegisterButton';
 
 // +++++++++ CSS +++++++++ 
 
@@ -14,7 +15,7 @@ const style = {
 		  "subt subt subt subt"
 		  "apps apps apps apps" 
 		  "apps apps apps apps" 
-		  " .. login regis .."   `,
+		  " .. login register .."   `,
 		gridTemplateColumns: 'repeat(4, 1fr)',
 		gridGap: '25px 5px',
 
@@ -44,14 +45,6 @@ const style = {
 		borderColor: 'steelblue' 
 	},
 
-	// buttons
-
-
-	regis: { 
-		backgroundColor: 'lightblue',
-		borderColor: 'steelblue',
-		color: 'steelblue',
-	},
 };
 
 // +++++++++ COMPONENT +++++++++ 
@@ -131,11 +124,7 @@ const HomePage = (props) => {
 
 			<LoginButton area = 'login' />
 
-			<Link to = '/register' style = {{ gridArea: 'regis'} } >
-				<button className= 'button material' style= { style.regis } >
-					Register
-				</button>  
-			</Link>
+			<RegisterButton area = 'register' />
 
 		</div>
 	);
