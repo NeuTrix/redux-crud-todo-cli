@@ -78,12 +78,12 @@ class Loginform extends Component {
 				style = { style } 
 				onSubmit = { this.onSubmit } 
 			>
-				<h1 
-					className = 'engr' 
-					style = {{ gridArea: 'title' }} 
+				<h2 
+					className = 'ctr engr under' 
+					style = {{ gridArea: 'title'}} 
 				> 
 					Log In 
-				</h1>
+				</h2>
 
 				<TextFieldGroup 
 					style = {{ gridArea: 'form' }} 

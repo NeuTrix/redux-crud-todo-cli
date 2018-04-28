@@ -93,7 +93,7 @@ class RegisterForm extends Component {
 				onSubmit = { this.onSubmit } 
 			>
 				<h1 
-				className = 'engr'
+				className = 'engr under ctr'
 				 style = {{ gridArea: 'title' }} 
 				 > 
 					 Registration 

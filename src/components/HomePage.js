@@ -22,9 +22,9 @@ const style = {
 const HomePage = (props) => {
 	
 	return (
-		<div className = ' ' style = { style } >
+		<div className = 'engrBox' style = { style } >
 
-			<div className= 'boxClr ctr mat engr' style= {{ gridArea: 'title' }}> 
+			<div className= 'ctr engr under' style= {{ gridArea: 'title'}}> 
 				<h3>React-Todo (beta)</h3> 
 			</div>  
 

@@ -26,10 +26,10 @@
 
 /* engraving effect */
 .engr { 
-	color:#bbbbbb;
+	color:grey;
   text-shadow: 
     0px 1px 0px rgba(255,255,255,.1), 
-    0px -1px 0.5px rgba(0,0,0,.5);
+    0px -1px 0.5px rgba(0,0,0,.7);
 }
 
 .engrBox { 
@@ -37,13 +37,18 @@
 	color:#bbbbbb;
   box-shadow: 
     0px 1px 0px rgba(255,255,255,.1), 
-    0px -1px 0.5px rgba(0,0,0,.5);
+    0px -1px 0.5px rgba(0,0,0,.7);
 }
 
 .ctr {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.under {
+	border-bottom: 1px solid grey;
+	padding-bottom: 15px;
 }
 
 .btn {
