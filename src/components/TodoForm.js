@@ -13,8 +13,9 @@ const gridStyle = {
 	gridTemplateColumn: '30px 30px 30px',
 	gridTemplateRow: 50,
 	gridGap: 5,
-	borderColor: 'steelblue',
-	padding: 5,
+	borderColor: 'orange',
+	padding: 10,
+	marginBottom: 20
 }
 
 const style = {

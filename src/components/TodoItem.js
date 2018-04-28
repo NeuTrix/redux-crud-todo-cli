@@ -86,7 +86,6 @@ class TodoItem extends Component {
 				onSubmit = { this.handleSubmit } 
 			>
 				<input 
-					className = 'engr'
 					name = 'task'
 					style = { this.style}
 					type = 'text'
