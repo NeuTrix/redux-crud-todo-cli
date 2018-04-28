@@ -6,10 +6,10 @@ const style = {
 	basic: {
 		gridArea: 'delete',
 		display: 'flex',
-		justifyContent: 'center',
+		// justifyContent: 'center',
 		color: 'lightgrey', 
-		borderColor: '1px solid lightgrey', 
-		backgroundColor: 'white' 
+		// borderColor: '1px solid lightgrey', 
+		// backgroundColor: 'white' 
 	},
 	glyph: { color: 'tomato' }
 }
@@ -28,9 +28,13 @@ const DeleteBtn = (props) => {
 	}
 
 	return (
-		<div onClick= { handleDelete } style = { style.basic } > 
+		<div 
+			className = 'ctr'
+			onClick= { handleDelete } 
+			style = { style.basic } 
+		> 
 			<i 
-				className = "fa fa-trash fa-lg" 
+				className = "ctr engr fa fa-trash fa-lg" 
 				style = { style.glyph } 
 			> </i>
 		</div>
