@@ -15,11 +15,11 @@ const gridStyle = {
 	gridTemplateRow: 50,
 	gridGap: 5,
 
-	backgroundColor: 'whitesmoke',
+	/*backgroundColor: 'whitesmoke',
 	opacity: '0.95',
 	padding: 5,
 	border: '2px solid grey',
-	borderRadius: 5,
+	borderRadius: 5,*/
 }
 
 // +++++++++ COMPONENT +++++++++ 
@@ -80,7 +80,7 @@ class TodoItem extends Component {
 
 		return (
 			<form 
-				className = 'TodoItem' 
+				className = 'TodoItem engrBox boxClr' 
 				style = { gridStyle } 
 				onSubmit = { this.handleSubmit } 
 			>

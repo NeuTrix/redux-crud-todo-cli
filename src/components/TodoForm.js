@@ -14,6 +14,7 @@ const gridStyle = {
 	gridTemplateRow: 50,
 	gridGap: 5,
 
+	borderColor: 'steelblue',
 	padding: 5,
 }
 
@@ -37,10 +38,10 @@ const style = {
 
 	date: { 
 		gridArea: 'date' ,
-		backgroundColor: 'whitesmoke', 
-		border: '1px solid #222222' ,
-		color: '#222222',
-		opacity: .5,
+		backgroundColor: 'aliceblue', 
+		border: '1px solid steelblue' ,
+		color: 'steelblue',
+		opacity: .8,
 	},
 }
 

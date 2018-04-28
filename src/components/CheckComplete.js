@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const style = {
 	basic: { 
 		display: 'flex', 
-		justifySelf: 'left', 
+		justifySelf: 'center', 
 		alignSelf: 'center' ,
 	},
 
@@ -15,8 +15,8 @@ const style = {
 		text:"red",
 		color: 'steelblue',  
 		fontSize: '1.5em' ,
-		justifySelf: 'left', 
-		alignSelf: 'center' 
+		justifySelf: 'center', 
+		alignSelf: 'center' ,
 	}, 
 };
 
@@ -44,11 +44,11 @@ class CheckComplete extends Component {
 
 	render() {
 		const checked = ( 
-			<i className = "fa fa-check-square-o fa-lg" style = { style.glyph }> </i>
+			<i className = "engr ctr fa fa-check-square-o fa-lg" style = { style.glyph }> </i>
 		);
 		
 		const unchecked = ( 
-			<i className = "fa fa-square-o fa-lg" style = { style.glyph }> </i>
+			<i className = "engr ctr fa fa-square-o fa-lg" style = { style.glyph }> </i>
 		);
 
 		return (  
