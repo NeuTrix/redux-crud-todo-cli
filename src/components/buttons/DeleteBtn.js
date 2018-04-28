@@ -6,12 +6,14 @@ const style = {
 	basic: {
 		gridArea: 'delete',
 		display: 'flex',
-		// justifyContent: 'center',
 		color: 'lightgrey', 
 		// borderColor: '1px solid lightgrey', 
 		// backgroundColor: 'white' 
 	},
-	glyph: { color: 'tomato' }
+
+	glyph: { 
+		color: 'tomato' 
+	}
 }
 
 // +++++++++ COMPONENT  +++++++++ 
