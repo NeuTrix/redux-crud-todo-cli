@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 import requireAuth from '../helpers/requireAuth';
 import './App.css';
 
-import FlashMessageList from '../components/flash/FlashMessageList';
-import Header from '../containers/Header';
-import HomePage from '../components/HomePage';
-import LoginPage from '../components/auth/LoginPage';
-import RegisterPage from '../components/auth/RegisterPage';
-import TaskCounter from '../components/TaskCounter';
-import TodoList from '../containers/TodoList';
-import TodoForm from '../components/TodoForm';
+import FlashMessageList from './messages/FlashMessageList';
+import NavBar from './NavBar';
+import HomePage from './HomePage';
+import LoginPage from './auth/LoginPage';
+import RegisterPage from './auth/RegisterPage';
+import TaskCounter from './TaskCounter';
+import TodoList from './TodoList';
+import TodoForm from './TodoForm';
 
 import { connect } from 'react-redux';
 import { createTodo } from '../actions/createActions';
@@ -56,7 +56,7 @@ class App extends Component {
 				</div>
 
 				<div id = 'app_header'  style = { placement.header } >
-					<Route  path = '/' component = { Header } />
+					<Route  path = '/' component = { NavBar } />
 				</div>
 
 				<div id = 'app_new_todo' style = { placement.new_todo } >

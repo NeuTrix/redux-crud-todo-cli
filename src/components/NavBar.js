@@ -1,18 +1,40 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
-import '../containers/App.css';
-import logo from '../assets/logo.svg';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+
+import './NavBar.css';
+
+import logo from '../assets/logo.svg';
 import { fetchTodos } from '../actions/readActions';
-import { IndexLinkContainer } from 'react-router-bootstrap';
 import { logout } from '../actions/loginActions';
-import { Nav, Navbar, NavItem } from 'react-bootstrap';
 
-const style = { color: 'lightblue', textAlign: 'center' };
-const logoutStyle ={ color: 'lime', textAlign: 'center' };
+import { IndexLinkContainer } from 'react-router-bootstrap';
+import { Nav, Navbar, nav } from 'react-bootstrap';
 
-// +++++++++   +++++++++ 
+// +++++++++  CSS  +++++++++ 
+
+const style = { 
+
+	grid: {
+		display: 'grid',
+		gridTemplateArea:`"logo welcome  home todos log" `
+	},
+
+	base: {
+		color: 'lightblue', 
+		textAlign: 'center' 
+	},
+
+	logoutStyle:{
+		color: 'lime', 
+		textAlign: 'center' 
+	}
+
+};
+
+
+// +++++++++ COMPONENT  +++++++++ 
 
 class Header extends Component {
 
@@ -35,25 +57,23 @@ class Header extends Component {
 		const { isAuthenticated, user } = this.props.authApi;
 
 		const userLinks = (
-			<Nav pullRight style = { style }>
-				<NavItem onClick = { this.logout.bind(this)} >
-					<span style = { logoutStyle }>Log Out</span>
-				</NavItem>
-			</Nav>
+				<nav onClick = { this.logout.bind(this)} >
+					<span style = { style.logoutStyle }>Log Out</span>
+				</nav>
 		);
 
 		const guestLinks = (
-			<Nav pullRight>
+			<nav >
 
 				<IndexLinkContainer to = '/login' style = { style } >
-					<NavItem > Sign In </NavItem>
+					<nav > Sign In </nav>
 				</IndexLinkContainer>
 
 				<IndexLinkContainer to = '/register' style = { style }>
-					<NavItem > Register </NavItem>
+					<nav > Register </nav>
 				</IndexLinkContainer>
 
-			</Nav>
+			</nav>
 		);
 
 		const welcome = (
@@ -62,7 +82,7 @@ class Header extends Component {
 
 		return (
 
-			<div style = { gridStyle } >
+			<div style = { style.grid } >
 
 			<Navbar inverse collapseOnSelect fixedTop >
 
@@ -86,13 +106,13 @@ class Header extends Component {
 
 					<Nav>
 						<IndexLinkContainer to = '/' style = { style }>
-							<NavItem > Home </NavItem>
+							<nav > Home </nav>
 						</IndexLinkContainer>
 					</Nav>
 
 					<Nav>
 						<IndexLinkContainer to = '/todos' style = { style }>
-							<NavItem onClick = { this.onClick.bind(this) }> Todos </NavItem>
+							<nav onClick = { this.onClick.bind(this) }> Todos </nav>
 						</IndexLinkContainer>
 					</Nav>
 
@@ -108,7 +128,7 @@ class Header extends Component {
 	}
 }
 
-// +++++++++   +++++++++ 
+// +++++++++ PROPS  +++++++++ 
 
 Header.propTypes = {
 	authApi: PropTypes.object.isRequired,
