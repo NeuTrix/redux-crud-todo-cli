@@ -14,22 +14,33 @@ const gridStyle = {
 	gridTemplateRow: 50,
 	gridGap: 5,
 
-	backgroundColor: 'transparent',
 	padding: 5,
-	border: '2px solid lime',
-	borderRadius: 5,
 }
 
 const style = {
 	task: { gridArea: 'task', paddingLeft: '1em', },
 	action: { 
 		gridArea: 'action', 
-		border: '2px solid lime', 
-		backgroundColor: '#104165', 
-		color: "lime" 
+		backgroundColor: 'palegreen', 
+		borderColor: 'darkgreen' ,
+		color: 'darkgreen',
+		opacity: .5,
 	},
-	priority: { gridArea: 'priority' },
-	date: { gridArea: 'date' },
+
+	priority: { 
+		gridArea: 'priority' ,
+		backgroundColor: 'aliceblue', 
+		borderColor: 'steelblue' ,
+		color: 'steelblue',
+		opacity: .5,
+	},
+	date: { 
+		gridArea: 'date' ,
+		backgroundColor: 'palegreen', 
+		borderColor: 'darkgreen' ,
+		color: 'darkgreen',
+		opacity: .5,
+	},
 }
 
 // +++++++++ COMPONENT +++++++++ 
@@ -64,7 +75,7 @@ class TodoForm extends Component {
 	render () {
 		return (
 			<form 
-				className = 'TodoForm' 
+				className = 'TodoForm boxClr engrBox' 
 				style = { gridStyle } 
 				onSubmit = { this.handleSubmit } 
 			>
@@ -81,6 +92,7 @@ class TodoForm extends Component {
 				/>
 
 				<select
+					className = 'boxClr engrBox'
 					id = 'new_item_priority' 
 					style = { style.priority } 
 					name = 'rank'
@@ -94,6 +106,7 @@ class TodoForm extends Component {
 				</select>
 
 				<input 
+					className = 'boxClr engrBox'
 					id = 'new_item_date'
 					style = { style.date } 
 					name = 'date' 
@@ -103,6 +116,7 @@ class TodoForm extends Component {
 				/>
 
 				<button 
+					className = 'boxClr engrBox'
 					id = 'new_item_submit'
 					style = { style.action } 
 					type = "Submit"
@@ -117,13 +131,11 @@ class TodoForm extends Component {
 // +++++++++ PROPS +++++++++ 
 
 TodoForm.propTypes = {
-	// addTodo: PropTypes.func.isRequired,
 	createTodo: PropTypes.func.isRequired,
 	owner: PropTypes.string.isRequired
 };
 
 TodoForm.defaultProps = {
-	// addTodo: f => f,
 	createTodo: f => f,
 	owner: 'Default from APP.js'
 };
