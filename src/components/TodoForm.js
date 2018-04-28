@@ -22,7 +22,7 @@ const style = {
 	action: { 
 		gridArea: 'action', 
 		backgroundColor: 'palegreen', 
-		borderColor: 'darkgreen' ,
+		border: '1px solid darkgreen' ,
 		color: 'darkgreen',
 		opacity: .5,
 	},
@@ -30,15 +30,16 @@ const style = {
 	priority: { 
 		gridArea: 'priority' ,
 		backgroundColor: 'aliceblue', 
-		borderColor: 'steelblue' ,
+		border: '1px solid steelblue' ,
 		color: 'steelblue',
-		opacity: .5,
+		opacity: .8,
 	},
+
 	date: { 
 		gridArea: 'date' ,
-		backgroundColor: 'palegreen', 
-		borderColor: 'darkgreen' ,
-		color: 'darkgreen',
+		backgroundColor: 'whitesmoke', 
+		border: '1px solid #222222' ,
+		color: '#222222',
 		opacity: .5,
 	},
 }
