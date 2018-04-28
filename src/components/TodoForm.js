@@ -97,7 +97,7 @@ class TodoForm extends Component {
 					placeholder = 'enter a new task here'
 					autoFocus
 					required
-				/>
+				/> 
 
 				<select
 					className = 'mat'
@@ -129,7 +129,7 @@ class TodoForm extends Component {
 					id = 'new_item_submit'
 					type = 'submit'
 				> <span 
-					style = {{ color: 'palegreen', border: '1px solid green' }}
+					style = {{ color: 'palegreen' }}
 					className = "ctr engr fa fa-plus fa-lg" 
 					></span> 
 				</button> 

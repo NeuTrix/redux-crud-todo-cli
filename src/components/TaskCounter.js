@@ -1,28 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Col, Glyphicon, Grid, OverlayTrigger, Row, Tooltip } from 'react-bootstrap';
 
-const styleRow = {
-	color: 'steelblue',
-	backgroundColor: 'aliceblue',
-	opacity: 0.8,
-	padding: 10,
-};
+// +++++++++  CSS  +++++++++ 
 
-const styleCount = {
-	border: '2px solid navy',
-	color: 'lime',
-	fontSize: '1.5em',
-	textAlign: 'center',
-};
+const style = {
+	grid: {
+		display: 'grid',
+		gridTemplateAreas: ` "refresh title count" `,
+		gridTemplateColumns: '2fr 4fr 4fr ',
+	}
 
-const spacing = {
-	xs: { refr: 2, title: 5, badge: 2 },
-	sm: { refr: 1, title: 2, badge: 1 },
-	md: { refr: 1, title: 2, badge: 1 }
-};
+ };
 
-// +++++++++   +++++++++ 
+
+// +++++++++  COMPONENT +++++++++ 
 
 const TaskCounter = (props) => {
 
@@ -32,43 +23,43 @@ const TaskCounter = (props) => {
 	};
 
 	return ( 
-		<div >
+		<div 
+			id = 'todosCount' 
+			className = 'ctr mat engrBox'  
+			style = { style.grid }
+		>
+			<button 
+				onClick = { onClick } 
+				style = {{ 
+					gridArea: 'refresh', 
+					background: 'none', 
+					border: 'none',
+				}}
+			>
+				<i className = 'ctr engr fa fa-refresh fa-lg'/>  
+			</button>
 
-			
-					<Col
-						xs = { spacing.xs.refr } 
-						sm = { spacing.sm.refr } 
-						md = { spacing.md.refr } 
-					>
-						<Button onClick = { onClick } >
-							<Glyphicon 
-								glyph = 'refresh'
-								style = {{ color: '#286D9A', fontSize: '1em' }}
-							/>  
-						</Button>
-					</Col>
+			<div className = 'ctr engr' style = {{ gridArea: 'title'}} >
+				<h3> Todos Count:    </h3>
+			</div>
 
-				<Col
-					xs = { spacing.xs.title } 
-					sm = { spacing.sm.title } 
-					md = { spacing.md.title } 
-					style = {{ paddingTop: 7, color: '#286D9A' }}
-				>
-					Todos Count:   
-				</Col>
-				<Col
-					style =  { styleCount }
-					xs = { spacing.xs.badge } 
-					sm = { spacing.sm.badge } 
-					md = { spacing.md.badge } 
-				>
-					<span > { props.todos.length } </span>
-				</Col>
+			<span 
+				className = 'ctr engr' 
+				style = {{ 
+					gridArea: 'count', 
+					color: 'orange', 
+					justifySelf: 'left',
+					aligneSelf: 'centerd',
+				}}
+			> 
+				<h2> { props.todos.length } </h2>
+			</span>
+
 		</div>
 	);
 };
 
-// +++++++++   +++++++++ 
+// +++++++++ PROPS +++++++++ 
 	
 TaskCounter.propTypes = {
 	fetchTodos: PropTypes.func.isRequired,
