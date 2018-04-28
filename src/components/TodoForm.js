@@ -13,7 +13,7 @@ const gridStyle = {
 	gridTemplateColumn: '30px 30px 30px',
 	gridTemplateRow: 50,
 	gridGap: 5,
-	borderColor: 'orange',
+	borderColor: 'steelblue',
 	padding: 10,
 	marginBottom: 20
 }
@@ -129,7 +129,7 @@ class TodoForm extends Component {
 					id = 'new_item_submit'
 					type = 'submit'
 				> <span 
-					style = {{ color: 'palegreen' }}
+					style = {{ color: 'palegreen', border: '1px solid green' }}
 					className = "ctr engr fa fa-plus fa-lg" 
 					></span> 
 				</button> 

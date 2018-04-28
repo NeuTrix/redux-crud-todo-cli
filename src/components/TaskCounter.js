@@ -10,7 +10,6 @@ const styleRow = {
 };
 
 const styleCount = {
-	backgroundColor: '#0E3656',
 	border: '2px solid navy',
 	color: 'lime',
 	fontSize: '1.5em',
@@ -32,20 +31,10 @@ const TaskCounter = (props) => {
 		props.fetchTodos();
 	};
 
-	const tooltipRefresh = (
-		<Tooltip  id = 'tooltipRefresh' >
-			Refresh Todos list
-		</Tooltip>
-	);
-
 	return ( 
-		<Grid >
-			<Row style = { styleRow } >
+		<div >
 
-				<OverlayTrigger
-					placement = 'bottom'
-					overlay = { tooltipRefresh }
-				>
+			
 					<Col
 						xs = { spacing.xs.refr } 
 						sm = { spacing.sm.refr } 
@@ -58,7 +47,7 @@ const TaskCounter = (props) => {
 							/>  
 						</Button>
 					</Col>
-				</OverlayTrigger>
+
 				<Col
 					xs = { spacing.xs.title } 
 					sm = { spacing.sm.title } 
@@ -75,8 +64,7 @@ const TaskCounter = (props) => {
 				>
 					<span > { props.todos.length } </span>
 				</Col>
-			</Row>
-		</Grid>
+		</div>
 	);
 };
 
