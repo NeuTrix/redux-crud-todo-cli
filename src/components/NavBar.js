@@ -1,16 +1,15 @@
+// vendor
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+// +++++++++   +++++++++ 
 import { connect } from 'react-redux';
-
+// custom
 import './NavBar.css';
-
 import logo from '../assets/logo.svg';
+
 import { fetchTodos } from '../actions/readActions';
 import { logout } from '../actions/loginActions';
-
-import { IndexLinkContainer } from 'react-router-bootstrap';
-import { Nav, Navbar, nav } from 'react-bootstrap';
 
 // +++++++++  CSS  +++++++++ 
 
@@ -33,10 +32,9 @@ const style = {
 
 };
 
-
 // +++++++++ COMPONENT  +++++++++ 
 
-class Header extends Component {
+class NavBar extends Component {
 
 	logout(e) {
 		e.preventDefault();
@@ -50,30 +48,20 @@ class Header extends Component {
 	}
 
 	render() {
-	const gridStyle = {
-		backgroundColor: 'orange',
-	}
-
+		
 		const { isAuthenticated, user } = this.props.authApi;
 
 		const userLinks = (
-				<nav onClick = { this.logout.bind(this)} >
-					<span style = { style.logoutStyle }>Log Out</span>
-				</nav>
+			<div onClick = { this.logout.bind(this)} >
+				<span style = { style.logoutStyle }>Log Out</span>
+			</div>
 		);
 
 		const guestLinks = (
-			<nav >
-
-				<IndexLinkContainer to = '/login' style = { style } >
-					<nav > Sign In </nav>
-				</IndexLinkContainer>
-
-				<IndexLinkContainer to = '/register' style = { style }>
-					<nav > Register </nav>
-				</IndexLinkContainer>
-
-			</nav>
+			<div >
+				<Link to = '/login' style = { style } >Sign In</Link>
+				<Link to = '/register' style = { style }>Register</Link>
+			</div>
 		);
 
 		const welcome = (
@@ -82,62 +70,37 @@ class Header extends Component {
 
 		return (
 
-			<div style = { style.grid } >
+			<nav style = { style.grid } >
+				<Link to = '/' >
+					<img src= { logo } className= "App-logo" alt= "logo" />
+				</Link>
 
-			<Navbar inverse collapseOnSelect fixedTop >
+				<div > { isAuthenticated ? welcome : '' }  </div>
 
-				<Navbar.Header>
+				<Link to = '/' style = { style }>
+					<p > Home </p>
+				</Link>
 
-					<Navbar.Brand>
-						<IndexLinkContainer to = '/' >
-							<img src= { logo } className= "App-logo" alt= "logo" />
-						</IndexLinkContainer>
-					</Navbar.Brand>
+				<Link to = '/todos' style = { style }>
+					<nav onClick = { this.onClick.bind(this) }> Todos </nav>
+				</Link>
 
-					<Navbar.Brand >
-						{ isAuthenticated ? welcome : '' } 
-					</Navbar.Brand>
-
-					<Navbar.Toggle />
-				</Navbar.Header>
-
-
-				<Navbar.Collapse>
-
-					<Nav>
-						<IndexLinkContainer to = '/' style = { style }>
-							<nav > Home </nav>
-						</IndexLinkContainer>
-					</Nav>
-
-					<Nav>
-						<IndexLinkContainer to = '/todos' style = { style }>
-							<nav onClick = { this.onClick.bind(this) }> Todos </nav>
-						</IndexLinkContainer>
-					</Nav>
-
-					{ isAuthenticated ? userLinks : guestLinks }
-					
-				</Navbar.Collapse>
-				
-			</Navbar>
-
-			</div>
-
+				{ isAuthenticated ? userLinks : guestLinks }
+			</nav>
 		);
 	}
 }
 
 // +++++++++ PROPS  +++++++++ 
 
-Header.propTypes = {
+NavBar.propTypes = {
 	authApi: PropTypes.object.isRequired,
 	logout: PropTypes.func.isRequired,
 	placement: PropTypes.string,
 	fetchTodos: PropTypes.func.isRequired
 };
 
-Header.contextTypes = {
+NavBar.contextTypes = {
 	router: PropTypes.object.isRequired,
 };
 
@@ -148,4 +111,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, { logout, fetchTodos })(Header);
+export default connect(mapStateToProps, { logout, fetchTodos })(NavBar);
