@@ -5,7 +5,7 @@ import { expect } from 'chai';
 import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import store from '../../store/store';
-import CalendarBtn from '../../components/CalendarBtn';
+import CalendarBtn from '../../components/buttons/CalendarBtn';
 
 it('renders without crashing', () => {
 	const div = document.createElement('div');

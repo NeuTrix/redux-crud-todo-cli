@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-import DeleteBtn from '../../components/DeleteBtn';
+import DeleteBtn from '../../components/buttons/DeleteBtn';
 
 it ('renders without crashing', () => {
 	const div = document.createElement('div');
