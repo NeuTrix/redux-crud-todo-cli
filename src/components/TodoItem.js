@@ -15,11 +15,11 @@ const gridStyle = {
 	gridTemplateRow: 50,
 	gridGap: 5,
 
-	/*backgroundColor: 'whitesmoke',
-	opacity: '0.95',
-	padding: 5,
-	border: '2px solid grey',
-	borderRadius: 5,*/
+	backgroundColor: 'aliceblue',
+	// opacity: '0.95',
+	padding: 20,
+	border: '2px solid lightsteelblue',
+	// borderRadius: 5,
 }
 
 // +++++++++ COMPONENT +++++++++ 
@@ -40,7 +40,8 @@ class TodoItem extends Component {
 
 		this.style = {
 			gridArea: 'task',
-			paddingLeft: '1em',
+			border: '3px solid #bbbbbb',
+			padding: 5,
 			backgroundColor: isComplete ?'whitesmoke' : 'white',
 			textDecoration: isComplete ?'line-through': 'none',
 			color: isComplete ? '#bbbbbb': 'grey',
@@ -85,6 +86,7 @@ class TodoItem extends Component {
 				onSubmit = { this.handleSubmit } 
 			>
 				<input 
+					className = 'engr'
 					name = 'task'
 					style = { this.style}
 					type = 'text'
@@ -103,6 +105,7 @@ class TodoItem extends Component {
 				/>
 
 				<select
+					className = 'mat'
 					name = 'rank'
 					style = {{ gridArea: 'priority'}} 
 					type = 'select'
@@ -116,6 +119,7 @@ class TodoItem extends Component {
 				</select>
 
 				<input 
+					className = 'mat'
 					name = 'date' 
 					style = {{ gridArea: 'date' }} 
 					type = 'date'

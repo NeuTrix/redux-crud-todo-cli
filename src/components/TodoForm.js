@@ -13,25 +13,30 @@ const gridStyle = {
 	gridTemplateColumn: '30px 30px 30px',
 	gridTemplateRow: 50,
 	gridGap: 5,
-
 	borderColor: 'steelblue',
 	padding: 5,
 }
 
 const style = {
-	task: { gridArea: 'task', paddingLeft: '1em', },
+	task: { 
+		gridArea: 'task', 
+		paddingLeft: '1em', 
+	},
+
 	action: { 
 		gridArea: 'action', 
-		backgroundColor: 'palegreen', 
+		backgroundColor: 'whitesmoke', 
+		padding: 5,
 		border: '1px solid darkgreen' ,
-		color: 'darkgreen',
-		opacity: .5,
+		color: 'palegreen',
+		opacity: .8,
+		alignContent: 'center',
 	},
 
 	priority: { 
 		gridArea: 'priority' ,
 		backgroundColor: 'aliceblue', 
-		border: '1px solid steelblue' ,
+		// // border: '1px solid steelblue' ,
 		color: 'steelblue',
 		opacity: .8,
 	},
@@ -94,7 +99,7 @@ class TodoForm extends Component {
 				/>
 
 				<select
-					className = 'boxClr engrBox'
+					className = 'mat'
 					id = 'new_item_priority' 
 					style = { style.priority } 
 					name = 'rank'
@@ -108,7 +113,7 @@ class TodoForm extends Component {
 				</select>
 
 				<input 
-					className = 'boxClr engrBox'
+					className = 'mat'
 					id = 'new_item_date'
 					style = { style.date } 
 					name = 'date' 
@@ -118,11 +123,14 @@ class TodoForm extends Component {
 				/>
 
 				<button 
-					className = 'boxClr engrBox'
+					style = { style.action }
+					className = 'ctr clrBox mat'
 					id = 'new_item_submit'
-					style = { style.action } 
-					type = "Submit"
-				> <i className = "fa fa-plus fa-lg" ></i> 
+					type = 'submit'
+				> <span 
+					style = {{ color: 'palegreen' }}
+					className = "ctr engr fa fa-plus fa-lg" 
+					></span> 
 				</button> 
 
 			</form>

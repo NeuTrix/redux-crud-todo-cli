@@ -10,7 +10,7 @@ const style = {
 	gridTemplateAreas: `"todoItems"`,
 	gridTemplateColumns: '1fr',
 	gridTemplateRows: 'auto',
-	gridRowGap: 5,
+	gridRowGap: 20,
 }
 
 // +++++++++ COMPONENT  +++++++++ 
