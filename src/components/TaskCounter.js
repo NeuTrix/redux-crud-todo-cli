@@ -4,14 +4,13 @@ import PropTypes from 'prop-types';
 // +++++++++  CSS  +++++++++ 
 
 const style = {
+	
 	grid: {
 		display: 'grid',
 		gridTemplateAreas: ` "refresh title count" `,
-		gridTemplateColumns: '2fr 4fr 4fr ',
+		gridTemplateColumns: '1fr 6fr 2fr ',
 	}
-
  };
-
 
 // +++++++++  COMPONENT +++++++++ 
 

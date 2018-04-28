@@ -17,7 +17,7 @@ const gridStyle = {
 
 	backgroundColor: 'aliceblue',
 	// opacity: '0.95',
-	padding: 20,
+	padding: 5,
 	border: '2px solid lightsteelblue',
 	// borderRadius: 5,
 }

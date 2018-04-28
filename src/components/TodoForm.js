@@ -111,6 +111,7 @@ class TodoForm extends Component {
 					<option value = 'High'> High	</option>
 					<option value = 'Med'>	Med		</option>
 					<option value = 'Low'>	Low		</option>
+					
 				</select>
 
 				<input 
