@@ -1,24 +1,25 @@
+// vendor
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
-import requireAuth from '../helpers/requireAuth';
+import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
+// custom
 import './App.css';
+import requireAuth from '../helpers/requireAuth';
+import { createTodo } from '../actions/createActions';
+import { deleteTodo } from '../actions/deleteActions';
+import { editTodo } from '../actions/editActions';
+import { fetchTodos } from '../actions/readActions';
 
 import FlashMessageList from './messages/FlashMessageList';
 import NavBar from './NavBar';
 import HomePage from './HomePage';
 import LoginPage from './auth/LoginPage';
 import RegisterPage from './auth/RegisterPage';
-import TaskCounter from './TaskCounter';
-import TodoList from './TodoList';
-import TodoForm from './TodoForm';
-
-import { connect } from 'react-redux';
-import { createTodo } from '../actions/createActions';
-import { deleteTodo } from '../actions/deleteActions';
-import { editTodo } from '../actions/editActions';
-import { fetchTodos } from '../actions/readActions';
-import { Route } from 'react-router-dom';
+import TaskCounter from './tasks/TaskCounter';
+import TodoList from './tasks/TodoList';
+import TodoForm from './tasks/TodoForm';
 
 // +++++++++ CSS +++++++++ 
 

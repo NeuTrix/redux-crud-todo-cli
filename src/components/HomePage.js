@@ -1,6 +1,8 @@
+//  vendor
 import React from 'react';
+// custom
 import LinkedButton from './buttons/LinkedButton';
-import Stamp from './Stamp';
+import Stamp from './buttons/Stamp';
 
 // +++++++++  CSS  +++++++++ 
 

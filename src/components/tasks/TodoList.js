@@ -1,7 +1,9 @@
+//  vendor
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import TodoItem from '../components/TodoItem';
 import shortid from 'shortid';
+// custom
+import PropTypes from 'prop-types';
+import TodoItem from './TodoItem';
 
 // +++++++++ CSS +++++++++ 
 

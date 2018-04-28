@@ -1,7 +1,8 @@
-// ... Component to create new Todo items
+//  vendor
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import normalizeDate from '../helpers/normalizeDate';
+//  custom
+import normalizeDate from '../../helpers/normalizeDate';
 
 // +++++++++ CSS  +++++++++ 
 

@@ -1,8 +1,9 @@
-// ... Component to create new Todo items
+//  vendor
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import CheckComplete from './CheckComplete';
-import DeleteBtn from './buttons/DeleteBtn';
+//  custom
+import CheckComplete from '../buttons/CheckComplete';
+import DeleteBtn from '../buttons/DeleteBtn';
 
 // +++++++++ CSS +++++++++ 
 
@@ -16,10 +17,8 @@ const gridStyle = {
 	gridGap: 5,
 
 	backgroundColor: 'aliceblue',
-	// opacity: '0.95',
-	padding: 5,
 	border: '2px solid lightsteelblue',
-	// borderRadius: 5,
+	padding: 5,
 }
 
 // +++++++++ COMPONENT +++++++++ 
