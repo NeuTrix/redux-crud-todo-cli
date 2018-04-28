@@ -2,13 +2,15 @@
 // For debugging. Use (inside of an 'it' test, before 'expect'):
 // console.log(mountedTodoItem.debug())
 
+// vendor
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import store from '../../store/store';
-import TodoItem from '../../components/TodoItem';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-import { Provider } from 'react-redux';
+// custom
+import TodoItem from '../../components/tasks/TodoItem';
 
 it('renders without crashing', () => {
 	const div = document.createElement('div');

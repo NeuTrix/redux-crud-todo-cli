@@ -1,10 +1,12 @@
 /* eslint-env mocha, chai */
+// vendor
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-import { Provider } from 'react-redux';
-import TaskCounter from '../../components/TaskCounter';
+// custom
+import TaskCounter from '../../components/tasks/TaskCounter';
 
 it ('renders without crashing', () => {
 	const div = document.createElement('div');

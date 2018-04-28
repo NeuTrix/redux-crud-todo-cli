@@ -1,11 +1,13 @@
 /* eslint-env mocha, chai */
+// vendor
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { expect } from 'chai';
-import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import store from '../../store/store';
-import CheckComplete from '../../components/CheckComplete';
+import { expect } from 'chai';
+import { mount } from 'enzyme';
+// custom
+import CheckComplete from '../../components/buttons/CheckComplete';
 
 it('renders without crashing', () => {
 	const div = document.createElement('div');
