@@ -45,6 +45,9 @@ Backend
 - Mongo
 - Mongoose 
 
+## Portfolio Structure
+- container components noted with '..Page.js' in the file name
+
 ## Note: Testing Error
 
 After running intial `yarn` or `npm install`, this error appears:
