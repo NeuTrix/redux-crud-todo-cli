@@ -15,12 +15,13 @@ import { fetchTodos } from '../actions/readActions';
 
 import FlashMessageList from './messages/FlashMessageList';
 import NavBar from './NavBar';
-import HomePage from './HomePage';
+import Home from './Home';
 import LoginPage from './auth/LoginPage';
 import RegisterPage from './auth/RegisterPage';
-import TaskCounter from './tasks/TaskCounter';
-import TodoList from './tasks/TodoList';
-import TodoForm from './tasks/TodoForm';
+
+import TaskCounter from './todos/TaskCounter';
+import TodoList from './todos/TodoList';
+import TodoForm from './todos/TodoForm';
 
 // +++++++++ CSS +++++++++ 
 
@@ -63,7 +64,7 @@ class App extends Component {
 				</div>
 
 				<div id = 'app_main' style = { placement.main } >
-					<Route exact path = '/' component = { HomePage } />
+					<Route exact path = '/' component = { Home } />
 					<Route path = '/login' component = { LoginPage } />
 					<Route path = '/register' component = { RegisterPage } />
 					<Route exact path = '/todos' component = { 
