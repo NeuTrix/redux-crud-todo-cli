@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 // custom
 import './App.css';
+import './App.grid.css';
 import requireAuth from '../helpers/requireAuth';
 import { createTodo } from '../actions/createActions';
 import { deleteTodo } from '../actions/deleteActions';
@@ -22,14 +23,6 @@ import TodoList from './tasks/TodoList';
 import TodoForm from './tasks/TodoForm';
 
 // +++++++++ CSS +++++++++ 
-
-const gridStyle = {
-	display: 'grid',
-	gridTemplateAreas: ' "header" "status_bar" "new_todo"  "main" ',
-	gridTemplateColumn: '1fr',
-	gridTemplateRows: 'auto',
-	gridGap: '5px',
-}
 
 const placement = {
 	header: { gridArea: 'header',paddingBottom: 40 },
@@ -50,7 +43,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className = 'App'  id = 'app_grid' style = { gridStyle } >
+			<div className = 'App wrapper'  id = 'app_grid'>
 
 				<div id = 'app_status_bar' style = { placement.status_bar } >
 					<FlashMessageList />
