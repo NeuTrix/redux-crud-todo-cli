@@ -13,24 +13,8 @@ import { logout } from '../actions/loginActions';
 
 // +++++++++  CSS  +++++++++ 
 
-const style = { 
 
-	grid: {
-		display: 'grid',
-		gridTemplateArea:`"logo welcome  home todos log" `
-	},
 
-	base: {
-		color: 'lightblue', 
-		textAlign: 'center' 
-	},
-
-	logoutStyle:{
-		color: 'lime', 
-		textAlign: 'center' 
-	}
-
-};
 
 // +++++++++ COMPONENT  +++++++++ 
 
@@ -48,44 +32,56 @@ class NavBar extends Component {
 	}
 
 	render() {
-		
-		const { isAuthenticated, user } = this.props.authApi;
 
-		const userLinks = (
-			<div onClick = { this.logout.bind(this)} >
-				<span style = { style.logoutStyle }>Log Out</span>
+		const { isAuthenticated, user }= this.props.authApi;
+
+		const userLinks= (
+			<div id= 'logout' onClick= { this.logout.bind(this)} >
+				<span >Log Out</span>
 			</div>
 		);
 
-		const guestLinks = (
-			<div >
-				<Link to = '/login' style = { style } >Sign In</Link>
-				<Link to = '/register' style = { style }>Register</Link>
+		const guestLinks= (
+			<div>
+				<div id= 'login' >
+					<Link to= '/login' >Sign In</Link>
+				</div>
+				<div id= 'register' >
+					<Link to= '/register' >Register</Link>
+				</div>
 			</div>
 		);
 
-		const welcome = (
-			<span style = { style } > hi { user.username }! </span>
+		const welcome= (
+			<div   > hi { user.username }! </div>
 		);
 
 		return (
 
-			<nav style = { style.grid } >
-				<Link to = '/' >
-					<img src= { logo } className= "App-logo" alt= "logo" />
-				</Link>
+			<nav id= 'NavBar'  >
 
-				<div > { isAuthenticated ? welcome : '' }  </div>
+				<div id= 'logo' >
+					<Link to= '/' >
+						<img src= { logo } className= "App-logo" alt= "logo" />
+					</Link>
+				</div>
 
-				<Link to = '/' style = { style }>
-					<p > Home </p>
-				</Link>
+				<div id= 'welcome' > { isAuthenticated ? welcome : '' }  </div>
 
-				<Link to = '/todos' style = { style }>
-					<nav onClick = { this.onClick.bind(this) }> Todos </nav>
-				</Link>
+				<div id= 'home' >
+					<Link to= '/' >
+						<p > Home </p>
+					</Link>
+				</div>
 
-				{ isAuthenticated ? userLinks : guestLinks }
+				<div id= 'todos' >
+					<Link to= '/todos' >
+						<nav onClick= { this.onClick.bind(this) }> Todos </nav>
+					</Link>
+				</div>
+
+					{ isAuthenticated ? userLinks : guestLinks }
+
 			</nav>
 		);
 	}
@@ -93,18 +89,18 @@ class NavBar extends Component {
 
 // +++++++++ PROPS  +++++++++ 
 
-NavBar.propTypes = {
+NavBar.propTypes= {
 	authApi: PropTypes.object.isRequired,
 	logout: PropTypes.func.isRequired,
 	placement: PropTypes.string,
 	fetchTodos: PropTypes.func.isRequired
 };
 
-NavBar.contextTypes = {
+NavBar.contextTypes= {
 	router: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps= (state) => {
 	return { 
 		authApi: state.authApi,
 		user: state.authApi

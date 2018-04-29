@@ -1,0 +1,37 @@
+grid: {
+		display: 'grid',
+		gridTemplateAreas:`"logo welcome ... home todos login" `
+	},
+
+	logo: {
+		gridArea: 'logo',
+		fontSize: '0.5em',
+	},
+
+	welcome: {
+		gridArea: 'welcome',
+	},
+
+	home: {
+		gridArea: 'home',
+	},
+
+	todos: {
+		gridArea: 'todos',
+	},
+
+	login: {
+		gridArea: 'login',
+	},
+
+	logout:{
+		gridArea: 'login',
+		color: 'lime', 
+	},
+
+	base: {
+		color: 'lightblue', 
+		textAlign: 'center' 
+	},
+
+};
