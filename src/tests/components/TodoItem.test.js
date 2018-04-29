@@ -10,7 +10,7 @@ import store from '../../store/store';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 // custom
-import TodoItem from '../../components/tasks/TodoItem';
+import TodoItem from '../../components/todos/TodoItem';
 
 it('renders without crashing', () => {
 	const div = document.createElement('div');

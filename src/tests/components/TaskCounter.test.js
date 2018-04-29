@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 // custom
-import TaskCounter from '../../components/tasks/TaskCounter';
+import TaskCounter from '../../components/todos/TaskCounter';
 
 it ('renders without crashing', () => {
 	const div = document.createElement('div');

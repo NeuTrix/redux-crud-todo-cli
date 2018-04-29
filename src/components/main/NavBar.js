@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom';
 // +++++++++   +++++++++ 
 import { connect } from 'react-redux';
 // custom
-import logo from '../assets/logo.svg';
+import logo from '../../assets/logo.svg';
 
-import { fetchTodos } from '../actions/readActions';
-import { logout } from '../actions/loginActions';
+import { fetchTodos } from '../../actions/readActions';
+import { logout } from '../../actions/loginActions';
 
 // +++++++++  CSS  +++++++++ 
 

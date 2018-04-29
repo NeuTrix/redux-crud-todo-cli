@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 
 import { shallow, mount, render } from 'enzyme';
-import NavBar from '../../components/NavBar';
+import NavBar from '../../components/main/NavBar';
 
 describe('The NabBar Component w/ ReactDom', () => {
 

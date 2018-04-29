@@ -14,8 +14,8 @@ import { editTodo } from '../actions/editActions';
 import { fetchTodos } from '../actions/readActions';
 
 import FlashMessageList from './messages/FlashMessageList';
-import NavBar from './NavBar';
-import Home from './Home';
+import NavBar from './main/NavBar';
+import Home from './main/Home';
 import LoginPage from './auth/LoginPage';
 import RegisterPage from './auth/RegisterPage';
 
