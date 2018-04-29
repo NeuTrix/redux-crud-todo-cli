@@ -16,8 +16,10 @@ import { logout } from '../actions/loginActions';
 const style = {
 
 	navbox: {
+		position: 'fixed',
 		height: '3em',
-
+		width: '100%',
+		opacity: '.9',
 	},
 
 	welcome: {
@@ -25,8 +27,6 @@ const style = {
 		justifyContent: 'left',
 	}
 }
-
-
 
 // +++++++++ COMPONENT  +++++++++ 
 
