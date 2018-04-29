@@ -1,11 +1,11 @@
 // vendor
+import './NavBar.css'; 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 // +++++++++   +++++++++ 
 import { connect } from 'react-redux';
 // custom
-import './NavBar.css';
 import logo from '../assets/logo.svg';
 
 import { fetchTodos } from '../actions/readActions';
@@ -36,17 +36,17 @@ class NavBar extends Component {
 		const { isAuthenticated, user }= this.props.authApi;
 
 		const userLinks= (
-			<div id= 'logout' onClick= { this.logout.bind(this)} >
+			<div id= 'logout_link' onClick= { this.logout.bind(this)} >
 				<span >Log Out</span>
 			</div>
 		);
 
 		const guestLinks= (
 			<div>
-				<div id= 'login' >
+				<div id= 'login_link' >
 					<Link to= '/login' >Sign In</Link>
 				</div>
-				<div id= 'register' >
+				<div id= 'register_link' >
 					<Link to= '/register' >Register</Link>
 				</div>
 			</div>
@@ -58,23 +58,23 @@ class NavBar extends Component {
 
 		return (
 
-			<nav id= 'NavBar'  >
+			<nav id= 'NavGrid'  >
 
-				<div id= 'logo' >
+				<div id= 'logo_link' >
 					<Link to= '/' >
-						<img src= { logo } className= "App-logo" alt= "logo" />
+						<div className= "engr App-logo ctr  fa fa-refresh fa-3x" alt= "logo" />
 					</Link>
 				</div>
 
-				<div id= 'welcome' > { isAuthenticated ? welcome : '' }  </div>
+				<div id= 'welcome_link' > { isAuthenticated ? welcome : '' }  </div>
 
-				<div id= 'home' >
+				<div id= 'home_link' >
 					<Link to= '/' >
 						<p > Home </p>
 					</Link>
 				</div>
 
-				<div id= 'todos' >
+				<div id= 'todos_link' >
 					<Link to= '/todos' >
 						<nav onClick= { this.onClick.bind(this) }> Todos </nav>
 					</Link>

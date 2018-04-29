@@ -1,6 +1,7 @@
 .App-logo {
   animation: App-logo-spin infinite 7s linear;
-  height: 50px;
+  /*height: 30px;*/
+  color: lightgrey;
 }
 
 .App {
@@ -26,7 +27,6 @@
 
 /* engraving effect */
 .engr { 
-	color:grey;
   text-shadow: 
     0px 1px 0px rgba(255,255,255,.1), 
     0px -1px 0.5px rgba(0,0,0,.7);
