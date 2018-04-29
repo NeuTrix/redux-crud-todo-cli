@@ -1,18 +1,17 @@
 .App-logo {
   animation: App-logo-spin infinite 7s linear;
-  /*height: 30px;*/
   color: lightgrey;
 }
 
 .App {
-	/*background-image: url('../assets/futureBack.png');*/
 	background-image: url('../assets/watercolor-paper-2.jpg');
 	background-position: center;
 	background-size: cover;
-	/*background-attachment: fixed;*/
 	padding: 10px;
 	padding-bottom:400px;
 	min-height: 760px;
+	/*background-image: url('../assets/futureBack.png');*/
+	/*background-attachment: fixed;*/
 }
 
 /* center single dimension elements */
@@ -71,18 +70,6 @@
 	border: 1px solid #bbbbbb;
 	border-radius: 2px;
 }
-
-.opac {
-	opacity: 0.6;
-}
-
-/*@media screen and (min-width: 700px) {
-	.App {
-		background-color: 'salmon';
-		background-image: url('../assets/futureBack.png');
-	}
-}
-*/
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
