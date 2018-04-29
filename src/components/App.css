@@ -1,17 +1,9 @@
 .App-logo {
   animation: App-logo-spin infinite 7s linear;
-  color: lightgrey;
+  color: steelblue;
 }
 
 .App {
-	background-image: url('../assets/watercolor-paper-2.jpg');
-	background-position: center;
-	background-size: cover;
-	padding: 10px;
-	padding-bottom:400px;
-	min-height: 760px;
-	/*background-image: url('../assets/futureBack.png');*/
-	/*background-attachment: fixed;*/
 }
 
 /* center single dimension elements */
@@ -21,7 +13,8 @@
 
 .paper {
 	background-image: url('../assets/watercolor-paper-2.jpg');
-	background-repeat: no-repeat;
+	/*background-attachment: fixed;*/
+	background-size: cover;
 }
 
 /* engraving effect */
@@ -36,7 +29,7 @@
 	color:#bbbbbb;
   box-shadow: 
     0px 1px 0px rgba(255,255,255,.1), 
-    0px -1px 0.5px rgba(0,0,0,.7);
+    0px -1px 0.5px rgba(0,0,0,.5);
 }
 
 .ctr {
@@ -46,6 +39,7 @@
 }
 
 .under {
+	border-width: none none 1 0;
 	border-bottom: 1px solid grey;
 	padding-bottom: 15px;
 }

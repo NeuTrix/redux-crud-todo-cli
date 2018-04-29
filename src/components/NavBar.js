@@ -13,6 +13,18 @@ import { logout } from '../actions/loginActions';
 
 // +++++++++  CSS  +++++++++ 
 
+const style = {
+
+	navbox: {
+		height: '3em',
+
+	},
+
+	welcome: {
+		color:'steelblue',
+		justifyContent: 'left',
+	}
+}
 
 
 
@@ -36,47 +48,50 @@ class NavBar extends Component {
 		const { isAuthenticated, user }= this.props.authApi;
 
 		const userLinks= (
-			<div id= 'logout_link' onClick= { this.logout.bind(this)} >
+			<div 
+				id= 'logout_link' 
+				className= 'ctr' 
+				onClick= { this.logout.bind(this)} >
 				<span >Log Out</span>
 			</div>
 		);
 
 		const guestLinks= (
 			<div>
-				<div id= 'login_link' >
+				<div id= 'login_link' className= 'ctr'>
 					<Link to= '/login' >Sign In</Link>
 				</div>
-				<div id= 'register_link' >
+				<div id= 'register_link' className= 'ctr'>
 					<Link to= '/register' >Register</Link>
 				</div>
 			</div>
 		);
 
 		const welcome= (
-			<div   > hi { user.username }! </div>
+			<div style= { style.welcome } > {`Welcome ${ user.username }!`} </div>
 		);
 
 		return (
 
-			<nav id= 'NavGrid'  >
+			<nav className= 'engrBox paper' id= 'NavGrid' style= {style.navbox} >
 
-				<div id= 'logo_link' >
+				<div id= 'logo_link' className= 'ctr'>
 					<Link to= '/' >
-						<div className= "engr App-logo ctr  fa fa-refresh fa-3x" alt= "logo" />
+						<div className= "engr App-logo ctr fa fa-gg fa-2x" alt= "logo" />
 					</Link>
 				</div>
 
-				<div id= 'welcome_link' > { isAuthenticated ? welcome : '' }  </div>
-
-				<div id= 'home_link' >
-					<Link to= '/' >
-						<p > Home </p>
-					</Link>
+				<div id= 'welcome_link' className= 'ctr'> 
+					{ isAuthenticated ? welcome : '' }  
 				</div>
 
-				<div id= 'todos_link' >
+				<div id= 'home_link' className= 'ctr' >
+					<Link to= '/' > Home </Link>
+				</div>
+
+				<div id= 'todos_link' className= 'ctr'>
 					<Link to= '/todos' >
-						<nav onClick= { this.onClick.bind(this) }> Todos </nav>
+						<span onClick= { this.onClick.bind(this) }> Todos </span>
 					</Link>
 				</div>
 

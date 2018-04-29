@@ -11,13 +11,13 @@
 
 #welcome_link {
 	grid-area: welcome;
-background: yellow;
+/*background: yellow;*/
 
 }
 
 #home_link {
 	grid-area: home;
-	color: lime;
+	color: orange;
 }
 
 #todos_link {
@@ -30,7 +30,7 @@ background: yellow;
 
 #logout_link {
 	grid-area: login;
-	color: lime; 
+	color: orange; 
 }
 
 
@@ -43,8 +43,7 @@ background: yellow;
 
 	#welcome_link {
 		grid-area: welcome;
-	background: lime;
-
+background: lime;
 	}
 
 	#home_link {
