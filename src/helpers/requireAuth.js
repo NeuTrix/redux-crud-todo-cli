@@ -5,7 +5,7 @@ import { addFlashMessage } from '../actions/flashActions';
 
 export default function (ComposedComponent) {
 
-	class  Authenticate extends Component{
+	class Authenticate extends Component{
 
 		componentWillMount() {
 			let _auth = this.props.isAuthenticated;

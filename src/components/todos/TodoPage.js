@@ -5,43 +5,76 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 // custom
+import './TodoPage.grid.css';
+import requireAuth from '../../helpers/requireAuth';
 import { createTodo } from '../../actions/createActions';
 import { deleteTodo } from '../../actions/deleteActions';
 import { editTodo } from '../../actions/editActions';
 import { fetchTodos } from '../../actions/readActions';
-import requireAuth from '../../helpers/requireAuth';
 
+import TaskCounter from './TaskCounter';
+import TodoList from './TodoList';
+import TodoForm from './TodoForm';
 
-// custom
+// +++++++++ CSS +++++++++ 
 
-// +++++++++  CSS  +++++++++ 
+const placement = {
+	header: { gridArea: 'header',paddingBottom: 40 },
+	status_bar: { gridArea: 'status_bar', margin: 10 },
+	new_todo: { gridArea: 'new_todo'},
+	main: { gridArea: 'main', paddingBottom: 50 },
+}
+
+// +++++++++ COMPONENT +++++++++ 
 
 class TodoPage extends Component {
 
-	render() {
-
-		return (
-			<div>
-				TodoPage is here!
-			</div>
-			)
+	componentDidMount() {
+		if (this.props.isAuthenticated) { 
+			return this.props.fetchTodos(); 
+		}
 	}
 
-}
+	render() {
+		return (
+			<div className = 'TodoPage' >
+				
+				<div id = 'app_task_count' style = { placement.status_bar } >
+						<TaskCounter 
+							todos = { this.props.todoArray } 
+							fetchTodos = { this.props.fetchTodos } 
+						/>  
+				</div>
 
-// +++++++++  COMPONENT  +++++++++ 
+				<div id = 'app_new_todo' style = { placement.new_todo } >
+						<TodoForm 
+							createTodo = { this.props.createTodo } 
+							owner = { this.props.user._id }
+						/> 
+				</div>
 
+				<div>
+						<TodoList 
+							todoArray = { this.props.todoArray }
+							deleteTodo = { this.props.deleteTodo }	
+							editTodo = { this.props.editTodo }	
+						/>
+				</div>
+			</div>
+		);
+	}
+} 
 
-// +++++++++  PROPS  +++++++++ 
+// +++++++++ PROPS +++++++++ 
 
-TodoPage.propTypes = {
+TodoPage.propTypes = { 
 	createTodo:    		PropTypes.func.isRequired,
 	deleteTodo:    		PropTypes.func.isRequired,
 	fetchTodos:    		PropTypes.func.isRequired,
 	isAuthenticated: 	PropTypes.bool,
 	todoArray: 				PropTypes.array.isRequired,
 	user: 						PropTypes.object.isRequired,
-}
+};
 
 const mapStateToProps = (state) => {
 	return {
@@ -61,4 +94,3 @@ const mapDispatchToProps = (dispatch) => {
 }; 
 
 export default connect (mapStateToProps, mapDispatchToProps) (TodoPage);
-

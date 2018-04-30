@@ -8,18 +8,17 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import './App.grid.css';
 import requireAuth from '../helpers/requireAuth';
-// +++++++++   +++++++++ 
 import { createTodo } from '../actions/createActions';
 import { deleteTodo } from '../actions/deleteActions';
 import { editTodo } from '../actions/editActions';
 import { fetchTodos } from '../actions/readActions';
-// +++++++++   +++++++++ 
 
 import FlashMessageList from './messages/FlashMessageList';
 import NavBar from './main/NavBar';
 import Home from './main/Home';
 import LoginPage from './auth/LoginPage';
 import RegisterPage from './auth/RegisterPage';
+
 import TaskCounter from './todos/TaskCounter';
 import TodoForm from './todos/TodoForm';
 import TodoList from './todos/TodoList';
@@ -46,50 +45,21 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className = 'App wrapper'  id = 'app_grid'>
+			<div className = 'App wrapper' >
 
-				<div id = 'app_status_bar' style = { placement.status_bar } >
+					<NavBar/>
+
 					<FlashMessageList />
-				</div>
-
-				<div id = 'app_header'  style = { placement.header } >
-					<Route  path = '/' component = { NavBar } />
-				</div>
-
-				<div id = 'app_new_todo' style = { placement.new_todo } >
-					<Route exact path = '/todos' render = { props =>
-						<TodoForm 
-							createTodo = { this.props.createTodo } 
-							owner = { this.props.user._id }
-						/> 
-					} />
-				</div>
-
-				<div id = 'app_main' style = { placement.main } >
 					<Route exact path = '/' component = { Home } />
-
-					<Route path = '/main' component = { TodoPage } />
-
 					<Route path = '/login' component = { LoginPage } />
 					<Route path = '/register' component = { RegisterPage } />
-					<Route exact path = '/todos' component = { 
-						requireAuth ( ReactDom.render = props => 
-						<TodoList 
-							todoArray = { this.props.todoArray }
-							deleteTodo = { this.props.deleteTodo }	
-							editTodo = { this.props.editTodo }	
-						/>)
-					} />
-				</div>
+					<Route 
+						exact path = '/todos' 
+						component = { requireAuth( ReactDom.render = props => 
+							<TodoPage/> 
+						)}
+					/>
 
-				<div id = 'app_task_count' style = { placement.status_bar } >
-					<Route exact path = '/todos' render = { props =>
-						<TaskCounter 
-							todos = { this.props.todoArray } 
-							fetchTodos = { this.props.fetchTodos } 
-						/>  
-					} />
-				</div>
 			</div>
 		);
 	}
@@ -97,9 +67,7 @@ class App extends Component {
 
 // +++++++++ PROPS +++++++++ 
 
-
 App.propTypes = { 
-
 	createTodo:    		PropTypes.func.isRequired,
 	deleteTodo:    		PropTypes.func.isRequired,
 	fetchTodos:    		PropTypes.func.isRequired,
