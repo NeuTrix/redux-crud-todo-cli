@@ -10,22 +10,34 @@ import styled from 'styled-components';
 const Grid = styled.div`
 	display: grid;
 	grid-template-areas: 
-	 "title title title title"
-	  "subtitle subtitle subtitle subtitle"
-	  "mongo express react node" 
-	  "redux grid decoup auth" 
-	  " ... login register ..." ;
-	grid-template-columns: repeat(4, 1fr);
+	 	" title		title 	title 	title 	title	"
+	  " subt		subt 		subt 		subt   	subt 	"
+	  " ...			mongo 	expr 		react  	...	 	" 
+	  " ...			redux 	node 		grid   	...	 	" 
+	  " ... 		login 	...			regis  	...	  "
+  ;
+	grid-template-columns: auto;
 	grid-auto-rows: auto;
 	grid-gap: 25px 5px;
 	padding: 10px;
+
+	@media (min-width: 600px) {
+		grid-template-areas: 
+		 	" title 	title 	title 	title 	title 	title "
+		  " subt 		subt 		subt 		subt 		subt 		subt 	"
+		  " mongo 	expr 		react 	node 		redux 		grid 	" 
+		  " ... 		...			login 	regis 	...			... 	" 
+	  ;
+		grid-template-columns: auto;
+		grid-auto-rows: auto;
+		grid-gap: 25px 5px;
 `;
 
 const GridLogin = styled(LinkedButton)`
 	grid-area: login;
 `;
 const GridRegister = styled(LinkedButton)`
-	grid-area: register;
+	grid-area: regis;
 `;
 
 const Title = styled.div `
@@ -34,7 +46,7 @@ const Title = styled.div `
 `;
 
 const Subtitle = styled.div`
-	grid-area: subtitle;
+	grid-area: subt;
 	color: darkgrey;
 `;
 
@@ -54,13 +66,11 @@ const Home = ({className}) => {
 			</Subtitle>  
 
 			<Stamp area= 'mongo' color= 'steelblue' name= 'Mongo'/>
-			<Stamp area= 'express' color= 'steelblue' name= 'Express'/>
+			<Stamp area= 'expr' color= 'steelblue' name= 'Express'/>
 			<Stamp area= 'react' color= 'steelblue' name= 'React'/>
 			<Stamp area= 'node' color= 'steelblue' name= 'NodeJS'/>
-			<Stamp area= 'redux' color= 'darkgreen' name= 'Redux'/>
-			<Stamp area= 'grid' color= 'darkgreen' name= 'Grid'/>
-			<Stamp area= 'decoup' color= 'orange' name= 'Decoupled'/>
-			<Stamp area= 'auth' color= 'orange' name= 'Auth'/>
+			<Stamp area= 'redux' color= 'orange' name= 'Redux'/>
+			<Stamp area= 'grid' color= 'orange' name= 'Grid'/>
 
 			<GridLogin 
 				name = 'Log In' 
