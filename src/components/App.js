@@ -27,7 +27,7 @@ class App extends Component {
 		return (
 			<div className = 'App wrapper' >
 
-				<div className= 'header' style= { style } > 
+				<div className= 'header' > 
 					<NavBar/> 
 				</div>
 
