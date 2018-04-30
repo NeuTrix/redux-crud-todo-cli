@@ -12,8 +12,8 @@ const Grid = styled.div`
 	grid-template-areas: 
 	 "title title title title"
 	  "subtitle subtitle subtitle subtitle"
-	  "stamp stamp stamp stamp" 
-	  "stamp stamp stamp stamp" 
+	  "mongo express react node" 
+	  "redux grid decoup auth" 
 	  " ... login register ..." ;
 	grid-template-columns: repeat(4, 1fr);
 	grid-auto-rows: auto;
@@ -27,9 +27,8 @@ const GridLogin = styled(LinkedButton)`
 const GridRegister = styled(LinkedButton)`
 	grid-area: register;
 `;
-
 const GridStamp = styled(Stamp)`
-	grid-area: ${this.name}
+
 `;
 
 // +++++++++ COMPONENT  +++++++++ 
@@ -47,14 +46,14 @@ const Home = ({className, children}) => {
 				<h5>... a little Fullstack MERN CRUD web app featuring:</h5> 
 			</div>  
 
-			<Stamp color= 'steelblue' name= 'Mongo'/>
-			<Stamp color= 'steelblue' name= 'Express'/>
-			<Stamp color= 'steelblue' name= 'React'/>
-			<Stamp color= 'steelblue' name= 'NodeJS'/>
-			<Stamp color= 'darkgreen' name= 'Redux'/>
-			<Stamp color= 'darkgreen' name= 'CSS Grid'/>
-			<Stamp color= 'orange' name= 'Decoupled'/>
-			<Stamp color= 'orange' name= 'Secure Login'/>
+			<Stamp area= 'mongo' color= 'steelblue' name= 'Mongo'/>
+			<Stamp area= 'express' color= 'steelblue' name= 'Express'/>
+			<Stamp area= 'react' color= 'steelblue' name= 'React'/>
+			<Stamp area= 'node' color= 'steelblue' name= 'NodeJS'/>
+			<Stamp area= 'redux' color= 'darkgreen' name= 'Redux'/>
+			<Stamp area= 'grid' color= 'darkgreen' name= 'Grid'/>
+			<Stamp area= 'decoup' color= 'orange' name= 'Decoupled'/>
+			<Stamp area= 'auth' color= 'orange' name= 'Auth'/>
 
 			<GridLogin 
 				name = 'Log In!!' 

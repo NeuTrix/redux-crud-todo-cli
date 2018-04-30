@@ -9,9 +9,10 @@ const Stamp = (props) => {
 		color: ${props.color};
 		border: 2px solid ${props.color};
 		background-color: ${props.bgColor};
-		height: 75px;
+		height: 65px;
 		width: 80px;
 		opacity: .6;
+		justify-self: center;
 	`;
 
 	return (
@@ -25,6 +26,7 @@ Stamp.propTypes = {
 	bgColor: PropTypes.string, // define the background color
 	color: PropTypes.string, // define the color theme
 	name: PropTypes.string.isRequired, // used for display
+	area: PropTypes.string, // grid area to target
 }
 
 Stamp.defaultProps = {
