@@ -16,6 +16,10 @@ import LoginPage from './auth/LoginPage';
 import RegisterPage from './auth/RegisterPage';
 import TodoPage from './todos/TodoPage';
 
+const style = {
+	marginBottom: 60
+}
+
 // +++++++++ COMPONENT +++++++++ 
 
 class App extends Component {
@@ -24,7 +28,7 @@ class App extends Component {
 		return (
 			<div className = 'App wrapper' >
 
-				<div className= 'header'> 
+				<div className= 'header' style= { style } > 
 					<NavBar/> 
 				</div>
 
