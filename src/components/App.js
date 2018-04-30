@@ -27,7 +27,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className = 'App wrapper' >
+			<div className = 'App App_wrapper' >
 
 				<div className= 'header' > 
 					<NavBar 

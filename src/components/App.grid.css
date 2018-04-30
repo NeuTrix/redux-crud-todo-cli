@@ -16,7 +16,7 @@
 
 
 /* Mobile display */
-.wrapper {
+.App_wrapper {
 	display: grid;
 	grid-template-areas:   
 		"header "
