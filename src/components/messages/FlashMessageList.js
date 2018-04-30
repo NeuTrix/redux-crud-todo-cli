@@ -32,7 +32,5 @@ function mapStateToProps(state) {
 	};
 }
 
-export default connect(
-	mapStateToProps, { deleteFlashMessage }
-// Implement map dispatch to props
-)(FlashMessagesList);
+export default connect (mapStateToProps, { deleteFlashMessage })
+(FlashMessagesList) ;

@@ -50,7 +50,7 @@ class NavBar extends Component {
 				id= 'logout_link' 
 				className= 'ctr' 
 				onClick= { this.logout.bind(this) } >
-				Log Out-!
+				Log Out
 			</button>
 		);
 

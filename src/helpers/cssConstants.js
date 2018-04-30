@@ -1,4 +1,7 @@
 export const colors = {
-	deepblue: '#286090'
+	_deepblue: '#286090',
+	_gold:  '#cc9900',
+	_yellow: '#ffff33',
+
 }
 

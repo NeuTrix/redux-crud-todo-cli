@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { colors } from '../../helpers/cssConstants'
 
-// +++++++++  CSS  +++++++++ 
-
-
-
-
-// +++++++++  COMPONENT  +++++++++ 
 class FlashMessage extends Component {
 
 	constructor (props) {
@@ -26,26 +21,33 @@ class FlashMessage extends Component {
 	}
 
 	render () {
+		const { type, text } = this.props.message;
+		
+		const style = {
+				display: 'grid',
+				gridTemplateArea: `"msg btn"`,
+				gridTemplateColumns: '9fr 1fr',
+
+				border: '1px solid grey',
+				borderRadius: 5,
+
+				background: 
+				type === 'success' ? 'palegreen' : 
+				type === 'warning' ? 'orange' :
+				type === 'info' ? 'steelblue' :
+				type === 'error' ? 'red' : 'lightgrey',
+		}
 		
 		setTimeout(this.closeMessage, 7000);
 
-		const { type, text } = this.props.message;
-
 		return (
-    	<div className = { classnames('alert', {
-    		'alert-success': type === 'success',
-    		'alert-warning': type === 'warning',
-    		'alert-info': type === 'info',
-    		'alert-danger': type === 'error'
-    	}) } >
-    		<button 
-	    		className = 'close'
-	    		onClick = { this.onClick } 
-    		>
+    	<div className = 'paper' style= { style }  >
+				<div className= 'ctr msg' > 
+					{ text } 
+				</div>
+    		<button  className= 'close btn' onClick= { this.onClick } >
     			<span>&times;</span>
   			</button>
-
-				{ text }
     	</div>
 		);
 	}
@@ -57,7 +59,7 @@ FlashMessage.propTypes = {
 };
 
 FlashMessage.defaultProps = {
-	deleteFlashMessage: f => f
+	deleteFlashMessage: f => alert('Default fn: deleteFlashMessage')
 };
 
 export default FlashMessage;

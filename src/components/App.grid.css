@@ -20,7 +20,7 @@
 	display: grid;
 	grid-template-areas:   
 		"header "
-		/*"messages" */
+		"messages" 
 		"main" 
 		/*"footer"*/
 		;
