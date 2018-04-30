@@ -24,18 +24,25 @@ class App extends Component {
 		return (
 			<div className = 'App wrapper' >
 
-				<NavBar/>
-				<FlashMessageList />
+				<div className= 'header'> 
+					<NavBar/> 
+				</div>
 
-				<Route exact path = '/' component = { Home } />
-				<Route path = '/login' component = { LoginPage } />
-				<Route path = '/register' component = { RegisterPage } />
-				<Route 
-					exact path = '/todos' 
-					component = { requireAuth( ReactDom.render = props => 
-						<TodoPage/> 
-					)}
-				/>
+				<div className= 'messages'>
+					<FlashMessageList/>
+				</div>
+				
+				<div className= 'main'>
+					<Route exact path = '/' component = { Home } />
+					<Route path = '/login' component = { LoginPage } />
+					<Route path = '/register' component = { RegisterPage } />
+					<Route 
+						exact path = '/todos' 
+						component = { requireAuth( ReactDom.render = props => 
+							<TodoPage/> 
+						)}
+					/>
+				</div>
 			</div>
 		);
 	}

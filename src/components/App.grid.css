@@ -1,34 +1,27 @@
 /* sections */
-.header { 
-	grid-area: header;
-}
-.main { 
-	grid-area: main;
-}
-.message { 
-	grid-area: message;
-}
-.sideBarLeft { 
-	grid-area: sideBarLeft;
-}
-.sideBarRight { 
-	grid-area: sideBarRight;
-}
-.footer { 
-	grid-area: footer;
-}
+.header { grid-area: header; }
+
+.main { grid-area: main; }
+
+.messages { grid-area: messages; }
+
+.sideBarLeft { grid-area: sideBarLeft; }
+
+.sideBarRight { grid-area: sideBarRight; }
+
+.footer { grid-area: footer; }
+
 
 /* Mobile display */
-
 .wrapper {
 	display: grid;
 	grid-template-areas:   
-		'header'
-		'message' 
-		'main' 
-		/*'footer'*/
+		"header "
+		/*"messages" */
+		"main" 
+		/*"footer"*/
 		;
 	grid-template-columns: 1fr;
-	grid-template-rows: auto;
-	grid-gap: 5px;
+	/*grid-template-rows: auto;*/
+	grid-gap: 10px;
 }
