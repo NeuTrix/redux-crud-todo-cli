@@ -8,6 +8,7 @@ import { Route } from 'react-router-dom';
 import './App.grid.css';
 import './material.css';
 import requireAuth from '../helpers/requireAuth';
+import { logout } from '../actions/loginActions';
 
 import FlashMessageList from './messages/FlashMessageList';
 import NavBar from './main/NavBar';
@@ -29,7 +30,10 @@ class App extends Component {
 			<div className = 'App wrapper' >
 
 				<div className= 'header' > 
-					<NavBar authApi= {this.props.authApi} /> 
+					<NavBar 
+						authApi= { this.props.authApi } 
+						logout= { this.props.logout }
+					/> 
 				</div>
 
 				<div className= 'messages'>
@@ -47,7 +51,6 @@ class App extends Component {
 						)}
 					/>
 				</div>
-
 			</div>
 		);
 	}
@@ -57,13 +60,19 @@ class App extends Component {
 
 App.propTypes = { 
 	authApi: 	PropTypes.object.isRequired,
+	logout: 	PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => {
 	return {
 		authApi: 	state.authApi,
-		user: 		state.authApi.user,
 	};
 }; 
 
-export default connect (mapStateToProps) (App);
+const mapDispatchToProps = (dispatch) => {
+	return { 
+		logout: () => { dispatch (logout ()); } 
+	};
+};
+
+export default connect (mapStateToProps, mapDispatchToProps)(App);

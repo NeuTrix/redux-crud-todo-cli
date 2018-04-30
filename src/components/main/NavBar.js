@@ -43,18 +43,18 @@ class NavBar extends Component {
 
 	render() {
 
-		const { isAuthenticated, user }= this.props.authApi;
+		const { isAuthenticated, user } = this.props.authApi;
 
-		const userLinks= (
-			<div 
+		const userLinks = (
+			<button 
 				id= 'logout_link' 
 				className= 'ctr' 
-				onClick= { this.logout.bind(this)} >
-				<span >Log Out</span>
-			</div>
+				onClick= { this.logout.bind(this) } >
+				Log Out-!
+			</button>
 		);
 
-		const guestLinks= (
+		const guestLinks = (
 			<div>
 
 				<div id= 'login_link' className= 'ctr'>
@@ -68,8 +68,10 @@ class NavBar extends Component {
 			</div>
 		);
 
-		const welcome= (
-			<div style= { style.welcome } > {`Welcome ${ user.username }!`} </div>
+		const welcome = (
+			<div style= { style.welcome } > 
+				{`Welcome ${ user.username }!`}
+			 </div>
 		);
 
 		return (
@@ -113,7 +115,7 @@ NavBar.propTypes = {
 
 NavBar.defaultProps = {
 	authApi:  {},
-	logout:  f => f,
+	logout:  f => alert('Default action: Navbar logout fn'),
 	fetchTodos:  f => f,
 }
 

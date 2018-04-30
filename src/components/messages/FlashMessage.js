@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import { Button, Col } from 'react-bootstrap';
 
+// +++++++++  CSS  +++++++++ 
+
+
+
+
+// +++++++++  COMPONENT  +++++++++ 
 class FlashMessage extends Component {
 
 	constructor (props) {
@@ -27,21 +32,21 @@ class FlashMessage extends Component {
 		const { type, text } = this.props.message;
 
 		return (
-    	<Col className = { classnames('alert', {
+    	<div className = { classnames('alert', {
     		'alert-success': type === 'success',
     		'alert-warning': type === 'warning',
     		'alert-info': type === 'info',
     		'alert-danger': type === 'error'
     	}) } >
-    		<Button 
+    		<button 
 	    		className = 'close'
 	    		onClick = { this.onClick } 
     		>
     			<span>&times;</span>
-  			</Button>
+  			</button>
 
 				{ text }
-    	</Col>
+    	</div>
 		);
 	}
 }
