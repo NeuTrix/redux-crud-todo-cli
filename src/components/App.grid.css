@@ -27,5 +27,5 @@
 	grid-template-columns: 1fr;
 	/*grid-template-rows: auto;*/
 	grid-gap: 10px;
-	padding: 10px;
+	padding: 0px 10px 0px 10px;
 }

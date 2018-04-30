@@ -17,6 +17,7 @@ import RegisterPage from './auth/RegisterPage';
 import TodoPage from './todos/TodoPage';
 
 const style = {
+	color: 'darkgrey',
 }
 
 // +++++++++ COMPONENT +++++++++ 
