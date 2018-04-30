@@ -1,21 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// +++++++++ CSS  +++++++++ 
-const style = {
-	basic: {
-		gridArea: 'delete',
-		display: 'flex',
-		color: 'lightgrey', 
-		// borderColor: '1px solid lightgrey', 
-		// backgroundColor: 'white' 
-	},
-
-	glyph: { 
-		color: 'tomato' 
-	}
-}
-
 // +++++++++ COMPONENT  +++++++++ 
 const DeleteBtn = (props) => {
 
@@ -30,15 +15,12 @@ const DeleteBtn = (props) => {
 	}
 
 	return (
-		<div 
-			className = 'ctr'
-			onClick= { handleDelete } 
-			style = { style.basic } 
-		> 
+		<div className = 'ctr' onClick= { handleDelete } > 
 			<i 
 				className = "ctr engr fa fa-trash fa-lg" 
-				style = { style.glyph } 
-			> </i>
+				style = {{ color: 'tomato' }} 
+			> 
+			</i>
 		</div>
 	);
 };

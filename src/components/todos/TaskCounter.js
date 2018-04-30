@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 // +++++++++  CSS  +++++++++ 
 
 const style = {
-	
 	grid: {
 		display: 'grid',
 		gridTemplateAreas: ` "refresh title count" `,
