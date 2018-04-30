@@ -7,9 +7,8 @@ const Stamp = (props) => {
 	const Button = styled.button`
 		grid-area: ${props.area};
 		color: ${props.color};
-		border-color: ${props.color};
+		border: 2px solid ${props.color};
 		background-color: ${props.bgColor};
-		font-size: ${props.fsize};
 		height: 75px;
 		width: 80px;
 		opacity: .6;
