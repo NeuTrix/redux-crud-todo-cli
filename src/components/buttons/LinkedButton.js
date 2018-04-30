@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const LinkedButton = ({ area, bgColor, color, name, path }) => {
+const LinkedButton = ({ className, bgColor, color, name, path }) => {
 
 	const style = {
 		color,
@@ -11,8 +11,8 @@ const LinkedButton = ({ area, bgColor, color, name, path }) => {
 	}
 
 	return (
-		<Link to = { path } >
-			<button className= 'btn mat opac' style= { style } >
+		<Link className= { `${ className }` } to = { path } >
+			<button className= {`btn mat opac`} style= { style } >
 				{ name }
 			</button>  
 		</Link >

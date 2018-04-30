@@ -1,38 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components'
 
 const Stamp = (props) => {
 
-	const style = {
-		color: props.color,
-		borderColor: props.color,
-		backgroundColor: props.bgColor,
-		fontSize: props.fsize,
-		height: props.h,
-		width: props.w,
-		opacity: .6,
-	}
+	const Button = styled.button`
+		grid-area: ${props.area};
+		color: ${props.color};
+		border-color: ${props.color};
+		background-color: ${props.bgColor};
+		font-size: ${props.fsize};
+		height: 75px;
+		width: 80px;
+		opacity: .6;
+	`;
 
 	return (
-		<button className= 'box ctr mat ' style = { style } >
+		<Button className= { `${ props.className } box ctr mat` } >
 			{ props.name } 
-		</button>  
+		</Button>  
 	)
 }
 
 Stamp.propTypes = {
 	bgColor: PropTypes.string, // define the background color
 	color: PropTypes.string, // define the color theme
-	fsize: PropTypes.string, // define the size of the font for name
-	h: PropTypes.number, // define the height
-	w: PropTypes.number, // define the width
 	name: PropTypes.string.isRequired, // used for display
 }
 
 Stamp.defaultProps = {
 	bgColor: 'white',
-	h: 75,
-	w: 80,
+	color: 'darkgrey',
 }
 
 export default Stamp
