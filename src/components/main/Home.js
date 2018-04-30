@@ -40,7 +40,7 @@ const GridRegister = styled(LinkedButton)`
 	grid-area: regis;
 `;
 
-const Title = styled.div `
+const Title = styled.div`
 	grid-area: title;
 	color-darkgrey;
 `;
