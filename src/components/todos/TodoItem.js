@@ -31,7 +31,6 @@ class TodoItem extends Component {
 		const isComplete = this.state.completed 
 
 		this.style = {
-			gridArea: 'task',
 			border: '3px solid #bbbbbb',
 			padding: 5,
 			backgroundColor: isComplete ?'whitesmoke' : 'white',

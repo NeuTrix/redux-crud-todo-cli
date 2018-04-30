@@ -1,7 +1,6 @@
 // sets the date for todo items
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormControl } from 'react-bootstrap';
 
 // +++++++++   +++++++++ 
 
@@ -15,7 +14,7 @@ const CalendarBtn = (props) => {
 	};
 
 	return (
-		<FormControl 
+		<input 
 			className ='calendarBtn' 
 			defaultValue = { props.date.slice(0,10) } 
 			inputRef =  { (value) => _date = value }
