@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 // custom
-import './App.css';
+import './material.css';
 import './App.grid.css';
 import requireAuth from '../helpers/requireAuth';
 import { createTodo } from '../actions/createActions';

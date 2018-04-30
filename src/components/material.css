@@ -3,10 +3,6 @@
   color: steelblue;
 }
 
-.App {
-}
-
-/* center single dimension elements */
 .mat {
 	box-shadow: 2px 2px 2px #bbbbbb;
 }
@@ -32,6 +28,7 @@
     0px -1px 0.5px rgba(0,0,0,.5);
 }
 
+/* center single dimension elements */
 .ctr {
 	display: flex;
 	justify-content: center;
