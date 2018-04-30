@@ -8,20 +8,22 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import './App.grid.css';
 import requireAuth from '../helpers/requireAuth';
+// +++++++++   +++++++++ 
 import { createTodo } from '../actions/createActions';
 import { deleteTodo } from '../actions/deleteActions';
 import { editTodo } from '../actions/editActions';
 import { fetchTodos } from '../actions/readActions';
+// +++++++++   +++++++++ 
 
 import FlashMessageList from './messages/FlashMessageList';
 import NavBar from './main/NavBar';
 import Home from './main/Home';
 import LoginPage from './auth/LoginPage';
 import RegisterPage from './auth/RegisterPage';
-
 import TaskCounter from './todos/TaskCounter';
-import TodoList from './todos/TodoList';
 import TodoForm from './todos/TodoForm';
+import TodoList from './todos/TodoList';
+import TodoPage from './todos/TodoPage';
 
 // +++++++++ CSS +++++++++ 
 
@@ -65,6 +67,9 @@ class App extends Component {
 
 				<div id = 'app_main' style = { placement.main } >
 					<Route exact path = '/' component = { Home } />
+
+					<Route path = '/main' component = { TodoPage } />
+
 					<Route path = '/login' component = { LoginPage } />
 					<Route path = '/register' component = { RegisterPage } />
 					<Route exact path = '/todos' component = { 
@@ -92,7 +97,9 @@ class App extends Component {
 
 // +++++++++ PROPS +++++++++ 
 
+
 App.propTypes = { 
+
 	createTodo:    		PropTypes.func.isRequired,
 	deleteTodo:    		PropTypes.func.isRequired,
 	fetchTodos:    		PropTypes.func.isRequired,
