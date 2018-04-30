@@ -60,7 +60,7 @@ class App extends Component {
 
 App.propTypes = { 
 	authApi: 	PropTypes.object.isRequired,
-	logout: 	PropTypes.object.isRequired,
+	logout: 	PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {

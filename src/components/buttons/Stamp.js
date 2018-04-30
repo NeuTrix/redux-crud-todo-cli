@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 const Stamp = (props) => {
 
 	const style = {
-		gridArea: props.area,
 		color: props.color,
 		borderColor: props.color,
 		backgroundColor: props.bgColor,
@@ -22,7 +21,6 @@ const Stamp = (props) => {
 }
 
 Stamp.propTypes = {
-	area: PropTypes.string, // identify grid layout area
 	bgColor: PropTypes.string, // define the background color
 	color: PropTypes.string, // define the color theme
 	fsize: PropTypes.string, // define the size of the font for name

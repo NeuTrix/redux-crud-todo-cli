@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const BasicButton = ({ area, bgColor, color, name }) => {
+const BasicButton = ({ bgColor, color, name }) => {
 
 	const style = {
-		gridArea: area,
 		color,
 		borderColor: color,
 		backgroundColor: bgColor,
@@ -18,7 +17,6 @@ const BasicButton = ({ area, bgColor, color, name }) => {
 }
 
 BasicButton.propTypes = {
-	area: PropTypes.string, // indicates grid area
 	color: PropTypes.string, // indicates link color
 	bgColor: PropTypes.string, // indicates link color
 	name: PropTypes.string.isRequired, // altenative name for

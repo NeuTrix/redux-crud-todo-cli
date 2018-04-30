@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// custom
 import RegisterForm from './RegisterForm';
 import { userSignupRequest } from '../../actions/signupActions';
 import { addFlashMessage } from '../../actions/flashActions';
