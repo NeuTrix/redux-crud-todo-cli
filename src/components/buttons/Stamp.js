@@ -13,6 +13,13 @@ const Stamp = (props) => {
 		width: 80px;
 		opacity: .6;
 		justify-self: center;
+
+		@media (min-width: 650px) {
+			height: 90px;
+			width: 100px;
+			font-size: 1.25em;
+		}
+
 	`;
 
 	return (
