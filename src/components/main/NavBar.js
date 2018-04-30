@@ -1,10 +1,8 @@
 // vendor
-import './NavBar.css'; 
+import './NavBar.grid.css'; 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-// +++++++++   +++++++++ 
-import { connect } from 'react-redux';
 // custom
 import logo from '../../assets/logo.svg';
 
@@ -39,7 +37,7 @@ class NavBar extends Component {
 	}
 
 	onClick(e){
-		// e.preventDefault();
+		e.preventDefault();
 		this.props.fetchTodos();
 	}
 
@@ -58,12 +56,15 @@ class NavBar extends Component {
 
 		const guestLinks= (
 			<div>
+
 				<div id= 'login_link' className= 'ctr'>
 					<Link to= '/login' >Sign In</Link>
 				</div>
+
 				<div id= 'register_link' className= 'ctr'>
 					<Link to= '/register' >Register</Link>
 				</div>
+
 			</div>
 		);
 
@@ -104,22 +105,20 @@ class NavBar extends Component {
 
 // +++++++++ PROPS  +++++++++ 
 
-NavBar.propTypes= {
+NavBar.propTypes = {
 	authApi: PropTypes.object.isRequired,
 	logout: PropTypes.func.isRequired,
-	placement: PropTypes.string,
 	fetchTodos: PropTypes.func.isRequired
 };
+
+NavBar.defaultProps = {
+	authApi:  {},
+	logout:  f => f,
+	fetchTodos:  f => f,
+}
 
 NavBar.contextTypes= {
 	router: PropTypes.object.isRequired,
 };
 
-const mapStateToProps= (state) => {
-	return { 
-		authApi: state.authApi,
-		user: state.authApi
-	};
-};
-
-export default connect(mapStateToProps, { logout, fetchTodos })(NavBar);
+export default NavBar;

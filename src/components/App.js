@@ -29,7 +29,7 @@ class App extends Component {
 			<div className = 'App wrapper' >
 
 				<div className= 'header' > 
-					<NavBar/> 
+					<NavBar authApi= {this.props.authApi} /> 
 				</div>
 
 				<div className= 'messages'>
@@ -47,6 +47,7 @@ class App extends Component {
 						)}
 					/>
 				</div>
+
 			</div>
 		);
 	}
@@ -55,14 +56,13 @@ class App extends Component {
 // +++++++++ PROPS +++++++++ 
 
 App.propTypes = { 
-	isAuthenticated: 	PropTypes.bool,
-	user: 						PropTypes.object.isRequired,
+	authApi: 	PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => {
 	return {
-		isAuthenticated: 	state.authApi.isAuthenticated,
-		user: 						state.authApi.user,
+		authApi: 	state.authApi,
+		user: 		state.authApi.user,
 	};
 }; 
 
