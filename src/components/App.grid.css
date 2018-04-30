@@ -1,5 +1,8 @@
 /* sections */
-.header { grid-area: header; }
+.header { 
+	grid-area: header;
+	margin-bottom: 40px;
+ }
 
 .main { grid-area: main; }
 

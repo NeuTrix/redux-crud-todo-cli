@@ -17,7 +17,6 @@ import RegisterPage from './auth/RegisterPage';
 import TodoPage from './todos/TodoPage';
 
 const style = {
-	marginBottom: 60
 }
 
 // +++++++++ COMPONENT +++++++++ 
