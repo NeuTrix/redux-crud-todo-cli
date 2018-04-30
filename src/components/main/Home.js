@@ -27,24 +27,31 @@ const GridLogin = styled(LinkedButton)`
 const GridRegister = styled(LinkedButton)`
 	grid-area: register;
 `;
-const GridStamp = styled(Stamp)`
 
+const Title = styled.div `
+	grid-area: title;
+	color-darkgrey;
+`;
+
+const Subtitle = styled.div`
+	grid-area: subtitle;
+	color: darkgrey;
 `;
 
 // +++++++++ COMPONENT  +++++++++ 
 
-const Home = ({className, children}) => {
+const Home = ({className}) => {
 	
 	return (
 		<Grid className = 'Home engrBox paper'  >
 
-			<div className= 'ctr engr under' style= {{ gridArea: 'title'}}> 
+			<Title className= 'ctr engr under'> 
 				<h3>React-Todo (beta)</h3> 
-			</div>  
+			</Title>  
 
-			<div className = 'ctr' style = {{ gridArea: 'subtitle' }} > 
+			<Subtitle className = 'ctr' > 
 				<h5>... a little Fullstack MERN CRUD web app featuring:</h5> 
-			</div>  
+			</Subtitle>  
 
 			<Stamp area= 'mongo' color= 'steelblue' name= 'Mongo'/>
 			<Stamp area= 'express' color= 'steelblue' name= 'Express'/>
@@ -56,7 +63,7 @@ const Home = ({className, children}) => {
 			<Stamp area= 'auth' color= 'orange' name= 'Auth'/>
 
 			<GridLogin 
-				name = 'Log In!!' 
+				name = 'Log In' 
 				bgColor = 'palegreen'
 				color = 'darkgreen'
 				path = '/login' 

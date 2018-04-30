@@ -11,15 +11,14 @@ const LinkedButton = ({ className, bgColor, color, name, path }) => {
 
 	const Button = styled.button`
 		color: ${color};
-		borderColor: ${bgColor};
+		border-color: ${color};
+		background-color: ${bgColor};
 	`;
 
 	return (
-		<StyledLink className= { `${ className }` } to = { path } >
-			<Button className= {`btn mat opac`} >
-				{ name }
-			</Button>  
-		</StyledLink >
+		<StyledLink className= { className } to = { path }>
+			<Button className= {`ctr btn mat`}> { name } </Button>  
+		</StyledLink>
 	)
 }
 
