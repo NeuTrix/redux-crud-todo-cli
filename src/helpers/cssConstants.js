@@ -5,6 +5,7 @@ export const colors = {
 	_iceblue: '#80bfff',
 	_mintgreen: '#78df78fc',
 	_yellow: '#ffff33',
+	_baseblue: '#337ab7'
 }
 
 export const media = {

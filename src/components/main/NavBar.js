@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 // custom
-import styled from 'styled-components'
+import { colors } from '../../helpers/cssConstants';
 
 // +++++++++ COMPONENT  +++++++++ 
 
@@ -21,6 +22,7 @@ const NavBar = (props, context) => {
 		padding: 10px;
 		position: fixed;
 		width: 100%;
+		color: ${ colors._baseblue };
 
 		@media (min-width: 650px) {
 			grid-template-areas: 
@@ -33,21 +35,28 @@ const NavBar = (props, context) => {
 	const Logo = styled.div`
 		grid-area: logo;
 	`;
-	const WelcomeLink = styled.div`
+
+	const Welcome = styled.div`
 		grid-area: welc;
 	`;
-	const HomeLink = styled.div`
+
+	const HomeLink = styled(Link)`
 		grid-area: home;
 	`;
-	const TodosLink = styled.div`
+
+	const TodosLink = styled(Link)`
 		grid-area: todo;
 	`;
-	const RegisterLink = styled.div`
+
+	const RegisterLink = styled(Link)`
 		grid-area: regi;
 	`;
-	const LoginLink = styled.div`
+
+	const LoginLink = styled(Link)`
 		grid-area: lgin;
+		color: ${ colors._mintgreen };
 	`;
+
 	const LogoutBtn = styled.button`
 		grid-area: lgot;
 		color: orange;
@@ -73,14 +82,14 @@ const NavBar = (props, context) => {
 	);
 
 	const logolink = (
-		<LoginLink id= 'login_link' className= 'ctr'>
-			<Link to= '/login' >Sign In</Link>
+		<LoginLink to= '/login' className= 'ctr'>
+			Log In
 		</LoginLink>
 	);
 
 	const regilink = (
-		<RegisterLink id= 'register_link' className= 'ctr'>
-			<Link to= '/register' >Register</Link>
+		<RegisterLink to= '/register' className= 'ctr'>
+			Register 
 		</RegisterLink>
 	);
 
@@ -94,18 +103,16 @@ const NavBar = (props, context) => {
 				</Link>
 			</Logo>
 
-			<WelcomeLink id= 'welcome_link' className= 'ctr'> 
+			<Welcome className= 'ctr'> 
 				{ isAuthenticated ? `Welcome ${ user.username }!` : '' }  
-			</WelcomeLink>
+			</Welcome>
 
-			<HomeLink id= 'home_link' className= 'ctr' >
-				<Link to= '/' > Home </Link>
+			<HomeLink to= '/' className= 'ctr' >
+				Home
 			</HomeLink>
 
-			<TodosLink id= 'todos_link' className= 'ctr'>
-				<Link to= '/todos' >
+			<TodosLink to= '/todos' className= 'ctr'>
 					Todos
-				</Link>
 			</TodosLink>
 				{ isAuthenticated ? userLinks : logolink }
 				{ isAuthenticated ? userLinks : regilink }
