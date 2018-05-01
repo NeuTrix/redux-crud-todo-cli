@@ -5,29 +5,28 @@ import styled from 'styled-components';
 const BasicButton = ({ className, bgColor, color, name }) => {
 
 	const Button = styled.button `
-		${ color },
-		borderColor: ${ color },
-		backgroundColor: ${ bgColor },
+		font-weight: bold;
+		height: 30px;
+		width: 80px;
+		border: 1px solid grey;
+		border-radius: 4px;
 	`;
 
 	return (
-		<Button className= { `BasicButton ${ className } btn mat` } >
+		<Button className= { `BasicButton ${ className } mat` } >
 			{ name }
 		</Button>  
 	)
 }
 
 BasicButton.propTypes = {
-	bgColor: PropTypes.string, // indicates link color
-	color: PropTypes.string, // indicates link color
 	className: PropTypes.string.isRequired, // for styled-component
 	name: PropTypes.string.isRequired, // altenative name for
 }
 
 BasicButton.defaultProps = {
 	className: 'BasicButton',
-	color: 'lightgrey',
-	name: 'Name Me!',
+	name: 'name Me!'
 }
 
 export default BasicButton

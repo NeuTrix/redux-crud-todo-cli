@@ -1,30 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { connect } from 'react-redux';
 // custom
 import LoginForm from './LoginForm';
 import { userLoginRequest } from '../../actions/loginActions';
 import { addFlashMessage } from '../../actions/flashActions';
-import { connect } from 'react-redux';
+
+const Grid = styled.div`
+	display: grid;
+	grid-template-areas: " form ";
+	grid-template-columns: 1fr;
+
+	justify-items: center;
+	padding: 20px;
+	border: darkgreen;
+`;
+
+const EntryForm = styled(LoginForm) `
+	grid-area: form;
+`;
 
 const LoginPage = (props) => {
 	
 	return (
-		<div 
-			id = 'loginPage' 
-			className = 'boxClr engrBox' 
-			style= {{ padding: 20 }}  
+		<Grid 
+			className = { `LoginPage ${props.className}`} 
 		>
-			<LoginForm   
+			<EntryForm  
 				userLoginRequest = { props.userLoginRequest } 
 				addFlashMessage = { props.addFlashMessage } 
 			/>
-		</div>
+
+		</Grid>
 	)
 }
 
 LoginPage.propTypes = {
+	addFlashMessage: PropTypes.func.isRequired,
+	className: PropTypes.string.isRequired, // from styled-components
 	userLoginRequest: PropTypes.func.isRequired,
-	addFlashMessage: PropTypes.func.isRequired
 };
 
 LoginPage.defaultProps = {
