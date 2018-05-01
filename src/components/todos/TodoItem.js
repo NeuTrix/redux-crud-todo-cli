@@ -29,10 +29,10 @@ const Grid = styled.form `
 	@media (min-width: 730px) {
 		grid-template-areas:
 		" check 	task 	rank 	date 	dele " 
-	;
+		;
 
-	grid-template-columns: 1fr 8fr 2fr 3fr 1fr;
-	grid-gap: 10px;
+		grid-template-columns: 1fr 8fr 2fr 3fr 1fr;
+		grid-gap: 10px;
 	}
 
 `;
@@ -43,6 +43,7 @@ const Delete = styled(DeleteBtn) `
 
 const Checked = styled(CheckComplete) `
 	grid-area: check;
+	border: 3px solid #bbbbbb;
 `;
 
 const Task = styled.input `
@@ -50,7 +51,7 @@ const Task = styled.input `
 	padding-left: 10px;
 `;
 
-const Date = styled.input `
+const DatePick = styled.input `
 	grid-area: date;
 `;
 
@@ -74,11 +75,9 @@ class TodoItem extends Component {
 
 		const isComplete = this.state.completed 
 
-		this.style = {
-			border: '3px solid #bbbbbb',
-			padding: 5,
-			backgroundColor: isComplete ?'whitesmoke' : 'white',
-			textDecoration: isComplete ?'line-through': 'none',
+		this.checkStyle = {
+			backgroundColor: isComplete ? 'whitesmoke' : 'white',
+			textDecoration: isComplete ? 'line-through': 'none',
 			color: isComplete ? '#bbbbbb': 'grey',
 		}
 
@@ -131,6 +130,7 @@ class TodoItem extends Component {
 
 				<Checked
 					className= '_checked'
+					style = {this.checkStyle}
 					name= 'complete'
 					_id= { this.props.item._id }
 					completed= { this.state.completed }
@@ -150,7 +150,7 @@ class TodoItem extends Component {
 					<option value= 'Low'>	Low		</option>
 				</Rank>
 
-				<Date 
+				<DatePick 
 					className= '_date mat'
 					name= 'date' 
 					type= 'date'
