@@ -22,7 +22,7 @@ import TodoPage from './todos/TodoPage';
 
 const App = (props) => {
 
-	const Grid_ = styled.div`
+	const Grid = styled.div`
 		display: grid;
 		grid-template-areas:   
 			" header " 
@@ -35,35 +35,35 @@ const App = (props) => {
 		padding: 0px 10px 0px 10px;
 	`; 
 
-	const Header_ = styled.div `
+	const Header = styled.div `
 		grid-area: header;
 		margin-bottom: 40px;
 	`;
 
-	const Messages_ = styled.div `
+	const Messages = styled.div `
 		grid-area: messages;
 	`;
 
-	const Main_ = styled.div `
+	const Main = styled.div `
 		grid-area: main;
 	`;
 
 	return (
 
-		<Grid_ className = 'App ' >
+		<Grid className = 'App ' >
 
-			<Header_ className= '_header' > 
+			<Header className= '_header' > 
 				<NavBar 
 					authApi= { props.authApi } 
 					logout= { props.logout }
 				/> 
-			</Header_>
+			</Header>
 
-			<Messages_ className= '_messages'>
+			<Messages className= '_messages'>
 				<FlashMessageList/>
-			</Messages_>
+			</Messages>
 			
-			<Main_ className= '_main'>
+			<Main className= '_main'>
 				<Route exact path = '/' component = { Home } />
 				<Route path = '/login' component = { LoginPage } />
 				<Route path = '/register' component = { RegisterPage } />
@@ -73,8 +73,8 @@ const App = (props) => {
 						<TodoPage/> 
 					)}
 				/>
-			</Main_>
-		</Grid_>
+			</Main>
+		</Grid>
 	);
 } 
 

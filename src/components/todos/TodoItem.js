@@ -8,37 +8,54 @@ import DeleteBtn from '../buttons/DeleteBtn';
 
 // +++++++++ CSS +++++++++ 
 
-const TodoItem_ = styled.form `
+const Grid = styled.form `
+	/* mobile mode */
+
 	display: grid;
 	grid-template-areas:
-		" task 		task 		task 		task " 
-		" check 	rank 		date 		dele	" 
+		" check 	task 		task 		task " 
+		" ... 		rank 		date 		dele	" 
 	;
 
-	grid-template-columns: repeat (4, 1fr);
+	grid-template-columns: 1fr 3fr 4fr 1fr;
 	grid-gap: 10px;
+
 	background-color: aliceblue;
 	border: 2px solid lightsteelblue;
 	padding: 10px;
+
+	/* iPad mini screen mode */
+
+	@media (min-width: 730ox) {
+		grid-template-areas:
+		" check 	task 		task 		task " 
+		" ... 		rank 		date 		dele	" 
+	;
+
+	grid-template-columns: 1fr repeat(3, 3fr);
+	grid-gap: 10px;
+	}
+
 `;
 
-const Delete_ = styled(DeleteBtn) `
+const Delete = styled(DeleteBtn) `
 	grid-area: dele;
 `;
 
-const Checked_ = styled(CheckComplete) `
+const Checked = styled(CheckComplete) `
 	grid-area: check;
 `;
 
-const Task_ = styled.input `
+const Task = styled.input `
 	grid-area: task;
+	padding-left: 10px;
 `;
 
-const Date_ = styled.input `
+const Date = styled.input `
 	grid-area: date;
 `;
 
-const Rank_ = styled.select `
+const Rank = styled.select `
 	grid-area: rank;
 `;
 
@@ -99,11 +116,11 @@ class TodoItem extends Component {
 		const { task, _id } = this.state
 
 		return (
-			<TodoItem_ 
+			<Grid 
 				className= '_todoItem engrBox boxClr paper' 
 				onSubmit= { this.handleSubmit } 
 			>
-				<Task_ 
+				<Task 
 					className= 'task'
 					name= 'task'
 					type= 'text'
@@ -113,7 +130,7 @@ class TodoItem extends Component {
 					onFocus= { this.handleEdit }
 				/>
 
-				<Checked_
+				<Checked
 					className= '_checked'
 					name= 'complete'
 					_id= { this.props.item._id }
@@ -121,7 +138,7 @@ class TodoItem extends Component {
 					editTodo= { this.props.editTodo }
 				/>
 
-				<Rank_
+				<Rank
 					className= '_rank mat'
 					name= 'rank'
 					type= 'select'
@@ -132,9 +149,9 @@ class TodoItem extends Component {
 					<option value= 'High'> High	</option>
 					<option value= 'Med'>	Med		</option>
 					<option value= 'Low'>	Low		</option>
-				</Rank_>
+				</Rank>
 
-				<Date_ 
+				<Date 
 					className= '_date mat'
 					name= 'date' 
 					type= 'date'
@@ -143,8 +160,8 @@ class TodoItem extends Component {
 					defaultValue= { this.state.date }
 				/>
 
-				<Delete_
-					className= 'delete'
+				<Delete
+					className= '_delete'
 					name= 'delete'
 					type= 'button'
 					task= { task }
@@ -152,7 +169,7 @@ class TodoItem extends Component {
 					deleteTodo= { this.props.deleteTodo }
 				/> 
 
-			</TodoItem_>
+			</Grid>
 		)
 	}
 };
