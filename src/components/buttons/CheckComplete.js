@@ -1,24 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 // +++++++++ CSS +++++++++ 
 
-const style = {
-	basic: { 
-		display: 'flex', 
-		justifySelf: 'center', 
-		alignSelf: 'center' ,
-	},
-
-	glyph: { 
-		display: 'flex',
-		text:"red",
-		color: 'steelblue',  
-		fontSize: '1.5em' ,
-		justifySelf: 'center', 
-		alignSelf: 'center' ,
-	}, 
-};
+const Glyph_ = styled.i `
+	display: flex;
+	text:"red";
+	color: steelblue;  
+	font-size: 1.5em ;
+	justify-self: center; 
+	align-self: center;
+`;
 
 // +++++++++ COMPONENT +++++++++ 
 
@@ -30,10 +23,6 @@ class CheckComplete extends Component {
 		this.handleToggle = this.handleToggle.bind(this)
 	}
 
-	// componentWillReceiveProps (newProps) {
-	// 	this.setState({ completed: newProps.completed });
-	// }
-
 	handleToggle (e) {
 		e.preventDefault();
 		this.props.editTodo ( 
@@ -44,17 +33,17 @@ class CheckComplete extends Component {
 
 	render() {
 		const checked = ( 
-			<i className = "engr ctr fa fa-check-square-o fa-lg" style = { style.glyph }> </i>
+				<Glyph_ className = 'engr ctr fa fa-check-square-o fa-lg'/>
 		);
 		
 		const unchecked = ( 
-			<i className = "engr ctr fa fa-square-o fa-lg" style = { style.glyph }> </i>
+				<Glyph_ className = "engr ctr fa fa-square-o fa-lg"/>
 		);
 
 		return (  
-			<div className = 'checkComplete'
+			<div 
+				className= {`${this.props.className} ctr`} 
 				onClick = { this.handleToggle } 
-				style = { style.basic }
 			> { this.state.completed ? checked : unchecked }
 			</div>
 		);
@@ -70,9 +59,9 @@ CheckComplete.propTypes = {
 };
 
 CheckComplete.defaultProps = {
-	_id : '',
+	_id: '',
 	completed: false,
-	editTodo: f => alert('default: check `CheckComplete` status'),
+	editTodo: f => alert('error: CheckComplete default fn'),
 };
 
 export default CheckComplete;

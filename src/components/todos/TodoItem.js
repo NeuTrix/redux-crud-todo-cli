@@ -12,7 +12,7 @@ const TodoItem_ = styled.form `
 	display: grid;
 	grid-template-areas:
 		" task 		task 		task 		task " 
-		" done 		prio 		date 		dele	" 
+		" check 		prio 		date 		dele	" 
 	;
 
 	grid-template-columns: repeat (4, 1fr);
@@ -22,11 +22,17 @@ const TodoItem_ = styled.form `
 	padding: 10px;
 `;
 
-const DeleteBtn_ = styled(DeleteBtn) `
+const Delete_ = styled(DeleteBtn) `
 	grid-area: dele;
 `;
 
+const Checked_ = styled(CheckComplete) `
+	grid-area: check;
+`;
 
+const Task_ = styled.input `
+	grid-area: task;
+`;
 
 // +++++++++ COMPONENT +++++++++ 
 
@@ -99,7 +105,7 @@ class TodoItem extends Component {
 					onFocus= { this.handleEdit }
 				/>
 
-				<CheckComplete
+				<Checked_
 					className= 'done'
 					name= 'complete'
 					_id= { this.props.item._id }
@@ -129,7 +135,7 @@ class TodoItem extends Component {
 					defaultValue= { this.state.date }
 				/>
 
-				<DeleteBtn_
+				<Delete_
 					className= 'delete'
 					name= 'delete'
 					type= 'button'
