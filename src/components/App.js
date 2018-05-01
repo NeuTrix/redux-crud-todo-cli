@@ -4,9 +4,9 @@ import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
-// import styled from 'styled-components'
+import styled from 'styled-components'
 // custom
-import './App.grid.css';
+// import './App.grid.css';
 import './material.css';
 import requireAuth from '../helpers/requireAuth';
 import { logout } from '../actions/loginActions';
@@ -18,41 +18,64 @@ import LoginPage from './auth/LoginPage';
 import RegisterPage from './auth/RegisterPage';
 import TodoPage from './todos/TodoPage';
 
-// +++++++++ COMPONENT +++++++++ 
+// +++++++++ COMPONENT +++++++++
 
-class App extends Component {
+const App = (props) => {
 
-	render() {
-		
-		return (
+	const Grid_ = styled.div`
+		display: grid;
+		grid-template-areas:   
+			" header " 
+			" messages "  
+			" main "  
+		;
+		grid-template-columns: 1fr;
+		/*grid-template-rows: auto;*/
+		grid-gap: 10px;
+		padding: 0px 10px 0px 10px;
+	`; 
 
-			<div className = 'App App_wrapper' >
+	const Header_ = styled.div `
+		grid-area: header;
+		margin-bottom: 40px;
+	`;
 
-				<div className= 'header' > 
-					<NavBar 
-						authApi= { this.props.authApi } 
-						logout= { this.props.logout }
-					/> 
-				</div>
+	const Messages_ = styled.div `
+		grid-area: messages;
+	`;
 
-				<div className= 'messages'>
-					<FlashMessageList/>
-				</div>
-				
-				<div className= 'main'>
-					<Route exact path = '/' component = { Home } />
-					<Route path = '/login' component = { LoginPage } />
-					<Route path = '/register' component = { RegisterPage } />
-					<Route 
-						exact path = '/todos' 
-						component = { requireAuth( ReactDom.render = props => 
-							<TodoPage/> 
-						)}
-					/>
-				</div>
-			</div>
-		);
-	}
+	const Main_ = styled.div `
+		grid-area: main;
+	`;
+
+	return (
+
+		<Grid_ className = 'App ' >
+
+			<Header_ className= '_header' > 
+				<NavBar 
+					authApi= { props.authApi } 
+					logout= { props.logout }
+				/> 
+			</Header_>
+
+			<Messages_ className= '_messages'>
+				<FlashMessageList/>
+			</Messages_>
+			
+			<Main_ className= '_main'>
+				<Route exact path = '/' component = { Home } />
+				<Route path = '/login' component = { LoginPage } />
+				<Route path = '/register' component = { RegisterPage } />
+				<Route 
+					exact path = '/todos' 
+					component = { requireAuth( ReactDom.render = props => 
+						<TodoPage/> 
+					)}
+				/>
+			</Main_>
+		</Grid_>
+	);
 } 
 
 // +++++++++ PROPS +++++++++ 

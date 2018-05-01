@@ -16,9 +16,18 @@ const NavBar = (props, context) => {
 		grid-template-columns: auto;
 		grid-auto-rows: auto;
 
-		height: 3em;
 		justify-content: space-around;
 		opacity: .9;
+		padding: 10px;
+		position: fixed;
+		width: 100%;
+
+		@media (min-width: 650px) {
+			grid-template-areas: 
+			"	logo 	welc ... home todo regi lgin lgot	..."
+		;
+			grid-template-columns: 1fr 3fr 7fr 2fr 2fr 2fr 1fr;
+		}
 	`;
 
 	const Logo = styled.div`
@@ -42,6 +51,7 @@ const NavBar = (props, context) => {
 	const LogoutBtn = styled.button`
 		grid-area: lgot;
 		color: orange;
+		margin-left: 10px;
 	`;
 
 	const logout = (e) => {
@@ -78,7 +88,7 @@ const NavBar = (props, context) => {
 
 	return (
 
-		<GridNav className= 'NavBar engrBox paper' >
+		<GridNav className= 'NavBar paper' >
 
 			<Logo id= 'logo_link' className= 'ctr'>
 				<Link to= '/' >
