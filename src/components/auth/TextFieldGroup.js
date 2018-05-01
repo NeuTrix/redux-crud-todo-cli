@@ -14,11 +14,12 @@ const Grid = styled.div `
 		" title "
 		" input "
 	;
-
 `;
 
 const Input = styled.input `
 	grid-area: input;
+	text-indent: 10px;
+	color: ${ colors._charcoal };
 `;
 
 const Title = styled.div `
@@ -26,6 +27,7 @@ const Title = styled.div `
 `;
 
 const HelpBlock = styled.span `
+	color: red;
 `;
 
 // +++++++++  COMPONENNT  +++++++++ 
@@ -35,7 +37,7 @@ const TextFieldGroup = (props) => {
 	const { className, errors, placeholder } = props
 
 	return (
-		 <Grid className = { classnames( `${className} form-group`, { 'has-error': errors }) } >
+		 <Grid className = { classnames( `${ className } form-group`, { 'has-error': errors }) } >
 
 		 <Title className= 'engr' >
 			{ props.label && <h3> { props.label } </h3> }

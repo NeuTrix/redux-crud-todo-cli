@@ -1,26 +1,63 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled	from 'styled-components';
 // custom
 import validateInput from '../../helpers/signupValidator';
 import TextFieldGroup from './TextFieldGroup';
 import BasicButton from '../buttons/BasicButton';
+import { colors, media  } from '../../helpers/cssConstants';
 
 // +++++++++  CSS  +++++++++ 
 
-const style = {
-	display: 'grid',
-	gridTemplate: `
+const Grid = styled.form `
+	display: grid;
+	grid-template-areas: 
 		"title"
-		"form" 
-		"form" 
-		"form" 
-		"form" 
-		"form" 
-		"submit" `,
-	gridRowGap: '20px',
-	padding: '0px 15px 0px 15px',
-	color: 'steelblue'
-}
+		"user"
+		"email"
+		"emConf"
+		"pword"
+		"pwConf"
+		"submit"
+	;
+	grid-row-gap: 10px;
+	border: 1px solid steelblue;
+	color: ${colors._iceblue};
+	padding: 20px;
+	width: 300px;
+
+	@media (${media._large}) {
+		width: 500px;
+	}
+`;
+
+const Title = styled.div `
+	gride-area: title;
+`;
+
+const  User = styled(TextFieldGroup) `
+	gride-area: user;
+`;
+
+const  Email = styled(TextFieldGroup) `
+	gride-area: email;
+`;
+
+const  EmailConf = styled(TextFieldGroup) `
+	gride-area: emConf;
+`;
+
+const  Pword = styled(TextFieldGroup) `
+	gride-area: pword;
+`;
+
+const  PwordConf = styled(TextFieldGroup) `
+	gride-area: pwConf;
+`;
+
+const  Submit = styled(BasicButton) `
+	gride-area: submit;
+`;
 
 // +++++++++  COMPONENT  +++++++++ 
 
@@ -87,21 +124,17 @@ class RegisterForm extends Component {
 		const { errors } = this.state;
 
 		return (
-			<form 
+
+			<Grid 
 				id = 'registerForm'
-				className = 'boxClr' 
-				style = { style } 
+				className = 'boxClr paper' 
 				onSubmit = { this.onSubmit } 
 			>
-				<h1 
-				className = 'engr under ctr'
-				 style = {{ gridArea: 'title' }} 
-				 > 
-					 Registration 
-			 </h1>
+				<Title className = 'engr under ctr'> 
+					 <h2> Registration </h2>
+				</Title>
 
-				<TextFieldGroup 
-					style = {{ gridArea: 'form' }} 
+				<User 
 					errors = { errors.username }
 					label = 'Username' 
 					name = 'username'
@@ -110,8 +143,8 @@ class RegisterForm extends Component {
 					type = 'text'
 					value = { this.state.username }
 				/>
-				<TextFieldGroup 
-					style = {{ gridArea: 'form' }} 
+
+				<Email 
 					errors = { errors.email }
 					label = 'Email' 
 					name = 'email'
@@ -120,8 +153,7 @@ class RegisterForm extends Component {
 					type = 'email'
 					value = { this.state.email }
 				/>
-				<TextFieldGroup 
-					style = {{ gridArea: 'form' }} 
+				<EmailConf 
 					errors = { errors.emailConfirm }
 					name = 'emailConfirm'
 					placeholder = 'Confirm your email address'
@@ -129,8 +161,8 @@ class RegisterForm extends Component {
 					type = 'email'
 					value = { this.state.emailConfirm }
 				/>
-				<TextFieldGroup 
-					style = {{ gridArea: 'form' }} 
+
+				<Pword 
 					errors = { errors.password }
 					label = 'Password' 
 					name = 'password'
@@ -139,8 +171,8 @@ class RegisterForm extends Component {
 					type = 'password'
 					value = { this.state.password }
 				/>
-				<TextFieldGroup 
-					style = {{ gridArea: 'form' }} 
+
+				<PwordConf 
 					errors = { errors.passwordConfirm }
 					name = 'passwordConfirm'
 					placeholder = 'Confirm your password'
@@ -149,18 +181,15 @@ class RegisterForm extends Component {
 					value = { this.state.passwordConfirm } 
 				/>
 
-				<div style= {{gridArea: 'submit', justifySelf: 'center'}} >
-					<BasicButton 
-						className = 'ctr'
-						area = 'submit'
-						type = 'submit' 
-						color = 'steelblue'
-						bgColor = 'aliceblue'
-						name = 'Register' 
-						disable = { this.state.isLoading.toString()} 
-					/>
-        </div>
-			</form>
+				<Submit 
+					className = 'ctr'
+					area = 'submit'
+					type = 'submit' 
+					name = 'Register' 
+					disable = { this.state.isLoading.toString()} 
+				/>
+
+			</Grid>
 		);
 	}
 }

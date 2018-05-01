@@ -6,7 +6,7 @@ import { Link } from  'react-router-dom';
 import validateInput from '../../helpers/loginValidator';
 import TextFieldGroup from './TextFieldGroup';
 import BasicButton from '../buttons/BasicButton';
-import { colors } from '../../helpers/cssConstants'
+import { colors, media } from '../../helpers/cssConstants'
 
 // +++++++++  CSS  +++++++++ 
 
@@ -21,9 +21,14 @@ const Grid = styled.form `
 	;
 
 	grid-row-gap: 20px;
-	color: ${ colors._mintgreen};
+	color: ${ colors._mintgreen };
 	padding: 20px;
-	border: 1px solid darkgreen;
+	border: 1px solid ${ colors._mintgreen };
+	width: 300px;
+
+	@media (${media._large}) {
+		width: 500px;
+	}
 `;
 
 const Title = styled.div `
@@ -101,7 +106,7 @@ class Loginform extends Component {
 
 		return (
 			<Grid 
-				className= { `Loginform ${this.props.className} paper` } 
+				className= { `Loginform ${this.props.className} boxClr paper` } 
 				onSubmit= { this.onSubmit } 
 			>
 				<Title className= 'ctr engr under' > 

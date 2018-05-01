@@ -1,4 +1,3 @@
-import './index.css';
 import 'font-awesome/css/font-awesome.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -7,10 +6,10 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
 import registerServiceWorker from './registerServiceWorker';
 import store from './store/store';
+import styled from 'styled-components';
 
 import setAuthorizationToken from './components/auth/setAuthToken';
 import { setCurrentUser } from './actions/loginActions';
-
 import App from './components/App';
 
 let root = document.getElementById('root');
@@ -21,12 +20,19 @@ if (token) {
 	store.dispatch(setCurrentUser(jwtDecode(token)));
 } 
 
+const Store = styled(Provider) `
+  margin: 0px;
+  padding: 0px;
+  font-family: sans-serif;
+  background: yellow;
+`;
+
 ReactDOM.render(
-	<Provider store = { store } >
+	<Store store = { store } >
 		<Router>
 			<Route path = '/' component = { App } />
 		</Router>
-	</Provider>, root
+	</Store>, root
 );
 
 registerServiceWorker();

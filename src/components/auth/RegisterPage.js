@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import RegisterForm from './RegisterForm';
 import { userSignupRequest } from '../../actions/signupActions';
 import { addFlashMessage } from '../../actions/flashActions';
+import { colors } from '../../helpers/cssConstants';
 
 const Grid = styled.div`
 	display: grid;
@@ -14,7 +15,7 @@ const Grid = styled.div`
 
 	justify-items: center;
 	padding: 20px;
-	border: steelblue;
+	border: ${ colors._iceblue };
 `;
 
 const EntryForm = styled(RegisterForm) `
