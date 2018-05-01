@@ -16,7 +16,7 @@ const DeleteBtn = (props) => {
 	return (
 		<div className = {`.${props.className} ctr`} onClick= { handleDelete } > 
 			<i 
-				className = "ctr engr fa fa-trash fa-lg" 
+				className = "ctr engr fa fa-trash fa-2x" 
 				style = {{ color: 'tomato' }} 
 			> 
 			</i>

@@ -31,11 +31,11 @@ class CheckComplete extends Component {
 
 	render() {
 		const checked = ( 
-				<Glyph className = 'engr ctr fa fa-check-square-o fa-lg'/>
+				<Glyph className = 'engr ctr fa fa-check-square-o fa-2x'/>
 		);
 		
 		const unchecked = ( 
-				<Glyph className = "engr ctr fa fa-square-o fa-lg"/>
+				<Glyph className = "engr ctr fa fa-square-o fa-2x"/>
 		);
 
 		return (  
