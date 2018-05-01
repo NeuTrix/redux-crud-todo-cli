@@ -43,8 +43,8 @@ LoginPage.propTypes = {
 };
 
 LoginPage.defaultProps = {
+	addFlashMessage: f => f,
 	userLoginRequest: f => f,
-	addFlashMessage: f => f
 };
 
 export default connect(null, { userLoginRequest, addFlashMessage })(LoginPage);
