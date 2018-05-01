@@ -54,6 +54,12 @@ const Rank = styled.select `
 const Task = styled.input `
 	grid-area: task;
   text-indent: 10px;
+
+  ${ ({isComplete}) => isComplete && `
+  	color: lightgrey;
+  	text-decoration: line-through;
+  	background-color: whitesmoke;
+  `}
 `;
 
 // +++++++++ COMPONENT +++++++++ 
@@ -68,14 +74,6 @@ class TodoItem extends Component {
 			rank: this.props.item.rank,
 			task: this.props.item.task, 
 			_id: this.props.item._id,
-		}
-
-		const isComplete = this.state.completed 
-
-		this.checkStyle = {
-			backgroundColor: isComplete ? 'whitesmoke' : 'white',
-			textDecoration: isComplete ? 'line-through': 'none',
-			color: isComplete ? '#bbbbbb': 'grey',
 		}
 
 		this.handleBlur 	= this.handleBlur.bind(this)
@@ -117,6 +115,7 @@ class TodoItem extends Component {
 				onSubmit= { this.handleSubmit } 
 			>
 				<Task 
+					isComplete= { this.state.completed }
 					className= '_task'
 					name= 'task'
 					type= 'text'
