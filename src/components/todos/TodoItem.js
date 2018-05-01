@@ -14,6 +14,14 @@ const style= {
 	padding: 10,
 }
 
+	display: grid;
+	grid-template-areas:
+		"task task task task " 
+		"done priority date delete" ;
+
+	grid-template-columns: repeat (4, 1fr);
+	grid-gap: 10px;
+
 // +++++++++ COMPONENT +++++++++ 
 
 class TodoItem extends Component {
