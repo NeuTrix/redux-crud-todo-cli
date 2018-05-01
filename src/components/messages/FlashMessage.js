@@ -33,9 +33,9 @@ class FlashMessage extends Component {
 
 				background: 
 				type === 'success' ? 'palegreen' : 
-				type === 'warning' ? 'orange' :
-				type === 'info' ? 'steelblue' :
-				type === 'error' ? 'red' : 'lightgrey',
+				type === 'warning' ? 'peach' :
+				type === 'info' ? 'aliceblue' :
+				type === 'error' ? 'pink' : 'lightgrey',
 		}
 		
 		setTimeout(this.closeMessage, 7000);
