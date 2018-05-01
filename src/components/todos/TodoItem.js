@@ -12,7 +12,7 @@ const TodoItem_ = styled.form `
 	display: grid;
 	grid-template-areas:
 		" task 		task 		task 		task " 
-		" check 		prio 		date 		dele	" 
+		" check 	rank 		date 		dele	" 
 	;
 
 	grid-template-columns: repeat (4, 1fr);
@@ -32,6 +32,14 @@ const Checked_ = styled(CheckComplete) `
 
 const Task_ = styled.input `
 	grid-area: task;
+`;
+
+const Date_ = styled.input `
+	grid-area: date;
+`;
+
+const Rank_ = styled.select `
+	grid-area: rank;
 `;
 
 // +++++++++ COMPONENT +++++++++ 
@@ -95,7 +103,7 @@ class TodoItem extends Component {
 				className= '_todoItem engrBox boxClr paper' 
 				onSubmit= { this.handleSubmit } 
 			>
-				<input 
+				<Task_ 
 					className= 'task'
 					name= 'task'
 					type= 'text'
@@ -106,15 +114,15 @@ class TodoItem extends Component {
 				/>
 
 				<Checked_
-					className= 'done'
+					className= '_checked'
 					name= 'complete'
 					_id= { this.props.item._id }
 					completed= { this.state.completed }
 					editTodo= { this.props.editTodo }
 				/>
 
-				<select
-					className= 'rank mat'
+				<Rank_
+					className= '_rank mat'
 					name= 'rank'
 					type= 'select'
 					defaultValue= { this.state.rank }
@@ -124,10 +132,10 @@ class TodoItem extends Component {
 					<option value= 'High'> High	</option>
 					<option value= 'Med'>	Med		</option>
 					<option value= 'Low'>	Low		</option>
-				</select>
+				</Rank_>
 
-				<input 
-					className= 'date mat'
+				<Date_ 
+					className= '_date mat'
 					name= 'date' 
 					type= 'date'
 					onBlur= { this.handleBlur }
