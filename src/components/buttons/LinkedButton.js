@@ -3,21 +3,21 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const LinkedButton = ({ className, bgColor, color, name, path }) => {
+const LinkedButton = (props) => {
 
 	const StyledLink = styled(Link)`
 		justify-self: center;
 	`;
 
 	const Button = styled.button`
-		color: ${color};
-		border-color: ${color};
-		background-color: ${bgColor};
+		color: ${props.color};
+		border-color: ${props.color};
+		background-color: ${props.bgColor};
 	`;
 
 	return (
-		<StyledLink className= { className } to = { path }>
-			<Button className= {`ctr btn mat`}> { name } </Button>  
+		<StyledLink className= { props.className } to = { props.path }>
+			<Button className= {`ctr btn mat`}> { props.name } </Button>  
 		</StyledLink>
 	)
 }

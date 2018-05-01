@@ -4,6 +4,7 @@ import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
+import styled from 'styled-components'
 // custom
 import './App.grid.css';
 import './material.css';
@@ -26,6 +27,10 @@ const style = {
 class App extends Component {
 
 	render() {
+
+		const FixedNav = styled.nav `
+			// position: fixed;
+		`;
 		return (
 			<div className = 'App App_wrapper' >
 
@@ -71,7 +76,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return { 
-		logout: () => { dispatch (logout ()); } 
+		logout: () => { dispatch (logout ()); }, 
 	};
 };
 

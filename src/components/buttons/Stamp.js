@@ -19,7 +19,7 @@ const Stamp = (props) => {
 			width: 100px;
 			font-size: 1.25em;
 		}
-
+		
 	`;
 
 	return (

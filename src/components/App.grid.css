@@ -19,7 +19,7 @@
 .App_wrapper {
 	display: grid;
 	grid-template-areas:   
-		"header "
+		"header"
 		"messages" 
 		"main" 
 		/*"footer"*/

@@ -1,108 +1,109 @@
-// vendor
-import './NavBar.grid.css'; 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 // custom
 import logo from '../../assets/logo.svg';
-
-import { fetchTodos } from '../../actions/readActions';
-import { logout } from '../../actions/loginActions';
-
-// +++++++++  CSS  +++++++++ 
-
-const style = {
-
-	navbox: {
-		position: 'fixed',
-		height: '3em',
-		width: '100%',
-		opacity: '.9',
-	},
-
-	welcome: {
-		color:'steelblue',
-		justifyContent: 'left',
-	}
-}
+import styled from 'styled-components'
 
 // +++++++++ COMPONENT  +++++++++ 
 
-class NavBar extends Component {
+const NavBar = (props, context) => {
 
-	logout(e) {
+	const GridNav = styled.nav`
+		display: grid;
+		grid-template-areas: 
+			"	logo 	welc ... home todo regi lgin lgot	"
+		;
+		grid-template-columns: auto;
+		grid-auto-rows: auto;
+
+		height: 3em;
+		justify-content: space-around;
+		opacity: .9;
+	`;
+
+	const Logo = styled.div`
+		grid-area: logo;
+	`;
+	const WelcomeLink = styled.div`
+		grid-area: welc;
+	`;
+	const HomeLink = styled.div`
+		grid-area: home;
+	`;
+	const TodosLink = styled.div`
+		grid-area: todo;
+	`;
+	const RegisterLink = styled.div`
+		grid-area: regi;
+	`;
+	const LoginLink = styled.div`
+		grid-area: lgin;
+	`;
+	const LogoutBtn = styled.button`
+		grid-area: lgot;
+		color: orange;
+	`;
+
+	const logout = (e) => {
 		e.preventDefault();
-		this.props.logout();
-		this.context.router.history.push('/');
+		props.logout();
+		context.router.history.push('/');
 	}
 
-	onClick(e){
-		e.preventDefault();
-		this.props.fetchTodos();
-	}
+	const { isAuthenticated, user } = props.authApi;
 
-	render() {
+	const userLinks = (
+		<LogoutBtn 
+			id= 'logout_link' 
+			className= 'ctr' 
+			onClick= { logout } 
+		>
+			Log Out
+		</LogoutBtn>
+	);
 
-		const { isAuthenticated, user } = this.props.authApi;
+	const guestLinks = (
+		<div>
 
-		const userLinks = (
-			<button 
-				id= 'logout_link' 
-				className= 'ctr' 
-				onClick= { this.logout.bind(this) } >
-				Log Out
-			</button>
-		);
+			<LoginLink id= 'login_link' className= 'ctr'>
+				<Link to= '/login' >Sign In</Link>
+			</LoginLink>
 
-		const guestLinks = (
-			<div>
+			<RegisterLink id= 'register_link' className= 'ctr'>
+				<Link to= '/register' >Register</Link>
+			</RegisterLink>
 
-				<div id= 'login_link' className= 'ctr'>
-					<Link to= '/login' >Sign In</Link>
-				</div>
+		</div>
+	);
 
-				<div id= 'register_link' className= 'ctr'>
-					<Link to= '/register' >Register</Link>
-				</div>
+	return (
 
-			</div>
-		);
+		<GridNav className= 'NavBar engrBox paper' >
 
-		const welcome = (
-			<div style= { style.welcome } > 
-				{`Welcome ${ user.username }!`}
-			 </div>
-		);
+			<Logo id= 'logo_link' className= 'ctr'>
+				<Link to= '/' >
+					<div className= "engr App-logo ctr fa fa-gg fa-2x" alt= "logo" />
+				</Link>
+			</Logo>
 
-		return (
+			<WelcomeLink id= 'welcome_link' className= 'ctr'> 
+				{ isAuthenticated ? `Welcome ${ user.username }!` : '' }  
+			</WelcomeLink>
 
-			<nav className= 'engrBox paper' id= 'NavGrid' style= {style.navbox} >
+			<HomeLink id= 'home_link' className= 'ctr' >
+				<Link to= '/' > Home </Link>
+			</HomeLink>
 
-				<div id= 'logo_link' className= 'ctr'>
-					<Link to= '/' >
-						<div className= "engr App-logo ctr fa fa-gg fa-2x" alt= "logo" />
-					</Link>
-				</div>
+			<TodosLink id= 'todos_link' className= 'ctr'>
+				<Link to= '/todos' >
+					Todos
+				</Link>
+			</TodosLink>
 
-				<div id= 'welcome_link' className= 'ctr'> 
-					{ isAuthenticated ? welcome : '' }  
-				</div>
-
-				<div id= 'home_link' className= 'ctr' >
-					<Link to= '/' > Home </Link>
-				</div>
-
-				<div id= 'todos_link' className= 'ctr'>
-					<Link to= '/todos' >
-						<span onClick= { this.onClick.bind(this) }> Todos </span>
-					</Link>
-				</div>
-
-					{ isAuthenticated ? userLinks : guestLinks }
-
-			</nav>
-		);
-	}
+				{ isAuthenticated ? userLinks : guestLinks }
+		</GridNav>
+	);
 }
 
 // +++++++++ PROPS  +++++++++ 
@@ -110,13 +111,11 @@ class NavBar extends Component {
 NavBar.propTypes = {
 	authApi: PropTypes.object.isRequired,
 	logout: PropTypes.func.isRequired,
-	fetchTodos: PropTypes.func.isRequired
 };
 
 NavBar.defaultProps = {
 	authApi:  {},
 	logout:  f => alert('Default action: Navbar logout fn'),
-	fetchTodos:  f => f,
 }
 
 NavBar.contextTypes= {
