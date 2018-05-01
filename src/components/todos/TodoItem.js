@@ -8,21 +8,25 @@ import DeleteBtn from '../buttons/DeleteBtn';
 
 // +++++++++ CSS +++++++++ 
 
-const style= {
-	backgroundColor: 'aliceblue',
-	border: '2px solid lightsteelblue',
-	padding: 10,
-}
-
-const Grid = styled.div `
-/*	display: grid;
+const TodoItem_ = styled.form `
+	display: grid;
 	grid-template-areas:
-		"task task task task " 
-		"done priority date delete" ;
+		" task 		task 		task 		task " 
+		" done 		prio 		date 		dele	" 
+	;
 
 	grid-template-columns: repeat (4, 1fr);
-	grid-gap: 10px;*/
+	grid-gap: 10px;
+	background-color: aliceblue;
+	border: 2px solid lightsteelblue;
+	padding: 10px;
 `;
+
+const DeleteBtn_ = styled(DeleteBtn) `
+	grid-area: dele;
+`;
+
+
 
 // +++++++++ COMPONENT +++++++++ 
 
@@ -81,15 +85,13 @@ class TodoItem extends Component {
 		const { task, _id } = this.state
 
 		return (
-			<form 
-				className= 'TodoItem_wrapper engrBox boxClr paper' 
-				style= { style } 
+			<TodoItem_ 
+				className= '_todoItem engrBox boxClr paper' 
 				onSubmit= { this.handleSubmit } 
 			>
 				<input 
 					className= 'task'
 					name= 'task'
-					style= { this.style}
 					type= 'text'
 					defaultValue= { this.state.task }
 					onBlur= { this.handleBlur }
@@ -103,13 +105,11 @@ class TodoItem extends Component {
 					_id= { this.props.item._id }
 					completed= { this.state.completed }
 					editTodo= { this.props.editTodo }
-					style= {{ gridArea: 'done' }}
 				/>
 
 				<select
 					className= 'rank mat'
 					name= 'rank'
-					style= {{ gridArea: 'priority'}} 
 					type= 'select'
 					defaultValue= { this.state.rank }
 					onBlur= { this.handleBlur }
@@ -123,14 +123,13 @@ class TodoItem extends Component {
 				<input 
 					className= 'date mat'
 					name= 'date' 
-					style= {{ gridArea: 'date' }} 
 					type= 'date'
 					onBlur= { this.handleBlur }
 					onChange= { this.handleChange }
 					defaultValue= { this.state.date }
 				/>
 
-				<DeleteBtn 
+				<DeleteBtn_
 					className= 'delete'
 					name= 'delete'
 					type= 'button'
@@ -139,7 +138,7 @@ class TodoItem extends Component {
 					deleteTodo= { this.props.deleteTodo }
 				/> 
 
-			</form>
+			</TodoItem_>
 		)
 	}
 };

@@ -33,37 +33,37 @@ const Grid = styled.div`
 		grid-gap: 25px 5px;
 `;
 
-const GridLogin = styled(LinkedButton)`
+const Login_ = styled(LinkedButton)`
 	grid-area: login;
 `;
-const GridRegister = styled(LinkedButton)`
+const Register_ = styled(LinkedButton)`
 	grid-area: regis;
 `;
 
-const Title = styled.div`
+const Title_ = styled.div`
 	grid-area: title;
 	color-darkgrey;
 `;
 
-const Subtitle = styled.div`
+const Subtitle_ = styled.div`
 	grid-area: subt;
 	color: darkgrey;
 `;
 
 // +++++++++ COMPONENT  +++++++++ 
 
-const Home = ({className}) => {
+const Home = (props) => {
 	
 	return (
 		<Grid className = 'Home engrBox paper'  >
 
-			<Title className= 'ctr engr under'> 
+			<Title_ className= '_title ctr engr under'> 
 				<h3>React-Todo (beta)</h3> 
-			</Title>  
+			</Title_>  
 
-			<Subtitle className = 'ctr' > 
+			<Subtitle_ className = '-subtitle ctr' > 
 				<h5>... a little Fullstack MERN CRUD web app featuring:</h5> 
-			</Subtitle>  
+			</Subtitle_>  
 
 			<Stamp area= 'mongo' color= 'steelblue' name= 'Mongo'/>
 			<Stamp area= 'expr' color= 'steelblue' name= 'Express'/>
@@ -72,14 +72,16 @@ const Home = ({className}) => {
 			<Stamp area= 'redux' color= 'orange' name= 'Redux'/>
 			<Stamp area= 'grid' color= 'orange' name= 'Grid'/>
 
-			<GridLogin 
+			<Login_ 
+				className= '_login'
 				name = 'Log In' 
 				bgColor = 'palegreen'
 				color = 'darkgreen'
 				path = '/login' 
 			/>
 
-			<GridRegister 
+			<Register_ 
+				className= '_register'
 				name = 'Register' 
 				bgColor = 'aliceblue'
 				color = 'steelblue'
