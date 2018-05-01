@@ -2,7 +2,7 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import setAuthorizationToken from '../components/auth/setAuthToken';
 import * as mod from './typeConstants';
-import {url} from '../helpers/apiHelper.js'
+import { url } from '../helpers/apiHelper.js'
 
 export function setCurrentUser (user) {
 	return {
