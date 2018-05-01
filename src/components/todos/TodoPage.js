@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 // custom
-import './TodoPage.grid.css';
 import { createTodo } from '../../actions/createActions';
 import { deleteTodo } from '../../actions/deleteActions';
 import { editTodo } from '../../actions/editActions';

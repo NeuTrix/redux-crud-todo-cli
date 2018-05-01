@@ -1,8 +1,8 @@
 //  vendor
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components'
 //  custom
-import './TodoItem.grid.css';
 import CheckComplete from '../buttons/CheckComplete';
 import DeleteBtn from '../buttons/DeleteBtn';
 
@@ -14,13 +14,15 @@ const style= {
 	padding: 10,
 }
 
-	display: grid;
+const Grid = styled.div `
+/*	display: grid;
 	grid-template-areas:
 		"task task task task " 
 		"done priority date delete" ;
 
 	grid-template-columns: repeat (4, 1fr);
-	grid-gap: 10px;
+	grid-gap: 10px;*/
+`;
 
 // +++++++++ COMPONENT +++++++++ 
 
