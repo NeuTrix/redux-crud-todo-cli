@@ -23,7 +23,7 @@ const TaskCounter = (props) => {
 	return ( 
 		<div 
 			id = 'todosCount' 
-			className = 'ctr mat engrBox'  
+			className = { ` ${ props.className } ctr mat engrBox` }  
 			style = { style.grid }
 		>
 			<button 

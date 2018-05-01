@@ -1,12 +1,11 @@
 // vendor
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import styled from 'styled-components'
 // custom
-// import './App.grid.css';
 import './material.css';
 import requireAuth from '../helpers/requireAuth';
 import { logout } from '../actions/loginActions';

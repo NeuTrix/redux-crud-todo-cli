@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import styled from 'styled-components'
 
 // custom
 import { createTodo } from '../../actions/createActions';
@@ -10,17 +11,33 @@ import { editTodo } from '../../actions/editActions';
 import { fetchTodos } from '../../actions/readActions';
 
 import TaskCounter from './TaskCounter';
-import TodoList from './TodoList';
 import TodoForm from './TodoForm';
+import TodoList from './TodoList';
 
 // +++++++++ CSS +++++++++ 
 
-const placement = {
-	header: { gridArea: 'header',paddingBottom: 40 },
-	status_bar: { gridArea: 'status_bar', margin: 10 },
-	new_todo: { gridArea: 'new_todo'},
-	main: { gridArea: 'main', paddingBottom: 50 },
-}
+const Grid = styled.div `
+	/* mobile view */
+
+	display: grid;
+	grid-template-areas: 
+		" count "
+		" new "
+		" list "
+	;
+`;
+
+const Counter = styled (TaskCounter) `
+	grid-area: count;
+`;
+
+const NewItem = styled (TodoForm) `
+	grid-area: new;
+`;
+
+const List = styled (TodoList) `
+	grid-area: list;
+`;
 
 // +++++++++ COMPONENT +++++++++ 
 
@@ -34,30 +51,25 @@ class TodoPage extends Component {
 
 	render() {
 		return (
-			<div className = 'TodoPage' >
+			<Grid className = 'TodoPage' >
 				
-				<div id = 'app_task_count' style = { placement.status_bar } >
-						<TaskCounter 
-							todos = { this.props.todoArray } 
-							fetchTodos = { this.props.fetchTodos } 
-						/>  
-				</div>
+				<Counter 
+					fetchTodos = { this.props.fetchTodos } 
+					todos = { this.props.todoArray } 
+				/>  
 
-				<div id = 'app_new_todo' style = { placement.new_todo } >
-						<TodoForm 
-							createTodo = { this.props.createTodo } 
-							owner = { this.props.user._id }
-						/> 
-				</div>
+				<NewItem 
+					createTodo = { this.props.createTodo } 
+					owner = { this.props.user._id }
+				/> 
 
-				<div>
-						<TodoList 
-							todoArray = { this.props.todoArray }
-							deleteTodo = { this.props.deleteTodo }	
-							editTodo = { this.props.editTodo }	
-						/>
-				</div>
-			</div>
+				<List 
+					deleteTodo = { this.props.deleteTodo }	
+					editTodo = { this.props.editTodo }	
+					todoArray = { this.props.todoArray }
+				/>
+
+			</Grid>
 		);
 	}
 } 

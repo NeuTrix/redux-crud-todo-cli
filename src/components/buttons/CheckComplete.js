@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 // +++++++++ CSS +++++++++ 
 
-const Glyph_ = styled.i `
+const Glyph = styled.i `
 	display: flex;
 	text:"red";
 	color: steelblue;  
@@ -33,11 +33,11 @@ class CheckComplete extends Component {
 
 	render() {
 		const checked = ( 
-				<Glyph_ className = 'engr ctr fa fa-check-square-o fa-lg'/>
+				<Glyph className = 'engr ctr fa fa-check-square-o fa-lg'/>
 		);
 		
 		const unchecked = ( 
-				<Glyph_ className = "engr ctr fa fa-square-o fa-lg"/>
+				<Glyph className = "engr ctr fa fa-square-o fa-lg"/>
 		);
 
 		return (  

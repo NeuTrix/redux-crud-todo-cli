@@ -43,7 +43,10 @@ class TodoList extends Component {
 		});
 
 		return (
-			<div className = 'TodoList' style = { style } >
+			<div 
+				className = {`TodoList ${ this.props.className } `} 
+				style = { style } 
+				>
 					{ todos.reverse() } 
 			</div>
 		);

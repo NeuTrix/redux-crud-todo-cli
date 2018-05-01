@@ -84,7 +84,7 @@ class TodoForm extends Component {
 	render () {
 		return (
 			<form 
-				className = 'TodoForm boxClr engrBox' 
+				className = {`TodoForm ${ this.props.className }  boxClr engrBox`} 
 				style = { gridStyle } 
 				onSubmit = { this.handleSubmit } 
 			>
