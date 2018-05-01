@@ -26,13 +26,12 @@ const Grid = styled.form `
 
 	/* iPad mini screen mode */
 
-	@media (min-width: 730ox) {
+	@media (min-width: 730px) {
 		grid-template-areas:
-		" check 	task 		task 		task " 
-		" ... 		rank 		date 		dele	" 
+		" check 	task 	rank 	date 	dele " 
 	;
 
-	grid-template-columns: 1fr repeat(3, 3fr);
+	grid-template-columns: 1fr 8fr 2fr 3fr 1fr;
 	grid-gap: 10px;
 	}
 
