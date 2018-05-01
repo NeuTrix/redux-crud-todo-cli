@@ -1,65 +1,69 @@
-//  vendor
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components'
 //  custom
 import normalizeDate from '../../helpers/normalizeDate';
 
 // +++++++++ CSS  +++++++++ 
 
-const gridStyle = {
-	display: 'grid',
-	gridTemplateAreas: 
-	` "task task task " 
-		" priority date action" ` ,
-	gridTemplateColumn: '30px 30px 30px',
-	gridTemplateRow: 50,
-	gridGap: 5,
-	borderColor: 'steelblue',
-	padding: 10,
-	marginBottom: 20
-}
+const Grid = styled.form `
+	/* mobile view */
+	display: grid;
+	grid-template-areas:
+		" glyph task  task  task "
+		" ...	 	rank 	date 	add " 
+	;
+	grid-template-columns: 1fr 3fr 4fr 1fr;
+	grid-gap: 10px;
 
-const style = {
-	task: { 
-		gridArea: 'task', 
-		paddingLeft: '1em', 
-	},
+	background-color: aliceblue;
+	padding: 10px;
+	margin-bottom: 20px;
 
-	action: { 
-		gridArea: 'action', 
-		backgroundColor: 'whitesmoke', 
-		padding: 5,
-		border: '1px solid darkgreen' ,
-		color: 'palegreen',
-		opacity: .8,
-		alignContent: 'center',
-	},
 
-	priority: { 
-		gridArea: 'priority' ,
-		backgroundColor: 'aliceblue', 
-		// // border: '1px solid steelblue' ,
-		color: 'steelblue',
-		opacity: .8,
-	},
+	/* iPad and large view */
+	@media (min-width: 730px) {
+		grid-template-areas: 
+			" ...  	...   ...  	...   ...  "
+			" glyph 	task  rank  date 	add  "
+			" ...  	...   ...  	...   ...  "
+		;
+		grid-template-columns: 1fr 8fr 2fr 3fr 1fr;
+	}
+`;
 
-	date: { 
-		gridArea: 'date' ,
-		backgroundColor: 'aliceblue', 
-		border: '1px solid steelblue' ,
-		color: 'steelblue',
-		opacity: .8,
-	},
-}
+const Add = styled.button `
+	grid-area: add;
+	color: #00cc00;
+	background: none;
+  border: none;
+`;
+
+const DatePick = styled.input `
+	grid-area: date;
+`;
+
+const Rank = styled.select `
+	grid-area: rank;
+`;
+
+const Task = styled.input `
+	grid-area: task;
+	color: #00cc00;
+`;
+
+const Glyph = styled.i `
+	grid-area: glyph;
+	color: #b3d9ff;
+`;
+
 
 // +++++++++ COMPONENT +++++++++ 
 
 class TodoForm extends Component {
 
 	constructor (props) {
-
 		super(props);
-
 		this.state = {
 			date: normalizeDate(new Date()) ,
 			task: '', 
@@ -82,61 +86,57 @@ class TodoForm extends Component {
 	}
 
 	render () {
+
 		return (
-			<form 
-				className = {`TodoForm ${ this.props.className }  boxClr engrBox`} 
-				style = { gridStyle } 
-				onSubmit = { this.handleSubmit } 
+			<Grid 
+				className= { `TodoForm ${ this.props.className } 
+				boxClr engrBox` } 
+				onSubmit= { this.handleSubmit } 
 			>
-				<input 
-					id = 'new_item_task'
-					style = { style.task }
-					type = 'text'
-					name = 'task'
-					value = { this.state.task }
-					onChange = { this.handleChange }
-					placeholder = 'enter a new task here'
+				<Glyph className = 'ctr engr fa fa-tasks fa-lg'/>
+
+				<Task 
+					id= 'new_item_task'
+					type= 'text'
+					name= 'task'
+					value= { this.state.task }
+					onChange= { this.handleChange }
+					placeholder= 'Enter a new task here'
 					autoFocus
 					required
 				/> 
 
-				<select
-					className = 'mat'
-					id = 'new_item_priority' 
-					style = { style.priority } 
-					name = 'rank'
-					type = 'select'
-					value = { this.state.rank }
-					onChange = { this.handleChange }
+				<Rank
+					className= 'mat'
+					id= 'new_item_priority' 
+					name= 'rank'
+					type= 'select'
+					value= { this.state.rank }
+					onChange= { this.handleChange }
 			 	> 
-					<option value = 'High'> High	</option>
-					<option value = 'Med'>	Med		</option>
-					<option value = 'Low'>	Low		</option>
+					<option value= 'High'> High	</option>
+					<option value= 'Med'>	Med		</option>
+					<option value= 'Low'>	Low		</option>
 					
-				</select>
+				</Rank>
 
-				<input 
-					className = 'mat'
-					id = 'new_item_date'
-					style = { style.date } 
-					name = 'date' 
-					type = 'date'
-					onChange = { this.handleChange }
-					value = { this.state.date }
+				<DatePick 
+					className= 'mat'
+					id= 'new_item_date'
+					name= 'date' 
+					type= 'date'
+					onChange= { this.handleChange }
+					value= { this.state.date }
 				/>
 
-				<button 
-					style = { style.action }
-					className = 'ctr clrBox mat'
-					id = 'new_item_submit'
-					type = 'submit'
-				> <span 
-					style = {{ color: '#00cc00' }}
-					className = "ctr engr fa fa-plus fa-lg" 
-					></span> 
-				</button> 
+				<Add 
+					className= 'ctr engr fa fa-plus fa-2x'
+					id= 'new_item_submit'
+					type= 'submit' 
+				> 
+				</Add> 
 
-			</form>
+			</Grid>
 		)
 	}
 };

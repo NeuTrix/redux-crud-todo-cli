@@ -34,28 +34,26 @@ const Grid = styled.form `
 		grid-template-columns: 1fr 8fr 2fr 3fr 1fr;
 		grid-gap: 10px;
 	}
-
-`;
-
-const Delete = styled(DeleteBtn) `
-	grid-area: dele;
 `;
 
 const Checked = styled(CheckComplete) `
 	grid-area: check;
 `;
 
-const Task = styled.input `
-	grid-area: task;
-	padding-left: 10px;
-`;
-
 const DatePick = styled.input `
 	grid-area: date;
+`;
+const Delete = styled(DeleteBtn) `
+	grid-area: dele;
 `;
 
 const Rank = styled.select `
 	grid-area: rank;
+`;
+
+const Task = styled.input `
+	grid-area: task;
+	padding-left: 10px;
 `;
 
 // +++++++++ COMPONENT +++++++++ 
