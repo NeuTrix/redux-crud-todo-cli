@@ -24,9 +24,9 @@ const NavBar = (props, context) => {
 
 		@media (min-width: 650px) {
 			grid-template-areas: 
-			"	logo 	welc ... home todo regi lgin lgot	..."
+			"	logo 	welc ... home todo regi lgin lgot	"
 		;
-			grid-template-columns: 1fr 3fr 7fr 2fr 2fr 2fr 1fr;
+			grid-template-columns: auto;
 		}
 	`;
 
@@ -72,18 +72,16 @@ const NavBar = (props, context) => {
 		</LogoutBtn>
 	);
 
-	const guestLinks = (
-		<div>
+	const logolink = (
+		<LoginLink id= 'login_link' className= 'ctr'>
+			<Link to= '/login' >Sign In</Link>
+		</LoginLink>
+	);
 
-			<LoginLink id= 'login_link' className= 'ctr'>
-				<Link to= '/login' >Sign In</Link>
-			</LoginLink>
-
-			<RegisterLink id= 'register_link' className= 'ctr'>
-				<Link to= '/register' >Register</Link>
-			</RegisterLink>
-
-		</div>
+	const regilink = (
+		<RegisterLink id= 'register_link' className= 'ctr'>
+			<Link to= '/register' >Register</Link>
+		</RegisterLink>
 	);
 
 	return (
@@ -109,8 +107,8 @@ const NavBar = (props, context) => {
 					Todos
 				</Link>
 			</TodosLink>
-
-				{ isAuthenticated ? userLinks : guestLinks }
+				{ isAuthenticated ? userLinks : logolink }
+				{ isAuthenticated ? userLinks : regilink }
 		</GridNav>
 	);
 }
