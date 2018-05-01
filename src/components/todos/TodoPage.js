@@ -25,6 +25,8 @@ const Grid = styled.div `
 		" new "
 		" list "
 	;
+		grid-auto-rows: auto;
+
 `;
 
 const Counter = styled (TaskCounter) `

@@ -12,7 +12,6 @@ import styled from 'styled-components';
 
  const Title = styled.div `
  	grid-area: title;
-
  `;
 
  const Count = styled.div `

@@ -53,7 +53,7 @@ const Rank = styled.select `
 
 const Task = styled.input `
 	grid-area: task;
-	padding-left: 10px;
+  text-indent: 10px;
 `;
 
 // +++++++++ COMPONENT +++++++++ 

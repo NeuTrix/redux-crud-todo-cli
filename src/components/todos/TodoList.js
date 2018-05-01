@@ -12,7 +12,7 @@ const Grid = styled.div`
 	grid-template-areas: " todoItems ";
 	grid-template-columns: 1fr;
 	grid-template-rows: auto;
-	grid-gap: 20;
+	grid-row-gap: 10px;
 `
 
 // +++++++++ COMPONENT  +++++++++ 

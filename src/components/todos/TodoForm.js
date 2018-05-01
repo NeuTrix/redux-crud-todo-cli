@@ -20,7 +20,6 @@ const Grid = styled.form `
 	padding: 10px;
 	margin-bottom: 20px;
 
-
 	/* iPad and large view */
 	@media (min-width: 730px) {
 		grid-template-areas: 
@@ -49,7 +48,8 @@ const Rank = styled.select `
 
 const Task = styled.input `
 	grid-area: task;
-	color: #00cc00;
+	color: steelblue;
+  text-indent: 10px;
 `;
 
 const Glyph = styled.i `
