@@ -1,19 +1,19 @@
-//  vendor
 import React, { Component } from 'react';
 import shortid from 'shortid';
+import styled from 'styled-components';
 // custom
 import PropTypes from 'prop-types';
 import TodoItem from './TodoItem';
 
 // +++++++++ CSS +++++++++ 
 
-const style = {
-	display: 'grid',
-	gridTemplateAreas: `"todoItems"`,
-	gridTemplateColumns: '1fr',
-	gridTemplateRows: 'auto',
-	gridRowGap: 20,
-}
+const Grid = styled.div`
+	display: grid;
+	grid-template-areas: " todoItems ";
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+	grid-gap: 20;
+`
 
 // +++++++++ COMPONENT  +++++++++ 
 
@@ -43,12 +43,11 @@ class TodoList extends Component {
 		});
 
 		return (
-			<div 
+			<Grid 
 				className = {`TodoList ${ this.props.className } `} 
-				style = { style } 
 				>
 					{ todos.reverse() } 
-			</div>
+			</Grid>
 		);
 	}
 } 

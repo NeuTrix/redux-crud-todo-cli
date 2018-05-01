@@ -43,7 +43,6 @@ const Delete = styled(DeleteBtn) `
 
 const Checked = styled(CheckComplete) `
 	grid-area: check;
-	border: 3px solid #bbbbbb;
 `;
 
 const Task = styled.input `
@@ -112,14 +111,15 @@ class TodoItem extends Component {
 
 	render () {
 		const { task, _id } = this.state
+		const { className } = this.props
 
 		return (
 			<Grid 
-				className= '_todoItem engrBox boxClr paper' 
+				className= {`TodoItem ${className} engrBox boxClr paper`} 
 				onSubmit= { this.handleSubmit } 
 			>
 				<Task 
-					className= 'task'
+					className= '_task'
 					name= 'task'
 					type= 'text'
 					defaultValue= { this.state.task }

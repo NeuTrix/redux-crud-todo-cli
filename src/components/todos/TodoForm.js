@@ -131,7 +131,7 @@ class TodoForm extends Component {
 					id = 'new_item_submit'
 					type = 'submit'
 				> <span 
-					style = {{ color: 'palegreen' }}
+					style = {{ color: '#00cc00' }}
 					className = "ctr engr fa fa-plus fa-lg" 
 					></span> 
 				</button> 

@@ -5,9 +5,7 @@ import styled from 'styled-components';
 // +++++++++ CSS +++++++++ 
 
 const Glyph = styled.i `
-	display: flex;
-	text:"red";
-	color: steelblue;  
+	color: #00cc00;  
 	font-size: 1.5em ;
 	justify-self: center; 
 	align-self: center;
