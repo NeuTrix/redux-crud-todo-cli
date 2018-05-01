@@ -1,5 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const Delete = styled.div `
+	color: pink;
+`;
 
 const DeleteBtn = (props) => {
 
@@ -14,13 +19,10 @@ const DeleteBtn = (props) => {
 	}
 
 	return (
-		<div className = {`.${props.className} ctr`} onClick= { handleDelete } > 
-			<i 
-				className = "ctr engr fa fa-trash fa-2x" 
-				style = {{ color: 'pink' }} 
-			> 
-			</i>
-		</div>
+		<Delete 
+			className = {`.${props.className} ctr engr fa fa-trash fa-2x`} 
+			onClick= { handleDelete } > 
+		</Delete>
 	);
 };
 
