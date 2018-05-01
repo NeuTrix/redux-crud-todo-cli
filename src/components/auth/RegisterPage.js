@@ -29,7 +29,7 @@ const RegisterPage = (props) => {
 			className = { `RegisterPage ${props.className}`} 
 		>
 			<EntryForm  
-				userLoginRequest = { props.userLoginRequest } 
+				userSignupRequest = { props.userSignupRequest } 
 				addFlashMessage = { props.addFlashMessage } 
 			/>
 		</Grid>
@@ -43,8 +43,8 @@ RegisterPage.propTypes = {
 };
 
 RegisterPage.defaultProps = {
-	addFlashMessage: f => f,
-	userSignupRequest: f => f,
+	// addFlashMessage: f => f,
+	// userSignupRequest: f => f,
 };
 
 export default connect(null, { userSignupRequest, addFlashMessage })(RegisterPage);

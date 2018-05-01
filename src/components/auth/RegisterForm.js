@@ -200,8 +200,8 @@ RegisterForm.propTypes = {
 };
 
 RegisterForm.defaultProps = {
-	userSignupRequest: f => f,
-	addFlashMessage: f => f
+	// userSignupRequest: f => f,
+	// addFlashMessage: f => f
 };
 
 RegisterForm.contextTypes = {
