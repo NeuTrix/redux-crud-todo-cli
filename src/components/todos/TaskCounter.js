@@ -1,72 +1,55 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 // +++++++++  CSS  +++++++++ 
 
-const style = {
-	grid: {
-		display: 'grid',
-		gridTemplateAreas: ` "refresh title count" `,
-		gridTemplateColumns: '1fr 6fr 2fr ',
-	}
- };
+ const Grid = styled.div `
+	 	display: grid;
+	 	grid-template-areas: " title count ";
+	 	grid-template-columns: auto;
+ `;
+
+ const Title = styled.div `
+ 	grid-area: title;
+
+ `;
+
+ const Count = styled.div `
+ 	grid-area: count;
+ 	justify-content: left;
+ 	color: #ffcc66;
+ 	padding-left: 10px;
+ `;
 
 // +++++++++  COMPONENT +++++++++ 
 
 const TaskCounter = (props) => {
 
-	const onClick = (e) => {
-		e.preventDefault();
-		props.fetchTodos();
-	};
-
 	return ( 
-		<div 
-			id = 'todosCount' 
-			className = { ` ${ props.className } ctr mat engrBox` }  
-			style = { style.grid }
-		>
-			<button 
-				onClick = { onClick } 
-				style = {{ 
-					gridArea: 'refresh', 
-					background: 'none', 
-					border: 'none',
-				}}
-			>
-				<i className = 'ctr engr fa fa-refresh fa-lg'/>  
-			</button>
 
-			<div className = 'ctr engr' style = {{ gridArea: 'title'}} >
-				<h3> Todos Count:    </h3>
-			</div>
+		<Grid className = { `TaskCounter ${ props.className } ctr mat engrBox paper` }>
 
-			<span 
-				className = 'ctr engr' 
-				style = {{ 
-					gridArea: 'count', 
-					color: 'orange', 
-					justifySelf: 'left',
-					aligneSelf: 'centerd',
-				}}
-			> 
+			<Title className = 'ctr engr' >
+				<h3> Todos Count: </h3>
+			</Title>
+
+			<Count className = 'ctr engr' > 
 				<h2> { props.todos.length } </h2>
-			</span>
+			</Count>
 
-		</div>
+		</Grid>
 	);
 };
 
 // +++++++++ PROPS +++++++++ 
 	
 TaskCounter.propTypes = {
-	fetchTodos: PropTypes.func.isRequired,
 	todos: PropTypes.array.isRequired
 };
 
 TaskCounter.defaultProps = {
-	fetchTodos: f => f,
-	todos: [1,2,3,4,5]
+	todos: []
 };
 
 export default TaskCounter;

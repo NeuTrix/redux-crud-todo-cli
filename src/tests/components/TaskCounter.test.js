@@ -61,8 +61,8 @@ describe ('The TaskCounter Component', () => {
 			console.log('*** Render the Props: ', _tasks.props()); 
 		});
 
-		it ('...TaskCounter is passed (2) props', () => {
-			expect (Object.keys(_tasks.props()).length).to.eql(2);		
+		it ('...TaskCounter is passed (1) props', () => {
+			expect (Object.keys(_tasks.props()).length).to.eql(1);		
 		});
 
 		it ('...has an todos prop', () => {
