@@ -24,7 +24,6 @@ const Store = styled(Provider) `
   margin: 0px;
   padding: 0px;
   font-family: sans-serif;
-  background: yellow;
 `;
 
 ReactDOM.render(
