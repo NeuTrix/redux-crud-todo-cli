@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 // custom
-import logo from '../../assets/logo.svg';
 import styled from 'styled-components'
 
 // +++++++++ COMPONENT  +++++++++ 

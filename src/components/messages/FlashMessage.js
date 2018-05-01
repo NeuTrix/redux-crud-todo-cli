@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import { colors } from '../../helpers/cssConstants'
 
 class FlashMessage extends Component {
 

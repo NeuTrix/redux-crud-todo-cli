@@ -1,12 +1,10 @@
 // vendor
 import React, { Component } from 'react';
-import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 // custom
 import './TodoPage.grid.css';
-import requireAuth from '../../helpers/requireAuth';
 import { createTodo } from '../../actions/createActions';
 import { deleteTodo } from '../../actions/deleteActions';
 import { editTodo } from '../../actions/editActions';
