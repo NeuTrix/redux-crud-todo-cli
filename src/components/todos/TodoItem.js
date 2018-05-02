@@ -56,7 +56,7 @@ const Task = styled.input `
 	grid-area: task;
   text-indent: 10px;
 
-  ${ ({isComplete}) => isComplete && `
+  ${ ({ isComplete }) => isComplete && `
   	color: lightgrey;
   	text-decoration: line-through;
   	background-color: whitesmoke;

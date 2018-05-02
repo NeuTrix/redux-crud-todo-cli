@@ -22,11 +22,20 @@ const GridNav = styled.nav`
 	width: 100%;
 	color: ${ colors._baseblue };
 
-	@media (min-width: 750px) {
+	@media (${ media._medium }) {
 		grid-template-areas: 
-		"	logo 	welc ... home todo regi lgin lgot	"
+		"	logo 	welc ... ... ... home todo regi lgin lgot	"
 	;
 		grid-template-columns: auto;
+	}
+`;
+
+const HomeLink = styled(Link)`
+	grid-area: home;
+	display: none;
+
+	@media (${media._medium}) {
+		display: inline;
 	}
 `;
 
@@ -34,44 +43,12 @@ const Logo = styled.div`
 	grid-area: logo;
 `;
 
-const Welcome = styled.div`
-	grid-area: welc;
-	font-size: 1.25em;
-`;
-
-const HomeLink = styled(Link)`
-	grid-area: home;
-	display: none;
-
-	@media (${media._large}) {
-		display: inline;
-	}
-`;
-
-const TodosLink = styled(Link)`
-	grid-area: todo;
-	display: none;
-
-	@media (${media._large}) {
-		display: inline;
-	}
-`;
-
-const RegisterLink = styled(Link)`
-	grid-area: regi;
-	display: none;
-
-	@media (${media._large}) {
-		display: inline;
-	}
-`;
-
 const LoginLink = styled(Link)`
 	grid-area: lgin;
 	color: darkgreen;
 	display: none;
 
-	@media (${media._large}) {
+	@media (${media._medium}) {
 		display: inline;
 	}
 `;
@@ -82,7 +59,7 @@ const LogoutBtn = styled.button`
 	margin-left: 10px;
 
 	display: none;
-	@media (${media._large}) {
+	@media (${media._medium}) {
 		display: inline;
 	}
 `;
@@ -93,9 +70,35 @@ const Navicon = styled.div`
 	align-content: center;
 	color: ${colors._iceblue};
 
-	@media (${media._large}) {
+	@media (${media._medium}) {
 		display: none;
 	}
+`;
+
+const RegisterLink = styled(Link)`
+	grid-area: regi;
+	display: none;
+
+	@media (${media._medium}) {
+		${ ({ auth }) => auth && `
+			display: inline;
+				color: orange;
+		`}
+	}
+`;
+
+const TodosLink = styled(Link)`
+	grid-area: todo;
+	display: none;
+
+	@media (${media._medium}) {
+		display: inline;
+	}
+`;
+
+const Welcome = styled.div`
+	grid-area: welc;
+	font-size: 1.25em;
 `;
 
 // +++++++++ COMPONENT  +++++++++ 
@@ -126,12 +129,6 @@ const NavBar = (props, context) => {
 		</LoginLink>
 	);
 
-	const regilink = (
-		<RegisterLink to= '/register' className= 'ctr'>
-			Register 
-		</RegisterLink>
-	);
-
 	const dropbox = (
 		<div>
 			Instgram!!
@@ -160,8 +157,16 @@ const NavBar = (props, context) => {
 			<TodosLink to= '/todos' className= 'ctr'>
 					Todos
 			</TodosLink>
+
+			<RegisterLink 
+				auth= { isAuthenticated }
+				to= '/register' 
+				className= 'ctr'
+			>
+				Register 
+			</RegisterLink>
+
 				{ isAuthenticated ? userLinks : logolink }
-				{ isAuthenticated ? userLinks : regilink }
 
 			<Navicon className= ' Navicon engr fa fa-navicon fa-2x'/>
 
