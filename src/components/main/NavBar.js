@@ -23,7 +23,7 @@ const GridNav = styled.nav`
 
 	@media (${media._medium}) {
 		grid-template-areas: " home ... menu ";
-		grid-template-columns: 1fr 3fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr;
 	}
 `;
 

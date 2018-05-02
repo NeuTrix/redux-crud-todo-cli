@@ -4,8 +4,6 @@ import React from 'react';
 import LinkedButton from '../buttons/LinkedButton';
 import Stamp from '../buttons/Stamp';
 import styled from 'styled-components';
-import DropNav from './DropNav';
-
 
 // +++++++++  CSS  +++++++++ 
 
@@ -54,9 +52,6 @@ const Subtitle = styled.div`
 	color: darkgrey;
 `;
 
-const Nav = styled(DropNav) `
-	grid-area: drop;
-`;
 // +++++++++ COMPONENT  +++++++++ 
 
 const Home = (props) => {
@@ -94,7 +89,6 @@ const Home = (props) => {
 				color = 'steelblue'
 				path = '/register'
 			/>
-			<DropNav/>
 
 		</Grid>
 	);

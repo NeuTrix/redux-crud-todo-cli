@@ -9,7 +9,7 @@ export const colors = {
 }
 
 export const media = {
-	_medium: 'min-width: 630px',
+	_medium: 'min-width: 640px',
 	_large: 'min-width: 730px',
 }
 
