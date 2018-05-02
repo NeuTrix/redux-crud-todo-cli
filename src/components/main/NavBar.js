@@ -22,8 +22,8 @@ const GridNav = styled.nav`
 	color: ${ colors._baseblue };
 
 	@media (${media._medium}) {
-		grid-template-areas: " home ... menu ";
-		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-areas: " home menu ";
+		grid-template-columns: 2fr 1fr 1fr;
 	}
 `;
 
@@ -32,8 +32,13 @@ const Home = styled.ul `
 	display: inline-grid;
 	grid-template-areas: " logo  welcome ";
 	grid-template-columns: 1fr 4fr;
+
 	margin: 0;
 	padding: 0;
+
+	@media (${media._medium}) {
+		grid-template-columns: 1fr 1fr;
+	}
 `;
 
 	const Logo = styled(NavItem) `
@@ -51,22 +56,25 @@ const Home = styled.ul `
 
 const Menu = styled.ul `
 	grid-area: menu;
-	display: grid;
+	display: inline-grid;
 	grid-template-areas: " burger ";
-
+	grid-template-columns: 1fr 1fr;
 
 	margin: 0;
 	padding: 0;
 
 	@media (${media._medium}) {
 		${ ({ auth }) => auth ? `
-				grid-template-areas: " todos logout ";
-			` : `
-				grid-template-areas: " regis login ";
+			grid-template-areas: " todos logout ";
+			grid-template-columns: 1fr 1fr;
+		` : `
+			grid-template-areas: " regis login ";
+			grid-template-columns: 1fr 1fr;
 		` }
 	}
 `;
-	const Navicon = styled.li`
+
+	const Burger = styled.li`
 		grid-area: burger;
 		display: inline-grid;
 		align-content: center;
@@ -75,60 +83,56 @@ const Menu = styled.ul `
 
 		color: ${colors._iceblue};
 
-		&:hover {
-		}
-
 		@media (${media._medium}) {
 			display: none;
 		}
 	`;
 
-	const LoginLink = styled(Link)`
-		grid-area: login;
-		color: ${ colors._mintgreen };
+	const TodosLink = styled(Link)`
+		grid-area: todos;
 		display: none;
 
 		@media (${media._medium}) {
-			display: grid;
-			${ ({ auth }) => auth ? `display: none; ` : `display: grid;` }
-		}
+			${ ({ auth }) => auth ? `display: grid;`: `display: none` }
 	`;
 
-	const LogoutBtn = styled.li`
+	const LogoutBtn = styled.button`
 		grid-area: logout;
+		display: none;
+
 		color: orange;
 		margin-left: 10px;
-		display: none;
 		background: none;
 		border: none;
 
 		@media (${media._medium}) {
-			display: grid;
-			${ ({ auth }) => auth ? `display: grid; ` : `display: none;` }
+			${ ({ auth }) => auth ? `
+				display: inline-grid;
+			` : `
+				display: none
+			` }
+		}
+	`;
+
+	const RegisterLink = styled(Link)`
+		grid-area: regis;
+		display: none;
+		color: ${ colors._mintgreen };
+			${ ({ auth }) => !auth ? `display: grid;` :`display: none`}
+		}
+	`;
+
+		const LoginLink = styled(Link)`
+		grid-area: login;
+		display: none;
+		color: ${ colors._mintgreen };
+
+		@media (${media._medium}) {
+			${ ({ auth }) => !auth ? `display: grid;` :`display: none`}
 		}
 	`;
 
 	
-
-	const RegisterLink = styled(Link)`
-		grid-area: reg;
-		display: none;
-		color: ${ colors._mintgreen };
-		${ ({ auth }) => auth ? `display: none; ` : `display: grid;` }
-		}
-	`;
-
-	const TodosLink = styled(Link)`
-		grid-area: todo;
-		display: none;
-
-		@media (${media._medium}) {
-			display: grid;
-			${ ({ auth }) => auth ? `display: grid; ` : `display: none;` }
-		}
-	`;
-
-
 
 // +++++++++ COMPONENT  +++++++++ 
 
@@ -147,39 +151,34 @@ const NavBar = (props, context) => {
 		<GridNav auth= { isAuthenticated } className= 'NavBar paper'>
 
 			<Home id = 'home'>
+
 				<Logo to= '/' className= "engr fa fa-gg fa-2x" alt="logo"/>
 
 				<Welcome> 
 					{ isAuthenticated ? `Welcome ${ user.username }!` : `Please Log in!` }  
 				</Welcome>
+
 			</Home>
 
-			<Menu id= 'menu'>
-				<ul>
-					<TodosLink to= '/todos' auth= { isAuthenticated }>
-							Todos
-					</TodosLink>
-				</ul>
+			<Menu id= 'menu' auth= { isAuthenticated }>
 
-				<ul>
 					<LoginLink to= '/login' auth= { isAuthenticated }>
 						Log In 
 					</LoginLink>
-				</ul>
 
-				<ul>
 					<RegisterLink to= '/register' auth= { isAuthenticated }>
 						Register 
 					</RegisterLink>
-				</ul>
 
-				<LogoutBtn auth= { isAuthenticated }>
-				<button onClick= { logout }>
-						Log Out
-					</button>
-				</LogoutBtn>
+					<TodosLink to= '/todos' auth= { isAuthenticated }>
+							Todos
+					</TodosLink>
 
-				<Navicon className= ' Navicon engr fa fa-navicon fa-2x'/>
+					<LogoutBtn auth= { isAuthenticated }  onClick= { logout }>
+							Log Out
+					</LogoutBtn>
+
+					<Burger className= ' Burger engr fa fa-navicon fa-2x'/>
 
 			</Menu>
 

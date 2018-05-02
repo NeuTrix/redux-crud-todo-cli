@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const ListItem = styled.li `
+const NavLink = styled(Link) `
 	padding: 0;
 	display: inline-grid;
 	align-content: center;
@@ -12,11 +12,9 @@ const ListItem = styled.li `
 
 const NavItem = ({ className, context, name, to }) => {
 	return (
-			<Link to= { to }> 
-				<ListItem className= { className } >
-					{ name } 
-				</ListItem>
-			</Link>
+		<NavLink to= { to } className= { className } >
+			{ name } 
+		</NavLink>
 	);
 }
 
