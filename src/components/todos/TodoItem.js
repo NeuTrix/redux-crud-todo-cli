@@ -42,6 +42,7 @@ const Checked = styled(CheckComplete) `
 
 const DatePick = styled.input `
 	grid-area: date;
+	text-indent: 10px;
 `;
 const Delete = styled(DeleteBtn) `
 	grid-area: dele;

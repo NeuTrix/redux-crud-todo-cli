@@ -40,6 +40,7 @@ const Add = styled.button `
 
 const DatePick = styled.input `
 	grid-area: date;
+	text-indent: 10px;
 `;
 
 const Rank = styled.select `
