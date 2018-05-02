@@ -4,103 +4,113 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 // custom
 import DropNav from './DropNav';
+import NavItem from './NavItem';
 import { colors, media } from '../../helpers/cssConstants';
 
 // +++++++++  CSS  +++++++++ 
 
 const GridNav = styled.nav`
 	display: grid;
-	grid-template-areas: 
-		"	logo 	welcome ... ... navicon"
-	;
-	grid-template-columns: auto;
-	grid-auto-rows: auto;
+	grid-template-areas: " home menu ";
+	grid-template-columns: 1fr 1fr;
 
 	justify-content: space-around;
 	opacity: .9;
-	padding: 10px;
 	position: fixed;
+	padding: 10px;
 	width: 100%;
 	color: ${ colors._baseblue };
 
 	@media (${ media._medium }) {
-		${ ({ auth }) => auth ? `
-			grid-template-areas: "logo 	welcome ... ... ... todo lgot	"
-		` : `
-			grid-template-areas: "logo 	welcome ... ... ... regi login "
-		`}
-	;
-		grid-template-columns: auto ;
-		grid-column-gap: 0;
 	}
 `;
 
-const Logo = styled(Link)`
-	grid-area: logo;
-	justify-content: left;
+const Home = styled.ul `
+	grid-area: home;
+	display: inline-grid;
+	grid-template-areas: " logo  welcome ";
+	grid-template-columns: 1fr 4fr;
+	margin: 0;
+	padding: 0;
 `;
 
-const LoginLink = styled(Link)`
-	grid-area: login;
-	color: ${ colors._mintgreen };
-	display: none;
+	const Logo = styled(NavItem) `
+		grid-area: logo;
+	`;
 
-	@media (${media._medium}) {
-		display: grid;
-		${ ({ auth }) => auth ? `display: none; ` : `display: grid;` }
-	}
-`;
+	const Welcome = styled.div `
+		grid-area: welcome;
+		display: inline-grid;
+		align-content: center;
+    justify-content: left;
+    text-indent: 10px;
+	`;
 
-const LogoutBtn = styled.button`
-	grid-area: lgot;
-	color: orange;
-	margin-left: 10px;
-	display: none;
-	background: none;
-	border: none;
-
-	@media (${media._medium}) {
-		display: grid;
-		${ ({ auth }) => auth ? `display: grid; ` : `display: none;` }
-	}
-`;
-
-	
-const Navicon = styled.div`
-	grid-area: navicon;
+const Menu = styled.ul `
+	grid-area: menu;
+	grid-template-areas: " nav todo reg login logout ";
 	display: grid;
-	align-content: center;
-	color: ${colors._iceblue};
-	&:hover {
-	}
+	grid-template-areas: "logo welcome";
+	grid-template-columns: 1fr 1fr;
+`;
 
-	@media (${media._medium}) {
+	const LoginLink = styled(Link)`
+		grid-area: login;
+		color: ${ colors._mintgreen };
 		display: none;
-	}
-`;
 
-const RegisterLink = styled(Link)`
-	grid-area: regi;
-	display: none;
-	color: ${ colors._mintgreen };
-	${ ({ auth }) => auth ? `display: none; ` : `display: grid;` }
-	}
-`;
+		@media (${media._medium}) {
+			display: grid;
+			${ ({ auth }) => auth ? `display: none; ` : `display: grid;` }
+		}
+	`;
 
-const TodosLink = styled(Link)`
-	grid-area: todo;
-	display: none;
+	const LogoutBtn = styled.button`
+		grid-area: logout;
+		color: orange;
+		margin-left: 10px;
+		display: none;
+		background: none;
+		border: none;
 
-	@media (${media._medium}) {
+		@media (${media._medium}) {
+			display: grid;
+			${ ({ auth }) => auth ? `display: grid; ` : `display: none;` }
+		}
+	`;
+
+	const Navicon = styled.div`
+		grid-area: nav;
 		display: grid;
-		${ ({ auth }) => auth ? `display: grid; ` : `display: none;` }
-	}
-`;
+		align-content: center;
+		color: ${colors._iceblue};
+		&:hover {
+		}
 
-const Welcome = styled.div`
-	grid-area: welcome;
-	font-size: 1.25em;
-`;
+		@media (${media._medium}) {
+			display: none;
+		}
+	`;
+
+	const RegisterLink = styled(Link)`
+		grid-area: reg;
+		display: none;
+		color: ${ colors._mintgreen };
+		${ ({ auth }) => auth ? `display: none; ` : `display: grid;` }
+		}
+	`;
+
+	const TodosLink = styled(Link)`
+		grid-area: todo;
+		display: none;
+
+		@media (${media._medium}) {
+			display: grid;
+			${ ({ auth }) => auth ? `display: grid; ` : `display: none;` }
+		}
+	`;
+
+
 
 // +++++++++ COMPONENT  +++++++++ 
 
@@ -114,35 +124,47 @@ const NavBar = (props, context) => {
 
 	const { isAuthenticated, user } = props.authApi;
 
-
 	return (
 
-		<GridNav auth= { isAuthenticated } className= 'ctr NavBar paper' >
+		<GridNav auth= { isAuthenticated } className= 'NavBar paper'>
 
-			<Logo to= '/' className= "engr fa fa-gg fa-2x" alt= "logo"/>
+			<Home id = 'home'>
+				<Logo to= '/' className= "engr fa fa-gg fa-2x" alt="logo"/>
 
-			<Welcome className= 'ctr'> 
-				{ isAuthenticated && `Welcome ${ user.username }!` }  
-			</Welcome>
+				<Welcome> 
+					{ isAuthenticated && `Welcome ${ user.username }!` }  
+				</Welcome>
+			</Home>
 
-			<TodosLink to= '/todos' auth= { isAuthenticated }>
-					Todos
-			</TodosLink>
+			<Menu>
+				<ul>
+					<TodosLink to= '/todos' auth= { isAuthenticated }>
+							Todos
+					</TodosLink>
+				</ul>
 
-			<LoginLink to= '/login' auth= { isAuthenticated }>
-				Log In 
-			</LoginLink>
+				<ul>
+					<LoginLink to= '/login' auth= { isAuthenticated }>
+						Log In 
+					</LoginLink>
+				</ul>
 
-			<RegisterLink to= '/register' auth= { isAuthenticated }>
-				Register 
-			</RegisterLink>
+				<ul>
+					<RegisterLink to= '/register' auth= { isAuthenticated }>
+						Register 
+					</RegisterLink>
+				</ul>
 
-			<LogoutBtn auth= { isAuthenticated } onClick= { logout }>
-				Log Out
-			</LogoutBtn>
+				<ul>
+					<LogoutBtn auth= { isAuthenticated } onClick= { logout }>
+						Log Out
+					</LogoutBtn>
+				</ul>
 
-			<Navicon className= ' Navicon engr fa fa-navicon fa-2x'/>
-
+				<ul>
+					<Navicon className= ' Navicon engr fa fa-navicon fa-2x'/>
+				</ul>
+			</Menu>
 		</GridNav>
 	);
 }

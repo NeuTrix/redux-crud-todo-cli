@@ -30,13 +30,11 @@ const GridNav = styled.nav`
 	width: 200px;
 `;
 
-
 const LoginLink = styled(Link)`
 	grid-area: login;
 	display: none;
 	justify-content: center;
 	color: lime;
-
 
 	@media (${media._medium}) {
 		display: grid;
