@@ -41,7 +41,7 @@ const LoginLink = styled(Link)`
 
 	@media (${media._medium}) {
 		display: grid;
-		${ ({ auth }) => auth ? `display: grid; ` : `display: none;` }
+		${ ({ auth }) => auth ? `display: none; ` : `display: grid;` }
 	}
 `;
 
@@ -50,6 +50,8 @@ const LogoutBtn = styled.button`
 	color: orange;
 	margin-left: 10px;
 	display: none;
+	background: none;
+	border: none;
 	justify-content: center;
 
 	@media (${media._medium}) {
@@ -66,7 +68,7 @@ const RegisterLink = styled(Link)`
 	justify-content: center;
 
 	@media (${media._medium}) {
-		${ ({ auth }) => auth ? `display: grid; ` : `display: none;` }
+		${ ({ auth }) => auth ? `display: none; ` : `display: grid;` }
 	}
 `;
 
@@ -127,8 +129,8 @@ NavBar.propTypes = {
 
 NavBar.defaultProps = {
 	// +++++++++ !!!!!!!!!!!!!!!!!!!!!!!!!  +++++++++ 
-	authApi:  {isAuthenticated: false},
-	// authApi:  {isAuthenticated: true},
+	// authApi:  {isAuthenticated: false},
+	authApi:  {isAuthenticated: true},
 	logout:  f => alert('Default action: Navbar logout fn'),
 }
 

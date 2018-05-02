@@ -55,6 +55,8 @@ const LogoutBtn = styled.button`
 	color: orange;
 	margin-left: 10px;
 	display: none;
+	background: none;
+	border: none;
 
 	@media (${media._medium}) {
 		display: grid;
