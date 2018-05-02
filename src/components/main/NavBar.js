@@ -10,7 +10,7 @@ import { colors, media } from '../../helpers/cssConstants';
 const GridNav = styled.nav`
 	display: grid;
 	grid-template-areas: 
-		"	logo 	welc ...	navicon"
+		"	logo 	welcome ... navicon"
 	;
 	grid-template-columns: auto;
 	grid-auto-rows: auto;
@@ -24,9 +24,10 @@ const GridNav = styled.nav`
 
 	@media (${ media._medium }) {
 		grid-template-areas: 
-		"	logo 	welc ... ... ... home todo regi lgin lgot	"
+		"	logo 	welcome ...  home todo regi login lgot	"
 	;
-		grid-template-columns: auto;
+		grid-template-columns: auto ;
+		grid-column-gap: 0;
 	}
 `;
 
@@ -41,11 +42,12 @@ const HomeLink = styled(Link)`
 
 const Logo = styled.div`
 	grid-area: logo;
+	justify-content: left;
 `;
 
 const LoginLink = styled(Link)`
-	grid-area: lgin;
-	color: darkgreen;
+	grid-area: login;
+	color: ${ colors._mintgreen };
 	display: none;
 
 	@media (${media._medium}) {
@@ -57,8 +59,8 @@ const LogoutBtn = styled.button`
 	grid-area: lgot;
 	color: orange;
 	margin-left: 10px;
-
 	display: none;
+
 	@media (${media._medium}) {
 		display: grid;
 	}
@@ -79,11 +81,15 @@ const RegisterLink = styled(Link)`
 	grid-area: regi;
 	display: none;
 
+	color: ${ colors._mintgreen };
+
 	@media (${media._medium}) {
-		${ ({ auth }) => auth && `
-			display: grid;
-				color: orange;
-		`}
+		${ ({ auth }) => auth ? `
+			display: none ; 
+		` : `
+			display: grid ; 
+		`
+	}
 	}
 `;
 
@@ -97,7 +103,7 @@ const TodosLink = styled(Link)`
 `;
 
 const Welcome = styled.div`
-	grid-area: welc;
+	grid-area: welcome;
 	font-size: 1.25em;
 `;
 
@@ -139,7 +145,7 @@ const NavBar = (props, context) => {
 
 		<GridNav className= 'NavBar paper' >
 
-			<Logo id= 'logo_link' className= 'ctr'>
+			<Logo id= 'logo_link'>
 				<Link to= '/' >
 					<div className= "engr App-logo ctr fa fa-gg fa-2x" alt= "logo" />
 				</Link>
