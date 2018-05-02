@@ -12,7 +12,7 @@ import { colors, media } from '../../helpers/cssConstants';
 const GridNav = styled.nav`
 	display: grid;
 	grid-template-areas: " home menu ";
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 3fr 1fr;
 
 	justify-content: space-around;
 	opacity: .9;
@@ -21,7 +21,9 @@ const GridNav = styled.nav`
 	width: 100%;
 	color: ${ colors._baseblue };
 
-	@media (${ media._medium }) {
+	@media (${media._medium}) {
+		grid-template-areas: " home ... menu ";
+		grid-template-columns: 1fr 3fr 1fr;
 	}
 `;
 
@@ -48,11 +50,36 @@ const Home = styled.ul `
 
 const Menu = styled.ul `
 	grid-area: menu;
-	grid-template-areas: " nav todo reg login logout ";
 	display: grid;
-	grid-template-areas: "logo welcome";
-	grid-template-columns: 1fr 1fr;
+	grid-template-areas: " burger ";
+
+	margin: 0;
+	padding: 0;
+
+	@media (${media._medium}) {
+		${ ({ auth }) => auth ? `
+				grid-template-areas: " todos logout ";
+			` : `
+				grid-template-areas: " regis login ";
+		` }
+	}
 `;
+	const Navicon = styled.li`
+		grid-area: burger;
+		display: inline-grid;
+		align-content: center;
+    justify-content: right;
+    padding-right: 10px;
+
+		color: ${colors._iceblue};
+
+		&:hover {
+		}
+
+		@media (${media._medium}) {
+			display: none;
+		}
+	`;
 
 	const LoginLink = styled(Link)`
 		grid-area: login;
@@ -65,7 +92,7 @@ const Menu = styled.ul `
 		}
 	`;
 
-	const LogoutBtn = styled.button`
+	const LogoutBtn = styled.li`
 		grid-area: logout;
 		color: orange;
 		margin-left: 10px;
@@ -79,18 +106,7 @@ const Menu = styled.ul `
 		}
 	`;
 
-	const Navicon = styled.div`
-		grid-area: nav;
-		display: grid;
-		align-content: center;
-		color: ${colors._iceblue};
-		&:hover {
-		}
-
-		@media (${media._medium}) {
-			display: none;
-		}
-	`;
+	
 
 	const RegisterLink = styled(Link)`
 		grid-area: reg;
@@ -132,11 +148,11 @@ const NavBar = (props, context) => {
 				<Logo to= '/' className= "engr fa fa-gg fa-2x" alt="logo"/>
 
 				<Welcome> 
-					{ isAuthenticated && `Welcome ${ user.username }!` }  
+					{ isAuthenticated ? `Welcome ${ user.username }!` : `Please Log in!` }  
 				</Welcome>
 			</Home>
 
-			<Menu>
+			<Menu id= 'menu'>
 				<ul>
 					<TodosLink to= '/todos' auth= { isAuthenticated }>
 							Todos
@@ -155,16 +171,16 @@ const NavBar = (props, context) => {
 					</RegisterLink>
 				</ul>
 
-				<ul>
-					<LogoutBtn auth= { isAuthenticated } onClick= { logout }>
+				<LogoutBtn auth= { isAuthenticated }>
+				<button onClick= { logout }>
 						Log Out
-					</LogoutBtn>
-				</ul>
+					</button>
+				</LogoutBtn>
 
-				<ul>
-					<Navicon className= ' Navicon engr fa fa-navicon fa-2x'/>
-				</ul>
+				<Navicon className= ' Navicon engr fa fa-navicon fa-2x'/>
+
 			</Menu>
+
 		</GridNav>
 	);
 }

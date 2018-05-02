@@ -3,25 +3,25 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const ActiveLink = styled(Link) `
+const ListItem = styled.li `
 	padding: 0;
 	display: inline-grid;
 	align-content: center;
 	justify-content: center;
 `;
 
-const NavItem = (props, context) => {
+const NavItem = ({ className, context, name, to }) => {
 	return (
-		<ActiveLink 
-			to= { props.to }
-			className= { `${ props.className }` }
-		/>
+		<ListItem className= { className } >
+			<Link to= { to }> { name } </Link>
+		</ListItem>
 	);
 }
 
 NavItem.propTypes = {
 	to: PropTypes.string.isRequired,
 	className: PropTypes.string,
+	name: PropTypes.string,
 };
 
 NavItem.defaultProps = {
