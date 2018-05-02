@@ -10,34 +10,26 @@ import { colors, media } from '../../helpers/cssConstants';
 const GridNav = styled.nav`
 	display: grid;
 	grid-template-areas: 
-		"	logo 	welcome ... ... navicon"
+		"	todo  " 
+		" regi  "
+		" login "
+		" logout  "
 	;
 	grid-template-columns: auto;
 	grid-auto-rows: auto;
+	background: white;
 
+	width: 100%;
 	justify-content: space-around;
 	opacity: .9;
 	padding: 10px;
-	position: fixed;
-	width: 100%;
 	color: ${ colors._baseblue };
 
 	@media (${ media._medium }) {
-		${ ({ auth }) => auth ? `
-			grid-template-areas: "logo 	welcome ... ... ... todo lgot	"
-		` : `
-			grid-template-areas: "logo 	welcome ... ... ... regi login "
-		`}
-	;
-		grid-template-columns: auto ;
-		grid-column-gap: 0;
+		width: 200px;
 	}
 `;
 
-const Logo = styled(Link)`
-	grid-area: logo;
-	justify-content: left;
-`;
 
 const LoginLink = styled(Link)`
 	grid-area: login;
@@ -46,11 +38,6 @@ const LoginLink = styled(Link)`
 
 	@media (${media._medium}) {
 		display: grid;
-		${ ({ auth }) => auth ? `
-			display: none ; 
-		` : `
-			display: grid ; 
-		`}
 	}
 `;
 
@@ -62,11 +49,6 @@ const LogoutBtn = styled.button`
 
 	@media (${media._medium}) {
 		display: grid;
-		${ ({ auth }) => auth ? `
-			display: grid ; 
-		` : `
-			display: none ; 
-		`}
 	}
 `;
 
@@ -84,6 +66,7 @@ const Navicon = styled.div`
 const RegisterLink = styled(Link)`
 	grid-area: regi;
 	display: none;
+
 	color: ${ colors._mintgreen };
 
 	@media (${media._medium}) {
@@ -91,7 +74,8 @@ const RegisterLink = styled(Link)`
 			display: none ; 
 		` : `
 			display: grid ; 
-		`}
+		`
+	}
 	}
 `;
 
@@ -101,13 +85,6 @@ const TodosLink = styled(Link)`
 
 	@media (${media._medium}) {
 		display: grid;
-		@media (${media._medium}) {
-		${ ({ auth }) => auth ? `
-			display: grid ; 
-		` : `
-			display: none ; 
-		`}
-	}
 	}
 `;
 
@@ -128,39 +105,49 @@ const NavBar = (props, context) => {
 
 	const { isAuthenticated, user } = props.authApi;
 
-	// const dropbox = (
-	// 	<div>
-	// 		Instgram!!
-	// 	</div>
-	// );
+	const userLinks = (
+		<LogoutBtn 
+			id= 'logout_link' 
+			className= 'ctr' 
+			onClick= { logout } 
+		>
+			Log Out
+		</LogoutBtn>
+	);
+
+	const logolink = (
+		<LoginLink to= '/login' className= 'ctr'>
+			Log In
+		</LoginLink>
+	);
+
+	const dropbox = (
+		<div>
+			Instgram!!
+		</div>
+	);
 
 	return (
 
-		<GridNav auth= { isAuthenticated } className= 'NavBar paper' >
-
-			<Logo to= '/' className= "engr fa fa-gg fa-2x" alt= "logo"/>
-
-			<Welcome className= 'ctr'> 
-				{ isAuthenticated && `Welcome ${ user.username }!` }  
-			</Welcome>
-
-			<TodosLink to= '/todos' auth= { isAuthenticated }>
+		<GridNav className= {`NavBar ${ props.className} paper`} >
+			
+			<TodosLink 
+				auth= { isAuthenticated }
+				to= '/todos' 
+				className= 'ctr'>
 					Todos
 			</TodosLink>
 
-			<LoginLink to= '/signin' auth= { isAuthenticated }>
-				Log In 
-			</LoginLink>
-
-			<RegisterLink to= '/register' auth= { isAuthenticated }>
+			<RegisterLink 
+				auth= { isAuthenticated }
+				to= '/register' 
+				className= 'ctr'
+			>
 				Register 
 			</RegisterLink>
 
-			<LogoutBtn auth= { isAuthenticated } onClick= { logout }>
-				Log Out
-			</LogoutBtn>
+				{ isAuthenticated ? userLinks : logolink }
 
-			<Navicon className= ' Navicon engr fa fa-navicon fa-2x'/>
 
 		</GridNav>
 	);

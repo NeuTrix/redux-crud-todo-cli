@@ -4,6 +4,8 @@ import React from 'react';
 import LinkedButton from '../buttons/LinkedButton';
 import Stamp from '../buttons/Stamp';
 import styled from 'styled-components';
+import DropNav from './DropNav';
+
 
 // +++++++++  CSS  +++++++++ 
 
@@ -27,6 +29,8 @@ const Grid = styled.div`
 		  " subt 		subt 		subt 		subt 		subt 		subt 	"
 		  " mongo 	expr 		react 	node 		redux 		grid 	" 
 		  " ... 		...			login 	regis 	...			... 	" 
+		 	" drop 	drop 	drop 	drop 	drop 	drop "
+		  
 	  ;
 		grid-template-columns: auto;
 		grid-auto-rows: auto;
@@ -50,6 +54,9 @@ const Subtitle = styled.div`
 	color: darkgrey;
 `;
 
+const Nav = styled(DropNav) `
+	grid-area: drop;
+`;
 // +++++++++ COMPONENT  +++++++++ 
 
 const Home = (props) => {
@@ -87,6 +94,7 @@ const Home = (props) => {
 				color = 'steelblue'
 				path = '/register'
 			/>
+			<DropNav/>
 
 		</Grid>
 	);
