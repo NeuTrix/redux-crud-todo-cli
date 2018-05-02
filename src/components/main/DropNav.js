@@ -19,25 +19,25 @@ const GridNav = styled.nav`
 		grid-template-rows: auto ;
 		grid-row-gap: 20px;
 	
-	background: white;
+	background: ${colors._deepblue};
+	border-radius: 2px;
+	border: 4px solid lightblue;
 	width: 100%;
 
 	align-content: center;
 	opacity: .9;
 	padding: 10px;
-	color: ${ colors._baseblue };
-
-	@media (${ media._medium }) {
-		width: 200px;
-	}
+	color: ${ colors._mintgreen };
+	width: 200px;
 `;
 
 
 const LoginLink = styled(Link)`
 	grid-area: login;
-	color: ${ colors._mintgreen };
 	display: none;
 	justify-content: center;
+	color: lime;
+
 
 	@media (${media._medium}) {
 		display: grid;
@@ -47,11 +47,12 @@ const LoginLink = styled(Link)`
 
 const LogoutBtn = styled.button`
 	grid-area: lgot;
-	color: orange;
+	color: lime;
 	margin-left: 10px;
 	display: none;
 	background: none;
 	border: none;
+
 	justify-content: center;
 
 	@media (${media._medium}) {
@@ -64,8 +65,9 @@ const LogoutBtn = styled.button`
 const RegisterLink = styled(Link)`
 	grid-area: regi;
 	display: none;
-	color: ${ colors._mintgreen };
 	justify-content: center;
+	color: orange;
+
 
 	@media (${media._medium}) {
 		${ ({ auth }) => auth ? `display: none; ` : `display: grid;` }
@@ -76,6 +78,7 @@ const TodosLink = styled(Link)`
 	grid-area: todo;
 	display: none;
 	justify-content: center;
+	color: orange;
 
 	@media (${media._medium}) {
 		display: grid;
