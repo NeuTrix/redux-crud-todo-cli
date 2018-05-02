@@ -1,10 +1,10 @@
-//  vendor
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components'
+import styled from 'styled-components';
 //  custom
 import CheckComplete from '../buttons/CheckComplete';
 import DeleteBtn from '../buttons/DeleteBtn';
+import { colors, media } from '../../helpers/cssConstants';
 
 // +++++++++ CSS +++++++++ 
 
@@ -26,7 +26,7 @@ const Grid = styled.form `
 
 	/* iPad mini screen mode */
 
-	@media (min-width: 730px) {
+	@media (${media._large}) {
 		grid-template-areas:
 		" check 	task 	rank 	date 	dele " 
 		;
