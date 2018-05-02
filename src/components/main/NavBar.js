@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 // custom
+import DropNav from './DropNav';
 import { colors, media } from '../../helpers/cssConstants';
 
 // +++++++++  CSS  +++++++++ 
@@ -64,11 +65,14 @@ const LogoutBtn = styled.button`
 	}
 `;
 
+	
 const Navicon = styled.div`
 	grid-area: navicon;
 	display: grid;
 	align-content: center;
 	color: ${colors._iceblue};
+	&:hover {
+	}
 
 	@media (${media._medium}) {
 		display: none;
@@ -110,11 +114,6 @@ const NavBar = (props, context) => {
 
 	const { isAuthenticated, user } = props.authApi;
 
-	// const dropbox = (
-	// 	<div>
-	// 		Instgram!!
-	// 	</div>
-	// );
 
 	return (
 

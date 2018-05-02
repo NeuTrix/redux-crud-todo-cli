@@ -21,7 +21,6 @@ const GridNav = styled.nav`
 	
 	background: ${colors._deepblue};
 	border-radius: 2px;
-	border: 4px solid lightblue;
 	width: 100%;
 
 	align-content: center;
