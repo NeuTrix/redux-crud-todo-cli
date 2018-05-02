@@ -41,11 +41,7 @@ const LoginLink = styled(Link)`
 
 	@media (${media._medium}) {
 		display: grid;
-		${ ({ auth }) => auth ? `
-			display: none ; 
-		` : `
-			display: grid ; 
-		`}
+		${ ({ auth }) => auth ? `display: grid; ` : `display: none;` }
 	}
 `;
 
@@ -58,11 +54,7 @@ const LogoutBtn = styled.button`
 
 	@media (${media._medium}) {
 		display: grid;
-		${ ({ auth }) => auth ? `
-			display: grid ; 
-		` : `
-			display: none ; 
-		`}
+		${ ({ auth }) => auth ? `display: grid; ` : `display: none;` }
 	}
 `;
 
@@ -74,11 +66,7 @@ const RegisterLink = styled(Link)`
 	justify-content: center;
 
 	@media (${media._medium}) {
-		${ ({ auth }) => auth ? `
-			display: none ; 
-		` : `
-			display: grid ; 
-		`}
+		${ ({ auth }) => auth ? `display: grid; ` : `display: none;` }
 	}
 `;
 
@@ -89,11 +77,7 @@ const TodosLink = styled(Link)`
 
 	@media (${media._medium}) {
 		display: grid;
-		${ ({ auth }) => auth ? `
-			display: grid ; 
-		` : `
-			display: none ; 
-		`}
+		${ ({ auth }) => auth ? `display: grid; ` : `display: none;` }
 	}
 `;
 
@@ -108,7 +92,7 @@ const NavBar = (props, context) => {
 		context.router.history.push('/');
 	}
 
-	const { isAuthenticated, user } = props.authApi;
+	const { isAuthenticated } = props.authApi;
 
 	return (
 
@@ -142,6 +126,7 @@ NavBar.propTypes = {
 };
 
 NavBar.defaultProps = {
+	// +++++++++ !!!!!!!!!!!!!!!!!!!!!!!!!  +++++++++ 
 	authApi:  {isAuthenticated: false},
 	// authApi:  {isAuthenticated: true},
 	logout:  f => alert('Default action: Navbar logout fn'),

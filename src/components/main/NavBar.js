@@ -46,11 +46,7 @@ const LoginLink = styled(Link)`
 
 	@media (${media._medium}) {
 		display: grid;
-		${ ({ auth }) => auth ? `
-			display: none ; 
-		` : `
-			display: grid ; 
-		`}
+		${ ({ auth }) => auth ? `display: none; ` : `display: grid;` }
 	}
 `;
 
@@ -62,11 +58,7 @@ const LogoutBtn = styled.button`
 
 	@media (${media._medium}) {
 		display: grid;
-		${ ({ auth }) => auth ? `
-			display: grid ; 
-		` : `
-			display: none ; 
-		`}
+		${ ({ auth }) => auth ? `display: grid; ` : `display: none;` }
 	}
 `;
 
@@ -85,13 +77,7 @@ const RegisterLink = styled(Link)`
 	grid-area: regi;
 	display: none;
 	color: ${ colors._mintgreen };
-
-	@media (${media._medium}) {
-		${ ({ auth }) => auth ? `
-			display: none ; 
-		` : `
-			display: grid ; 
-		`}
+	${ ({ auth }) => auth ? `display: none; ` : `display: grid;` }
 	}
 `;
 
@@ -101,11 +87,7 @@ const TodosLink = styled(Link)`
 
 	@media (${media._medium}) {
 		display: grid;
-		${ ({ auth }) => auth ? `
-			display: grid ; 
-		` : `
-			display: none ; 
-		`}
+		${ ({ auth }) => auth ? `display: grid; ` : `display: none;` }
 	}
 `;
 
