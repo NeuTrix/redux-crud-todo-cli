@@ -35,7 +35,7 @@ const HomeLink = styled(Link)`
 	display: none;
 
 	@media (${media._medium}) {
-		display: inline;
+		display: grid;
 	}
 `;
 
@@ -49,7 +49,7 @@ const LoginLink = styled(Link)`
 	display: none;
 
 	@media (${media._medium}) {
-		display: inline;
+		display: grid;
 	}
 `;
 
@@ -60,7 +60,7 @@ const LogoutBtn = styled.button`
 
 	display: none;
 	@media (${media._medium}) {
-		display: inline;
+		display: grid;
 	}
 `;
 
@@ -81,7 +81,7 @@ const RegisterLink = styled(Link)`
 
 	@media (${media._medium}) {
 		${ ({ auth }) => auth && `
-			display: inline;
+			display: grid;
 				color: orange;
 		`}
 	}
@@ -92,7 +92,7 @@ const TodosLink = styled(Link)`
 	display: none;
 
 	@media (${media._medium}) {
-		display: inline;
+		display: grid;
 	}
 `;
 
