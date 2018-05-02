@@ -12,9 +12,11 @@ const ListItem = styled.li `
 
 const NavItem = ({ className, context, name, to }) => {
 	return (
-		<ListItem className= { className } >
-			<Link to= { to }> { name } </Link>
-		</ListItem>
+			<Link to= { to }> 
+				<ListItem className= { className } >
+					{ name } 
+				</ListItem>
+			</Link>
 	);
 }
 

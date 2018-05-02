@@ -38,6 +38,7 @@ const Home = styled.ul `
 
 	const Logo = styled(NavItem) `
 		grid-area: logo;
+		&:hover { color:lime; }
 	`;
 
 	const Welcome = styled.div `
@@ -52,6 +53,7 @@ const Menu = styled.ul `
 	grid-area: menu;
 	display: grid;
 	grid-template-areas: " burger ";
+
 
 	margin: 0;
 	padding: 0;
