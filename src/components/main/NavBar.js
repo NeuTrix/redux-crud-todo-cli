@@ -101,13 +101,11 @@ const TodosLink = styled(Link)`
 
 	@media (${media._medium}) {
 		display: grid;
-		@media (${media._medium}) {
 		${ ({ auth }) => auth ? `
 			display: grid ; 
 		` : `
 			display: none ; 
 		`}
-	}
 	}
 `;
 
@@ -136,7 +134,7 @@ const NavBar = (props, context) => {
 
 	return (
 
-		<GridNav auth= { isAuthenticated } className= 'NavBar paper' >
+		<GridNav auth= { isAuthenticated } className= 'ctr NavBar paper' >
 
 			<Logo to= '/' className= "engr fa fa-gg fa-2x" alt= "logo"/>
 
@@ -148,7 +146,7 @@ const NavBar = (props, context) => {
 					Todos
 			</TodosLink>
 
-			<LoginLink to= '/signin' auth= { isAuthenticated }>
+			<LoginLink to= '/login' auth= { isAuthenticated }>
 				Log In 
 			</LoginLink>
 

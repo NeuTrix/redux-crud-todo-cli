@@ -9,18 +9,20 @@ import { colors, media } from '../../helpers/cssConstants';
 
 const GridNav = styled.nav`
 	display: grid;
-	grid-template-areas: 
-		"	todo  " 
-		" regi  "
-		" login "
-		" logout  "
-	;
-	grid-template-columns: auto;
-	grid-auto-rows: auto;
-	background: white;
 
+	${ ({ auth }) => auth ? `
+			grid-template-areas: "todo" "lgot"
+		` : `
+			grid-template-areas: "regi" "login"
+		`}
+	;
+		grid-template-rows: auto ;
+		grid-row-gap: 20px;
+	
+	background: white;
 	width: 100%;
-	justify-content: space-around;
+
+	align-content: center;
 	opacity: .9;
 	padding: 10px;
 	color: ${ colors._baseblue };
@@ -35,9 +37,15 @@ const LoginLink = styled(Link)`
 	grid-area: login;
 	color: ${ colors._mintgreen };
 	display: none;
+	justify-content: center;
 
 	@media (${media._medium}) {
 		display: grid;
+		${ ({ auth }) => auth ? `
+			display: none ; 
+		` : `
+			display: grid ; 
+		`}
 	}
 `;
 
@@ -46,52 +54,49 @@ const LogoutBtn = styled.button`
 	color: orange;
 	margin-left: 10px;
 	display: none;
+	justify-content: center;
 
 	@media (${media._medium}) {
 		display: grid;
+		${ ({ auth }) => auth ? `
+			display: grid ; 
+		` : `
+			display: none ; 
+		`}
 	}
 `;
 
-const Navicon = styled.div`
-	grid-area: navicon;
-	display: grid;
-	align-content: center;
-	color: ${colors._iceblue};
-
-	@media (${media._medium}) {
-		display: none;
-	}
-`;
 
 const RegisterLink = styled(Link)`
 	grid-area: regi;
 	display: none;
-
 	color: ${ colors._mintgreen };
+	justify-content: center;
 
 	@media (${media._medium}) {
 		${ ({ auth }) => auth ? `
 			display: none ; 
 		` : `
 			display: grid ; 
-		`
-	}
+		`}
 	}
 `;
 
 const TodosLink = styled(Link)`
 	grid-area: todo;
 	display: none;
+	justify-content: center;
 
 	@media (${media._medium}) {
 		display: grid;
+		${ ({ auth }) => auth ? `
+			display: grid ; 
+		` : `
+			display: none ; 
+		`}
 	}
 `;
 
-const Welcome = styled.div`
-	grid-area: welcome;
-	font-size: 1.25em;
-`;
 
 // +++++++++ COMPONENT  +++++++++ 
 
@@ -105,53 +110,29 @@ const NavBar = (props, context) => {
 
 	const { isAuthenticated, user } = props.authApi;
 
-	const userLinks = (
-		<LogoutBtn 
-			id= 'logout_link' 
-			className= 'ctr' 
-			onClick= { logout } 
-		>
-			Log Out
-		</LogoutBtn>
-	);
-
-	const logolink = (
-		<LoginLink to= '/login' className= 'ctr'>
-			Log In
-		</LoginLink>
-	);
-
-	const dropbox = (
-		<div>
-			Instgram!!
-		</div>
-	);
-
 	return (
 
-		<GridNav className= {`NavBar ${ props.className} paper`} >
+		<GridNav auth= { isAuthenticated } className= 'ctr NavBar paper' >
+			<LoginLink to= '/login' auth= { isAuthenticated }>
+				Log In 
+			</LoginLink>
+
+			<RegisterLink to= '/register' auth= { isAuthenticated }>
+				Register 
+			</RegisterLink>
 			
-			<TodosLink 
-				auth= { isAuthenticated }
-				to= '/todos' 
-				className= 'ctr'>
+			<TodosLink to= '/todos' auth= { isAuthenticated }>
 					Todos
 			</TodosLink>
 
-			<RegisterLink 
-				auth= { isAuthenticated }
-				to= '/register' 
-				className= 'ctr'
-			>
-				Register 
-			</RegisterLink>
-
-				{ isAuthenticated ? userLinks : logolink }
-
+			<LogoutBtn auth= { isAuthenticated } onClick= { logout }>
+				Log Out
+			</LogoutBtn>
 
 		</GridNav>
 	);
 }
+
 
 // +++++++++ PROPS  +++++++++ 
 
@@ -161,7 +142,8 @@ NavBar.propTypes = {
 };
 
 NavBar.defaultProps = {
-	authApi:  {},
+	authApi:  {isAuthenticated: false},
+	// authApi:  {isAuthenticated: true},
 	logout:  f => alert('Default action: Navbar logout fn'),
 }
 
