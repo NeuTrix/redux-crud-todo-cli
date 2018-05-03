@@ -38,7 +38,7 @@ const LoginPage = (props) => {
 
 LoginPage.propTypes = {
 	addFlashMessage: PropTypes.func.isRequired,
-	className: PropTypes.string.isRequired, // from styled-components
+	className: PropTypes.string, // from styled-components
 	userLoginRequest: PropTypes.func.isRequired,
 };
 

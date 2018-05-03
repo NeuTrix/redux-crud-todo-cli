@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classnames from 'classnames';
 // custom
-import { colors, media } from '../../helpers/cssConstants'
+import { colors } from '../../helpers/cssConstants'
 
 // +++++++++  CSS  +++++++++ 
 

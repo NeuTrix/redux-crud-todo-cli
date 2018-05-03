@@ -4,7 +4,7 @@ import styled from 'styled-components';
 //  custom
 import CheckComplete from '../buttons/CheckComplete';
 import DeleteBtn from '../buttons/DeleteBtn';
-import { colors, media } from '../../helpers/cssConstants';
+import { media } from '../../helpers/cssConstants';
 
 // +++++++++ CSS +++++++++ 
 
