@@ -13,9 +13,8 @@ const Grid = styled.div `
 	display: grid;
 	grid-template-areas: 
 		" Home  Home  Burger " 
-		" Menu  Menu  Menu   "
 	;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 3fr 1fr;
 	
 	position: fixed;
   height: 49px;
@@ -27,28 +26,29 @@ const Grid = styled.div `
 	background: aliceblue;
 	border: 1px solid ${colors._deepblue};
 	padding 5px;
+
+	@media (${media._medium}) {
+		grid-template-columns: 2fr 1fr 1fr;
+	}
 `;
 
 // +++++++++ Home Section  +++++++++ 
 const Home = styled.div `
 	grid-area: Home;
 	display: inline-grid;
+	place-content: center;
 	grid-template-areas: "Logo Welcome";
 	grid-template-columns: 1fr 3fr;
-	align-content: start;
 `;
 
 const Logo = styled.div `
 	grid-area: Logo;
-	display: grid;
-	place-content: center left;
 	text-indent: 10px;
+	
 `;
 
 const Message = styled.div `
 	grid-area: Welcome;
-	display: grid;
-	place-content: center;
 `;
 
 // +++++++++ Nav Section  +++++++++ 
@@ -58,24 +58,40 @@ const Burger = styled.div `
 	display: inline-grid;
 	place-content: center right;
 	padding-right: 5px;
-	color: ${colors._iceblue};
 
 	&:hover { color:lime; }
 
-	&:hover ul {
+	@media (max-width: 630px) {
+		&:hover ul {
+			display: inline-grid;
+			grid-row-gap: 15px
+			position: absolute;
+			width: 25%;
+			min-height: 90px;
+			right: 0px;
+			top: 34px;
+			background: aliceblue;
+			opacity: .75;
+		}
+	}
+	
+	@media (${media._medium}) {
 		display: inline-grid;
-		grid-row-gap: 15px
-		position: absolute;
-		width: 25%;
-		min-height: 90px;
-		right: 2px;
-		top: -4px;
-		background: aliceblue;
+		grid-template-areas: "Menu"
+	}
+`;
+
+const Meat = styled.div `
+	display: inline-grid;
+	place-content: center right;
+	color: ${colors._iceblue};	
+	&:hover { 
+		color: lime;
 	}
 
-	// @media (${media._medium}) {
-	// 	display: none;
-	// }
+	@media (${media._medium}) {
+		display: none;
+	}
 `;
 
 const Menu = styled.ul `
@@ -101,14 +117,14 @@ const AuthLi = styled.li `
 	text-shadow: none;
 	font-size: initial
 
-display: inline-grid;
-
 	${ ({auth}) => auth ? `display: inline-grid;`:`display: none;`}
 `;
 const NoAuthLi = styled.li `
 	width: 100px;
 	display: inline-grid;
 	place-content: center;
+	text-shadow: none;
+	font-size: initial
 
 	${({auth}) => !auth ? `display: inline-grid;`:`display: none;`}
 `;
@@ -147,30 +163,31 @@ const TestHeader = (props, context) => {
 
 			</Home>
 				
-			<Burger id= 'Burger' className= ' engr fa fa-navicon fa-2x'> 
+			<Burger id= 'Burger' > 
+				<Meat id= 'Meat' className= ' engr fa fa-navicon fa-2x' />
 
-			<Menu id= 'Menu' > 
+				<Menu id= 'Menu' > 
 
-				<AuthLi auth= {auth} > 
-					<A to= '/todos' > Todos </A>
-				 </AuthLi>
+					<AuthLi auth= {auth} > 
+						<A to= '/todos' > Todos </A>
+					 </AuthLi>
 
-				<AuthLi auth= {auth} > 
-					<A to= '/#' onClick= {logout}> Logout </A>
-				 </AuthLi>
-				
-				<NoAuthLi auth= {auth} > 
-					<A to= '/register' > Register </A>
-				 </NoAuthLi>
+					<AuthLi auth= {auth} > 
+						<A to= '/#' onClick= {logout}> Logout </A>
+					 </AuthLi>
+					
+					<NoAuthLi auth= {auth} > 
+						<A to= '/register' > Register </A>
+					 </NoAuthLi>
 
-				<NoAuthLi auth= {auth} > 
-					<A to= '/login' > Login </A>
-				 </NoAuthLi>
+					<NoAuthLi auth= {auth} > 
+						<A to= '/login' > Login </A>
+			
+					 </NoAuthLi>
 
-			</Menu>
+				</Menu>
 
 			</Burger>
-			
 
 		</Grid>
 	)
