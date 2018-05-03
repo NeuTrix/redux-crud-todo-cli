@@ -32,11 +32,15 @@ const Home = styled.div `
 const Logo = styled.div `
 	grid-area: Logo;
 	display: grid;
+	place-content: center left;
+	text-indent: 10px;
 `;
 
 const Welcome = styled.div `
 	grid-area: Welcome;
 	display: grid;
+	place-content: center;
+
 `;
 
 // +++++++++ Nav Section  +++++++++ 
@@ -49,6 +53,7 @@ const NavBlock = styled.div `
 const Burger = styled.div `
 	grid-area: Burger;
 	display: inline-grid;
+	place-content: center;
 
 	color: ${colors._iceblue};
 	&:hover { color:lime; }
@@ -61,6 +66,7 @@ const Burger = styled.div `
 const Menu = styled.ul `
 	grid-area: Menu;
 	display: inline-grid;
+	place-content: center;
 `;
 
 const AuthLi = styled.li `
