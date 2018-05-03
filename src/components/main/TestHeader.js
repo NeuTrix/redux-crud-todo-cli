@@ -9,10 +9,13 @@ import { colors, media } from '../../helpers/cssConstants';
 
 // +++++++++  CSS  +++++++++ 
 
-const Header = styled.div `
+const Grid = styled.div `
 	display: grid;
-	grid-template-areas: "home Navblock";
-	grid-template-columns: 2fr 1fr;
+	grid-template-areas: 
+		" Home  Home  Burger " 
+		" Menu  Menu  Menu   "
+	;
+	grid-template-columns: 1fr 1fr 1fr;
 	
 	position: fixed;
   height: 49px;
@@ -28,9 +31,10 @@ const Header = styled.div `
 
 // +++++++++ Home Section  +++++++++ 
 const Home = styled.div `
-	grid-area: home;
+	grid-area: Home;
 	display: inline-grid;
 	grid-template-areas: "Logo Welcome";
+	grid-template-columns: 1fr 3fr;
 	align-content: start;
 `;
 
@@ -41,58 +45,18 @@ const Logo = styled.div `
 	text-indent: 10px;
 `;
 
-const Welcome = styled.div `
+const Message = styled.div `
 	grid-area: Welcome;
 	display: grid;
 	place-content: center;
 `;
 
 // +++++++++ Nav Section  +++++++++ 
-const NavBlock = styled.div `
-	grid-area: Navblock;
-	display: inline-grid;
-	// grid-template-areas: "Burger";
-
-  place-content: center right;
-  // padding-right: 10px;
-	  text-decoration: none;
-
-  // &:active, &:hover {
-  	background: palegreen;
-		grid-template-areas: 
-		"Burger"
-		"Todos"
-		"Logout"
-		"Register"
-		"login"
-		;
-
-
-		// & div {
-		// 	display: none;
-		// 	color: red;
-		// 	// position: fixed;
-		// }
-
-		// & ul {
-		// 	width: 100%;
-		// 	height: 100px;
-		// 	top: 35;
-		// 	display: inline-flex
-		// 	background: paleviolet;
-		// 	color: lime;
-		// }
-  }
-
-	// @media (${media._medium}) {
-	// 	grid-template-areas: "Menu";
-	// }
-`;
 
 const Burger = styled.div `
 	grid-area: Burger;
 	display: inline-grid;
-	place-content: center;
+	place-content: center right;
 
 	color: ${colors._iceblue};
 	&:hover { color:lime; }
@@ -105,14 +69,19 @@ const Burger = styled.div `
 const Menu = styled.ul `
 	grid-area: Menu;
 	// display: none;
+	display: inline-grid;
 	place-content: center;
+
+	background: palegoldenrod;
+	width: 65%;
+	right: 0;
+	position: absolute;
+
+top: -1px;
 	padding: 0;
 	margin: 0;
-
-	& li {
-		// display: none;
-		// background: orange;
-	}
+	// background: palegreen;
+	text-decoration: none;
 
 	@media (${media._medium}) {
 		display: inline-flex;
@@ -123,10 +92,18 @@ const Menu = styled.ul `
 // +++++++++  Elements  +++++++++ 
 const AuthLi = styled.li `
 	width: 100px;
+	display: inline-grid;
+	place-content: center;
+
+display: inline-grid;
+
 	// ${ ({auth}) => auth ? `display: inline-grid;`:`display: none;`}
 `;
 const NoAuthLi = styled.li `
 	width: 100px;
+	display: inline-grid;
+	place-content: center;
+
 	// ${ ({auth}) => !auth ? `display: inline-grid;`:`display: none;`}
 `;
 
@@ -150,7 +127,7 @@ const TestHeader = (props, context) => {
 
 	return (
 
-		<Header id= 'Header' >
+		<Grid id= 'Grid' >
 
 			<Home id= 'Home'>
 
@@ -158,38 +135,35 @@ const TestHeader = (props, context) => {
 						<A to= '/' > Logo </A>
 				</Logo>
 
-				<Welcome id= 'Welcome' > 
-					Welcome 
-				</Welcome>
+				<Message id= 'Message' > 
+					Message 
+				</Message>
 
 			</Home>
-
-			<NavBlock id= 'NavBlock'>
 				
-				<Burger id= 'Burger' className= ' engr fa fa-navicon fa-2x'/> 
-				<Menu id= 'Menu' > 
+			<Menu id= 'Menu' > 
 
-					<AuthLi auth= {auth} > 
-						<A to= '/todos' > Todos </A>
-					 </AuthLi>
+				<AuthLi auth= {auth} > 
+					<A to= '/todos' > Todos </A>
+				 </AuthLi>
 
-					<AuthLi auth= {auth} > 
-						<A to= '/#' onClick= {logout}> Logout </A>
-					 </AuthLi>
-					
-					<NoAuthLi auth= {auth} > 
-						<A to= '/register' > Register </A>
-					 </NoAuthLi>
-
-					<NoAuthLi auth= {auth} > 
-						<A to= '/login' > Login </A>
-					 </NoAuthLi>
-
-				</Menu>
+				<AuthLi auth= {auth} > 
+					<A to= '/#' onClick= {logout}> Logout </A>
+				 </AuthLi>
 				
-			</NavBlock>
+				<NoAuthLi auth= {auth} > 
+					<A to= '/register' > Register </A>
+				 </NoAuthLi>
 
-		</Header>
+				<NoAuthLi auth= {auth} > 
+					<A to= '/login' > Login </A>
+				 </NoAuthLi>
+
+			</Menu>
+			
+			<Burger id= 'Burger' className= ' engr fa fa-navicon fa-2x'/> 
+
+		</Grid>
 	)
 };
 
