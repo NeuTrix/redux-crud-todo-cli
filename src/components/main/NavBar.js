@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 // custom
-import DropNav from './DropNav';
-import NavItem from './NavItem';
 import { colors, media } from '../../helpers/cssConstants';
 
 // +++++++++  CSS  +++++++++ 
