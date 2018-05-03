@@ -146,6 +146,7 @@ const TestHeader = (props, context) => {
 	}
 
 	const auth = props.authApi.isAuthenticated
+	const name = props.authApi.user.username
 
 	return (
 
@@ -154,11 +155,11 @@ const TestHeader = (props, context) => {
 			<Home id= 'Home'>
 
 				<Logo id= 'Logo'> 
-						<A to= '/' > Logo </A>
+						<A to= '/' className= "engr fa fa-gg fa-2x" alt="logo"/> 
 				</Logo>
 
 				<Message id= 'Message' > 
-					Message 
+					{ auth ? `Welcome ${ name }!` : `Please Log in!`}
 				</Message>
 
 			</Home>

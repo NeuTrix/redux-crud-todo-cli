@@ -9,155 +9,129 @@ import { colors, media } from '../../helpers/cssConstants';
 
 // +++++++++  CSS  +++++++++ 
 
-const GridNav = styled.nav`
+const Grid = styled.div `
 	display: grid;
-	grid-template-areas: " home menu ";
-	grid-template-columns: 3fr 1fr;
-
-	justify-content: space-around;
-	opacity: .9;
+	grid-template-areas: " Home  Home  Navigation " ;
+	grid-template-columns: 1fr 3fr 1fr;
+	
 	position: fixed;
-	padding: 10px;
-	z-index: 100;
+  height: 49px;
 	width: 100%;
-	color: ${ colors._baseblue };
+  margin-bottom: 40px;
+	top: 0;
+	left:0;
+	z-index: 100;
+	background: aliceblue;
+	border: 1px solid ${colors._deepblue};
+	padding 5px;
 
 	@media (${media._medium}) {
-		grid-template-areas: " home ... menu ";
-		grid-template-columns: 2fr 2fr 1fr;
-	}
-	@media (${media._large}) {
-		font-size: 1.25em;
+		grid-template-columns: 2fr 1fr 1fr;
 	}
 `;
 
+// +++++++++ Home Section  +++++++++ 
 const Home = styled.div `
-	grid-area: home;
+	grid-area: Home;
 	display: inline-grid;
-	grid-template-areas: " logo  welcome ";
-	grid-template-columns: 1fr 4fr;
-
-	margin: 0;
-	padding: 0;
+	place-content: center;
+	grid-template-areas: "Logo Welcome";
+	grid-template-columns: 1fr 3fr;
 `;
 
-	const Logo = styled(NavItem) `
-		grid-area: logo;
-		text-decoration: none;
-		&:hover { color:lime; }
-	`;
-
-	const Welcome = styled.div `
-		grid-area: welcome;
-		display: inline-grid;
-		align-content: center;
-    justify-content: left;
-    text-indent: 10px;
-	`;
-
-const Menu = styled.ul `
-	grid-area: menu;
-	grid-template-areas: "burger""todos""logout";
-	grid-template-rows: auto;
-
-	margin: 0;
-	padding: 0;
+const Logo = styled.div `
+	grid-area: Logo;
+	text-indent: 10px;
 	
-	* {
+`;
+
+const Message = styled.div `
+	grid-area: Welcome;
+`;
+
+// +++++++++ Nav Section  +++++++++ 
+
+const Navigation = styled.div `
+	grid-area: Navigation;
+	display: inline-grid;
+	place-content: center right;
+	padding-right: 5px;
+
+	&:hover { color:lime; }
+
+	@media (max-width: 630px) {
+		&:hover ul {
+			display: inline-grid;
+			grid-row-gap: 15px
+			position: absolute;
+			width: 25%;
+			min-height: 90px;
+			right: 0px;
+			top: 34px;
+			background: aliceblue;
+			opacity: .75;
+		}
+	}
+	
+	@media (${media._medium}) {
+		display: inline-grid;
+		grid-template-areas: "Menu"
+	}
+`;
+
+const Burger = styled.div `
+	display: inline-grid;
+	place-content: center right;
+	color: ${colors._iceblue};	
+	&:hover { color: lime;}
+
+	@media (${media._medium}) {
 		display: none;
 	}
-
-	&:active ${LogoutBtn} {
-		background: yellow;
-		display: grid;
-		grid-gap:5px;
-	}
-
-
-	@media (${media._medium}) {
-		${ ({ auth }) => auth ? `
-			grid-template-areas: " todos logout ";
-			grid-template-columns: auto;
-		` : `
-			grid-template-areas: " regis login ";
-			grid-template-columns: auto;
-		` }
-	}
-
 `;
 
-	const Burger = styled.div`
-		grid-area: burger;
-		display: inline-grid;
-		align-content: center;
-    justify-content: right;
-    padding-right: 10px;
-		color: ${colors._iceblue};
+const Menu = styled.ul `
+	grid-area: Menu;
+	display: none;
+	place-content: center;
 
-		&:hover { color:lime; }
+	padding: 10px;
+	margin: 0;
+	text-decoration: none;
 
-		@media (${media._medium}) {
-			display: none;
-		}
-	`;
+	@media (${media._medium}) {
+		display: inline-flex;
+		justify-content: space-evenly;
+	}
+`;
 
-	const TodosLink = styled.li`
-		grid-area: todos;
+// +++++++++  Elements  +++++++++ 
+const AuthLi = styled.li `
+	width: 100px;
+	display: inline-grid;
+	place-content: center;
+	text-shadow: none;
+	font-size: initial
 
-		color: orange;
+	${ ({auth}) => auth ? `display: inline-grid;`:`display: none;`}
+`;
+const NoAuthLi = styled.li `
+	width: 100px;
+	display: inline-grid;
+	place-content: center;
+	text-shadow: none;
+	font-size: initial
 
-		&:hover { color:lime; }
+	${({auth}) => !auth ? `display: inline-grid;`:`display: none;`}
+`;
 
-		@media (${media._medium}) {
-			${ ({ auth }) => auth ? `display: grid;`: `display: none` }
-	`;
+const A = styled(Link) `
+	&:hover { color: lime; }
+`;
 
-	const LogoutBtn = styled.button`
-		grid-area: logout;
+// +++++++++  COMPONENT  +++++++++ 
 
-		color: orange;
-		margin-left: 10px;
-		background: none;
-		border: none;
-
-		&:hover { color:lime; }
-
-		@media (${media._medium}) {
-			${ ({ auth }) => auth ? `
-				display: inline-grid;
-			` : `
-				display: none
-			` }
-		}
-	`;
-
-	const RegisterLink = styled(NavItem)`
-		grid-area: regis;
-		
-		color: ${ colors._mintgreen }
-
-		&:hover { color:lime; }
-
-		@media (${media._medium}) {
-			${ ({ auth }) => !auth ? `display: grid;` :`display: none`}
-		}
-	`;
-
-		const LoginLink = styled(NavItem)`
-		grid-area: login;
-
-		color: ${ colors._mintgreen };
-
-		&:hover { color:lime; }
-
-		@media (${media._medium}) {
-			${ ({ auth }) => !auth ? `display: grid;` :`display: none`}
-		}
-	`;
-
-// +++++++++ COMPONENT  +++++++++ 
-
-const NavBar = (props, context) => {
+const NvBar = (props, context) => {
 
 	const logout = (e) => {
 		e.preventDefault();
@@ -170,43 +144,64 @@ const NavBar = (props, context) => {
 
 	return (
 
-		<GridNav auth= { auth } className= 'NavBar paper'>
+		<Grid id= 'Grid' >
 
-			<Home id = 'home'>
-				<Logo to= '/' className= "engr fa fa-gg fa-2x" alt="logo"/>
-				<Welcome> 
+			<Home id= 'Home'>
+
+				<Logo id= 'Logo'> 
+						<A to= '/' className= "engr fa fa-gg fa-2x" alt="logo"/> 
+				</Logo>
+
+				<Message id= 'Message' > 
 					{ auth ? `Welcome ${ name }!` : `Please Log in!`}
-				</Welcome>
+				</Message>
+
 			</Home>
+				
+			<Navigation id= 'Navigation' > 
 
-			<Menu id= 'menu' auth= { auth }>
-					<LoginLink to= '/login' auth= { auth } name= 'Login' />
-					<RegisterLink to= '/register' auth={auth} name='Register'/>
-					<TodosLink to= '/todos' auth= { auth } name= 'Todos'/>
-					<LogoutBtn onClick= {logout} auth= {auth}>
-						Logout
-					</LogoutBtn>
-					<Burger className= 'Burger engr fa fa-navicon fa-2x'/>
-			</Menu>
+				<Burger id= 'Burger' className= ' engr fa fa-navicon fa-2x'/>
 
-		</GridNav>
-	);
-}
+				<Menu id= 'Menu' > 
+
+					<AuthLi auth= {auth} > 
+						<A to= '/todos' > Todos </A>
+					</AuthLi>
+
+					<AuthLi auth= {auth} > 
+						<A to= '/#' onClick= {logout}> Logout </A>
+					</AuthLi>
+					
+					<NoAuthLi auth= {auth} > 
+						<A to= '/register' > Register </A>
+					</NoAuthLi>
+
+					<NoAuthLi auth= {auth} > 
+						<A to= '/login' > Login </A>
+					</NoAuthLi>
+
+				</Menu>
+
+			</Navigation>
+
+		</Grid>
+	)
+};
 
 // +++++++++ PROPS  +++++++++ 
 
-NavBar.propTypes = {
+NvBar.propTypes = {
 	authApi: PropTypes.object.isRequired,
-	logout: PropTypes.func.isRequired,
+	Logout: PropTypes.func.isRequired,
 };
 
-NavBar.defaultProps = {
+NvBar.defaultProps = {
 	authApi:  {},
-	logout:  f => alert('Default action: Navbar logout fn'),
+	Logout:  f => alert('Default action: Navbar Logout fn'),
 }
 
-NavBar.contextTypes= {
+NvBar.contextTypes= {
 	router: PropTypes.object.isRequired,
 };
 
-export default NavBar;
+export default NvBar;

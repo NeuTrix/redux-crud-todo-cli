@@ -12,7 +12,6 @@ import { logout } from '../actions/loginActions';
 
 import FlashMessageList from './messages/FlashMessageList';
 import NavBar from './main/NavBar';
-import TestHeader from './main/TestHeader';
 import Home from './main/Home';
 import LoginPage from './auth/LoginPage';
 import RegisterPage from './auth/RegisterPage';
@@ -47,13 +46,13 @@ const App = (props) => {
 	const Main = styled.div `
 		grid-area: main;
 	`;
-// +++++++++  !!!!!  +++++++++ 
+
 	return (
 
 		<Grid className = 'App ' >
 
 			<Header className= '_header' > 
-				<TestHeader 
+				<NavBar 
 					authApi= { props.authApi } 
 					logout= { props.logout }
 				/> 
