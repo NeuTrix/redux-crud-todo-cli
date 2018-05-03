@@ -18,12 +18,16 @@ const GridNav = styled.nav`
 	opacity: .9;
 	position: fixed;
 	padding: 10px;
+	z-index: 100;
 	width: 100%;
 	color: ${ colors._baseblue };
 
 	@media (${media._medium}) {
 		grid-template-areas: " home ... menu ";
 		grid-template-columns: 2fr 2fr 1fr;
+	}
+	@media (${media._large}) {
+		font-size: 1.25em;
 	}
 `;
 
@@ -39,6 +43,7 @@ const Home = styled.div `
 
 	const Logo = styled(NavItem) `
 		grid-area: logo;
+		text-decoration: none;
 		&:hover { color:lime; }
 	`;
 
@@ -50,24 +55,35 @@ const Home = styled.div `
     text-indent: 10px;
 	`;
 
-const Menu = styled.div `
+const Menu = styled.ul `
 	grid-area: menu;
-	display: inline-grid;
-	grid-template-areas: " burger ";
-	grid-template-columns: 1fr 1fr;
+	grid-template-areas: "burger""todos""logout";
+	grid-template-rows: auto;
 
 	margin: 0;
 	padding: 0;
+	
+	* {
+		display: none;
+	}
+
+	&:active ${LogoutBtn} {
+		background: yellow;
+		display: grid;
+		grid-gap:5px;
+	}
+
 
 	@media (${media._medium}) {
 		${ ({ auth }) => auth ? `
 			grid-template-areas: " todos logout ";
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: auto;
 		` : `
 			grid-template-areas: " regis login ";
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: auto;
 		` }
 	}
+
 `;
 
 	const Burger = styled.div`
@@ -76,21 +92,21 @@ const Menu = styled.div `
 		align-content: center;
     justify-content: right;
     padding-right: 10px;
+		color: ${colors._iceblue};
 
 		&:hover { color:lime; }
-		color: ${colors._iceblue};
 
 		@media (${media._medium}) {
 			display: none;
 		}
 	`;
 
-	const TodosLink = styled(NavItem)`
+	const TodosLink = styled.li`
 		grid-area: todos;
-		display: none;
+
+		color: orange;
 
 		&:hover { color:lime; }
-		color: orange;
 
 		@media (${media._medium}) {
 			${ ({ auth }) => auth ? `display: grid;`: `display: none` }
@@ -98,13 +114,13 @@ const Menu = styled.div `
 
 	const LogoutBtn = styled.button`
 		grid-area: logout;
-		display: none;
 
-		&:hover { color:lime; }
 		color: orange;
 		margin-left: 10px;
 		background: none;
 		border: none;
+
+		&:hover { color:lime; }
 
 		@media (${media._medium}) {
 			${ ({ auth }) => auth ? `
@@ -117,21 +133,22 @@ const Menu = styled.div `
 
 	const RegisterLink = styled(NavItem)`
 		grid-area: regis;
-		display: none;
 		
-		&:hover { color:lime; }
-		color: ${ colors._mintgreen };
+		color: ${ colors._mintgreen }
 
+		&:hover { color:lime; }
+
+		@media (${media._medium}) {
 			${ ({ auth }) => !auth ? `display: grid;` :`display: none`}
 		}
 	`;
 
 		const LoginLink = styled(NavItem)`
 		grid-area: login;
-		display: none;
+
+		color: ${ colors._mintgreen };
 
 		&:hover { color:lime; }
-		color: ${ colors._mintgreen };
 
 		@media (${media._medium}) {
 			${ ({ auth }) => !auth ? `display: grid;` :`display: none`}
@@ -148,37 +165,28 @@ const NavBar = (props, context) => {
 		context.router.history.push('/login');
 	}
 
-	const { user } = props.authApi;
 	const auth = props.authApi.isAuthenticated
+	const name = props.authApi.user.username
 
 	return (
 
 		<GridNav auth= { auth } className= 'NavBar paper'>
 
 			<Home id = 'home'>
-
 				<Logo to= '/' className= "engr fa fa-gg fa-2x" alt="logo"/>
-
 				<Welcome> 
-					{ auth ? `Welcome ${ user.username }!` : `Please Log in!`}
+					{ auth ? `Welcome ${ name }!` : `Please Log in!`}
 				</Welcome>
-
 			</Home>
 
 			<Menu id= 'menu' auth= { auth }>
-
 					<LoginLink to= '/login' auth= { auth } name= 'Login' />
-
 					<RegisterLink to= '/register' auth={auth} name='Register'/>
-						 
 					<TodosLink to= '/todos' auth= { auth } name= 'Todos'/>
-
 					<LogoutBtn onClick= {logout} auth= {auth}>
 						Logout
 					</LogoutBtn>
-
 					<Burger className= 'Burger engr fa fa-navicon fa-2x'/>
-
 			</Menu>
 
 		</GridNav>
