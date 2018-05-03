@@ -61,6 +61,13 @@ const Burger = styled.div `
 	color: ${colors._iceblue};
 	&:hover { color:lime; }
 
+
+	&:hover ~ ul {
+	 display: inline-grid;
+	 background: palegreen;
+
+	}
+
 	// @media (${media._medium}) {
 	// 	display: none;
 	// }
@@ -68,8 +75,7 @@ const Burger = styled.div `
 
 const Menu = styled.ul `
 	grid-area: Menu;
-	// display: none;
-	display: inline-grid;
+	display: none;
 	place-content: center;
 
 	background: palegoldenrod;
@@ -77,11 +83,11 @@ const Menu = styled.ul `
 	right: 0;
 	position: absolute;
 
-top: -1px;
+	top: -1px;
 	padding: 0;
 	margin: 0;
-	// background: palegreen;
 	text-decoration: none;
+
 
 	@media (${media._medium}) {
 		display: inline-flex;
@@ -104,7 +110,7 @@ const NoAuthLi = styled.li `
 	display: inline-grid;
 	place-content: center;
 
-	// ${ ({auth}) => !auth ? `display: inline-grid;`:`display: none;`}
+	// ${({auth}) => !auth ? `display: inline-grid;`:`display: none;`}
 `;
 
 const A = styled(Link) `
@@ -141,6 +147,8 @@ const TestHeader = (props, context) => {
 
 			</Home>
 				
+			<Burger id= 'Burger' className= ' engr fa fa-navicon fa-2x'/> 
+
 			<Menu id= 'Menu' > 
 
 				<AuthLi auth= {auth} > 
@@ -161,7 +169,6 @@ const TestHeader = (props, context) => {
 
 			</Menu>
 			
-			<Burger id= 'Burger' className= ' engr fa fa-navicon fa-2x'/> 
 
 		</Grid>
 	)
