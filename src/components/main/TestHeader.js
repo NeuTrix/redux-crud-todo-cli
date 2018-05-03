@@ -11,14 +11,16 @@ import { colors, media } from '../../helpers/cssConstants';
 
 const Header = styled.div `
 	display: grid;
-	grid-template-areas: "home ... Navblock";
-	grid-template-columns: 2fr 2fr 1fr;
+	grid-template-areas: "home Navblock";
+	grid-template-columns: auto;
 	
 	position: fixed;
+  height: 49px;
 	width: 100%;
-	z-index: 100;
+  margin-bottom: 40px;
 	top: 0;
 	left:0;
+	z-index: 100;
 	background: aliceblue;
 	border: 1px solid ${colors._deepblue};
 	padding 5px;
@@ -49,7 +51,14 @@ const Welcome = styled.div `
 const NavBlock = styled.div `
 	grid-area: Navblock;
 	display: inline-grid;
-	grid-template-areas: "Burger Menu";
+	grid-template-areas: "Burger";
+
+  place-content: center right;
+  padding-right: 10px;
+
+	@media (${media._medium}) {
+		grid-template-areas: "Menu";
+	}
 `;
 
 const Burger = styled.div `
@@ -67,22 +76,28 @@ const Burger = styled.div `
 
 const Menu = styled.ul `
 	grid-area: Menu;
+	display: inline-flex;
 	place-content: center;
+	padding: 0;
+	margin: 0;
 
 	& ${AuthLi}, & ${NoAuthLi} {
 		display: none;
 	}
 
 	@media (${media._medium}) {
-		display: inline-grid;
+		display: inline-flex;
+		justify-content: space-evenly;
 	}
 `;
 
 // +++++++++  Elements  +++++++++ 
 const AuthLi = styled.li `
+	width: 100px;
 	${ ({auth}) => auth ? `display: inline-grid;`:`display: none;`}
 `;
 const NoAuthLi = styled.li `
+	width: 100px;
 	${ ({auth}) => !auth ? `display: inline-grid;`:`display: none;`}
 `;
 
