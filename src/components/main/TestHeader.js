@@ -12,7 +12,7 @@ import { colors, media } from '../../helpers/cssConstants';
 const Header = styled.div `
 	display: grid;
 	grid-template-areas: "home Navblock";
-	grid-template-columns: auto;
+	grid-template-columns: 2fr 1fr;
 	
 	position: fixed;
   height: 49px;
@@ -30,7 +30,8 @@ const Header = styled.div `
 const Home = styled.div `
 	grid-area: home;
 	display: inline-grid;
-	grid-template-areas: "Logo Welcome"
+	grid-template-areas: "Logo Welcome";
+	align-content: start;
 `;
 
 const Logo = styled.div `
@@ -44,21 +45,48 @@ const Welcome = styled.div `
 	grid-area: Welcome;
 	display: grid;
 	place-content: center;
-
 `;
 
 // +++++++++ Nav Section  +++++++++ 
 const NavBlock = styled.div `
 	grid-area: Navblock;
 	display: inline-grid;
-	grid-template-areas: "Burger";
+	// grid-template-areas: "Burger";
 
   place-content: center right;
-  padding-right: 10px;
+  // padding-right: 10px;
+	  text-decoration: none;
 
-	@media (${media._medium}) {
-		grid-template-areas: "Menu";
-	}
+  // &:active, &:hover {
+  	background: palegreen;
+		grid-template-areas: 
+		"Burger"
+		"Todos"
+		"Logout"
+		"Register"
+		"login"
+		;
+
+
+		// & div {
+		// 	display: none;
+		// 	color: red;
+		// 	// position: fixed;
+		// }
+
+		// & ul {
+		// 	width: 100%;
+		// 	height: 100px;
+		// 	top: 35;
+		// 	display: inline-flex
+		// 	background: paleviolet;
+		// 	color: lime;
+		// }
+  }
+
+	// @media (${media._medium}) {
+	// 	grid-template-areas: "Menu";
+	// }
 `;
 
 const Burger = styled.div `
@@ -69,20 +97,21 @@ const Burger = styled.div `
 	color: ${colors._iceblue};
 	&:hover { color:lime; }
 
-	@media (${media._medium}) {
-		display: none;
-	}
+	// @media (${media._medium}) {
+	// 	display: none;
+	// }
 `;
 
 const Menu = styled.ul `
 	grid-area: Menu;
-	display: inline-flex;
+	// display: none;
 	place-content: center;
 	padding: 0;
 	margin: 0;
 
-	& ${AuthLi}, & ${NoAuthLi} {
-		display: none;
+	& li {
+		// display: none;
+		// background: orange;
 	}
 
 	@media (${media._medium}) {
@@ -94,11 +123,11 @@ const Menu = styled.ul `
 // +++++++++  Elements  +++++++++ 
 const AuthLi = styled.li `
 	width: 100px;
-	${ ({auth}) => auth ? `display: inline-grid;`:`display: none;`}
+	// ${ ({auth}) => auth ? `display: inline-grid;`:`display: none;`}
 `;
 const NoAuthLi = styled.li `
 	width: 100px;
-	${ ({auth}) => !auth ? `display: inline-grid;`:`display: none;`}
+	// ${ ({auth}) => !auth ? `display: inline-grid;`:`display: none;`}
 `;
 
 const A = styled(Link) `
