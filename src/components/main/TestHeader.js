@@ -57,15 +57,20 @@ const Burger = styled.div `
 	grid-area: Burger;
 	display: inline-grid;
 	place-content: center right;
-
+	padding-right: 5px;
 	color: ${colors._iceblue};
+
 	&:hover { color:lime; }
 
-
-	&:hover ~ ul {
-	 display: inline-grid;
-	 background: palegreen;
-
+	&:hover ul {
+		display: inline-grid;
+		grid-row-gap: 15px
+		position: absolute;
+		width: 25%;
+		min-height: 90px;
+		right: 2px;
+		top: -4px;
+		background: aliceblue;
 	}
 
 	// @media (${media._medium}) {
@@ -78,16 +83,9 @@ const Menu = styled.ul `
 	display: none;
 	place-content: center;
 
-	background: palegoldenrod;
-	width: 65%;
-	right: 0;
-	position: absolute;
-
-	top: -1px;
-	padding: 0;
+	padding: 10px;
 	margin: 0;
 	text-decoration: none;
-
 
 	@media (${media._medium}) {
 		display: inline-flex;
@@ -100,17 +98,19 @@ const AuthLi = styled.li `
 	width: 100px;
 	display: inline-grid;
 	place-content: center;
+	text-shadow: none;
+	font-size: initial
 
 display: inline-grid;
 
-	// ${ ({auth}) => auth ? `display: inline-grid;`:`display: none;`}
+	${ ({auth}) => auth ? `display: inline-grid;`:`display: none;`}
 `;
 const NoAuthLi = styled.li `
 	width: 100px;
 	display: inline-grid;
 	place-content: center;
 
-	// ${({auth}) => !auth ? `display: inline-grid;`:`display: none;`}
+	${({auth}) => !auth ? `display: inline-grid;`:`display: none;`}
 `;
 
 const A = styled(Link) `
@@ -147,7 +147,7 @@ const TestHeader = (props, context) => {
 
 			</Home>
 				
-			<Burger id= 'Burger' className= ' engr fa fa-navicon fa-2x'/> 
+			<Burger id= 'Burger' className= ' engr fa fa-navicon fa-2x'> 
 
 			<Menu id= 'Menu' > 
 
@@ -168,6 +168,8 @@ const TestHeader = (props, context) => {
 				 </NoAuthLi>
 
 			</Menu>
+
+			</Burger>
 			
 
 		</Grid>
