@@ -11,15 +11,17 @@ import { colors, media } from '../../helpers/cssConstants';
 
 const Header = styled.div `
 	display: grid;
-	grid-template-areas: "home Navblock";
+	grid-template-areas: "home ... Navblock";
+	grid-template-columns: 2fr 2fr 1fr;
 	
-	background: aliceblue;
-	border: 1px solid ${colors._deepblue};
 	position: fixed;
 	width: 100%;
 	z-index: 100;
 	top: 0;
 	left:0;
+	background: aliceblue;
+	border: 1px solid ${colors._deepblue};
+	padding 5px;
 `;
 
 // +++++++++ Home Section  +++++++++ 
@@ -65,15 +67,23 @@ const Burger = styled.div `
 
 const Menu = styled.ul `
 	grid-area: Menu;
-	display: inline-grid;
 	place-content: center;
+
+	& ${AuthLi}, & ${NoAuthLi} {
+		display: none;
+	}
+
+	@media (${media._medium}) {
+		display: inline-grid;
+	}
 `;
 
+// +++++++++  Elements  +++++++++ 
 const AuthLi = styled.li `
-	${ ({auth}) => auth ? `display: inline-grid` : `display: none`}
+	${ ({auth}) => auth ? `display: inline-grid;`:`display: none;`}
 `;
 const NoAuthLi = styled.li `
-	${ ({auth}) => !auth ? `display: inline-grid` : `display: none`}
+	${ ({auth}) => !auth ? `display: inline-grid;`:`display: none;`}
 `;
 
 const A = styled(Link) `
