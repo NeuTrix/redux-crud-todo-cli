@@ -62,7 +62,7 @@ const Navigation = styled.div `
 			display: inline-grid;
 			grid-row-gap: 15px
 			position: absolute;
-			width: 25%;
+			width: 100%;
 			min-height: 90px;
 			right: 0px;
 			top: 34px;
@@ -106,6 +106,7 @@ const Menu = styled.ul `
 // +++++++++  Elements  +++++++++ 
 const AuthLi = styled.li `
 	width: 100px;
+
 	display: inline-grid;
 	place-content: center;
 	text-shadow: none;
@@ -161,7 +162,6 @@ const NvBar = (props, context) => {
 				<Burger id= 'Burger' className= ' engr fa fa-navicon fa-2x'/>
 
 				<Menu id= 'Menu' > 
-
 					<AuthLi auth= {auth} > 
 						<A to= '/todos' > Todos </A>
 					</AuthLi>

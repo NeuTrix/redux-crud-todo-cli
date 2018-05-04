@@ -25,20 +25,16 @@
     "babel-plugin-transform-decorators": "^6.24.1",
     "cross-fetch": "^1.1.1",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.2.1",
     "jsonwebtoken": "^8.2.0",
     "jsxhint": "^0.15.1",
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.4",
-    "mdbootstrap": "^4.5.0",
     "mocha": "^5.1.0",
     "path": "^0.12.7",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
-    "react-bootstrap": "^0.31.5",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
-    "react-router-bootstrap": "^0.24.4",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
     "react-scripts": "^1.0.17",
@@ -63,7 +59,6 @@
     "expect": "^22.0.3",
     "faker": "^4.1.0",
     "jest": "^22.0.4",
-    "react-addons-test-utils": "^15.6.2",
-    "tree-list": "^1.0.0"
+    "react-addons-test-utils": "^15.6.2"
   }
 }
