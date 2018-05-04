@@ -23,6 +23,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "babel-plugin-transform-decorators": "^6.24.1",
+    "classnames": "^2.2.5",
     "cross-fetch": "^1.1.1",
     "font-awesome": "^4.7.0",
     "jsonwebtoken": "^8.2.0",
