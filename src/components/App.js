@@ -29,8 +29,9 @@ const App = (props) => {
 			" main "  
 		;
 		grid-template-columns: 1fr;
-		/*grid-template-rows: auto;*/
 		grid-gap: 10px;
+
+		font-family: arial;
 		padding: 0px 10px 0px 10px;
 	`; 
 
