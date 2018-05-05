@@ -25,6 +25,7 @@ const Grid = styled.form `
 	color: ${colors._iceblue};
 	padding: 20px;
 	width: 300px;
+	font-size: 1.5em;
 
 	@media (${media._large}) {
 		width: 500px;

@@ -38,13 +38,13 @@ const RegisterPage = (props) => {
 
 RegisterPage.propTypes = {
 	addFlashMessage: PropTypes.func.isRequired,
-	className: PropTypes.string.isRequired, // from styled-components
+	className: PropTypes.string, // from styled-components
 	userSignupRequest: PropTypes.func.isRequired,
 };
 
 RegisterPage.defaultProps = {
 	// addFlashMessage: f => f,
-	// userSignupRequest: f => f,
+	userSignupRequest: f => alert('error: default fn for RegisterPage') ,
 };
 
 export default connect(null, { userSignupRequest, addFlashMessage })(RegisterPage);
