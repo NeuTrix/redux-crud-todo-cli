@@ -46,7 +46,7 @@ export function userSignupRequest (userData) {
 				return res;
 			})
 			.catch((err) => {
-				// dispatch(registerHasError)
+				// dispatch(registerHasError)ww
 				console.log(err);
 			});
 	};

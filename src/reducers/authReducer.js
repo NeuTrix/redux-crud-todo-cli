@@ -1,30 +1,31 @@
 import isEmpty from 'lodash/isEmpty';
 import * as mod from '../actions/typeConstants';
 
-const initState = {
-	isAuthenicated: false,
+export const initialState = {
+	isAuthenticated: false,
 	registerHasError: false,
 	registerHasSuccess: false,
 	registerIsPosting: false,
 	user: {}
 };
 
-export const authReducer = (state = initState, action = {}) => {
+export const authReducer = (state = initialState, action = {}) => {
 	let payload = action.payload;
 
 	switch(action.type) {
 
 	case mod.SET_CURRENT_USER:
 		return {
-			
-			isAuthenticated: !isEmpty(payload.user),
-			user: payload.user
+			...state, 
+			...{ 
+				isAuthenticated: !isEmpty(payload.user), 
+				user: payload.user 
+			}
 		}; 
 	
 	case mod.REGISTER_IS_POSTING:
 		return {
-			registerIsPosting: payload,
-			user: payload.user
+		registerIsPosting: payload.bool,
 		}; 
 
 	default: 
