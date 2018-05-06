@@ -33,8 +33,6 @@ describe ('The signupAction\'s authReducer...', () => {
 		passwordConfirm: 'Zman',
 	};
 
-	// const app = 'https://redux-todo-api.herokuapp.com/api/register';
-	// const agent = chai.request.agent(app);
 	it('...imports the correct initial state object', ( ) => {
 		expect(initialState).have.property('isAuthenticated').to.eql(false);
 		expect(initialState).have.property('registerHasError').to.eql(false);
