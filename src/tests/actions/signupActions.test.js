@@ -72,7 +72,31 @@ describe ('The signupAction\'s authReducer...', () => {
 		});
 	});
 
-	describe.only('The setCurrentUser Action...', () => {
+	describe('The registerIsPosting Action...', () => {
+		let readState = AuthReducer(initialState, registerIsPosting(true));
+
+		it('...has the correct number of props', () => {
+			expect(Object.keys(readState).length).to.eql(5);
+		});
+	
+		it('...can reset the registerIsPosting prop', () => {
+			expect(readState.registerIsPosting).to.eql(true);
+		});
+	});
+
+	describe.only('The registerSucceeded Action...', () => {
+		let readState = AuthReducer(initialState, registerSucceeded(true));
+
+		it('...has the correct number of props', () => {
+			expect(Object.keys(readState).length).to.eql(5);
+		});
+	
+		it('...can reset the registerSucceeded prop', () => {
+			expect(readState.registerSucceeded).to.eql(true);
+		});
+	});
+
+	describe('The registerHasError Action...', () => {
 		let readState = AuthReducer(initialState, registerHasError(true));
 
 		it('...has the correct number of props', () => {
@@ -83,4 +107,5 @@ describe ('The signupAction\'s authReducer...', () => {
 			expect(readState.registerHasError).to.eql(true);
 		});
 	});
+	
 });
