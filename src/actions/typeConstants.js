@@ -3,7 +3,7 @@ export const TODOS_IS_LOADING		 	= 'TODOS_IS_LOADING';
 export const TODOS_HAS_FETCHED		= 'TODOS_HAS_FETCHED';
 export const TODOS_HAS_ERRORED		= 'TODOS_HAS_ERRORED';
 
-// loginActions (authReducer)
+// signupAction (authReducer)
 export const REGISTER_IS_POSTING 	= 'REGISTER_IS_POSTING';
 export const REGISTER_HAS_ERROR 	= 'REGISTER_ERRORED';
 export const REGISTER_SUCCEEDED 	= 'REGISTER_SUCCEDED';

@@ -5,13 +5,17 @@ import isEmpty from 'lodash';
 import validator from 'validator';
 // custom
 import AuthReducer, { initialState } from '../../reducers/authReducer';
-import * as mod from '../../actions/signupActions';
+import {
+	setCurrentUser,
+	registerIsPosting,
+	registerHasError,
+	registerSucceeded,
+} from '../../actions/signupActions';
 
 chai.use(chaiHttp);
 
 describe ('The signupAction\'s authReducer...', () => {
-	const iState = initialState;
-	deepfreeze(iState);
+	deepfreeze(initialState);
 
 	const profile_1 = {
 		username:'UserProfile_1',
@@ -32,31 +36,51 @@ describe ('The signupAction\'s authReducer...', () => {
 	// const app = 'https://redux-todo-api.herokuapp.com/api/register';
 	// const agent = chai.request.agent(app);
 	it('...imports the correct initial state object', ( ) => {
-		expect(iState).have.property('isAuthenticated').to.eql(false);
-		expect(iState).have.property('registerHasError').to.eql(false);
-		expect(iState).have.property('registerHasSuccess').to.eql(false);
-		expect(iState).have.property('registerIsPosting').to.eql(false);
-		expect(iState).have.property('registerIsPosting').to.eql(false);
-		expect(Object.keys(iState).length).to.eql(5);
+		expect(initialState).have.property('isAuthenticated').to.eql(false);
+		expect(initialState).have.property('registerHasError').to.eql(false);
+		expect(initialState).have.property('registerHasSuccess').to.eql(false);
+		expect(initialState).have.property('registerIsPosting').to.eql(false);
+		expect(initialState).have.property('registerIsPosting').to.eql(false);
+		expect(Object.keys(initialState).length).to.eql(5);
 	});
 	
 	describe('The setCurrentUser Action...', () => {
-		let readState = AuthReducer(iState, mod.setCurrentUser(profile_1));
-		console.log(readState);
-		it('...can set the current user and isAuthenticated props', () => {
+		let readState = AuthReducer(initialState, setCurrentUser(profile_1));
+
+		it('...has the correct number of props', () => {
 			expect(Object.keys(readState).length).to.eql(5);
+		});
+	
+		it('...can reset the current user prop', () => {
+			expect(readState.user).to.eql(profile_1);
+		});
+
+		it('...can reset the isAuthentication prop', () => {
+			expect(readState.isAuthenticated).to.eql(true);
 		});
 	});
 
-	xit('... has a working registerIsPosting fn', () => {
-		// let readState= AuthReducer(initialState, mod.registerIsPosting(true));
-		let readState= AuthReducer(iState, mod.registerIsPosting(true));
-		// deepfreeze(readState); 
-		
-		console.log(readState);
-		expect(readState.registerIsPosting).to.eql(true);
-	});
-	
-	it('...can make a successful api call');
+	describe('The setCurrentUser Action...', () => {
+		let readState = AuthReducer(initialState, registerIsPosting(true));
 
+		it('...has the correct number of props', () => {
+			expect(Object.keys(readState).length).to.eql(5);
+		});
+	
+		it('...can reset the registerIsPosting prop', () => {
+			expect(readState.registerIsPosting).to.eql(true);
+		});
+	});
+
+	describe.only('The setCurrentUser Action...', () => {
+		let readState = AuthReducer(initialState, registerHasError(true));
+
+		it('...has the correct number of props', () => {
+			expect(Object.keys(readState).length).to.eql(5);
+		});
+	
+		it('...can reset the registerHasError prop', () => {
+			expect(readState.registerHasError).to.eql(true);
+		});
+	});
 });

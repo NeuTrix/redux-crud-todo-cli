@@ -17,15 +17,14 @@ export const authReducer = (state = initialState, action = {}) => {
 	case mod.SET_CURRENT_USER:
 		return {
 			...state, 
-			...{ 
-				isAuthenticated: !isEmpty(payload.user), 
-				user: payload.user 
-			}
+			...{ isAuthenticated: !isEmpty(payload.user), 
+				user: payload.user }
 		}; 
 	
 	case mod.REGISTER_IS_POSTING:
 		return {
-		registerIsPosting: payload.bool,
+		...state, 
+		registerIsPosting: payload.bool
 		}; 
 
 	default: 
