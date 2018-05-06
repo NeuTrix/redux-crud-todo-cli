@@ -9,7 +9,7 @@ import {
 	setCurrentUser,
 	registerIsPosting,
 	registerHasError,
-	registerSucceeded,
+	registerHasSucceeded,
 } from '../../actions/signupActions';
 
 chai.use(chaiHttp);
@@ -84,15 +84,15 @@ describe ('The signupAction\'s authReducer...', () => {
 		});
 	});
 
-	xdescribe('The registerSucceeded Action...', () => {
+	describe('The registerHasSucceeded Action...', () => {
 		let readState = AuthReducer(initialState, registerHasSucceeded(true));
 
 		it('...has the correct number of props', () => {
 			expect(Object.keys(readState).length).to.eql(5);
 		});
 	
-		it('...can reset the registerSucceeded prop', () => {
-			expect(readState.registerSucceeded).to.eql(true);
+		it('...can reset the registerHasSucceeded prop', () => {
+			expect(readState.registerHasSucceeded).to.eql(true);
 		});
 	});
 

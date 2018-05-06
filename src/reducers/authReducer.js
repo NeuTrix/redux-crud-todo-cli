@@ -28,7 +28,7 @@ export const authReducer = (state = initialState, action = {}) => {
 		case REGISTER_HAS_SUCCEEDED:
 		return {
 				...state, 
-				registerSucceeded : payload.bool
+				registerHasSucceeded : payload.bool
 			}; 
 	
 			case REGISTER_IS_POSTING:
