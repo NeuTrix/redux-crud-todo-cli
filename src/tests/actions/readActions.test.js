@@ -12,7 +12,7 @@ describe ('the basic READ_ITEM case', () => {
 	const todo2 = { _id:202, task:'Test Item before', owner: 'Second' };
 	const newState = [ todo1, todo2 ];
 
-	let readState=TodoReducer(startState, mod.readTodos(newState));
+	let readState= TodoReducer(startState, mod.readTodos(newState));
 
 	it ('... changes the length of the state', () => {
 		expect(readState.length).to.eql(startState.length + 2);

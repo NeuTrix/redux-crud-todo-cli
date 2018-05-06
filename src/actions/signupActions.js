@@ -1,8 +1,31 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import setAuthorizationToken from '../components/auth/setAuthToken';
-import * as mod from './typeConstants';
+// custom
 import { url } from '../helpers/apiHelper.js'
+import setAuthorizationToken from '../components/auth/setAuthToken';
+import { addFlashMessage } from './flashActions';
+import * as mod from './typeConstants';
+
+export function registerIsPosting (bool) {
+	return {
+		type: mod.REGISTER_IS_POSTING,
+		payload: { bool }
+	};
+}
+
+export function registerHasError (bool) {
+	return {
+		type: mod.REGISTER_HAS_ERROR,
+		payload: { bool }
+	};
+}
+	
+export function registerSucceeded (bool) {
+	return {
+		type: mod.REGISTER_SUCCEEDED,
+		payload: { bool }
+	};
+}
 
 export function setCurrentUser (user) {
 	return {
@@ -11,8 +34,6 @@ export function setCurrentUser (user) {
 	};
 }
 
-// const url = 'https://redux-todo-api.herokuapp.com';
-	
 export function userSignupRequest (userData) {
 	return dispatch => {
 		return axios.post(`${ url }/api/auth/register`, userData)
@@ -23,6 +44,10 @@ export function userSignupRequest (userData) {
 				setAuthorizationToken(token);
 				dispatch(setCurrentUser(user));
 				return res;
+			})
+			.catch((err) => {
+				// dispatch(registerHasError)
+				console.log(err);
 			});
 	};
 }

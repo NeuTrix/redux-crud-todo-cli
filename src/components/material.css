@@ -42,7 +42,7 @@
 }
 
 .btn {
-	font-weight: bold;
+	/* font-weight: bold; */
 	height: 30px;
 	width: 80px;
 	border: 1px solid grey;

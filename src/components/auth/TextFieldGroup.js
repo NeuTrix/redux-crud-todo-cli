@@ -20,6 +20,9 @@ const Input = styled.input `
 	grid-area: input;
 	text-indent: 10px;
 	color: ${ colors._charcoal };
+	font-size: 1.0em;
+
+	
 `;
 
 const Title = styled.div `
@@ -39,9 +42,9 @@ const TextFieldGroup = (props) => {
 	return (
 		 <Grid className = { classnames( `${ className } form-group`, { 'has-error': errors }) } >
 
-		 <Title className= 'engr' >
-			{ props.label && <h3> { props.label } </h3> }
-		 </Title>
+			<Title  >
+				{ props.label && <h3> { props.label } </h3> }
+			</Title>
 
 			<Input
 				className = 'mat'
