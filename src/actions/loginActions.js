@@ -13,8 +13,6 @@ export function setCurrentUser (user) {
 	};
 }
 
-// const url = 'https://redux-todo-api.herokuapp.com';
-
 export function userLoginRequest(userData) {
 	return dispatch => {
 	  return axios.post(`${ url }/api/auth/login`, userData)
