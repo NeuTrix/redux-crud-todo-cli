@@ -33,7 +33,7 @@ describe ('The signupAction\'s authReducer...', () => {
 		passwordConfirm: 'Zman',
 	};
 
-	it('...imports the correct initial state object', ( ) => {
+	it('...imports the correct initial state object', () => {
 		expect(initialState).have.property('isAuthenticated').to.eql(false);
 		expect(initialState).have.property('registerHasError').to.eql(false);
 		expect(initialState).have.property('registerHasSucceeded').to.eql(false);
