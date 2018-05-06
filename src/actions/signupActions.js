@@ -4,32 +4,37 @@ import jwtDecode from 'jwt-decode';
 import { url } from '../helpers/apiHelper.js'
 import setAuthorizationToken from '../components/auth/setAuthToken';
 import { addFlashMessage } from './flashActions';
-import * as mod from './typeConstants';
+import {
+	REGISTER_IS_POSTING,
+	REGISTER_HAS_ERROR,
+	REGISTER_HAS_SUCCEEDED,
+	SET_CURRENT_USER,
+} from './typeConstants';
 
 export function registerIsPosting (bool) {
 	return {
-		type: mod.REGISTER_IS_POSTING,
+		type: REGISTER_IS_POSTING,
 		payload: { bool }
 	};
 }
 
 export function registerHasError (bool) {
 	return {
-		type: mod.REGISTER_HAS_ERROR,
+		type: REGISTER_HAS_ERROR,
 		payload: { bool }
 	};
 }
 	
-export function registerSucceeded (bool) {
+export function registerHasSucceeded (bool) {
 	return {
-		type: mod.REGISTER_SUCCEEDED,
+		type: REGISTER_HAS_SUCCEEDED,
 		payload: { bool }
 	};
 }
 
 export function setCurrentUser (user) {
 	return {
-		type: mod.SET_CURRENT_USER,
+		type: SET_CURRENT_USER,
 		payload: { user }
 	};
 }

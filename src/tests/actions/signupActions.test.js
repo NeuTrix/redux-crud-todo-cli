@@ -38,7 +38,7 @@ describe ('The signupAction\'s authReducer...', () => {
 	it('...imports the correct initial state object', ( ) => {
 		expect(initialState).have.property('isAuthenticated').to.eql(false);
 		expect(initialState).have.property('registerHasError').to.eql(false);
-		expect(initialState).have.property('registerHasSuccess').to.eql(false);
+		expect(initialState).have.property('registerHasSucceeded').to.eql(false);
 		expect(initialState).have.property('registerIsPosting').to.eql(false);
 		expect(initialState).have.property('registerIsPosting').to.eql(false);
 		expect(Object.keys(initialState).length).to.eql(5);
@@ -84,8 +84,8 @@ describe ('The signupAction\'s authReducer...', () => {
 		});
 	});
 
-	describe.only('The registerSucceeded Action...', () => {
-		let readState = AuthReducer(initialState, registerSucceeded(true));
+	xdescribe('The registerSucceeded Action...', () => {
+		let readState = AuthReducer(initialState, registerHasSucceeded(true));
 
 		it('...has the correct number of props', () => {
 			expect(Object.keys(readState).length).to.eql(5);

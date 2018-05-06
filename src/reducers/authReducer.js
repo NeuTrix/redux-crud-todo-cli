@@ -1,14 +1,14 @@
 import isEmpty from 'lodash/isEmpty';
 import {
 	REGISTER_IS_POSTING,
-	REGISTER_SUCCEEDED,
+	REGISTER_HAS_SUCCEEDED,
 	SET_CURRENT_USER,
 	REGISTER_HAS_ERROR,
 } from '../actions/typeConstants';
 
 export const initialState = {
 	registerIsPosting: false,
-	registerHasSuccess: false,
+	registerHasSucceeded: false,
 	user: {},
 	isAuthenticated: false,
 	registerHasError: false,
@@ -25,7 +25,7 @@ export const authReducer = (state = initialState, action = {}) => {
 			registerIsPosting: payload.bool
 		}; 
 
-		case REGISTER_SUCCEEDED:
+		case REGISTER_HAS_SUCCEEDED:
 		return {
 				...state, 
 				registerSucceeded : payload.bool
