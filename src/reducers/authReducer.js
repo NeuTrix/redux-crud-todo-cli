@@ -19,33 +19,27 @@ export const authReducer = (state = initialState, action = {}) => {
 
 	switch(action.type) {
 
-		case REGISTER_IS_POSTING:
+	case REGISTER_IS_POSTING:
 		return {
 			...state, 
 			registerIsPosting: payload.bool
 		}; 
 
-		case REGISTER_HAS_SUCCEEDED:
+	case REGISTER_HAS_SUCCEEDED:
 		return {
-				...state, 
-				registerHasSucceeded : payload.bool
-			}; 
+			...state, 
+			registerHasSucceeded : payload.bool
+		}; 
 	
-			case REGISTER_IS_POSTING:
+	case SET_CURRENT_USER:
 		return {
-				...state, 
-				registerIsPosting: payload.bool
-			}; 
-			
-			case SET_CURRENT_USER:
-				return {
-					...state, 
-					...{ isAuthenticated: !isEmpty(payload.user), 
-						user: payload.user }
-				}; 
+			...state, 
+			...{ isAuthenticated: !isEmpty(payload.user), 
+				user: payload.user }
+		}; 
 
 					
-		case REGISTER_HAS_ERROR:
+	case REGISTER_HAS_ERROR:
 		return {
 			...state, 
 			registerHasError: payload.bool
