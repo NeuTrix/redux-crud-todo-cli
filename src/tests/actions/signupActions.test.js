@@ -105,5 +105,6 @@ describe ('The signupAction\'s authReducer...', () => {
 			expect(readState.registerHasError).to.eql(true);
 		});
 	});
-	
 });
+
+

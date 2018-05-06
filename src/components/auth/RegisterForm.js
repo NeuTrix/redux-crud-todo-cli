@@ -106,14 +106,14 @@ class RegisterForm extends Component {
 						text: `Welcome ${ res.data.username} ! You have successfully Registered and Logged In.`
 					});
 					this.context.router.history.push('/todos'); 
-				}, 
-				(err) => {
+				})
+				.catch ((err) => {
 					this.props.addFlashMessage({
 						type: 'error',
 						text: `WARNING! Something went wrong.  Please try again:   ${ err }.`
 					});
 					this.setState({ 
-						errors: err.response.data, 
+						errors: err.data, 
 						isLoading: false 
 					});
 				});

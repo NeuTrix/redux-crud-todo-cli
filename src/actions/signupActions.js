@@ -52,6 +52,8 @@ export function userSignupRequest (userData) {
 			})
 			.catch((err) => {
 				// dispatch(registerHasError)ww
+				dispatch(addFlashMessage({type: 'error', text: `There was an error with your registration:
+				${err}`}));
 				console.log(err);
 			});
 	};
