@@ -5,9 +5,11 @@ import styled	from 'styled-components';
 import validateInput from '../../helpers/signupValidator';
 import TextFieldGroup from './TextFieldGroup';
 import BasicButton from '../buttons/BasicButton';
+import Spinner from '../buttons/Spinner';
 import { colors, media  } from '../../helpers/cssConstants';
 
 // +++++++++  CSS  +++++++++ 
+const baseColor = colors._deepblue 
 
 const Grid = styled.form `
 	display: grid;
@@ -22,10 +24,10 @@ const Grid = styled.form `
 	;
 	grid-row-gap: 10px;
 	border: 1px solid steelblue;
-	color: ${colors._iceblue};
+	color: ${baseColor};
 	padding: 20px;
 	width: 300px;
-	font-size: 1.5em;
+	font-size: 1.0em;
 
 	@media (${media._large}) {
 		width: 500px;
@@ -56,8 +58,15 @@ const  PwordConf = styled(TextFieldGroup) `
 	gride-area: pwConf;
 `;
 
-const  Submit = styled(BasicButton) `
+const  Submit = styled.button`
 	gride-area: submit;
+	font-weight: bold;
+	font-size: 1.0em;
+	height: 30px;
+	width: 80px;
+	border: 1px solid grey;
+	border-radius: 4px;
+	color: ${baseColor}
 `;
 
 // +++++++++  COMPONENT  +++++++++ 
@@ -71,7 +80,7 @@ class RegisterForm extends Component {
 			email: '',
 			emailConfirm: '',
 			errors: { },
-			isLoading: false,
+			isLoading: this.props.authApi.registerIsPosting,
 			password: '',
 			passwordConfirm: '',
 			username: '',
@@ -123,7 +132,7 @@ class RegisterForm extends Component {
 
 	render() {
     
-		const { errors } = this.state;
+		const { errors, isLoading } = this.state;
 
 		return (
 
@@ -132,8 +141,8 @@ class RegisterForm extends Component {
 				className = 'boxClr paper' 
 				onSubmit = { this.onSubmit } 
 			>
-				<Title className = 'engr under ctr'> 
-					 <h2> Registration </h2>
+				<Title className= 'ctr engr under' > 
+					<h1>  { !isLoading ? 'Registration' : <Spinner color= { baseColor } /> } </h1>
 				</Title>
 
 				<User 
@@ -184,12 +193,12 @@ class RegisterForm extends Component {
 				/>
 
 				<Submit 
-					className = 'ctr'
-					area = 'submit'
-					type = 'submit' 
-					name = 'Register' 
-					disable = { this.state.isLoading.toString()} 
-				/>
+					type= 'submit' 
+					name= 'Log in' 
+					disabled= {isLoading}
+				>
+					Register
+				</Submit> 
 
 			</Grid>
 		);
@@ -197,17 +206,19 @@ class RegisterForm extends Component {
 }
 
 RegisterForm.propTypes = {
+	addFlashMessage: PropTypes.func.isRequired,
+	authApi: PropTypes.object.isRequired,
 	userSignupRequest: PropTypes.func.isRequired,
-	addFlashMessage: PropTypes.func.isRequired
 };
 
 RegisterForm.defaultProps = {
-	// userSignupRequest: f => f,
-	// addFlashMessage: f => f
+	addFlashMessage: f => f,
+	authApi: { loginIsPosting: false},
+	userSignupRequest: f => f,
 };
 
 RegisterForm.contextTypes = {
-	router: PropTypes.object.isRequired
+	router: PropTypes.object.isRequired,
 };
 
 export default RegisterForm;

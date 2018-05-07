@@ -31,10 +31,18 @@ const RegisterPage = (props) => {
 			<EntryForm  
 				userSignupRequest = { props.userSignupRequest } 
 				addFlashMessage = { props.addFlashMessage } 
+				authApi = { props.authApi }
 			/>
 		</Grid>
 	)
 }
+
+
+const mapStateToProps = (state) => {
+	return { 
+		authApi: state.authApi 
+	};
+};
 
 RegisterPage.propTypes = {
 	addFlashMessage: PropTypes.func.isRequired,
@@ -47,4 +55,4 @@ RegisterPage.defaultProps = {
 	userSignupRequest: f => alert('error: default fn for RegisterPage') ,
 };
 
-export default connect(null, { userSignupRequest, addFlashMessage })(RegisterPage);
+export default connect(mapStateToProps, { userSignupRequest, addFlashMessage })(RegisterPage);

@@ -175,12 +175,11 @@ Loginform.propTypes = {
 };
 
 Loginform.defaultProps = {
-	className: '',
 	addFlashMessage: f => f,
+	authApi: { loginIsPosting: false},
+	className: '',
 	currUser: { },
 	userLoginRequest: f => f,
-	authApi: { loginIsPosting: false},
-	test: "NOOO"
 };
 
 Loginform.contextTypes = {
