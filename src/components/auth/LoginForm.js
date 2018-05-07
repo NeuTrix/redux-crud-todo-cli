@@ -62,7 +62,7 @@ class Loginform extends Component {
 			identifier: '',
 			password: '',
 			errors: { },
-			isLoading: false,
+			isLoading: this.props.authApi.loginIsPosting,
 		};
 
 		this.onChange = this.onChange.bind(this);
@@ -81,8 +81,6 @@ class Loginform extends Component {
 		}
 		return isValid;
 	}
-
-	
 
 	onSubmit(e) {
 		e.preventDefault();
@@ -159,6 +157,7 @@ class Loginform extends Component {
 
 Loginform.propTypes = {
 	addFlashMessage: PropTypes.func.isRequired,
+	authApi: PropTypes.object.isRequired,
 	className: PropTypes.string.isRequired, // from styled-components
 	currUser: PropTypes.object.isRequired,
 	userLoginRequest: PropTypes.func.isRequired,
