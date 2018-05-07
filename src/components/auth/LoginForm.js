@@ -53,6 +53,17 @@ const RegLink = styled(Link) `
 
 const Spinner = styled.div `
 
+border: 16px solid #f3f3f3; /* Light grey */
+	border-top: 16px solid ${ colors._mintgreen };
+    border-radius: 50%;
+    width: 70px;
+	height: 70px;
+	
+	animation: spin 2s linear infinite;
+	@keyframes spin {
+		from { transform: rotate(0deg); }
+		to { transform: rotate(360deg); }
+	}
 `
 
 // +++++++++  COMPONENT  +++++++++ 
@@ -116,7 +127,7 @@ class Loginform extends Component {
     
 		const { errors, identifier, password, isLoading } = this.state; 
 		const spinner = (
-			<Spinner className= 'fa fa-circle-o-notch fa-2x' />
+			<Spinner/>
 		)
 
 		return (
