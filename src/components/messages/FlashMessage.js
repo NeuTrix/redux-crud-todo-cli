@@ -1,6 +1,25 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
+// CSS
+
+const Flash = styled.div `
+	display: grid;
+	grid-template-areas: "message clear"
+`;
+
+const Message = styled.button `
+	grid-area: message;
+	background-color: orange;
+`;
+
+const Clear = styled.button `
+	grid-area: clear;
+	background: lime;
+`;
+
+// COMPONENT
 class FlashMessage extends Component {
 
 	constructor (props) {
@@ -22,36 +41,39 @@ class FlashMessage extends Component {
 		const { type, text } = this.props.message;
 		
 		const style = {
-				display: 'grid',
-				gridTemplateArea: `"msg btn"`,
-				gridTemplateColumns: '9fr 1fr',
+			display: 'grid',
+			gridTemplateArea: '"msg btn"',
+			gridTemplateColumns: '9fr 1fr',
 
-				border: '1px solid grey',
-				borderRadius: 5,
+			border: '1px solid grey',
+			borderRadius: 5,
 
-				background: 
+			background: 
 				type === 'success' ? 'palegreen' : 
-				type === 'warning' ? 'peach' :
-				type === 'info' ? 'aliceblue' :
-				type === 'error' ? 'pink' : 'lightgrey',
-		}
+					type === 'warning' ? 'peach' :
+						type === 'info' ? 'aliceblue' :
+							type === 'error' ? 'pink' : 'lightgrey',
+		};
 		
-		setTimeout(this.closeMessage, 7000);
+		setTimeout(this.closeMessage, 1999997000);
 
 		return (
-    	<div className = 'paper' style= { style }  >
-				<div className= 'ctr msg' > 
-					{ text } 
-				</div>
-    		<button  className= 'close btn' onClick= { this.onClick } >
-    			<span>&times;</span>
-  			</button>
-    	</div>
+			
+			<Flash 
+				className = 'FlashMessage paper' 
+			>
+				<Message> { text } </Message>
+				<Clear 
+					className= 'close btn fa fa-times fa-lg' 
+					onClick= { this.onClick }
+				/>
+    	</Flash>
 		);
 	}
 }
 
 FlashMessage.propTypes = {
+	test: 'true',
 	message: PropTypes.object.isRequired,
 	deleteFlashMessage: PropTypes.func.isRequired
 };

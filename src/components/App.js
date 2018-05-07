@@ -30,6 +30,7 @@ const App = (props) => {
 		;
 		grid-template-columns: 1fr;
 		grid-gap: 10px;
+		grid-template-rows: auto;
 
 		font-family: arial;
 		padding: 0px 10px 0px 10px;
@@ -42,6 +43,7 @@ const App = (props) => {
 
 	const Messages = styled.div `
 		grid-area: messages;
+		margin-top: 10px;
 	`;
 
 	const Main = styled.div `
