@@ -52,7 +52,7 @@ const Message = styled.div `
 const Navigation = styled.div `
 	grid-area: Navigation;
 	display: inline-grid;
-	place-content: center right;
+	place-content: center;
 	padding-right: 5px;
 
 	&:hover { color:lime; }
@@ -143,7 +143,7 @@ const NavBar = (props, context) => {
 
 	return (
 
-		<Grid id= 'Grid' >
+		<Grid className= 'NavBar' >
 
 			<Home id= 'Home'>
 
