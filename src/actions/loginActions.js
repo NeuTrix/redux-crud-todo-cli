@@ -1,10 +1,13 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
+// custom
 import setAuthorizationToken from '../components/auth/setAuthToken';
 import { fetchTodos, readTodos } from './readActions';
 import { addFlashMessage } from './flashActions';
-import * as mod from './typeConstants';
+// import { setCurrentUser } from './signupActions';
 import { url } from '../helpers/apiHelper.js';
+
+import * as mod from './typeConstants';
 
 export function setCurrentUser (user) {
 	return {
