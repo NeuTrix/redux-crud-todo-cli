@@ -51,6 +51,10 @@ const RegLink = styled(Link) `
 	gride-area: link;
 `;
 
+const Spinner = styled.div `
+
+`
+
 // +++++++++  COMPONENT  +++++++++ 
 
 class Loginform extends Component {
@@ -107,9 +111,13 @@ class Loginform extends Component {
 		}
 	}
 
+
 	render () {
     
 		const { errors, identifier, password, isLoading } = this.state; 
+		const spinner = (
+			<Spinner className= 'fa fa-circle-o-notch fa-2x' />
+		)
 
 		return (
 			<Grid 
@@ -117,7 +125,7 @@ class Loginform extends Component {
 				onSubmit= { this.onSubmit } 
 			>
 				<Title className= 'ctr engr under' > 
-					<h2> Log In </h2>  
+					<h1>  { isLoading ? 'Login' : spinner } </h1>
 				</Title>
 
 				<Email 
@@ -168,6 +176,8 @@ Loginform.defaultProps = {
 	addFlashMessage: f => f,
 	currUser: { },
 	userLoginRequest: f => f,
+	authApi: { loginIsPosting: false},
+	test: "NOOO"
 };
 
 Loginform.contextTypes = {

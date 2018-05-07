@@ -130,7 +130,7 @@ const A = styled(Link) `
 
 // +++++++++  COMPONENT  +++++++++ 
 
-const NvBar = (props, context) => {
+const NavBar = (props, context) => {
 
 	const logout = (e) => {
 		e.preventDefault();
@@ -188,18 +188,18 @@ const NvBar = (props, context) => {
 
 // +++++++++ PROPS  +++++++++ 
 
-NvBar.propTypes = {
+NavBar.propTypes = {
 	authApi: PropTypes.object.isRequired,
 	Logout: PropTypes.func.isRequired,
 };
 
-NvBar.defaultProps = {
+NavBar.defaultProps = {
 	authApi:  {},
 	Logout:  f => alert('Default action: Navbar Logout fn'),
 }
 
-NvBar.contextTypes= {
+NavBar.contextTypes= {
 	router: PropTypes.object.isRequired,
 };
 
-export default NvBar;
+export default NavBar;
