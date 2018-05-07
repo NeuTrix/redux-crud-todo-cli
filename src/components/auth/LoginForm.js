@@ -45,8 +45,15 @@ const  Pword = styled(TextFieldGroup) `
 	gride-area: pword;
 `;
 
-const  Submit = styled(BasicButton) `
+const  Submit = styled.button`
 	gride-area: submit;
+	font-weight: bold;
+	font-size: 1.0em;
+	height: 30px;
+	width: 80px;
+	border: 1px solid grey;
+	border-radius: 4px;
+	color: ${baseColor}
 `;
 
 const RegLink = styled(Link) `
@@ -122,7 +129,7 @@ class Loginform extends Component {
 				onSubmit= { this.onSubmit } 
 			>
 				<Title className= 'ctr engr under' > 
-					<h1>  { isLoading ? 'Login' : <Spinner color= { baseColor } /> } </h1>
+					<h1>  { !isLoading ? 'Login' : <Spinner color= { baseColor } /> } </h1>
 				</Title>
 
 				<Email 
@@ -148,13 +155,12 @@ class Loginform extends Component {
 				<Submit 
 					type= 'submit' 
 					name= 'Log in' 
-					disable= {isLoading.toString()} 
-				/> 
+					disabled= {isLoading}
+				> Log in </Submit> 
 
 				<RegLink to= '/register'>
 					Click here to register a new account
 				</RegLink>	
-
 			</Grid>
 		);
 	}

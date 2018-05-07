@@ -6,6 +6,7 @@ const BasicButton = ({ className, bgColor, color, name }) => {
 
 	const Button = styled.button `
 		font-weight: bold;
+		font-size: 1.0em;
 		height: 30px;
 		width: 80px;
 		border: 1px solid grey;
