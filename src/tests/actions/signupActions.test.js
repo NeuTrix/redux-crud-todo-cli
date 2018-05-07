@@ -11,6 +11,7 @@ import {
 	registerHasError,
 	registerHasSucceeded,
 } from '../../actions/signupActions';
+import { describe } from 'mocha';
 
 chai.use(chaiHttp);
 
@@ -107,4 +108,11 @@ describe ('The signupAction\'s authReducer...', () => {
 	});
 });
 
+ describe('The userSignupReguest fn...', () => {
 
+	beforeEach()
+
+	afterEach()
+
+		i
+ })
