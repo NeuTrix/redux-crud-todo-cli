@@ -3,7 +3,7 @@ import {
 	REGISTER_IS_POSTING,
 	REGISTER_HAS_SUCCEEDED,
 	SET_CURRENT_USER,
-	REGISTER_HAS_ERROR,
+	REGISTER_HAS_ERRORED,
 } from '../actions/typeConstants';
 
 export const initialState = {
@@ -11,7 +11,7 @@ export const initialState = {
 	registerHasSucceeded: false,
 	user: {},
 	isAuthenticated: false,
-	registerHasError: false,
+	registerHasErrored: false,
 };
 
 export const authReducer = (state = initialState, action = {}) => {
@@ -37,12 +37,11 @@ export const authReducer = (state = initialState, action = {}) => {
 			...{ isAuthenticated: !isEmpty(payload.user), 
 				user: payload.user }
 		}; 
-
 					
-	case REGISTER_HAS_ERROR:
+	case REGISTER_HAS_ERRORED:
 		return {
 			...state, 
-			registerHasError: payload.bool
+			registerHasErrored: payload.bool
 		}; 
 	default: 
 		return state;

@@ -8,7 +8,7 @@ import AuthReducer, { initialState } from '../../reducers/authReducer';
 import {
 	setCurrentUser,
 	registerIsPosting,
-	registerHasError,
+	registerHasErrored,
 	registerHasSucceeded,
 } from '../../actions/signupActions';
 
@@ -35,7 +35,7 @@ describe('The signupAction authReducer...', () => {
 
 	it('...imports the correct initial state object', () => {
 		expect(initialState).have.property('isAuthenticated').to.eql(false);
-		expect(initialState).have.property('registerHasError').to.eql(false);
+		expect(initialState).have.property('registerHasErrored').to.eql(false);
 		expect(initialState).have.property('registerHasSucceeded').to.eql(false);
 		expect(initialState).have.property('registerIsPosting').to.eql(false);
 		expect(initialState).have.property('registerIsPosting').to.eql(false);
@@ -94,23 +94,17 @@ describe('The signupAction authReducer...', () => {
 		});
 	});
 
-	describe('The registerHasError Action...', () => {
-		let readState = AuthReducer(initialState, registerHasError(true));
+	describe('The registerHasErrored Action...', () => {
+		let readState = AuthReducer(initialState, registerHasErrored(true));
 
 		it('...has the correct number of props', () => {
 			expect(Object.keys(readState).length).to.eql(5);
 		});
 	
-		it('...can reset the registerHasError prop', () => {
-			expect(readState.registerHasError).to.eql(true);
+		it('...can reset the registerHasErrored prop', () => {
+			expect(readState.registerHasErrored).to.eql(true);
 		});
 	});
 });
 
- describe('The userSignupReguest fn...', () => {
-
-	// beforeEach()
-
-	// afterEach()
-
- })
+ 

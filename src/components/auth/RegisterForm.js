@@ -110,7 +110,8 @@ class RegisterForm extends Component {
 				.catch ((err) => {
 					this.props.addFlashMessage({
 						type: 'error',
-						text: `WARNING! Something went wrong.  Please try again:   ${ err }.`
+						// text: `WARNING! Something went wrong.  Please try again:   ${ err }.`
+						text: 'Error: email or userid already taken. Please try again'
 					});
 					this.setState({ 
 						errors: err.data, 

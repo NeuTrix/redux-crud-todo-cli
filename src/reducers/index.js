@@ -15,7 +15,7 @@ const todoApp = combineReducers({
 	deleteApi: deleteApiReducer,
 	editApi: editApiReducer,
 	flashMessages: flashReducer,
-	authApi: authReducer
+	authApi: authReducer,
 });
 
 export default todoApp;

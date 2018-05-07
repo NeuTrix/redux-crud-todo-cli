@@ -4,7 +4,7 @@ import setAuthorizationToken from '../components/auth/setAuthToken';
 import { fetchTodos, readTodos } from './readActions';
 import { addFlashMessage } from './flashActions';
 import * as mod from './typeConstants';
-import { url } from '../helpers/apiHelper.js'
+import { url } from '../helpers/apiHelper.js';
 
 export function setCurrentUser (user) {
 	return {
@@ -15,7 +15,7 @@ export function setCurrentUser (user) {
 
 export function userLoginRequest(userData) {
 	return dispatch => {
-	  return axios.post(`${ url }/api/auth/login`, userData)
+		return axios.post(`${ url }/api/auth/login`, userData)
 			.then((res) => {
 				const token = res.data.token;
 				const user = jwtDecode(token);
@@ -36,7 +36,6 @@ export function logout(){
 		dispatch(setCurrentUser({}));
 		dispatch(addFlashMessage({ type: 'success', text:'You are now logged out.'}));
 		dispatch(readTodos([]));
-
 	};
 }
 
