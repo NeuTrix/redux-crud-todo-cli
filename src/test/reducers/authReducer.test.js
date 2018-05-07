@@ -20,6 +20,7 @@ import {
 
 chai.use(chaiHttp);
 deepfreeze(initialState);
+
 const profile_1 = {
 	username:'UserProfile_1',
 	email: 'ww@ww.com',
@@ -27,6 +28,7 @@ const profile_1 = {
 	password: 'XX',
 	passwordConfirm: 'XX',
 };
+
 const profile_2 = {
 	username:'UserProfile_2',
 	email: 'ww@ww.com', 
@@ -75,18 +77,6 @@ describe('The registerActions..', () => {
 		});
 	});
 
-	describe('The registerIsPosting Action...', () => {
-		let readState = AuthReducer(initialState, registerIsPosting(true));
-
-		it('...has the correct number of props', () => {
-			expect(Object.keys(readState).length).to.eql(8);
-		});
-		
-		it('...can reset the registerIsPosting prop', () => {
-			expect(readState.registerIsPosting).to.eql(true);
-		});
-	});
-
 	describe('The registerHasSucceeded Action...', () => {
 		let readState = AuthReducer(initialState, registerHasSucceeded(true));
 
@@ -114,18 +104,6 @@ describe('The registerActions..', () => {
 });
 
 describe('The loginActions..', () => {
-
-	describe('The loginIsPosting Action...', () => {
-		let readState = AuthReducer(initialState, loginIsPosting(true));
-
-		it('...has the correct number of props', () => {
-			expect(Object.keys(readState).length).to.eql(8);
-		});
-		
-		it('...can reset the loginIsPosting prop', () => {
-			expect(readState.loginIsPosting).to.eql(true);
-		});
-	});
 
 	describe('The loginIsPosting Action...', () => {
 		let readState = AuthReducer(initialState, loginIsPosting(true));

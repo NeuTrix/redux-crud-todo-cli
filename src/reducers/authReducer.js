@@ -1,9 +1,12 @@
 import isEmpty from 'lodash/isEmpty';
 import {
+	LOGIN_IS_POSTING,
+	LOGIN_HAS_SUCCEEDED,
+	LOGIN_HAS_ERRORED,
 	REGISTER_IS_POSTING,
 	REGISTER_HAS_SUCCEEDED,
-	SET_CURRENT_USER,
 	REGISTER_HAS_ERRORED,
+	SET_CURRENT_USER,
 } from '../actions/typeConstants';
 
 export const initialState = {
@@ -22,6 +25,7 @@ export const authReducer = (state = initialState, action = {}) => {
 
 	switch(action.type) {
 
+	// registerActions
 	case REGISTER_IS_POSTING:
 		return {
 			...state, 
@@ -45,6 +49,27 @@ export const authReducer = (state = initialState, action = {}) => {
 		return {
 			...state, 
 			registerHasErrored: payload.status
+		}; 
+
+		// loginActions
+	case LOGIN_IS_POSTING:
+		return {
+			...state, 
+			loginIsPosting: payload.status
+		}; 
+
+	case LOGIN_HAS_SUCCEEDED:
+		return {
+			...state, 
+			loginHasSucceeded : payload.status
+		}; 
+
+
+				
+	case LOGIN_HAS_ERRORED:
+		return {
+			...state, 
+			loginHasErrored: payload.status
 		}; 
 	default: 
 		return state;
