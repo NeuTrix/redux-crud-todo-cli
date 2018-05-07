@@ -9,9 +9,12 @@ import {
 export const initialState = {
 	registerIsPosting: false,
 	registerHasSucceeded: false,
+	registerHasErrored: false,
+	loginIsPosting: false,
+	loginHasSucceeded: false,
+	loginHasErrored: false,
 	user: {},
 	isAuthenticated: false,
-	registerHasErrored: false,
 };
 
 export const authReducer = (state = initialState, action = {}) => {
@@ -22,13 +25,13 @@ export const authReducer = (state = initialState, action = {}) => {
 	case REGISTER_IS_POSTING:
 		return {
 			...state, 
-			registerIsPosting: payload.bool
+			registerIsPosting: payload.status
 		}; 
 
 	case REGISTER_HAS_SUCCEEDED:
 		return {
 			...state, 
-			registerHasSucceeded : payload.bool
+			registerHasSucceeded : payload.status
 		}; 
 	
 	case SET_CURRENT_USER:
@@ -41,7 +44,7 @@ export const authReducer = (state = initialState, action = {}) => {
 	case REGISTER_HAS_ERRORED:
 		return {
 			...state, 
-			registerHasErrored: payload.bool
+			registerHasErrored: payload.status
 		}; 
 	default: 
 		return state;

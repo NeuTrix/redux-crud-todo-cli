@@ -13,21 +13,21 @@ import {
 export function registerIsPosting (bool) {
 	return {
 		type: REGISTER_IS_POSTING,
-		payload: { bool }
+		payload: { status: bool }
 	};
 }
 
 export function registerHasErrored (bool) {
 	return {
 		type: REGISTER_HAS_ERRORED,
-		payload: { bool }
+		payload: { status: bool }
 	};
 }
 	
 export function registerHasSucceeded (bool) {
 	return {
 		type: REGISTER_HAS_SUCCEEDED,
-		payload: { bool }
+		payload: { status: bool }
 	};
 }
 

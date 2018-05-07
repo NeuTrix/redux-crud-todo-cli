@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 // custom
 import RegisterForm from './RegisterForm';
-import { userSignupRequest } from '../../actions/signupActions';
+import { userSignupRequest } from '../../actions/registerActions';
 import { addFlashMessage } from '../../actions/flashActions';
 import { colors } from '../../helpers/cssConstants';
 

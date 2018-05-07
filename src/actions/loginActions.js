@@ -4,17 +4,35 @@ import jwtDecode from 'jwt-decode';
 import setAuthorizationToken from '../components/auth/setAuthToken';
 import { fetchTodos, readTodos } from './readActions';
 import { addFlashMessage } from './flashActions';
-// import { setCurrentUser } from './signupActions';
+import { setCurrentUser } from './registerActions';
 import { url } from '../helpers/apiHelper.js';
 
-import * as mod from './typeConstants';
+import {
+	LOGIN_IS_POSTING,
+	LOGIN_HAS_ERRORED,
+	LOGIN_HAS_SUCCEEDED,
+} from './typeConstants';
 
-export function setCurrentUser (user) {
+export function loginIsPosting (bool) {
 	return {
-		type: mod.SET_CURRENT_USER,
-		payload: { user }
-	};
+		type: LOGIN_IS_POSTING,
+		payload: { status: bool }
+	}
 }
+export function loginHasSucceeded (bool) {
+	return {
+		type: LOGIN_HAS_SUCCEEDED,
+		payload: { status: bool }
+	}
+}
+
+export function loginHasErrored (bool) {
+	return {
+		type: LOGIN_HAS_ERRORED,
+		payload: { status: bool }
+	}
+}
+
 
 export function userLoginRequest(userData) {
 	return dispatch => {
