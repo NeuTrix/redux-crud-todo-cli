@@ -6,9 +6,11 @@ import { Link } from  'react-router-dom';
 import validateInput from '../../helpers/loginValidator';
 import TextFieldGroup from './TextFieldGroup';
 import BasicButton from '../buttons/BasicButton';
+import Spinner from '../buttons/Spinner';
 import { colors, media } from '../../helpers/cssConstants';
 
 // +++++++++  CSS  +++++++++ 
+const baseColor = colors._mintgreen 
 
 const Grid = styled.form `
 	display: grid;
@@ -21,9 +23,9 @@ const Grid = styled.form `
 	;
 
 	grid-row-gap: 20px;
-	color: ${ colors._mintgreen };
+	color: ${ baseColor };
 	padding: 20px;
-	border: 1px solid ${ colors._mintgreen };
+	border: 1px solid ${ baseColor };
 	width: 300px;
 
 	@media (${media._large}) {
@@ -51,20 +53,7 @@ const RegLink = styled(Link) `
 	gride-area: link;
 `;
 
-const Spinner = styled.div `
 
-border: 16px solid #f3f3f3; /* Light grey */
-	border-top: 16px solid ${ colors._mintgreen };
-    border-radius: 50%;
-    width: 70px;
-	height: 70px;
-	
-	animation: spin 2s linear infinite;
-	@keyframes spin {
-		from { transform: rotate(0deg); }
-		to { transform: rotate(360deg); }
-	}
-`
 
 // +++++++++  COMPONENT  +++++++++ 
 
@@ -126,9 +115,6 @@ class Loginform extends Component {
 	render () {
     
 		const { errors, identifier, password, isLoading } = this.state; 
-		const spinner = (
-			<Spinner/>
-		)
 
 		return (
 			<Grid 
@@ -136,7 +122,7 @@ class Loginform extends Component {
 				onSubmit= { this.onSubmit } 
 			>
 				<Title className= 'ctr engr under' > 
-					<h1>  { isLoading ? 'Login' : spinner } </h1>
+					<h1>  { isLoading ? 'Login' : <Spinner color= { baseColor } /> } </h1>
 				</Title>
 
 				<Email 
