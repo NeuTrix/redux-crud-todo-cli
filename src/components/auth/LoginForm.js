@@ -6,7 +6,7 @@ import { Link } from  'react-router-dom';
 import validateInput from '../../helpers/loginValidator';
 import TextFieldGroup from './TextFieldGroup';
 import BasicButton from '../buttons/BasicButton';
-import { colors, media } from '../../helpers/cssConstants'
+import { colors, media } from '../../helpers/cssConstants';
 
 // +++++++++  CSS  +++++++++ 
 
@@ -82,6 +82,8 @@ class Loginform extends Component {
 		return isValid;
 	}
 
+	
+
 	onSubmit(e) {
 		e.preventDefault();
 
@@ -94,8 +96,15 @@ class Loginform extends Component {
 						text: `Welcome ${ res.data.username }! You have successfully Logged In.`
 					});
 					this.context.router.history.push('/todos');
-				},
-				(err) => { this.setState({errors: err.response.data.errors, isLoading: false});
+					return res
+				})
+				.catch((err, res) =>{
+					// console.log(err)
+					this.setState({errors: err, isLoading: false});
+					this.props.addFlashMessage({
+						type: 'error',
+						text: 'Invalid username, id or password. Please try again.'
+					});
 				});
 		}
 	}
@@ -143,7 +152,7 @@ class Loginform extends Component {
 					Click here to register a new account
 				</RegLink>	
 
-				</Grid>
+			</Grid>
 		);
 	}
 }

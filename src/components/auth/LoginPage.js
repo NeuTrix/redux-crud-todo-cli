@@ -30,11 +30,18 @@ const LoginPage = (props) => {
 			<EntryForm  
 				userLoginRequest = { props.userLoginRequest } 
 				addFlashMessage = { props.addFlashMessage } 
+				authApi = { props.authApi }
 			/>
 
 		</Grid>
-	)
-}
+	);
+};
+
+const mapStateToProps = (state) => {
+	return { 
+		authApi: state.authApi 
+	};
+};
 
 LoginPage.propTypes = {
 	addFlashMessage: PropTypes.func.isRequired,
@@ -47,4 +54,4 @@ LoginPage.defaultProps = {
 	userLoginRequest: f => f,
 };
 
-export default connect(null, { userLoginRequest, addFlashMessage })(LoginPage);
+export default connect(mapStateToProps, { userLoginRequest, addFlashMessage })(LoginPage);

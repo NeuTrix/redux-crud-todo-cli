@@ -17,34 +17,43 @@ export function loginIsPosting (bool) {
 	return {
 		type: LOGIN_IS_POSTING,
 		payload: { status: bool }
-	}
+	};
 }
 export function loginHasSucceeded (bool) {
 	return {
 		type: LOGIN_HAS_SUCCEEDED,
 		payload: { status: bool }
-	}
+	};
 }
 
 export function loginHasErrored (bool) {
 	return {
 		type: LOGIN_HAS_ERRORED,
 		payload: { status: bool }
-	}
+	};
 }
-
 
 export function userLoginRequest(userData) {
 	return dispatch => {
 		return axios.post(`${ url }/api/auth/login`, userData)
+			.then((res) => {
+				dispatch(loginIsPosting(true));
+				return res;
+			})
 			.then((res) => {
 				const token = res.data.token;
 				const user = jwtDecode(token);
 				localStorage.setItem('jwtToken', token);
 				setAuthorizationToken (token);
 				dispatch(setCurrentUser (user));
-				dispatch(fetchTodos());
 				return res;
+			})
+			.then((res) => {
+				dispatch(loginHasSucceeded(true));
+				return res;
+			})
+			.catch((err) => {
+				dispatch(loginHasErrored(true));
 			});
 	};
 }
@@ -55,7 +64,10 @@ export function logout(){
 	setAuthorizationToken(false);
 	return dispatch => {
 		dispatch(setCurrentUser({}));
-		dispatch(addFlashMessage({ type: 'success', text:'You are now logged out.'}));
+		dispatch(addFlashMessage({ 
+			type: 'success', 
+			text:'You are now logged out.'
+		}));
 		dispatch(readTodos([]));
 	};
 }
