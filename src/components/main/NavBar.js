@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { colors, media } from '../../helpers/cssConstants';
 
 // +++++++++  CSS  +++++++++ 
+const baseColor = colors._iceblue
 
 const Grid = styled.div `
 	display: grid;
@@ -20,12 +21,13 @@ const Grid = styled.div `
 	left:0;
 	z-index: 100;
 	background: aliceblue;
-	border: 1px solid ${colors._deepblue};
+	border: 1px solid ${baseColor};
 	padding 5px;
 
 	@media (${media._medium}) {
 		grid-template-columns: 2fr 1fr 1fr;
 	}
+	
 `;
 
 // +++++++++ Home Section  +++++++++ 
@@ -37,14 +39,19 @@ const Home = styled.div `
 	grid-template-columns: 1fr 3fr;
 `;
 
-const Logo = styled.div `
+const Logo = styled(Link) `
 	grid-area: Logo;
 	text-indent: 10px;
-	
+	color: ${baseColor};
+	text-decoration: none;
+	&:hover { color:lime; }
 `;
 
 const Message = styled.div `
 	grid-area: Welcome;
+	place-content: center;
+	display: inline-grid;
+	color: ${baseColor};
 `;
 
 // +++++++++ Nav Section  +++++++++ 
@@ -147,9 +154,7 @@ const NavBar = (props, context) => {
 
 			<Home id= 'Home'>
 
-				<Logo id= 'Logo'> 
-						<A to= '/' className= "engr fa fa-gg fa-2x" alt="logo"/> 
-				</Logo>
+				<Logo id= 'Logo' to= '/' className= "engr fa fa-gg fa-2x" alt="logo"/> 
 
 				<Message id= 'Message' > 
 					{ auth ? `Welcome ${ name }!` : `Please Log in!`}
