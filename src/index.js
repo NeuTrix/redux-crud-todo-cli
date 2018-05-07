@@ -9,7 +9,7 @@ import store from './store/store';
 import styled from 'styled-components';
 
 import setAuthorizationToken from './components/auth/setAuthToken';
-import { setCurrentUser } from './actions/loginActions';
+import { setCurrentUser } from './actions/registerActions';
 import App from './components/App';
 
 let root = document.getElementById('root');
