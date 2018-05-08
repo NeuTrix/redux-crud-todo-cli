@@ -13,6 +13,24 @@ const Flash = styled.div `
 	border: 2px solid grey;
 	padding: 4px;
 	border-radius: 5px;
+	z-index: -10;
+	
+	position: relative;
+	animation-name: dropdown;
+	// animation-delay: 1s;
+	animation-duration: 10s;
+	// animation-direction: reverse;
+
+	@keyframes dropdown {
+		0% { top: -50px; }
+		2% { top: 25px; }
+		5% { top: -10px; }
+		7% { top: 10px; }
+		55% { top: 10px; }
+		62% { top: -10px; }
+		63% { top: 25px; }
+		70% { top: -50px; }
+	}
 
 	${ ({ type }) => 
 		type === 'success' ? ` 
