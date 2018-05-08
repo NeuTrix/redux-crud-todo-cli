@@ -49,6 +49,10 @@ export function userLoginRequest(userData) {
 				return res;
 			})
 			.then((res) => {
+				dispatch(loginIsPosting(false));
+				return res
+			})
+			.then((res) => {
 				dispatch(loginHasSucceeded(true));
 				dispatch(readTodos([]));
 				return res;
