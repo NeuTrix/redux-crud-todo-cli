@@ -7,12 +7,15 @@ const LinkedButton = (props) => {
 
 	const StyledLink = styled(Link)`
 		justify-self: center;
+		text-decoration: none;
 	`;
 
 	const Button = styled.button`
 		color: ${props.color};
-		border-color: ${props.color};
+		border: 4px solid ${props.color};
 		background-color: ${props.bgColor};
+		height: 35px;
+		width 90px;
 	`;
 
 	return (

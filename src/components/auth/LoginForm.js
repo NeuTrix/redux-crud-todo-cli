@@ -49,9 +49,9 @@ const  Submit = styled.button`
 	gride-area: submit;
 	font-weight: bold;
 	font-size: 1.0em;
-	height: 30px;
-	width: 80px;
-	border: 1px solid grey;
+	height: 35px;
+	width: 90px;
+	border: 4px solid ${baseColor};
 	border-radius: 4px;
 	background: greenyellow;
 	color: ${baseColor}
@@ -59,6 +59,8 @@ const  Submit = styled.button`
 
 const RegLink = styled(Link) `
 	gride-area: link;
+	place-content: center;
+	display: inline-grid;
 `;
 
 
@@ -129,11 +131,12 @@ class Loginform extends Component {
 				className= { `Loginform ${this.props.className} boxClr paper` } 
 				onSubmit= { this.onSubmit } 
 			>
-				<Title className= 'ctr engr under' > 
+				<Title className= 'Title ctr engr under' > 
 					<h1>  { !isLoading ? 'Login' : <Spinner color= { baseColor } /> } </h1>
 				</Title>
 
 				<Email 
+					className= 'Email'
 					errors= { errors.identifier }
 					label= 'Username / Email' 
 					name= 'identifier'
@@ -144,6 +147,7 @@ class Loginform extends Component {
 				/>
        
 				<Pword 
+					className= 'Pword'
 					errors= { errors.password }
 					label= 'Password' 
 					name= 'password'
@@ -154,12 +158,13 @@ class Loginform extends Component {
 				/>
 				
 				<Submit 
+					className = 'Submit'
 					type= 'submit' 
 					name= 'Log in' 
 					disabled= {isLoading}
 				> Log in </Submit> 
 
-				<RegLink to= '/register'>
+				<RegLink to= '/register' className= 'RegLink' >
 					Click here to register a new account
 				</RegLink>	
 			</Grid>

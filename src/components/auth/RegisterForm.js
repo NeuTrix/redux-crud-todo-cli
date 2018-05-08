@@ -62,9 +62,10 @@ const  Submit = styled.button`
 	gride-area: submit;
 	font-weight: bold;
 	font-size: 1.0em;
-	height: 30px;
-	width: 80px;
-	border: 1px solid grey;
+	height: 35px;
+	width: 90px;
+	background: aliceblue;
+	border: 4px solid ${baseColor};
 	border-radius: 4px;
 	color: ${baseColor}
 `;
@@ -199,6 +200,8 @@ class RegisterForm extends Component {
 				>
 					Register
 				</Submit> 
+
+				
 
 			</Grid>
 		);
