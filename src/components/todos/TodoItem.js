@@ -23,6 +23,9 @@ const Grid = styled.form `
 	background-color: aliceblue;
 	border: 2px solid lightsteelblue;
 	padding: 10px;
+	& * {
+		font-size: 1em;
+	}
 
 	/* iPad mini screen mode */
 
@@ -38,6 +41,7 @@ const Grid = styled.form `
 
 const Checked = styled(CheckComplete) `
 	grid-area: check;
+	font-size: 2em;
 `;
 
 const DatePick = styled.input `
@@ -46,6 +50,7 @@ const DatePick = styled.input `
 `;
 const Delete = styled(DeleteBtn) `
 	grid-area: dele;
+	font-size: 2em;
 `;
 
 const Rank = styled.select `
