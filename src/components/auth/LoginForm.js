@@ -5,7 +5,6 @@ import { Link } from  'react-router-dom';
 // custom
 import validateInput from '../../helpers/loginValidator';
 import TextFieldGroup from './TextFieldGroup';
-import BasicButton from '../buttons/BasicButton';
 import Spinner from '../buttons/Spinner';
 import { colors, media } from '../../helpers/cssConstants';
 
@@ -55,10 +54,11 @@ const  Submit = styled.button`
 	border-radius: 4px;
 	background: greenyellow;
 	color: ${baseColor}
-`;
-
-const RegLink = styled(Link) `
+	`;
+	
+	const RegLink = styled(Link) `
 	gride-area: link;
+	color: blue
 	place-content: center;
 	display: inline-grid;
 `;

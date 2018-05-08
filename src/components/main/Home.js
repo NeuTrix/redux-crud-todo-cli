@@ -3,7 +3,7 @@ import styled from 'styled-components';
 // custom
 import LinkedButton from '../buttons/LinkedButton';
 import Stamp from '../buttons/Stamp';
-import { colors, media } from '../../helpers/cssConstants';
+import { colors } from '../../helpers/cssConstants';
 
 // +++++++++  CSS  +++++++++ 
 

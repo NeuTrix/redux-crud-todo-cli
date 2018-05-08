@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { colors, media } from '../../helpers/cssConstants'
+import { colors } from '../../helpers/cssConstants'
 
 // CSS
 const Flash = styled.div `
@@ -75,13 +75,13 @@ class FlashMessage extends Component {
 
 		const { type, text } = this.props.message;
 		
-		setTimeout(this.closeMessage, 700000);
+		setTimeout(this.closeMessage, 7000);
 
 		return (
 			
 			<Flash 
 				className = 'FlashMessage paper' 
-				type= { this.props.message.type}
+				type= { type }
 			>
 				<Message
 				> { text } </Message>
@@ -95,11 +95,7 @@ class FlashMessage extends Component {
 }
 
 FlashMessage.propTypes = {
-	message: {type: 'info'},
-	// message: {type: 'warning'},
-	// message: {type: 'info'},
-	// message: {type: 'success'},
-	// message: PropTypes.object.isRequired,
+	message: PropTypes.object.isRequired,
 	deleteFlashMessage: PropTypes.func.isRequired
 };
 

@@ -4,7 +4,6 @@ import styled	from 'styled-components';
 // custom
 import validateInput from '../../helpers/signupValidator';
 import TextFieldGroup from './TextFieldGroup';
-import BasicButton from '../buttons/BasicButton';
 import Spinner from '../buttons/Spinner';
 import { colors, media  } from '../../helpers/cssConstants';
 

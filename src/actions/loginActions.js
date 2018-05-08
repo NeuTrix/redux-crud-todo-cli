@@ -2,7 +2,7 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 // custom
 import setAuthorizationToken from '../components/auth/setAuthToken';
-import { fetchTodos, readTodos } from './readActions';
+import { readTodos } from './readActions';
 import { addFlashMessage } from './flashActions';
 import { setCurrentUser } from './registerActions';
 import { url } from '../helpers/apiHelper.js';
