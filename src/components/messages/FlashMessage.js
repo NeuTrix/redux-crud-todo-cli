@@ -1,22 +1,53 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { colors, media } from '../../helpers/cssConstants'
 
 // CSS
 
 const Flash = styled.div `
 	display: grid;
-	grid-template-areas: "message clear"
+	grid-template-areas: "message clear";
+	grid-template-columns: 9fr 1fr;
+	margin-top: 10px;
+	background: ${colors._pinkrose} ;
+	color: red;
+	font-size: 1em;
+	border: 2px solid grey;
+	padding: 4px;
+	border-radius: 5px;
+
+	${ ({ type }) => 
+		type === 'success' ?  ` 
+			background-color: lime;
+		` : type === 'error' ?  ` 
+			color: tomato;
+			border-color: tomato;
+			background-color: #fbd5cf;
+		` : type === 'info' ?  ` 
+		background-color: ${colors._deepblue} 
+		` : type === 'warning' ?  ` 
+			background-color: red 
+		` : ` color: steelblue `
+}
 `;
 
-const Message = styled.button `
+const Message = styled.div `
 	grid-area: message;
-	background-color: orange;
-`;
+	background: transparent;
+	height: auto;
+	display: inherit;
+	place-content: center;
+	`;
 
-const Clear = styled.button `
+const Clear = styled.div `
 	grid-area: clear;
-	background: lime;
+	place-content: center;
+	height: auto;
+	width: auto;
+	display: inherit;
+	border: none;
+	font-size: 1.5em
 `;
 
 // COMPONENT
@@ -61,10 +92,12 @@ class FlashMessage extends Component {
 			
 			<Flash 
 				className = 'FlashMessage paper' 
+				type= { this.props.message.type}
 			>
-				<Message> { text } </Message>
+				<Message
+				> { text } </Message>
 				<Clear 
-					className= 'close btn fa fa-times fa-lg' 
+					className= 'close btn fa fa-times' 
 					onClick= { this.onClick }
 				/>
     	</Flash>
@@ -73,8 +106,11 @@ class FlashMessage extends Component {
 }
 
 FlashMessage.propTypes = {
-	test: 'true',
-	message: PropTypes.object.isRequired,
+	message: {type: 'error'},
+	// message: {type: 'warning'},
+	// message: {type: 'info'},
+	// message: {type: 'success'},
+	// message: PropTypes.object.isRequired,
 	deleteFlashMessage: PropTypes.func.isRequired
 };
 

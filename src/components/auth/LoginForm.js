@@ -102,7 +102,7 @@ class Loginform extends Component {
 				.then((res) => {
 					this.props.addFlashMessage({
 						type: 'success',
-						text: `Welcome ${ res.data.username }! You have successfully Logged In.`
+						text: `Hi ${ res.data.username }! You're Logged In.`
 					});
 					this.context.router.history.push('/todos');
 					return res
@@ -112,7 +112,7 @@ class Loginform extends Component {
 					this.setState({errors: err, isLoading: false});
 					this.props.addFlashMessage({
 						type: 'error',
-						text: 'Invalid username, id or password. Please try again.'
+						text: 'Invalid username, id or password. Try again.'
 					});
 				});
 		}

@@ -43,7 +43,6 @@ const App = (props) => {
 
 	const Messages = styled.div `
 		grid-area: messages;
-		margin-top: 10px;
 	`;
 
 	const Main = styled.div `
