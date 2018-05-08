@@ -148,7 +148,7 @@ const A = styled(Link) `
 
 const NavBar = (props, context) => {
 
-	const logout = (e) => {
+	const onLogout = (e) => {
 		e.preventDefault();
 		props.logout();
 		context.router.history.push('/login');
@@ -166,7 +166,7 @@ const NavBar = (props, context) => {
 				<Logo id= 'Logo' to= '/' className= "engr fa fa-gg fa-2x" alt="logo"/> 
 
 				<Message id= 'Message' > 
-					{ auth ? `Welcome ${ name }!` : `Please Log in!`}
+					{ auth ? `Welcome ${ name }!` : `Please Log in!` }
 				</Message>
 
 			</Home>
@@ -176,19 +176,19 @@ const NavBar = (props, context) => {
 				<Burger id= 'Burger' className= ' engr fa fa-navicon fa-2x'/>
 
 				<Menu id= 'Menu' > 
-					<AuthLi auth= {auth} > 
+					<AuthLi auth= { auth } > 
 						<A to= '/todos' > Todos </A>
 					</AuthLi>
 
-					<AuthLi auth= {auth} > 
-						<A to= '/#' onClick= {logout}> Logout </A>
+					<AuthLi auth= { auth } > 
+						<A to= '/#' onClick= { onLogout }> Logout </A>
 					</AuthLi>
 					
-					<NoAuthLi auth= {auth} > 
+					<NoAuthLi auth= { auth } > 
 						<A to= '/register' > Register </A>
 					</NoAuthLi>
 
-					<NoAuthLi auth= {auth} > 
+					<NoAuthLi auth= { auth } > 
 						<A to= '/login' > Login </A>
 					</NoAuthLi>
 
@@ -204,12 +204,12 @@ const NavBar = (props, context) => {
 
 NavBar.propTypes = {
 	authApi: PropTypes.object.isRequired,
-	Logout: PropTypes.func.isRequired,
+	logout: PropTypes.func.isRequired,
 };
 
 NavBar.defaultProps = {
 	authApi:  {},
-	Logout:  f => alert('Default action: Navbar Logout fn'),
+	logout:  f => alert('Default action: Navbar logout fn'),
 }
 
 NavBar.contextTypes= {

@@ -132,7 +132,7 @@ class Loginform extends Component {
 				onSubmit= { this.onSubmit } 
 			>
 				<Title className= 'Title ctr engr under' > 
-					<h1>  { !isLoading ? 'Login' : <Spinner color= { baseColor } /> } </h1>
+					<h1>  { !isLoading ? 'Login' : <Spinner color= 'greenyellow' /> } </h1>
 				</Title>
 
 				<Email 

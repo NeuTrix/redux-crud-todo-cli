@@ -142,7 +142,7 @@ class RegisterForm extends Component {
 				onSubmit = { this.onSubmit } 
 			>
 				<Title className= 'ctr engr under' > 
-					<h1>  { !isLoading ? 'Registration' : <Spinner color= { baseColor } /> } </h1>
+					<h1>  { !isLoading ? 'Registration' : <Spinner color= { colors._iceblue } /> } </h1>
 				</Title>
 
 				<User 
@@ -199,8 +199,6 @@ class RegisterForm extends Component {
 				>
 					Register
 				</Submit> 
-
-				
 
 			</Grid>
 		);
