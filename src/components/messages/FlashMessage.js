@@ -23,9 +23,9 @@ const Flash = styled.div `
 			color: ${colors._mintgreen} ;
 			border-color: ${colors._mintgreen} ;
 		` : type === 'error' ?  ` 
-			color: tomato;
-			border-color: tomato;
-			background-color: #fbd5cf;
+			color: ${colors._deepblue} ;
+			border-color: ${colors._deepblue} ;
+			background-color: aliceblue;
 		` : type === 'info' ?  ` 
 		background-color: ${colors._deepblue} 
 		` : type === 'warning' ?  ` 
