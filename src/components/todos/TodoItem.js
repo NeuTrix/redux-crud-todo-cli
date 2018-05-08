@@ -23,8 +23,12 @@ const Grid = styled.form `
 	background-color: aliceblue;
 	border: 2px solid lightsteelblue;
 	padding: 10px;
+	
 	& * {
-		font-size: 1em;
+		font-size: 1em;	
+		&:hover {
+			color: lime;
+		}
 	}
 
 	/* iPad mini screen mode */

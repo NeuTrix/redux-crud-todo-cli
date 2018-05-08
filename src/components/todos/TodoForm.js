@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components'
 //  custom
 import normalizeDate from '../../helpers/normalizeDate';
+import { colors, media } from '../../helpers/cssConstants';
+
 
 // +++++++++ CSS  +++++++++ 
 
@@ -20,8 +22,15 @@ const Grid = styled.form `
 	padding: 10px;
 	margin-bottom: 20px;
 
+	& * {
+		font-size: 1em;
+		&:hover {
+			color: lime;
+		}
+	}
+
 	/* iPad and large view */
-	@media (min-width: 730px) {
+	@media (${media._medium}) {
 		grid-template-areas: 
 			" ...  	...   ...  	...   ...  "
 			" glyph 	task  rank  date 	add  "
@@ -36,7 +45,8 @@ const Add = styled.button `
 	color: #00cc00;
 	background: none;
   border: none;
-`;
+	font-size: 2em;
+	`;
 
 const DatePick = styled.input `
 	grid-area: date;
@@ -55,7 +65,8 @@ const Task = styled.input `
 
 const Glyph = styled.i `
 	grid-area: glyph;
-	color: #b3d9ff;
+	color: ${colors._iceblue} ;
+	font-size: 1.5em;
 `;
 
 

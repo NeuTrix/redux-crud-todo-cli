@@ -7,7 +7,11 @@ import styled from 'styled-components';
  const Grid = styled.div `
 	 	display: grid;
 	 	grid-template-areas: " title count ";
-	 	grid-template-columns: auto;
+		grid-template-columns: auto;
+		
+		& * {
+			font-size: 1.35em
+		}
  `;
 
  const Title = styled.div `
