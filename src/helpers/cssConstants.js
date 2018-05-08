@@ -4,7 +4,7 @@ export const colors = {
 	_deepblue: '#286090',
 	_gold:  '#cc9900',
 	_iceblue: '#80bfff',
-	_mintgreen: '#2cba2c',
+	_mintgreen: '#429f42',
 	_yellow: '#ffff33',
 	_pinkrose: '#fde7ea',
 }

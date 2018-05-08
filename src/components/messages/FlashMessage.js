@@ -19,7 +19,9 @@ const Flash = styled.div `
 
 	${ ({ type }) => 
 		type === 'success' ?  ` 
-			background-color: lime;
+			background-color: lightgreen ;
+			color: ${colors._mintgreen} ;
+			border-color: ${colors._mintgreen} ;
 		` : type === 'error' ?  ` 
 			color: tomato;
 			border-color: tomato;
@@ -106,7 +108,7 @@ class FlashMessage extends Component {
 }
 
 FlashMessage.propTypes = {
-	message: {type: 'error'},
+	message: {type: 'info'},
 	// message: {type: 'warning'},
 	// message: {type: 'info'},
 	// message: {type: 'success'},

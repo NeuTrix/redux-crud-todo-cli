@@ -53,6 +53,7 @@ const  Submit = styled.button`
 	width: 80px;
 	border: 1px solid grey;
 	border-radius: 4px;
+	background: lightgreen;
 	color: ${baseColor}
 `;
 
@@ -101,7 +102,7 @@ class Loginform extends Component {
 			this.props.userLoginRequest(this.state)
 				.then((res) => {
 					this.props.addFlashMessage({
-						type: 'success',
+						type: 'info',
 						text: `Hi ${ res.data.username }! You're Logged In.`
 					});
 					this.context.router.history.push('/todos');
