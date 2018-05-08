@@ -46,7 +46,7 @@ const Register = styled(LinkedButton)`
 const Title = styled.div`
 	grid-area: title;
 	color-darkgrey;
-	font-size: initial;
+	font-size: 2em;
 `;
 
 const Subtitle = styled.div`
