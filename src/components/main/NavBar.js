@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { colors, media } from '../../helpers/cssConstants';
 
 // +++++++++  CSS  +++++++++ 
-const baseColor = colors._deepblue
+const baseColor = colors._deepblue;
 
 const Grid = styled.div `
 	display: grid;
