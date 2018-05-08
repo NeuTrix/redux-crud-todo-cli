@@ -65,7 +65,9 @@ const App = (props) => {
 			</Messages>
 			
 			<Main className= '_main'>
-				<Route exact path = '/' component = { Home } />
+				<Route exact path = '/' render = {() => 
+					<Home authorized=  {props.authApi.isAuthenticated} />} 
+				/>
 				<Route path = '/login' component = { LoginPage } />
 				<Route path = '/register' component = { RegisterPage } />
 				<Route 

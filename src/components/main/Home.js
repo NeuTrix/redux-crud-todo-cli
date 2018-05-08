@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 // custom
 import LinkedButton from '../buttons/LinkedButton';
@@ -54,10 +55,30 @@ const Subtitle = styled.div`
 	color: darkgrey;
 `;
 
+const showLogin = (
+	<Login 
+		className= '_login'
+		name = 'Log In' 
+		bgColor = 'greenyellow'
+		color = {colors._mintgreen}
+		path = '/login' 
+	/>
+)
+
+const showRegister = (
+	<Register 
+		className= '_register'
+		name = 'Register' 
+		bgColor = 'aliceblue'
+		color = 'steelblue'
+		path = '/register'
+	/>
+)
+
 // +++++++++ COMPONENT  +++++++++ 
 
-const Home = (props) => {
-	
+const Home = ({ authorized }) => {
+
 	return (
 		<Grid className = 'Home engrBox paper'  >
 
@@ -66,7 +87,7 @@ const Home = (props) => {
 			</Title>  
 
 			<Subtitle className = '-subtitle ctr' > 
-				<h5>... a little Fullstack MERN CRUD web app featuring:</h5> 
+				<span>Fullstack MERN CRUD web app featuring:</span> 
 			</Subtitle>  
 
 			<Stamp area= 'mongo' color= 'steelblue' name= 'Mongo'/>
@@ -76,23 +97,20 @@ const Home = (props) => {
 			<Stamp area= 'redux' color= 'orange' name= 'Redux'/>
 			<Stamp area= 'grid' color= 'orange' name= 'Grid'/>
 
-			<Login 
-				className= '_login'
-				name = 'Log In' 
-				bgColor = 'greenyellow'
-				color = {colors._mintgreen}
-				path = '/login' 
-			/>
+			{ !authorized && showLogin }
+			{ !authorized && showRegister }
 
-			<Register 
-				className= '_register'
-				name = 'Register' 
-				bgColor = 'aliceblue'
-				color = 'steelblue'
-				path = '/register'
-			/>
 		</Grid>
 	);
 };
+
+Home.propTypes = {
+	authorized: PropTypes.string.isRequired,
+}
+
+Home.defaultProps = {
+	authorized: true,
+}
+
 
 export default Home;

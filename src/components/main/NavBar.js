@@ -21,10 +21,10 @@ const Grid = styled.div `
 	top: 0;
 	left:0;
 	z-index: 100;
-	background: ${baseColor};
 	border: 1px solid ;
 	padding 5px;
-
+	background: ${baseColor};
+	
 	& * {
 		color: aliceblue;
 	}
@@ -68,15 +68,15 @@ const Navigation = styled.div `
 	&:hover { color:lime; }
 
 	@media (max-width: 630px) {
-		&:hover ul {
+		 &:hover ul {
 			display: inline-grid;
 			grid-row-gap: 15px
 			position: absolute;
 			width: 100%;
-			min-height: 90px;
+			min-height: 59px;
 			right: 0px;
-			top: 34px;
-			background: aliceblue;
+			top: 54px;
+			background: ${baseColor};
 			opacity: .75;
 		}
 	}
