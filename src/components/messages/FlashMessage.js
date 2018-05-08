@@ -10,27 +10,29 @@ const Flash = styled.div `
 	grid-template-areas: "message clear";
 	grid-template-columns: 9fr 1fr;
 	margin-top: 10px;
-	background: ${colors._pinkrose} ;
-	color: red;
 	font-size: 1em;
 	border: 2px solid grey;
 	padding: 4px;
 	border-radius: 5px;
 
 	${ ({ type }) => 
-		type === 'success' ?  ` 
-			background-color: lightgreen ;
+		type === 'success' ? ` 
+			background: greenyellow ;
 			color: ${colors._mintgreen} ;
 			border-color: ${colors._mintgreen} ;
-		` : type === 'error' ?  ` 
+		` : type === 'error' ? ` 
+			color: red;
+			border-color: red;
+			background: ${colors._pinkrose} ;
+		` : type === 'info' ? ` 
 			color: ${colors._deepblue} ;
 			border-color: ${colors._deepblue} ;
-			background-color: aliceblue;
-		` : type === 'info' ?  ` 
-		background-color: ${colors._deepblue} 
-		` : type === 'warning' ?  ` 
-			background-color: red 
-		` : ` color: steelblue `
+			background: aliceblue;
+		` : type === 'warning' ? ` 
+			color: darkgoldenrod;
+			border-color: darkgoldenrod;
+			background: lightgoldenrodyellow;
+		` : `color: grey`
 }
 `;
 

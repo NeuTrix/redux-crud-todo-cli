@@ -102,7 +102,7 @@ class Loginform extends Component {
 			this.props.userLoginRequest(this.state)
 				.then((res) => {
 					this.props.addFlashMessage({
-						type: 'info',
+						type: 'success',
 						text: `Hi ${ res.data.username }! You're Logged In.`
 					});
 					this.context.router.history.push('/todos');
