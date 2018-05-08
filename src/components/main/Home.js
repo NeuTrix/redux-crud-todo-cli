@@ -35,6 +35,10 @@ const Grid = styled.div`
 		grid-template-columns: auto;
 		grid-auto-rows: auto;
 		grid-gap: 25px 5px;
+
+		& * {
+			font-size:1em;
+		}
 `;
 
 const Login = styled(LinkedButton)`
