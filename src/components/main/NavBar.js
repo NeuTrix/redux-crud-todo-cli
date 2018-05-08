@@ -21,9 +21,13 @@ const Grid = styled.div `
 	top: 0;
 	left:0;
 	z-index: 100;
-	background: aliceblue;
-	border: 1px solid ${baseColor};
+	background: ${baseColor};
+	border: 1px solid ;
 	padding 5px;
+
+	& * {
+		color: aliceblue;
+	}
 
 	@media (${media._medium}) {
 		grid-template-columns: 2fr 1fr 1fr;
@@ -43,7 +47,6 @@ const Home = styled.div `
 const Logo = styled(Link) `
 	grid-area: Logo;
 	text-indent: 10px;
-	color: ${baseColor};
 	text-decoration: none;
 	&:hover { color:lime; }
 `;
@@ -52,7 +55,6 @@ const Message = styled.div `
 	grid-area: Welcome;
 	place-content: center;
 	display: inline-grid;
-	color: ${baseColor};
 `;
 
 // +++++++++ Nav Section  +++++++++ 
@@ -120,7 +122,10 @@ const AuthLi = styled.li `
 	text-shadow: none;
 	font-size: initial
 
-	${ ({auth}) => auth ? `display: inline-grid;`:`display: none;`}
+	${ ({auth}) => auth ? `
+		display: inline-grid;` : `
+		display: none;
+	`}
 `;
 const NoAuthLi = styled.li `
 	width: 100px;
@@ -129,7 +134,10 @@ const NoAuthLi = styled.li `
 	text-shadow: none;
 	font-size: initial
 
-	${({auth}) => !auth ? `display: inline-grid;`:`display: none;`}
+	${({ auth }) => !auth ? `
+		display: inline-grid;` : `
+		display: none;
+	`}
 `;
 
 const A = styled(Link) `
