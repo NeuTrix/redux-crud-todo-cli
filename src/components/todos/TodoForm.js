@@ -59,8 +59,10 @@ const Rank = styled.select `
 
 const Task = styled.input `
 	grid-area: task;
-	color: steelblue;
-  text-indent: 10px;
+	text-indent: 10px;
+	&:hover {
+		color: steelblue
+	}
 `;
 
 const Glyph = styled.i `
@@ -68,7 +70,6 @@ const Glyph = styled.i `
 	color: ${colors._iceblue} ;
 	font-size: 1.5em;
 `;
-
 
 // +++++++++ COMPONENT +++++++++ 
 
