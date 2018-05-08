@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { colors, media } from '../../helpers/cssConstants'
 
 // CSS
-
 const Flash = styled.div `
 	display: grid;
 	grid-template-areas: "message clear";
@@ -73,24 +72,9 @@ class FlashMessage extends Component {
 	}
 
 	render () {
+
 		const { type, text } = this.props.message;
-		
-		const style = {
-			display: 'grid',
-			gridTemplateArea: '"msg btn"',
-			gridTemplateColumns: '9fr 1fr',
-
-			border: '1px solid grey',
-			borderRadius: 5,
-
-			background: 
-				type === 'success' ? 'palegreen' : 
-					type === 'warning' ? 'peach' :
-						type === 'info' ? 'aliceblue' :
-							type === 'error' ? 'pink' : 'lightgrey',
-		};
-		
-		setTimeout(this.closeMessage, 1999997000);
+		setTimeout(this.closeMessage, 7000);
 
 		return (
 			
