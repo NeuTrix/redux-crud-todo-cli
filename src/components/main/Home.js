@@ -1,9 +1,9 @@
-//  vendor
 import React from 'react';
+import styled from 'styled-components';
 // custom
 import LinkedButton from '../buttons/LinkedButton';
 import Stamp from '../buttons/Stamp';
-import styled from 'styled-components';
+import { colors, media } from '../../helpers/cssConstants';
 
 // +++++++++  CSS  +++++++++ 
 
@@ -20,7 +20,9 @@ const Grid = styled.div`
 	grid-auto-rows: auto;
 	grid-gap: 25px 5px;
 	padding: 10px;
-
+	& * {
+		font-size:1em;
+	}
 	@media (min-width: 600px) {
 		grid-template-areas: 
 		 	" title 	title 	title 	title 	title 	title "
@@ -28,7 +30,6 @@ const Grid = styled.div`
 		  " mongo 	expr 		react 	node 		redux 		grid 	" 
 		  " ... 		...			login 	regis 	...			... 	" 
 		 	" drop 	drop 	drop 	drop 	drop 	drop "
-		  
 	  ;
 		grid-template-columns: auto;
 		grid-auto-rows: auto;
@@ -45,6 +46,7 @@ const Register = styled(LinkedButton)`
 const Title = styled.div`
 	grid-area: title;
 	color-darkgrey;
+	font-size: initial;
 `;
 
 const Subtitle = styled.div`
@@ -60,7 +62,7 @@ const Home = (props) => {
 		<Grid className = 'Home engrBox paper'  >
 
 			<Title className= '_title ctr engr under'> 
-				<h3>React-Todo (beta)</h3> 
+				<h1>React-Todo (beta)</h1> 
 			</Title>  
 
 			<Subtitle className = '-subtitle ctr' > 
@@ -77,8 +79,8 @@ const Home = (props) => {
 			<Login 
 				className= '_login'
 				name = 'Log In' 
-				bgColor = 'palegreen'
-				color = 'darkgreen'
+				bgColor = 'greenyellow'
+				color = {colors._mintgreen}
 				path = '/login' 
 			/>
 
@@ -89,7 +91,6 @@ const Home = (props) => {
 				color = 'steelblue'
 				path = '/register'
 			/>
-
 		</Grid>
 	);
 };
