@@ -10,6 +10,7 @@ const baseColor = colors._deepblue;
 
 const Grid = styled.div `
 	display: grid;
+	
 	grid-template-areas: " Home  Home  Navigation " ;
 	grid-template-columns: 1fr 3fr 1fr;
 	
