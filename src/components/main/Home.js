@@ -109,7 +109,7 @@ const Home = ({ authorized }) => {
 };
 
 Home.propTypes = {
-	authorized: PropTypes.string.isRequired,
+	authorized: PropTypes.bool.isRequired,
 }
 
 Home.defaultProps = {
