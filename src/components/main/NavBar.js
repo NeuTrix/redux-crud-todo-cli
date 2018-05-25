@@ -37,7 +37,7 @@ const Grid = styled.div `
 
 // +++++++++ Home Section  +++++++++ 
 const Home = styled.div `
-	grid-area: Home;
+	grid-area: Home;z
 	display: inline-grid;
 	place-content: center;
 	grid-template-areas: "Logo Welcome";
@@ -56,7 +56,6 @@ const Message = styled.div `
 	place-content: center;
 	display: inline-grid;
 `;
-
 // +++++++++ Nav Section  +++++++++ 
 
 const Navigation = styled.div `
@@ -152,10 +151,10 @@ const NavBar = (props, context) => {
 		e.preventDefault();
 		props.logout();
 		context.router.history.push('/login');
-	}
+	};
 
-	const auth = props.authApi.isAuthenticated
-	const name = props.authApi.user.username
+	const auth = props.authApi.isAuthenticated;
+	const name = props.authApi.user.username;
 
 	return (
 
@@ -166,7 +165,7 @@ const NavBar = (props, context) => {
 				<Logo id= 'Logo' to= '/' className= "engr fa fa-gg fa-2x" alt="logo"/> 
 
 				<Message id= 'Message' > 
-					{ auth ? `Welcome ${ name }!` : `Please Log in!` }
+					{ auth ? `Welcome ${ name }!` : 'Please Log in!' }
 				</Message>
 
 			</Home>
@@ -197,7 +196,7 @@ const NavBar = (props, context) => {
 			</Navigation>
 
 		</Grid>
-	)
+	);
 };
 
 // +++++++++ PROPS  +++++++++ 
@@ -210,7 +209,7 @@ NavBar.propTypes = {
 NavBar.defaultProps = {
 	authApi:  {},
 	logout:  f => alert('Default action: Navbar logout fn'),
-}
+};
 
 NavBar.contextTypes= {
 	router: PropTypes.object.isRequired,
