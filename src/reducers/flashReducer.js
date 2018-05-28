@@ -1,13 +1,16 @@
-import * as mod from '../actions/typeConstants';
 import shortid from 'shortid';
 
-export const flashReducer = (state = [], action = {}) => {
+import {
+	ADD_FLASH_MESSAGE,
+	DELETE_FLASH_MESSAGE,
+} from '../actions/typeConstants';
+
+const flashReducer = (state = [], action = {}) => {
 
 	let _pay = action.payload;
 
 	switch (action.type) {
-
-	case mod.ADD_FLASH_MESSAGE:
+	case ADD_FLASH_MESSAGE:
 		return [
 			...state, 
 			{ 
@@ -17,16 +20,16 @@ export const flashReducer = (state = [], action = {}) => {
 			}
 		];
 
-	case mod.DELETE_FLASH_MESSAGE:
-	console.log(state)
+	case DELETE_FLASH_MESSAGE:
 		return ( 
 			state.length > 1 ?
 				state.filter( msg => msg._id !== _pay._id) :
 				state = []
 		);
+
 	default:
 		return state;
 	}
 };
-	
+
 export default flashReducer;
