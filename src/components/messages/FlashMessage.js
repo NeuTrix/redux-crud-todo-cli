@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { colors } from '../../helpers/cssConstants'
+import { colors } from '../../helpers/cssConstants';
 
 // CSS
 const Flash = styled.div `
@@ -14,13 +14,9 @@ const Flash = styled.div `
 	padding: 4px;
 	border-radius: 5px;
 	z-index: -10;
-	
-	position: relative;
-	animation-name: dropdown;
-	// animation-delay: 1s;
-	animation-duration: 10s;
-	// animation-direction: reverse;
 
+	animation-name: dropdown;
+	animation-duration: 10s;
 	@keyframes dropdown {
 		0% { top: -50px; }
 		2% { top: 25px; }
@@ -49,7 +45,7 @@ const Flash = styled.div `
 			color: darkgoldenrod;
 			border-color: darkgoldenrod;
 			background: lightgoldenrodyellow;
-		` : `color: grey`
+		` : 'color: grey'
 }
 `;
 
@@ -80,32 +76,32 @@ class FlashMessage extends Component {
 		this.closeMessage = this.closeMessage.bind(this);
 	}
 
-	closeMessage() {
-		return this.props.deleteFlashMessage(this.props.message._id);
+	closeMessage () {
+		return this.props.deleteFlashMessage (this.props.message._id);
 	}
-
+	
 	onClick (e) {
 		e.preventDefault();
-		return	this.props.deleteFlashMessage(this.props.message._id);
-	}
+		return this.closeMessage();
+	} 
 
 	render () {
 
 		const { type, text } = this.props.message;
 		
-		setTimeout(this.closeMessage, 7000);
+		setTimeout(this.closeMessage, 70000);
 
 		return (
 			
 			<Flash 
 				className = 'FlashMessage paper' 
-				type= { type }
+				type = { type }
 			>
 				<Message
 				> { text } </Message>
 				<Clear 
-					className= 'close btn fa fa-times' 
-					onClick= { this.onClick }
+					className = 'close btn fa fa-times' 
+					onClick = { this.onClick }
 				/>
     	</Flash>
 		);
