@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { colors } from '../../helpers/cssConstants';
 // CSS
-const Flash = styled.div `
+const Flash = styled.div`
 	display: grid;
 	grid-template-areas: "message clear";
 	grid-template-columns: 9fr 1fr;
@@ -51,7 +51,7 @@ const Flash = styled.div `
 `;
 const Message = styled.div `grid-area: message;`;
 
-const Clear = styled.div `
+const Clear = styled.div`
 grid-area: clear;
 display: inherit;
 border: none;
@@ -76,7 +76,7 @@ export default function FlashMessage(props) {
 			onClick= {onClick}
 		>
 			<Message className= 'Message' > { text } </Message>
-			< Clear className= ' Clear close btn fa fa-ties'/>
+			< Clear className= 'Clear close btn fa fa-ties'/>
 		</Flash>
 	);
 }
