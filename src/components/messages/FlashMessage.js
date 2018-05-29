@@ -1,21 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { colors } from '../../helpers/cssConstants';
-
 // CSS
 const Flash = styled.div `
 	display: grid;
 	grid-template-areas: "message clear";
 	grid-template-columns: 9fr 1fr;
 	margin-top: 10px;
-	font-size: 1em;
-	border: 2px solid grey;
 	padding: 4px;
-	border-radius: 5px;
 	z-index: -10;
+	place-content: center;
+	height: auto;
+	width: auto;
+	border-width: 1px 
+	border-radius: 3px;
+	
 	animation: fadein 1s;
-
 	@keyframes fadein {
 		from {opacity: 0;}
 		to {opacity: 1;}
@@ -48,64 +49,36 @@ const Flash = styled.div `
 		` : 'color: grey'
 }
 `;
-
-const Message = styled.div `
-	grid-area: message;
-	background: transparent;
-	height: auto;
-	display: inherit;
-	place-content: center;
-	`;
+const Message = styled.div `grid-area: message;`;
 
 const Clear = styled.div `
-	grid-area: clear;
-	place-content: center;
-	height: auto;
-	width: auto;
-	display: inherit;
-	border: none;
-	font-size: 1.5em
+grid-area: clear;
+display: inherit;
+border: none;
+font-size: 1.5em
 `;
-
 // COMPONENT
-class FlashMessage extends Component {
-
-	constructor (props) {
-		super(props);
-		this.onClick = this.onClick.bind(this);
-		this.closeMessage = this.closeMessage.bind(this);
-	}
-
-	closeMessage () {
-		return this.props.deleteFlashMessage (this.props.message._id);
-	}
-	
-	onClick (e) {
+export default function FlashMessage(props) {
+	const { _id, text, type } = props.message;
+	const closeMessage = () => {
+		return props.deleteFlashMessage (_id);
+	};
+	const onClick = (e) => {
 		e.preventDefault();
-		return this.closeMessage();
-	} 
+		return closeMessage();
+	}; 
+	setTimeout(closeMessage, 7000);
 
-	render () {
-
-		const { type, text } = this.props.message;
-		
-		setTimeout(this.closeMessage, 7000);
-
-		return (
-			
-			<Flash 
-				className = 'FlashMessage paper' 
-				type = { type }
-			>
-				<Message
-				> { text } </Message>
-			 < Clear
-					className = 'close btn fa fa-times'
-					onClick = {this.onClick}
-				/>
-    	</Flash>
-		);
-	}
+	return (
+		<Flash 
+			className= 'FlashMessage paper' 
+			type= { type }
+			onClick= {onClick}
+		>
+			<Message className= 'Message' > { text } </Message>
+			< Clear className= ' Clear close btn fa fa-ties'/>
+		</Flash>
+	);
 }
 
 FlashMessage.propTypes = {
@@ -116,6 +89,3 @@ FlashMessage.propTypes = {
 FlashMessage.defaultProps = {
 	deleteFlashMessage: f => alert('Default fn: deleteFlashMessage')
 };
-
-export default FlashMessage;
-
