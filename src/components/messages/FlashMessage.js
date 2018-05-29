@@ -14,7 +14,7 @@ const Flash = styled.div `
 	padding: 4px;
 	border-radius: 5px;
 	z-index: -10;
-	animation: fadein 3s;
+	animation: fadein 1s;
 
 	@keyframes fadein {
 		from {opacity: 0;}
@@ -27,7 +27,6 @@ const Flash = styled.div `
 		border: 2px solid black;
 		transition: 0.5s;
 	}
-
 
 	${ ({ type }) => 
 		type === 'success' ? ` 
@@ -57,7 +56,6 @@ const Message = styled.div `
 	display: inherit;
 	place-content: center;
 	`;
-	
 
 const Clear = styled.div `
 	grid-area: clear;
@@ -91,7 +89,7 @@ class FlashMessage extends Component {
 
 		const { type, text } = this.props.message;
 		
-		setTimeout(this.closeMessage, 70000);
+		setTimeout(this.closeMessage, 7000);
 
 		return (
 			
