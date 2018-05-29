@@ -14,18 +14,14 @@ const Flash = styled.div `
 	padding: 4px;
 	border-radius: 5px;
 	z-index: -10;
+	
 
-	animation-name: dropdown;
-	animation-duration: 10s;
-	@keyframes dropdown {
-		0% { top: -50px; }
-		2% { top: 25px; }
-		5% { top: -10px; }
-		7% { top: 10px; }
-		55% { top: 10px; }
-		62% { top: -10px; }
-		63% { top: 25px; }
-		70% { top: -50px; }
+
+	&:hover {
+		background-color: whitesmoke;
+		color: darkgrey;
+		border: 2px solid black;
+		transition: 0.5s;
 	}
 
 	${ ({ type }) => 
@@ -56,6 +52,7 @@ const Message = styled.div `
 	display: inherit;
 	place-content: center;
 	`;
+	
 
 const Clear = styled.div `
 	grid-area: clear;
@@ -99,9 +96,9 @@ class FlashMessage extends Component {
 			>
 				<Message
 				> { text } </Message>
-				<Clear 
-					className = 'close btn fa fa-times' 
-					onClick = { this.onClick }
+			 < Clear
+					className = 'close btn fa fa-times'
+					onClick = {this.onClick}
 				/>
     	</Flash>
 		);
