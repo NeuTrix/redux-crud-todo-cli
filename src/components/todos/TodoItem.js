@@ -89,7 +89,7 @@ class TodoItem extends Component {
 		this.handleBlur 	= this.handleBlur.bind(this)
 		this.handleChange = this.handleChange.bind(this)
 		this.handleEdit 	= this.handleEdit.bind(this)
-		this.handleSubmit= this.handleSubmit.bind(this)
+		this.handleSubmit = this.handleSubmit.bind(this)
 	}
 
 	handleBlur(e) {
