@@ -1,6 +1,6 @@
 {
-  "name": "redux_crud",
-  "version": "0.1.0",
+  "name": "date_trader",
+  "version": "0.0.1",
   "description": "Basic CRUD template in React and Redux",
   "main": "index.js",
   "scripts": {
@@ -62,5 +62,11 @@
     "faker": "^4.1.0",
     "jest": "^22.4.3",
     "react-addons-test-utils": "^15.6.2"
-  }
+  },
+  "keywords": [
+    "divorce",
+    "planning",
+    "kids",
+    "calendar"
+  ]
 }
