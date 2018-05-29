@@ -14,8 +14,12 @@ const Flash = styled.div `
 	padding: 4px;
 	border-radius: 5px;
 	z-index: -10;
-	
+	animation: fadein 3s;
 
+	@keyframes fadein {
+		from {opacity: 0;}
+		to {opacity: 1;}
+	}
 
 	&:hover {
 		background-color: whitesmoke;
@@ -23,6 +27,7 @@ const Flash = styled.div `
 		border: 2px solid black;
 		transition: 0.5s;
 	}
+
 
 	${ ({ type }) => 
 		type === 'success' ? ` 
