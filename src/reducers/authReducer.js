@@ -20,7 +20,7 @@ export const initialState = {
 	isAuthenticated: false,
 };
 
-export const authReducer = (state = initialState, action = {}) => {
+export default function authReducer (state = initialState, action = {}) {
 	let payload = action.payload;
 
 	switch(action.type) {
@@ -63,8 +63,6 @@ export const authReducer = (state = initialState, action = {}) => {
 			...state, 
 			loginHasSucceeded : payload.status
 		}; 
-
-
 				
 	case LOGIN_HAS_ERRORED:
 		return {
@@ -74,6 +72,4 @@ export const authReducer = (state = initialState, action = {}) => {
 	default: 
 		return state;
 	}
-};
-
-export { authReducer as default } ;
+}

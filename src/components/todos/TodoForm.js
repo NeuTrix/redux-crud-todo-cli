@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components'
+import styled from 'styled-components';
 //  custom
 import normalizeDate from '../../helpers/normalizeDate';
 import { colors, media } from '../../helpers/cssConstants';
@@ -25,7 +25,7 @@ const Grid = styled.form `
 	& * {
 		font-size: 1em;
 		&:hover {
-			color: lime;
+			color: steelblue;
 		}
 	}
 
@@ -53,9 +53,7 @@ const DatePick = styled.input `
 	text-indent: 10px;
 `;
 
-const Rank = styled.select `
-	grid-area: rank;
-`;
+const Rank = styled.select `grid-area: rank;`;
 
 const Task = styled.input `
 	grid-area: task;
@@ -82,20 +80,20 @@ class TodoForm extends Component {
 			task: '', 
 			rank: 'Med',
 		 	owner: this.props.owner ,
-		}
-		this.handleSubmit = this.handleSubmit.bind(this)
-		this.handleChange = this.handleChange.bind(this)
+		};
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleChange = this.handleChange.bind(this);
 	}
 
 	handleSubmit(e) {
 		e.preventDefault ();
 		this.props.createTodo (this.state);
-		this.setState ({ task: ''})
-	};
+		this.setState ({ task: ''});
+	}
 
 	handleChange(e) {
 		e.preventDefault();
-		this.setState ({ [ e.target.name ]: e.target.value })
+		this.setState ({ [ e.target.name ]: e.target.value });
 	}
 
 	render () {
@@ -150,9 +148,9 @@ class TodoForm extends Component {
 				</Add> 
 
 			</Grid>
-		)
+		);
 	}
-};
+}
 
 // +++++++++ PROPS +++++++++ 
 

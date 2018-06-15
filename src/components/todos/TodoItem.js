@@ -27,7 +27,7 @@ const Grid = styled.form `
 	& * {
 		font-size: 1em;	
 		&:hover {
-			color: lime;
+			color: steelblue;
 		}
 	}
 

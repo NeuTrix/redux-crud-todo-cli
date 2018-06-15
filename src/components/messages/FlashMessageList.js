@@ -26,18 +26,12 @@ FlashMessagesList.propTypes = {
 	deleteFlashMessage: PropTypes.func.isRequired
 };
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		deleteFlashMessage: (_id) => {
-			return dispatch(deleteFlashMessage(_id));
-		}
-	};
-};
-
-const mapStateToProps = (state) => {
+function mapStateToProps(state) {
 	return {
 		messages: state.flashMessages
 	};
-};
+}
 
-export default connect (mapStateToProps, mapDispatchToProps)(FlashMessagesList) ;
+export default connect(mapStateToProps, {
+	deleteFlashMessage
+})(FlashMessagesList);
