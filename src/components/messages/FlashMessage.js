@@ -1,20 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { colors } from '../../helpers/cssConstants';
+
 // CSS
 const Flash = styled.div`
 	display: grid;
 	grid-template-areas: "message clear";
 	grid-template-columns: 9fr 1fr;
 	margin-top: 10px;
-	padding: 4px;
+	font-size: 1em;
+	border: 1px solid grey;
+	padding: 10px;
+	border-radius: 5px;
 	z-index: -10;
-	place-content: center;
-	height: auto;
-	width: auto;
-	border-width: 1px 
-	border-radius: 3px;
 	
 	animation: fadein 1s;
 	@keyframes fadein {
@@ -25,11 +24,17 @@ const Flash = styled.div`
 	&:hover {
 		background-color: whitesmoke;
 		color: darkgrey;
-		border: 2px solid black;
-		transition: 0.5s;
-	}
+		border: 1px solid black;
+		transition: 5s;
 
-	${ ({ type }) => 
+		animation: fade-out 5s;
+			@keyframes fade-out {
+				from {opacity: 1.0;}
+				to {opacity: 0.4;}
+			}
+	}
+		
+	${ ({ type }) =>
 		type === 'success' ? ` 
 			background: greenyellow ;
 			color: ${colors._mintgreen} ;
@@ -49,36 +54,62 @@ const Flash = styled.div`
 		` : 'color: grey'
 }
 `;
-const Message = styled.div `grid-area: message;`;
+
+const Message = styled.div`
+	grid-area: message; 
+	display: inherit; 
+	place-content: center; 
+	`;
 
 const Clear = styled.div`
-grid-area: clear;
-display: inherit;
-border: none;
-font-size: 1.5em
+	grid-area: clear;
+	place-content: center; 
+	height: auto; 
+	width: auto; 
+	display: inherit; 
+	border: none;
+	font-size: 1.25em
 `;
-// COMPONENT
-export default function FlashMessage(props) {
-	const { _id, text, type } = props.message;
-	const closeMessage = () => {
-		return props.deleteFlashMessage (_id);
-	};
-	const onClick = (e) => {
-		e.preventDefault();
-		return closeMessage();
-	}; 
-	setTimeout(closeMessage, 7000);
 
-	return (
-		<Flash 
-			className= 'FlashMessage paper' 
-			type= { type }
-			onClick= {onClick}
-		>
-			<Message className= 'Message' > { text } </Message>
-			< Clear className= 'Clear close btn fa fa-ties'/>
-		</Flash>
-	);
+// COMPONENT
+class FlashMessage extends Component {
+
+	constructor(props) {
+		super(props);
+		this.onClick = this.onClick.bind(this);
+		this.closeMessage = this.closeMessage.bind(this);
+	}
+
+	closeMessage() {
+		return this.props.deleteFlashMessage(this.props.message._id);
+	}
+
+	onClick(e) {
+		e.preventDefault();
+		setTimeout(this.closeMessage(), 750);
+	}
+
+	render() {
+
+		const { type, text } = this.props.message;
+
+		setTimeout(this.closeMessage, 7000);
+
+		return (
+
+			<Flash
+				className='FlashMessage paper'
+				type={type}
+			>
+				<Message
+				> {text} </Message>
+				<Clear
+					className='close btn fa fa-times'
+					onClick={this.onClick}
+				/>
+			</Flash>
+		);
+	}
 }
 
 FlashMessage.propTypes = {
@@ -89,3 +120,6 @@ FlashMessage.propTypes = {
 FlashMessage.defaultProps = {
 	deleteFlashMessage: f => alert('Default fn: deleteFlashMessage')
 };
+
+export default FlashMessage;
+
