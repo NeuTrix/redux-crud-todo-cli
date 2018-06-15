@@ -81,6 +81,7 @@ export default function FlashMessage(props) {
 	);
 }
 
+
 FlashMessage.propTypes = {
 	message: PropTypes.object.isRequired,
 	deleteFlashMessage: PropTypes.func.isRequired
