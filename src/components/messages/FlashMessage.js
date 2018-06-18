@@ -89,6 +89,7 @@ class FlashMessage extends Component {
 		setTimeout(this.closeMessage(), 750);
 	}
 
+	
 	render() {
 
 		const { type, text } = this.props.message;
