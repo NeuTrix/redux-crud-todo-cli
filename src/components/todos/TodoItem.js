@@ -5,9 +5,7 @@ import styled from 'styled-components';
 import CheckComplete from '../buttons/CheckComplete';
 import DeleteBtn from '../buttons/DeleteBtn';
 import { media } from '../../helpers/cssConstants';
-
 // +++++++++ CSS +++++++++ 
-
 const Grid = styled.form `
 	/* mobile mode */
 
@@ -71,9 +69,7 @@ const Task = styled.input `
   	background-color: whitesmoke;
   `}
 `;
-
 // +++++++++ COMPONENT +++++++++ 
-
 class TodoItem extends Component {
 
 	constructor (props) {
@@ -104,10 +100,7 @@ class TodoItem extends Component {
 
 	handleEdit(e) {
 		e.preventDefault();
-		if (this.state.completed) {
-			alert('Please uncheck `completed` before editing')
-		} 
-			e.target.setSelectionRange(0, e.target.value.length);
+		e.target.setSelectionRange(0, e.target.value.length);
 	}
 
 	handleSubmit(e) {
@@ -127,6 +120,7 @@ class TodoItem extends Component {
 				<Task 
 					isComplete= { this.state.completed }
 					className= '_task'
+					disabled= { this.state.completed }
 					name= 'task'
 					type= 'text'
 					defaultValue= { this.state.task }
@@ -173,15 +167,12 @@ class TodoItem extends Component {
 					task= { task }
 					_id = { _id }
 					deleteTodo= { this.props.deleteTodo }
-				/> 
-
+					/> 
 			</Grid>
 		)
 	}
 };
-
 // +++++++++ PROPS +++++++++ 
-
 TodoItem.propTypes= {
 	deleteTodo: PropTypes.func.isRequired,
 	editTodo: PropTypes.func.isRequired,
@@ -191,7 +182,7 @@ TodoItem.propTypes= {
 TodoItem.defaultProps= {
 	deleteTodo: f => alert("default function triggered"),
 	editTodo: f => alert("default function triggered"),
-	item: { date: '2020-11-04'},
+	item: { date: '2020-11-04' }
 };
 
 export default TodoItem;
