@@ -9,7 +9,7 @@ import Spinner from '../buttons/Spinner';
 import { colors, media } from '../../helpers/cssConstants';
 
 // +++++++++  CSS  +++++++++ 
-const baseColor = colors._mintgreen 
+const baseColor = colors._mintgreen; 
 
 const Grid = styled.form `
 	display: grid;
@@ -56,7 +56,7 @@ const  Submit = styled.button`
 	color: ${baseColor}
 	`;
 	
-	const RegLink = styled(Link) `
+const RegLink = styled(Link) `
 	gride-area: link;
 	color: blue
 	place-content: center;
@@ -108,7 +108,7 @@ class Loginform extends Component {
 						text: `Hi ${ res.data.username }! You're Logged In.`
 					});
 					this.context.router.history.push('/todos');
-					return res
+					return res;
 				})
 				.catch((err, res) =>{
 					// console.log(err)
@@ -132,7 +132,10 @@ class Loginform extends Component {
 				onSubmit= { this.onSubmit } 
 			>
 				<Title className= 'Title ctr engr under' > 
-					<h1>  { !isLoading ? 'Login' : <Spinner color= 'greenyellow' /> } </h1>
+					<h1>  { !isLoading 
+						? 'Login' 
+						: <Spinner color= 'greenyellow' /> 
+					} </h1>
 				</Title>
 
 				<Email 

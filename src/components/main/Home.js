@@ -67,7 +67,7 @@ const showLogin = (
 		color = {colors._mintgreen}
 		path = '/login' 
 	/>
-)
+);
 
 const showRegister = (
 	<Register 
@@ -77,7 +77,7 @@ const showRegister = (
 		color = 'steelblue'
 		path = '/register'
 	/>
-)
+);
 
 // +++++++++ COMPONENT  +++++++++ 
 
@@ -110,11 +110,10 @@ const Home = ({ authorized }) => {
 
 Home.propTypes = {
 	authorized: PropTypes.bool.isRequired,
-}
+};
 
 Home.defaultProps = {
 	authorized: true,
-}
-
+};
 
 export default Home;
