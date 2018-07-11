@@ -24,7 +24,7 @@ const Grid = styled.form `
 	
 	& * {
 		font-size: 1em;	
-		&:hover {
+		&: hover: not(._task) {
 			color: steelblue;
 		}
 	}
