@@ -88,10 +88,12 @@ class TodoItem extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this)
 	}
 
+	
 	handleBlur(e) {
 		e.preventDefault();
 		this.props.editTodo(this.props.item._id, this.state)
 	}
+
 
 	handleChange(e) {
 		e.preventDefault();
