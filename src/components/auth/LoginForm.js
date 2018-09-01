@@ -63,8 +63,6 @@ const RegLink = styled(Link) `
 	display: inline-grid;
 `;
 
-
-
 // +++++++++  COMPONENT  +++++++++ 
 
 class Loginform extends Component {
@@ -195,4 +193,4 @@ Loginform.contextTypes = {
 	router: PropTypes.object.isRequired,
 };
 
-export default Loginform;
+export default Loginform
