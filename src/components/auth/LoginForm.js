@@ -119,7 +119,6 @@ class Loginform extends Component {
 		}
 	}
 
-
 	render () {
     
 		const { errors, identifier, password, isLoading } = this.state; 
