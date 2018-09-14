@@ -20,6 +20,7 @@ const Grid = styled.div`
 const EntryForm = styled(LoginForm) `
 	grid-area: form;
 `;
+sdl = SSL_OP_TLS_BLOCK_PADDING_BUG
 
 const LoginPage = (props) => {
 	
