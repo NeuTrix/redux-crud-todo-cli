@@ -29,7 +29,6 @@
     "classnames": "^2.2.5",
     "cross-fetch": "^1.1.1",
     "enzyme": "^3.6.0",
-    "eslint": "^5.5.0",
     "font-awesome": "^4.7.0",
     "jsonwebtoken": "^8.2.0",
     "jsxhint": "^0.15.1",
@@ -60,6 +59,7 @@
     "chai-http": "^4.2.0",
     "deep-freeze": "^0.0.1",
     "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^5.6.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
@@ -67,6 +67,22 @@
     "expect": "^22.0.3",
     "faker": "^4.1.0",
     "jest": "^22.4.3"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    },
+    "env": {
+      "es6": true,
+      "node": true,
+      "jest": true
+    },
+    "extends": "airbnb",
+    "rules": {
+      "import/no-unresolved": "off",
+      "import/extensions": "off"
+    }
   },
   "keywords": [
     "divorce",
