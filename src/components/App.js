@@ -16,7 +16,7 @@ import LoginPage from './auth/LoginPage';
 import RegisterPage from './auth/RegisterPage';
 import TodoPage from './todos/TodoPage';
 // CSS
-const Grid = styled.div `
+const Grid =styled.div `
   display: grid;
   grid-template-areas:   
     " header " 
@@ -30,39 +30,39 @@ const Grid = styled.div `
   padding: 0px 10px 0px 10px;
 `;
 
-const Header = styled.div `
+const Header =styled.div `
 		grid-area: header;
 		margin-bottom: 40px;
 	`;
-const Messages = styled.div `grid-area: messages;`;
-const Main = styled.div `grid-area: main;`;
+const Messages =styled.div `grid-area: messages;`;
+const Main =styled.div `grid-area: main;`;
 
 // Component
-const App = (props) => {
+const App =(props) => {
   return (
-    <Grid className= 'App' >
+    <Grid className='App' >
 
-      <Header className= 'Header' >
+      <Header className='Header' >
         <NavBar
-          authApi= { props.authApi }
-          logout= { props.logout }
+          authApi={ props.authApi }
+          logout={ props.logout }
         />
       </Header>
 
-      <Messages className= 'Messages'>
+      <Messages className='Messages'>
         <FlashMessageList/>
       </Messages>
 
-      <Main className= 'Main'>
-        <Route exact path= '/' render= {() =>
-          <Home authorized= {props.authApi.isAuthenticated} />}
+      <Main className='Main'>
+        <Route exact path='/' render={() =>
+          <Home authorized={props.authApi.isAuthenticated} />}
         />
-        <Route path= '/login' component= { LoginPage } />
-        <Route path= '/register' component= { RegisterPage } />
+        <Route path='/login' component={ LoginPage } />
+        <Route path='/register' component={ RegisterPage } />
         <Route
-          exact path= '/todos'
-          component= { requireAuth(ReactDom.render= (props) =>
-            <TodoPage className= 'TodoPage' />
+          exact path='/todos'
+          component={ requireAuth(ReactDom.render=(props) =>
+            <TodoPage className='TodoPage' />
           )}
         />
       </Main>
@@ -70,18 +70,18 @@ const App = (props) => {
   );
 };
 
-App.propTypes = {
+App.propTypes ={
   authApi: PropTypes.object.isRequired,
   logout: PropTypes.func.isRequired,
 };
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps =(dispatch) => {
   return {
     logout: () => {
       dispatch(logout());
     },
   };
 };
-const mapStateToProps = (state) => {
+const mapStateToProps =(state) => {
   return {
     authApi: state.authApi,
   };
