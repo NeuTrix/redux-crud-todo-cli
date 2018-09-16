@@ -10,7 +10,7 @@ import { colors, media  } from '../../helpers/cssConstants';
 // +++++++++  CSS  +++++++++ 
 const baseColor=colors._deepblue; 
 
-const Grid=styled.form `
+const Grid=styled.form`
 	display: grid;
 	grid-template-areas: 
 		"title"
