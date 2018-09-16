@@ -9,9 +9,9 @@ import Spinner from '../buttons/Spinner';
 import { colors, media } from '../../helpers/cssConstants';
 
 // +++++++++  CSS  +++++++++ 
-const baseColor = colors._mintgreen; 
+const baseColor =colors._mintgreen; 
 
-const Grid = styled.form `
+const Grid =styled.form `
 	display: grid;
 	grid-template-areas: 
 		"title"
@@ -32,19 +32,19 @@ const Grid = styled.form `
 	}
 `;
 
-const Title = styled.div `
+const Title =styled.div `
 	gride-area: title;
 `;
 
-const  Email = styled(TextFieldGroup) `
+const  Email =styled(TextFieldGroup) `
 	gride-area: email;
 `;
 
-const  Pword = styled(TextFieldGroup) `
+const  Pword =styled(TextFieldGroup) `
 	gride-area: pword;
 `;
 
-const  Submit = styled.button`
+const  Submit =styled.button`
 	gride-area: submit;
 	font-weight: bold;
 	font-size: 1.0em;
@@ -56,7 +56,7 @@ const  Submit = styled.button`
 	color: ${baseColor}
 	`;
 	
-const RegLink = styled(Link) `
+const RegLink =styled(Link) `
 	gride-area: link;
 	color: blue
 	place-content: center;
@@ -70,15 +70,15 @@ class Loginform extends Component {
 	constructor (props, context) {
 
 		super(props, context);
-		this.state = {
+		this.state ={
 			identifier: '',
 			password: '',
 			errors: { },
 			isLoading: this.props.authApi.loginIsPosting,
 		};
 
-		this.onChange = this.onChange.bind(this);
-		this.onSubmit = this.onSubmit.bind(this);
+		this.onChange =this.onChange.bind(this);
+		this.onSubmit =this.onSubmit.bind(this);
 	}
 
 	onChange(e) {
@@ -87,7 +87,7 @@ class Loginform extends Component {
 	}
 
 	isValid() {
-		const { errors, isValid } = validateInput(this.state);
+		const { errors, isValid } =validateInput(this.state);
 		if(!isValid) {
 			this.setState({ errors });
 		}
@@ -121,47 +121,47 @@ class Loginform extends Component {
 
 	render () {
     
-		const { errors, identifier, password, isLoading } = this.state; 
+		const { errors, identifier, password, isLoading } =this.state; 
 
 		return (
 			<Grid 
-				className= { `Loginform ${this.props.className} boxClr paper` } 
-				onSubmit= { this.onSubmit } 
+				className={ `Loginform ${this.props.className} boxClr paper` } 
+				onSubmit={ this.onSubmit } 
 			>
-				<Title className= 'Title ctr engr under' > 
-					<h1> { !isLoading ? 'Login' : <Spinner color = 'greenyellow' /> } </h1>
+				<Title className='Title ctr engr under' > 
+					<h1> { !isLoading ? 'Login' : <Spinner color ='greenyellow' /> } </h1>
 				</Title>
 
 				<Email 
-					className= 'Email'
-					errors= { errors.identifier }
-					label= 'Username / Email' 
-					name= 'identifier'
-					onChange= { this.onChange }
-					placeholder= 'enter a username -or- email'
-					type= 'text'
-					value= { identifier }
+					className='Email'
+					errors={ errors.identifier }
+					label='Username / Email' 
+					name='identifier'
+					onChange={ this.onChange }
+					placeholder='enter a username -or- email'
+					type='text'
+					value={ identifier }
 				/>
        
 				<Pword 
-					className= 'Pword'
-					errors= { errors.password }
-					label= 'Password' 
-					name= 'password'
-					onChange= { this.onChange }
-					placeholder= 'enter your password'
-					type= 'password'
-					value= { password }
+					className='Pword'
+					errors={ errors.password }
+					label='Password' 
+					name='password'
+					onChange={ this.onChange }
+					placeholder='enter your password'
+					type='password'
+					value={ password }
 				/>
 				
 				<Submit 
-					className = 'Submit'
-					type= 'submit' 
-					name= 'Log in' 
-					disabled= {isLoading}
+					className ='Submit'
+					type='submit' 
+					name='Log in' 
+					disabled={isLoading}
 				> Log in </Submit> 
 
-				<RegLink to= '/register' className= 'RegLink' >
+				<RegLink to='/register' className='RegLink' >
 					Click here to register a new account
 				</RegLink>	
 			</Grid>
@@ -169,7 +169,7 @@ class Loginform extends Component {
 	}
 }
 
-Loginform.propTypes = {
+Loginform.propTypes ={
 	addFlashMessage: PropTypes.func.isRequired,
 	authApi: PropTypes.object.isRequired,
 	className: PropTypes.string.isRequired, // from styled-components
@@ -177,7 +177,7 @@ Loginform.propTypes = {
 	userLoginRequest: PropTypes.func.isRequired,
 };
 
-Loginform.defaultProps = {
+Loginform.defaultProps ={
 	addFlashMessage: f => f,
 	authApi: { loginIsPosting: false},
 	className: '',
@@ -185,8 +185,8 @@ Loginform.defaultProps = {
 	userLoginRequest: f => f,
 };
 
-Loginform.contextTypes = {
+Loginform.contextTypes ={
 	router: PropTypes.object.isRequired,
 };
 
-export default Loginform
+export default Loginform;

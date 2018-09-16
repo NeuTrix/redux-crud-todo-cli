@@ -8,9 +8,9 @@ import Spinner from '../buttons/Spinner';
 import { colors, media  } from '../../helpers/cssConstants';
 
 // +++++++++  CSS  +++++++++ 
-const baseColor = colors._deepblue 
+const baseColor=colors._deepblue; 
 
-const Grid = styled.form `
+const Grid=styled.form `
 	display: grid;
 	grid-template-areas: 
 		"title"
@@ -33,31 +33,31 @@ const Grid = styled.form `
 	}
 `;
 
-const Title = styled.div `
+const Title=styled.div `
 	gride-area: title;
 `;
 
-const  User = styled(TextFieldGroup) `
+const  User=styled(TextFieldGroup) `
 	gride-area: user;
 `;
 
-const  Email = styled(TextFieldGroup) `
+const  Email=styled(TextFieldGroup) `
 	gride-area: email;
 `;
 
-const  EmailConf = styled(TextFieldGroup) `
+const  EmailConf=styled(TextFieldGroup) `
 	gride-area: emConf;
 `;
 
-const  Pword = styled(TextFieldGroup) `
+const  Pword=styled(TextFieldGroup) `
 	gride-area: pword;
 `;
 
-const  PwordConf = styled(TextFieldGroup) `
+const  PwordConf=styled(TextFieldGroup) `
 	gride-area: pwConf;
 `;
 
-const  Submit = styled.button`
+const  Submit=styled.button`
 	gride-area: submit;
 	font-weight: bold;
 	font-size: 1.0em;
@@ -76,7 +76,7 @@ class RegisterForm extends Component {
 	constructor(props, context) {
 
 		super(props, context);
-		this.state = {
+		this.state={
 			email: '',
 			emailConfirm: '',
 			errors: { },
@@ -86,8 +86,8 @@ class RegisterForm extends Component {
 			username: '',
 		};
 
-		this.onChange = this.onChange.bind(this);
-		this.onSubmit = this.onSubmit.bind(this);
+		this.onChange=this.onChange.bind(this);
+		this.onSubmit=this.onSubmit.bind(this);
 	}
 
 	onChange(e) {
@@ -96,7 +96,7 @@ class RegisterForm extends Component {
 	}
 
 	isValid() {
-		const { errors, isValid } = validateInput(this.state);
+		const { errors, isValid }=validateInput(this.state);
 		if(!isValid) {
 			this.setState({ errors });
 		}
@@ -132,70 +132,70 @@ class RegisterForm extends Component {
 
 	render() {
     
-		const { errors, isLoading } = this.state;
+		const { errors, isLoading }=this.state;
 
 		return (
 
 			<Grid 
-				id = 'registerForm'
-				className = 'boxClr paper' 
-				onSubmit = { this.onSubmit } 
+				id='registerForm'
+				className='boxClr paper' 
+				onSubmit={ this.onSubmit } 
 			>
-				<Title className= 'ctr engr under' > 
-					<h1>  { !isLoading ? 'Registration' : <Spinner color= { colors._iceblue } /> } </h1>
+				<Title classNam='ctr engr under' > 
+					<h1> { !isLoading ? 'Registration' : <Spinner color={ colors._iceblue } /> } </h1>
 				</Title>
 
 				<User 
-					errors = { errors.username }
-					label = 'Username' 
-					name = 'username'
-					onChange = { this.onChange }
-					placeholder = 'Enter a username'
-					type = 'text'
-					value = { this.state.username }
+					errors={ errors.username }
+					label='Username' 
+					name='username'
+					onChange={ this.onChange }
+					placeholder='Enter a username'
+					type='text'
+					value={ this.state.username }
 				/>
 
 				<Email 
-					errors = { errors.email }
-					label = 'Email' 
-					name = 'email'
-					onChange = { this.onChange }
-					placeholder = 'Enter your email address'
-					type = 'email'
-					value = { this.state.email }
+					errors={ errors.email }
+					label='Email' 
+					name='email'
+					onChange={ this.onChange }
+					placeholder='Enter your email address'
+					type='email'
+					value={ this.state.email }
 				/>
 				<EmailConf 
-					errors = { errors.emailConfirm }
-					name = 'emailConfirm'
-					placeholder = 'Confirm your email address'
-					onChange = { this.onChange }
-					type = 'email'
-					value = { this.state.emailConfirm }
+					errors={ errors.emailConfirm }
+					name='emailConfirm'
+					placeholder='Confirm your email address'
+					onChange={ this.onChange }
+					type='email'
+					value={ this.state.emailConfirm }
 				/>
 
 				<Pword 
-					errors = { errors.password }
-					label = 'Password' 
-					name = 'password'
-					onChange = { this.onChange }
-					placeholder = 'Enter your password'
-					type = 'password'
-					value = { this.state.password }
+					errors={ errors.password }
+					label='Password' 
+					name='password'
+					onChange={ this.onChange }
+					placeholder='Enter your password'
+					type='password'
+					value={ this.state.password }
 				/>
 
 				<PwordConf 
-					errors = { errors.passwordConfirm }
-					name = 'passwordConfirm'
-					placeholder = 'Confirm your password'
-					onChange = { this.onChange }
-					type = 'password'
-					value = { this.state.passwordConfirm } 
+					errors={ errors.passwordConfirm }
+					name='passwordConfirm'
+					placeholder='Confirm your password'
+					onChange={ this.onChange }
+					type='password'
+					value={ this.state.passwordConfirm } 
 				/>
 
 				<Submit 
-					type= 'submit' 
-					name= 'Log in' 
-					disabled= {isLoading}
+					typ='submit' 
+					nam='Log in' 
+					disable={isLoading}
 				>
 					Register
 				</Submit> 
@@ -205,19 +205,19 @@ class RegisterForm extends Component {
 	}
 }
 
-RegisterForm.propTypes = {
+RegisterForm.propTypes={
 	addFlashMessage: PropTypes.func.isRequired,
 	authApi: PropTypes.object.isRequired,
 	userSignupRequest: PropTypes.func.isRequired,
 };
 
-RegisterForm.defaultProps = {
+RegisterForm.defaultProps={
 	addFlashMessage: f => f,
 	authApi: { loginIsPosting: false},
 	userSignupRequest: f => f,
 };
 
-RegisterForm.contextTypes = {
+RegisterForm.contextTypes={
 	router: PropTypes.object.isRequired,
 };
 
