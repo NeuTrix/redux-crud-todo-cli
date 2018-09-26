@@ -134,10 +134,10 @@ const NoAuthLi = styled.li `
 	text-shadow: none;
 	font-size: initial
 
-	${({ auth }) => !auth ? `
-		display: inline-grid;` : `
-		display: none;
-	`}
+	${({ auth }) => !auth 
+		? `display: inline-grid;` 
+		: `display: none;`
+	}
 `;
 
 const A = styled(Link) `
