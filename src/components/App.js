@@ -15,7 +15,15 @@ import Home from './main/Home';
 import LoginPage from './auth/LoginPage';
 import RegisterPage from './auth/RegisterPage';
 import TodoPage from './todos/TodoPage';
-
+// fontawesome imports
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import {
+  faCheckSquare,
+  faCoffee,
+  faChartLine
+} from '@fortawesome/free-solid-svg-icons';
+library.add(fab, faCheckSquare, faCoffee, faChartLine);
 
 // CSS
 const Grid =styled.div `

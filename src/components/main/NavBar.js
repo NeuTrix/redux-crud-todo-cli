@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../../assets/done.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 // custom
 import { colors, media } from '../../helpers/cssConstants';
 
@@ -33,8 +35,17 @@ const Grid = styled.div `
 
 const Logo = styled.img `
 	grid-area: logo;
-	width: 100%;
+	max-width:100px ;
 `;
+
+const Dash = styled.div `
+	grid-area: dash;
+	width: 100%;
+	// color: ${colors._olive} ;
+	color: orange;
+	// font-size: 1em;
+`;
+
 
 // +++++++++ Nav Section  +++++++++ 
 
@@ -144,7 +155,11 @@ const NavBar = (props, context) => {
 		<Grid className= 'NavBar' >
 
 
-				<Logo className='logo' src={logo} alt="logo"/> 
+			<Logo className='logo' src={logo} alt="logo"/> 
+			<Dash>
+
+				<FontAwesomeIcon icon='chart-line'/>
+			</Dash>
 
 				
 			<Navigation id= 'Navigation' > 

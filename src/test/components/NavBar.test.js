@@ -12,7 +12,7 @@ describe('The NavBar Component w/ ReactDom', () => {
 			<NavBar/>
 		</Router>    
 	);
-	it('... renders the navbar', () => {
+	it('... renders the NavBar component', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 
