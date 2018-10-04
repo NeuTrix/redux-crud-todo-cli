@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 // ---------
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import logo from '../../assets/done.png';
 import styled from 'styled-components';
-// custom
 import { colors, media } from '../../helpers/cssConstants';
 
 // +++++++++  CSS  +++++++++ 
@@ -138,17 +136,10 @@ const NavBar = (props, context) => {
 		context.router.history.push('/login');
 	};
 
-	const auth = props.authApi.isAuthenticated;
-	const name = props.authApi.user.username;
+	const auth = props.auth;
 
 	return (
 
-		<Grid className= 'NavBar' >
-
-			<Logo className='logo' src={logo} alt="logo"/> 
-			
-			<Dash icon='chart-line'/>
-				
 			<Navigation id= 'Navigation' > 
 
 				<Burger id= 'Burger' className= ' engr fa fa-navicon fa-2x'/>
@@ -174,7 +165,6 @@ const NavBar = (props, context) => {
 
 			</Navigation>
 
-		</Grid>
 	);
 };
 

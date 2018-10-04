@@ -23,6 +23,7 @@ import {
   faCoffee,
   faChartLine
 } from '@fortawesome/free-solid-svg-icons';
+
 library.add(fab, faCheckSquare, faCoffee, faChartLine);
 
 // CSS
@@ -71,7 +72,7 @@ const App =(props) => {
         <Route path='/register' component={ RegisterPage } />
         <Route
           exact path='/todos'
-          component={ requireAuth(ReactDom.render=(props) =>
+          component={ requireAuth(ReactDom.render= (props) =>
             <TodoPage className='TodoPage' />
           )}
         />
@@ -84,6 +85,7 @@ App.propTypes ={
   authApi: PropTypes.object.isRequired,
   logout: PropTypes.func.isRequired,
 };
+
 const mapDispatchToProps =(dispatch) => {
   return {
     logout: () => {
