@@ -12,12 +12,13 @@ describe('The NavBar Component w/ ReactDom', () => {
 			<NavBar/>
 		</Router>    
 	);
+
 	it('... renders the NavBar component', () => {
+		// handle randomly generated class names from React
 		expect(wrapper).toMatchSnapshot({
 			class: expect.any(String)
 		});
 	});
-
 });
 
 xdescribe('The NabBar Component', () => {

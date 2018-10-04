@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The NavSection Component w/ ReactDom ... renders the NavSection component: [object Object] 1`] = `
+<div
+  class="sc-bxivhb cmGvrO"
+  id="Navigation"
+>
+  <div
+    class=" engr fa fa-navicon fa-2x sc-ifAKCX cKyOQO"
+    id="Burger"
+  />
+  <ul
+    class="sc-EHOje kxecw"
+    id="Menu"
+  >
+    <li
+      class="sc-bZQynM kxnYUI"
+    >
+      <a
+        class="sc-htoDjs Hxrzp"
+        href="/todos"
+      >
+         Todos 
+      </a>
+    </li>
+    <li
+      class="sc-bZQynM kxnYUI"
+    >
+      <a
+        class="sc-htoDjs Hxrzp"
+        href="/"
+      >
+         Logout 
+      </a>
+    </li>
+    <li
+      class="sc-gzVnrw jnjXGN"
+    >
+      <a
+        class="sc-htoDjs Hxrzp"
+        href="/register"
+      >
+         Register 
+      </a>
+    </li>
+    <li
+      class="sc-gzVnrw jnjXGN"
+    >
+      <a
+        class="sc-htoDjs Hxrzp"
+        href="/login"
+      >
+         Login 
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`The NavSection Component w/ ReactDom ...renders the NavSection component: [object Object] 1`] = `
+<div
+  class="sc-bxivhb cmGvrO"
+  id="Navigation"
+>
+  <div
+    class=" engr fa fa-navicon fa-2x sc-ifAKCX cKyOQO"
+    id="Burger"
+  />
+  <ul
+    class="sc-EHOje kxecw"
+    id="Menu"
+  >
+    <li
+      class="sc-bZQynM kxnYUI"
+    >
+      <a
+        class="sc-htoDjs Hxrzp"
+        href="/todos"
+      >
+         Todos 
+      </a>
+    </li>
+    <li
+      class="sc-bZQynM kxnYUI"
+    >
+      <a
+        class="sc-htoDjs Hxrzp"
+        href="/"
+      >
+         Logout 
+      </a>
+    </li>
+    <li
+      class="sc-gzVnrw jnjXGN"
+    >
+      <a
+        class="sc-htoDjs Hxrzp"
+        href="/register"
+      >
+         Register 
+      </a>
+    </li>
+    <li
+      class="sc-gzVnrw jnjXGN"
+    >
+      <a
+        class="sc-htoDjs Hxrzp"
+        href="/login"
+      >
+         Login 
+      </a>
+    </li>
+  </ul>
+</div>
+`;

@@ -38,7 +38,7 @@ const NavBar = (props, context) => {
 
 	return (
 		<Grid className= 'NavBar'>
-			<Logo className='logo' src={logo} alt="logo"/> 
+			<Logo className='logo' src={ logo } alt="logo"/> 
 			<Dash icon='chart-line'/>
 			<NavSection auth={ auth } logout={ logout } router='router'/>
 		</Grid>
