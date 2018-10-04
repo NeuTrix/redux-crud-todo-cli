@@ -11,10 +11,10 @@ import { colors, media } from '../../helpers/cssConstants';
 const baseColor = colors._deepblue;
 
 const Grid = styled.div `
-	display: inline-grid;
+	display: grid;
 	
-	grid-template-areas: " logo  dash  nav " ;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-areas: " Home  Home  Navigation " ;
+	grid-template-columns: 1fr 3fr 1fr;
 
   height: 49px;
 	width: 100%;
@@ -30,15 +30,31 @@ const Grid = styled.div `
 `;
 // +++++++++ Home Section  +++++++++ 
 
-const Logo = styled.img `
-	grid-area: logo;
-	width: 100%;
+const Home = styled.div `
+	grid-area: Home;z
+	display: inline-grid;
+	place-content: center;
+	grid-template-areas: "Logo Welcome";
+	grid-template-columns: 1fr 3fr;
 `;
 
+const Logo = styled.img `
+	grid-area: Logo;
+	// text-indent: 10px;
+	// text-decoration: none;
+	&:hover { color:lime; }
+	width: 50px;
+`;
+
+const Message = styled.div `
+	grid-area: Welcome;
+	place-content: center;
+	display: inline-grid;
+`;
 // +++++++++ Nav Section  +++++++++ 
 
 const Navigation = styled.div `
-	grid-area: nav;
+	grid-area: Navigation;
 	display: inline-grid;
 	place-content: center;
 	padding-right: 5px;
@@ -142,9 +158,15 @@ const NavBar = (props, context) => {
 
 		<Grid className= 'NavBar' >
 
+			<Home id= 'Home'>
 
 				<Logo className='logo' src={logo} alt="logo"/> 
 
+				<Message id= 'Message' > 
+					{ auth ? `Welcome ${ name }!` : 'Please Log in!' }
+				</Message>
+
+			</Home>
 				
 			<Navigation id= 'Navigation' > 
 
