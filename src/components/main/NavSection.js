@@ -8,36 +8,7 @@ import { colors, media } from '../../helpers/cssConstants';
 
 // +++++++++  CSS  +++++++++ 
 
-const baseColor = colors._deepblue;
 
-const Grid = styled.div `
-
-	grid-template-areas: " logo  dash  nav " ;
-	grid-template-columns: 1fr 1fr 1fr;
-	display: inline-grid;
-	place-items: center;
-
-  height: 49px;
-	width: 100%;
-  // margin-bottom: 40px;
-	padding 5px;
-	color: ${colors._olive};
-	// @media (${media._medium}) {
-	// 	grid-template-columns: 2fr 1fr 1fr;
-	// }
-`;
-
-const Logo = styled.img `
-	grid-area: logo;
-	max-width:100px ;
-`;
-
-const Dash = styled(FontAwesomeIcon) `
-	grid-area: dash;
-	width: 100%;
-	color: ${colors._olive} ;
-	font-size: 2em;
-`;
 // +++++++++ Nav Section  +++++++++ 
 
 const Navigation = styled.div `
@@ -57,7 +28,6 @@ const Navigation = styled.div `
 			min-height: 59px;
 			right: 0px;
 			top: 54px;
-			background: ${baseColor};
 			opacity: .75;
 		}
 	}
@@ -71,7 +41,7 @@ const Navigation = styled.div `
 const Burger = styled.div `
 	display: inline-grid;
 	place-content: center right;
-	color: ${colors._iceblue};	
+	color: ${colors._olive};	
 	&:hover { color: lime;}
 
 	@media (${media._medium}) {
@@ -129,6 +99,8 @@ const A = styled(Link) `
 // +++++++++  COMPONENT  +++++++++ 
 
 const NavSection = (props, context) => {
+	
+	const { auth, logout } = props;
 
 	const onLogout = (e) => {
 		e.preventDefault();
@@ -136,7 +108,6 @@ const NavSection = (props, context) => {
 		context.router.history.push('/login');
 	};
 
-	const auth = props.auth;
 
 	return (
 

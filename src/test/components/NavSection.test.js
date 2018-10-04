@@ -1,8 +1,7 @@
 /* eslint-env jest, mocha, chai */
 import React from 'react';
-import ReactDom from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { shallow, mount, render } from 'enzyme';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { render } from 'enzyme';
 import NavSection from '../../components/main/NavSection';
 
 describe('The NavSection Component w/ ReactDom', () => {
