@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import logo from '../../assets/done.png';
+// ---------
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import logo from '../../assets/done.png';
+import styled from 'styled-components';
 // custom
 import { colors, media } from '../../helpers/cssConstants';
-import { faFonticons } from '@fortawesome/free-brands-svg-icons';
 
 // +++++++++  CSS  +++++++++ 
 
@@ -24,15 +23,11 @@ const Grid = styled.div `
 	width: 100%;
   // margin-bottom: 40px;
 	padding 5px;
-	
 	color: ${colors._olive};
-
 	// @media (${media._medium}) {
 	// 	grid-template-columns: 2fr 1fr 1fr;
 	// }
-	
 `;
-// +++++++++ Home Section  +++++++++ 
 
 const Logo = styled.img `
 	grid-area: logo;
@@ -42,19 +37,9 @@ const Logo = styled.img `
 const Dash = styled(FontAwesomeIcon) `
 	grid-area: dash;
 	width: 100%;
-	// color: ${colors._olive} ;
-	color: orange;
-	// font-size: 1em;
+	color: ${colors._olive} ;
+	font-size: 2em;
 `;
-// const Dash = styled.div `
-// 	grid-area: dash;
-// 	width: 100%;
-// 	// color: ${colors._olive} ;
-// 	color: orange;
-// 	// font-size: 1em;
-// `;
-
-
 // +++++++++ Nav Section  +++++++++ 
 
 const Navigation = styled.div `
@@ -126,8 +111,6 @@ const AuthLi = styled.li `
 	`}
 `;
 
-
-
 const NoAuthLi = styled.li `
 	width: 100px;
 	display: inline-grid;
@@ -162,11 +145,9 @@ const NavBar = (props, context) => {
 
 		<Grid className= 'NavBar' >
 
-
 			<Logo className='logo' src={logo} alt="logo"/> 
-
+			
 			<Dash icon='chart-line'/>
-
 				
 			<Navigation id= 'Navigation' > 
 
