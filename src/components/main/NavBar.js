@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // custom
 import { colors, media } from '../../helpers/cssConstants';
+import { faFonticons } from '@fortawesome/free-brands-svg-icons';
 
 // +++++++++  CSS  +++++++++ 
 
@@ -38,13 +39,20 @@ const Logo = styled.img `
 	max-width:100px ;
 `;
 
-const Dash = styled.div `
+const Dash = styled(FontAwesomeIcon) `
 	grid-area: dash;
 	width: 100%;
 	// color: ${colors._olive} ;
 	color: orange;
 	// font-size: 1em;
 `;
+// const Dash = styled.div `
+// 	grid-area: dash;
+// 	width: 100%;
+// 	// color: ${colors._olive} ;
+// 	color: orange;
+// 	// font-size: 1em;
+// `;
 
 
 // +++++++++ Nav Section  +++++++++ 
@@ -156,10 +164,8 @@ const NavBar = (props, context) => {
 
 
 			<Logo className='logo' src={logo} alt="logo"/> 
-			<Dash>
 
-				<FontAwesomeIcon icon='chart-line'/>
-			</Dash>
+			<Dash icon='chart-line'/>
 
 				
 			<Navigation id= 'Navigation' > 
