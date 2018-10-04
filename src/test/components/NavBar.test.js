@@ -1,19 +1,21 @@
 /* eslint-env jest, mocha, chai */
 import React from 'react';
 import ReactDom from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import { shallow, mount, render } from 'enzyme';
 import NavBar from '../../components/main/NavBar';
 
-describe('The NabBar Component w/ ReactDom', () => {
-
-	xit('..renders the NabBar component w/ReactDom', () => {
-		const div = document.createElement('div');
-		ReactDom.render(
-			<NabBar/>,
-			div
-		);
+describe('The NavBar Component w/ ReactDom', () => {
+	const wrapper = render(
+		<Router>
+			<NavBar/>
+		</Router>    
+	);
+	it('... renders the navbar', () => {
+		expect(wrapper).toMatchSnapshot();
 	});
+
 });
 
 xdescribe('The NabBar Component', () => {

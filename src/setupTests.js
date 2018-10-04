@@ -1,7 +1,8 @@
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import 'jest-enzyme';
 
-// ======== esllint
+// ======== eslint
 /*global *.* describe:true*/
 /*global *.* it:true*/
 /*eslint no-undef: "error"*/

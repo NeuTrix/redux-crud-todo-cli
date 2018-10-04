@@ -11,10 +11,11 @@ import { colors, media } from '../../helpers/cssConstants';
 const baseColor = colors._deepblue;
 
 const Grid = styled.div `
-	display: inline-grid;
-	
+
 	grid-template-areas: " logo  dash  nav " ;
 	grid-template-columns: 1fr 1fr 1fr;
+	display: inline-grid;
+	place-items: center;
 
   height: 49px;
 	width: 100%;
@@ -183,7 +184,11 @@ NavBar.propTypes = {
 };
 
 NavBar.defaultProps = {
-	authApi:  {},
+	authApi:  {
+		user: {
+			username: 'test'
+		}
+	},
 	logout:  f => alert('Default action: Navbar logout fn'),
 };
 

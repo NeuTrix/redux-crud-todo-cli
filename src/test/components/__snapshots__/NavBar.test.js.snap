@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The NavBar Component w/ ReactDom ... renders the navbar 1`] = `
+<div
+  class="NavBar sc-bdVaJa prdPb"
+>
+  <img
+    alt="logo"
+    class="logo sc-bwzfXH eRLxKf"
+    src="done.png"
+  />
+  <div
+    class="sc-htpNat cxyAVA"
+    id="Navigation"
+  >
+    <div
+      class=" engr fa fa-navicon fa-2x sc-bxivhb hODjEs"
+      id="Burger"
+    />
+    <ul
+      class="sc-ifAKCX kpVrLB"
+      id="Menu"
+    >
+      <li
+        class="sc-EHOje eEJtPW"
+      >
+        <a
+          class="sc-gzVnrw ffXTji"
+          href="/todos"
+        >
+           Todos 
+        </a>
+      </li>
+      <li
+        class="sc-EHOje eEJtPW"
+      >
+        <a
+          class="sc-gzVnrw ffXTji"
+          href="/"
+        >
+           Logout 
+        </a>
+      </li>
+      <li
+        class="sc-bZQynM jjEiQZ"
+      >
+        <a
+          class="sc-gzVnrw ffXTji"
+          href="/register"
+        >
+           Register 
+        </a>
+      </li>
+      <li
+        class="sc-bZQynM jjEiQZ"
+      >
+        <a
+          class="sc-gzVnrw ffXTji"
+          href="/login"
+        >
+           Login 
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
