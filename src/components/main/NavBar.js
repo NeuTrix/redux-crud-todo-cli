@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import logo from '../../assets/done.png';
 // custom
 import { colors, media } from '../../helpers/cssConstants';
 
@@ -14,29 +15,21 @@ const Grid = styled.div `
 	
 	grid-template-areas: " Home  Home  Navigation " ;
 	grid-template-columns: 1fr 3fr 1fr;
-	
-	position: fixed;
+
   height: 49px;
 	width: 100%;
-  margin-bottom: 40px;
-	top: 0;
-	left:0;
-	z-index: 100;
-	border: 1px solid ;
+  // margin-bottom: 40px;
 	padding 5px;
-	background: ${baseColor};
 	
-	& * {
-		color: aliceblue;
-	}
+	color: ${colors._olive};
 
-	@media (${media._medium}) {
-		grid-template-columns: 2fr 1fr 1fr;
-	}
+	// @media (${media._medium}) {
+	// 	grid-template-columns: 2fr 1fr 1fr;
+	// }
 	
 `;
-
 // +++++++++ Home Section  +++++++++ 
+
 const Home = styled.div `
 	grid-area: Home;z
 	display: inline-grid;
@@ -45,11 +38,12 @@ const Home = styled.div `
 	grid-template-columns: 1fr 3fr;
 `;
 
-const Logo = styled(Link) `
+const Logo = styled.img `
 	grid-area: Logo;
-	text-indent: 10px;
-	text-decoration: none;
+	// text-indent: 10px;
+	// text-decoration: none;
 	&:hover { color:lime; }
+	width: 50px;
 `;
 
 const Message = styled.div `
@@ -127,6 +121,9 @@ const AuthLi = styled.li `
 		display: none;
 	`}
 `;
+
+
+
 const NoAuthLi = styled.li `
 	width: 100px;
 	display: inline-grid;
@@ -163,7 +160,7 @@ const NavBar = (props, context) => {
 
 			<Home id= 'Home'>
 
-				<Logo id= 'Logo' to= '/' className= "engr fa fa-gg fa-2x" alt="logo"/> 
+				<Logo className='logo' src={logo} alt="logo"/> 
 
 				<Message id= 'Message' > 
 					{ auth ? `Welcome ${ name }!` : 'Please Log in!' }

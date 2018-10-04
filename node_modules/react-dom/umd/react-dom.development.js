@@ -1,4 +1,4 @@
-/** @license React v16.5.1
+/** @license React v16.5.2
  * react-dom.development.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -3281,8 +3281,8 @@ var warnAboutLegacyContextAPI = false;
 // Gather advanced timing metrics for Profiler subtrees.
 var enableProfilerTimer = true;
 
-// Track which interactions trigger each commit.
-var enableSchedulerTracking = true;
+// Trace which interactions trigger each commit.
+var enableSchedulerTracing = true;
 
 // Only used in www builds.
 
@@ -5397,7 +5397,7 @@ function getModernOffsetsFromPoints(outerNode, anchorNode, anchorOffset, focusNo
  */
 function setOffsets(node, offsets) {
   var doc = node.ownerDocument || document;
-  var win = doc ? doc.defaultView : window;
+  var win = doc && doc.defaultView || window;
   var selection = win.getSelection();
   var length = node.textContent.length;
   var start = Math.min(offsets.start, length);
@@ -6081,6 +6081,7 @@ function initWrapperState$2(element, props) {
 function updateWrapper$1(element, props) {
   var node = element;
   var value = getToStringValue(props.value);
+  var defaultValue = getToStringValue(props.defaultValue);
   if (value != null) {
     // Cast `value` to a string to ensure the value is set correctly. While
     // browsers typically do this as necessary, jsdom doesn't.
@@ -6089,12 +6090,12 @@ function updateWrapper$1(element, props) {
     if (newValue !== node.value) {
       node.value = newValue;
     }
-    if (props.defaultValue == null) {
+    if (props.defaultValue == null && node.defaultValue !== newValue) {
       node.defaultValue = newValue;
     }
   }
-  if (props.defaultValue != null) {
-    node.defaultValue = toString(getToStringValue(props.defaultValue));
+  if (defaultValue != null) {
+    node.defaultValue = toString(defaultValue);
   }
 }
 
@@ -10184,14 +10185,14 @@ function assignFiberPropertiesInDEV(target, source) {
 
 var ReactInternals$2 = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
 
-var _ReactInternals$Sched$1 = ReactInternals$2.ScheduleTracking;
+var _ReactInternals$Sched$1 = ReactInternals$2.ScheduleTracing;
 var __interactionsRef = _ReactInternals$Sched$1.__interactionsRef;
 var __subscriberRef = _ReactInternals$Sched$1.__subscriberRef;
 var unstable_clear = _ReactInternals$Sched$1.unstable_clear;
 var unstable_getCurrent = _ReactInternals$Sched$1.unstable_getCurrent;
 var unstable_getThreadID = _ReactInternals$Sched$1.unstable_getThreadID;
 var unstable_subscribe = _ReactInternals$Sched$1.unstable_subscribe;
-var unstable_track = _ReactInternals$Sched$1.unstable_track;
+var unstable_trace = _ReactInternals$Sched$1.unstable_trace;
 var unstable_unsubscribe = _ReactInternals$Sched$1.unstable_unsubscribe;
 var unstable_wrap = _ReactInternals$Sched$1.unstable_wrap;
 
@@ -10199,17 +10200,17 @@ var unstable_wrap = _ReactInternals$Sched$1.unstable_wrap;
 // TODO: This should be lifted into the renderer.
 
 
-// The following attributes are only used by interaction tracking builds.
+// The following attributes are only used by interaction tracing builds.
 // They enable interactions to be associated with their async work,
 // And expose interaction metadata to the React DevTools Profiler plugin.
-// Note that these attributes are only defined when the enableSchedulerTracking flag is enabled.
+// Note that these attributes are only defined when the enableSchedulerTracing flag is enabled.
 
 
 // Exported FiberRoot type includes all properties,
 // To avoid requiring potentially error-prone :any casts throughout the project.
-// Profiling properties are only safe to access in profiling builds (when enableSchedulerTracking is true).
+// Profiling properties are only safe to access in profiling builds (when enableSchedulerTracing is true).
 // The types are defined separately within this file to ensure they stay in sync.
-// (We don't have to use an inline :any cast when enableSchedulerTracking is disabled.)
+// (We don't have to use an inline :any cast when enableSchedulerTracing is disabled.)
 
 /* eslint-enable no-use-before-define */
 
@@ -10219,7 +10220,7 @@ function createFiberRoot(containerInfo, isAsync, hydrate) {
   var uninitializedFiber = createHostRootFiber(isAsync);
 
   var root = void 0;
-  if (enableSchedulerTracking) {
+  if (enableSchedulerTracing) {
     root = {
       current: uninitializedFiber,
       containerInfo: containerInfo,
@@ -10278,8 +10279,8 @@ function createFiberRoot(containerInfo, isAsync, hydrate) {
   uninitializedFiber.stateNode = root;
 
   // The reason for the way the Flow types are structured in this file,
-  // Is to avoid needing :any casts everywhere interaction tracking fields are used.
-  // Unfortunately that requires an :any cast for non-interaction tracking capable builds.
+  // Is to avoid needing :any casts everywhere interaction tracing fields are used.
+  // Unfortunately that requires an :any cast for non-interaction tracing capable builds.
   // $FlowFixMe Remove this :any cast and replace it with something better.
   return root;
 }
@@ -14875,7 +14876,7 @@ function commitLifeCycles(finishedRoot, current$$1, finishedWork, committedExpir
         if (enableProfilerTimer) {
           var onRender = finishedWork.memoizedProps.onRender;
 
-          if (enableSchedulerTracking) {
+          if (enableSchedulerTracing) {
             onRender(finishedWork.memoizedProps.id, current$$1 === null ? 'mount' : 'update', finishedWork.actualDuration, finishedWork.treeBaseDuration, finishedWork.actualStartTime, getCommitTime(), finishedRoot.memoizedInteractions);
           } else {
             onRender(finishedWork.memoizedProps.id, current$$1 === null ? 'mount' : 'update', finishedWork.actualDuration, finishedWork.treeBaseDuration, finishedWork.actualStartTime, getCommitTime());
@@ -15731,10 +15732,10 @@ var didWarnSetStateChildContext = void 0;
 var warnAboutUpdateOnUnmounted = void 0;
 var warnAboutInvalidUpdates = void 0;
 
-if (enableSchedulerTracking) {
+if (enableSchedulerTracing) {
   // Provide explicit error message when production+profiling bundle of e.g. react-dom
-  // is used with production (non-profiling) bundle of schedule/tracking
-  !(__interactionsRef != null && __interactionsRef.current != null) ? invariant(false, 'It is not supported to run the profiling version of a renderer (for example, `react-dom/profiling`) without also replacing the `schedule/tracking` module with `schedule/tracking-profiling`. Your bundler might have a setting for aliasing both modules. Learn more at http://fb.me/react-profiling') : void 0;
+  // is used with production (non-profiling) bundle of schedule/tracing
+  !(__interactionsRef != null && __interactionsRef.current != null) ? invariant(false, 'It is not supported to run the profiling version of a renderer (for example, `react-dom/profiling`) without also replacing the `schedule/tracing` module with `schedule/tracing-profiling`. Your bundler might have a setting for aliasing both modules. Learn more at http://fb.me/react-profiling') : void 0;
 }
 
 {
@@ -16075,8 +16076,8 @@ function commitRoot(root, finishedWork) {
   markCommittedPriorityLevels(root, earliestRemainingTimeBeforeCommit);
 
   var prevInteractions = null;
-  var committedInteractions = enableSchedulerTracking ? [] : null;
-  if (enableSchedulerTracking) {
+  var committedInteractions = enableSchedulerTracing ? [] : null;
+  if (enableSchedulerTracing) {
     // Restore any pending interactions at this point,
     // So that cascading work triggered during the render phase will be accounted for.
     prevInteractions = __interactionsRef.current;
@@ -16228,7 +16229,7 @@ function commitRoot(root, finishedWork) {
   }
   onCommit(root, earliestRemainingTimeAfterCommit);
 
-  if (enableSchedulerTracking) {
+  if (enableSchedulerTracing) {
     __interactionsRef.current = prevInteractions;
 
     var subscriber = void 0;
@@ -16591,8 +16592,8 @@ function renderRoot(root, isYieldy, isExpired) {
   var expirationTime = root.nextExpirationTimeToWorkOn;
 
   var prevInteractions = null;
-  if (enableSchedulerTracking) {
-    // We're about to start new tracked work.
+  if (enableSchedulerTracing) {
+    // We're about to start new traced work.
     // Restore pending interactions so cascading work triggered during the render phase will be accounted for.
     prevInteractions = __interactionsRef.current;
     __interactionsRef.current = root.memoizedInteractions;
@@ -16608,7 +16609,7 @@ function renderRoot(root, isYieldy, isExpired) {
     nextUnitOfWork = createWorkInProgress(nextRoot.current, null, nextRenderExpirationTime);
     root.pendingCommitExpirationTime = NoWork;
 
-    if (enableSchedulerTracking) {
+    if (enableSchedulerTracing) {
       // Determine which interactions this batch of work currently includes,
       // So that we can accurately attribute time spent working on it,
       var interactions = new Set();
@@ -16633,7 +16634,7 @@ function renderRoot(root, isYieldy, isExpired) {
           try {
             subscriber.onWorkStarted(interactions, threadID);
           } catch (error) {
-            // Work thrown by an interaction tracking subscriber should be rethrown,
+            // Work thrown by an interaction tracing subscriber should be rethrown,
             // But only once it's safe (to avoid leaveing the scheduler in an invalid state).
             // Store the error for now and we'll re-throw in finishRendering().
             if (!hasUnhandledError) {
@@ -16696,8 +16697,8 @@ function renderRoot(root, isYieldy, isExpired) {
     break;
   } while (true);
 
-  if (enableSchedulerTracking) {
-    // Tracked work is done for now; restore the previous interactions.
+  if (enableSchedulerTracing) {
+    // Traced work is done for now; restore the previous interactions.
     __interactionsRef.current = prevInteractions;
   }
 
@@ -16949,7 +16950,7 @@ function retrySuspendedRoot(root, fiber, suspendedTime) {
     scheduleWorkToRoot(fiber, retryTime);
     var rootExpirationTime = root.expirationTime;
     if (rootExpirationTime !== NoWork) {
-      if (enableSchedulerTracking) {
+      if (enableSchedulerTracing) {
         // Restore previous interactions so that new work is associated with them.
         var prevInteractions = __interactionsRef.current;
         __interactionsRef.current = root.memoizedInteractions;
@@ -16998,7 +16999,7 @@ function scheduleWorkToRoot(fiber, expirationTime) {
 }
 
 function storeInteractionsForExpirationTime(root, expirationTime, updateInteractionCounts) {
-  if (!enableSchedulerTracking) {
+  if (!enableSchedulerTracing) {
     return;
   }
 
@@ -17051,7 +17052,7 @@ function scheduleWork(fiber, expirationTime) {
     return;
   }
 
-  if (enableSchedulerTracking) {
+  if (enableSchedulerTracing) {
     storeInteractionsForExpirationTime(root, expirationTime, true);
   }
 
@@ -17192,7 +17193,7 @@ function onTimeout(root, finishedWork, suspendedExpirationTime) {
     recomputeCurrentRendererTime();
     currentSchedulerTime = currentRendererTime;
 
-    if (enableSchedulerTracking) {
+    if (enableSchedulerTracing) {
       // Don't update pending interaction counts for suspense timeouts,
       // Because we know we still need to do more work in this case.
       suspenseDidTimeout = true;
@@ -17698,7 +17699,7 @@ function flushControlled(fn) {
   } finally {
     isBatchingUpdates = previousIsBatchingUpdates;
     if (!isBatchingUpdates && !isRendering) {
-      performWork(Sync, null);
+      performSyncWork();
     }
   }
 }
@@ -17875,7 +17876,7 @@ implementation) {
 
 // TODO: this is special because it gets imported during build.
 
-var ReactVersion = '16.5.1';
+var ReactVersion = '16.5.2';
 
 // TODO: This type is shared between the reconciler and ReactDOM, but will
 // eventually be lifted out to the renderer.

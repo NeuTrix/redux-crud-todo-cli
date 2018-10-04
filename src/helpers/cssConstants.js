@@ -7,10 +7,11 @@ export const colors = {
 	_mintgreen: '#429f42',
 	_yellow: '#ffff33',
 	_pinkrose: '#fde7ea',
-}
+	_olive: '#68a94a'
+};
 
 export const media = {
 	_medium: 'min-width: 640px',
 	_large: 'min-width: 853px',
-}
+};
 
