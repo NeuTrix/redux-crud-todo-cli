@@ -2,60 +2,60 @@
 
 exports[`The NavBar Component w/ ReactDom ... renders the NavBar component 1`] = `
 <div
-  class="NavBar sc-bdVaJa prdPb"
+  class="NavBar sc-bdVaJa iseumH"
 >
   <img
     alt="logo"
-    class="logo sc-bwzfXH eRLxKf"
+    class="logo sc-bwzfXH flyRHL"
     src="done.png"
   />
   <div
-    class="sc-htpNat cxyAVA"
+    class="sc-bxivhb cmGvrO"
     id="Navigation"
   >
     <div
-      class=" engr fa fa-navicon fa-2x sc-bxivhb hODjEs"
+      class=" engr fa fa-navicon fa-2x sc-ifAKCX cKyOQO"
       id="Burger"
     />
     <ul
-      class="sc-ifAKCX kpVrLB"
+      class="sc-EHOje kxecw"
       id="Menu"
     >
       <li
-        class="sc-EHOje eEJtPW"
+        class="sc-bZQynM kxnYUI"
       >
         <a
-          class="sc-gzVnrw ffXTji"
+          class="sc-htoDjs Hxrzp"
           href="/todos"
         >
            Todos 
         </a>
       </li>
       <li
-        class="sc-EHOje eEJtPW"
+        class="sc-bZQynM kxnYUI"
       >
         <a
-          class="sc-gzVnrw ffXTji"
+          class="sc-htoDjs Hxrzp"
           href="/"
         >
            Logout 
         </a>
       </li>
       <li
-        class="sc-bZQynM jjEiQZ"
+        class="sc-gzVnrw jnjXGN"
       >
         <a
-          class="sc-gzVnrw ffXTji"
+          class="sc-htoDjs Hxrzp"
           href="/register"
         >
            Register 
         </a>
       </li>
       <li
-        class="sc-bZQynM jjEiQZ"
+        class="sc-gzVnrw jnjXGN"
       >
         <a
-          class="sc-gzVnrw ffXTji"
+          class="sc-htoDjs Hxrzp"
           href="/login"
         >
            Login 
