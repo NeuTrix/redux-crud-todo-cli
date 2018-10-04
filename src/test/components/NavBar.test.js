@@ -13,7 +13,9 @@ describe('The NavBar Component w/ ReactDom', () => {
 		</Router>    
 	);
 	it('... renders the NavBar component', () => {
-		expect(wrapper).toMatchSnapshot();
+		expect(wrapper).toMatchSnapshot({
+			class: expect.any(String)
+		});
 	});
 
 });

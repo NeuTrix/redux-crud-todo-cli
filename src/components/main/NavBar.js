@@ -40,7 +40,7 @@ const NavBar = (props, context) => {
 		<Grid className= 'NavBar'>
 			<Logo className='logo' src={logo} alt="logo"/> 
 			<Dash icon='chart-line'/>
-			<NavSection auth='auth' logout='logout' router='router'/>
+			<NavSection auth={ auth } logout={ logout } router='router'/>
 		</Grid>
 	);
 };

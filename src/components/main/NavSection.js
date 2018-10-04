@@ -128,7 +128,7 @@ const A = styled(Link) `
 
 // +++++++++  COMPONENT  +++++++++ 
 
-const NavBar = (props, context) => {
+const NavSection = (props, context) => {
 
 	const onLogout = (e) => {
 		e.preventDefault();
@@ -170,12 +170,12 @@ const NavBar = (props, context) => {
 
 // +++++++++ PROPS  +++++++++ 
 
-NavBar.propTypes = {
+NavSection.propTypes = {
 	authApi: PropTypes.object.isRequired,
 	logout: PropTypes.func.isRequired,
 };
 
-NavBar.defaultProps = {
+NavSection.defaultProps = {
 	authApi:  {
 		user: {
 			username: 'test'
@@ -184,8 +184,8 @@ NavBar.defaultProps = {
 	logout:  f => alert('Default action: Navbar logout fn'),
 };
 
-NavBar.contextTypes= {
+NavSection.contextTypes= {
 	router: PropTypes.object.isRequired,
 };
 
-export default NavBar;
+export default NavSection;
