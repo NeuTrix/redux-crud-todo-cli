@@ -16,7 +16,7 @@ const Grid = styled.div `
 	display: inline-grid;
   height: 49px;
 	width: 100%;
-	padding-bottom: 10px;
+	padding: 0px 0px 10px 0px;
 	border-bottom: 1px solid grey;
 	color: ${colors._olive};
 `;

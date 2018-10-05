@@ -1,3 +1,4 @@
+// Navigation section of the nav bar with toggling menu based on media
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -7,80 +8,57 @@ import styled from 'styled-components';
 import { colors, media } from '../../helpers/cssConstants';
 
 // +++++++++  CSS  +++++++++ 
-
-
-// +++++++++ Nav Section  +++++++++ 
-
 const Navigation = styled.div `
 	grid-area: nav-section;
-
 	grid-template-areas: " menu ";
 	display: inline-grid;
-	place-content: center;
-	// padding-right: 5px;
 
-	&:hover { color:lime; }
-
-	@media (max-width: 630px) {
-		 &:hover ul {
-			display: inline-grid;
-			grid-row-gap: 15px
-			position: absolute;
-			width: 100%;
-			min-height: 59px;
-			right: 0px;
-			top: 54px;
-			opacity: .75;
-		}
+	& * {
+		:hover { color: lime }
 	}
 	
 	@media (${media._medium}) {
 		display: inline-grid;
-		grid-template-areas: "menu"
+		grid-template-areas: " menu "
 	}
 `;
-
+// mobbile collapsed menu icon
 const Burger = styled(FontAwesomeIcon) `
 	grid-area: menu;
-	display: inline-grid;
-	place-self: center right;
+
 	color: ${colors._olive};	
 	font-size: 2em;
-	&:hover { color: lime;}
+	place-self: center right;
 
-	// @media (${media._medium}) {
-	// 	display: none;
-	// }
+	@media (${media._medium}) {
+		display: none;
+	}
 `;
-
+// full menu for larger screens
 const Menu = styled.ul `
 	grid-area: Menu;
 	display: none;
-	place-content: center;
-
-	padding: 10px;
-	margin: 0;
-	text-decoration: none;
-
+	
 	@media (${media._medium}) {
 		display: inline-flex;
 		justify-content: space-evenly;
+		// padding: 10px;
+		text-decoration: none;
 	}
 `;
 
 // +++++++++  Elements  +++++++++ 
 const AuthLi = styled.li `
-	width: 100px;
-
 	display: inline-grid;
+	font-size: initial; //?
 	place-content: center;
 	text-shadow: none;
-	font-size: initial
+	width: 100px;
 
-	${ ({auth}) => auth ? `
-		display: inline-grid;` : `
-		display: none;
-	`}
+	${ ({auth}) => auth 
+		? `display: inline-grid`
+		: `display: none`
+	}
 `;
 
 const NoAuthLi = styled.li `
