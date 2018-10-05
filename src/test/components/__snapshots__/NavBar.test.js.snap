@@ -1,21 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The NavBar Component w/ ReactDom ... renders the NavBar component: [object Object] 1`] = `
+exports[`[object Object] 1`] = `
 <div
-  class="nav-bar sc-bZQynM eWoVSy"
+  class="nav-bar sc-bZQynM fzorDd"
 >
   <img
     alt="logo"
-    class="logo sc-gzVnrw kvmlIo"
+    class="logo sc-gzVnrw cGfAAV"
     src="done.png"
-  />
+  >
+    
+  </img>
   <div
     class="nav-section sc-bdVaJa ixJGcS"
   >
     <div
       class=" engr fa fa-navicon fa-2x sc-bwzfXH elpHwE"
       id="Burger"
-    />
+    >
+      
+    </div>
     <ul
       class="sc-htpNat fBKeQj"
       id="menu"

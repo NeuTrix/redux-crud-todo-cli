@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import NavSection from './NavSection';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import logo from '../../assets/done.png';
 import styled from 'styled-components';
-import { colors, media } from '../../helpers/cssConstants';
+import logo from '../../assets/done.png';
+import { colors } from '../../helpers/cssConstants';
+
+import NavSection from './NavSection';
+
 // +++++++++  CSS  +++++++++ 
 const Grid = styled.div `
 	grid-area: nav-bar;
 	grid-template-areas: " logo  dash  nav " ;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: repeat(3, 1fr);
 	display: inline-grid;
 	place-items: center;
   height: 49px;
