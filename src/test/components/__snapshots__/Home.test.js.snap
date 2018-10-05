@@ -1,5 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`[object Object] 1`] = `
+<div
+  class="Home engrBox paper sc-bdVaJa gfIpsM"
+>
+  <div
+    class="_title ctr engr under sc-bxivhb jLpweO"
+  >
+    <h1>
+      React-Todo (beta)
+    </h1>
+  </div>
+  <div
+    class="-subtitle ctr sc-ifAKCX fTxVjk"
+  >
+    <span>
+      Fullstack MERN CRUD web app featuring:
+    </span>
+  </div>
+  <button
+    class="undefined box ctr mat sc-EHOje dvyVgq"
+  >
+    Mongo
+  </button>
+  <button
+    class="undefined box ctr mat sc-bZQynM bDrDIS"
+  >
+    Express
+  </button>
+  <button
+    class="undefined box ctr mat sc-gzVnrw gSXYkK"
+  >
+    React
+  </button>
+  <button
+    class="undefined box ctr mat sc-htoDjs bOeUTW"
+  >
+    NodeJS
+  </button>
+  <button
+    class="undefined box ctr mat sc-dnqmqq hyOftF"
+  >
+    Redux
+  </button>
+  <button
+    class="undefined box ctr mat sc-iwsKbI fhhztn"
+  >
+    Grid
+  </button>
+</div>
+`;
+
 exports[`The Home component ...renders correctly 1`] = `
 <div
   class="Home engrBox paper sc-bdVaJa gfIpsM"

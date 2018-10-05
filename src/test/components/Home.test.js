@@ -12,7 +12,9 @@ describe('The Home component', () => {
   );
 
   it('...renders correctly', () => {
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot({
+      class: expect.any(String)
+    });
   });
   
 

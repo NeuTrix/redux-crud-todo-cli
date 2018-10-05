@@ -55,6 +55,6 @@ NavBar.defaultProps = {
 	logout: (f) => 'Default action: Navbar logout fn',
 };
 
-NavBar.contextTypes = { router: PropTypes.object.isRequired };
+// NavBar.contextTypes = { router: PropTypes.object.isRequired };
 
 export default NavBar;

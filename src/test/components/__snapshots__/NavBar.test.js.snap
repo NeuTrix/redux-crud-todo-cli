@@ -2,7 +2,7 @@
 
 exports[`[object Object] 1`] = `
 <div
-  class="nav-bar sc-EHOje fDjUML"
+  class="nav-bar sc-EHOje gYInDu"
 >
   <img
     alt="logo"
@@ -17,7 +17,7 @@ exports[`[object Object] 1`] = `
     
   </i>
   <div
-    class="nav-section sc-bdVaJa fkDKJx"
+    class="nav-section sc-bdVaJa boasJP"
   >
     <i
       class="fa"
@@ -30,28 +30,28 @@ exports[`[object Object] 1`] = `
     >
       <a
         auth="false"
-        class="sc-bxivhb gsnrXq"
+        class="sc-bxivhb bhPHGk"
         href="/todos"
       >
         Todos
       </a>
       <a
         auth="false"
-        class="sc-bxivhb gsnrXq"
+        class="sc-bxivhb bhPHGk"
         href="/"
       >
         Logout
       </a>
       <a
         auth="false"
-        class="sc-ifAKCX bAzXIu"
+        class="sc-ifAKCX ihoRgB"
         href="/register"
       >
         Register
       </a>
       <a
         auth="false"
-        class="sc-ifAKCX bAzXIu"
+        class="sc-ifAKCX ihoRgB"
         href="/login"
       >
         Login
