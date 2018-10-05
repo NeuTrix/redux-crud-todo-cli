@@ -27,9 +27,9 @@ const Store = styled(Provider) `
 `;
 
 ReactDOM.render(
-	<Store store = { store } >
+	<Store store={ store } >
 		<Router>
-			<Route path = '/' component = { App } />
+			<Route path='/' component={ App } />
 		</Router>
 	</Store>, root
 );
