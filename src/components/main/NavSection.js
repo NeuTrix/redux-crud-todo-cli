@@ -58,7 +58,7 @@ const NavSection = (props, context) => {
 	return (
 			<Navigation className='nav-section'> 
 
-				<Burger id='burger' icon='bars'/>
+				<Burger id='burger' icon='bars' />
 
 				<Menu id='menu'> 
 					<AuthLi auth={ auth.toString() }to='/todos'> 
