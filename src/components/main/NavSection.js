@@ -20,6 +20,7 @@ const Navigation = styled.div `
 const Burger = styled(FontAwesomeIcon) `
 	grid-area: menu;
 	font-size: 2em;
+	padding-right: 10px;
 	place-self: center right;
 	@media (${media._medium}) { display: none }
 `;
