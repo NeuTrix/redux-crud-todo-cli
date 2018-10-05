@@ -30,7 +30,7 @@ library.add(fab, faCheckSquare, faCoffee, faChartLine);
 const Grid =styled.div `
   display: grid;
   grid-template-areas:   
-    " header " 
+    " nav-bar " 
     " messages "  
     " main "  
   ;
@@ -41,10 +41,6 @@ const Grid =styled.div `
   padding: 0px 10px 0px 10px;
 `;
 
-const Header =styled.div `
-		grid-area: header;
-		margin-bottom: 40px;
-	`;
 const Messages =styled.div `grid-area: messages;`;
 const Main =styled.div `grid-area: main;`;
 
@@ -53,12 +49,10 @@ const App =(props) => {
   return (
     <Grid className='App' >
 
-      <Header className='Header' >
         <NavBar
           authApi={ props.authApi }
           logout={ props.logout }
         />
-      </Header>
 
       <Messages className='Messages'>
         <FlashMessageList/>
@@ -77,6 +71,7 @@ const App =(props) => {
           )}
         />
       </Main>
+
     </Grid>
   );
 };

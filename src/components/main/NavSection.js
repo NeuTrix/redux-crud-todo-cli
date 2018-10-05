@@ -99,7 +99,6 @@ const A = styled(Link) `
 // +++++++++  COMPONENT  +++++++++ 
 
 const NavSection = (props, context) => {
-	
 	const { auth, logout } = props;
 
 	const onLogout = (e) => {
@@ -111,25 +110,25 @@ const NavSection = (props, context) => {
 
 	return (
 
-			<Navigation id= 'Navigation' > 
+			<Navigation className='nav-section' > 
 
-				<Burger id= 'Burger' className= ' engr fa fa-navicon fa-2x'/>
+				<Burger id='Burger' className=' engr fa fa-navicon fa-2x'/>
 
-				<Menu id= 'Menu' > 
-					<AuthLi auth= { auth } > 
-						<A to= '/todos' > Todos </A>
+				<Menu id='menu' > 
+					<AuthLi auth={ auth } > 
+						<A to='/todos' > Todos </A>
 					</AuthLi>
 
-					<AuthLi auth= { auth } > 
-						<A to= '/#' onClick= { onLogout }> Logout </A>
+					<AuthLi auth={ auth } > 
+						<A to='/#' onClick={ onLogout }> Logout </A>
 					</AuthLi>
 					
-					<NoAuthLi auth= { auth } > 
-						<A to= '/register' > Register </A>
+					<NoAuthLi auth={ auth } > 
+						<A to='/register' > Register </A>
 					</NoAuthLi>
 
 					<NoAuthLi auth= { auth } > 
-						<A to= '/login' > Login </A>
+						<A to='/login' > Login </A>
 					</NoAuthLi>
 
 				</Menu>

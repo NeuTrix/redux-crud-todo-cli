@@ -2,7 +2,7 @@
 
 exports[`The NavBar Component w/ ReactDom ... renders the NavBar component: [object Object] 1`] = `
 <div
-  class="NavBar sc-bZQynM fGnnca"
+  class="nav-bar sc-bZQynM eWoVSy"
 >
   <img
     alt="logo"
@@ -10,8 +10,7 @@ exports[`The NavBar Component w/ ReactDom ... renders the NavBar component: [obj
     src="done.png"
   />
   <div
-    class="sc-bdVaJa ixJGcS"
-    id="Navigation"
+    class="nav-section sc-bdVaJa ixJGcS"
   >
     <div
       class=" engr fa fa-navicon fa-2x sc-bwzfXH elpHwE"
@@ -19,7 +18,7 @@ exports[`The NavBar Component w/ ReactDom ... renders the NavBar component: [obj
     />
     <ul
       class="sc-htpNat fBKeQj"
-      id="Menu"
+      id="menu"
     >
       <li
         class="sc-bxivhb esNFIz"
