@@ -103,7 +103,7 @@ const NavSection = (props, context) => {
 
 	const onLogout = (e) => {
 		e.preventDefault();
-		props.logout();
+		logout();
 		context.router.history.push('/login');
 	};
 

@@ -1,5 +1,63 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`[object Object] 1`] = `
+<div
+  class="nav-section sc-bdVaJa ixJGcS"
+>
+  <div
+    class=" engr fa fa-navicon fa-2x sc-bwzfXH elpHwE"
+    id="Burger"
+  >
+    
+  </div>
+  <ul
+    class="sc-htpNat fBKeQj"
+    id="menu"
+  >
+    <li
+      class="sc-bxivhb esNFIz"
+    >
+      <a
+        class="sc-EHOje iojQsz"
+        href="/todos"
+      >
+         Todos 
+      </a>
+    </li>
+    <li
+      class="sc-bxivhb esNFIz"
+    >
+      <a
+        class="sc-EHOje iojQsz"
+        href="/"
+      >
+         Logout 
+      </a>
+    </li>
+    <li
+      class="sc-ifAKCX kiGXrA"
+    >
+      <a
+        class="sc-EHOje iojQsz"
+        href="/register"
+      >
+         Register 
+      </a>
+    </li>
+    <li
+      class="sc-ifAKCX kiGXrA"
+    >
+      <a
+        class="sc-EHOje iojQsz"
+        href="/login"
+      >
+         Login 
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
 exports[`The NavSection Component w/ ReactDom ...renders the NavSection component: [object Object] 1`] = `
 <div
   class="nav-section sc-bdVaJa ixJGcS"

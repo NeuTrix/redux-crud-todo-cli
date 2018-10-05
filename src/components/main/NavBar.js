@@ -36,11 +36,14 @@ const NavBar = (props, context) => {
 		<Grid className= 'nav-bar'>
 			<Logo className='logo' src={ logo } alt="logo"/> 
 			<Dash className='dash-icon' icon='chart-line'/>
-			<NavSection auth={ authApi.isAuthenticated } logout={ logout } router='router'/>
+			<NavSection 
+				auth={ authApi.isAuthenticated } 
+				logout={ logout } 
+				router='router'
+			/>
 		</Grid>
 	);
 };
-
 // +++++++++ PROPS  +++++++++ 
 NavBar.propTypes = {
 	authApi: PropTypes.object.isRequired,
@@ -48,10 +51,10 @@ NavBar.propTypes = {
 };
 
 NavBar.defaultProps = {
-	authApi:  {
+	authApi: {
 		user: { username: 'test' }
 	},
-	logout:  f => alert('Default action: Navbar logout fn'),
+	logout: (f) => alert('Default action: Navbar logout fn'),
 };
 
 NavBar.contextTypes = {

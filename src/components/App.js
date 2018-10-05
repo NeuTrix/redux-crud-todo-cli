@@ -21,10 +21,11 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import {
   faCheckSquare,
   faCoffee,
-  faChartLine
+  faChartLine,
+  faTasks,
 } from '@fortawesome/free-solid-svg-icons';
 
-library.add(fab, faCheckSquare, faCoffee, faChartLine);
+library.add(fab, faCheckSquare, faCoffee, faChartLine, faTasks);
 
 // CSS
 const Grid =styled.div `
