@@ -11,10 +11,10 @@ const Navigation = styled.div `
 	grid-area: nav-section;
 	grid-template-areas: " menu ";
 	display: inline-grid;
-	// & * { 
+	& * { 
 		color: ${colors._iceblue};	
-		:hover { color: lime } 
-	// }
+		:hover { color: orange } 
+	}
 `;
 // mobbile collapsed menu icon
 const Burger = styled(FontAwesomeIcon) `
@@ -37,13 +37,19 @@ const Menu = styled.ul `
 const AuthLi = styled(Link) `
 	place-content: center right;
 	width: 100px;
-	${ ({auth}) => auth ? `display: inline-grid`: `display: none` }
+	${ ({auth}) => auth === 'true'
+		? `display: inline-grid` 
+		: `display: none` 
+}
 `;
 // unauthorized menu
 const NoAuthLi = styled(Link) `
 	place-content: center right;
 	width: 100px;
-	${({ auth }) => !auth ? `display: inline-grid;` : `display: none` }
+	${({ auth }) => auth === 'false'
+		? `display: inline-grid;` 
+		: `display: none` 
+	}
 `;
 // +++++++++  COMPONENT  +++++++++ 
 const NavSection = (props, context) => {

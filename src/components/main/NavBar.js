@@ -10,11 +10,10 @@ import NavSection from './NavSection';
 // ===  CSS  === 
 const Grid = styled.div `
 	grid-area: nav-bar;
-	grid-template-areas: " logo dash nav-section " ;
+	grid-template-areas: " logo dash nav-section ";
 	grid-template-columns: repeat(3, 1fr);
 
 	border-bottom: 1px solid grey;
-	color: ${colors._olive};
 	display: inline-grid;
   height: 49px;
 	padding: 0px 0px 10px 0px;
@@ -28,6 +27,7 @@ const Logo = styled.img `
 `;
 // dashboard icon for pulling up stats
 const Dash = styled(FontAwesomeIcon) `
+	color: ${colors._iceblue};
 	grid-area: dash;
 	font-size: 2em;
 	place-self: center;
@@ -39,7 +39,7 @@ const NavBar = (props, context) => {
 	return (
 		<Grid className='nav-bar'>
 			<Logo className='logo' src={ logo } alt='logo'/> 
-			<Dash className='dash-icon' icon='tasks'/>
+			<Dash className='dash-icon' icon='tachometer-alt'/>
 			<NavSection auth={ auth } logout={ logout }/>
 		</Grid>
 	);

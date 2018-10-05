@@ -9,10 +9,12 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import {
   faBars,
   faChartLine,
+  faChartBar,
   faCheckSquare,
   faCog,
   faEllipsisH,
-  faTasks
+  faTasks,
+  faTachometerAlt,
 } from '@fortawesome/free-solid-svg-icons';
 // import './material.css';
 import { logout } from '../actions/loginActions';
@@ -31,10 +33,12 @@ library.add(
   fab,
   faBars,
   faChartLine,
+  faChartBar,
   faCog,
   faCheckSquare,
   faEllipsisH,
-  faTasks
+  faTasks,
+  faTachometerAlt,
 );
 // ===> CSS
 const Grid =styled.div `
