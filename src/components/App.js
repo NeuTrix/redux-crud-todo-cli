@@ -1,41 +1,38 @@
-// vendor
+// core react
 import React from 'react';
 import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {Route} from 'react-router-dom';
-import styled from 'styled-components';
-// custom
-import './material.css';
-import requireAuth from '../helpers/requireAuth';
-import {logout} from '../actions/loginActions';
-import FlashMessageList from './messages/FlashMessageList';
-import NavBar from './main/NavBar';
-import Home from './main/Home';
-import LoginPage from './auth/LoginPage';
-import RegisterPage from './auth/RegisterPage';
-import TodoPage from './todos/TodoPage';
-// fontawesome imports
+// fontawesome imports and other styles
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import {
   faBars,
   faChartLine,
   faCheckSquare,
-  faCoffee,
   faTasks,
 } from '@fortawesome/free-solid-svg-icons';
-
+// import './material.css';
+import { logout } from '../actions/loginActions';
+import requireAuth from '../helpers/requireAuth';
+import styled from 'styled-components';
+// components
+import FlashMessageList from './messages/FlashMessageList';
+import Home from './main/Home';
+import LoginPage from './auth/LoginPage';
+import NavBar from './main/NavBar';
+import RegisterPage from './auth/RegisterPage';
+import { Route } from 'react-router-dom';
+import TodoPage from './todos/TodoPage';
+// add to fontawesome library for the app scope
 library.add(
   fab, 
   faBars,
   faChartLine,
   faCheckSquare,
-  faCoffee,
   faTasks,
 );
-
-// CSS
+// ===> CSS
 const Grid =styled.div `
   display: grid;
   grid-template-areas:   
@@ -59,7 +56,7 @@ const App =(props) => {
     <Grid className='App' >
 
         <NavBar
-          authApi={ props.authApi }
+          auth={ props.authApi.isAuthenticated }
           logout={ props.logout }
         />
 
@@ -69,7 +66,7 @@ const App =(props) => {
 
       <Main className='Main'>
         <Route exact path='/' render={() =>
-          <Home authorized={props.authApi.isAuthenticated} />}
+          <Home authorized={ props.authApi.isAuthenticated} />}
         />
         <Route path='/login' component={ LoginPage } />
         <Route path='/register' component={ RegisterPage } />
@@ -90,18 +87,14 @@ App.propTypes ={
   logout: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps =(dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    logout: () => {
-      dispatch(logout());
-    },
+    logout: () => { dispatch(logout()) },
   };
 };
 
-const mapStateToProps =(state) => {
-  return {
-    authApi: state.authApi,
-  };
+const mapStateToProps = (state) => {
+  return { authApi: state.authApi };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
