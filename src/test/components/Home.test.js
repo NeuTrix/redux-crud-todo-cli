@@ -16,6 +16,5 @@ describe('The Home component', () => {
       class: expect.any(String)
     });
   });
-  
 
 });
