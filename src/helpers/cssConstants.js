@@ -3,7 +3,7 @@ export const colors = {
 	_charcoal: '#286090',
 	_deepblue: '#286090',
 	_gold:  '#cc9900',
-	_iceblue: '#80bfff',
+	_iceblue: '#0f94f6',
 	_mintgreen: '#429f42',
 	_yellow: '#ffff33',
 	_pinkrose: '#fde7ea',

@@ -10,6 +10,8 @@ import {
   faBars,
   faChartLine,
   faCheckSquare,
+  faCog,
+  faEllipsisH,
   faTasks
 } from '@fortawesome/free-solid-svg-icons';
 // import './material.css';
@@ -29,7 +31,9 @@ library.add(
   fab,
   faBars,
   faChartLine,
+  faCog,
   faCheckSquare,
+  faEllipsisH,
   faTasks
 );
 // ===> CSS

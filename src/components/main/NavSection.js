@@ -3,18 +3,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { colors, media } from '../../helpers/cssConstants';
 import styled from 'styled-components';
-
+// ===> components <===
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
-// +++++++++  CSS  +++++++++ 
+// ===> CSS <===
 const Navigation = styled.div `
 	grid-area: nav-section;
 	grid-template-areas: " menu ";
 	display: inline-grid;
-	& * { 
-		color: ${colors._olive};	
+	// & * { 
+		color: ${colors._iceblue};	
 		:hover { color: lime } 
-	}
+	// }
 `;
 // mobbile collapsed menu icon
 const Burger = styled(FontAwesomeIcon) `
@@ -58,7 +58,7 @@ const NavSection = (props, context) => {
 	return (
 			<Navigation className='nav-section'> 
 
-				<Burger id='burger' icon='bars' />
+				<Burger id='burger' icon='ellipsis-h'/>
 
 				<Menu id='menu'> 
 					<AuthLi auth={ auth.toString() }to='/todos'> 
