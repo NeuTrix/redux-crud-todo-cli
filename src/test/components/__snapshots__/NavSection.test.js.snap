@@ -4,6 +4,11 @@ exports[`[object Object] 1`] = `
 <div
   class="nav-section sc-bdVaJa bHxvHS"
 >
+  <i
+    class="fa"
+  >
+    
+  </i>
   <ul
     class="sc-htpNat hwcvvy"
     id="menu"

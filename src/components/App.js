@@ -10,7 +10,7 @@ import {
   faBars,
   faChartLine,
   faCheckSquare,
-  faTasks,
+  faTasks
 } from '@fortawesome/free-solid-svg-icons';
 // import './material.css';
 import { logout } from '../actions/loginActions';
@@ -26,11 +26,11 @@ import { Route } from 'react-router-dom';
 import TodoPage from './todos/TodoPage';
 // add to fontawesome library for the app scope
 library.add(
-  fab, 
+  fab,
   faBars,
   faChartLine,
   faCheckSquare,
-  faTasks,
+  faTasks
 );
 // ===> CSS
 const Grid =styled.div `
@@ -88,7 +88,7 @@ App.propTypes = {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return { logout: () => { dispatch(logout()) } };
+  return { logout: () => { dispatch(logout()); } };
 };
 
 const mapStateToProps = (state) => {
