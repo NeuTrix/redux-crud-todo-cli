@@ -46,17 +46,17 @@ const Grid =styled.div `
   font-family: arial;
   padding: 0px 10px 0px 10px;
 `;
-
 const Messages =styled.div `grid-area: messages;`;
 const Main =styled.div `grid-area: main;`;
-
 // Component
 const App =(props) => {
+  const { authApi, logout} = props;
+  const auth = authApi.isAuthenticated;
   return (
     <Grid className='App' >
 
         <NavBar
-          auth={ props.authApi.isAuthenticated }
+          auth={ auth }
           logout={ props.logout }
         />
 
@@ -65,14 +65,14 @@ const App =(props) => {
       </Messages>
 
       <Main className='Main'>
-        <Route exact path='/' render={() =>
-          <Home authorized={ props.authApi.isAuthenticated} />}
+        <Route exact path='/' render={ () =>
+          <Home authorized={ auth } />}
         />
         <Route path='/login' component={ LoginPage } />
         <Route path='/register' component={ RegisterPage } />
         <Route
           exact path='/todos'
-          component={ requireAuth(ReactDom.render= (props) =>
+          component={ requireAuth(ReactDom.render = (props) =>
             <TodoPage className='TodoPage' />
           )}
         />
@@ -82,15 +82,13 @@ const App =(props) => {
   );
 };
 
-App.propTypes ={
+App.propTypes = {
   authApi: PropTypes.object.isRequired,
   logout: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    logout: () => { dispatch(logout()) },
-  };
+  return { logout: () => { dispatch(logout()) } };
 };
 
 const mapStateToProps = (state) => {

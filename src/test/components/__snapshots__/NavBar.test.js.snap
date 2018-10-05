@@ -2,68 +2,50 @@
 
 exports[`[object Object] 1`] = `
 <div
-  class="nav-bar sc-bZQynM fzorDd"
+  class="nav-bar sc-EHOje gkURKN"
 >
   <img
     alt="logo"
-    class="logo sc-gzVnrw cGfAAV"
+    class="logo sc-bZQynM hyBhnN"
     src="done.png"
   >
     
   </img>
   <div
-    class="nav-section sc-bdVaJa ixJGcS"
+    class="nav-section sc-bdVaJa bHxvHS"
   >
-    <div
-      class=" engr fa fa-navicon fa-2x sc-bwzfXH elpHwE"
-      id="Burger"
-    >
-      
-    </div>
     <ul
-      class="sc-htpNat fBKeQj"
+      class="sc-htpNat hwcvvy"
       id="menu"
     >
-      <li
-        class="sc-bxivhb esNFIz"
+      <a
+        auth="false"
+        class="sc-bxivhb gsnrXq"
+        href="/todos"
       >
-        <a
-          class="sc-EHOje iojQsz"
-          href="/todos"
-        >
-           Todos 
-        </a>
-      </li>
-      <li
-        class="sc-bxivhb esNFIz"
+        Todos
+      </a>
+      <a
+        auth="false"
+        class="sc-bxivhb gsnrXq"
+        href="/"
       >
-        <a
-          class="sc-EHOje iojQsz"
-          href="/"
-        >
-           Logout 
-        </a>
-      </li>
-      <li
-        class="sc-ifAKCX kiGXrA"
+        Logout
+      </a>
+      <a
+        auth="false"
+        class="sc-ifAKCX bAzXIu"
+        href="/register"
       >
-        <a
-          class="sc-EHOje iojQsz"
-          href="/register"
-        >
-           Register 
-        </a>
-      </li>
-      <li
-        class="sc-ifAKCX kiGXrA"
+        Register
+      </a>
+      <a
+        auth="false"
+        class="sc-ifAKCX bAzXIu"
+        href="/login"
       >
-        <a
-          class="sc-EHOje iojQsz"
-          href="/login"
-        >
-           Login 
-        </a>
-      </li>
+        Login
+      </a>
     </ul>
   </div>
 </div>
