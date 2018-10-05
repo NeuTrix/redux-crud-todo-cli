@@ -12,10 +12,12 @@ import { colors, media } from '../../helpers/cssConstants';
 // +++++++++ Nav Section  +++++++++ 
 
 const Navigation = styled.div `
-	grid-area: nav;
+	grid-area: nav-section;
+
+	grid-template-areas: " menu ";
 	display: inline-grid;
 	place-content: center;
-	padding-right: 5px;
+	// padding-right: 5px;
 
 	&:hover { color:lime; }
 
@@ -34,19 +36,21 @@ const Navigation = styled.div `
 	
 	@media (${media._medium}) {
 		display: inline-grid;
-		grid-template-areas: "Menu"
+		grid-template-areas: "menu"
 	}
 `;
 
-const Burger = styled.div `
+const Burger = styled(FontAwesomeIcon) `
+	grid-area: menu;
 	display: inline-grid;
-	place-content: center right;
+	place-self: center right;
 	color: ${colors._olive};	
+	font-size: 2em;
 	&:hover { color: lime;}
 
-	@media (${media._medium}) {
-		display: none;
-	}
+	// @media (${media._medium}) {
+	// 	display: none;
+	// }
 `;
 
 const Menu = styled.ul `
@@ -112,7 +116,7 @@ const NavSection = (props, context) => {
 
 			<Navigation className='nav-section' > 
 
-				<Burger id='Burger' className=' engr fa fa-navicon fa-2x'/>
+				<Burger className='burger' icon='bars'/>
 
 				<Menu id='menu' > 
 					<AuthLi auth={ auth } > 

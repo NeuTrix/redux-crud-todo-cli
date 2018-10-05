@@ -19,13 +19,21 @@ import TodoPage from './todos/TodoPage';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import {
+  faBars,
+  faChartLine,
   faCheckSquare,
   faCoffee,
-  faChartLine,
   faTasks,
 } from '@fortawesome/free-solid-svg-icons';
 
-library.add(fab, faCheckSquare, faCoffee, faChartLine, faTasks);
+library.add(
+  fab, 
+  faBars,
+  faChartLine,
+  faCheckSquare,
+  faCoffee,
+  faTasks,
+);
 
 // CSS
 const Grid =styled.div `

@@ -10,10 +10,10 @@ import NavSection from './NavSection';
 // +++++++++  CSS  +++++++++ 
 const Grid = styled.div `
 	grid-area: nav-bar;
-	grid-template-areas: " logo  dash  nav " ;
+
+	grid-template-areas: " logo dash nav-section " ;
 	grid-template-columns: repeat(3, 1fr);
 	display: inline-grid;
-	place-items: center;
   height: 49px;
 	width: 100%;
 	padding-bottom: 10px;
@@ -22,11 +22,13 @@ const Grid = styled.div `
 `;
 const Logo = styled.img `
 	grid-area: logo;
-	max-width:100px;
-`;
-const Dash = styled(FontAwesomeIcon) `
+	max-width: 65px;
+	place-self: center left;
+	`;
+	const Dash = styled(FontAwesomeIcon) `
 	grid-area: dash;
 	font-size: 2em;
+	place-self: center;
 `;
 // +++++++++  COMPONENT  +++++++++ 
 const NavBar = (props, context) => {
