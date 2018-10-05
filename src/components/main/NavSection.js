@@ -17,10 +17,10 @@ const Navigation = styled.div `
 		:hover { color: lime }
 	}
 	
-	@media (${media._medium}) {
-		display: inline-grid;
-		grid-template-areas: " menu "
-	}
+	// @media (${media._medium}) {
+	// 	display: inline-grid;
+	// 	// grid-template-areas: " menu "
+	// }
 `;
 // mobbile collapsed menu icon
 const Burger = styled(FontAwesomeIcon) `
@@ -36,7 +36,7 @@ const Burger = styled(FontAwesomeIcon) `
 `;
 // full menu for larger screens
 const Menu = styled.ul `
-	grid-area: Menu;
+	grid-area: menu;
 	display: none;
 	
 	@media (${media._medium}) {
@@ -89,12 +89,11 @@ const NavSection = (props, context) => {
 		context.router.history.push('/login');
 	};
 
-
 	return (
 
 			<Navigation className='nav-section' > 
 
-				<Burger className='burger' icon='bars'/>
+				<Burger id='burger' icon='bars'/>
 
 				<Menu id='menu' > 
 					<AuthLi auth={ auth } > 
@@ -109,7 +108,7 @@ const NavSection = (props, context) => {
 						<A to='/register' > Register </A>
 					</NoAuthLi>
 
-					<NoAuthLi auth= { auth } > 
+					<NoAuthLi auth={ auth } > 
 						<A to='/login' > Login </A>
 					</NoAuthLi>
 
