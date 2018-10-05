@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
-// custom
+import styled from 'styled-components';
+
+import { addFlashMessage } from '../../actions/flashActions';
 import LoginForm from './LoginForm';
 import { userLoginRequest } from '../../actions/loginActions';
-import { addFlashMessage } from '../../actions/flashActions';
 
 const Grid = styled.div`
 	display: grid;
@@ -22,15 +22,14 @@ const EntryForm = styled(LoginForm) `
 `;
 
 const LoginPage = (props) => {
-	
 	return (
 		<Grid 
-			className = { `LoginPage ${props.className}`} 
+			className={ `LoginPage ${props.className}`} 
 		>
 			<EntryForm  
-				userLoginRequest = { props.userLoginRequest } 
-				addFlashMessage = { props.addFlashMessage } 
-				authApi = { props.authApi }
+				userLoginRequest={ props.userLoginRequest } 
+				addFlashMessage={ props.addFlashMessage } 
+				authApi={ props.authApi }
 			/>
 
 		</Grid>
