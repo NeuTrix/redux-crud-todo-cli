@@ -21,6 +21,7 @@ import { logout } from '../actions/loginActions';
 import requireAuth from '../helpers/requireAuth';
 import styled from 'styled-components';
 // components
+import CssBaseline from '@material-ui/core/CssBaseline';
 import FlashMessageList from './messages/FlashMessageList';
 import Home from './main/Home';
 import LoginPage from './auth/LoginPage';
@@ -62,7 +63,7 @@ const App =(props) => {
   const auth = authApi.isAuthenticated;
   return (
     <Grid className='App' >
-
+        <CssBaseline/>
         <NavBar
           auth={ auth }
           logout={ props.logout }
