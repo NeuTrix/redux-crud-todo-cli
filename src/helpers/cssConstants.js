@@ -5,9 +5,10 @@ export const colors = {
 	_gold:  '#cc9900',
 	_iceblue: '#0f94f6',
 	_mintgreen: '#429f42',
-	_yellow: '#ffff33',
+	_olive: '#68a94a',
 	_pinkrose: '#fde7ea',
-	_olive: '#68a94a'
+	_yellow: '#ffff33',
+	_white: '#fafafa',
 };
 
 export const media = {
