@@ -13,10 +13,10 @@ const Grid = styled.div `
 	grid-template-areas: " logo dash nav-section ";
 	grid-template-columns: repeat(3, 1fr);
 
-	border-bottom: 1px solid grey;
+	border-bottom: 1px solid lightgrey ;
 	display: inline-grid;
-  height: 49px;
-	padding: 0px 0px 10px 0px;
+  // height: 49px;
+	padding: 5px 0px 5px 0px;
 	width: 100%;
 `;
 // navbar logo
