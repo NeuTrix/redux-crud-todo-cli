@@ -40,6 +40,7 @@ const Title = styled.div `
 `;
 const  Email = styled(TextField) `
 	gride-area: email;
+	border: 1px solid orange;
 `;
 const  Pword =styled(TextFieldGroup) `
 	gride-area: pword;
@@ -65,8 +66,16 @@ const RegLink =styled(Link) `
 // custom component styling
 const stylesInput = {
 	style: {
-		color: colors._iceblue,
+		// color: colors._iceblue,
 		background: colors._white,
+	}
+};
+const styles = {
+	style: {
+		color: colors._iceblue,
+		background: 'yellow',
+		color: 'lime',
+		border: 'orange',
 	}
 };
 
@@ -137,20 +146,23 @@ class Loginform extends Component {
 					<h1> { !isLoading ? 'Login' : <Spinner color ='greenyellow' /> } </h1>
 				</Title>
 
-				<Email
-					InputLabelProps={stylesInput}
-
+				<TextField
+					InputLabelProps={ stylesInput }
+					// InputProps={ styles }
+					// style = { styles }
+					autoComplete='email'
 					className='Email'
-					errors={ errors.identifier }
-					label='Username / Email' 
+					error={ errors.identifier }
+					// helperText='helping or NOt?'
+					label='Username | Email' 
+					margin='normal'
 					name='identifier'
 					onChange={ this.onChange }
-					placeholder='enter a username -or- email'
+					placeholder='enter username or email'
+					required
 					type='email'
 					value={ identifier }
-					autoComplete = "email"
-					margin = "normal"
-					variant = "outlined"
+					variant='outlined'
 				/>
 
 				
@@ -172,10 +184,11 @@ class Loginform extends Component {
 					name='Log in' 
 					disabled={isLoading}
 				> Log in </Submit> 
+			*/}
 
 				<RegLink to='/register' className='RegLink' >
-					Click here to register a new account
-				</RegLink>	 */}
+					Click here to sign up
+				</RegLink>	 
 			</Grid>
 		);
 	}
