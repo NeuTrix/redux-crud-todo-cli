@@ -10,13 +10,13 @@ import TextFieldGroup from './TextFieldGroup';
 
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 
 // +++++++++  CSS  +++++++++ 
 const baseColor = colors._mintgreen; 
 
 const Grid = styled.form `
-	display: grid;
 	grid-template-areas: 
 		"title"
 		"email"
@@ -24,61 +24,53 @@ const Grid = styled.form `
 		"submit"
 		"link"
 	;
+	grid-row-gap: 15px;
 
-	grid-row-gap: 20px;
-	color: ${ baseColor };
-	padding: 20px;
 	border: 1px solid ${ baseColor };
+	border-radius: 5px;
+	color: ${ baseColor };
+	display: grid;
+	padding: 20px;
 	width: 300px;
 
 	@media (${media._large}) {
 		width: 500px;
 	}
 `;
-const Title = styled.div `
-	gride-area: title;
+const Title = styled.h1 `
+	grid-area: title;
 `;
 const  Email = styled(TextField) `
-	gride-area: email;
-	border: 1px solid orange;
+	grid-area: email;
 `;
-const  Pword =styled(TextFieldGroup) `
-	gride-area: pword;
+const  Pword = styled(TextField) `
+	grid-area: pword;
 `;
-const  Submit =styled.button`
-	gride-area: submit;
-	font-weight: bold;
-	font-size: 1.0em;
-	height: 35px;
-	width: 90px;
-	border: 4px solid ${baseColor};
-	border-radius: 4px;
-	background: greenyellow;
-	color: ${baseColor}
-	`;
-	
-const RegLink =styled(Link) `
-	gride-area: link;
-	color: blue
-	place-content: center;
-	display: inline-grid;
+const  Submit = styled(Button) `
+	grid-area: submit;
+`;
+const RegLink = styled(Link) `
+	grid-area: link;
+	padding-top: 25px;
+	place-self: center; 
 `;
 // custom component styling
 const stylesInput = {
 	style: {
-		// color: colors._iceblue,
 		background: colors._white,
 	}
 };
-const styles = {
-	style: {
-		color: colors._iceblue,
-		background: 'yellow',
-		color: 'lime',
-		border: 'orange',
-	}
-};
 
+const styles = theme => ({
+	button: {
+		margin: theme.spacing.unit,
+		color: '#fafafa'
+	},
+
+	input: {
+		display: 'none',
+	},
+});
 
 // +++++++++  COMPONENT  +++++++++ 
 class Loginform extends Component {
@@ -143,17 +135,13 @@ class Loginform extends Component {
 				onSubmit={ this.onSubmit } 
 			>
 				<Title className='Title ctr engr under' > 
-					<h1> { !isLoading ? 'Login' : <Spinner color ='greenyellow' /> } </h1>
+					{ !isLoading ? 'Login' : <Spinner color ='greenyellow' /> }
 				</Title>
 
-				<TextField
+				<Email
 					InputLabelProps={ stylesInput }
-					// InputProps={ styles }
-					// style = { styles }
-					autoComplete='email'
-					className='Email'
-					error={ errors.identifier }
-					// helperText='helping or NOt?'
+					className='email'
+					errors={ errors.identifier }
 					label='Username | Email' 
 					margin='normal'
 					name='identifier'
@@ -165,30 +153,37 @@ class Loginform extends Component {
 					variant='outlined'
 				/>
 
-				
-       { /*
-				<Pword 
-					className='Pword'
+				<Pword
+					InputLabelProps={ stylesInput }
+					className='password'
 					errors={ errors.password }
 					label='Password' 
+					margin='normal'
 					name='password'
 					onChange={ this.onChange }
-					placeholder='enter your password'
+					placeholder='enter password'
+					required
 					type='password'
 					value={ password }
+					variant='outlined'
 				/>
 				
-				<Submit 
-					className ='Submit'
-					type='submit' 
-					name='Log in' 
-					disabled={isLoading}
-				> Log in </Submit> 
-			*/}
-
-				<RegLink to='/register' className='RegLink' >
-					Click here to sign up
+				<RegLink to='/register' className='regLink' >
+					Click here for a new account
 				</RegLink>	 
+
+				<Submit 
+					className={ this.props.classes.button}
+					color='primary' 
+					disabled={isLoading}
+					name='Log in' 
+					size='small'
+					type='submit' 
+					variant="contained" 
+				>
+					Go
+				</Submit>
+
 			</Grid>
 		);
 	}
@@ -214,4 +209,5 @@ Loginform.contextTypes = {
 	router: PropTypes.object.isRequired,
 };
 
-export default Loginform;
+// export default Loginform;
+export default withStyles(styles)(Loginform);

@@ -12,32 +12,40 @@ exports[`The LoginForm ...renders the login form 1`] = `
     </h1>
   </div>
   <div
-    class="Email sc-bZQynM dfbHKG form-group sc-bdVaJa jTbhOQ"
+    class="MuiFormControl-root-1 MuiFormControl-marginNormal-2 Email sc-bZQynM dfbHKG"
   >
-    <div
-      class="sc-htpNat jrjeAK"
+    <label
+      class="MuiFormLabel-root-12 MuiInputLabel-root-5 MuiInputLabel-formControl-6 MuiInputLabel-animated-9 MuiInputLabel-outlined-11"
+      data-shrink="false"
     >
-      <h3>
-         Username / Email 
-      </h3>
-    </div>
+      Username / Email
+    </label>
     <div
-      class="MuiFormControl-root-1 mat sc-bwzfXH jfGQXX"
+      class="MuiInputBase-root-32 MuiOutlinedInput-root-19 MuiInputBase-formControl-33"
     >
-      <div
-        class="MuiInputBase-root-18 MuiInput-root-5 MuiInput-underline-9 MuiInputBase-formControl-19 MuiInput-formControl-6"
+      <fieldset
+        aria-hidden="true"
+        class="MuiNotchedOutline-root-49 MuiOutlinedInput-notchedOutline-26"
+        style="padding-left:8px"
       >
-        <input
-          aria-invalid="false"
-          class="MuiInputBase-input-28 MuiInput-input-13"
-          name="identifier"
-          placeholder="enter a username -or- email"
-          type="text"
-          value=""
+        <legend
+          class="MuiNotchedOutline-legend-50"
+          style="width:0.01px"
         >
           
-        </input>
-      </div>
+        </legend>
+      </fieldset>
+      <input
+        aria-invalid="false"
+        autocomplete="email"
+        class="MuiInputBase-input-42 MuiOutlinedInput-input-27 MuiInputBase-inputType-45"
+        name="identifier"
+        placeholder="enter a username -or- email"
+        type="email"
+        value=""
+      >
+        
+      </input>
     </div>
   </div>
   <div
@@ -54,11 +62,11 @@ exports[`The LoginForm ...renders the login form 1`] = `
       class="MuiFormControl-root-1 mat sc-bwzfXH jfGQXX"
     >
       <div
-        class="MuiInputBase-root-18 MuiInput-root-5 MuiInput-underline-9 MuiInputBase-formControl-19 MuiInput-formControl-6"
+        class="MuiInputBase-root-32 MuiInput-root-54 MuiInput-underline-58 MuiInputBase-formControl-33 MuiInput-formControl-55"
       >
         <input
           aria-invalid="false"
-          class="MuiInputBase-input-28 MuiInput-input-13 MuiInputBase-inputType-31 MuiInput-inputType-16"
+          class="MuiInputBase-input-42 MuiInput-input-62 MuiInputBase-inputType-45 MuiInput-inputType-65"
           name="password"
           placeholder="enter your password"
           type="password"

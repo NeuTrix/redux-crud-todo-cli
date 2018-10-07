@@ -15,7 +15,6 @@ const Grid = styled.div `
 
 	border-bottom: 1px solid lightgrey ;
 	display: inline-grid;
-  // height: 49px;
 	padding: 5px 0px 5px 0px;
 	width: 100%;
 `;

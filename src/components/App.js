@@ -18,7 +18,7 @@ import TodoPage from './todos/TodoPage';
 // import './material.css';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import lightBlue from '@material-ui/core/colors/lightBlue';
-import lightGreen from '@material-ui/core/colors/lightGreen';
+import green from '@material-ui/core/colors/green';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 // fontawesome imports and other styles
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -48,7 +48,7 @@ const Main =styled.div `grid-area: main;`;
 const options = {
   palette: {
       primary: lightBlue,
-      secondary: lightGreen,
+      secondary: green,
     },
   status: {
     danger: 'orange',
