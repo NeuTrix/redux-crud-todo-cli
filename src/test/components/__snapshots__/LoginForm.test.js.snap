@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The LoginForm ...renders the login form 1`] = `
+<form
+  class="Loginform  boxClr paper sc-ifAKCX jkKjSu"
+>
+  <div
+    class="Title ctr engr under sc-EHOje gKsYQQ"
+  >
+    <h1>
+       Login 
+    </h1>
+  </div>
+  <div
+    class="Email sc-bZQynM dfbHKG form-group sc-bdVaJa jTbhOQ"
+  >
+    <div
+      class="sc-htpNat jrjeAK"
+    >
+      <h3>
+         Username / Email 
+      </h3>
+    </div>
+    <div
+      class="MuiFormControl-root-1 mat sc-bwzfXH jfGQXX"
+    >
+      <div
+        class="MuiInputBase-root-18 MuiInput-root-5 MuiInput-underline-9 MuiInputBase-formControl-19 MuiInput-formControl-6"
+      >
+        <input
+          aria-invalid="false"
+          class="MuiInputBase-input-28 MuiInput-input-13"
+          name="identifier"
+          placeholder="enter a username -or- email"
+          type="text"
+          value=""
+        >
+          
+        </input>
+      </div>
+    </div>
+  </div>
+  <div
+    class="Pword sc-gzVnrw eKozXX form-group sc-bdVaJa jTbhOQ"
+  >
+    <div
+      class="sc-htpNat jrjeAK"
+    >
+      <h3>
+         Password 
+      </h3>
+    </div>
+    <div
+      class="MuiFormControl-root-1 mat sc-bwzfXH jfGQXX"
+    >
+      <div
+        class="MuiInputBase-root-18 MuiInput-root-5 MuiInput-underline-9 MuiInputBase-formControl-19 MuiInput-formControl-6"
+      >
+        <input
+          aria-invalid="false"
+          class="MuiInputBase-input-28 MuiInput-input-13 MuiInputBase-inputType-31 MuiInput-inputType-16"
+          name="password"
+          placeholder="enter your password"
+          type="password"
+          value=""
+        >
+          
+        </input>
+      </div>
+    </div>
+  </div>
+  <button
+    class="Submit sc-htoDjs evEHpO"
+    name="Log in"
+    type="submit"
+  >
+     Log in 
+  </button>
+  <a
+    class="RegLink sc-dnqmqq fdLHyR"
+    href="/register"
+  >
+    Click here to register a new account
+  </a>
+</form>
+`;

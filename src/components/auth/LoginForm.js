@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { Link } from  'react-router-dom';
-// custom
-import validateInput from '../../helpers/loginValidator';
-import TextFieldGroup from './TextFieldGroup';
-import Spinner from '../buttons/Spinner';
 import { colors, media } from '../../helpers/cssConstants';
+import styled from 'styled-components';
+import validateInput from '../../helpers/loginValidator';
+// custom
+import { Link } from  'react-router-dom';
+import Spinner from '../buttons/Spinner';
+import TextFieldGroup from './TextFieldGroup';
+import TextField from '@material-ui/core/TextField';
 
 // +++++++++  CSS  +++++++++ 
 const baseColor =colors._mintgreen; 
@@ -36,14 +37,13 @@ const Title =styled.div `
 	gride-area: title;
 `;
 
-const  Email =styled(TextFieldGroup) `
+const  Email =styled(TextField) `
 	gride-area: email;
 `;
 
 const  Pword =styled(TextFieldGroup) `
 	gride-area: pword;
 `;
-
 const  Submit =styled.button`
 	gride-area: submit;
 	font-weight: bold;
@@ -62,9 +62,7 @@ const RegLink =styled(Link) `
 	place-content: center;
 	display: inline-grid;
 `;
-
 // +++++++++  COMPONENT  +++++++++ 
-
 class Loginform extends Component {
 
 	constructor (props, context) {
@@ -139,9 +137,15 @@ class Loginform extends Component {
 					name='identifier'
 					onChange={ this.onChange }
 					placeholder='enter a username -or- email'
-					type='text'
+					type='email'
 					value={ identifier }
+					autoComplete = "email"
+					margin = "normal"
+					variant = "outlined"
+					
 				/>
+
+				
        
 				<Pword 
 					className='Pword'
@@ -169,7 +173,7 @@ class Loginform extends Component {
 	}
 }
 
-Loginform.propTypes ={
+Loginform.propTypes = {
 	addFlashMessage: PropTypes.func.isRequired,
 	authApi: PropTypes.object.isRequired,
 	className: PropTypes.string.isRequired, // from styled-components
@@ -177,7 +181,7 @@ Loginform.propTypes ={
 	userLoginRequest: PropTypes.func.isRequired,
 };
 
-Loginform.defaultProps ={
+Loginform.defaultProps = {
 	addFlashMessage: f => f,
 	authApi: { loginIsPosting: false},
 	className: '',
@@ -185,7 +189,7 @@ Loginform.defaultProps ={
 	userLoginRequest: f => f,
 };
 
-Loginform.contextTypes ={
+Loginform.contextTypes = {
 	router: PropTypes.object.isRequired,
 };
 

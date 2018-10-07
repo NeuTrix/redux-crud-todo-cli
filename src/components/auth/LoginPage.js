@@ -1,10 +1,12 @@
+// connects to store and passes props to LoginForm ...
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import { addFlashMessage } from '../../actions/flashActions';
-import LoginForm from './LoginForm';
+// import LoginForm from './LoginForm';
+import LoginTest from './LoginTest';
 import { userLoginRequest } from '../../actions/loginActions';
 
 const Grid = styled.div`
@@ -17,21 +19,18 @@ const Grid = styled.div`
 	border: darkgreen;
 `;
 
-const EntryForm = styled(LoginForm) `
+const EntryForm = styled(LoginTest) `
 	grid-area: form;
 `;
 
 const LoginPage = (props) => {
 	return (
-		<Grid 
-			className={ `LoginPage ${props.className}`} 
-		>
+		<Grid className='LoginPage'>
 			<EntryForm  
 				userLoginRequest={ props.userLoginRequest } 
 				addFlashMessage={ props.addFlashMessage } 
 				authApi={ props.authApi }
 			/>
-
 		</Grid>
 	);
 };
