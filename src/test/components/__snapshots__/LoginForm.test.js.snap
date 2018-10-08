@@ -2,15 +2,15 @@
 
 exports[`The LoginForm ...renders the login form 1`] = `
 <form
-  class="LoginTest sc-ifAKCX RKhEk"
+  class="LoginTest sc-bdVaJa jbRMLp"
 >
   <h1
-    class="Title ctr engr under sc-EHOje izYojJ"
+    class="Title ctr engr under sc-bwzfXH gXFEMh"
   >
     Login
   </h1>
   <div
-    class="MuiFormControl-root-3 MuiFormControl-marginNormal-4 email sc-bZQynM cPOBPA"
+    class="MuiFormControl-root-3 MuiFormControl-marginNormal-4 email sc-htpNat uoNzJ"
   >
     <label
       class="MuiFormLabel-root-14 MuiFormLabel-required-19 MuiInputLabel-root-7 MuiInputLabel-formControl-8 MuiInputLabel-animated-11 MuiInputLabel-outlined-13"
@@ -53,7 +53,7 @@ exports[`The LoginForm ...renders the login form 1`] = `
     </div>
   </div>
   <div
-    class="MuiFormControl-root-3 MuiFormControl-marginNormal-4 password sc-gzVnrw dACTp"
+    class="MuiFormControl-root-3 MuiFormControl-marginNormal-4 password sc-bxivhb CjTVf"
   >
     <label
       class="MuiFormLabel-root-14 MuiFormLabel-required-19 MuiInputLabel-root-7 MuiInputLabel-formControl-8 MuiInputLabel-animated-11 MuiInputLabel-outlined-13"
@@ -96,13 +96,13 @@ exports[`The LoginForm ...renders the login form 1`] = `
     </div>
   </div>
   <a
-    class="regLink sc-dnqmqq cfTBRA"
+    class="regLink sc-EHOje pFMQs"
     href="/register"
   >
     Click here for a new account
   </a>
   <button
-    class="MuiButtonBase-root-82 MuiButton-root-56 MuiButton-contained-67 MuiButton-containedPrimary-68 MuiButton-raised-70 MuiButton-raisedPrimary-71 MuiButton-sizeSmall-79 sc-htoDjs ePxWKu"
+    class="MuiButtonBase-root-82 MuiButton-root-56 MuiButton-contained-67 MuiButton-containedPrimary-68 MuiButton-raised-70 MuiButton-raisedPrimary-71 MuiButton-sizeSmall-79 sc-ifAKCX qzBPD"
     name="Log in"
     tabindex="0"
     type="submit"

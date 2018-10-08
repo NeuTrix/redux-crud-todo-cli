@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+// import components
+import Button from '@material-ui/core/Button';
+import { Link } from  'react-router-dom';
+import Spinner from '../buttons/Spinner';
+import TextField from '@material-ui/core/TextField';
+// import functions
 import { colors, media } from '../../helpers/cssConstants';
 import styled from 'styled-components';
 import validateInput from '../../helpers/loginValidator';
-// custom
-import { Link } from  'react-router-dom';
-import Spinner from '../buttons/Spinner';
-import TextFieldGroup from './TextFieldGroup';
-
-import FormControl from '@material-ui/core/FormControl';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 
-// +++++++++  CSS  +++++++++ 
+// ===== set CSS
 const baseColor = colors._mintgreen; 
 
 const Grid = styled.form `
