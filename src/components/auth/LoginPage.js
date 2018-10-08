@@ -1,4 +1,4 @@
-// connects to store and passes props to LoginForm ...
+// connects to redux store and passes props to the LoginForm ...
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -8,16 +8,16 @@ import LoginForm from './LoginForm';
 import { addFlashMessage } from '../../actions/flashActions';
 import styled from 'styled-components';
 import { userLoginRequest } from '../../actions/loginActions';
-// ===== CSS 
+// ===== set CSS 
 const Grid = styled.div `
 	grid-template-areas: " form ";
 	display: grid;
 	justify-items: center;
 	padding: 20px;
 `;
-// ===== Main Component 
+// ===== main Component 
 const LoginPage = props => {
-	const { addFlashMessage, authApi, userLoginRequest } = this.props;
+	const { addFlashMessage, authApi, userLoginRequest } = props;
 	return (
 		<Grid className='loginPage'>
 			<LoginForm
@@ -36,12 +36,14 @@ const mapStateToProps = state => {
 
 LoginPage.propTypes = {
 	addFlashMessage: PropTypes.func.isRequired,
+	authApi: PropTypes.object.isRequired,
 	// from styled-components...
 	className: PropTypes.string, 
 	userLoginRequest: PropTypes.func.isRequired,
 };
 
 LoginPage.defaultProps = {
+	authApi: {},
 	addFlashMessage: f => f,
 	userLoginRequest: f => f,
 };

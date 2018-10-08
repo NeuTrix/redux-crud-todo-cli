@@ -102,7 +102,7 @@ exports[`The LoginForm ...renders the login form 1`] = `
     Click here for a new account
   </a>
   <button
-    class="MuiButtonBase-root-82 MuiButton-root-56 MuiButton-contained-67 MuiButton-containedPrimary-68 MuiButton-raised-70 MuiButton-raisedPrimary-71 MuiButton-sizeSmall-79 Loginform-button-1 sc-htoDjs ePxWKu"
+    class="MuiButtonBase-root-82 MuiButton-root-56 MuiButton-contained-67 MuiButton-containedPrimary-68 MuiButton-raised-70 MuiButton-raisedPrimary-71 MuiButton-sizeSmall-79 sc-htoDjs ePxWKu"
     name="Log in"
     tabindex="0"
     type="submit"

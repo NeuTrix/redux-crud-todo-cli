@@ -176,7 +176,7 @@ class Loginform extends Component {
 				</RegLink>	 
 
 				<Submit 
-					className={ this.props.classes.button}
+					// className={ this.props.classes.button}
 					color='primary' 
 					disabled={isLoading}
 					name='Log in' 

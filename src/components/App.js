@@ -65,7 +65,7 @@ const App =(props) => {
     <MuiThemeProvider theme={ theme } >
       <Grid className='App' >
         <CssBaseline/>
-        <NavBar auth={ auth } logout={ props.logout } />
+        <NavBar auth={ auth } logout={ logout } />
         <Messages className='Messages'>
           <FlashMessageList/>
         </Messages>
