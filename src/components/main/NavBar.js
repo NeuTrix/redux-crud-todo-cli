@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NavSection from './NavSection';
 // ===  CSS  === 
 const Grid = styled.div `
-	grid-area: nav-bar;
+	grid-area: navBar;
 	grid-template-areas: " logo dash nav-section ";
 	grid-template-columns: repeat(3, 1fr);
 

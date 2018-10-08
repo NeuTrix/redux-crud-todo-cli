@@ -9,6 +9,7 @@ import FlashMessageList from './messages/FlashMessageList';
 import Home from './main/Home';
 import LoginPage from './auth/LoginPage';
 import NavBar from './main/NavBar';
+import Navigation from './main/Navigation';
 import RegisterPage from './auth/RegisterPage';
 import TodoPage from './todos/TodoPage';
 // functions
@@ -31,7 +32,7 @@ library.add( fab, faBars, faChartLine, faChartBar, faCog, faCheckSquare, faEllip
 // ===> CSS
 const Grid =styled.div `
   grid-template-areas:   
-  " nav-bar " 
+  " navBar " 
   " messages "  
   " main "  
   ;
@@ -65,7 +66,8 @@ const App = (props) => {
     <MuiThemeProvider theme={ theme } >
       <Grid className='App' >
         <CssBaseline/>
-        <NavBar auth={ auth } logout={ logout } />
+        {/* <NavBar auth={ auth } logout={ logout } /> */}
+        <Navigation/>
         <Messages className='Messages'>
           <FlashMessageList/>
         </Messages>

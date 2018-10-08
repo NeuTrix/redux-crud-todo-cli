@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import components
-import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
-import TextField from '@material-ui/core/TextField';
-import Spinner from '../buttons/Spinner';
 // import functions
 import { colors, media } from '../../helpers/cssConstants';
-import styled from 'styled-components';
-import { withStyles } from '@material-ui/core/styles';
 import validateInput from '../../helpers/loginValidator';
+import styled from 'styled-components';
+// import material-ui
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
+// import components
+import Spinner from '../buttons/Spinner';
 // ===== set CSS
 
 const Grid = styled.form`
 	grid-template-areas: 
-		"title"
-		"email"
-		"pword"
-		"submit"
-		"link"
+		'title'
+		'email'
+		'pword'
+		'submit'
+		'link'
 	;
 	grid-row-gap: 15px;
 
@@ -33,7 +35,7 @@ const Grid = styled.form`
 		width: 500px;
 	}
 `;
-const Title = styled.h1`
+const Title = styled(Typography) `
 	grid-area: title;
 `;
 const Email = styled(TextField)`
@@ -130,56 +132,60 @@ class Loginform extends Component {
 
     return (
       <Grid
-        className="LoginTest"
+        className='LoginTest'
         onSubmit={this.onSubmit}
       >
-        <Title className="Title ctr engr under">
-          { !isLoading ? 'Login' : <Spinner color="greenyellow" /> }
+        <Title 
+          className='title'
+          variant='display3'
+          color='secondary'
+        >
+          { !isLoading ? 'Login' : <Spinner color='greenyellow' /> }
         </Title>
 
         <Email
           InputLabelProps={stylesInput}
-          className="email"
+          className='email'
           errors={errors.identifier}
-          label="Username | Email"
-          margin="normal"
-          name="identifier"
+          label='Username | Email'
+          margin='normal'
+          name='identifier'
           onChange={this.onChange}
-          placeholder="enter username or email"
+          placeholder='enter username or email'
           required
-          type="email"
+          type='email'
           value={identifier}
-          variant="outlined"
+          variant='outlined'
         />
 
         <Pword
           InputLabelProps={stylesInput}
-          className="password"
+          className='password'
           errors={errors.password}
-          label="Password"
-          margin="normal"
-          name="password"
+          label='Password'
+          margin='normal'
+          name='password'
           onChange={this.onChange}
-          placeholder="enter password"
+          placeholder='enter password'
           required
-          type="password"
+          type='password'
           value={password}
-          variant="outlined"
+          variant='outlined'
         />
 
-        <RegLink to="/register" className="regLink">
+        <RegLink to='/register' className='regLink'>
 					Click here for a new account
 
         </RegLink>
 
         <Submit
 					// className={ this.props.classes.button}
-          color="primary"
+          color='primary'
           disabled={isLoading}
-          name="Log in"
-          size="small"
-          type="submit"
-          variant="contained"
+          name='Log in'
+          size='small'
+          type='submit'
+          variant='contained'
         >
 					Go
 
