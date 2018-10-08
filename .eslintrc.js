@@ -1,6 +1,6 @@
 module.exports = {
     "extends": [
-        "google",
+        "airbnb",
         "eslint:recommended",
         "plugin:react/recommended"
     ],
@@ -16,7 +16,8 @@ module.exports = {
         }
     },
     "rules": {
-        "semi": 2,
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "indent": [2, "tab"],
         "no-restricted-syntax": [
             "error",
             {

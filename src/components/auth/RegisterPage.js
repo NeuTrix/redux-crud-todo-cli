@@ -15,44 +15,39 @@ const Grid = styled.div`
 
 	justify-items: center;
 	padding: 20px;
-	border: ${ colors._iceblue };
+	border: ${colors._iceblue};
 `;
 
-const EntryForm = styled(RegisterForm) `
+const EntryForm = styled(RegisterForm)`
 	grid-area: form;
 `;
 
-const RegisterPage = (props) => {
-
-	return (
-		<Grid 
-			className = { `RegisterPage ${props.className}`} 
+const RegisterPage = props => (
+  <Grid
+    className={`RegisterPage ${props.className}`}
 		>
-			<EntryForm  
-				userSignupRequest = { props.userSignupRequest } 
-				addFlashMessage = { props.addFlashMessage } 
-				authApi = { props.authApi }
-			/>
-		</Grid>
-	)
-}
+    <EntryForm
+      userSignupRequest={props.userSignupRequest}
+      addFlashMessage={props.addFlashMessage}
+      authApi={props.authApi}
+    />
+  </Grid>
+);
 
 
-const mapStateToProps = (state) => {
-	return { 
-		authApi: state.authApi 
-	};
-};
+const mapStateToProps = state => ({
+  authApi: state.authApi,
+});
 
 RegisterPage.propTypes = {
-	addFlashMessage: PropTypes.func.isRequired,
-	className: PropTypes.string, // from styled-components
-	userSignupRequest: PropTypes.func.isRequired,
+  addFlashMessage: PropTypes.func.isRequired,
+  className: PropTypes.string, // from styled-components
+  userSignupRequest: PropTypes.func.isRequired,
 };
 
 RegisterPage.defaultProps = {
-	// addFlashMessage: f => f,
-	userSignupRequest: f => alert('error: default fn for RegisterPage') ,
+  // addFlashMessage: f => f,
+  userSignupRequest: f => alert('error: default fn for RegisterPage'),
 };
 
 export default connect(mapStateToProps, { userSignupRequest, addFlashMessage })(RegisterPage);

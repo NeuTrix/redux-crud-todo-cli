@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { colors, media } from '../../helpers/cssConstants';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import TextField from '@material-ui/core/TextField';
+import { colors, media } from '../../helpers/cssConstants';
 import validateInput from '../../helpers/loginValidator';
 // custom
-import { Link } from  'react-router-dom';
 import Spinner from '../buttons/Spinner';
 import TextFieldGroup from './TextFieldGroup';
-import TextField from '@material-ui/core/TextField';
 
-// +++++++++  CSS  +++++++++ 
-const baseColor =colors._mintgreen; 
+// +++++++++  CSS  +++++++++
+const baseColor = colors._mintgreen;
 
-const Grid =styled.form `
+const Grid = styled.form`
 	display: grid;
 	grid-template-areas: 
 		"title"
@@ -23,9 +23,9 @@ const Grid =styled.form `
 	;
 
 	grid-row-gap: 20px;
-	color: ${ baseColor };
+	color: ${baseColor};
 	padding: 20px;
-	border: 1px solid ${ baseColor };
+	border: 1px solid ${baseColor};
 	width: 300px;
 
 	@media (${media._large}) {
@@ -33,18 +33,18 @@ const Grid =styled.form `
 	}
 `;
 
-const Title =styled.div `
+const Title = styled.div`
 	gride-area: title;
 `;
 
-const  Email =styled(TextField) `
+const Email = styled(TextField)`
 	gride-area: email;
 `;
 
-const  Pword =styled(TextFieldGroup) `
+const Pword = styled(TextFieldGroup)`
 	gride-area: pword;
 `;
-const  Submit =styled.button`
+const Submit = styled.button`
 	gride-area: submit;
 	font-weight: bold;
 	font-size: 1.0em;
@@ -55,146 +55,152 @@ const  Submit =styled.button`
 	background: greenyellow;
 	color: ${baseColor}
 	`;
-	
-const RegLink =styled(Link) `
+
+const RegLink = styled(Link)`
 	gride-area: link;
 	color: blue
 	place-content: center;
 	display: inline-grid;
 `;
-// +++++++++  COMPONENT  +++++++++ 
+// +++++++++  COMPONENT  +++++++++
 class Loginform extends Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      identifier: '',
+      password: '',
+      errors: { },
+      isLoading: this.props.authApi.loginIsPosting,
+    };
 
-	constructor (props, context) {
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
 
-		super(props, context);
-		this.state ={
-			identifier: '',
-			password: '',
-			errors: { },
-			isLoading: this.props.authApi.loginIsPosting,
-		};
+  onChange(e) {
+    e.preventDefault();
+    this.setState({ [e.target.name]: e.target.value });
+  }
 
-		this.onChange =this.onChange.bind(this);
-		this.onSubmit =this.onSubmit.bind(this);
-	}
+  isValid() {
+    const { errors, isValid } = validateInput(this.state);
+    if (!isValid) {
+      // isValid is not empty => errors present
+      // pass the errors to this classes state
+      this.setState({ errors });
+    }
+    return isValid; // a boolean value from #validateInput
+  }
 
-	onChange(e) {
-		e.preventDefault();
-		this.setState({ [e.target.name]: e.target.value });
-	}
+  onSubmit(e) {
+    e.preventDefault();
+    // upon a valid set of inputs
+    if (this.isValid()) {
+      // reset state if no errors
+      this.setState({ errors: { }, isLoading: true });
+      // pass the state forward for a login ...
+      this.props.userLoginRequest(this.state)
+        .then((res) => {
+          this.props.addFlashMessage({
+            type: 'success',
+            text: `Hi ${res.data.username}! You're Logged In.`,
+          });
+          this.context.router.history.push('/todos');
+          return res;
+        })
+        .catch((err, res) => {
+          // console.log(err)
+          this.setState({ errors: err, isLoading: false });
+          this.props.addFlashMessage({
+            type: 'error',
+            text: 'Invalid username, id or password. Try again.',
+          });
+        });
+    }
+  }
 
-	isValid() {
-		const { errors, isValid } = validateInput(this.state);
-		if(!isValid) { 
-			// isValid is not empty => errors present
-			// pass the errors to this classes state
-			this.setState({ errors });
-		}
-		return isValid; // a boolean value from #validateInput
-	}
+  render() {
+    const {
+      errors, identifier, password, isLoading,
+    } = this.state;
 
-	onSubmit(e) {
-		e.preventDefault();
-		// upon a valid set of inputs
-		if (this.isValid()) {
-			// reset state if no errors
-			this.setState({ errors: { }, isLoading: true }); 
-			// pass the state forward for a login ...
-			this.props.userLoginRequest(this.state)
-				.then((res) => {
-					this.props.addFlashMessage({
-						type: 'success',
-						text: `Hi ${ res.data.username }! You're Logged In.`
-					});
-					this.context.router.history.push('/todos');
-					return res;
-				})
-				.catch((err, res) => {
-					// console.log(err)
-					this.setState({ errors: err, isLoading: false });
-					this.props.addFlashMessage({
-						type: 'error',
-						text: 'Invalid username, id or password. Try again.'
-					});
-				});
-		}
-	}
+    return (
+      <Grid
+        className={`Loginform ${this.props.className} boxClr paper`}
+        onSubmit={this.onSubmit}
+      >
+        <Title className="Title ctr engr under">
+          <h1>
+            {' '}
+            { !isLoading ? 'Login' : <Spinner color="greenyellow" /> }
+            {' '}
+          </h1>
+        </Title>
 
-	render () {
-    
-		const { errors, identifier, password, isLoading } =this.state; 
+        <Email
+          className="Email"
+          errors={errors.identifier}
+          label="Username / Email"
+          name="identifier"
+          onChange={this.onChange}
+          placeholder="enter a username -or- email"
+          type="email"
+          value={identifier}
+          autoComplete="email"
+          margin="normal"
+          variant="outlined"
+        />
 
-		return (
-			<Grid 
-				className={ `Loginform ${this.props.className} boxClr paper` } 
-				onSubmit={ this.onSubmit } 
-			>
-				<Title className='Title ctr engr under' > 
-					<h1> { !isLoading ? 'Login' : <Spinner color ='greenyellow' /> } </h1>
-				</Title>
 
-				<Email 
-					className='Email'
-					errors={ errors.identifier }
-					label='Username / Email' 
-					name='identifier'
-					onChange={ this.onChange }
-					placeholder='enter a username -or- email'
-					type='email'
-					value={ identifier }
-					autoComplete = "email"
-					margin = "normal"
-					variant = "outlined"
-					
-				/>
+        <Pword
+          className="Pword"
+          errors={errors.password}
+          label="Password"
+          name="password"
+          onChange={this.onChange}
+          placeholder="enter your password"
+          type="password"
+          value={password}
+        />
 
-				
-       
-				<Pword 
-					className='Pword'
-					errors={ errors.password }
-					label='Password' 
-					name='password'
-					onChange={ this.onChange }
-					placeholder='enter your password'
-					type='password'
-					value={ password }
-				/>
-				
-				<Submit 
-					className ='Submit'
-					type='submit' 
-					name='Log in' 
-					disabled={isLoading}
-				> Log in </Submit> 
+        <Submit
+          className="Submit"
+          type="submit"
+          name="Log in"
+          disabled={isLoading}
+        >
+          {' '}
+Log in
+          {' '}
+        </Submit>
 
-				<RegLink to='/register' className='RegLink' >
+        <RegLink to="/register" className="RegLink">
 					Click here to register a new account
-				</RegLink>	
-			</Grid>
-		);
-	}
+
+        </RegLink>
+      </Grid>
+    );
+  }
 }
 
 Loginform.propTypes = {
-	addFlashMessage: PropTypes.func.isRequired,
-	authApi: PropTypes.object.isRequired,
-	className: PropTypes.string.isRequired, // from styled-components
-	currUser: PropTypes.object.isRequired,
-	userLoginRequest: PropTypes.func.isRequired,
+  addFlashMessage: PropTypes.func.isRequired,
+  authApi: PropTypes.object.isRequired,
+  className: PropTypes.string.isRequired, // from styled-components
+  currUser: PropTypes.object.isRequired,
+  userLoginRequest: PropTypes.func.isRequired,
 };
 
 Loginform.defaultProps = {
-	addFlashMessage: f => f,
-	authApi: { loginIsPosting: false},
-	className: '',
-	currUser: { },
-	userLoginRequest: f => f,
+  addFlashMessage: f => f,
+  authApi: { loginIsPosting: false },
+  className: '',
+  currUser: { },
+  userLoginRequest: f => f,
 };
 
 Loginform.contextTypes = {
-	router: PropTypes.object.isRequired,
+  router: PropTypes.object.isRequired,
 };
 
 export default Loginform;

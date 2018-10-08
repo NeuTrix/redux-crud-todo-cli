@@ -2,24 +2,24 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import { Route } from 'react-router-dom';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
 // components
 import FlashMessageList from './messages/FlashMessageList';
 import Home from './main/Home';
 import LoginPage from './auth/LoginPage';
-import { logout } from '../actions/loginActions';
 import NavBar from './main/NavBar';
 import RegisterPage from './auth/RegisterPage';
+import TodoPage from './todos/TodoPage';
+// functions
+import { logout } from '../actions/loginActions';
 import requireAuth from '../helpers/requireAuth';
 import styled from 'styled-components';
-import TodoPage from './todos/TodoPage';
-// import './material.css';
+// import material-ui
 import CssBaseline from '@material-ui/core/CssBaseline';
-import lightBlue from '@material-ui/core/colors/lightBlue';
-import green from '@material-ui/core/colors/green';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import green from '@material-ui/core/colors/green';
+import lightBlue from '@material-ui/core/colors/lightBlue';
 // fontawesome imports and other styles
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -30,21 +30,22 @@ library.add( fab, faBars, faChartLine, faChartBar, faCog, faCheckSquare, faEllip
 );
 // ===> CSS
 const Grid =styled.div `
-  display: grid;
   grid-template-areas:   
-    " nav-bar " 
-    " messages "  
-    " main "  
+  " nav-bar " 
+  " messages "  
+  " main "  
   ;
-  grid-template-columns: 1fr;
-  grid-gap: 10px;
   grid-template-rows: auto;
+  grid-gap: 10px;
+
+  display: grid;
   font-family: arial;
   padding: 0px 10px 0px 10px;
 `;
 const Messages = styled.div `grid-area: messages;`;
-const Main =styled.div `grid-area: main;`;
+const Main = styled.div `grid-area: main;`;
 
+// material-ui custom styling
 const options = {
   palette: {
       primary: lightBlue,
@@ -54,10 +55,9 @@ const options = {
     danger: 'orange',
   },
 }
-
 const theme = createMuiTheme(options);
-// Component
-const App =(props) => {
+// ==== main Component
+const App = (props) => {
   const { authApi, logout} = props;
   const auth = authApi.isAuthenticated;
 
@@ -79,14 +79,14 @@ const App =(props) => {
             exact path='/todos'
             component={ requireAuth(ReactDom.render = (props) =>
               <TodoPage className='TodoPage' />
-            ) }
+            )}
           />
         </Main>
       </Grid>
     </MuiThemeProvider>
   );
 };
-
+// ===== Props
 App.propTypes = {
   authApi: PropTypes.object.isRequired,
   logout: PropTypes.func.isRequired,
@@ -99,5 +99,5 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
   return { authApi: state.authApi };
 };
-
+// =====
 export default connect(mapStateToProps, mapDispatchToProps)(App);
