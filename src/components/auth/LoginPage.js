@@ -1,32 +1,28 @@
 // connects to store and passes props to LoginForm ...
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import LoginForm from './LoginForm';
 
 import { addFlashMessage } from '../../actions/flashActions';
-// import LoginForm from './LoginForm';
-import LoginTest from './LoginTest';
+import styled from 'styled-components';
 import { userLoginRequest } from '../../actions/loginActions';
 
 const Grid = styled.div`
-	display: grid;
 	grid-template-areas: " form ";
-	grid-template-columns: 1fr;
+	// grid-template-columns: 1fr;
 
+	border: darkgreen;
+	display: grid;
 	justify-items: center;
 	padding: 20px;
-	border: darkgreen;
-`;
-
-const EntryForm = styled(LoginTest) `
-	grid-area: form;
 `;
 
 const LoginPage = (props) => {
 	return (
 		<Grid className='LoginPage'>
-			<EntryForm  
+			<LoginForm
+				style={{ gridArea: 'form' }}  
 				userLoginRequest={ props.userLoginRequest } 
 				addFlashMessage={ props.addFlashMessage } 
 				authApi={ props.authApi }

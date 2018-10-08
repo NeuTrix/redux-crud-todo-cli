@@ -7,16 +7,13 @@ import validateInput from '../../helpers/loginValidator';
 import { Link } from  'react-router-dom';
 import Spinner from '../buttons/Spinner';
 import TextFieldGroup from './TextFieldGroup';
-
-import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
 
 // +++++++++  CSS  +++++++++ 
-const baseColor = colors._mintgreen; 
+const baseColor =colors._mintgreen; 
 
-const Grid = styled.form `
+const Grid =styled.form `
+	display: grid;
 	grid-template-areas: 
 		"title"
 		"email"
@@ -24,58 +21,52 @@ const Grid = styled.form `
 		"submit"
 		"link"
 	;
-	grid-row-gap: 15px;
 
-	border: 1px solid ${ baseColor };
-	border-radius: 5px;
+	grid-row-gap: 20px;
 	color: ${ baseColor };
-	display: grid;
 	padding: 20px;
+	border: 1px solid ${ baseColor };
 	width: 300px;
 
 	@media (${media._large}) {
 		width: 500px;
 	}
 `;
-const Title = styled.h1 `
-	grid-area: title;
-`;
-const  Email = styled(TextField) `
-	grid-area: email;
-`;
-const  Pword = styled(TextField) `
-	grid-area: pword;
-`;
-const  Submit = styled(Button) `
-	grid-area: submit;
-`;
-const RegLink = styled(Link) `
-	grid-area: link;
-	padding-top: 25px;
-	place-self: center; 
-`;
-// custom component styling
-const stylesInput = {
-	style: {
-		background: colors._white,
-	}
-};
 
-const styles = theme => ({
-	button: {
-		margin: theme.spacing.unit,
-		color: '#fafafa'
-	},
+const Title =styled.div `
+	gride-area: title;
+`;
 
-	input: {
-		display: 'none',
-	},
-});
+const  Email =styled(TextField) `
+	gride-area: email;
+`;
 
+const  Pword =styled(TextFieldGroup) `
+	gride-area: pword;
+`;
+const  Submit =styled.button`
+	gride-area: submit;
+	font-weight: bold;
+	font-size: 1.0em;
+	height: 35px;
+	width: 90px;
+	border: 4px solid ${baseColor};
+	border-radius: 4px;
+	background: greenyellow;
+	color: ${baseColor}
+	`;
+	
+const RegLink =styled(Link) `
+	gride-area: link;
+	color: blue
+	place-content: center;
+	display: inline-grid;
+`;
 // +++++++++  COMPONENT  +++++++++ 
 class Loginform extends Component {
 
 	constructor (props, context) {
+
 		super(props, context);
 		this.state ={
 			identifier: '',
@@ -94,18 +85,22 @@ class Loginform extends Component {
 	}
 
 	isValid() {
-		const { errors, isValid } =validateInput(this.state);
-		if(!isValid) {
+		const { errors, isValid } = validateInput(this.state);
+		if(!isValid) { 
+			// isValid is not empty => errors present
+			// pass the errors to this classes state
 			this.setState({ errors });
 		}
-		return isValid;
+		return isValid; // a boolean value from #validateInput
 	}
 
 	onSubmit(e) {
 		e.preventDefault();
-
+		// upon a valid set of inputs
 		if (this.isValid()) {
-			this.setState({ errors: { }, isLoading: true }); // reset state
+			// reset state if no errors
+			this.setState({ errors: { }, isLoading: true }); 
+			// pass the state forward for a login ...
 			this.props.userLoginRequest(this.state)
 				.then((res) => {
 					this.props.addFlashMessage({
@@ -115,9 +110,9 @@ class Loginform extends Component {
 					this.context.router.history.push('/todos');
 					return res;
 				})
-				.catch((err, res) =>{
+				.catch((err, res) => {
 					// console.log(err)
-					this.setState({errors: err, isLoading: false});
+					this.setState({ errors: err, isLoading: false });
 					this.props.addFlashMessage({
 						type: 'error',
 						text: 'Invalid username, id or password. Try again.'
@@ -127,63 +122,56 @@ class Loginform extends Component {
 	}
 
 	render () {
+    
 		const { errors, identifier, password, isLoading } =this.state; 
 
 		return (
 			<Grid 
-				className={ 'LoginTest'  } 
+				className={ `Loginform ${this.props.className} boxClr paper` } 
 				onSubmit={ this.onSubmit } 
 			>
 				<Title className='Title ctr engr under' > 
-					{ !isLoading ? 'Login' : <Spinner color ='greenyellow' /> }
+					<h1> { !isLoading ? 'Login' : <Spinner color ='greenyellow' /> } </h1>
 				</Title>
 
-				<Email
-					InputLabelProps={ stylesInput }
-					className='email'
+				<Email 
+					className='Email'
 					errors={ errors.identifier }
-					label='Username | Email' 
-					margin='normal'
+					label='Username / Email' 
 					name='identifier'
 					onChange={ this.onChange }
-					placeholder='enter username or email'
-					required
+					placeholder='enter a username -or- email'
 					type='email'
 					value={ identifier }
-					variant='outlined'
+					autoComplete = "email"
+					margin = "normal"
+					variant = "outlined"
+					
 				/>
 
-				<Pword
-					InputLabelProps={ stylesInput }
-					className='password'
+				
+       
+				<Pword 
+					className='Pword'
 					errors={ errors.password }
 					label='Password' 
-					margin='normal'
 					name='password'
 					onChange={ this.onChange }
-					placeholder='enter password'
-					required
+					placeholder='enter your password'
 					type='password'
 					value={ password }
-					variant='outlined'
 				/>
 				
-				<RegLink to='/register' className='regLink' >
-					Click here for a new account
-				</RegLink>	 
-
 				<Submit 
-					className={ this.props.classes.button}
-					color='primary' 
-					disabled={isLoading}
-					name='Log in' 
-					size='small'
+					className ='Submit'
 					type='submit' 
-					variant="contained" 
-				>
-					Go
-				</Submit>
+					name='Log in' 
+					disabled={isLoading}
+				> Log in </Submit> 
 
+				<RegLink to='/register' className='RegLink' >
+					Click here to register a new account
+				</RegLink>	
 			</Grid>
 		);
 	}
@@ -209,5 +197,4 @@ Loginform.contextTypes = {
 	router: PropTypes.object.isRequired,
 };
 
-// export default Loginform;
-export default withStyles(styles)(Loginform);
+export default Loginform;
