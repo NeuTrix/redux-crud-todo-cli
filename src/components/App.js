@@ -8,8 +8,9 @@ import PropTypes from 'prop-types';
 import FlashMessageList from './messages/FlashMessageList';
 import Home from './main/Home';
 import LoginPage from './auth/LoginPage';
-import NavBar from './main/NavBar';
-import Navigation from './main/Navigation';
+// import NavBar from './main/NavBar';
+// import Navigation from './main/Navigation';
+import NavTest from './main/NavTest';
 import RegisterPage from './auth/RegisterPage';
 import TodoPage from './todos/TodoPage';
 // functions
@@ -67,7 +68,7 @@ const App = (props) => {
       <Grid className='App' >
         <CssBaseline/>
         {/* <NavBar auth={ auth } logout={ logout } /> */}
-        <Navigation/>
+        <NavTest/>
         <Messages className='Messages'>
           <FlashMessageList/>
         </Messages>

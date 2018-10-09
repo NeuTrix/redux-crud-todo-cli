@@ -2,7 +2,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { colors } from '../../helpers/cssConstants';
-import logo from '../../assets/done-blue.png';
+// import logo from '../../assets/done-blue.png';
+import logo from '../../assets/logo-white.png';
 import styled from 'styled-components';
 // === components ===
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -17,6 +18,9 @@ const Grid = styled.div `
 	display: inline-grid;
 	padding: 5px 0px 5px 0px;
 	width: 100%;
+	& * {
+		color: #fafafa;
+	}
 `;
 // navbar logo
 const Logo = styled.img `
@@ -26,7 +30,7 @@ const Logo = styled.img `
 `;
 // dashboard icon for pulling up stats
 const Dash = styled(FontAwesomeIcon) `
-	color: ${colors._iceblue};
+	// color: ${colors._iceblue};
 	grid-area: dash;
 	font-size: 2em;
 	place-self: center;
