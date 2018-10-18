@@ -33,9 +33,9 @@ library.add( fab, faBars, faChartLine, faChartBar, faCog, faCheckSquare, faEllip
 // ===> CSS
 const Grid =styled.div `
   grid-template-areas:   
-  " navBar " 
-  " messages "  
-  " main "  
+    " navBar " 
+    " messages "  
+    " main "  
   ;
   grid-template-rows: auto;
   grid-gap: 10px;
@@ -46,7 +46,6 @@ const Grid =styled.div `
 `;
 const Messages = styled.div `grid-area: messages;`;
 const Main = styled.div `grid-area: main;`;
-
 // material-ui custom styling
 const options = {
   palette: {
