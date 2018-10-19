@@ -5,17 +5,18 @@ import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // components
-import FlashMessageList from './messages/FlashMessageList';
-import Home from './main/Home';
-import LoginPage from './auth/LoginPage';
+
+import FlashMessageList from './components/messages/FlashMessageList';
+import Home from './components/main/Home';
+import LoginPage from './components/auth/LoginPage';
 // import NavBar from './main/NavBar';
 // import Navigation from './main/Navigation';
-import NavTest from './main/NavTest';
-import RegisterPage from './auth/RegisterPage';
-import TodoPage from './todos/TodoPage';
+import NavTest from './components/main/NavTest';
+import RegisterPage from './components/auth/RegisterPage';
+import TodoPage from './components/todos/TodoPage';
 // functions
-import { logout } from '../actions/loginActions';
-import requireAuth from '../helpers/requireAuth';
+import { logout } from './actions/loginActions';
+import requireAuth from './helpers/requireAuth';
 import styled from 'styled-components';
 // import material-ui
 import CssBaseline from '@material-ui/core/CssBaseline';
