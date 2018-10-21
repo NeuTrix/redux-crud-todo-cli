@@ -4,11 +4,11 @@ exports[`The LoginForm ...renders the login form 1`] = `
 <form
   class="LoginTest sc-bdVaJa foZCuG"
 >
-  <h1
-    class="MuiTypography-root-3 MuiTypography-display3-5 MuiTypography-colorSecondary-34 title sc-bwzfXH gXFEMh"
+  <h2
+    class="MuiTypography-root-3 MuiTypography-h2-16 MuiTypography-colorSecondary-34 title sc-bwzfXH gXFEMh"
   >
     Login
-  </h1>
+  </h2>
   <div
     class="MuiFormControl-root-38 MuiFormControl-marginNormal-39 email sc-htpNat uoNzJ"
   >

@@ -137,7 +137,7 @@ class Loginform extends Component {
       >
         <Title 
           className='title'
-          variant='display3'
+          variant='h2'
           color='secondary'
         >
           { !isLoading ? 'Login' : <Spinner color='greenyellow' /> }

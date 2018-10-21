@@ -10,7 +10,7 @@ import styled from 'styled-components';
 
 import setAuthorizationToken from './components/auth/setAuthToken';
 import { setCurrentUser } from './actions/registerActions';
-import App from './components/App';
+import App from './App';
 
 let root = document.getElementById('root');
 let token = localStorage.jwtToken;

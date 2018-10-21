@@ -9,9 +9,9 @@ import PropTypes from 'prop-types';
 import FlashMessageList from './components/messages/FlashMessageList';
 import Home from './components/main/Home';
 import LoginPage from './components/auth/LoginPage';
-// import NavBar from './main/NavBar';
+import NavBar from './components/main/NavBar';
 // import Navigation from './main/Navigation';
-import NavTest from './components/main/NavTest';
+// import NavTest from './components/main/NavTest';
 import RegisterPage from './components/auth/RegisterPage';
 import TodoPage from './components/todos/TodoPage';
 // functions
@@ -26,11 +26,17 @@ import lightBlue from '@material-ui/core/colors/lightBlue';
 // fontawesome imports and other styles
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
+import IconButton from '@material-ui/core/IconButton';
+import SvgIcon from '@material-ui/core/SvgIcon';
+
 import { faBars, faChartLine, faChartBar, faCheckSquare, faCog, faEllipsisH, faTasks, faTachometerAlt,
 } from '@fortawesome/free-solid-svg-icons';
 // add to fontawesome library for the app scope
 library.add( fab, faBars, faChartLine, faChartBar, faCog, faCheckSquare, faEllipsisH, faTasks, faTachometerAlt,
 );
+
+
+
 // ===> CSS
 const Grid =styled.div `
   grid-template-areas:   
@@ -57,6 +63,11 @@ const options = {
     danger: 'orange',
   },
 }
+
+
+// ...
+
+
 const theme = createMuiTheme(options);
 // ==== main Component
 const App = (props) => {
@@ -67,10 +78,18 @@ const App = (props) => {
     <MuiThemeProvider theme={ theme } >
       <Grid className='App' >
         <CssBaseline/>
-        {/* <NavBar auth={ auth } logout={ logout } /> */}
-        <NavTest/>
+        <NavBar auth={ auth } logout={ logout } />
+        
+        {/* <NavTest/> */}
         <Messages className='Messages'>
           <FlashMessageList/>
+
+          <IconButton aria-label="Delete">
+            <SvgIcon>
+              <path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z" />
+            </SvgIcon>
+        </IconButton>x
+
         </Messages>
         <Main className='Main'>
           <Route exact path='/' render={ () =>

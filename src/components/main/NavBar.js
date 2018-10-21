@@ -1,30 +1,24 @@
-// holds the full navigation bar 
+// This component holds the full navigation bar 
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { colors } from '../../helpers/cssConstants';
-// import logo from '../../assets/done-blue.png';
 import logo from '../../assets/logo-white.png';
-// navbar logo
-
-// const Logo = styled.img `
-// 	grid-area: logo;
-// 	max-width: 75px;
-// 	place-self: center left;
-// `;
-// 			<Logo className='logo' src={ logo } alt='logo'/> 
-
 import styled from 'styled-components';
+
 // === components ===
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NavSection from './NavSection';
+
 // ===  CSS  === 
 const Grid = styled.div `
 	grid-area: navBar;
-	grid-template-areas: " logo dash nav-section ";
+	grid-template-areas: " logo nav-section ";
 	grid-template-columns: repeat(3, 1fr);
-
+	
+	background: steelblue;
 	border-bottom: 1px solid lightgrey ;
-	display: inline-grid;
+	display: grid;
 	padding: 5px 0px 5px 0px;
 	width: 100%;
 	& * {
@@ -37,6 +31,7 @@ const Logo = styled.img `
 	max-width: 75px;
 	place-self: center left;
 `;
+
 // dashboard icon for pulling up stats
 const Dash = styled(FontAwesomeIcon) `
 	// color: ${colors._iceblue};
@@ -44,6 +39,7 @@ const Dash = styled(FontAwesomeIcon) `
 	font-size: 2em;
 	place-self: center;
 `;
+
 // ===  Main Component  === 
 const NavBar = (props, context) => {
 	const { auth, logout } = props;
@@ -56,6 +52,7 @@ const NavBar = (props, context) => {
 		</Grid>
 	);
 };
+
 // === Props  === 
 NavBar.propTypes = {
 	auth: PropTypes.bool,
