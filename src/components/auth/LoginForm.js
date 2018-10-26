@@ -28,7 +28,7 @@ const Grid = styled.form`
 	border-radius: 5px;
 	color: ${colors._mintgreen};
 	display: grid;
-	padding: 20px;
+  padding: 20px;
 	width: 300px;
 
 	@media (${media._large}) {
