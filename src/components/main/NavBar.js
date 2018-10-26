@@ -8,36 +8,36 @@ import logo from '../../assets/logo-white.png';
 //  === @material-ui
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
 
 // === components ===
-// import NavSection from './NavSection';
-
-const styles ={
+const StyledAppBar = withStyles({
 	root: {
 		background: 'orange',
 		display: 'grid',
 		gridArea: 'main',
 		gridTemplateAreas: `'menu logo search login' `,
-		gridTemplateColumns: '1fr 1fr 1fr 1fr'
+		gridTemplateColumns: '1fr 1fr 1fr 1fr',
+		placeItems: 'center',
 	}
-};
+})(AppBar);
 
-const Logo = styled.div`
+const Logo = styled.img`
 	grid-area: logo;
+	max-width: 75px;
 `;
 
 
 // ===  Main Component  === 
 const NavBar = (props) => {
-	const { auth, classes, logout } = props;
+	const { auth, logout } = props;
 
 	return (
-		<AppBar
-			className='navBar'
-			classes={{root: classes.root}}
-		>
-			<Logo > XXX </Logo>
-		</AppBar>
+		<div>
+			<StyledAppBar className='navBar'>
+				<Logo className='logo' src={ logo } alt='logo'/> 
+			</StyledAppBar>
+		</div>
 	);
 };
 
@@ -55,4 +55,4 @@ NavBar.defaultProps = {
 
 // NavBar.contextTypes = { router: PropTypes.object.isRequired };
 
-export default withStyles(styles)(NavBar);
+export default NavBar;
