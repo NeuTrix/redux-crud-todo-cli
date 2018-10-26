@@ -2,13 +2,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { colors } from '../../helpers/cssConstants';
-import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import logo from '../../assets/logo-white.png';
+
 //  === @material-ui
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
+import BrandLogo from './BrandLogo';
 
 // === components ===
 const StyledAppBar = withStyles({
@@ -19,14 +18,9 @@ const StyledAppBar = withStyles({
 		gridTemplateAreas: `'menu logo search login' `,
 		gridTemplateColumns: '1fr 1fr 1fr 1fr',
 		placeItems: 'center',
+		height: 20,
 	}
 })(AppBar);
-
-const Logo = styled.img`
-	grid-area: logo;
-	max-width: 75px;
-`;
-
 
 // ===  Main Component  === 
 const NavBar = (props) => {
@@ -35,7 +29,7 @@ const NavBar = (props) => {
 	return (
 		<div>
 			<StyledAppBar className='navBar'>
-				<Logo className='logo' src={ logo } alt='logo'/> 
+				<BrandLogo/> 
 			</StyledAppBar>
 		</div>
 	);
