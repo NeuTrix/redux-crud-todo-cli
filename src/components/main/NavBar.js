@@ -4,58 +4,40 @@ import PropTypes from 'prop-types';
 import { colors } from '../../helpers/cssConstants';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// === components ===
 import logo from '../../assets/logo-white.png';
+//  === @material-ui
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+
+// === components ===
 // import NavSection from './NavSection';
 
-// ===  CSS  === 
-const Grid = styled.div `
-	grid-area: navBar;
-	grid-template-areas: " menu logo search login ";
-	// grid-template-columns: repeat(4, 1fr);
-	
-	background: steelblue;
-	// border-bottom: 1px solid lightgrey ;
-	display: grid;
-	// padding: 5px 0px 5px 0px;
-  place-items: center;
-	
-	// width: 100%;
-	& * {
-		// color: #fafafa;
-		color: orange;
+const styles ={
+	root: {
+		background: 'orange',
+		display: 'grid',
+		gridArea: 'main',
+		gridTemplateAreas: `'menu logo search login' `,
+		gridTemplateColumns: '1fr 1fr 1fr 1fr'
 	}
-`;
-const Menu = styled.div `
-	grid-area: menu;
-`
+};
 
-// navbar logo
-const Logo = styled.img `
+const Logo = styled.div`
 	grid-area: logo;
-	max-width: 75px;
 `;
 
-// dashboard icon for pulling up stats
-const Dash = styled(FontAwesomeIcon) `
-	// color: ${colors._iceblue};
-	grid-area: dash;
-	font-size: 2em;
-	place-self: center;
-`;
 
 // ===  Main Component  === 
-const NavBar = (props, context) => {
-	const { auth, logout } = props;
+const NavBar = (props) => {
+	const { auth, classes, logout } = props;
 
 	return (
-		<Grid className='nav-bar'>
-			<Menu className='menu'> Menu Item </Menu>
-			<Logo className='logo' src={ logo } alt='logo'/> 
-			{/* <Dash className='dash-icon' icon='tachometer-alt'/> */}
-			{/* <NavSection auth={ auth } logout={ logout }/> */}
-
-		</Grid>
+		<AppBar
+			className='navBar'
+			classes={{root: classes.root}}
+		>
+			<Logo > XXX </Logo>
+		</AppBar>
 	);
 };
 
@@ -63,6 +45,7 @@ const NavBar = (props, context) => {
 NavBar.propTypes = {
 	auth: PropTypes.bool,
 	logout: PropTypes.func.isRequired,
+	classes: PropTypes.object.isRequired,
 };
 
 NavBar.defaultProps = {
@@ -72,4 +55,4 @@ NavBar.defaultProps = {
 
 // NavBar.contextTypes = { router: PropTypes.object.isRequired };
 
-export default NavBar;
+export default withStyles(styles)(NavBar);
