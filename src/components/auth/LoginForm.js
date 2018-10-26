@@ -188,9 +188,7 @@ class Loginform extends Component {
           variant='contained'
         >
 					Go
-
         </Submit>
-
       </Grid>
     );
   }
