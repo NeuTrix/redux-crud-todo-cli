@@ -10,7 +10,7 @@ const Grid = withStyles({
 	root: {
 		gridArea: 'main',
 		gridTemplateAreas: `'menu brandLogo search login' `,
-		gridTemplateColumns: '1fr 1fr 1fr 1fr',
+		gridTemplateColumns: 'repeat(4, 1fr)',
 		display: 'grid',
 		placeItems: 'center',
 	}
