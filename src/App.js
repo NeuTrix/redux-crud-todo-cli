@@ -46,6 +46,7 @@ const Grid =styled.div `
 
   display: grid;
   font-family: arial;
+  margin-top: 50px;
   padding: 0px 10px 0px 10px;
 `;
 const Messages = styled.div `grid-area: messages;`;
