@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 //  ===Components===
 import AppBar from '@material-ui/core/AppBar';
 import BrandLogo from './BrandLogo';
+import LoginSwitch from './LoginSwitch';
 import MenuBar from './MenuBar';
 
 const Grid = withStyles({
@@ -24,6 +25,7 @@ export default function NavBar (props) {
 			<Grid className='navBar'>
 				<MenuBar/>
 				<BrandLogo/> 
+				<LoginSwitch/>
 			</Grid>
 		</div>
 	);
