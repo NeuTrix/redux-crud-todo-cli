@@ -11,15 +11,13 @@ import MenuBar from './MenuBar';
 const Grid = withStyles({
 	root: {
 		gridArea: 'main',
-		gridTemplateAreas: `'menu brandLogo search login' `,
-		gridTemplateColumns: 'repeat(4, 1fr)',
+		gridTemplateAreas: `'menu brandLogo login' `,
 		display: 'grid',
 		placeItems: 'center',
 	}
 })(AppBar);
 
 export default function NavBar (props) {
-
 	return (
 		<div>
 			<Grid className='navBar'>
