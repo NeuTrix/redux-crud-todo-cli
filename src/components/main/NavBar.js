@@ -18,13 +18,25 @@ const Grid = withStyles({
 })(AppBar);
 
 export default function NavBar (props) {
+  const { auth, logout } = props;
+
 	return (
 		<div>
 			<Grid className='navBar'>
 				<MenuBar/>
 				<BrandLogo/> 
-				<LoginSwitch/>
+				<LoginSwitch auth={ auth } logout={ logout } />
 			</Grid>
 		</div>
 	);
+};
+
+NavBar.propTypes = {
+	auth: PropTypes.bool,
+	logout: PropTypes.func.isRequired,
+};
+
+NavBar.defaultProps = {
+	auth: false,
+	logout: (f) => 'Default action: Navbar logout fn',
 };

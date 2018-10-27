@@ -73,7 +73,6 @@ const App = (props) => {
       <Grid className='App' >
         <CssBaseline/>
         <NavBar auth={ auth } logout={ logout } />
-        {/* <NavTest/> */}
         <Messages className='Messages'>
           <FlashMessageList/>
         </Messages>
