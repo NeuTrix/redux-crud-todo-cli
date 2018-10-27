@@ -3,17 +3,22 @@ import React from 'react'
 import logo from '../../assets/logo-white.png';
 // === @MUI ===
 import { withStyles } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar';
+import CardMedia from '@material-ui/core/CardMedia';
 
 const StyledAvatar = withStyles({
-  gridArea: 'logo',
-  maxWidth: '75px',
-})(Avatar);
+  root: {
+    gridArea: 'brandLogo',
+    maxWidth: '75px',
+    color: 'steelblue',
+  }
+})(CardMedia);
 
-const BrandLogo = (props) => {
+export default function BrandLogo (props) {
   return (
-    <StyledAvatar className='logo' src={ logo } alt='brand logo'/>
+    <StyledAvatar 
+    className='brandLogo' 
+    component='img'
+    src={ logo } 
+    alt='brand logo'/>
   )
 }
-
-export default BrandLogo;
