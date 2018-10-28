@@ -23,6 +23,7 @@ const styles = (theme) => ({
     },
     searchIcon: {
       width: theme.spacing.unit * 9,
+      color: '#fafafa',
       height: '100%',
       position: 'absolute',
       pointerEvents: 'none',
@@ -35,6 +36,7 @@ const styles = (theme) => ({
       width: '100%',
     },
     inputInput: {
+      color: 'navy',
       paddingTop: theme.spacing.unit,
       paddingRight: theme.spacing.unit,
       paddingBottom: theme.spacing.unit,
