@@ -5,7 +5,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 const StyledIconButton = withStyles({
   root: {
-    gridArea: 'menu',
     color: '#fafafa'
   }
 })(IconButton);

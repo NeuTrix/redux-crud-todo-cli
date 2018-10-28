@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 //  ===Components===
 import AppBar from '@material-ui/core/AppBar';
+import MenuBar from './MenuBar';
 import BrandLogo from './BrandLogo';
 import LoginSwitch from './LoginSwitch';
 import Navigation from './Navigation';
@@ -24,7 +25,8 @@ export default function NavBar (props) {
 	return (
 		<div>
 			<Grid className='navBar'>
-				<Navigation style={{ color:'lime', gridArea: 'nav' }}  auth={ auth } logout={ logout }/>
+				<MenuBar style={{ gridArea: 'nav' }} />
+				{/* <Navigation style={{ gridArea: 'nav' }} auth={ auth } logout={ logout }/> */}
 				<BrandLogo/> 
 				<LoginSwitch auth={ auth } logout={ logout } />
 			</Grid>
