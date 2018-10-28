@@ -45,7 +45,7 @@ const NavSection = (props, context) => {
 	};
 
 	return (
-			<Grid className='nav-section'> 
+			<Grid className='navSection'> 
 
 				<Menu id='menu'> 
 					<AuthLi to='/todos' auth={ auth.toString() } > 

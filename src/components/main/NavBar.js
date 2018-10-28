@@ -15,9 +15,8 @@ const Grid = withStyles({
 		gridTemplateAreas: `'nav brandLogo login' `,
 		display: 'grid',
 		placeItems: 'center',
-	}
+	},
 })(AppBar);
-
 
 export default function NavBar (props) {
   const { auth, logout } = props;
@@ -25,7 +24,7 @@ export default function NavBar (props) {
 	return (
 		<div>
 			<Grid className='navBar'>
-				<MenuBar style={{ gridArea: 'nav' }} />
+				<MenuBar grid='nav' />
 				{/* <Navigation style={{ gridArea: 'nav' }} auth={ auth } logout={ logout }/> */}
 				<BrandLogo/> 
 				<LoginSwitch auth={ auth } logout={ logout } />
