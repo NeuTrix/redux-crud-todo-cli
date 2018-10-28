@@ -6,17 +6,17 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import BrandLogo from './BrandLogo';
 import LoginSwitch from './LoginSwitch';
-// import MenuBar from './MenuBar';
-import NavSection from './NavSection'
+import Navigation from './Navigation';
 
 const Grid = withStyles({
 	root: {
 		gridArea: 'main',
-		gridTemplateAreas: `'navSection brandLogo login' `,
+		gridTemplateAreas: `'nav brandLogo login' `,
 		display: 'grid',
 		placeItems: 'center',
 	}
 })(AppBar);
+
 
 export default function NavBar (props) {
   const { auth, logout } = props;
@@ -24,7 +24,7 @@ export default function NavBar (props) {
 	return (
 		<div>
 			<Grid className='navBar'>
-				<NavSection auth={ auth } logout={ logout }/>
+				<Navigation style={{ color:'lime', gridArea: 'nav' }}  auth={ auth } logout={ logout }/>
 				<BrandLogo/> 
 				<LoginSwitch auth={ auth } logout={ logout } />
 			</Grid>

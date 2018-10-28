@@ -1,44 +1,76 @@
+// generat
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import NavBar from './NavBar';
-import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles'
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import logo from '../../assets/logo-white.png';
-
-// apply semantic tag
-const Nav = styled.nav ` 
-  grid-area: navBar;
-  display: inline-grid;
-  margin: 0px 0px 40px 0px;
-`
-
-// navbar logo
-const Logo = styled.img `
-	grid-area: logo;
-	max-width: 75px;
-	place-self: center left;
+// ===> components <===
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { NavLink } from 'react-router-dom';
+	
+// list of link elemens
+const Menu = styled.ul `
+	display: inline-grid;
 `;
-
-// material-ui styling
-const StyledAppBar = withStyles({
-  root: {
-    width: '100%',
-    color:'#fafafa'
-  }
-})(AppBar);
-
-
-
-const Navigation = (props) => {
-  // const { classes } = props;
-  return (
-    <Nav>
-      <StyledAppBar >
-        <NavBar/>
-      </StyledAppBar>
-    </Nav >
-  )
+// auth list elements
+const AuthLi = styled(NavLink) `
+	place-content: center right;
+	width: 100px;
+	${({ auth }) => auth === 'true'
+		? `display: inline-grid` 
+		: `display: none` 
 }
+`;
+// unauthorized menu
+const NoAuthLi = styled(NavLink) `
+	place-content: center right;
+	width: 100px;
+	${({ auth }) => auth === 'false'
+		? `display: inline-grid;` 
+		: `display: none` 
+	}
+`;
+// +++++++++  COMPONENT  +++++++++ 
+const NavSection = (props, context) => {
+	const { auth, logout } = props;
 
-export default Navigation;
+	const onLogout = (e) => {
+		e.preventDefault();
+		logout();
+		context.router.history.push('/login');
+	};
+
+	return (
+
+		<Menu id='menu'> 
+			<AuthLi to='/todos' auth={ auth.toString() } > 
+				Todos 
+			</AuthLi>
+
+			<AuthLi to='/#' auth={ auth.toString() } onClick={ onLogout }> 
+				Logout 
+			</AuthLi>
+			
+			<NoAuthLi to='/register' auth={ auth.toString() } > 
+				Register 
+			</NoAuthLi>
+
+			<NoAuthLi to='/login' auth={ auth.toString() } > 
+				Login 
+			</NoAuthLi>
+		</Menu>
+
+	);
+};
+// +++++++++ PROPS  +++++++++ 
+NavSection.propTypes = {
+	auth: PropTypes.bool,
+	logout: PropTypes.func.isRequired,
+};
+
+NavSection.defaultProps = {
+	auth: false,
+	logout: (f) => 'Default action: Navbar logout fn',
+};
+
+NavSection.contextTypes = { router: PropTypes.object.isRequired };
+
+export default NavSection;

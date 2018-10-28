@@ -1,33 +1,15 @@
-// Navigation section of the nav bar with toggling menu based on media
+// generat
 import React from 'react';
 import PropTypes from 'prop-types';
-import { colors, media } from '../../helpers/cssConstants';
 import styled from 'styled-components';
 // ===> components <===
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NavLink } from 'react-router-dom';
-// ===> CSS <===
-const Navigation = styled.div `
-	grid-area: navSection;
-	grid-template-areas: " menu ";
+	
+// list of link elemens
+	const Menu = styled.ul `
+	grid-area: menu;
 	display: inline-grid;
-	& * { 
-		color: ${colors._iceblue};	
-		:hover { color: orange } 
-	}
-`;
-// mobbile collapsed menu icon
-const Burger = styled(FontAwesomeIcon) `
-	grid-area: menu;
-	font-size: 2em;
-	padding-right: 10px;
-	place-self: center right;
-	@media (${media._medium}) { display: none }
-`;
-// full menu for larger screens
-const Menu = styled.ul `
-	grid-area: menu;
-	display: none;
 	@media (${media._medium}) {
 		display: inline-flex;
 		justify-content: space-evenly;
@@ -63,29 +45,27 @@ const NavSection = (props, context) => {
 	};
 
 	return (
-			<Navigation className='nav-section'> 
-
-				<Burger id='burger' icon='ellipsis-h'/>
+			<Grid className='nav-section'> 
 
 				<Menu id='menu'> 
-				<NavLink to='/todos' auth={ auth.toString() } > 
+					<AuthLi to='/todos' auth={ auth.toString() } > 
 						Todos 
-					</NavLink>
+					</AuthLi>
 
-				<AuthLi to='/#' auth={ auth.toString() } onClick={ onLogout }> 
+					<AuthLi to='/#' auth={ auth.toString() } onClick={ onLogout }> 
 						Logout 
 					</AuthLi>
 					
-				<NoAuthLi to='/register' auth={ auth.toString() } > 
+					<NoAuthLi to='/register' auth={ auth.toString() } > 
 						Register 
 					</NoAuthLi>
 
-				<NavLink to='/login' auth={ auth.toString() } > 
+					<NoAuthLi to='/login' auth={ auth.toString() } > 
 						Login 
-					</NavLink>
+					</NoAuthLi>
 				</Menu>
 
-			</Navigation>
+			</Grid>
 	);
 };
 // +++++++++ PROPS  +++++++++ 
