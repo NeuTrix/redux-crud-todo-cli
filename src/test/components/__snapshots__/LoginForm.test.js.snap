@@ -2,7 +2,7 @@
 
 exports[`The LoginForm ...renders the login form 1`] = `
 <form
-  class="LoginTest sc-bdVaJa foZCuG"
+  class="LoginTest sc-bdVaJa hBUaoe"
 >
   <h2
     class="MuiTypography-root-3 MuiTypography-h2-16 MuiTypography-colorSecondary-34 title sc-bwzfXH gXFEMh"
@@ -41,11 +41,11 @@ exports[`The LoginForm ...renders the login form 1`] = `
       </fieldset>
       <input
         aria-invalid="false"
-        class="MuiInputBase-input-79 MuiOutlinedInput-input-64 MuiInputBase-inputType-82"
+        class="MuiInputBase-input-79 MuiOutlinedInput-input-64"
         name="identifier"
         placeholder="enter username or email"
         required=""
-        type="email"
+        type="text"
         value=""
       >
         

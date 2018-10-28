@@ -18,11 +18,7 @@ import TodoPage from './components/todos/TodoPage';
 import { logout } from './actions/loginActions';
 import requireAuth from './helpers/requireAuth';
 import styled from 'styled-components';
-// import material-ui
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import green from '@material-ui/core/colors/green';
-import lightBlue from '@material-ui/core/colors/lightBlue';
+
 // fontawesome imports and other styles
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
@@ -52,45 +48,32 @@ const Grid =styled.div `
 const Messages = styled.div `grid-area: messages;`;
 const Main = styled.div `grid-area: main;`;
 // material-ui custom styling
-const options = {
-  palette: {
-      primary: lightBlue,
-      secondary: green,
-    },
-  status: {
-    danger: 'orange',
-  },
-}
 
-const theme = createMuiTheme(options);
 // ==== main Component
 const App = (props) => {
   const { authApi, logout} = props;
   const auth = authApi.isAuthenticated;
 
   return (
-    <MuiThemeProvider theme={ theme } >
-      <Grid className='App' >
-        <CssBaseline/>
-        <NavBar auth={ auth } logout={ logout } />
-        <Messages className='Messages'>
-          <FlashMessageList/>
-        </Messages>
-        <Main className='Main'>
-          <Route exact path='/' render={ () =>
-            <Home authorized={ auth } />}
-          />
-          <Route path='/login' component={ LoginPage } />
-          <Route path='/register' component={ RegisterPage } />
-          <Route
-            exact path='/todos'
-            component={ requireAuth(ReactDom.render = (props) =>
-              <TodoPage className='TodoPage' />
-            )}
-          />
-        </Main>
-      </Grid>
-    </MuiThemeProvider>
+    <Grid className='App' >
+      <NavBar auth={ auth } logout={ logout } />
+      <Messages className='Messages'>
+        <FlashMessageList/>
+      </Messages>
+      <Main className='Main'>
+        <Route exact path='/' render={ () =>
+          <Home authorized={ auth } />}
+        />
+        <Route path='/login' component={ LoginPage } />
+        <Route path='/register' component={ RegisterPage } />
+        <Route
+          exact path='/todos'
+          component={ requireAuth(ReactDom.render = (props) =>
+            <TodoPage className='TodoPage' />
+          )}
+        />
+      </Main>
+    </Grid>
   );
 };
 // ===== Props

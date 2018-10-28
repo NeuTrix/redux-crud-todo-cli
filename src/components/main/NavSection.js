@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 // ===> CSS <===
 const Navigation = styled.div `
-	grid-area: nav-section;
+	grid-area: navSection;
 	grid-template-areas: " menu ";
 	display: inline-grid;
 	& * { 
@@ -38,7 +38,7 @@ const Menu = styled.ul `
 const AuthLi = styled(Link) `
 	place-content: center right;
 	width: 100px;
-	${ ({auth}) => auth === 'true'
+	${({ auth }) => auth === 'true'
 		? `display: inline-grid` 
 		: `display: none` 
 }

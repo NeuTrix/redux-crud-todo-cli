@@ -1,62 +1,106 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`[object Object] 1`] = `
-<div
-  class="nav-bar sc-EHOje hulMMD"
->
-  <img
-    alt="logo"
-    class="logo sc-bZQynM jYoKCs"
-    src="logo-white.png"
+<div>
+  <header
+    class="MuiPaper-root-11 MuiPaper-elevation4-17 MuiAppBar-root-2 WithStyles-AppBar--root-1 MuiAppBar-positionFixed-3 MuiAppBar-colorPrimary-9 mui-fixed navBar"
   >
-    
-  </img>
-  <i
-    class="fa"
-  >
-    
-  </i>
-  <div
-    class="nav-section sc-bdVaJa gkdVAg"
-  >
-    <i
-      class="fa"
+    <div
+      class="nav-section sc-bdVaJa bQsinm"
+    >
+      <i
+        class="fa"
+      >
+        
+      </i>
+      <ul
+        class="sc-htpNat hwcvvy"
+        id="menu"
+      >
+        <a
+          auth="false"
+          class="sc-bxivhb bhPHGk"
+          href="/todos"
+        >
+          Todos
+        </a>
+        <a
+          auth="false"
+          class="sc-bxivhb bhPHGk"
+          href="/"
+        >
+          Logout
+        </a>
+        <a
+          auth="false"
+          class="sc-ifAKCX ihoRgB"
+          href="/register"
+        >
+          Register
+        </a>
+        <a
+          auth="false"
+          class="sc-ifAKCX ihoRgB"
+          href="/login"
+        >
+          Login
+        </a>
+      </ul>
+    </div>
+    <img
+      alt="brand logo"
+      class="MuiCardMedia-root-39 WithStyles-CardMedia--root-38 MuiCardMedia-media-40 brandLogo"
+      src="logo-white.png"
     >
       
-    </i>
-    <ul
-      class="sc-htpNat hwcvvy"
-      id="menu"
+    </img>
+    <div
+      class="MuiFormGroup-root-41"
     >
-      <a
-        auth="false"
-        class="sc-bxivhb bhPHGk"
-        href="/todos"
+      <label
+        class="MuiFormControlLabel-root-43"
       >
-        Todos
-      </a>
-      <a
-        auth="false"
-        class="sc-bxivhb bhPHGk"
-        href="/"
-      >
-        Logout
-      </a>
-      <a
-        auth="false"
-        class="sc-ifAKCX ihoRgB"
-        href="/register"
-      >
-        Register
-      </a>
-      <a
-        auth="false"
-        class="sc-ifAKCX ihoRgB"
-        href="/login"
-      >
-        Login
-      </a>
-    </ul>
-  </div>
+        <span
+          class="MuiSwitch-root-47"
+        >
+          <span
+            aria-label="LoginSwitch"
+            class="MuiButtonBase-root-66 MuiIconButton-root-60 MuiSwitchBase-root-56 MuiSwitch-switchBase-50 MuiSwitch-colorSecondary-53"
+          >
+            <span
+              class="MuiIconButton-label-65"
+            >
+              <span
+                class="MuiSwitch-icon-48"
+              >
+                
+              </span>
+              <input
+                class="MuiSwitchBase-input-59"
+                type="checkbox"
+              >
+                
+              </input>
+            </span>
+            <span
+              class="MuiTouchRipple-root-69"
+            >
+              
+            </span>
+          </span>
+          <span
+            class="MuiSwitch-bar-55"
+          >
+            
+          </span>
+        </span>
+        <span
+          class="MuiTypography-root-76 MuiTypography-body1-85 MuiFormControlLabel-label-46"
+        >
+          Login
+        </span>
+      </label>
+    </div>
+  </header>
 </div>
 `;
