@@ -5,7 +5,7 @@ import { colors, media } from '../../helpers/cssConstants';
 import styled from 'styled-components';
 // ===> components <===
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 // ===> CSS <===
 const Navigation = styled.div `
 	grid-area: navSection;
@@ -35,7 +35,7 @@ const Menu = styled.ul `
 	}
 `;
 // auth list elements
-const AuthLi = styled(Link) `
+const AuthLi = styled(NavLink) `
 	place-content: center right;
 	width: 100px;
 	${({ auth }) => auth === 'true'
@@ -44,7 +44,7 @@ const AuthLi = styled(Link) `
 }
 `;
 // unauthorized menu
-const NoAuthLi = styled(Link) `
+const NoAuthLi = styled(NavLink) `
 	place-content: center right;
 	width: 100px;
 	${({ auth }) => auth === 'false'
@@ -68,21 +68,21 @@ const NavSection = (props, context) => {
 				<Burger id='burger' icon='ellipsis-h'/>
 
 				<Menu id='menu'> 
-					<AuthLi auth={ auth.toString() }to='/todos'> 
+				<NavLink to='/todos' auth={ auth.toString() } > 
 						Todos 
-					</AuthLi>
+					</NavLink>
 
-					<AuthLi auth={ auth.toString() } to='/#' onClick={ onLogout }> 
+				<AuthLi to='/#' auth={ auth.toString() } onClick={ onLogout }> 
 						Logout 
 					</AuthLi>
 					
-					<NoAuthLi auth={ auth.toString() } to='/register'> 
+				<NoAuthLi to='/register' auth={ auth.toString() } > 
 						Register 
 					</NoAuthLi>
 
-					<NoAuthLi auth={ auth.toString() } to='/login'> 
+				<NavLink to='/login' auth={ auth.toString() } > 
 						Login 
-					</NoAuthLi>
+					</NavLink>
 				</Menu>
 
 			</Navigation>
