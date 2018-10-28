@@ -7,6 +7,7 @@ import SearchIcon from '@material-ui/icons/Search';
 
 const styles = (theme) => ({
   search: {
+      gridArea: 'search',
       position: 'relative',
       borderRadius: theme.shape.borderRadius,
       backgroundColor: fade(theme.palette.common.white, 0.15),
@@ -49,7 +50,6 @@ const styles = (theme) => ({
     },
   })
 
-
 function SearchBar(props) {
   const { classes } = props;
 
@@ -68,7 +68,6 @@ function SearchBar(props) {
     </div>
   )
 }
-
 // ===Props=== 
 SearchBar.propTypes = {
   auth: PropTypes.bool,
