@@ -8,7 +8,6 @@ import { NavLink } from 'react-router-dom';
 // list of link elemens
 const Menu = styled.ul `
 	display: flex;
-	
 `;
 // auth list elements
 const AuthLi = styled(NavLink) `
@@ -17,7 +16,7 @@ const AuthLi = styled(NavLink) `
 	${({ auth }) => auth === 'true'
 		? `display: flex` 
 		: `display: none` 
-}
+	}
 `;
 // unauthorized menu
 const NoAuthLi = styled(NavLink) `
