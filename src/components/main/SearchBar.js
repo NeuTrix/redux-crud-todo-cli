@@ -7,7 +7,6 @@ import SearchIcon from '@material-ui/icons/Search';
 
 const styles = (theme) => ({
   search: {
-      gridArea: 'search',
       position: 'relative',
       borderRadius: theme.shape.borderRadius,
       backgroundColor: fade(theme.palette.common.white, 0.15),

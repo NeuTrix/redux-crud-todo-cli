@@ -21,11 +21,12 @@ class LoginSwitch extends Component {
         <FormControlLabel
           control={
             <Switch 
-            checked={ auth } 
-            // onChange={ this.onLogout }
-            aria-label='LoginSwitch'/>
+              checked={ auth } 
+              // onChange={ this.onLogout }
+              aria-label='LoginSwitch'
+            />
           }
-          label={ auth ? 'Logout' : 'Login' }
+            label={ auth ? 'Logout' : 'Login' }
           />
       </FormGroup>
     )

@@ -13,19 +13,28 @@ import SearchBar from './SearchBar';
 const styles = (theme) => ({
 	root: {
 		gridArea: 'main',
-		gridTemplateAreas: `'menu search login test' `,
-		gridTemplateColumns: `1fr 6fr 3fr 1fr`,
+		gridTemplateAreas: `'menu nav search login' `,
+		// gridTemplateColumns: `1fr 6fr 3fr 1fr`,
 		gridColumnGap: `5px`,
 		display: 'grid',
 		placeItems: 'center',
-		// color: 'purple',
 	},
 	menu: {
 		gridArea: 'menu',
-		['@media (min-width: 600px)']: {
+		// hide menu display at larger screen sizes
+		['@media (min-width: 650px)']: {
 			display: 'none' 
 		},
-	}
+	},
+	nav: {
+		gridArea: 'nav',
+		display: 'none',
+		['@media (min-width: 650px)']: {
+			display: 'flex',
+		}
+	},
+	search: { gridArea: 'search' },
+	login: { gridArea: 'login' },
 });
 
 const test = {
@@ -40,10 +49,16 @@ function NavBar (props) {
 			<span className={ classes.menu } >
 				<MenuBar/>
 			</span>
-			{/* <Navigation style={{ gridArea: 'nav' }} auth={ auth } logout={ logout }/> */}
-			{/* <BrandLogo/>  */} 
-			<SearchBar />
-			<LoginSwitch auth={ auth } logout={ logout } />
+			<span className={ classes.nav } >
+				<Navigation auth={ auth } logout={ logout }/>
+			</span>
+				{/* <BrandLogo/>  */} 
+			<span className={ classes.search } >
+				<SearchBar />
+			</span>
+			<span className={ classes.login } >
+				<LoginSwitch auth={ auth } logout={ logout } />
+			</span>
 		</AppBar>
 	);
 };
