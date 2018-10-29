@@ -29,15 +29,13 @@ exports[`The LoginForm ...renders the login form 1`] = `
     >
       <fieldset
         aria-hidden="true"
-        class="MuiNotchedOutline-root-86 MuiOutlinedInput-notchedOutline-63"
+        class="MuiPrivateNotchedOutline-root-86 MuiOutlinedInput-notchedOutline-63"
         style="padding-left:8px"
       >
         <legend
-          class="MuiNotchedOutline-legend-87"
+          class="MuiPrivateNotchedOutline-legend-87"
           style="width:0.01px"
-        >
-          
-        </legend>
+        />
       </fieldset>
       <input
         aria-invalid="false"
@@ -47,9 +45,7 @@ exports[`The LoginForm ...renders the login form 1`] = `
         required=""
         type="text"
         value=""
-      >
-        
-      </input>
+      />
     </div>
   </div>
   <div
@@ -72,15 +68,13 @@ exports[`The LoginForm ...renders the login form 1`] = `
     >
       <fieldset
         aria-hidden="true"
-        class="MuiNotchedOutline-root-86 MuiOutlinedInput-notchedOutline-63"
+        class="MuiPrivateNotchedOutline-root-86 MuiOutlinedInput-notchedOutline-63"
         style="padding-left:8px"
       >
         <legend
-          class="MuiNotchedOutline-legend-87"
+          class="MuiPrivateNotchedOutline-legend-87"
           style="width:0.01px"
-        >
-          
-        </legend>
+        />
       </fieldset>
       <input
         aria-invalid="false"
@@ -90,9 +84,7 @@ exports[`The LoginForm ...renders the login form 1`] = `
         required=""
         type="password"
         value=""
-      >
-        
-      </input>
+      />
     </div>
   </div>
   <a
@@ -111,11 +103,6 @@ exports[`The LoginForm ...renders the login form 1`] = `
       class="MuiButton-label-92"
     >
       Go
-    </span>
-    <span
-      class="MuiTouchRipple-root-120"
-    >
-      
     </span>
   </button>
 </form>

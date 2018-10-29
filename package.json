@@ -8,7 +8,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint": "/Users/michaelwalker/00-Developer/redux-todo-cli/node_modules/.bin/eslint src/**/**/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -59,7 +58,7 @@
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^5.0.0",
     "redux-thunk": "^2.2.0",
-    "shortid": "^2.2.8",
+    "shortid": "^2.2.13",
     "sinon": "^5.0.4",
     "styled-components": "^3.2.6",
     "validator": "^9.4.1"
@@ -69,14 +68,17 @@
     "chai-http": "^4.2.0",
     "deep-freeze": "^0.0.1",
     "enzyme-adapter-react-16": "^1.1.1",
-    "eslint": "^5.8.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "expect": "^22.0.3",
-    "faker": "^4.1.0"
+    "faker": "^4.1.0",
+    "pre-commit": "^1.2.2"
   },
+  "pre-commit": [
+    "test"
+  ],
   "keywords": [
     "divorce",
     "planning",

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import shortid  from 'shortid';
 // ===> MUI components <===
 import { withStyles } from '@material-ui/core/styles';
 import Circle from '@material-ui/icons/TripOrigin';
@@ -10,14 +11,40 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
 
+// const shortid = require('shortid');
+
 function Navigation(props, context) {
 	const { auth, classes, logout, toggle } = props;
 	// unauthorized navigation links
-	const registerLink = { showWithAuth: 'false', link:'/register', title: 'Register' };
-	const logInLink = { showWithAuth: 'false', link:'/login', title: 'Login' };
+	const registerLink = { 
+		id: shortid.generate(), 
+		showWithAuth: 'false', 
+		link:'/register', 
+		title: 'Register', 
+	};
+
+	const logInLink = { 
+		id: shortid.generate(), 
+		showWithAuth: 'false', 
+		link:'/login', 
+		title: 'Login', 
+	};
+
 	// authorized navigation links
-	const todosLink = { showWithAuth: 'true', link:'/todos', title: 'Todos' };
-	const logOutLink = { showWithAuth: 'true', link:'#', title: 'Logout' };
+	const todosLink = { 
+		id: shortid.generate(), 
+		showWithAuth: 'true', 
+		link:'/todos', 
+		title: 'Todos', 
+	};
+
+	const logOutLink = { 
+		id: shortid.generate(), 
+		showWithAuth: 'true', 
+		link:'#', 
+		title: 'Logout', 
+	};
+
 // filter links based on authorization status
 	const displayLogic = (item) => ({
 		display: String(auth) === item.showWithAuth ? 'flex' : 'none' 
@@ -33,9 +60,9 @@ function Navigation(props, context) {
 		<List onClick={ toggle } > 
 
 			{ [todosLink, logInLink, registerLink].map((item) => (
-				<span style={ displayLogic(item) } >
+				<span key={item.id} style={ displayLogic(item) } >
 					<NavLink to={ item.link } className={classes.root} activeClassName={ classes.active }  >
-						<ListItem key={ item.title } className={ classes.root } button >
+						<ListItem  className={ classes.root } button >
 							<ListItemIcon>
 								<Circle/>
 							</ListItemIcon>

@@ -13,7 +13,7 @@ describe('The Home component', () => {
 
   it('...renders correctly', () => {
     expect(wrapper).toMatchSnapshot({
-      class: expect.any(String)
+      // class: expect.any(String)
     });
   });
 
