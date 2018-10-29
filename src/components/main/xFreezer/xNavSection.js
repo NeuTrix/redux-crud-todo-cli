@@ -38,7 +38,7 @@ const NoAuthLi = styled(NavLink) `
 const NavSection = (props, context) => {
 	const { auth, logout } = props;
 
-	const onLogout = (e) => {
+	const Logout = (e) => {
 		e.preventDefault();
 		logout();
 		context.router.history.push('/login');
