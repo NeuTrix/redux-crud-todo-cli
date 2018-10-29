@@ -16,9 +16,7 @@ const styles = (theme) => ({
 		textDecoration: 'none',
 		width: '100%',
 	},
-	active: {
-		background: 'aliceblue',
-	},
+	active: { background: 'aliceblue' },
 })
 
 // === COMPONENT ===
@@ -58,16 +56,16 @@ function Navigation(props, context) {
 				</span>
 			)) }
 		
-				<span style={ displayLogic(logOutLink) } onClick={ handleLogout }  >
-					<ListItem button >
-						<ListItemIcon>
-							<Circle/>
-						</ListItemIcon>
-						<Typography variant="h7" color="inherit" noWrap>
-							{logOutLink.title}	
-            </Typography>
-					</ListItem>
-				</span>
+			<span style={ displayLogic(logOutLink) } onClick={ handleLogout }  >
+				<ListItem button >
+					<ListItemIcon>
+						<Circle/>
+					</ListItemIcon>
+					<Typography variant="h7" color="inherit" noWrap>
+						{logOutLink.title}	
+					</Typography>
+				</ListItem>
+			</span>
 
 		</List>
 	);
