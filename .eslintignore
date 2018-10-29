@@ -8,4 +8,3 @@ src/tests/*.test.js
 dist/assets
 /tests
 
-TodoReducer.test.js
