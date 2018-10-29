@@ -57,8 +57,7 @@ const App = (props) => {
 
   return (
     <Grid className='App' >
-      {/* <NavBar auth={ auth } logout={ logout } /> */}
-      <MenuDrawer/>
+      <MenuDrawer auth={ auth } logout={ logout } />
       <Messages className='Messages'>
         <FlashMessageList/>
       </Messages>

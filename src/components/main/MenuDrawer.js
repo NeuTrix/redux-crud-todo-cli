@@ -46,10 +46,7 @@ const styles = theme => ({
   drawerPaper: {
     width: drawerWidth,
   },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing.unit * 3,
-  },
+  
 });
 
 class MenuDrawer extends React.Component {
@@ -62,7 +59,7 @@ class MenuDrawer extends React.Component {
   };
 
   render() {
-    const { classes, theme } = this.props;
+    const { auth, classes, logout, theme } = this.props;
 
     const drawer = (
       <div>
@@ -76,7 +73,8 @@ class MenuDrawer extends React.Component {
             </ListItem>
           ))}
         </List> */}
-        <Navigation/>
+        <Navigation auth={ auth } logout={ logout }/>
+        <Divider />
       </div>
     );
 

@@ -67,7 +67,7 @@ function NavBar (props) {
         <Navigation />
       </div>
 			<span className={ classes.menu }>
-				<MenuBar/>
+				<MenuBar />
 			</span>
 			<span className={ classes.nav }>
 				<Navigation auth={ auth } logout={ logout }/>
