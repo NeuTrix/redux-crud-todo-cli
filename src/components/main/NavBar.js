@@ -5,7 +5,6 @@ import { withStyles } from '@material-ui/core/styles';
 //  ===Components===
 import AppBar from '@material-ui/core/AppBar';
 import BrandLogo from './BrandLogo';
-import LoginSwitch from './LoginSwitch';
 import MenuBar from './MenuBar';
 import Navigation from './Navigation';
 import SearchBar from './SearchBar';
@@ -14,13 +13,13 @@ import SearchBar from './SearchBar';
 const styles = (theme) => ({
 	root: {
 		gridArea: 'main',
-		gridTemplateAreas: `'menu search login' `,
+		gridTemplateAreas: `'menu search ' `,
 		// gridTemplateColumns: `1fr 6fr 3fr 1fr`,
 		gridColumnGap: `5px`,
 		display: 'grid',
 		placeItems: 'center',
 		['@media (min-width: 650px)']: {
-			gridTemplateAreas: `'brand nav search login' `,			
+			gridTemplateAreas: `'brand nav search ' `,			
 		}
 	},
 	brand: {
@@ -43,7 +42,6 @@ const styles = (theme) => ({
 			display: 'flex',
 		}
 	},
-	login: { gridArea: 'login' },
 	search: { gridArea: 'search' },
 });
 
@@ -64,9 +62,6 @@ function NavBar (props) {
 			</span>
 			<span className={ classes.search }>
 				<SearchBar />
-			</span>
-			<span className={ classes.login }>
-				<LoginSwitch auth={ auth } logout={ logout }/>
 			</span>
 		</AppBar>
 	);
