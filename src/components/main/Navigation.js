@@ -4,24 +4,26 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 // ===> MUI components <===
 import { withStyles } from '@material-ui/core/styles';
+import Circle from '@material-ui/icons/TripOrigin';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
 
-
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-
 const styles = (theme) => ({
 	root: {
-		// background: 'orange',
-	}
+		textDecoration: 'none',
+		width: '100%',
+	},
+	active: {
+		background: 'aliceblue',
+	},
 })
 
 // === COMPONENT ===
 function Navigation(props, context) {
+
 	const { auth, classes, logout, toggle } = props;
 	// unauthorized navigation links
 	const registerLink 	= { showWithAuth: 'false', link:'/register', title: 'Register' };
@@ -45,17 +47,23 @@ function Navigation(props, context) {
 
 			{ [todosLink, logInLink, registerLink].map((item) => (
 				<span style={ displayLogic(item) } >
-					<ListItem key={ item.title } className= { classes.root } button >
-						<NavLink to={ item.link } >
-							<ListItemText  primary={ item.title } />
-						</NavLink>
-					</ListItem>
+					<NavLink to={ item.link } className={classes.root} activeClassName={ classes.active }  >
+						<ListItem key={ item.title } className={ classes.root } button >
+							<ListItemIcon>
+								<Circle/>
+							</ListItemIcon>
+							<ListItemText primary={ item.title } />
+						</ListItem>
+					</NavLink>
 				</span>
 			)) }
 		
 				<span style={ displayLogic(logOutLink) } onClick={ handleLogout }  >
 					<ListItem button >
-						 <Typography variant="h7" color="inherit" noWrap>
+						<ListItemIcon>
+							<Circle/>
+						</ListItemIcon>
+						<Typography variant="h7" color="inherit" noWrap>
 							{logOutLink.title}	
             </Typography>
 					</ListItem>
