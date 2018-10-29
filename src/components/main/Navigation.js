@@ -11,15 +11,6 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
 
-const styles = (theme) => ({
-	root: {
-		textDecoration: 'none',
-		width: '100%',
-	},
-	active: { background: 'aliceblue' },
-})
-
-// === COMPONENT ===
 function Navigation(props, context) {
 
 	const { auth, classes, logout, toggle } = props;
@@ -70,6 +61,7 @@ function Navigation(props, context) {
 		</List>
 	);
 };
+
 // +++++++++ PROPS  +++++++++ 
 Navigation.propTypes = {
 	auth: PropTypes.bool,
@@ -83,4 +75,10 @@ Navigation.defaultProps = {
 
 Navigation.contextTypes = { router: PropTypes.object.isRequired };
 
-export default withStyles(styles)(Navigation);
+export default withStyles((theme) => ({
+	root: {
+		textDecoration: 'none',
+		width: '100%',
+	},
+	active: { background: 'aliceblue' },
+}))(Navigation);
