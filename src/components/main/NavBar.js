@@ -13,20 +13,33 @@ import SearchBar from './SearchBar';
 const styles = (theme) => ({
 	root: {
 		gridArea: 'main',
-		gridTemplateAreas: `'menu search login' `,
-		gridTemplateColumns: `1fr 6fr 3fr`,
+		gridTemplateAreas: `'menu search login test' `,
+		gridTemplateColumns: `1fr 6fr 3fr 1fr`,
 		gridColumnGap: `5px`,
 		display: 'grid',
 		placeItems: 'center',
+		// color: 'purple',
 	},
+	menu: {
+		gridArea: 'menu',
+		['@media (min-width: 600px)']: {
+			display: 'none' 
+		},
+	}
 });
+
+const test = {
+	// color: 'orangered'
+}
 
 function NavBar (props) {
   const { auth, classes, logout } = props;
 
 	return (
 		<AppBar className={ classes.root }>
-			<MenuBar />
+			<span className={ classes.menu } >
+				<MenuBar/>
+			</span>
 			{/* <Navigation style={{ gridArea: 'nav' }} auth={ auth } logout={ logout }/> */}
 			{/* <BrandLogo/>  */} 
 			<SearchBar />

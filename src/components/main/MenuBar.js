@@ -7,8 +7,12 @@ import Navigation from './Navigation';
 const styles = (theme) => ({
   root: {
     color: '#fafafa',
+    // color: 'orangered',
     // gridArea: 'search',
     // !!! add media query condition for showing
+  },
+  burger: {
+    color: '#fafafa'
   },
 
   dropDown: {
@@ -17,7 +21,9 @@ const styles = (theme) => ({
     position: 'absolute',
     top: 50,
     left: 0,
-    display: 'none' // !!! do this conditionally for @media
+    ['@media (max-width: 600px)'] : {
+      display: 'none' // !!! do this conditionally for @media
+    }
   }
 });
 
@@ -40,8 +46,9 @@ class MenuBar extends Component{
     const { classes } = this.props;
 
     return (
-      <div>
-        <IconButton className={ classes.root } >
+      <div className={ classes.root } >
+        {/* <IconButton > */}
+        <IconButton className={ classes.burger } >
           <MenuIcon onClick={ this.handleClick } />
         </IconButton>
         <div className={ classes.dropDown } > 
