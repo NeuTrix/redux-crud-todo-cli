@@ -4,11 +4,15 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 // ===> components <===
 import { NavLink } from 'react-router-dom';
+import List from '@material-ui/core/List';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 	
 // list of link elemens
-const Menu = styled.ul `
-	display: flex;
-`;
+// const Menu = styled.ul `
+	// display: flex;
+// `;
+
 // auth list elements
 const AuthLi = styled(NavLink) `
 	place-content: center;
@@ -39,23 +43,28 @@ const NavSection = (props, context) => {
 
 	return (
 
-		<Menu id='menu'> 
-			<AuthLi to='/todos' auth={ auth.toString() } > 
-				Todos 
-			</AuthLi>
-
-			<AuthLi to='/#' auth={ auth.toString() } onClick={ onLogout }> 
-				Logout 
-			</AuthLi>
-			
-			<NoAuthLi to='/register' auth={ auth.toString() } > 
-				Register 
-			</NoAuthLi>
-
-			<NoAuthLi to='/login' auth={ auth.toString() } > 
-				Login 
-			</NoAuthLi>
-		</Menu>
+		<List id='menu'> 
+			<ListItemText>
+				<AuthLi to='/todos' auth={ auth.toString() } > 
+					Todos 
+				</AuthLi>
+			</ListItemText>
+			<ListItemText>
+				<AuthLi to='/#' auth={ auth.toString() } onClick={ onLogout }> 
+					Logout 
+				</AuthLi>
+			</ListItemText>
+						<ListItemText>
+				<NoAuthLi to='/register' auth={ auth.toString() } > 
+					Register 
+				</NoAuthLi>
+			</ListItemText>
+			<ListItemText>
+				<NoAuthLi to='/login' auth={ auth.toString() } > 
+					Login 
+				</NoAuthLi>
+			</ListItemText>
+		</List>
 
 	);
 };

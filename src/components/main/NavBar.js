@@ -42,15 +42,30 @@ const styles = (theme) => ({
 			display: 'flex',
 		}
 	},
-	search: { gridArea: 'search' },
+	 dropDown: {
+    background: 'lime', // !!! set to  theme background color
+    width: '100%',
+    position: 'absolute',
+    top: 50,
+    left: 0,
+    ['@media (max-width: 600px)'] : {
+      display: 'none' // !!! do this conditionally for @media
+    }
+	},
+	search: {
+		gridArea: 'search'
+	},
+	
 });
-
 
 function NavBar (props) {
   const { auth, classes, logout } = props;
 
 	return (
 		<AppBar className={ classes.root }>
+			<div className={ classes.dropDown } > 
+        <Navigation />
+      </div>
 			<span className={ classes.menu }>
 				<MenuBar/>
 			</span>

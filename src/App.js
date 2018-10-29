@@ -10,6 +10,7 @@ import FlashMessageList from './components/messages/FlashMessageList';
 import Home from './components/main/Home';
 import LoginPage from './components/auth/LoginPage';
 import NavBar from './components/main/NavBar';
+import MenuDrawer from './components/main/MenuDrawer';
 // import Navigation from './main/Navigation';
 // import NavTest from './components/main/NavTest';
 import RegisterPage from './components/auth/RegisterPage';
@@ -56,7 +57,8 @@ const App = (props) => {
 
   return (
     <Grid className='App' >
-      <NavBar auth={ auth } logout={ logout } />
+      {/* <NavBar auth={ auth } logout={ logout } /> */}
+      <MenuDrawer/>
       <Messages className='Messages'>
         <FlashMessageList/>
       </Messages>
