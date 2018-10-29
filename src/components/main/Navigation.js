@@ -8,20 +8,21 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import Typography from '@material-ui/core/Typography';
+
 
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 
 const styles = (theme) => ({
 	root: {
-		background: 'orange',
-		color: 'orange'
+		// background: 'orange',
 	}
 })
 
 // === COMPONENT ===
 function Navigation(props, context) {
-	const { auth, classes, logout } = props;
+	const { auth, classes, logout, toggle } = props;
 	// unauthorized navigation links
 	const registerLink 	= { showWithAuth: 'false', link:'/register', title: 'Register' };
 	const logInLink 		= { showWithAuth: 'false', link:'/login', title: 'Login' };
@@ -40,11 +41,11 @@ function Navigation(props, context) {
 	};
 
 	return (
-		<List > 
+		<List onClick={ toggle } > 
 
 			{ [todosLink, logInLink, registerLink].map((item) => (
 				<span style={ displayLogic(item) } >
-					<ListItem className= { classes.root } button key={ item.title } >
+					<ListItem key={ item.title } className= { classes.root } button >
 						<NavLink to={ item.link } >
 							<ListItemText  primary={ item.title } />
 						</NavLink>
@@ -54,7 +55,9 @@ function Navigation(props, context) {
 		
 				<span style={ displayLogic(logOutLink) } onClick={ handleLogout }  >
 					<ListItem button >
-						{logOutLink.title}	
+						 <Typography variant="h7" color="inherit" noWrap>
+							{logOutLink.title}	
+            </Typography>
 					</ListItem>
 				</span>
 

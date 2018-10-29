@@ -11,10 +11,10 @@ import styled from 'styled-components';
 import setAuthorizationToken from './components/auth/setAuthToken';
 import { setCurrentUser } from './actions/registerActions';
 import App from './App';
+// import material-ui
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 		
-// import material-ui
-import CssBaseline from '@material-ui/core/CssBaseline';
+
 import green from '@material-ui/core/colors/green';
 import lightBlue from '@material-ui/core/colors/lightBlue';
    
@@ -49,7 +49,6 @@ const theme = createMuiTheme(options);
 ReactDOM.render(
 	<Store store={ store } >
 	 <MuiThemeProvider theme={ theme } >
-	 <CssBaseline/> 
 			<Router>
 				<Route path='/' component={ App } />
 			</Router>

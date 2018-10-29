@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // components
 
+
 import FlashMessageList from './components/messages/FlashMessageList';
 import Home from './components/main/Home';
 import LoginPage from './components/auth/LoginPage';
@@ -19,6 +20,9 @@ import TodoPage from './components/todos/TodoPage';
 import { logout } from './actions/loginActions';
 import requireAuth from './helpers/requireAuth';
 import styled from 'styled-components';
+
+import CssBaseline from '@material-ui/core/CssBaseline';
+
 
 // fontawesome imports and other styles
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -57,6 +61,7 @@ const App = (props) => {
 
   return (
     <Grid className='App' >
+      <CssBaseline/> 
       <MenuDrawer auth={ auth } logout={ logout } />
       <Messages className='Messages'>
         <FlashMessageList/>
