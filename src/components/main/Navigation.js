@@ -1,4 +1,3 @@
-// generat
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
@@ -12,17 +11,16 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
 
 function Navigation(props, context) {
-
 	const { auth, classes, logout, toggle } = props;
 	// unauthorized navigation links
-	const registerLink 	= { showWithAuth: 'false', link:'/register', title: 'Register' };
-	const logInLink 		= { showWithAuth: 'false', link:'/login', title: 'Login' };
+	const registerLink = { showWithAuth: 'false', link:'/register', title: 'Register' };
+	const logInLink = { showWithAuth: 'false', link:'/login', title: 'Login' };
 	// authorized navigation links
-	const todosLink 		= { showWithAuth: 'true', link:'/todos', title: 'Todos' };
-	const logOutLink 		= { showWithAuth: 'true', link:'#', title: 'Logout' };
+	const todosLink = { showWithAuth: 'true', link:'/todos', title: 'Todos' };
+	const logOutLink = { showWithAuth: 'true', link:'#', title: 'Logout' };
 // filter links based on authorization status
 	const displayLogic = (item) => ({
-			display: String(auth) === item.showWithAuth ? 'flex' : 'none' 
+		display: String(auth) === item.showWithAuth ? 'flex' : 'none' 
 	})
 	// logout and return to login page (or 'home')
 	const handleLogout = (e) => {
@@ -47,22 +45,20 @@ function Navigation(props, context) {
 				</span>
 			)) }
 		
-			<span style={ displayLogic(logOutLink) } onClick={ handleLogout }  >
+			<span style={displayLogic(logOutLink)} onClick={handleLogout}  >
 				<ListItem button >
-					<ListItemIcon>
+					<ListItemIcon >
 						<Circle/>
 					</ListItemIcon>
-					<Typography variant="h7" color="inherit" noWrap>
+					<Typography variant="h6" color="inherit" noWrap >
 						{logOutLink.title}	
 					</Typography>
 				</ListItem>
 			</span>
-
 		</List>
 	);
 };
 
-// +++++++++ PROPS  +++++++++ 
 Navigation.propTypes = {
 	auth: PropTypes.bool,
 	logout: PropTypes.func.isRequired,
