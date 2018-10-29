@@ -5,8 +5,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 
 const StyledAvatar = withStyles({
   root: {
-    gridArea: 'brandLogo',
-    color: 'steelblue',
+    // color: 'steelblue',
     maxWidth: '75px',
   }
 })(CardMedia);

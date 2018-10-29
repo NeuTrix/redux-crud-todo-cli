@@ -10,20 +10,30 @@ import MenuBar from './MenuBar';
 import Navigation from './Navigation';
 import SearchBar from './SearchBar';
 
+// const mediaWidth = '650px'
 const styles = (theme) => ({
 	root: {
 		gridArea: 'main',
-		gridTemplateAreas: `'menu nav search login' `,
+		gridTemplateAreas: `'menu search login' `,
 		// gridTemplateColumns: `1fr 6fr 3fr 1fr`,
 		gridColumnGap: `5px`,
 		display: 'grid',
 		placeItems: 'center',
+		['@media (min-width: 650px)']: {
+			gridTemplateAreas: `'brand nav search login' `,			
+		}
+	},
+	brand: {
+		gridArea: 'brand',
+		display: 'none',
+		['@media (min-width: 650px)']: {
+			display: 'flex',
+		},
 	},
 	menu: {
 		gridArea: 'menu',
-		// hide menu display at larger screen sizes
 		['@media (min-width: 650px)']: {
-			display: 'none' 
+			display: 'none',
 		},
 	},
 	nav: {
@@ -33,31 +43,30 @@ const styles = (theme) => ({
 			display: 'flex',
 		}
 	},
-	search: { gridArea: 'search' },
 	login: { gridArea: 'login' },
+	search: { gridArea: 'search' },
 });
 
-const test = {
-	// color: 'orangered'
-}
 
 function NavBar (props) {
   const { auth, classes, logout } = props;
 
 	return (
 		<AppBar className={ classes.root }>
-			<span className={ classes.menu } >
+			<span className={ classes.menu }>
 				<MenuBar/>
 			</span>
-			<span className={ classes.nav } >
+			<span className={ classes.nav }>
 				<Navigation auth={ auth } logout={ logout }/>
 			</span>
-				{/* <BrandLogo/>  */} 
-			<span className={ classes.search } >
+			<span className={ classes.brand }>
+				<BrandLogo/>  
+			</span>
+			<span className={ classes.search }>
 				<SearchBar />
 			</span>
-			<span className={ classes.login } >
-				<LoginSwitch auth={ auth } logout={ logout } />
+			<span className={ classes.login }>
+				<LoginSwitch auth={ auth } logout={ logout }/>
 			</span>
 		</AppBar>
 	);
