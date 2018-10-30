@@ -4,14 +4,18 @@
     },
     "extends": "airbnb",
     "rules": {
-        "no-console": "off",
         "indent": [
             "error",
             "tab"
-        ],
+        ], 
+        "no-console": "off",
         "no-tabs": [
             "error", 
             { "allowIndentationTabs": true }
+        ], 
+        "react/jsx-filename-extension": [
+            1, 
+            { "extensions": [".js", ".jsx"] }
         ]
     }
 
