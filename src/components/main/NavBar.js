@@ -4,6 +4,14 @@ import PropTypes from 'prop-types';
 import { colors } from '../../helpers/cssConstants';
 // import logo from '../../assets/done-blue.png';
 import logo from '../../assets/logo-white.png';
+// navbar logo
+const Logo = styled.img `
+	grid-area: logo;
+	max-width: 75px;
+	place-self: center left;
+`;
+			<Logo className='logo' src={ logo } alt='logo'/> 
+
 import styled from 'styled-components';
 // === components ===
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
