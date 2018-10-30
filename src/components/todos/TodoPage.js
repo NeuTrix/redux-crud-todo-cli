@@ -40,7 +40,6 @@ const List = styled(TodoList)`
 	grid-area: list;
 `;
 
-// +++++++++ COMPONENT +++++++++
 
 class TodoPage extends Component {
 	componentDidMount() {
