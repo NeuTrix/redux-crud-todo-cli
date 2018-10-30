@@ -66,7 +66,7 @@ class TodoPage extends Component {
 				/>
 				<NewItem
 					createTodo={handleCreateTodo}
-					owner={user._id}
+					owner={user.id}
 				/>
 				<List
 					deleteTodo={handleDeleteTodo}
@@ -98,8 +98,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	handleCreateTodo: (task) => { dispatch(createTodo(task)); },
-	handleDeleteTodo: (_id) => { dispatch(deleteTodo(_id)); },
-	handleEditTodo: (_id, task) => { dispatch(editTodo(_id, task)); },
+	handleDeleteTodo: (id) => { dispatch(deleteTodo(id)); },
+	handleEditTodo: (id, task) => { dispatch(editTodo(id, task)); },
 	handleFetchTodos: () => 		{ dispatch(fetchTodos()); },
 });
 
