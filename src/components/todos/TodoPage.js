@@ -3,12 +3,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-
 // custom
 import { createTodo } from '../../actions/createActions';
 import { deleteTodo } from '../../actions/deleteActions';
 import { editTodo } from '../../actions/editActions';
-import { fetchTodos } from '../../actions/readActions';
 
 import TaskCounter from './TaskCounter';
 import TodoForm from './TodoForm';
@@ -45,9 +43,12 @@ const List = styled(TodoList)`
 
 class TodoPage extends Component {
 	componentDidMount() {
-		if (this.props.isAuthenticated) {
-			return this.props.fetchTodos();
-		}
+		const { isAuthenticated, fetchTodos } = this.props;
+		return (
+			isAuthenticated
+				? fetchTodos()
+				: ''
+		);
 	}
 
 	render() {
@@ -56,17 +57,17 @@ class TodoPage extends Component {
 				<Counter
 					fetchTodos={this.props.fetchTodos}
 					todos={this.props.todoArray}
-				/>
+  />
 				<NewItem
 					createTodo={this.props.createTodo}
 					owner={this.props.user._id}
-  			/>
+  />
 				<List
 					deleteTodo={this.props.deleteTodo}
 					editTodo={this.props.editTodo}
 					todoArray={this.props.todoArray}
-  			/>
-			</Grid>
+  />
+  </Grid>
 		);
 	}
 }
