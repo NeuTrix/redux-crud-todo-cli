@@ -1,0 +1,18 @@
+{
+    "env": {
+        "browser": true
+    },
+    "extends": "airbnb",
+    "rules": {
+        "no-console": "off",
+        "indent": [
+            "error",
+            "tab"
+        ],
+        "no-tabs": [
+            "error", 
+            { "allowIndentationTabs": true }
+        ]
+    }
+
+}
