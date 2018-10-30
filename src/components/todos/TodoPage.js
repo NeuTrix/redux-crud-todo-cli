@@ -63,16 +63,16 @@ class TodoPage extends Component {
 				<Counter
 					fetchTodos={handleFetchTodos}
 					todos={todoArray}
-  />
+				/>
 				<NewItem
 					createTodo={handleCreateTodo}
 					owner={user._id}
-  />
+				/>
 				<List
 					deleteTodo={handleDeleteTodo}
 					editTodo={handleEditTodo}
 					todoArray={todoArray}
-  />
+				/>
   </Grid>
 		);
 	}

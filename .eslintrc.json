@@ -1,8 +1,16 @@
 {
     "env": {
-        "browser": true
+        "browser": true,
+        "es6": true
     },
     "extends": "airbnb",
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
     "rules": {
         "indent": [
             "error",
@@ -16,7 +24,14 @@
         "react/jsx-filename-extension": [
             1, 
             { "extensions": [".js", ".jsx"] }
+        ],
+        "react/jsx-indent": [
+            "error",
+            "tab"
+        ],
+        "react/jsx-indent-props": [
+            "error",
+            "tab"
         ]
     }
-
 }
