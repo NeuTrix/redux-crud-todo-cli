@@ -10,8 +10,6 @@ import TaskCounter from './TaskCounter';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
-
-
 class TodoPage extends Component {
 	componentDidMount() {
 		const { isAuthenticated, handleFetchTodos } = this.props;

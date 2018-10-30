@@ -14,7 +14,7 @@ const flashReducer = (state = [], action = {}) => {
 		return [
 			...state, 
 			{ 
-				_id: shortid.generate(),
+				id: shortid.generate(),
 				type:	_pay.message.type,
 				text: _pay.message.text 
 			}
@@ -23,7 +23,7 @@ const flashReducer = (state = [], action = {}) => {
 	case DELETE_FLASH_MESSAGE:
 		return ( 
 			state.length > 1 ?
-				state.filter( msg => msg._id !== _pay._id) :
+				state.filter( msg => msg.id !== _pay.id) :
 				state = []
 		);
 

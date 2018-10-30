@@ -5,10 +5,10 @@ import {url} from '../helpers/apiHelper.js'
 
 // +++++++++ Actions +++++++++ 
 
-export const removeTodo = (_id) => {
+export const removeTodo = (id) => {
 	return {
 		type: mod.REMOVE_TODO,
-		payload: { _id }
+		payload: { id }
 	};
 };
 
@@ -39,15 +39,15 @@ export const deleteHasErrored = (bool) => {
 // const url = 'https://localhost:8080';
 
 
-export function deleteTodo (_id) {
+export function deleteTodo (id) {
 	return (dispatch) => {
-		return axios.delete (`${ url }/api/todos/${ _id }`)
+		return axios.delete (`${ url }/api/todos/${ id }`)
 			.then ((res) => {
 				dispatch (deleteIsPosting (true));
 				if (res.status !== 200) {
 					throw Error (res.statusText);
 				}	
-				dispatch (removeTodo (_id));
+				dispatch (removeTodo (id));
 				dispatch (deleteIsPosting (false));
 			})
 			.then (() => dispatch (deleteHasSucceeded (true)))

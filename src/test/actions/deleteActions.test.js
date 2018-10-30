@@ -5,20 +5,20 @@ import * as mod from '../../actions/deleteActions';
  
 describe ('the basic DELETE_ITEM case', () => {
 
-	const todo1 = { _id:101, task:'Test Item before', owner: 'First' };
-	const todo2 = { _id:202, task:'Test Item before', owner: 'Second' };
+	const todo1 = { id:101, task:'Test Item before', owner: 'First' };
+	const todo2 = { id:202, task:'Test Item before', owner: 'Second' };
 	const startState = [ todo1, todo2 ];
 	deepFreeze(startState);
 
-	let _id = 202;
-	let deletedState = TodoReducer(startState, mod.removeTodo(_id));
+	let id = 202;
+	let deletedState = TodoReducer(startState, mod.removeTodo(id));
 
-	let findTask = (task) =>  task._id === _id;
+	let findTask = (task) =>  task.id === id;
 	let startTaskArr = startState.filter(findTask);
 	let deletedTaskArr = deletedState.filter(findTask);
 
 	it ('... exists in the starting state', () => {
-		expect(startTaskArr[0]._id).to.eql(202);
+		expect(startTaskArr[0].id).to.eql(202);
 	});
 
 	it ('... changes the length of the state', () => {

@@ -14,7 +14,7 @@ const DeleteBtn = (props) => {
 		// eslint-disable-next-line
 		let _confirmed = confirm(`Do you want to delete the task : \n\t  "${props.task}" ?` ) 
 		if (_confirmed) {
-			props.deleteTodo(props._id)
+			props.deleteTodo(props.id)
 		} 
 	}
 
@@ -28,13 +28,13 @@ const DeleteBtn = (props) => {
 
 DeleteBtn.propTypes = {
 	deleteTodo: PropTypes.func.isRequired,
-	_id: PropTypes.string.isRequired,
+	id: PropTypes.string.isRequired,
 	task: PropTypes.string.isRequired,
 };
 
 DeleteBtn.defaultProps = {
 	deleteTodo: f => alert('default fn. Check deleteTodo props.') ,
-	_id: 'default',
+	id: 'default',
  	task: 'default',
 };
 

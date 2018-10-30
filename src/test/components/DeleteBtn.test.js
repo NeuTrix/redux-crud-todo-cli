@@ -33,7 +33,7 @@ describe ('The DeleteBtn Component', () => {
 			api: 'https://redux-todo-api.herokuapp.com/api/todos',
 			deleteTodo: f => f,
 			removeTodo: f => f,
-			_id: 'default',
+			id 'default',
 		};
 		mountDeleteBtn = undefined;
 	});
@@ -72,8 +72,8 @@ describe ('The DeleteBtn Component', () => {
 			expect (Object.keys(_deletebtns.props())).to.include('task');
 		});
 
-		it ('...has an _id prop', () => {
-			expect (Object.keys(_deletebtns.props())).to.include('_id');
+		it ('...has an idprop', () => {
+			expect (Object.keys(_deletebtns.props())).to.include('id);
 		});
 	});
 });

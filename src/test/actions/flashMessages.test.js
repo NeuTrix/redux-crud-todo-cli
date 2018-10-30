@@ -20,9 +20,9 @@ describe ('FLASH message actions', () => {
 			expect(messages.length).to.eql(init_msg.length + 1);
 		});
 
-		it ('... has an _id property', () => {
+		it ('... has an id property', () => {
 			expect(added).to.be.an('object');
-			expect(added).to.have.property('_id');
+			expect(added).to.have.property('id');
 		});
 
 		it ('... has type property with correct value', () => {
@@ -45,9 +45,9 @@ describe ('FLASH message actions', () => {
 			expect(messages.length).to.eql(init_msg.length + 1);
 		});
 
-		it ('... has an _id property', () => {
+		it ('... has an id property', () => {
 			expect(added).to.be.an('object');
-			expect(added).to.have.property('_id');
+			expect(added).to.have.property('id');
 		});
 
 		it ('... has type property with correct value', () => {
@@ -75,14 +75,14 @@ describe ('FLASH message actions', () => {
 			expect(messages.length).to.eql(nextMessages.length + 1);
 		});
 
-		it ('... has an _id property', () => {
+		it ('... has an id property', () => {
 			expect(added).to.be.an('object');
-			expect(added).to.have.property('_id');
+			expect(added).to.have.property('id');
 		});
 
 		it ('... can delete a message', () => {
 			let newMsgs = 
-				flashReducer(messages, mod.deleteFlashMessage(added._id));
+				flashReducer(messages, mod.deleteFlashMessage(added.id));
 			expect(newMsgs.length).to.eql(messages.length - 1);
 		});
 

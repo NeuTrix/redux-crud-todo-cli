@@ -85,8 +85,8 @@ describe('The CheckComplete Component', () => {
 			expect(Object.keys(_tasks.props())).to.include('editTodo');
 		});
 
-		it('...has an _id prop', () => {
-			expect(Object.keys(_tasks.props())).to.include('_id');
+		it('...has an id prop', () => {
+			expect(Object.keys(_tasks.props())).to.include('id');
 		});
 
 	});

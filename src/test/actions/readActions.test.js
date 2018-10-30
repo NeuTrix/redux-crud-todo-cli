@@ -8,8 +8,8 @@ describe ('the basic READ_ITEM case', () => {
 	const startState = [ ];
 	deepFreeze(startState);
 
-	const todo1 = { _id:101, task:'Test Item before', owner: 'First' };
-	const todo2 = { _id:202, task:'Test Item before', owner: 'Second' };
+	const todo1 = { id:101, task:'Test Item before', owner: 'First' };
+	const todo2 = { id:202, task:'Test Item before', owner: 'Second' };
 	const newState = [ todo1, todo2 ];
 
 	let readState= TodoReducer(startState, mod.readTodos(newState));

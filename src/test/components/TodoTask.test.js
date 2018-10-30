@@ -33,7 +33,7 @@ xdescribe ('The TodoTask Component', () => {
 	beforeEach (() => {
 		props = {
 			item: { 
-				_id: 'default',
+				id: 'default',
 				completed: false,
 				details: 'default',
 				date: '2018-12-31',
@@ -137,8 +137,8 @@ xdescribe ('The TodoTask Component', () => {
 		});
 
 
-		it ('...has _id ', () => {
-			expect (_state).to.have.property('_id');
+		it ('...has id ', () => {
+			expect (_state).to.have.property('id');
 		});
 		
 	});

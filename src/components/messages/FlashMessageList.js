@@ -9,7 +9,7 @@ class FlashMessagesList extends Component {
 	render () {
 		const messages = this.props.messages.map((message) => 
 			<FlashMessage 
-				key = { message._id } 
+				key = { message.id } 
 				message = { message } 
 				deleteFlashMessage = { this.props.deleteFlashMessage }
 			/>

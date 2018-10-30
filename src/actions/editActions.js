@@ -4,10 +4,10 @@ import { url } from '../helpers/apiHelper.js'
 
 // +++++++++ Actions +++++++++ 
 
-export const editItem = (_id, edit) => {
+export const editItem = (id, edit) => {
 	return {
 		type: mod.EDIT_ITEM,
-		payload: { _id, edit }
+		payload: { id, edit }
 	};
 };
 
@@ -36,15 +36,15 @@ export const editHasErrored = (bool) => {
 
 // const url = 'https://redux-todo-api.herokuapp.com';
 
-export function editTodo (_id, data) {
+export function editTodo (id, data) {
 	return (dispatch) => {
-		return axios.put (`${ url }/api/todos/${ _id }`, data)
+		return axios.put (`${ url }/api/todos/${ id }`, data)
 			.then ((res) => {
 				dispatch (editIsPosting(true));
 				if (res.status !== 200) {
 					throw Error (res.statusText);
 				} else {
-					dispatch (editItem (_id, res.data.todo));
+					dispatch (editItem (id, res.data.todo));
 				}
 			})
 			.then (() => {

@@ -14,11 +14,11 @@ const TodoReducer = (state = [], action = {}) => {
 
 	case mod.EDIT_ITEM: {
 		return state.map (task => 
-			task._id === _pay._id ? { ...task, ..._pay.edit } : task );
+			task.id === _pay.id ? { ...task, ..._pay.edit } : task );
 	}
 
 	case mod.REMOVE_TODO: {
-		return state.filter( task => task._id !== _pay._id );
+		return state.filter( task => task.id !== _pay.id );
 	}
 
 	default: return state; 

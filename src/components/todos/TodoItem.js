@@ -79,7 +79,7 @@ class TodoItem extends Component {
 			date: (this.props.item.date.slice(0,10) :''),
 			rank: this.props.item.rank,
 			task: this.props.item.task, 
-			_id: this.props.item._id,
+			id: this.props.item.id,
 		}
 
 		this.handleBlur 	= this.handleBlur.bind(this)
@@ -91,7 +91,7 @@ class TodoItem extends Component {
 	
 	handleBlur(e) {
 		e.preventDefault();
-		this.props.editTodo(this.props.item._id, this.state)
+		this.props.editTodo(this.props.item.id, this.state)
 	}
 
 
@@ -107,11 +107,11 @@ class TodoItem extends Component {
 
 	handleSubmit(e) {
 		e.preventDefault ();
-		this.props.editTodo (this.props.item._id, this.state);
+		this.props.editTodo (this.props.item.id, this.state);
 	};
 
 	render () {
-		const { task, _id } = this.state
+		const { task, id } = this.state
 		const { className } = this.props
 
 		return (
@@ -135,7 +135,7 @@ class TodoItem extends Component {
 					className= '_checked'
 					style = {this.checkStyle}
 					name= 'complete'
-					_id= { this.props.item._id }
+					id= { this.props.item.id }
 					completed= { this.state.completed }
 					editTodo= { this.props.editTodo }
 				/>
@@ -167,7 +167,7 @@ class TodoItem extends Component {
 					name= 'delete'
 					type= 'button'
 					task= { task }
-					_id = { _id }
+					id = { id }
 					deleteTodo= { this.props.deleteTodo }
 					/> 
 			</Grid>

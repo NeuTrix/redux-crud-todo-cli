@@ -24,7 +24,7 @@ class CheckComplete extends Component {
 	handleToggle (e) {
 		e.preventDefault();
 		this.props.editTodo ( 
-			this.props._id, 
+			this.props.id, 
 			{ completed: ! this.state.completed }
 		);
 	};
@@ -51,13 +51,13 @@ class CheckComplete extends Component {
 // +++++++++ PROPS +++++++++ 
 
 CheckComplete.propTypes = {
-	_id: PropTypes.string.isRequired,
+	id: PropTypes.string.isRequired,
 	completed: PropTypes.bool.isRequired,
 	editTodo: PropTypes.func.isRequired,
 };
 
 CheckComplete.defaultProps = {
-	_id: '',
+	id: '',
 	completed: false,
 	editTodo: f => alert('error: CheckComplete default fn'),
 };

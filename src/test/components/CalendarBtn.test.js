@@ -29,7 +29,7 @@ xdescribe('The CalendarBtn Component', () => {
 	beforeEach (() => {
 		props = {
 			date: '2018-12-31',
-			_id: undefined,
+			id: undefined,
 			style: {},
 			updateDate: undefined
 		};
@@ -65,8 +65,8 @@ xdescribe('The CalendarBtn Component', () => {
 			expect(Object.keys(dateBtns.props())).to.include('editTodo');
 		});	
 
-		it('has an _id prop', () => {
-			expect(Object.keys(dateBtns.props())).to.include('_id');
+		it('has an id prop', () => {
+			expect(Object.keys(dateBtns.props())).to.include('id');
 		});
 
 		it('has an style prop', () => {

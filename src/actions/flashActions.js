@@ -7,9 +7,9 @@ export function addFlashMessage(message) {
 	};
 }
 
-export function deleteFlashMessage(_id) {
+export function deleteFlashMessage(id) {
 	return {
 		type: mod.DELETE_FLASH_MESSAGE,
-		payload: { _id }
+		payload: { id }
 	};
 }

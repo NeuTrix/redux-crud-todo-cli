@@ -5,15 +5,15 @@ import * as mod from '../../actions/createActions';
  
 describe ('the basic CREATE_ITEM case', () => {
 
-	const todo1 = { _id:101, task:'Test Item before', owner: 'First' };
+	const todo1 = { id:101, task:'Test Item before', owner: 'First' };
 	const startState = [ todo1 ];
 	deepFreeze(startState);
 
-	const todo2 = { _id:202, task:'Test Item before', owner: 'Second' };
+	const todo2 = { id:202, task:'Test Item before', owner: 'Second' };
 	let createdState = TodoReducer(startState, mod.addTodo(todo2));
 
-	let _id = 202;
-	let findTask = (task) =>  task._id === _id;
+	let id = 202;
+	let findTask = (task) =>  task.id === id;
 	let startTaskArr = startState.filter(findTask);
 	let createdTaskArr = createdState.filter(findTask);
 
@@ -26,11 +26,11 @@ describe ('the basic CREATE_ITEM case', () => {
 	});
 
 	it ('... added a new "task" to the state', () => {
-		expect(createdTaskArr[0]._id).to.eql(202);
+		expect(createdTaskArr[0].id).to.eql(202);
 	});
 
 	it ('... created the correct properties', () => {
-		expect(createdTaskArr[0]).to.have.property('_id')
+		expect(createdTaskArr[0]).to.have.property('id')
 			.eql(202);
 		expect(createdTaskArr[0]).to.have.property('owner')
 			.eql('Second');
