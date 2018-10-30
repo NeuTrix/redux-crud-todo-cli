@@ -13,7 +13,7 @@ import SearchBar from './SearchBar';
 const styles = (theme) => ({
 	root: {
 		gridArea: 'main',
-		gridTemplateAreas: `'menu search ' `,
+		gridTemplateAreas: `'menu search'`,
 		// gridTemplateColumns: `1fr 6fr 3fr 1fr`,
 		gridColumnGap: `5px`,
 		display: 'grid',

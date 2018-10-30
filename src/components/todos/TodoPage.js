@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
+import { withStyles } from '@material-ui/core/styles';
 // custom
 import { createTodo } from '../../actions/createActions';
 import { deleteTodo } from '../../actions/deleteActions';
@@ -16,16 +17,7 @@ import TodoList from './TodoList';
 // +++++++++ CSS +++++++++
 
 const Grid = styled.div`
-	/* mobile view */
-
-	display: grid;
-	grid-template-areas: 
-		" count "
-		" new "
-		" list "
-	;
-	grid-auto-rows: auto;
-	margin-top: 10px;
+	
 `;
 
 const Counter = styled(TaskCounter)`
@@ -41,6 +33,7 @@ const List = styled(TodoList)`
 `;
 
 
+
 class TodoPage extends Component {
 	componentDidMount() {
 		const { isAuthenticated, handleFetchTodos } = this.props;
@@ -49,6 +42,7 @@ class TodoPage extends Component {
 
 	render() {
 		const {
+			classes,
 			handleCreateTodo,
 			handleDeleteTodo,
 			handleEditTodo,
@@ -58,7 +52,7 @@ class TodoPage extends Component {
 		} = this.props;
 
 		return (
-			<Grid className="TodoPage">
+			<Grid className={classes.grid}>
 				<Counter
 					fetchTodos={handleFetchTodos}
 					todos={todoArray}
@@ -100,4 +94,17 @@ const mapDispatchToProps = dispatch => ({
 	handleFetchTodos: () => { dispatch(fetchTodos()); },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoPage);
+const StyledTodoPage = withStyles((theme) => ({
+	grid: {
+		display: "grid",
+		gridTemplateAreas:`
+			"count"
+			"new"
+			"list"
+		`,
+		gridAutoRows: "auto",
+		marginTop: "10px",
+	}
+}))(TodoPage)
+
+export default connect(mapStateToProps, mapDispatchToProps)(StyledTodoPage);
