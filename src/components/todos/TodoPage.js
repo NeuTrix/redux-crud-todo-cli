@@ -73,21 +73,19 @@ class TodoPage extends Component {
 					editTodo={handleEditTodo}
 					todoArray={todoArray}
 				/>
-  </Grid>
+			</Grid>
 		);
 	}
 }
-
-// +++++++++ PROPS +++++++++
 
 TodoPage.propTypes = {
 	handleCreateTodo: PropTypes.func.isRequired,
 	handleDeleteTodo: PropTypes.func.isRequired,
 	handleEditTodo: PropTypes.func.isRequired,
 	handleFetchTodos: PropTypes.func.isRequired,
-	isAuthenticated: PropTypes.bool,
-	todoArray: PropTypes.array.isRequired,
-	user: PropTypes.object.isRequired,
+	isAuthenticated: PropTypes.bool.isRequired,
+	todoArray: PropTypes.arrayOf(PropTypes.string).isRequired,
+	user: PropTypes.instanceOf(Object).isRequired,
 };
 
 const mapStateToProps = state => ({
