@@ -98,7 +98,7 @@ const mapDispatchToProps = dispatch => ({
 	handleCreateTodo: (task) => { dispatch(createTodo(task)); },
 	handleDeleteTodo: (id) => { dispatch(deleteTodo(id)); },
 	handleEditTodo: (id, task) => { dispatch(editTodo(id, task)); },
-	handleFetchTodos: () => 		{ dispatch(fetchTodos()); },
+	handleFetchTodos: () => { dispatch(fetchTodos()); },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoPage);
