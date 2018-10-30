@@ -5,14 +5,16 @@ import { expect } from 'chai';
 import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import store from '../../store/store';
-// import TodoPage from '../../components/todos/TodoPage'
+import TodoPage from '../../components/todos/TodoPage'
 
-xdescribe ('The TodoPage renders', () => {
+describe ('The TodoPage renders', () => {
 	it ('renders without crashing', () => {
 		const div = document.createElement('div');
 		ReactDOM.render(
-			<TodoPage/>, div
-		);
+		<Provider store= { store } >
+			<TodoPage />
+		</Provider>
+		, div);
 	});
 });
 

@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { createTodo } from '../../actions/createActions';
 import { deleteTodo } from '../../actions/deleteActions';
 import { editTodo } from '../../actions/editActions';
+import { fetchTodos } from '../../actions/readActions';
 
 import TaskCounter from './TaskCounter';
 import TodoForm from './TodoForm';
@@ -43,29 +44,34 @@ const List = styled(TodoList)`
 
 class TodoPage extends Component {
 	componentDidMount() {
-		const { isAuthenticated, fetchTodos } = this.props;
-		return (
-			isAuthenticated
-				? fetchTodos()
-				: ''
-		);
+		const { isAuthenticated, handleFetchTodos } = this.props;
+		return (isAuthenticated ? handleFetchTodos() : '');
 	}
 
 	render() {
+		const {
+			handleCreateTodo,
+			handleDeleteTodo,
+			handleEditTodo,
+			handleFetchTodos,
+			todoArray,
+			user,
+		} = this.props;
+
 		return (
 			<Grid className="TodoPage">
 				<Counter
-					fetchTodos={this.props.fetchTodos}
-					todos={this.props.todoArray}
+					fetchTodos={handleFetchTodos}
+					todos={todoArray}
   />
 				<NewItem
-					createTodo={this.props.createTodo}
-					owner={this.props.user._id}
+					createTodo={handleCreateTodo}
+					owner={user._id}
   />
 				<List
-					deleteTodo={this.props.deleteTodo}
-					editTodo={this.props.editTodo}
-					todoArray={this.props.todoArray}
+					deleteTodo={handleDeleteTodo}
+					editTodo={handleEditTodo}
+					todoArray={todoArray}
   />
   </Grid>
 		);
@@ -75,9 +81,10 @@ class TodoPage extends Component {
 // +++++++++ PROPS +++++++++
 
 TodoPage.propTypes = {
-	createTodo: PropTypes.func.isRequired,
-	deleteTodo: PropTypes.func.isRequired,
-	fetchTodos: PropTypes.func.isRequired,
+	handleCreateTodo: PropTypes.func.isRequired,
+	handleDeleteTodo: PropTypes.func.isRequired,
+	handleEditTodo: PropTypes.func.isRequired,
+	handleFetchTodos: PropTypes.func.isRequired,
 	isAuthenticated: PropTypes.bool,
 	todoArray: PropTypes.array.isRequired,
 	user: PropTypes.object.isRequired,
@@ -90,10 +97,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	createTodo: (task) => { dispatch(createTodo(task)); },
-	deleteTodo: (_id) => { dispatch(deleteTodo(_id)); },
-	editTodo: (_id, task) => { dispatch(editTodo(_id, task)); },
-	fetchTodos: () => 		{ dispatch(fetchTodos()); },
+	handleCreateTodo: (task) => { dispatch(createTodo(task)); },
+	handleDeleteTodo: (_id) => { dispatch(deleteTodo(_id)); },
+	handleEditTodo: (_id, task) => { dispatch(editTodo(_id, task)); },
+	handleFetchTodos: () => 		{ dispatch(fetchTodos()); },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoPage);
