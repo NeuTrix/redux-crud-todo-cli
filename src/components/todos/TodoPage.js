@@ -1,38 +1,14 @@
-// vendor
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 import { withStyles } from '@material-ui/core/styles';
-// custom
 import { createTodo } from '../../actions/createActions';
 import { deleteTodo } from '../../actions/deleteActions';
 import { editTodo } from '../../actions/editActions';
 import { fetchTodos } from '../../actions/readActions';
-
 import TaskCounter from './TaskCounter';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
-
-// +++++++++ CSS +++++++++
-
-const Grid = styled.div`
-	
-`;
-
-const Counter = styled(TaskCounter)`
-	grid-area: count;
-`;
-
-const NewItem = styled(TodoForm)`
-	grid-area: new;
-`;
-
-const List = styled(TodoList)`
-	grid-area: list;
-`;
-
-
 
 class TodoPage extends Component {
 	componentDidMount() {
@@ -52,26 +28,30 @@ class TodoPage extends Component {
 		} = this.props;
 
 		return (
-			<Grid className={classes.grid}>
-				<Counter
+			<div className={classes.grid}>
+				<TaskCounter
+					className={classes.taskCounter}
 					fetchTodos={handleFetchTodos}
 					todos={todoArray}
 				/>
-				<NewItem
+				<TodoForm
+					className={classes.todoForm}
 					createTodo={handleCreateTodo}
 					owner={user.id}
 				/>
-				<List
+				<TodoList
+					className={classes.todoList}
 					deleteTodo={handleDeleteTodo}
 					editTodo={handleEditTodo}
 					todoArray={todoArray}
 				/>
-			</Grid>
+			</div>
 		);
 	}
 }
 
 TodoPage.propTypes = {
+	classes: PropTypes.instanceOf(Object).isRequired, // MUI classes object from withStyles
 	handleCreateTodo: PropTypes.func.isRequired,
 	handleDeleteTodo: PropTypes.func.isRequired,
 	handleEditTodo: PropTypes.func.isRequired,
@@ -94,17 +74,24 @@ const mapDispatchToProps = dispatch => ({
 	handleFetchTodos: () => { dispatch(fetchTodos()); },
 });
 
-const StyledTodoPage = withStyles((theme) => ({
+const StyledTodoPage = withStyles(() => ({
+
 	grid: {
-		display: "grid",
-		gridTemplateAreas:`
-			"count"
-			"new"
-			"list"
+		display: 'grid',
+		gridTemplateAreas: `
+			"taskCounter"
+			"todoForm"
+			"todoList"
 		`,
-		gridAutoRows: "auto",
-		marginTop: "10px",
-	}
-}))(TodoPage)
+		gridAutoRows: 'auto',
+		marginTop: '10px',
+	},
+	taskCounter: { gridArea: 'taskCounter' },
+
+	todoForm: { gridArea: 'todoForm' },
+
+	todoList: { gridArea: 'todoList' },
+
+}))(TodoPage);
 
 export default connect(mapStateToProps, mapDispatchToProps)(StyledTodoPage);

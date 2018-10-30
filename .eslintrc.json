@@ -21,6 +21,12 @@
             "error", 
             { "allowIndentationTabs": true }
         ], 
+        "padded-blocks": [
+            "error",
+            {
+                "blocks": "never"
+            }
+        ],
         "react/jsx-filename-extension": [
             1, 
             { "extensions": [".js", ".jsx"] }
@@ -32,6 +38,7 @@
         "react/jsx-indent-props": [
             "error",
             "tab"
-        ]
+        ], 
+        "space-in-parens": ["error", "never"]
     }
 }
