@@ -10,6 +10,8 @@ import TaskCounter from './TaskCounter';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
+
+
 class TodoPage extends Component {
 	componentDidMount() {
 		const { isAuthenticated, handleFetchTodos } = this.props;
@@ -50,16 +52,6 @@ class TodoPage extends Component {
 	}
 }
 
-TodoPage.propTypes = {
-	classes: PropTypes.instanceOf(Object).isRequired, // MUI classes object from withStyles
-	handleCreateTodo: PropTypes.func.isRequired,
-	handleDeleteTodo: PropTypes.func.isRequired,
-	handleEditTodo: PropTypes.func.isRequired,
-	handleFetchTodos: PropTypes.func.isRequired,
-	isAuthenticated: PropTypes.bool.isRequired,
-	todoArray: PropTypes.arrayOf(PropTypes.string).isRequired,
-	user: PropTypes.instanceOf(Object).isRequired,
-};
 
 const mapStateToProps = state => ({
 	isAuthenticated: state.authApi.isAuthenticated,
@@ -75,7 +67,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const StyledTodoPage = withStyles(() => ({
-
 	grid: {
 		display: 'grid',
 		gridTemplateAreas: `
@@ -87,11 +78,21 @@ const StyledTodoPage = withStyles(() => ({
 		marginTop: '10px',
 	},
 	taskCounter: { gridArea: 'taskCounter' },
-
 	todoForm: { gridArea: 'todoForm' },
-
 	todoList: { gridArea: 'todoList' },
-
 }))(TodoPage);
+
+const propTypes = {
+	classes: PropTypes.instanceOf(Object).isRequired, // MUI classes object from withStyles
+	handleCreateTodo: PropTypes.func.isRequired,
+	handleDeleteTodo: PropTypes.func.isRequired,
+	handleEditTodo: PropTypes.func.isRequired,
+	handleFetchTodos: PropTypes.func.isRequired,
+	isAuthenticated: PropTypes.bool.isRequired,
+	todoArray: PropTypes.arrayOf(PropTypes.string).isRequired,
+	user: PropTypes.instanceOf(Object).isRequired,
+};
+
+TodoPage.propTypes = propTypes;
 
 export default connect(mapStateToProps, mapDispatchToProps)(StyledTodoPage);
