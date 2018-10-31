@@ -62,7 +62,7 @@ class NavBar extends Component {
 						<IconButton
 							color="inherit"
 							aria-label="Open drawer"
-							className={` menuButton ${classes.menuButton}`}
+							className={`menuButton ${classes.menuButton}`}
 							onClick={this.handleDrawerToggle}
 						>
 							<MenuIcon />
