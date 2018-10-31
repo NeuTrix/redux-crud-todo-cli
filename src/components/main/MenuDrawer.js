@@ -44,12 +44,15 @@ const styles = theme => ({
 });
 
 class MenuDrawer extends React.Component {
-  state = {
-    mobileOpen: false,
-  };
+    constructor(props) {
+      super(props);
+      this.state = {
+        mobileOpen: false,
+      }
+    }
 
-  handleDrawerToggle = () => {
-    this.setState(state => ({ mobileOpen: !state.mobileOpen }));
+  handleDrawerToggle() {
+    this.setState(state => ({ mobileOpen: !mobileOpen }));
   };
 
   render() {
