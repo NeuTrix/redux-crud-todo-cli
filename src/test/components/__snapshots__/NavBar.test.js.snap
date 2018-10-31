@@ -4,7 +4,7 @@ exports[`The NavBar Component w/ ReactDom ... renders the NavBar component 1`] =
 Object {
   "0": Object {
     "attribs": Object {
-      "class": "NavBar-root-4",
+      "class": "NavBar-root-5",
     },
     "children": Array [
       Object {
@@ -20,7 +20,7 @@ Object {
               Object {
                 "attribs": Object {
                   "aria-label": "Open drawer",
-                  "class": "MuiButtonBase-root-53 MuiIconButton-root-47 MuiIconButton-colorInherit-48 NavBar-menuButton-5",
+                  "class": "MuiButtonBase-root-53 MuiIconButton-root-47 MuiIconButton-colorInherit-48 NavBar-menuButton-4",
                   "tabindex": "0",
                   "type": "button",
                 },
@@ -276,7 +276,7 @@ Object {
                 Object {
                   "attribs": Object {
                     "aria-label": "Open drawer",
-                    "class": "MuiButtonBase-root-53 MuiIconButton-root-47 MuiIconButton-colorInherit-48 NavBar-menuButton-5",
+                    "class": "MuiButtonBase-root-53 MuiIconButton-root-47 MuiIconButton-colorInherit-48 NavBar-menuButton-4",
                     "tabindex": "0",
                     "type": "button",
                   },
@@ -492,7 +492,7 @@ Object {
     },
   },
   "_root": <div
-    class="NavBar-root-4"
+    class="NavBar-root-5"
   >
     <header
       class="MuiPaper-root-16 MuiPaper-elevation4-22 MuiAppBar-root-7 MuiAppBar-positionFixed-8 MuiAppBar-colorPrimary-14 mui-fixed NavBar-appBar-1"
@@ -502,7 +502,7 @@ Object {
       >
         <button
           aria-label="Open drawer"
-          class="MuiButtonBase-root-53 MuiIconButton-root-47 MuiIconButton-colorInherit-48 NavBar-menuButton-5"
+          class="MuiButtonBase-root-53 MuiIconButton-root-47 MuiIconButton-colorInherit-48 NavBar-menuButton-4"
           tabindex="0"
           type="button"
         >

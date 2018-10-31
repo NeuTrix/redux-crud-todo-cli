@@ -37,9 +37,12 @@ const Store = styled(Provider)`
 
 const options = {
 	palette: {
-    primary: lightBlue,
+		primary: lightBlue,
     secondary: green,
     contrast: 'whitesmoke'
+	},
+	sizes: {
+		drawerWidth: 264,
 	},
 	status: {
 		danger: 'orange',

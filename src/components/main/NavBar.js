@@ -55,7 +55,7 @@ class NavBar extends Component {
 		);
 
 		return (
-			<div className={classes.root} >
+			<div className={classes.root}>
 				<AppBar position="fixed" className={classes.appBar}>
 					<Toolbar>
 						<IconButton
@@ -90,10 +90,9 @@ class NavBar extends Component {
 }
 
 const drawerWidth = 264;
-
 const styles = theme => ({
 	appBar: {
-		display: 'flex'
+		display: 'flex',
 	},
 	drawer: {
 		[theme.breakpoints.up('sm')]: {
@@ -104,11 +103,11 @@ const styles = theme => ({
 	drawerPaper: {
 		width: drawerWidth,
 	},
-	root: { display: 'flex' },
 	menuButton: {
 		color: theme.palette.contrast, // custom theme prop
 		marginRight: 20,
 	},
+	root: { display: 'flex' },
 	toolbar: theme.mixins.toolbar,
 });
 
