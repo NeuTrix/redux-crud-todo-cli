@@ -12,8 +12,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 
 import Navigation from './Navigation';
 
-const drawerWidth = 240;
-
 const propTypes = {
 	auth: PropTypes.bool.isRequired,
 	classes: PropTypes.instanceOf(Object).isRequired,
@@ -87,9 +85,8 @@ class MenuDrawer extends Component {
 					<Hidden xsDown implementation="css">
 						<Drawer
 							id="sideDrawer"
-							open
 							classes={{ paper: classes.drawerPaper }}
-							variant="permanent"
+							variant="temporary"
 						>
 							{drawer}
 						</Drawer>
@@ -100,12 +97,11 @@ class MenuDrawer extends Component {
 	}
 }
 
+const drawerWidth = 264;
+
 const styles = theme => ({
 	appBar: {
-		marginLeft: drawerWidth,
-		[theme.breakpoints.up('sm')]: {
-			width: `calc(100% - ${drawerWidth}px)`,
-		},
+
 	},
 	drawer: {
 		[theme.breakpoints.up('sm')]: {
@@ -117,10 +113,8 @@ const styles = theme => ({
 		width: drawerWidth,
 	},
 	menuButton: {
+		color: theme.palette.contrast,
 		marginRight: 20,
-		[theme.breakpoints.up('sm')]: {
-			display: 'none',
-		},
 	},
 	root: {
 		display: 'flex',
