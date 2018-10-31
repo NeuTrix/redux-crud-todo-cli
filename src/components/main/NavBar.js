@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { withStyles } from '@material-ui/core/styles';
-
 import AppBar from '@material-ui/core/AppBar';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
@@ -10,8 +8,11 @@ import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
+import { withStyles } from '@material-ui/core/styles';
 
-import Navigation from './Navigation'; // Navigation menu items
+import BrandLogo from './BrandLogo'; 
+import NavigationLinks from './NavigationLinks'; 
+import SearchBar from './SearchBar'; 
 
 const propTypes = {
 	classes: PropTypes.instanceOf(Object).isRequired,
@@ -45,7 +46,7 @@ class NavBar extends Component {
 			<div>
 				<div className={classes.toolbar} />
 				<Divider />
-				<Navigation
+				<NavigationLinks
 					isAuth={isAuth}
 					logout={logout}
 					toggle={this.handleDrawerToggle}
@@ -56,17 +57,21 @@ class NavBar extends Component {
 
 		return (
 			<div className={`NavBar ${classes.root}`}>
-				<AppBar className={classes.appBar} position="fixed">
+				<AppBar className={classes.grid} position="fixed">
 					<Toolbar>
 						<IconButton
 							color="inherit"
 							aria-label="Open drawer"
-							className={classes.menuButton}
+							className={` menuButton ${classes.menuButton}`}
 							onClick={this.handleDrawerToggle}
 						>
 							<MenuIcon />
 						</IconButton>
 					</Toolbar>
+					<IconButton className={classes.brandLogo}>
+						<BrandLogo />
+					</IconButton>
+					<SearchBar className={classes.searchBar} />
 				</AppBar>
 				<nav className={classes.drawer}>
 					<Hidden implementation="css">
@@ -91,9 +96,14 @@ class NavBar extends Component {
 
 const drawerWidth = 264;
 const styles = theme => ({
-	appBar: {
-		display: 'flex',
-	},
+	brandLogo: {
+		display: 'none',
+		gridArea: 'brandLogo',
+		[theme.breakpoints.up('sm')]: {
+			display: 'inherit',
+		},
+	}
+	,
 	drawer: {
 		[theme.breakpoints.up('sm')]: {
 			flexShrink: 0,
@@ -103,11 +113,27 @@ const styles = theme => ({
 	drawerPaper: {
 		width: drawerWidth,
 	},
+	grid: {
+		display: 'grid',
+		gridTemplateAreas: `
+			" menuButton searchBar "
+		`,
+		gridTemplateColumns: '1fr 4fr',
+		placeItems: 'center',
+		[theme.breakpoints.up('sm')]: {
+			gridTemplateAreas: `
+			" brandLogo searchBar menuButton   "
+		`,
+			gridTemplateColumns: '2fr 4fr 1fr',
+		},
+	},
 	menuButton: {
 		color: theme.palette.contrast, // custom theme prop
+		gridArea: 'menuButton',
 		marginRight: 20,
 	},
 	root: { display: 'flex' },
+	searchBar: { gridArea: 'searchBar' },
 	toolbar: theme.mixins.toolbar,
 });
 
