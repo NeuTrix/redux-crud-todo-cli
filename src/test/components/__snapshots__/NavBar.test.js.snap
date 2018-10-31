@@ -4,36 +4,36 @@ exports[`The NavBar Component w/ ReactDom ... renders the NavBar component 1`] =
 Object {
   "0": Object {
     "attribs": Object {
-      "class": "NavBar-root-5",
+      "class": "NavBar NavBar-root-6",
     },
     "children": Array [
       Object {
         "attribs": Object {
-          "class": "MuiPaper-root-16 MuiPaper-elevation4-22 MuiAppBar-root-7 MuiAppBar-positionFixed-8 MuiAppBar-colorPrimary-14 mui-fixed NavBar-appBar-1",
+          "class": "MuiPaper-root-18 MuiPaper-elevation4-24 MuiAppBar-root-9 MuiAppBar-positionFixed-10 MuiAppBar-colorPrimary-16 mui-fixed NavBar-grid-4",
         },
         "children": Array [
           Object {
             "attribs": Object {
-              "class": "MuiToolbar-root-43 MuiToolbar-regular-45 MuiToolbar-gutters-44",
+              "class": "MuiToolbar-root-45 MuiToolbar-regular-47 MuiToolbar-gutters-46",
             },
             "children": Array [
               Object {
                 "attribs": Object {
                   "aria-label": "Open drawer",
-                  "class": "MuiButtonBase-root-53 MuiIconButton-root-47 MuiIconButton-colorInherit-48 NavBar-menuButton-4",
+                  "class": "MuiButtonBase-root-55 MuiIconButton-root-49 MuiIconButton-colorInherit-50  menuButton NavBar-menuButton-5",
                   "tabindex": "0",
                   "type": "button",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "MuiIconButton-label-52",
+                      "class": "MuiIconButton-label-54",
                     },
                     "children": Array [
                       Object {
                         "attribs": Object {
                           "aria-hidden": "true",
-                          "class": "MuiSvgIcon-root-56",
+                          "class": "MuiSvgIcon-root-58",
                           "focusable": "false",
                           "role": "presentation",
                           "viewBox": "0 0 24 24",
@@ -174,7 +174,428 @@ Object {
             ],
             "name": "div",
             "namespace": "http://www.w3.org/1999/xhtml",
-            "next": null,
+            "next": Object {
+              "attribs": Object {
+                "class": "MuiButtonBase-root-55 MuiIconButton-root-49 NavBar-brandLogo-1",
+                "tabindex": "0",
+                "type": "button",
+              },
+              "children": Array [
+                Object {
+                  "attribs": Object {
+                    "class": "MuiIconButton-label-54",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "alt": "brand logo",
+                        "class": "MuiCardMedia-root-68 MuiCardMedia-media-69 brandLogo BrandLogo-root-67",
+                        "src": "logo-white.png",
+                      },
+                      "children": Array [],
+                      "name": "img",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "alt": undefined,
+                        "class": undefined,
+                        "src": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "alt": undefined,
+                        "class": undefined,
+                        "src": undefined,
+                      },
+                    },
+                  ],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "class": "SearchBar-search-70",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "class": "SearchBar-searchIcon-71",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "aria-hidden": "true",
+                          "class": "MuiSvgIcon-root-58",
+                          "focusable": "false",
+                          "role": "presentation",
+                          "viewBox": "0 0 24 24",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {
+                              "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                            },
+                            "children": Array [],
+                            "name": "path",
+                            "namespace": "http://www.w3.org/2000/svg",
+                            "next": Object {
+                              "attribs": Object {
+                                "d": "M0 0h24v24H0z",
+                                "fill": "none",
+                              },
+                              "children": Array [],
+                              "name": "path",
+                              "namespace": "http://www.w3.org/2000/svg",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": [Circular],
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "d": undefined,
+                                "fill": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "d": undefined,
+                                "fill": undefined,
+                              },
+                            },
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "d": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "d": undefined,
+                            },
+                          },
+                          Object {
+                            "attribs": Object {
+                              "d": "M0 0h24v24H0z",
+                              "fill": "none",
+                            },
+                            "children": Array [],
+                            "name": "path",
+                            "namespace": "http://www.w3.org/2000/svg",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": Object {
+                              "attribs": Object {
+                                "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                              },
+                              "children": Array [],
+                              "name": "path",
+                              "namespace": "http://www.w3.org/2000/svg",
+                              "next": [Circular],
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "d": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "d": undefined,
+                              },
+                            },
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "d": undefined,
+                              "fill": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "d": undefined,
+                              "fill": undefined,
+                            },
+                          },
+                        ],
+                        "name": "svg",
+                        "namespace": "http://www.w3.org/2000/svg",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "aria-hidden": undefined,
+                          "class": undefined,
+                          "focusable": undefined,
+                          "role": undefined,
+                          "viewBox": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "aria-hidden": undefined,
+                          "class": undefined,
+                          "focusable": undefined,
+                          "role": undefined,
+                          "viewBox": undefined,
+                        },
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": Object {
+                      "attribs": Object {
+                        "class": "MuiInputBase-root-74 SearchBar-inputRoot-72",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "class": "MuiInputBase-input-84 SearchBar-inputInput-73",
+                            "placeholder": "Search…",
+                            "type": "text",
+                          },
+                          "children": Array [],
+                          "name": "input",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                            "placeholder": undefined,
+                            "type": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                            "placeholder": undefined,
+                            "type": undefined,
+                          },
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": [Circular],
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                  Object {
+                    "attribs": Object {
+                      "class": "MuiInputBase-root-74 SearchBar-inputRoot-72",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "class": "MuiInputBase-input-84 SearchBar-inputInput-73",
+                          "placeholder": "Search…",
+                          "type": "text",
+                        },
+                        "children": Array [],
+                        "name": "input",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                          "placeholder": undefined,
+                          "type": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                          "placeholder": undefined,
+                          "type": undefined,
+                        },
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": Object {
+                      "attribs": Object {
+                        "class": "SearchBar-searchIcon-71",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "aria-hidden": "true",
+                            "class": "MuiSvgIcon-root-58",
+                            "focusable": "false",
+                            "role": "presentation",
+                            "viewBox": "0 0 24 24",
+                          },
+                          "children": Array [
+                            Object {
+                              "attribs": Object {
+                                "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                              },
+                              "children": Array [],
+                              "name": "path",
+                              "namespace": "http://www.w3.org/2000/svg",
+                              "next": Object {
+                                "attribs": Object {
+                                  "d": "M0 0h24v24H0z",
+                                  "fill": "none",
+                                },
+                                "children": Array [],
+                                "name": "path",
+                                "namespace": "http://www.w3.org/2000/svg",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": [Circular],
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "d": undefined,
+                                  "fill": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "d": undefined,
+                                  "fill": undefined,
+                                },
+                              },
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "d": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "d": undefined,
+                              },
+                            },
+                            Object {
+                              "attribs": Object {
+                                "d": "M0 0h24v24H0z",
+                                "fill": "none",
+                              },
+                              "children": Array [],
+                              "name": "path",
+                              "namespace": "http://www.w3.org/2000/svg",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": Object {
+                                "attribs": Object {
+                                  "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                                },
+                                "children": Array [],
+                                "name": "path",
+                                "namespace": "http://www.w3.org/2000/svg",
+                                "next": [Circular],
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "d": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "d": undefined,
+                                },
+                              },
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "d": undefined,
+                                "fill": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "d": undefined,
+                                "fill": undefined,
+                              },
+                            },
+                          ],
+                          "name": "svg",
+                          "namespace": "http://www.w3.org/2000/svg",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "aria-hidden": undefined,
+                            "class": undefined,
+                            "focusable": undefined,
+                            "role": undefined,
+                            "viewBox": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "aria-hidden": undefined,
+                            "class": undefined,
+                            "focusable": undefined,
+                            "role": undefined,
+                            "viewBox": undefined,
+                          },
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": [Circular],
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": [Circular],
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "tabindex": undefined,
+                "type": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "tabindex": undefined,
+                "type": undefined,
+              },
+            },
             "parent": [Circular],
             "prev": null,
             "type": "tag",
@@ -185,24 +606,406 @@ Object {
               "class": undefined,
             },
           },
-        ],
-        "name": "header",
-        "namespace": "http://www.w3.org/1999/xhtml",
-        "next": Object {
-          "attribs": Object {
-            "class": "NavBar-drawer-2",
-          },
-          "children": Array [
-            Object {
-              "attribs": Object {
-                "class": "",
+          Object {
+            "attribs": Object {
+              "class": "MuiButtonBase-root-55 MuiIconButton-root-49 NavBar-brandLogo-1",
+              "tabindex": "0",
+              "type": "button",
+            },
+            "children": Array [
+              Object {
+                "attribs": Object {
+                  "class": "MuiIconButton-label-54",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "alt": "brand logo",
+                      "class": "MuiCardMedia-root-68 MuiCardMedia-media-69 brandLogo BrandLogo-root-67",
+                      "src": "logo-white.png",
+                    },
+                    "children": Array [],
+                    "name": "img",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "alt": undefined,
+                      "class": undefined,
+                      "src": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "alt": undefined,
+                      "class": undefined,
+                      "src": undefined,
+                    },
+                  },
+                ],
+                "name": "span",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
               },
-              "children": Array [],
+            ],
+            "name": "button",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": Object {
+              "attribs": Object {
+                "class": "SearchBar-search-70",
+              },
+              "children": Array [
+                Object {
+                  "attribs": Object {
+                    "class": "SearchBar-searchIcon-71",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "aria-hidden": "true",
+                        "class": "MuiSvgIcon-root-58",
+                        "focusable": "false",
+                        "role": "presentation",
+                        "viewBox": "0 0 24 24",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                          },
+                          "children": Array [],
+                          "name": "path",
+                          "namespace": "http://www.w3.org/2000/svg",
+                          "next": Object {
+                            "attribs": Object {
+                              "d": "M0 0h24v24H0z",
+                              "fill": "none",
+                            },
+                            "children": Array [],
+                            "name": "path",
+                            "namespace": "http://www.w3.org/2000/svg",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": [Circular],
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "d": undefined,
+                              "fill": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "d": undefined,
+                              "fill": undefined,
+                            },
+                          },
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "d": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "d": undefined,
+                          },
+                        },
+                        Object {
+                          "attribs": Object {
+                            "d": "M0 0h24v24H0z",
+                            "fill": "none",
+                          },
+                          "children": Array [],
+                          "name": "path",
+                          "namespace": "http://www.w3.org/2000/svg",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": Object {
+                            "attribs": Object {
+                              "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                            },
+                            "children": Array [],
+                            "name": "path",
+                            "namespace": "http://www.w3.org/2000/svg",
+                            "next": [Circular],
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "d": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "d": undefined,
+                            },
+                          },
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "d": undefined,
+                            "fill": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "d": undefined,
+                            "fill": undefined,
+                          },
+                        },
+                      ],
+                      "name": "svg",
+                      "namespace": "http://www.w3.org/2000/svg",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "aria-hidden": undefined,
+                        "class": undefined,
+                        "focusable": undefined,
+                        "role": undefined,
+                        "viewBox": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "aria-hidden": undefined,
+                        "class": undefined,
+                        "focusable": undefined,
+                        "role": undefined,
+                        "viewBox": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Object {
+                    "attribs": Object {
+                      "class": "MuiInputBase-root-74 SearchBar-inputRoot-72",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "class": "MuiInputBase-input-84 SearchBar-inputInput-73",
+                          "placeholder": "Search…",
+                          "type": "text",
+                        },
+                        "children": Array [],
+                        "name": "input",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                          "placeholder": undefined,
+                          "type": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                          "placeholder": undefined,
+                          "type": undefined,
+                        },
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                Object {
+                  "attribs": Object {
+                    "class": "MuiInputBase-root-74 SearchBar-inputRoot-72",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "class": "MuiInputBase-input-84 SearchBar-inputInput-73",
+                        "placeholder": "Search…",
+                        "type": "text",
+                      },
+                      "children": Array [],
+                      "name": "input",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                        "placeholder": undefined,
+                        "type": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                        "placeholder": undefined,
+                        "type": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": Object {
+                    "attribs": Object {
+                      "class": "SearchBar-searchIcon-71",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "aria-hidden": "true",
+                          "class": "MuiSvgIcon-root-58",
+                          "focusable": "false",
+                          "role": "presentation",
+                          "viewBox": "0 0 24 24",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {
+                              "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                            },
+                            "children": Array [],
+                            "name": "path",
+                            "namespace": "http://www.w3.org/2000/svg",
+                            "next": Object {
+                              "attribs": Object {
+                                "d": "M0 0h24v24H0z",
+                                "fill": "none",
+                              },
+                              "children": Array [],
+                              "name": "path",
+                              "namespace": "http://www.w3.org/2000/svg",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": [Circular],
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "d": undefined,
+                                "fill": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "d": undefined,
+                                "fill": undefined,
+                              },
+                            },
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "d": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "d": undefined,
+                            },
+                          },
+                          Object {
+                            "attribs": Object {
+                              "d": "M0 0h24v24H0z",
+                              "fill": "none",
+                            },
+                            "children": Array [],
+                            "name": "path",
+                            "namespace": "http://www.w3.org/2000/svg",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": Object {
+                              "attribs": Object {
+                                "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                              },
+                              "children": Array [],
+                              "name": "path",
+                              "namespace": "http://www.w3.org/2000/svg",
+                              "next": [Circular],
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "d": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "d": undefined,
+                              },
+                            },
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "d": undefined,
+                              "fill": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "d": undefined,
+                              "fill": undefined,
+                            },
+                          },
+                        ],
+                        "name": "svg",
+                        "namespace": "http://www.w3.org/2000/svg",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "aria-hidden": undefined,
+                          "class": undefined,
+                          "focusable": undefined,
+                          "role": undefined,
+                          "viewBox": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "aria-hidden": undefined,
+                          "class": undefined,
+                          "focusable": undefined,
+                          "role": undefined,
+                          "viewBox": undefined,
+                        },
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
               "name": "div",
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": null,
               "parent": [Circular],
-              "prev": null,
+              "prev": [Circular],
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
@@ -211,85 +1014,29 @@ Object {
                 "class": undefined,
               },
             },
-          ],
-          "name": "nav",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": null,
-          "parent": [Circular],
-          "prev": [Circular],
-          "type": "tag",
-          "x-attribsNamespace": Object {
-            "class": undefined,
-          },
-          "x-attribsPrefix": Object {
-            "class": undefined,
-          },
-        },
-        "parent": [Circular],
-        "prev": null,
-        "type": "tag",
-        "x-attribsNamespace": Object {
-          "class": undefined,
-        },
-        "x-attribsPrefix": Object {
-          "class": undefined,
-        },
-      },
-      Object {
-        "attribs": Object {
-          "class": "NavBar-drawer-2",
-        },
-        "children": Array [
-          Object {
-            "attribs": Object {
-              "class": "",
-            },
-            "children": Array [],
-            "name": "div",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": null,
             "parent": [Circular],
-            "prev": null,
-            "type": "tag",
-            "x-attribsNamespace": Object {
-              "class": undefined,
-            },
-            "x-attribsPrefix": Object {
-              "class": undefined,
-            },
-          },
-        ],
-        "name": "nav",
-        "namespace": "http://www.w3.org/1999/xhtml",
-        "next": null,
-        "parent": [Circular],
-        "prev": Object {
-          "attribs": Object {
-            "class": "MuiPaper-root-16 MuiPaper-elevation4-22 MuiAppBar-root-7 MuiAppBar-positionFixed-8 MuiAppBar-colorPrimary-14 mui-fixed NavBar-appBar-1",
-          },
-          "children": Array [
-            Object {
+            "prev": Object {
               "attribs": Object {
-                "class": "MuiToolbar-root-43 MuiToolbar-regular-45 MuiToolbar-gutters-44",
+                "class": "MuiToolbar-root-45 MuiToolbar-regular-47 MuiToolbar-gutters-46",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
                     "aria-label": "Open drawer",
-                    "class": "MuiButtonBase-root-53 MuiIconButton-root-47 MuiIconButton-colorInherit-48 NavBar-menuButton-4",
+                    "class": "MuiButtonBase-root-55 MuiIconButton-root-49 MuiIconButton-colorInherit-50  menuButton NavBar-menuButton-5",
                     "tabindex": "0",
                     "type": "button",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "MuiIconButton-label-52",
+                        "class": "MuiIconButton-label-54",
                       },
                       "children": Array [
                         Object {
                           "attribs": Object {
                             "aria-hidden": "true",
-                            "class": "MuiSvgIcon-root-56",
+                            "class": "MuiSvgIcon-root-58",
                             "focusable": "false",
                             "role": "presentation",
                             "viewBox": "0 0 24 24",
@@ -430,9 +1177,2480 @@ Object {
               ],
               "name": "div",
               "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+              "tabindex": undefined,
+              "type": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+              "tabindex": undefined,
+              "type": undefined,
+            },
+          },
+          Object {
+            "attribs": Object {
+              "class": "SearchBar-search-70",
+            },
+            "children": Array [
+              Object {
+                "attribs": Object {
+                  "class": "SearchBar-searchIcon-71",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "aria-hidden": "true",
+                      "class": "MuiSvgIcon-root-58",
+                      "focusable": "false",
+                      "role": "presentation",
+                      "viewBox": "0 0 24 24",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                        },
+                        "children": Array [],
+                        "name": "path",
+                        "namespace": "http://www.w3.org/2000/svg",
+                        "next": Object {
+                          "attribs": Object {
+                            "d": "M0 0h24v24H0z",
+                            "fill": "none",
+                          },
+                          "children": Array [],
+                          "name": "path",
+                          "namespace": "http://www.w3.org/2000/svg",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": [Circular],
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "d": undefined,
+                            "fill": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "d": undefined,
+                            "fill": undefined,
+                          },
+                        },
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "d": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "d": undefined,
+                        },
+                      },
+                      Object {
+                        "attribs": Object {
+                          "d": "M0 0h24v24H0z",
+                          "fill": "none",
+                        },
+                        "children": Array [],
+                        "name": "path",
+                        "namespace": "http://www.w3.org/2000/svg",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": Object {
+                          "attribs": Object {
+                            "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                          },
+                          "children": Array [],
+                          "name": "path",
+                          "namespace": "http://www.w3.org/2000/svg",
+                          "next": [Circular],
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "d": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "d": undefined,
+                          },
+                        },
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "d": undefined,
+                          "fill": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "d": undefined,
+                          "fill": undefined,
+                        },
+                      },
+                    ],
+                    "name": "svg",
+                    "namespace": "http://www.w3.org/2000/svg",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "aria-hidden": undefined,
+                      "class": undefined,
+                      "focusable": undefined,
+                      "role": undefined,
+                      "viewBox": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "aria-hidden": undefined,
+                      "class": undefined,
+                      "focusable": undefined,
+                      "role": undefined,
+                      "viewBox": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "class": "MuiInputBase-root-74 SearchBar-inputRoot-72",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "class": "MuiInputBase-input-84 SearchBar-inputInput-73",
+                        "placeholder": "Search…",
+                        "type": "text",
+                      },
+                      "children": Array [],
+                      "name": "input",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                        "placeholder": undefined,
+                        "type": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                        "placeholder": undefined,
+                        "type": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              Object {
+                "attribs": Object {
+                  "class": "MuiInputBase-root-74 SearchBar-inputRoot-72",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "class": "MuiInputBase-input-84 SearchBar-inputInput-73",
+                      "placeholder": "Search…",
+                      "type": "text",
+                    },
+                    "children": Array [],
+                    "name": "input",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                      "placeholder": undefined,
+                      "type": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                      "placeholder": undefined,
+                      "type": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {
+                    "class": "SearchBar-searchIcon-71",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "aria-hidden": "true",
+                        "class": "MuiSvgIcon-root-58",
+                        "focusable": "false",
+                        "role": "presentation",
+                        "viewBox": "0 0 24 24",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                          },
+                          "children": Array [],
+                          "name": "path",
+                          "namespace": "http://www.w3.org/2000/svg",
+                          "next": Object {
+                            "attribs": Object {
+                              "d": "M0 0h24v24H0z",
+                              "fill": "none",
+                            },
+                            "children": Array [],
+                            "name": "path",
+                            "namespace": "http://www.w3.org/2000/svg",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": [Circular],
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "d": undefined,
+                              "fill": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "d": undefined,
+                              "fill": undefined,
+                            },
+                          },
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "d": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "d": undefined,
+                          },
+                        },
+                        Object {
+                          "attribs": Object {
+                            "d": "M0 0h24v24H0z",
+                            "fill": "none",
+                          },
+                          "children": Array [],
+                          "name": "path",
+                          "namespace": "http://www.w3.org/2000/svg",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": Object {
+                            "attribs": Object {
+                              "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                            },
+                            "children": Array [],
+                            "name": "path",
+                            "namespace": "http://www.w3.org/2000/svg",
+                            "next": [Circular],
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "d": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "d": undefined,
+                            },
+                          },
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "d": undefined,
+                            "fill": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "d": undefined,
+                            "fill": undefined,
+                          },
+                        },
+                      ],
+                      "name": "svg",
+                      "namespace": "http://www.w3.org/2000/svg",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "aria-hidden": undefined,
+                        "class": undefined,
+                        "focusable": undefined,
+                        "role": undefined,
+                        "viewBox": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "aria-hidden": undefined,
+                        "class": undefined,
+                        "focusable": undefined,
+                        "role": undefined,
+                        "viewBox": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+            ],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": Object {
+              "attribs": Object {
+                "class": "MuiButtonBase-root-55 MuiIconButton-root-49 NavBar-brandLogo-1",
+                "tabindex": "0",
+                "type": "button",
+              },
+              "children": Array [
+                Object {
+                  "attribs": Object {
+                    "class": "MuiIconButton-label-54",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "alt": "brand logo",
+                        "class": "MuiCardMedia-root-68 MuiCardMedia-media-69 brandLogo BrandLogo-root-67",
+                        "src": "logo-white.png",
+                      },
+                      "children": Array [],
+                      "name": "img",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "alt": undefined,
+                        "class": undefined,
+                        "src": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "alt": undefined,
+                        "class": undefined,
+                        "src": undefined,
+                      },
+                    },
+                  ],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": [Circular],
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "class": "MuiToolbar-root-45 MuiToolbar-regular-47 MuiToolbar-gutters-46",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "aria-label": "Open drawer",
+                      "class": "MuiButtonBase-root-55 MuiIconButton-root-49 MuiIconButton-colorInherit-50  menuButton NavBar-menuButton-5",
+                      "tabindex": "0",
+                      "type": "button",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "class": "MuiIconButton-label-54",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {
+                              "aria-hidden": "true",
+                              "class": "MuiSvgIcon-root-58",
+                              "focusable": "false",
+                              "role": "presentation",
+                              "viewBox": "0 0 24 24",
+                            },
+                            "children": Array [
+                              Object {
+                                "attribs": Object {
+                                  "d": "M0 0h24v24H0z",
+                                  "fill": "none",
+                                },
+                                "children": Array [],
+                                "name": "path",
+                                "namespace": "http://www.w3.org/2000/svg",
+                                "next": Object {
+                                  "attribs": Object {
+                                    "d": "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z",
+                                  },
+                                  "children": Array [],
+                                  "name": "path",
+                                  "namespace": "http://www.w3.org/2000/svg",
+                                  "next": null,
+                                  "parent": [Circular],
+                                  "prev": [Circular],
+                                  "type": "tag",
+                                  "x-attribsNamespace": Object {
+                                    "d": undefined,
+                                  },
+                                  "x-attribsPrefix": Object {
+                                    "d": undefined,
+                                  },
+                                },
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "d": undefined,
+                                  "fill": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "d": undefined,
+                                  "fill": undefined,
+                                },
+                              },
+                              Object {
+                                "attribs": Object {
+                                  "d": "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z",
+                                },
+                                "children": Array [],
+                                "name": "path",
+                                "namespace": "http://www.w3.org/2000/svg",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": Object {
+                                  "attribs": Object {
+                                    "d": "M0 0h24v24H0z",
+                                    "fill": "none",
+                                  },
+                                  "children": Array [],
+                                  "name": "path",
+                                  "namespace": "http://www.w3.org/2000/svg",
+                                  "next": [Circular],
+                                  "parent": [Circular],
+                                  "prev": null,
+                                  "type": "tag",
+                                  "x-attribsNamespace": Object {
+                                    "d": undefined,
+                                    "fill": undefined,
+                                  },
+                                  "x-attribsPrefix": Object {
+                                    "d": undefined,
+                                    "fill": undefined,
+                                  },
+                                },
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "d": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "d": undefined,
+                                },
+                              },
+                            ],
+                            "name": "svg",
+                            "namespace": "http://www.w3.org/2000/svg",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "aria-hidden": undefined,
+                              "class": undefined,
+                              "focusable": undefined,
+                              "role": undefined,
+                              "viewBox": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "aria-hidden": undefined,
+                              "class": undefined,
+                              "focusable": undefined,
+                              "role": undefined,
+                              "viewBox": undefined,
+                            },
+                          },
+                        ],
+                        "name": "span",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                    ],
+                    "name": "button",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "aria-label": undefined,
+                      "class": undefined,
+                      "tabindex": undefined,
+                      "type": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "aria-label": undefined,
+                      "class": undefined,
+                      "tabindex": undefined,
+                      "type": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "tabindex": undefined,
+                "type": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "tabindex": undefined,
+                "type": undefined,
+              },
+            },
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+        ],
+        "name": "header",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": Object {
+          "attribs": Object {
+            "class": "NavBar-drawer-2",
+          },
+          "children": Array [
+            Object {
+              "attribs": Object {
+                "class": "",
+              },
+              "children": Array [],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
               "next": null,
               "parent": [Circular],
               "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+          ],
+          "name": "nav",
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "next": null,
+          "parent": [Circular],
+          "prev": [Circular],
+          "type": "tag",
+          "x-attribsNamespace": Object {
+            "class": undefined,
+          },
+          "x-attribsPrefix": Object {
+            "class": undefined,
+          },
+        },
+        "parent": [Circular],
+        "prev": null,
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
+      },
+      Object {
+        "attribs": Object {
+          "class": "NavBar-drawer-2",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {
+              "class": "",
+            },
+            "children": Array [],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+        ],
+        "name": "nav",
+        "namespace": "http://www.w3.org/1999/xhtml",
+        "next": null,
+        "parent": [Circular],
+        "prev": Object {
+          "attribs": Object {
+            "class": "MuiPaper-root-18 MuiPaper-elevation4-24 MuiAppBar-root-9 MuiAppBar-positionFixed-10 MuiAppBar-colorPrimary-16 mui-fixed NavBar-grid-4",
+          },
+          "children": Array [
+            Object {
+              "attribs": Object {
+                "class": "MuiToolbar-root-45 MuiToolbar-regular-47 MuiToolbar-gutters-46",
+              },
+              "children": Array [
+                Object {
+                  "attribs": Object {
+                    "aria-label": "Open drawer",
+                    "class": "MuiButtonBase-root-55 MuiIconButton-root-49 MuiIconButton-colorInherit-50  menuButton NavBar-menuButton-5",
+                    "tabindex": "0",
+                    "type": "button",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "class": "MuiIconButton-label-54",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "aria-hidden": "true",
+                            "class": "MuiSvgIcon-root-58",
+                            "focusable": "false",
+                            "role": "presentation",
+                            "viewBox": "0 0 24 24",
+                          },
+                          "children": Array [
+                            Object {
+                              "attribs": Object {
+                                "d": "M0 0h24v24H0z",
+                                "fill": "none",
+                              },
+                              "children": Array [],
+                              "name": "path",
+                              "namespace": "http://www.w3.org/2000/svg",
+                              "next": Object {
+                                "attribs": Object {
+                                  "d": "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z",
+                                },
+                                "children": Array [],
+                                "name": "path",
+                                "namespace": "http://www.w3.org/2000/svg",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": [Circular],
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "d": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "d": undefined,
+                                },
+                              },
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "d": undefined,
+                                "fill": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "d": undefined,
+                                "fill": undefined,
+                              },
+                            },
+                            Object {
+                              "attribs": Object {
+                                "d": "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z",
+                              },
+                              "children": Array [],
+                              "name": "path",
+                              "namespace": "http://www.w3.org/2000/svg",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": Object {
+                                "attribs": Object {
+                                  "d": "M0 0h24v24H0z",
+                                  "fill": "none",
+                                },
+                                "children": Array [],
+                                "name": "path",
+                                "namespace": "http://www.w3.org/2000/svg",
+                                "next": [Circular],
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "d": undefined,
+                                  "fill": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "d": undefined,
+                                  "fill": undefined,
+                                },
+                              },
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "d": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "d": undefined,
+                              },
+                            },
+                          ],
+                          "name": "svg",
+                          "namespace": "http://www.w3.org/2000/svg",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "aria-hidden": undefined,
+                            "class": undefined,
+                            "focusable": undefined,
+                            "role": undefined,
+                            "viewBox": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "aria-hidden": undefined,
+                            "class": undefined,
+                            "focusable": undefined,
+                            "role": undefined,
+                            "viewBox": undefined,
+                          },
+                        },
+                      ],
+                      "name": "span",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                  ],
+                  "name": "button",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "aria-label": undefined,
+                    "class": undefined,
+                    "tabindex": undefined,
+                    "type": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "aria-label": undefined,
+                    "class": undefined,
+                    "tabindex": undefined,
+                    "type": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "class": "MuiButtonBase-root-55 MuiIconButton-root-49 NavBar-brandLogo-1",
+                  "tabindex": "0",
+                  "type": "button",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "class": "MuiIconButton-label-54",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "alt": "brand logo",
+                          "class": "MuiCardMedia-root-68 MuiCardMedia-media-69 brandLogo BrandLogo-root-67",
+                          "src": "logo-white.png",
+                        },
+                        "children": Array [],
+                        "name": "img",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "alt": undefined,
+                          "class": undefined,
+                          "src": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "alt": undefined,
+                          "class": undefined,
+                          "src": undefined,
+                        },
+                      },
+                    ],
+                    "name": "span",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": Object {
+                  "attribs": Object {
+                    "class": "SearchBar-search-70",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "class": "SearchBar-searchIcon-71",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "aria-hidden": "true",
+                            "class": "MuiSvgIcon-root-58",
+                            "focusable": "false",
+                            "role": "presentation",
+                            "viewBox": "0 0 24 24",
+                          },
+                          "children": Array [
+                            Object {
+                              "attribs": Object {
+                                "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                              },
+                              "children": Array [],
+                              "name": "path",
+                              "namespace": "http://www.w3.org/2000/svg",
+                              "next": Object {
+                                "attribs": Object {
+                                  "d": "M0 0h24v24H0z",
+                                  "fill": "none",
+                                },
+                                "children": Array [],
+                                "name": "path",
+                                "namespace": "http://www.w3.org/2000/svg",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": [Circular],
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "d": undefined,
+                                  "fill": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "d": undefined,
+                                  "fill": undefined,
+                                },
+                              },
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "d": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "d": undefined,
+                              },
+                            },
+                            Object {
+                              "attribs": Object {
+                                "d": "M0 0h24v24H0z",
+                                "fill": "none",
+                              },
+                              "children": Array [],
+                              "name": "path",
+                              "namespace": "http://www.w3.org/2000/svg",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": Object {
+                                "attribs": Object {
+                                  "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                                },
+                                "children": Array [],
+                                "name": "path",
+                                "namespace": "http://www.w3.org/2000/svg",
+                                "next": [Circular],
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "d": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "d": undefined,
+                                },
+                              },
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "d": undefined,
+                                "fill": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "d": undefined,
+                                "fill": undefined,
+                              },
+                            },
+                          ],
+                          "name": "svg",
+                          "namespace": "http://www.w3.org/2000/svg",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "aria-hidden": undefined,
+                            "class": undefined,
+                            "focusable": undefined,
+                            "role": undefined,
+                            "viewBox": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "aria-hidden": undefined,
+                            "class": undefined,
+                            "focusable": undefined,
+                            "role": undefined,
+                            "viewBox": undefined,
+                          },
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": Object {
+                        "attribs": Object {
+                          "class": "MuiInputBase-root-74 SearchBar-inputRoot-72",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {
+                              "class": "MuiInputBase-input-84 SearchBar-inputInput-73",
+                              "placeholder": "Search…",
+                              "type": "text",
+                            },
+                            "children": Array [],
+                            "name": "input",
+                            "namespace": "http://www.w3.org/1999/xhtml",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "class": undefined,
+                              "placeholder": undefined,
+                              "type": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "class": undefined,
+                              "placeholder": undefined,
+                              "type": undefined,
+                            },
+                          },
+                        ],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": [Circular],
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                    Object {
+                      "attribs": Object {
+                        "class": "MuiInputBase-root-74 SearchBar-inputRoot-72",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "class": "MuiInputBase-input-84 SearchBar-inputInput-73",
+                            "placeholder": "Search…",
+                            "type": "text",
+                          },
+                          "children": Array [],
+                          "name": "input",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                            "placeholder": undefined,
+                            "type": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                            "placeholder": undefined,
+                            "type": undefined,
+                          },
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": Object {
+                        "attribs": Object {
+                          "class": "SearchBar-searchIcon-71",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {
+                              "aria-hidden": "true",
+                              "class": "MuiSvgIcon-root-58",
+                              "focusable": "false",
+                              "role": "presentation",
+                              "viewBox": "0 0 24 24",
+                            },
+                            "children": Array [
+                              Object {
+                                "attribs": Object {
+                                  "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                                },
+                                "children": Array [],
+                                "name": "path",
+                                "namespace": "http://www.w3.org/2000/svg",
+                                "next": Object {
+                                  "attribs": Object {
+                                    "d": "M0 0h24v24H0z",
+                                    "fill": "none",
+                                  },
+                                  "children": Array [],
+                                  "name": "path",
+                                  "namespace": "http://www.w3.org/2000/svg",
+                                  "next": null,
+                                  "parent": [Circular],
+                                  "prev": [Circular],
+                                  "type": "tag",
+                                  "x-attribsNamespace": Object {
+                                    "d": undefined,
+                                    "fill": undefined,
+                                  },
+                                  "x-attribsPrefix": Object {
+                                    "d": undefined,
+                                    "fill": undefined,
+                                  },
+                                },
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "d": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "d": undefined,
+                                },
+                              },
+                              Object {
+                                "attribs": Object {
+                                  "d": "M0 0h24v24H0z",
+                                  "fill": "none",
+                                },
+                                "children": Array [],
+                                "name": "path",
+                                "namespace": "http://www.w3.org/2000/svg",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": Object {
+                                  "attribs": Object {
+                                    "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                                  },
+                                  "children": Array [],
+                                  "name": "path",
+                                  "namespace": "http://www.w3.org/2000/svg",
+                                  "next": [Circular],
+                                  "parent": [Circular],
+                                  "prev": null,
+                                  "type": "tag",
+                                  "x-attribsNamespace": Object {
+                                    "d": undefined,
+                                  },
+                                  "x-attribsPrefix": Object {
+                                    "d": undefined,
+                                  },
+                                },
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "d": undefined,
+                                  "fill": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "d": undefined,
+                                  "fill": undefined,
+                                },
+                              },
+                            ],
+                            "name": "svg",
+                            "namespace": "http://www.w3.org/2000/svg",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "aria-hidden": undefined,
+                              "class": undefined,
+                              "focusable": undefined,
+                              "role": undefined,
+                              "viewBox": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "aria-hidden": undefined,
+                              "class": undefined,
+                              "focusable": undefined,
+                              "role": undefined,
+                              "viewBox": undefined,
+                            },
+                          },
+                        ],
+                        "name": "div",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": [Circular],
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": [Circular],
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "tabindex": undefined,
+                  "type": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "tabindex": undefined,
+                  "type": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": null,
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+              },
+            },
+            Object {
+              "attribs": Object {
+                "class": "MuiButtonBase-root-55 MuiIconButton-root-49 NavBar-brandLogo-1",
+                "tabindex": "0",
+                "type": "button",
+              },
+              "children": Array [
+                Object {
+                  "attribs": Object {
+                    "class": "MuiIconButton-label-54",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "alt": "brand logo",
+                        "class": "MuiCardMedia-root-68 MuiCardMedia-media-69 brandLogo BrandLogo-root-67",
+                        "src": "logo-white.png",
+                      },
+                      "children": Array [],
+                      "name": "img",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "alt": undefined,
+                        "class": undefined,
+                        "src": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "alt": undefined,
+                        "class": undefined,
+                        "src": undefined,
+                      },
+                    },
+                  ],
+                  "name": "span",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "button",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": Object {
+                "attribs": Object {
+                  "class": "SearchBar-search-70",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "class": "SearchBar-searchIcon-71",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "aria-hidden": "true",
+                          "class": "MuiSvgIcon-root-58",
+                          "focusable": "false",
+                          "role": "presentation",
+                          "viewBox": "0 0 24 24",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {
+                              "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                            },
+                            "children": Array [],
+                            "name": "path",
+                            "namespace": "http://www.w3.org/2000/svg",
+                            "next": Object {
+                              "attribs": Object {
+                                "d": "M0 0h24v24H0z",
+                                "fill": "none",
+                              },
+                              "children": Array [],
+                              "name": "path",
+                              "namespace": "http://www.w3.org/2000/svg",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": [Circular],
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "d": undefined,
+                                "fill": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "d": undefined,
+                                "fill": undefined,
+                              },
+                            },
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "d": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "d": undefined,
+                            },
+                          },
+                          Object {
+                            "attribs": Object {
+                              "d": "M0 0h24v24H0z",
+                              "fill": "none",
+                            },
+                            "children": Array [],
+                            "name": "path",
+                            "namespace": "http://www.w3.org/2000/svg",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": Object {
+                              "attribs": Object {
+                                "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                              },
+                              "children": Array [],
+                              "name": "path",
+                              "namespace": "http://www.w3.org/2000/svg",
+                              "next": [Circular],
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "d": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "d": undefined,
+                              },
+                            },
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "d": undefined,
+                              "fill": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "d": undefined,
+                              "fill": undefined,
+                            },
+                          },
+                        ],
+                        "name": "svg",
+                        "namespace": "http://www.w3.org/2000/svg",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "aria-hidden": undefined,
+                          "class": undefined,
+                          "focusable": undefined,
+                          "role": undefined,
+                          "viewBox": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "aria-hidden": undefined,
+                          "class": undefined,
+                          "focusable": undefined,
+                          "role": undefined,
+                          "viewBox": undefined,
+                        },
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": Object {
+                      "attribs": Object {
+                        "class": "MuiInputBase-root-74 SearchBar-inputRoot-72",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "class": "MuiInputBase-input-84 SearchBar-inputInput-73",
+                            "placeholder": "Search…",
+                            "type": "text",
+                          },
+                          "children": Array [],
+                          "name": "input",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                            "placeholder": undefined,
+                            "type": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                            "placeholder": undefined,
+                            "type": undefined,
+                          },
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": [Circular],
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                  Object {
+                    "attribs": Object {
+                      "class": "MuiInputBase-root-74 SearchBar-inputRoot-72",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "class": "MuiInputBase-input-84 SearchBar-inputInput-73",
+                          "placeholder": "Search…",
+                          "type": "text",
+                        },
+                        "children": Array [],
+                        "name": "input",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                          "placeholder": undefined,
+                          "type": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                          "placeholder": undefined,
+                          "type": undefined,
+                        },
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": Object {
+                      "attribs": Object {
+                        "class": "SearchBar-searchIcon-71",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "aria-hidden": "true",
+                            "class": "MuiSvgIcon-root-58",
+                            "focusable": "false",
+                            "role": "presentation",
+                            "viewBox": "0 0 24 24",
+                          },
+                          "children": Array [
+                            Object {
+                              "attribs": Object {
+                                "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                              },
+                              "children": Array [],
+                              "name": "path",
+                              "namespace": "http://www.w3.org/2000/svg",
+                              "next": Object {
+                                "attribs": Object {
+                                  "d": "M0 0h24v24H0z",
+                                  "fill": "none",
+                                },
+                                "children": Array [],
+                                "name": "path",
+                                "namespace": "http://www.w3.org/2000/svg",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": [Circular],
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "d": undefined,
+                                  "fill": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "d": undefined,
+                                  "fill": undefined,
+                                },
+                              },
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "d": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "d": undefined,
+                              },
+                            },
+                            Object {
+                              "attribs": Object {
+                                "d": "M0 0h24v24H0z",
+                                "fill": "none",
+                              },
+                              "children": Array [],
+                              "name": "path",
+                              "namespace": "http://www.w3.org/2000/svg",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": Object {
+                                "attribs": Object {
+                                  "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                                },
+                                "children": Array [],
+                                "name": "path",
+                                "namespace": "http://www.w3.org/2000/svg",
+                                "next": [Circular],
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "d": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "d": undefined,
+                                },
+                              },
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "d": undefined,
+                                "fill": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "d": undefined,
+                                "fill": undefined,
+                              },
+                            },
+                          ],
+                          "name": "svg",
+                          "namespace": "http://www.w3.org/2000/svg",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "aria-hidden": undefined,
+                            "class": undefined,
+                            "focusable": undefined,
+                            "role": undefined,
+                            "viewBox": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "aria-hidden": undefined,
+                            "class": undefined,
+                            "focusable": undefined,
+                            "role": undefined,
+                            "viewBox": undefined,
+                          },
+                        },
+                      ],
+                      "name": "div",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": [Circular],
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                      },
+                    },
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": null,
+                "parent": [Circular],
+                "prev": [Circular],
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "class": "MuiToolbar-root-45 MuiToolbar-regular-47 MuiToolbar-gutters-46",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "aria-label": "Open drawer",
+                      "class": "MuiButtonBase-root-55 MuiIconButton-root-49 MuiIconButton-colorInherit-50  menuButton NavBar-menuButton-5",
+                      "tabindex": "0",
+                      "type": "button",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "class": "MuiIconButton-label-54",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {
+                              "aria-hidden": "true",
+                              "class": "MuiSvgIcon-root-58",
+                              "focusable": "false",
+                              "role": "presentation",
+                              "viewBox": "0 0 24 24",
+                            },
+                            "children": Array [
+                              Object {
+                                "attribs": Object {
+                                  "d": "M0 0h24v24H0z",
+                                  "fill": "none",
+                                },
+                                "children": Array [],
+                                "name": "path",
+                                "namespace": "http://www.w3.org/2000/svg",
+                                "next": Object {
+                                  "attribs": Object {
+                                    "d": "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z",
+                                  },
+                                  "children": Array [],
+                                  "name": "path",
+                                  "namespace": "http://www.w3.org/2000/svg",
+                                  "next": null,
+                                  "parent": [Circular],
+                                  "prev": [Circular],
+                                  "type": "tag",
+                                  "x-attribsNamespace": Object {
+                                    "d": undefined,
+                                  },
+                                  "x-attribsPrefix": Object {
+                                    "d": undefined,
+                                  },
+                                },
+                                "parent": [Circular],
+                                "prev": null,
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "d": undefined,
+                                  "fill": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "d": undefined,
+                                  "fill": undefined,
+                                },
+                              },
+                              Object {
+                                "attribs": Object {
+                                  "d": "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z",
+                                },
+                                "children": Array [],
+                                "name": "path",
+                                "namespace": "http://www.w3.org/2000/svg",
+                                "next": null,
+                                "parent": [Circular],
+                                "prev": Object {
+                                  "attribs": Object {
+                                    "d": "M0 0h24v24H0z",
+                                    "fill": "none",
+                                  },
+                                  "children": Array [],
+                                  "name": "path",
+                                  "namespace": "http://www.w3.org/2000/svg",
+                                  "next": [Circular],
+                                  "parent": [Circular],
+                                  "prev": null,
+                                  "type": "tag",
+                                  "x-attribsNamespace": Object {
+                                    "d": undefined,
+                                    "fill": undefined,
+                                  },
+                                  "x-attribsPrefix": Object {
+                                    "d": undefined,
+                                    "fill": undefined,
+                                  },
+                                },
+                                "type": "tag",
+                                "x-attribsNamespace": Object {
+                                  "d": undefined,
+                                },
+                                "x-attribsPrefix": Object {
+                                  "d": undefined,
+                                },
+                              },
+                            ],
+                            "name": "svg",
+                            "namespace": "http://www.w3.org/2000/svg",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "aria-hidden": undefined,
+                              "class": undefined,
+                              "focusable": undefined,
+                              "role": undefined,
+                              "viewBox": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "aria-hidden": undefined,
+                              "class": undefined,
+                              "focusable": undefined,
+                              "role": undefined,
+                              "viewBox": undefined,
+                            },
+                          },
+                        ],
+                        "name": "span",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                        },
+                      },
+                    ],
+                    "name": "button",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "aria-label": undefined,
+                      "class": undefined,
+                      "tabindex": undefined,
+                      "type": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "aria-label": undefined,
+                      "class": undefined,
+                      "tabindex": undefined,
+                      "type": undefined,
+                    },
+                  },
+                ],
+                "name": "div",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": null,
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                },
+              },
+              "type": "tag",
+              "x-attribsNamespace": Object {
+                "class": undefined,
+                "tabindex": undefined,
+                "type": undefined,
+              },
+              "x-attribsPrefix": Object {
+                "class": undefined,
+                "tabindex": undefined,
+                "type": undefined,
+              },
+            },
+            Object {
+              "attribs": Object {
+                "class": "SearchBar-search-70",
+              },
+              "children": Array [
+                Object {
+                  "attribs": Object {
+                    "class": "SearchBar-searchIcon-71",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "aria-hidden": "true",
+                        "class": "MuiSvgIcon-root-58",
+                        "focusable": "false",
+                        "role": "presentation",
+                        "viewBox": "0 0 24 24",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                          },
+                          "children": Array [],
+                          "name": "path",
+                          "namespace": "http://www.w3.org/2000/svg",
+                          "next": Object {
+                            "attribs": Object {
+                              "d": "M0 0h24v24H0z",
+                              "fill": "none",
+                            },
+                            "children": Array [],
+                            "name": "path",
+                            "namespace": "http://www.w3.org/2000/svg",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": [Circular],
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "d": undefined,
+                              "fill": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "d": undefined,
+                              "fill": undefined,
+                            },
+                          },
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "d": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "d": undefined,
+                          },
+                        },
+                        Object {
+                          "attribs": Object {
+                            "d": "M0 0h24v24H0z",
+                            "fill": "none",
+                          },
+                          "children": Array [],
+                          "name": "path",
+                          "namespace": "http://www.w3.org/2000/svg",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": Object {
+                            "attribs": Object {
+                              "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                            },
+                            "children": Array [],
+                            "name": "path",
+                            "namespace": "http://www.w3.org/2000/svg",
+                            "next": [Circular],
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "d": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "d": undefined,
+                            },
+                          },
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "d": undefined,
+                            "fill": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "d": undefined,
+                            "fill": undefined,
+                          },
+                        },
+                      ],
+                      "name": "svg",
+                      "namespace": "http://www.w3.org/2000/svg",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "aria-hidden": undefined,
+                        "class": undefined,
+                        "focusable": undefined,
+                        "role": undefined,
+                        "viewBox": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "aria-hidden": undefined,
+                        "class": undefined,
+                        "focusable": undefined,
+                        "role": undefined,
+                        "viewBox": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": Object {
+                    "attribs": Object {
+                      "class": "MuiInputBase-root-74 SearchBar-inputRoot-72",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "class": "MuiInputBase-input-84 SearchBar-inputInput-73",
+                          "placeholder": "Search…",
+                          "type": "text",
+                        },
+                        "children": Array [],
+                        "name": "input",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "class": undefined,
+                          "placeholder": undefined,
+                          "type": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "class": undefined,
+                          "placeholder": undefined,
+                          "type": undefined,
+                        },
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": [Circular],
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                Object {
+                  "attribs": Object {
+                    "class": "MuiInputBase-root-74 SearchBar-inputRoot-72",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "class": "MuiInputBase-input-84 SearchBar-inputInput-73",
+                        "placeholder": "Search…",
+                        "type": "text",
+                      },
+                      "children": Array [],
+                      "name": "input",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "class": undefined,
+                        "placeholder": undefined,
+                        "type": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "class": undefined,
+                        "placeholder": undefined,
+                        "type": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": null,
+                  "parent": [Circular],
+                  "prev": Object {
+                    "attribs": Object {
+                      "class": "SearchBar-searchIcon-71",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "aria-hidden": "true",
+                          "class": "MuiSvgIcon-root-58",
+                          "focusable": "false",
+                          "role": "presentation",
+                          "viewBox": "0 0 24 24",
+                        },
+                        "children": Array [
+                          Object {
+                            "attribs": Object {
+                              "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                            },
+                            "children": Array [],
+                            "name": "path",
+                            "namespace": "http://www.w3.org/2000/svg",
+                            "next": Object {
+                              "attribs": Object {
+                                "d": "M0 0h24v24H0z",
+                                "fill": "none",
+                              },
+                              "children": Array [],
+                              "name": "path",
+                              "namespace": "http://www.w3.org/2000/svg",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": [Circular],
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "d": undefined,
+                                "fill": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "d": undefined,
+                                "fill": undefined,
+                              },
+                            },
+                            "parent": [Circular],
+                            "prev": null,
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "d": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "d": undefined,
+                            },
+                          },
+                          Object {
+                            "attribs": Object {
+                              "d": "M0 0h24v24H0z",
+                              "fill": "none",
+                            },
+                            "children": Array [],
+                            "name": "path",
+                            "namespace": "http://www.w3.org/2000/svg",
+                            "next": null,
+                            "parent": [Circular],
+                            "prev": Object {
+                              "attribs": Object {
+                                "d": "M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+                              },
+                              "children": Array [],
+                              "name": "path",
+                              "namespace": "http://www.w3.org/2000/svg",
+                              "next": [Circular],
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "d": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "d": undefined,
+                              },
+                            },
+                            "type": "tag",
+                            "x-attribsNamespace": Object {
+                              "d": undefined,
+                              "fill": undefined,
+                            },
+                            "x-attribsPrefix": Object {
+                              "d": undefined,
+                              "fill": undefined,
+                            },
+                          },
+                        ],
+                        "name": "svg",
+                        "namespace": "http://www.w3.org/2000/svg",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "aria-hidden": undefined,
+                          "class": undefined,
+                          "focusable": undefined,
+                          "role": undefined,
+                          "viewBox": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "aria-hidden": undefined,
+                          "class": undefined,
+                          "focusable": undefined,
+                          "role": undefined,
+                          "viewBox": undefined,
+                        },
+                      },
+                    ],
+                    "name": "div",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": [Circular],
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+              ],
+              "name": "div",
+              "namespace": "http://www.w3.org/1999/xhtml",
+              "next": null,
+              "parent": [Circular],
+              "prev": Object {
+                "attribs": Object {
+                  "class": "MuiButtonBase-root-55 MuiIconButton-root-49 NavBar-brandLogo-1",
+                  "tabindex": "0",
+                  "type": "button",
+                },
+                "children": Array [
+                  Object {
+                    "attribs": Object {
+                      "class": "MuiIconButton-label-54",
+                    },
+                    "children": Array [
+                      Object {
+                        "attribs": Object {
+                          "alt": "brand logo",
+                          "class": "MuiCardMedia-root-68 MuiCardMedia-media-69 brandLogo BrandLogo-root-67",
+                          "src": "logo-white.png",
+                        },
+                        "children": Array [],
+                        "name": "img",
+                        "namespace": "http://www.w3.org/1999/xhtml",
+                        "next": null,
+                        "parent": [Circular],
+                        "prev": null,
+                        "type": "tag",
+                        "x-attribsNamespace": Object {
+                          "alt": undefined,
+                          "class": undefined,
+                          "src": undefined,
+                        },
+                        "x-attribsPrefix": Object {
+                          "alt": undefined,
+                          "class": undefined,
+                          "src": undefined,
+                        },
+                      },
+                    ],
+                    "name": "span",
+                    "namespace": "http://www.w3.org/1999/xhtml",
+                    "next": null,
+                    "parent": [Circular],
+                    "prev": null,
+                    "type": "tag",
+                    "x-attribsNamespace": Object {
+                      "class": undefined,
+                    },
+                    "x-attribsPrefix": Object {
+                      "class": undefined,
+                    },
+                  },
+                ],
+                "name": "button",
+                "namespace": "http://www.w3.org/1999/xhtml",
+                "next": [Circular],
+                "parent": [Circular],
+                "prev": Object {
+                  "attribs": Object {
+                    "class": "MuiToolbar-root-45 MuiToolbar-regular-47 MuiToolbar-gutters-46",
+                  },
+                  "children": Array [
+                    Object {
+                      "attribs": Object {
+                        "aria-label": "Open drawer",
+                        "class": "MuiButtonBase-root-55 MuiIconButton-root-49 MuiIconButton-colorInherit-50  menuButton NavBar-menuButton-5",
+                        "tabindex": "0",
+                        "type": "button",
+                      },
+                      "children": Array [
+                        Object {
+                          "attribs": Object {
+                            "class": "MuiIconButton-label-54",
+                          },
+                          "children": Array [
+                            Object {
+                              "attribs": Object {
+                                "aria-hidden": "true",
+                                "class": "MuiSvgIcon-root-58",
+                                "focusable": "false",
+                                "role": "presentation",
+                                "viewBox": "0 0 24 24",
+                              },
+                              "children": Array [
+                                Object {
+                                  "attribs": Object {
+                                    "d": "M0 0h24v24H0z",
+                                    "fill": "none",
+                                  },
+                                  "children": Array [],
+                                  "name": "path",
+                                  "namespace": "http://www.w3.org/2000/svg",
+                                  "next": Object {
+                                    "attribs": Object {
+                                      "d": "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z",
+                                    },
+                                    "children": Array [],
+                                    "name": "path",
+                                    "namespace": "http://www.w3.org/2000/svg",
+                                    "next": null,
+                                    "parent": [Circular],
+                                    "prev": [Circular],
+                                    "type": "tag",
+                                    "x-attribsNamespace": Object {
+                                      "d": undefined,
+                                    },
+                                    "x-attribsPrefix": Object {
+                                      "d": undefined,
+                                    },
+                                  },
+                                  "parent": [Circular],
+                                  "prev": null,
+                                  "type": "tag",
+                                  "x-attribsNamespace": Object {
+                                    "d": undefined,
+                                    "fill": undefined,
+                                  },
+                                  "x-attribsPrefix": Object {
+                                    "d": undefined,
+                                    "fill": undefined,
+                                  },
+                                },
+                                Object {
+                                  "attribs": Object {
+                                    "d": "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z",
+                                  },
+                                  "children": Array [],
+                                  "name": "path",
+                                  "namespace": "http://www.w3.org/2000/svg",
+                                  "next": null,
+                                  "parent": [Circular],
+                                  "prev": Object {
+                                    "attribs": Object {
+                                      "d": "M0 0h24v24H0z",
+                                      "fill": "none",
+                                    },
+                                    "children": Array [],
+                                    "name": "path",
+                                    "namespace": "http://www.w3.org/2000/svg",
+                                    "next": [Circular],
+                                    "parent": [Circular],
+                                    "prev": null,
+                                    "type": "tag",
+                                    "x-attribsNamespace": Object {
+                                      "d": undefined,
+                                      "fill": undefined,
+                                    },
+                                    "x-attribsPrefix": Object {
+                                      "d": undefined,
+                                      "fill": undefined,
+                                    },
+                                  },
+                                  "type": "tag",
+                                  "x-attribsNamespace": Object {
+                                    "d": undefined,
+                                  },
+                                  "x-attribsPrefix": Object {
+                                    "d": undefined,
+                                  },
+                                },
+                              ],
+                              "name": "svg",
+                              "namespace": "http://www.w3.org/2000/svg",
+                              "next": null,
+                              "parent": [Circular],
+                              "prev": null,
+                              "type": "tag",
+                              "x-attribsNamespace": Object {
+                                "aria-hidden": undefined,
+                                "class": undefined,
+                                "focusable": undefined,
+                                "role": undefined,
+                                "viewBox": undefined,
+                              },
+                              "x-attribsPrefix": Object {
+                                "aria-hidden": undefined,
+                                "class": undefined,
+                                "focusable": undefined,
+                                "role": undefined,
+                                "viewBox": undefined,
+                              },
+                            },
+                          ],
+                          "name": "span",
+                          "namespace": "http://www.w3.org/1999/xhtml",
+                          "next": null,
+                          "parent": [Circular],
+                          "prev": null,
+                          "type": "tag",
+                          "x-attribsNamespace": Object {
+                            "class": undefined,
+                          },
+                          "x-attribsPrefix": Object {
+                            "class": undefined,
+                          },
+                        },
+                      ],
+                      "name": "button",
+                      "namespace": "http://www.w3.org/1999/xhtml",
+                      "next": null,
+                      "parent": [Circular],
+                      "prev": null,
+                      "type": "tag",
+                      "x-attribsNamespace": Object {
+                        "aria-label": undefined,
+                        "class": undefined,
+                        "tabindex": undefined,
+                        "type": undefined,
+                      },
+                      "x-attribsPrefix": Object {
+                        "aria-label": undefined,
+                        "class": undefined,
+                        "tabindex": undefined,
+                        "type": undefined,
+                      },
+                    },
+                  ],
+                  "name": "div",
+                  "namespace": "http://www.w3.org/1999/xhtml",
+                  "next": [Circular],
+                  "parent": [Circular],
+                  "prev": null,
+                  "type": "tag",
+                  "x-attribsNamespace": Object {
+                    "class": undefined,
+                  },
+                  "x-attribsPrefix": Object {
+                    "class": undefined,
+                  },
+                },
+                "type": "tag",
+                "x-attribsNamespace": Object {
+                  "class": undefined,
+                  "tabindex": undefined,
+                  "type": undefined,
+                },
+                "x-attribsPrefix": Object {
+                  "class": undefined,
+                  "tabindex": undefined,
+                  "type": undefined,
+                },
+              },
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
@@ -492,26 +3710,26 @@ Object {
     },
   },
   "_root": <div
-    class="NavBar-root-5"
+    class="NavBar NavBar-root-6"
   >
     <header
-      class="MuiPaper-root-16 MuiPaper-elevation4-22 MuiAppBar-root-7 MuiAppBar-positionFixed-8 MuiAppBar-colorPrimary-14 mui-fixed NavBar-appBar-1"
+      class="MuiPaper-root-18 MuiPaper-elevation4-24 MuiAppBar-root-9 MuiAppBar-positionFixed-10 MuiAppBar-colorPrimary-16 mui-fixed NavBar-grid-4"
     >
       <div
-        class="MuiToolbar-root-43 MuiToolbar-regular-45 MuiToolbar-gutters-44"
+        class="MuiToolbar-root-45 MuiToolbar-regular-47 MuiToolbar-gutters-46"
       >
         <button
           aria-label="Open drawer"
-          class="MuiButtonBase-root-53 MuiIconButton-root-47 MuiIconButton-colorInherit-48 NavBar-menuButton-4"
+          class="MuiButtonBase-root-55 MuiIconButton-root-49 MuiIconButton-colorInherit-50  menuButton NavBar-menuButton-5"
           tabindex="0"
           type="button"
         >
           <span
-            class="MuiIconButton-label-52"
+            class="MuiIconButton-label-54"
           >
             <svg
               aria-hidden="true"
-              class="MuiSvgIcon-root-56"
+              class="MuiSvgIcon-root-58"
               focusable="false"
               role="presentation"
               viewBox="0 0 24 24"
@@ -526,6 +3744,53 @@ Object {
             </svg>
           </span>
         </button>
+      </div>
+      <button
+        class="MuiButtonBase-root-55 MuiIconButton-root-49 NavBar-brandLogo-1"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiIconButton-label-54"
+        >
+          <img
+            alt="brand logo"
+            class="MuiCardMedia-root-68 MuiCardMedia-media-69 brandLogo BrandLogo-root-67"
+            src="logo-white.png"
+          />
+        </span>
+      </button>
+      <div
+        class="SearchBar-search-70"
+      >
+        <div
+          class="SearchBar-searchIcon-71"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root-58"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+            />
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+          </svg>
+        </div>
+        <div
+          class="MuiInputBase-root-74 SearchBar-inputRoot-72"
+        >
+          <input
+            class="MuiInputBase-input-84 SearchBar-inputInput-73"
+            placeholder="Search…"
+            type="text"
+          />
+        </div>
       </div>
     </header>
     <nav

@@ -1,6 +1,0 @@
-Action items
-
-- pass props to withStyles
-- boolean for nav display elements
-- h2 get nav to display inline or block on context/ media
-- hw add media queries to withStyles

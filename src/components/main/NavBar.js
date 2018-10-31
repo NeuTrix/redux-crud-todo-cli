@@ -10,9 +10,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import { withStyles } from '@material-ui/core/styles';
 
-import BrandLogo from './BrandLogo'; 
-import NavigationLinks from './NavigationLinks'; 
-import SearchBar from './SearchBar'; 
+import BrandLogo from './BrandLogo';
+import NavigationLinks from './NavigationLinks';
+import SearchBar from './SearchBar';
 
 const propTypes = {
 	classes: PropTypes.instanceOf(Object).isRequired,
@@ -102,8 +102,7 @@ const styles = theme => ({
 		[theme.breakpoints.up('sm')]: {
 			display: 'inherit',
 		},
-	}
-	,
+	},
 	drawer: {
 		[theme.breakpoints.up('sm')]: {
 			flexShrink: 0,
