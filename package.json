@@ -34,6 +34,7 @@
     "cross-fetch": "^1.1.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "font-awesome": "^4.7.0",
+    "jest-enzyme": "^7.0.0",
     "jsonwebtoken": "^8.2.0",
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.4",
@@ -87,9 +88,7 @@
       "import/extensions": "off"
     }
   },
-  "pre-commit": [
-    
-  ],
+  "pre-commit": [],
   "keywords": [
     "divorce",
     "planning",
