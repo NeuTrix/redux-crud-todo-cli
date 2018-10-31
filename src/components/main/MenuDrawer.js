@@ -40,20 +40,20 @@ const styles = theme => ({
 	drawerPaper: {
 		width: drawerWidth,
 	},
-
 });
 
 const propTypes = {
 	auth: PropTypes.bool.isRequired,
 	classes: PropTypes.instanceOf(Object).isRequired,
 	container: PropTypes.instanceOf(Object).isRequired,
+	logout: PropTypes.func.isRequired,
 	theme: PropTypes.instanceOf(Object).isRequired,
 };
 
 const defaultProps = {
-  container: {},
+  container: {}, // ??? object from @MUI 
   auth: false, // authorization object from store
-  // logout: f => f,
+  logout: f => f, // function to logout user
 }
 
 class MenuDrawer extends Component {
