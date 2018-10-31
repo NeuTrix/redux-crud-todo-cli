@@ -55,8 +55,8 @@ class NavBar extends Component {
 		);
 
 		return (
-			<div className={classes.root}>
-				<AppBar position="fixed" className={classes.appBar}>
+			<div className={`NavBar ${classes.root}`}>
+				<AppBar className={classes.appBar} position="fixed">
 					<Toolbar>
 						<IconButton
 							color="inherit"

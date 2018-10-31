@@ -74,6 +74,5 @@ const styles = () => ({
 });
 
 App.propTypes = propTypes;
-App.displayName = 'App';
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(App));
