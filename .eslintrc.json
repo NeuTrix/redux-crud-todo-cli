@@ -27,11 +27,6 @@
         "react/jsx-indent": ["error", "tab"],
         "react/jsx-indent-props": ["error", "tab"],
         "space-in-parens": ["error", "never"],
-        "sort-imports": ["error", {
-            "ignoreCase": false,
-            "ignoreMemberSort": false,
-            "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
-        }],
         "sort-keys": ["error", "asc", {
             "caseSensitive": true,
             "natural": false

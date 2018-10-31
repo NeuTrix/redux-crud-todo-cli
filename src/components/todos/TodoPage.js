@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
+
 import { createTodo } from '../../actions/createActions';
 import { deleteTodo } from '../../actions/deleteActions';
 import { editTodo } from '../../actions/editActions';
 import { fetchTodos } from '../../actions/readActions';
+
 import TaskCounter from './TaskCounter';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
 const propTypes = {
 	classes: PropTypes.instanceOf(Object).isRequired, // MUI classes object from withStyles
-	handleCreateTodo: PropTypes.func.isRequired, // 
-	handleDeleteTodo: PropTypes.func.isRequired,
-	handleEditTodo: PropTypes.func.isRequired,
-	handleFetchTodos: PropTypes.func.isRequired,
-	isAuthenticated: PropTypes.bool.isRequired,
-	todoArray: PropTypes.arrayOf(PropTypes.string).isRequired,
-	user: PropTypes.instanceOf(Object).isRequired,
+	handleCreateTodo: PropTypes.func.isRequired, // create a new todo
+	handleDeleteTodo: PropTypes.func.isRequired, // delete a todo item
+	handleEditTodo: PropTypes.func.isRequired, // edit a todo item
+	handleFetchTodos: PropTypes.func.isRequired, // fetch new todos
+	isAuthenticated: PropTypes.bool.isRequired, // validate authentication
+	todoArray: PropTypes.arrayOf(PropTypes.object).isRequired, // collect todos in array
+	user: PropTypes.instanceOf(Object).isRequired, // user profile
 };
 
 class TodoPage extends Component {
@@ -29,7 +32,7 @@ class TodoPage extends Component {
 
 	render() {
 		const {
-			classes,
+			classes, // form MUI for styling
 			handleCreateTodo,
 			handleDeleteTodo,
 			handleEditTodo,
@@ -74,17 +77,18 @@ const mapDispatchToProps = dispatch => ({
 	handleFetchTodos: () => { dispatch(fetchTodos()); },
 });
 
-TodoPage.propTypes = propTypes;
+TodoPage.propTypes = propTypes; // connect prop-types validation
 
+// inject styling into the component, @MUI
 const StyledTodoPage = withStyles(() => ({
 	grid: {
 		display: 'grid',
+		gridAutoRows: 'auto',
 		gridTemplateAreas: `
       "taskCounter"
       "todoForm"
       "todoList"
     `,
-		gridAutoRows: 'auto',
 		marginTop: '10px',
 	},
 	taskCounter: { gridArea: 'taskCounter' },
@@ -92,4 +96,4 @@ const StyledTodoPage = withStyles(() => ({
 	todoList: { gridArea: 'todoList' },
 }))(TodoPage);
 
-export default connect(mapStateToProps, mapDispatchToProps)(StyledTodoPage);
+export default connect(mapStateToProps, mapDispatchToProps)(StyledTodoPage); // pass store/state

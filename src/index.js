@@ -42,6 +42,9 @@ const options = {
   status: {
     danger: 'orange',
   },
+   typography: {
+     useNextVariants: true,
+   },
 }
 
 const theme = createMuiTheme(options);
