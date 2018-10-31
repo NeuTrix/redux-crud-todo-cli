@@ -15,9 +15,7 @@ import Navigation from './Navigation';
 const drawerWidth = 240;
 
 const styles = theme => ({
-	root: {
-		display: 'flex',
-	},
+
 	appBar: {
 		marginLeft: drawerWidth,
 		[theme.breakpoints.up('sm')]: {
@@ -26,9 +24,12 @@ const styles = theme => ({
 	},
 	drawer: {
 		[theme.breakpoints.up('sm')]: {
-			width: drawerWidth,
 			flexShrink: 0,
+			width: drawerWidth,
 		},
+	},
+	drawerPaper: {
+		width: drawerWidth,
 	},
 	menuButton: {
 		marginRight: 20,
@@ -36,10 +37,10 @@ const styles = theme => ({
 			display: 'none',
 		},
 	},
-	toolbar: theme.mixins.toolbar,
-	drawerPaper: {
-		width: drawerWidth,
+	root: {
+		display: 'flex',
 	},
+	toolbar: theme.mixins.toolbar,
 });
 
 const propTypes = {
