@@ -7,7 +7,7 @@ import NavBar from '../../components/main/NavBar';
 describe('The NavBar Component w/ ReactDom', () => {
 	const wrapper = render(
 		<Router>
-			<NavBar/>
+			<NavBar isAuth={false} logout={f => f}/>
 		</Router>    
 	);
 

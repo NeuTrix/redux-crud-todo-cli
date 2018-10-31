@@ -11,7 +11,7 @@ import FlashMessageList from './components/messages/FlashMessageList';
 import Home from './components/main/Home';
 import LoginPage from './components/auth/LoginPage';
 import { logout } from './actions/loginActions';
-import MenuDrawer from './components/main/MenuDrawer';
+import NavBar from './components/main/NavBar';
 import RegisterPage from './components/auth/RegisterPage';
 import requireAuth from './helpers/requireAuth';
 import TodoPage from './components/todos/TodoPage';
@@ -37,7 +37,7 @@ function App(props) {
 	return (
 		<div className={`grid ${classes.grid}`}>
 			<CssBaseline />
-			<MenuDrawer auth={isAuth} logout={handleLogout} />
+			<NavBar isAuth={isAuth} logout={handleLogout} />
 			<div className={`messages ${classes.messages}`}>
 				<FlashMessageList />
 			</div>

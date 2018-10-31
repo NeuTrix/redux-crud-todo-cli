@@ -1,95 +1,119 @@
-// This component holds the full navigation bar 
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-//  ===Components===
-import AppBar from '@material-ui/core/AppBar';
-import BrandLogo from './BrandLogo';
-import MenuBar from './MenuBar';
-import Navigation from './Navigation';
-import SearchBar from './SearchBar';
 
-// const mediaWidth = '650px'
-const styles = (theme) => ({
+import { withStyles } from '@material-ui/core/styles';
+
+import AppBar from '@material-ui/core/AppBar';
+import Divider from '@material-ui/core/Divider';
+import Drawer from '@material-ui/core/Drawer';
+import Hidden from '@material-ui/core/Hidden';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import Toolbar from '@material-ui/core/Toolbar';
+
+import Navigation from './Navigation'; // Navigation menu items
+
+const propTypes = {
+	isAuth: PropTypes.bool.isRequired,
+	classes: PropTypes.instanceOf(Object).isRequired,
+	container: PropTypes.instanceOf(Object),
+	logout: PropTypes.func.isRequired,
+	theme: PropTypes.instanceOf(Object).isRequired,
+};
+
+class NavBar extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			showMenu: false,
+		};
+		this.handleDrawerToggle = this.handleDrawerToggle.bind(this);
+	}
+
+	handleDrawerToggle(e) {
+		e.preventDefault();
+		this.setState(previousState => ({ showMenu: !previousState.showMenu }));
+	}
+
+	render() {
+		const { showMenu } = this.state;
+		const {
+			isAuth, classes, container, logout, theme,
+		} = this.props;
+
+		const drawer = (
+			<div>
+				<div className={classes.toolbar} />
+				<Divider />
+				<Navigation
+					isAuth={isAuth}
+					logout={logout}
+					toggle={this.handleDrawerToggle}
+				/>
+				<Divider />
+			</div>
+		);
+
+		return (
+			<div className={classes.root}>
+				<AppBar position="fixed" className={classes.appBar}>
+					<Toolbar>
+						<IconButton
+							color="inherit"
+							aria-label="Open drawer"
+							className={classes.menuButton}
+							onClick={this.handleDrawerToggle}
+						>
+							<MenuIcon />
+						</IconButton>
+					</Toolbar>
+				</AppBar>
+				<nav className={classes.drawer}>
+					<Hidden implementation="css">
+						<Drawer
+							id="mainDrawer"
+							container={container}
+							variant="temporary"
+							anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+							open={showMenu}
+							classes={{ paper: classes.drawerPaper }}
+							ModalProps={{ keepMounted: true }} // Better open performance on mobile.
+							onClose={this.handleDrawerToggle}
+						>
+							{drawer}
+						</Drawer>
+					</Hidden>
+				</nav>
+			</div>
+		);
+	}
+}
+
+const drawerWidth = 264;
+
+const styles = theme => ({
+	appBar: {
+
+	},
+	drawer: {
+		[theme.breakpoints.up('sm')]: {
+			flexShrink: 0,
+			width: drawerWidth,
+		},
+	},
+	drawerPaper: {
+		width: drawerWidth,
+	},
+	menuButton: {
+		color: theme.palette.contrast, // custom theme prop
+		marginRight: 20,
+	},
 	root: {
-		gridArea: 'main',
-		gridTemplateAreas: `'menu search'`,
-		// gridTemplateColumns: `1fr 6fr 3fr 1fr`,
-		gridColumnGap: `5px`,
-		display: 'grid',
-		placeItems: 'center',
-		['@media (min-width: 650px)']: {
-			gridTemplateAreas: `'brand nav search ' `,			
-		}
+		display: 'flex',
 	},
-	brand: {
-		gridArea: 'brand',
-		display: 'none',
-		['@media (min-width: 650px)']: {
-			display: 'flex',
-		},
-	},
-	menu: {
-		gridArea: 'menu',
-		['@media (min-width: 650px)']: {
-			display: 'none',
-		},
-	},
-	nav: {
-		gridArea: 'nav',
-		display: 'none',
-		['@media (min-width: 650px)']: {
-			display: 'flex',
-		}
-	},
-	 dropDown: {
-    background: 'lime', // !!! set to  theme background color
-    width: '100%',
-    position: 'absolute',
-    top: 50,
-    left: 0,
-    ['@media (max-width: 600px)'] : {
-      display: 'none' // !!! do this conditionally for @media
-    }
-	},
-	search: {
-		gridArea: 'search'
-	},
-	
+	toolbar: theme.mixins.toolbar,
 });
 
-function NavBar (props) {
-  const { auth, classes, logout } = props;
+NavBar.propTypes = propTypes;
 
-	return (
-		<AppBar className={ classes.root }>
-			<div className={ classes.dropDown } > 
-        <Navigation />
-      </div>
-			<span className={ classes.menu }>
-				<MenuBar />
-			</span>
-			<span className={ classes.nav }>
-				<Navigation auth={ auth } logout={ logout }/>
-			</span>
-			<span className={ classes.brand }>
-				<BrandLogo/>  
-			</span>
-			<span className={ classes.search }>
-				<SearchBar />
-			</span>
-		</AppBar>
-	);
-};
-
-NavBar.propTypes = {
-	auth: PropTypes.bool,
-	logout: PropTypes.func.isRequired,
-};
-
-NavBar.defaultProps = {
-	auth: false,
-	logout: (f) => 'Default action: Navbar logout fn',
-};
-
-export default withStyles(styles)(NavBar)
+export default withStyles(styles, { withTheme: true })(NavBar);

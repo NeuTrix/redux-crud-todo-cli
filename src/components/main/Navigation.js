@@ -14,7 +14,7 @@ import Typography from '@material-ui/core/Typography';
 // const shortid = require('shortid');
 
 function Navigation(props, context) {
-	const { auth, classes, logout, toggle } = props;
+	const { isAuth, classes, logout, toggle } = props;
 	// unauthorized navigation links
 	const registerLink = { 
 		id: shortid.generate(), 
@@ -47,7 +47,7 @@ function Navigation(props, context) {
 
 // filter links based on authorization status
 	const displayLogic = (item) => ({
-		display: String(auth) === item.showWithAuth ? 'flex' : 'none' 
+		display: String(isAuth) === item.showWithAuth ? 'flex' : 'none' 
 	})
 	// logout and return to login page (or 'home')
 	const handleLogout = (e) => {
@@ -87,12 +87,12 @@ function Navigation(props, context) {
 };
 
 Navigation.propTypes = {
-	auth: PropTypes.bool,
+	isAuth: PropTypes.bool,
 	logout: PropTypes.func.isRequired,
 };
 
 Navigation.defaultProps = {
-	auth: false,
+	isAuth: false,
 	logout: (f) => 'Default action: Navbar logout fn',
 };
 
