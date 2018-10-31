@@ -1,14 +1,14 @@
 {
-  "main.js": "/NeuTrix/redux_crud_todolist/static/js/main.b07c0f1f.chunk.js",
-  "main.js.map": "/NeuTrix/redux_crud_todolist/static/js/main.b07c0f1f.chunk.js.map",
-  "static/css/1.cf53e139.chunk.css": "/NeuTrix/redux_crud_todolist/static/css/1.cf53e139.chunk.css",
-  "static/js/1.dc26800a.chunk.js": "/NeuTrix/redux_crud_todolist/static/js/1.dc26800a.chunk.js",
-  "static/js/1.dc26800a.chunk.js.map": "/NeuTrix/redux_crud_todolist/static/js/1.dc26800a.chunk.js.map",
+  "main.js": "/NeuTrix/redux_crud_todolist/static/js/main.fe77502b.chunk.js",
+  "main.js.map": "/NeuTrix/redux_crud_todolist/static/js/main.fe77502b.chunk.js.map",
+  "static/css/1.697bde31.chunk.css": "/NeuTrix/redux_crud_todolist/static/css/1.697bde31.chunk.css",
+  "static/js/1.69133ce5.chunk.js": "/NeuTrix/redux_crud_todolist/static/js/1.69133ce5.chunk.js",
+  "static/js/1.69133ce5.chunk.js.map": "/NeuTrix/redux_crud_todolist/static/js/1.69133ce5.chunk.js.map",
   "runtime~main.js": "/NeuTrix/redux_crud_todolist/static/js/runtime~main.2ae438f0.js",
   "runtime~main.js.map": "/NeuTrix/redux_crud_todolist/static/js/runtime~main.2ae438f0.js.map",
   "static/media/font-awesome.min.css": "/NeuTrix/redux_crud_todolist/static/media/fontawesome-webfont.912ec66d.svg",
-  "static/css/1.cf53e139.chunk.css.map": "/NeuTrix/redux_crud_todolist/static/css/1.cf53e139.chunk.css.map",
+  "static/css/1.697bde31.chunk.css.map": "/NeuTrix/redux_crud_todolist/static/css/1.697bde31.chunk.css.map",
   "index.html": "/NeuTrix/redux_crud_todolist/index.html",
-  "precache-manifest.e8226942c122c856f36ea64f412ff74d.js": "/NeuTrix/redux_crud_todolist/precache-manifest.e8226942c122c856f36ea64f412ff74d.js",
+  "precache-manifest.783554a2c189e1927f318c47bd5d5411.js": "/NeuTrix/redux_crud_todolist/precache-manifest.783554a2c189e1927f318c47bd5d5411.js",
   "service-worker.js": "/NeuTrix/redux_crud_todolist/service-worker.js"
 }

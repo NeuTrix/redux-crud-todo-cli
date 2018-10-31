@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/NeuTrix/redux_crud_todolist/precache-manifest.e8226942c122c856f36ea64f412ff74d.js"
+  "/NeuTrix/redux_crud_todolist/precache-manifest.783554a2c189e1927f318c47bd5d5411.js"
 );
 
 workbox.clientsClaim();

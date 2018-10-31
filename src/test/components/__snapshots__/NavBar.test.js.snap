@@ -20,7 +20,7 @@ Object {
               Object {
                 "attribs": Object {
                   "aria-label": "Open drawer",
-                  "class": "MuiButtonBase-root-55 MuiIconButton-root-49 MuiIconButton-colorInherit-50  menuButton NavBar-menuButton-5",
+                  "class": "MuiButtonBase-root-55 MuiIconButton-root-49 MuiIconButton-colorInherit-50 menuButton NavBar-menuButton-5",
                   "tabindex": "0",
                   "type": "button",
                 },
@@ -1023,7 +1023,7 @@ Object {
                 Object {
                   "attribs": Object {
                     "aria-label": "Open drawer",
-                    "class": "MuiButtonBase-root-55 MuiIconButton-root-49 MuiIconButton-colorInherit-50  menuButton NavBar-menuButton-5",
+                    "class": "MuiButtonBase-root-55 MuiIconButton-root-49 MuiIconButton-colorInherit-50 menuButton NavBar-menuButton-5",
                     "tabindex": "0",
                     "type": "button",
                   },
@@ -1609,7 +1609,7 @@ Object {
                   Object {
                     "attribs": Object {
                       "aria-label": "Open drawer",
-                      "class": "MuiButtonBase-root-55 MuiIconButton-root-49 MuiIconButton-colorInherit-50  menuButton NavBar-menuButton-5",
+                      "class": "MuiButtonBase-root-55 MuiIconButton-root-49 MuiIconButton-colorInherit-50 menuButton NavBar-menuButton-5",
                       "tabindex": "0",
                       "type": "button",
                     },
@@ -1885,7 +1885,7 @@ Object {
                 Object {
                   "attribs": Object {
                     "aria-label": "Open drawer",
-                    "class": "MuiButtonBase-root-55 MuiIconButton-root-49 MuiIconButton-colorInherit-50  menuButton NavBar-menuButton-5",
+                    "class": "MuiButtonBase-root-55 MuiIconButton-root-49 MuiIconButton-colorInherit-50 menuButton NavBar-menuButton-5",
                     "tabindex": "0",
                     "type": "button",
                   },
@@ -2888,7 +2888,7 @@ Object {
                   Object {
                     "attribs": Object {
                       "aria-label": "Open drawer",
-                      "class": "MuiButtonBase-root-55 MuiIconButton-root-49 MuiIconButton-colorInherit-50  menuButton NavBar-menuButton-5",
+                      "class": "MuiButtonBase-root-55 MuiIconButton-root-49 MuiIconButton-colorInherit-50 menuButton NavBar-menuButton-5",
                       "tabindex": "0",
                       "type": "button",
                     },
@@ -3474,7 +3474,7 @@ Object {
                     Object {
                       "attribs": Object {
                         "aria-label": "Open drawer",
-                        "class": "MuiButtonBase-root-55 MuiIconButton-root-49 MuiIconButton-colorInherit-50  menuButton NavBar-menuButton-5",
+                        "class": "MuiButtonBase-root-55 MuiIconButton-root-49 MuiIconButton-colorInherit-50 menuButton NavBar-menuButton-5",
                         "tabindex": "0",
                         "type": "button",
                       },
@@ -3720,7 +3720,7 @@ Object {
       >
         <button
           aria-label="Open drawer"
-          class="MuiButtonBase-root-55 MuiIconButton-root-49 MuiIconButton-colorInherit-50  menuButton NavBar-menuButton-5"
+          class="MuiButtonBase-root-55 MuiIconButton-root-49 MuiIconButton-colorInherit-50 menuButton NavBar-menuButton-5"
           tabindex="0"
           type="button"
         >
