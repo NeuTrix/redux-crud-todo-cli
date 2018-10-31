@@ -45,8 +45,15 @@ const styles = theme => ({
 
 const propTypes = {
 	classes: PropTypes.instanceOf(Object).isRequired,
+	container: PropTypes.instanceOf(Object).isRequired,
 	theme: PropTypes.instanceOf(Object).isRequired,
 };
+
+const defaultProps = {
+  container: {},
+  // auth: {},
+  // logout: f => f,
+}
 
 class MenuDrawer extends Component {
 	constructor(props) {
@@ -133,5 +140,6 @@ class MenuDrawer extends Component {
 }
 
 MenuDrawer.propTypes = propTypes;
+MenuDrawer.defaultProps = defaultProps;
 
 export default withStyles(styles, { withTheme: true })(MenuDrawer);
