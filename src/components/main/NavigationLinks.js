@@ -22,7 +22,7 @@ const contextTypes = {
 	router: PropTypes.instanceOf(Object).isRequired,
 };
 
-function Navigation(props, context) {
+function NavigationLinks(props, context) {
 	const {
 		classes,
 		isAuth,
@@ -102,7 +102,7 @@ const styles = theme => ({
 	},
 });
 
-Navigation.propTypes = propTypes;
-Navigation.contextTypes = contextTypes;
+NavigationLinks.propTypes = propTypes;
+NavigationLinks.contextTypes = contextTypes;
 
-export default withStyles(styles, { withTheme: true })(Navigation);
+export default withStyles(styles, { withTheme: true })(NavigationLinks);
