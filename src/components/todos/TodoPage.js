@@ -12,7 +12,7 @@ import TodoList from './TodoList';
 
 const propTypes = {
 	classes: PropTypes.instanceOf(Object).isRequired, // MUI classes object from withStyles
-	handleCreateTodo: PropTypes.func.isRequired,
+	handleCreateTodo: PropTypes.func.isRequired, // 
 	handleDeleteTodo: PropTypes.func.isRequired,
 	handleEditTodo: PropTypes.func.isRequired,
 	handleFetchTodos: PropTypes.func.isRequired,
@@ -74,6 +74,8 @@ const mapDispatchToProps = dispatch => ({
 	handleFetchTodos: () => { dispatch(fetchTodos()); },
 });
 
+TodoPage.propTypes = propTypes;
+
 const StyledTodoPage = withStyles(() => ({
 	grid: {
 		display: 'grid',
@@ -89,7 +91,5 @@ const StyledTodoPage = withStyles(() => ({
 	todoForm: { gridArea: 'todoForm' },
 	todoList: { gridArea: 'todoList' },
 }))(TodoPage);
-
-TodoPage.propTypes = propTypes;
 
 export default connect(mapStateToProps, mapDispatchToProps)(StyledTodoPage);
