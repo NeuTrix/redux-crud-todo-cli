@@ -60,7 +60,7 @@ const Main = styled.div`grid-area: main;`;
 // ==== main Component
 function App(props) {
 	const { authApi, handleLogout } = props;
-	const auth = authApi.isAuthenticated;
+	const auth = authApi.isAuthenticated; // boolean val to pass down to children
 
 	return (
 		<Grid className="App">
