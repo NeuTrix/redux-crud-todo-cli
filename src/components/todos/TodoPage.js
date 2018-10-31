@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
+
 import { createTodo } from '../../actions/createActions';
 import { deleteTodo } from '../../actions/deleteActions';
 import { editTodo } from '../../actions/editActions';
@@ -92,6 +93,5 @@ const styles = {
 };
 
 TodoPage.propTypes = propTypes; // connect prop-types validation
-TodoPage.displayName = 'TodoPage';
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(TodoPage));
