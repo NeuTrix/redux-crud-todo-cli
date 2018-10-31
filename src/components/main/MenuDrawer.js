@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// === MUI components ===
+
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Divider from '@material-ui/core/Divider';
@@ -24,18 +24,18 @@ class MenuDrawer extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			mobileOpen: false,
+			showMenu: false,
 		};
 		this.handleDrawerToggle = this.handleDrawerToggle.bind(this);
 	}
 
 	handleDrawerToggle(e) {
 		e.preventDefault();
-		this.setState(previousState => ({ mobileOpen: !previousState.mobileOpen }));
+		this.setState(previousState => ({ showMenu: !previousState.showMenu }));
 	}
 
 	render() {
-		const { mobileOpen } = this.state;
+		const { showMenu } = this.state;
 		const {
 			auth, classes, container, logout, theme,
 		} = this.props;
@@ -68,25 +68,16 @@ class MenuDrawer extends Component {
 					</Toolbar>
 				</AppBar>
 				<nav className={classes.drawer}>
-					<Hidden smUp implementation="css">
+					<Hidden implementation="css">
 						<Drawer
 							id="mainDrawer"
 							container={container}
 							variant="temporary"
 							anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-							open={mobileOpen}
+							open={showMenu}
 							classes={{ paper: classes.drawerPaper }}
 							ModalProps={{ keepMounted: true }} // Better open performance on mobile.
 							onClose={this.handleDrawerToggle}
-						>
-							{drawer}
-						</Drawer>
-					</Hidden>
-					<Hidden xsDown implementation="css">
-						<Drawer
-							id="sideDrawer"
-							classes={{ paper: classes.drawerPaper }}
-							variant="temporary"
 						>
 							{drawer}
 						</Drawer>
@@ -113,7 +104,7 @@ const styles = theme => ({
 		width: drawerWidth,
 	},
 	menuButton: {
-		color: theme.palette.contrast,
+		color: theme.palette.contrast, // custom theme prop
 		marginRight: 20,
 	},
 	root: {
