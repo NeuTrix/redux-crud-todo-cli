@@ -55,7 +55,7 @@
             "caseSensitive": true,
             "natural": false
         }],
-        "sort-imports": ["error", {
+        "sort-imports": ["warn", {
             "ignoreCase": true,
             "ignoreMemberSort": false,
             "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
