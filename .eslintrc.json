@@ -27,6 +27,9 @@
         }],
         "react/jsx-indent": ["error", "tab"],
         "react/jsx-indent-props": ["error", "tab"],
+        "react/require-default-props": [ 1 , {
+            "forbidDefaultForRequired": false
+        }],
         "space-in-parens": ["error", "never"],
         "sort-keys": ["error", "asc", {
             "caseSensitive": true,

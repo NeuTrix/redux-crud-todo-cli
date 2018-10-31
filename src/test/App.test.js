@@ -15,5 +15,5 @@ it('renders without crashing', () => {
 				<App />
 			</Router>
 		</Provider>
-		, div);
+		, div)
 });

@@ -52,7 +52,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-	container: {},
+	// container: {},
 };
 
 class MenuDrawer extends Component {
@@ -100,7 +100,6 @@ class MenuDrawer extends Component {
 						>
 							<MenuIcon />
 						</IconButton>
-
 					</Toolbar>
 				</AppBar>
 				<nav className={classes.drawer}>

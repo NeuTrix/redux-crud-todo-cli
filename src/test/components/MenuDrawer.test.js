@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { render } from 'enzyme';
 import MenuDrawer from '../../components/main/MenuDrawer';
 
-describe('The MenuDrawer Component w/ ReactDom', () => {
+xdescribe('The MenuDrawer Component w/ ReactDom', () => {
 	const wrapper = render(
 		<Router>
 			<MenuDrawer 
