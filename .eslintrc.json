@@ -15,6 +15,9 @@
     },
     "rules": {
         "indent": ["error", "tab"],
+        "max-len": ["warn", 
+            { "code": 100 }
+        ],
         "no-console": "off",
         "no-return-assign": ["error", "except-parens"],
         "no-tabs": ["error", {
@@ -25,6 +28,9 @@
         }],
         "padded-blocks": ["error", { 
             "blocks": "never" 
+        }],
+        "react/display-name": [ "warn" , {
+            "ignoreTranspilerName": false
         }],
         "react/jsx-filename-extension": [1, {
             "extensions": [".js", ".jsx"] 
