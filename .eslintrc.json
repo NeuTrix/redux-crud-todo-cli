@@ -12,6 +12,7 @@
     "rules": {
         "indent": ["error", "tab"],
         "no-console": "off",
+        "no-return-assign": ["error", "except-parens"],
         "no-tabs": ["error", {
             "allowIndentationTabs": true 
         }],

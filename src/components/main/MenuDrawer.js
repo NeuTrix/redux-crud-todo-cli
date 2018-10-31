@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // === MUI components ===
 import { withStyles } from '@material-ui/core/styles';
@@ -43,16 +43,20 @@ const styles = theme => ({
   
 });
 
-class MenuDrawer extends React.Component {
+class MenuDrawer extends Component {
     constructor(props) {
       super(props);
       this.state = {
         mobileOpen: false,
       }
-    }
+      this.handleDrawerToggle = this.handleDrawerToggle.bind(this);
+    };
 
-  handleDrawerToggle() {
-    this.setState(state => ({ mobileOpen: !mobileOpen }));
+  handleDrawerToggle(e) {
+    e.preventDefault();
+    this.setState((previousState) => {
+      return ({ mobileOpen: !previousState.mobileOpen })
+    })
   };
 
   render() {
