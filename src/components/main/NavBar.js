@@ -1,61 +1,87 @@
-// holds the full navigation bar 
+// This component holds the full navigation bar 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { colors } from '../../helpers/cssConstants';
-// import logo from '../../assets/done-blue.png';
-import logo from '../../assets/logo-white.png';
-// navbar logo
-const Logo = styled.img `
-	grid-area: logo;
-	max-width: 75px;
-	place-self: center left;
-`;
-			<Logo className='logo' src={ logo } alt='logo'/> 
+import { withStyles } from '@material-ui/core/styles';
+//  ===Components===
+import AppBar from '@material-ui/core/AppBar';
+import BrandLogo from './BrandLogo';
+import MenuBar from './MenuBar';
+import Navigation from './Navigation';
+import SearchBar from './SearchBar';
 
-import styled from 'styled-components';
-// === components ===
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import NavSection from './NavSection';
-// ===  CSS  === 
-const Grid = styled.div `
-	grid-area: navBar;
-	grid-template-areas: " logo dash nav-section ";
-	grid-template-columns: repeat(3, 1fr);
+// const mediaWidth = '650px'
+const styles = (theme) => ({
+	root: {
+		gridArea: 'main',
+		gridTemplateAreas: `'menu search'`,
+		// gridTemplateColumns: `1fr 6fr 3fr 1fr`,
+		gridColumnGap: `5px`,
+		display: 'grid',
+		placeItems: 'center',
+		['@media (min-width: 650px)']: {
+			gridTemplateAreas: `'brand nav search ' `,			
+		}
+	},
+	brand: {
+		gridArea: 'brand',
+		display: 'none',
+		['@media (min-width: 650px)']: {
+			display: 'flex',
+		},
+	},
+	menu: {
+		gridArea: 'menu',
+		['@media (min-width: 650px)']: {
+			display: 'none',
+		},
+	},
+	nav: {
+		gridArea: 'nav',
+		display: 'none',
+		['@media (min-width: 650px)']: {
+			display: 'flex',
+		}
+	},
+	 dropDown: {
+    background: 'lime', // !!! set to  theme background color
+    width: '100%',
+    position: 'absolute',
+    top: 50,
+    left: 0,
+    ['@media (max-width: 600px)'] : {
+      display: 'none' // !!! do this conditionally for @media
+    }
+	},
+	search: {
+		gridArea: 'search'
+	},
+	
+});
 
-	border-bottom: 1px solid lightgrey ;
-	display: inline-grid;
-	padding: 5px 0px 5px 0px;
-	width: 100%;
-	& * {
-		color: #fafafa;
-	}
-`;
-// navbar logo
-const Logo = styled.img `
-	grid-area: logo;
-	max-width: 75px;
-	place-self: center left;
-`;
-// dashboard icon for pulling up stats
-const Dash = styled(FontAwesomeIcon) `
-	// color: ${colors._iceblue};
-	grid-area: dash;
-	font-size: 2em;
-	place-self: center;
-`;
-// ===  Main Component  === 
-const NavBar = (props, context) => {
-	const { auth, logout } = props;
+function NavBar (props) {
+  const { auth, classes, logout } = props;
 
 	return (
-		<Grid className='nav-bar'>
-			<Logo className='logo' src={ logo } alt='logo'/> 
-			<Dash className='dash-icon' icon='tachometer-alt'/>
-			<NavSection auth={ auth } logout={ logout }/>
-		</Grid>
+		<AppBar className={ classes.root }>
+			<div className={ classes.dropDown } > 
+        <Navigation />
+      </div>
+			<span className={ classes.menu }>
+				<MenuBar />
+			</span>
+			<span className={ classes.nav }>
+				<Navigation auth={ auth } logout={ logout }/>
+			</span>
+			<span className={ classes.brand }>
+				<BrandLogo/>  
+			</span>
+			<span className={ classes.search }>
+				<SearchBar />
+			</span>
+		</AppBar>
 	);
 };
-// === Props  === 
+
 NavBar.propTypes = {
 	auth: PropTypes.bool,
 	logout: PropTypes.func.isRequired,
@@ -66,6 +92,4 @@ NavBar.defaultProps = {
 	logout: (f) => 'Default action: Navbar logout fn',
 };
 
-// NavBar.contextTypes = { router: PropTypes.object.isRequired };
-
-export default NavBar;
+export default withStyles(styles)(NavBar)

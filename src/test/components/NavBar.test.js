@@ -14,7 +14,7 @@ describe('The NavBar Component w/ ReactDom', () => {
 	it('... renders the NavBar component', () => {
 		// handle randomly generated class names from React
 		expect(wrapper).toMatchSnapshot({
-			class: expect.any(String)
+			// class: expect.any(Object)
 		});
 	});
 });

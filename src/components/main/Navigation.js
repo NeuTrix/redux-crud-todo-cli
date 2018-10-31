@@ -1,44 +1,107 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import NavBar from './NavBar';
+import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
+import shortid  from 'shortid';
+// ===> MUI components <===
+import { withStyles } from '@material-ui/core/styles';
+import Circle from '@material-ui/icons/TripOrigin';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles'
-import styled from 'styled-components';
-import logo from '../../assets/logo-white.png';
 
-// apply semantic tag
-const Nav = styled.nav ` 
-  grid-area: navBar;
-  display: inline-grid;
-  margin: 0px 0px 40px 0px;
-`
+// const shortid = require('shortid');
 
-// navbar logo
-const Logo = styled.img `
-	grid-area: logo;
-	max-width: 75px;
-	place-self: center left;
-`;
+function Navigation(props, context) {
+	const { auth, classes, logout, toggle } = props;
+	// unauthorized navigation links
+	const registerLink = { 
+		id: shortid.generate(), 
+		showWithAuth: 'false', 
+		link:'/register', 
+		title: 'Register', 
+	};
 
-// material-ui styling
-const StyledAppBar = withStyles({
-  root: {
-    width: '100%',
-    color:'#fafafa'
-  }
-})(AppBar);
+	const logInLink = { 
+		id: shortid.generate(), 
+		showWithAuth: 'false', 
+		link:'/login', 
+		title: 'Login', 
+	};
 
+	// authorized navigation links
+	const todosLink = { 
+		id: shortid.generate(), 
+		showWithAuth: 'true', 
+		link:'/todos', 
+		title: 'Todos', 
+	};
 
+	const logOutLink = { 
+		id: shortid.generate(), 
+		showWithAuth: 'true', 
+		link:'#', 
+		title: 'Logout', 
+	};
 
-const Navigation = (props) => {
-  // const { classes } = props;
-  return (
-    <Nav>
-      <StyledAppBar >
-        <NavBar/>
-      </StyledAppBar>
-    </Nav >
-  )
-}
+// filter links based on authorization status
+	const displayLogic = (item) => ({
+		display: String(auth) === item.showWithAuth ? 'flex' : 'none' 
+	})
+	// logout and return to login page (or 'home')
+	const handleLogout = (e) => {
+		e.preventDefault();
+		logout();
+		context.router.history.push('/');
+	};
 
-export default Navigation;
+	return (
+		<List onClick={ toggle } > 
+
+			{ [todosLink, logInLink, registerLink].map((item) => (
+				<span key={item.id} style={ displayLogic(item) } >
+					<NavLink to={ item.link } className={classes.root} activeClassName={ classes.active }  >
+						<ListItem  className={ classes.root } button >
+							<ListItemIcon>
+								<Circle/>
+							</ListItemIcon>
+							<ListItemText primary={ item.title } />
+						</ListItem>
+					</NavLink>
+				</span>
+			)) }
+		
+			<span style={displayLogic(logOutLink)} onClick={handleLogout}  >
+				<ListItem button >
+					<ListItemIcon >
+						<Circle/>
+					</ListItemIcon>
+					<Typography variant="h6" color="inherit" noWrap >
+						{logOutLink.title}	
+					</Typography>
+				</ListItem>
+			</span>
+		</List>
+	);
+};
+
+Navigation.propTypes = {
+	auth: PropTypes.bool,
+	logout: PropTypes.func.isRequired,
+};
+
+Navigation.defaultProps = {
+	auth: false,
+	logout: (f) => 'Default action: Navbar logout fn',
+};
+
+Navigation.contextTypes = { router: PropTypes.object.isRequired };
+
+export default withStyles((theme) => ({
+	root: {
+		textDecoration: 'none',
+		width: '100%',
+	},
+	active: { background: 'aliceblue' },
+}))(Navigation);

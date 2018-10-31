@@ -2,97 +2,89 @@
 
 exports[`The LoginForm ...renders the login form 1`] = `
 <form
-  class="LoginTest sc-bdVaJa jbRMLp"
+  class="LoginTest sc-bdVaJa hBUaoe"
 >
-  <h1
-    class="Title ctr engr under sc-bwzfXH gXFEMh"
+  <h2
+    class="MuiTypography-root-3 MuiTypography-h2-16 MuiTypography-colorSecondary-34 title sc-bwzfXH gXFEMh"
   >
     Login
-  </h1>
+  </h2>
   <div
-    class="MuiFormControl-root-3 MuiFormControl-marginNormal-4 email sc-htpNat uoNzJ"
+    class="MuiFormControl-root-38 MuiFormControl-marginNormal-39 email sc-htpNat uoNzJ"
   >
     <label
-      class="MuiFormLabel-root-14 MuiFormLabel-required-19 MuiInputLabel-root-7 MuiInputLabel-formControl-8 MuiInputLabel-animated-11 MuiInputLabel-outlined-13"
+      class="MuiFormLabel-root-49 MuiFormLabel-required-54 MuiInputLabel-root-42 MuiInputLabel-formControl-43 MuiInputLabel-animated-46 MuiInputLabel-outlined-48"
       data-shrink="false"
       style="background:#fafafa"
     >
       Username | Email
       <span
-        class="MuiFormLabel-asterisk-20"
+        class="MuiFormLabel-asterisk-55"
       >
          *
       </span>
     </label>
     <div
-      class="MuiInputBase-root-34 MuiOutlinedInput-root-21 MuiInputBase-formControl-35"
+      class="MuiInputBase-root-69 MuiOutlinedInput-root-56 MuiInputBase-formControl-70"
     >
       <fieldset
         aria-hidden="true"
-        class="MuiNotchedOutline-root-51 MuiOutlinedInput-notchedOutline-28"
+        class="MuiPrivateNotchedOutline-root-86 MuiOutlinedInput-notchedOutline-63"
         style="padding-left:8px"
       >
         <legend
-          class="MuiNotchedOutline-legend-52"
+          class="MuiPrivateNotchedOutline-legend-87"
           style="width:0.01px"
-        >
-          
-        </legend>
+        />
       </fieldset>
       <input
         aria-invalid="false"
-        class="MuiInputBase-input-44 MuiOutlinedInput-input-29 MuiInputBase-inputType-47"
+        class="MuiInputBase-input-79 MuiOutlinedInput-input-64"
         name="identifier"
         placeholder="enter username or email"
         required=""
-        type="email"
+        type="text"
         value=""
-      >
-        
-      </input>
+      />
     </div>
   </div>
   <div
-    class="MuiFormControl-root-3 MuiFormControl-marginNormal-4 password sc-bxivhb CjTVf"
+    class="MuiFormControl-root-38 MuiFormControl-marginNormal-39 password sc-bxivhb CjTVf"
   >
     <label
-      class="MuiFormLabel-root-14 MuiFormLabel-required-19 MuiInputLabel-root-7 MuiInputLabel-formControl-8 MuiInputLabel-animated-11 MuiInputLabel-outlined-13"
+      class="MuiFormLabel-root-49 MuiFormLabel-required-54 MuiInputLabel-root-42 MuiInputLabel-formControl-43 MuiInputLabel-animated-46 MuiInputLabel-outlined-48"
       data-shrink="false"
       style="background:#fafafa"
     >
       Password
       <span
-        class="MuiFormLabel-asterisk-20"
+        class="MuiFormLabel-asterisk-55"
       >
          *
       </span>
     </label>
     <div
-      class="MuiInputBase-root-34 MuiOutlinedInput-root-21 MuiInputBase-formControl-35"
+      class="MuiInputBase-root-69 MuiOutlinedInput-root-56 MuiInputBase-formControl-70"
     >
       <fieldset
         aria-hidden="true"
-        class="MuiNotchedOutline-root-51 MuiOutlinedInput-notchedOutline-28"
+        class="MuiPrivateNotchedOutline-root-86 MuiOutlinedInput-notchedOutline-63"
         style="padding-left:8px"
       >
         <legend
-          class="MuiNotchedOutline-legend-52"
+          class="MuiPrivateNotchedOutline-legend-87"
           style="width:0.01px"
-        >
-          
-        </legend>
+        />
       </fieldset>
       <input
         aria-invalid="false"
-        class="MuiInputBase-input-44 MuiOutlinedInput-input-29 MuiInputBase-inputType-47"
+        class="MuiInputBase-input-79 MuiOutlinedInput-input-64 MuiInputBase-inputType-82"
         name="password"
         placeholder="enter password"
         required=""
         type="password"
         value=""
-      >
-        
-      </input>
+      />
     </div>
   </div>
   <a
@@ -102,20 +94,15 @@ exports[`The LoginForm ...renders the login form 1`] = `
     Click here for a new account
   </a>
   <button
-    class="MuiButtonBase-root-82 MuiButton-root-56 MuiButton-contained-67 MuiButton-containedPrimary-68 MuiButton-raised-70 MuiButton-raisedPrimary-71 MuiButton-sizeSmall-79 sc-ifAKCX qzBPD"
+    class="MuiButtonBase-root-117 MuiButton-root-91 MuiButton-contained-102 MuiButton-containedPrimary-103 MuiButton-raised-105 MuiButton-raisedPrimary-106 MuiButton-sizeSmall-114 sc-ifAKCX qzBPD"
     name="Log in"
     tabindex="0"
     type="submit"
   >
     <span
-      class="MuiButton-label-57"
+      class="MuiButton-label-92"
     >
       Go
-    </span>
-    <span
-      class="MuiTouchRipple-root-85"
-    >
-      
     </span>
   </button>
 </form>

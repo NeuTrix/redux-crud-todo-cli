@@ -28,7 +28,7 @@ const Grid = styled.form`
 	border-radius: 5px;
 	color: ${colors._mintgreen};
 	display: grid;
-	padding: 20px;
+  padding: 20px;
 	width: 300px;
 
 	@media (${media._large}) {
@@ -137,7 +137,7 @@ class Loginform extends Component {
       >
         <Title 
           className='title'
-          variant='display3'
+          variant='h2'
           color='secondary'
         >
           { !isLoading ? 'Login' : <Spinner color='greenyellow' /> }
@@ -153,7 +153,7 @@ class Loginform extends Component {
           onChange={this.onChange}
           placeholder='enter username or email'
           required
-          type='email'
+          // type='email'
           value={identifier}
           variant='outlined'
         />
@@ -172,7 +172,6 @@ class Loginform extends Component {
           value={password}
           variant='outlined'
         />
-
         <RegLink to='/register' className='regLink'>
 					Click here for a new account
 
@@ -188,9 +187,7 @@ class Loginform extends Component {
           variant='contained'
         >
 					Go
-
         </Submit>
-
       </Grid>
     );
   }

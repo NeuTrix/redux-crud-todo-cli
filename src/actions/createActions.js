@@ -1,9 +1,7 @@
 import axios from 'axios';
 import * as mod from './typeConstants';
 import {url} from '../helpers/apiHelper.js'
-
 // +++++++++ Actions +++++++++ 
-
 export const addTodo = (todo) => {
 	return {
 		type: mod.ADD_TODO,
@@ -33,7 +31,6 @@ export const createHasErrored = (bool) => {
 };
 
 // +++++++++ Functions +++++++++ 
-
 // const url = 'https://redux-todo-api.herokuapp.com';
 // const url = 'https://localhost:8080';
 
@@ -58,8 +55,3 @@ export function createTodo(data) {
 			});
 	};
 }
-
-
-
-
-
