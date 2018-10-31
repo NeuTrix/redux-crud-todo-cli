@@ -12,10 +12,18 @@
     "rules": {
         "indent": ["error", "tab"],
         "no-console": "off",
-        "no-tabs": ["error", { "allowIndentationTabs": true }],
-        "no-underscore-dangle": ["error", { "allow": ["_id"] }],
-        "padded-blocks": ["error", { "blocks": "never" }],
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "no-tabs": ["error", {
+            "allowIndentationTabs": true 
+        }],
+        "no-underscore-dangle": ["error", { 
+            "allow": ["_id"] 
+        }],
+        "padded-blocks": ["error", { 
+            "blocks": "never" 
+        }],
+        "react/jsx-filename-extension": [1, {
+            "extensions": [".js", ".jsx"] 
+        }],
         "react/jsx-indent": ["error", "tab"],
         "react/jsx-indent-props": ["error", "tab"],
         "space-in-parens": ["error", "never"],
@@ -27,6 +35,9 @@
         "sort-keys": ["error", "asc", {
             "caseSensitive": true,
             "natural": false
+        }],
+        "sort-vars": ["error", {
+            "ignoreCase": true
         }]
     }
 }
