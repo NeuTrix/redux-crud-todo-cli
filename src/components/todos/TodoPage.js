@@ -35,6 +35,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class TodoPage extends Component {
+
 	componentDidMount() {
 		const { isAuthenticated, handleFetchTodos } = this.props;
 		return (isAuthenticated ? handleFetchTodos() : '');
@@ -42,7 +43,7 @@ class TodoPage extends Component {
 
 	render() {
 		const {
-			classes, // form MUI for styling
+			classes, // from MUI for styling
 			handleCreateTodo,
 			handleDeleteTodo,
 			handleEditTodo,
