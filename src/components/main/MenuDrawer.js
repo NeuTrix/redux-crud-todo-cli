@@ -14,34 +14,7 @@ import Navigation from './Navigation';
 
 const drawerWidth = 240;
 
-const styles = theme => ({
 
-	appBar: {
-		marginLeft: drawerWidth,
-		[theme.breakpoints.up('sm')]: {
-			width: `calc(100% - ${drawerWidth}px)`,
-		},
-	},
-	drawer: {
-		[theme.breakpoints.up('sm')]: {
-			flexShrink: 0,
-			width: drawerWidth,
-		},
-	},
-	drawerPaper: {
-		width: drawerWidth,
-	},
-	menuButton: {
-		marginRight: 20,
-		[theme.breakpoints.up('sm')]: {
-			display: 'none',
-		},
-	},
-	root: {
-		display: 'flex',
-	},
-	toolbar: theme.mixins.toolbar,
-});
 
 const propTypes = {
 	auth: PropTypes.bool.isRequired,
@@ -141,4 +114,31 @@ class MenuDrawer extends Component {
 MenuDrawer.propTypes = propTypes;
 MenuDrawer.defaultProps = defaultProps;
 
+const styles = theme => ({
+	appBar: {
+		marginLeft: drawerWidth,
+		[theme.breakpoints.up('sm')]: {
+			width: `calc(100% - ${drawerWidth}px)`,
+		},
+	},
+	drawer: {
+		[theme.breakpoints.up('sm')]: {
+			flexShrink: 0,
+			width: drawerWidth,
+		},
+	},
+	drawerPaper: {
+		width: drawerWidth,
+	},
+	menuButton: {
+		marginRight: 20,
+		[theme.breakpoints.up('sm')]: {
+			display: 'none',
+		},
+	},
+	root: {
+		display: 'flex',
+	},
+	toolbar: theme.mixins.toolbar,
+});
 export default withStyles(styles, { withTheme: true })(MenuDrawer);
