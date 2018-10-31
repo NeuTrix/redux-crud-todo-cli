@@ -76,8 +76,7 @@
     "pre-commit": "^1.2.2",
     "sinon": "^5.0.4"
   },
-  "pre-commit": [
-  ],
+  "pre-commit": [],
   "keywords": [
     "divorce",
     "planning",
