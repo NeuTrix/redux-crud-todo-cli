@@ -11,7 +11,6 @@ it('renders without crashing', () => {
 	
 	ReactDOM.render(
 		<Router>
-			<Navigation />
 		</Router>
 		, div);
 });
@@ -19,7 +18,7 @@ it('renders without crashing', () => {
 describe('The Navigation Component w/ ReactDom', () => {
 	const wrapper = render(
 		<Router>
-			<Navigation/>
+			<Navigation isAuth={false} logout={f => f} />
 		</Router>    
 	);
 

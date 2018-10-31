@@ -12,40 +12,46 @@ import shortid from 'shortid';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
 
+const propTypes = {
+	classes: PropTypes.instanceOf(Object).isRequired,
+	isAuth: PropTypes.bool.isRequired,
+	logout: PropTypes.func.isRequired,
+};
+
 function Navigation(props, context) {
 	const {
-		classes, 
-		isAuth, 
-		logout, 
-		toggle,
+		classes,
+		isAuth,
+		logout,
 	} = props;
+
 	// unauthorized navigation links
 	const registerLink = {
 		id: shortid.generate(),
-		showWithAuth: 'false',
 		link: '/register',
+		showWithAuth: 'false',
 		title: 'Register',
 	};
 
 	const logInLink = {
 		id: shortid.generate(),
-		showWithAuth: 'false',
 		link: '/login',
+		showWithAuth: 'false',
 		title: 'Login',
 	};
 
 	// authorized navigation links
 	const todosLink = {
 		id: shortid.generate(),
-		showWithAuth: 'true',
 		link: '/todos',
+		showWithAuth: 'true',
 		title: 'Todos',
 	};
 
 	const logOutLink = {
 		id: shortid.generate(),
-		showWithAuth: 'true',
 		link: '#',
+		showWithAuth: 'true',
 		title: 'Logout',
 	};
 
@@ -61,8 +67,7 @@ function Navigation(props, context) {
 	};
 
 	return (
-		<List onClick={toggle}>
-
+		<List>
 			{ [todosLink, logInLink, registerLink].map(item => (
 				<span key={item.id} style={displayLogic(item)}>
 					<NavLink to={item.link} className={classes.root} activeClassName={classes.active}>
@@ -76,8 +81,8 @@ function Navigation(props, context) {
 				</span>
 			)) }
 
-			<span style={displayLogic(logOutLink)} onClick={handleLogout}>
-				<ListItem button>
+			<span style={displayLogic(logOutLink)}>
+				<ListItem button onClick={handleLogout}>
 					<ListItemIcon>
 						<Circle />
 					</ListItemIcon>
@@ -90,16 +95,7 @@ function Navigation(props, context) {
 	);
 }
 
-Navigation.propTypes = {
-	classes: PropTypes.instanceOf(Object).isRequired,
-	isAuth: PropTypes.bool.isRequired,
-	logout: PropTypes.func.isRequired,
-};
-
-Navigation.defaultProps = {
-	isAuth: false,
-	logout: f => 'Default action: Navbar logout fn',
-};
+Navigation.propTypes = propTypes;
 
 Navigation.contextTypes = { router: PropTypes.object.isRequired };
 
