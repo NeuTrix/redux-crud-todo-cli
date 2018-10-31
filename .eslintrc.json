@@ -58,7 +58,7 @@
         "sort-imports": ["warn", {
             "ignoreCase": true,
             "ignoreMemberSort": false,
-            "memberSyntaxSortOrder": ["none", "all", "single", "multiple"]
+            "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
         }],
         "sort-vars": ["error", {
             "ignoreCase": true
