@@ -14,18 +14,12 @@ import Navigation from './Navigation';
 
 const drawerWidth = 240;
 
-
-
 const propTypes = {
 	auth: PropTypes.bool.isRequired,
 	classes: PropTypes.instanceOf(Object).isRequired,
 	container: PropTypes.instanceOf(Object),
 	logout: PropTypes.func.isRequired,
 	theme: PropTypes.instanceOf(Object).isRequired,
-};
-
-const defaultProps = {
-	// container: {},
 };
 
 class MenuDrawer extends Component {
@@ -68,8 +62,8 @@ class MenuDrawer extends Component {
 						<IconButton
 							color="inherit"
 							aria-label="Open drawer"
-							onClick={this.handleDrawerToggle}
 							className={classes.menuButton}
+							onClick={this.handleDrawerToggle}
 						>
 							<MenuIcon />
 						</IconButton>
@@ -78,29 +72,24 @@ class MenuDrawer extends Component {
 				<nav className={classes.drawer}>
 					<Hidden smUp implementation="css">
 						<Drawer
+							id="mainDrawer"
 							container={container}
 							variant="temporary"
 							anchor={theme.direction === 'rtl' ? 'right' : 'left'}
 							open={mobileOpen}
+							classes={{ paper: classes.drawerPaper }}
+							ModalProps={{ keepMounted: true }} // Better open performance on mobile.
 							onClose={this.handleDrawerToggle}
-							classes={{
-								paper: classes.drawerPaper,
-							}}
-							ModalProps={{
-								// Better open performance on mobile.
-								keepMounted: true,
-							}}
 						>
 							{drawer}
 						</Drawer>
 					</Hidden>
 					<Hidden xsDown implementation="css">
 						<Drawer
-							classes={{
-								paper: classes.drawerPaper,
-							}}
-							variant="permanent"
+							id="sideDrawer"
 							open
+							classes={{ paper: classes.drawerPaper }}
+							variant="permanent"
 						>
 							{drawer}
 						</Drawer>
@@ -110,9 +99,6 @@ class MenuDrawer extends Component {
 		);
 	}
 }
-
-MenuDrawer.propTypes = propTypes;
-MenuDrawer.defaultProps = defaultProps;
 
 const styles = theme => ({
 	appBar: {
@@ -141,4 +127,7 @@ const styles = theme => ({
 	},
 	toolbar: theme.mixins.toolbar,
 });
+
+MenuDrawer.propTypes = propTypes;
+
 export default withStyles(styles, { withTheme: true })(MenuDrawer);
