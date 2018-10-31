@@ -92,5 +92,6 @@ const styles = {
 };
 
 TodoPage.propTypes = propTypes; // connect prop-types validation
+TodoPage.displayName = 'TodoPage';
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(TodoPage));
