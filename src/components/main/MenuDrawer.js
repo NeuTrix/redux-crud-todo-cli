@@ -44,6 +44,7 @@ const styles = theme => ({
 });
 
 const propTypes = {
+	auth: PropTypes.bool.isRequired,
 	classes: PropTypes.instanceOf(Object).isRequired,
 	container: PropTypes.instanceOf(Object).isRequired,
 	theme: PropTypes.instanceOf(Object).isRequired,
@@ -51,7 +52,7 @@ const propTypes = {
 
 const defaultProps = {
   container: {},
-  // auth: {},
+  auth: false, // authorization object from store
   // logout: f => f,
 }
 
