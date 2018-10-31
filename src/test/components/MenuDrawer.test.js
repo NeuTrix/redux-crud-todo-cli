@@ -7,7 +7,7 @@ import MenuDrawer from '../../components/main/MenuDrawer';
 describe('The MenuDrawer Component w/ ReactDom', () => {
 	const wrapper = render(
 		<Router>
-			<MenuDrawer/>
+			<MenuDrawer logout={f => f}/>
 		</Router>    
 	);
 
