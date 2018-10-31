@@ -15,121 +15,123 @@ import Navigation from './Navigation';
 const drawerWidth = 240;
 
 const styles = theme => ({
-  root: {
-    display: 'flex',
-  },
-  appBar: {
-    marginLeft: drawerWidth,
-    [theme.breakpoints.up('sm')]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-    },
-  },
-  drawer: {
-    [theme.breakpoints.up('sm')]: {
-      width: drawerWidth,
-      flexShrink: 0,
-    },
-  },
-  menuButton: {
-    marginRight: 20,
-    [theme.breakpoints.up('sm')]: {
-      display: 'none',
-    },
-  },
-  toolbar: theme.mixins.toolbar,
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  
+	root: {
+		display: 'flex',
+	},
+	appBar: {
+		marginLeft: drawerWidth,
+		[theme.breakpoints.up('sm')]: {
+			width: `calc(100% - ${drawerWidth}px)`,
+		},
+	},
+	drawer: {
+		[theme.breakpoints.up('sm')]: {
+			width: drawerWidth,
+			flexShrink: 0,
+		},
+	},
+	menuButton: {
+		marginRight: 20,
+		[theme.breakpoints.up('sm')]: {
+			display: 'none',
+		},
+	},
+	toolbar: theme.mixins.toolbar,
+	drawerPaper: {
+		width: drawerWidth,
+	},
+
 });
 
-class MenuDrawer extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        mobileOpen: false,
-      }
-      this.handleDrawerToggle = this.handleDrawerToggle.bind(this);
-    };
-
-  handleDrawerToggle(e) {
-    e.preventDefault();
-    this.setState((previousState) => {
-      return ({ mobileOpen: !previousState.mobileOpen })
-    })
-  };
-
-  render() {
-    const { mobileOpen } = this.state;
-    const { auth, classes, logout, theme } = this.props;
-
-    const drawer = (
-      <div>
-        <div className={classes.toolbar} />
-        <Divider />
-        <Navigation 
-          auth={ auth } 
-          logout={ logout }
-          toggle= { this.handleDrawerToggle }
-        />
-        <Divider />
-      </div>
-    );
-
-    return (
-      <div className={classes.root}>
-        <AppBar position="fixed" className={classes.appBar}>
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="Open drawer"
-              onClick={this.handleDrawerToggle}
-              className={classes.menuButton}
-            >
-              <MenuIcon />
-            </IconButton>
-           
-          </Toolbar>
-        </AppBar>
-        <nav className={classes.drawer}>
-          <Hidden smUp implementation="css">
-            <Drawer
-              container={this.props.container}
-              variant="temporary"
-              anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-              open={mobileOpen}
-              onClose={this.handleDrawerToggle}
-              classes={{
-                paper: classes.drawerPaper,
-              }}
-              ModalProps={{
-                // Better open performance on mobile.
-                keepMounted: true,
-              }}
-            >
-              {drawer}
-            </Drawer>
-          </Hidden>
-          <Hidden xsDown implementation="css">
-            <Drawer
-              classes={{
-                paper: classes.drawerPaper,
-              }}
-              variant="permanent"
-              open
-            >
-              {drawer}
-            </Drawer>
-          </Hidden>
-        </nav>
-      </div>
-    );
-  }
-}
-
-MenuDrawer.propTypes = {
+const propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
 };
+
+class MenuDrawer extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			mobileOpen: false,
+		};
+		this.handleDrawerToggle = this.handleDrawerToggle.bind(this);
+	}
+
+	handleDrawerToggle(e) {
+		e.preventDefault();
+		this.setState(previousState => ({ mobileOpen: !previousState.mobileOpen }));
+	}
+
+	render() {
+		const { mobileOpen } = this.state;
+		const {
+			auth, classes, logout, theme,
+		} = this.props;
+
+		const drawer = (
+			<div>
+				<div className={classes.toolbar} />
+				<Divider />
+				<Navigation
+					auth={auth}
+					logout={logout}
+					toggle={this.handleDrawerToggle}
+				/>
+				<Divider />
+			</div>
+		);
+
+		return (
+			<div className={classes.root}>
+				<AppBar position="fixed" className={classes.appBar}>
+					<Toolbar>
+						<IconButton
+							color="inherit"
+							aria-label="Open drawer"
+							onClick={this.handleDrawerToggle}
+							className={classes.menuButton}
+						>
+							<MenuIcon />
+						</IconButton>
+
+					</Toolbar>
+				</AppBar>
+				<nav className={classes.drawer}>
+					<Hidden smUp implementation="css">
+						<Drawer
+							container={this.props.container}
+							variant="temporary"
+							anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+							open={mobileOpen}
+							onClose={this.handleDrawerToggle}
+							classes={{
+								paper: classes.drawerPaper,
+							}}
+							ModalProps={{
+								// Better open performance on mobile.
+								keepMounted: true,
+							}}
+						>
+							{drawer}
+						</Drawer>
+					</Hidden>
+					<Hidden xsDown implementation="css">
+						<Drawer
+							classes={{
+								paper: classes.drawerPaper,
+							}}
+							variant="permanent"
+							open
+						>
+							{drawer}
+						</Drawer>
+					</Hidden>
+				</nav>
+			</div>
+		);
+	}
+}
+
+MenuDrawer.propTypes = propTypes
 
 export default withStyles(styles, { withTheme: true })(MenuDrawer);
