@@ -14,9 +14,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Navigation from './Navigation'; // Navigation menu items
 
 const propTypes = {
-	isAuth: PropTypes.bool.isRequired,
 	classes: PropTypes.instanceOf(Object).isRequired,
 	container: PropTypes.instanceOf(Object),
+	isAuth: PropTypes.bool.isRequired,
 	logout: PropTypes.func.isRequired,
 	theme: PropTypes.instanceOf(Object).isRequired,
 };
@@ -55,7 +55,7 @@ class NavBar extends Component {
 		);
 
 		return (
-			<div className={classes.root}>
+			<div className={classes.root} >
 				<AppBar position="fixed" className={classes.appBar}>
 					<Toolbar>
 						<IconButton
@@ -93,7 +93,7 @@ const drawerWidth = 264;
 
 const styles = theme => ({
 	appBar: {
-
+		display: 'flex'
 	},
 	drawer: {
 		[theme.breakpoints.up('sm')]: {
@@ -104,12 +104,10 @@ const styles = theme => ({
 	drawerPaper: {
 		width: drawerWidth,
 	},
+	root: { display: 'flex' },
 	menuButton: {
 		color: theme.palette.contrast, // custom theme prop
 		marginRight: 20,
-	},
-	root: {
-		display: 'flex',
 	},
 	toolbar: theme.mixins.toolbar,
 });
