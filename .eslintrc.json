@@ -1,12 +1,16 @@
 {
     "env": {
         "browser": true,
-        "es6": true
+        "es6": true,
+        "node": true,
+        "jest": true
     },
     "extends": [
         "airbnb", 
         "plugin:jsx-a11y/recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings"
     ],
     "parserOptions": {
         "ecmaVersion": 6,
@@ -50,6 +54,11 @@
         "sort-keys": ["error", "asc", {
             "caseSensitive": true,
             "natural": false
+        }],
+        "sort-imports": ["error", {
+            "ignoreCase": true,
+            "ignoreMemberSort": false,
+            "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
         }],
         "sort-vars": ["error", {
             "ignoreCase": true
