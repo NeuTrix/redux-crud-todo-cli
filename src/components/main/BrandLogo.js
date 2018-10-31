@@ -1,21 +1,31 @@
-import React from 'react'
+import PropTypes from 'prop-types';
+import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import logo from '../../assets/logo-white.png';
 import CardMedia from '@material-ui/core/CardMedia';
+import logo from '../../assets/logo-white.png';
 
-const StyledAvatar = withStyles({
-  root: {
-    // color: 'steelblue',
-    maxWidth: '75px',
-  }
-})(CardMedia);
+const propTypes = {
+	classes: PropTypes.instanceOf(Object).isRequired,
+};
 
-export default function BrandLogo (props) {
-  return (
-    <StyledAvatar 
-    className='brandLogo' 
-    component='img'
-    image={ logo }
-    alt= 'brand logo'/>
-  )
+function BrandLogo(props) {
+	const { classes } = props;
+	return (
+		<CardMedia
+			alt="brand logo"
+			className={`brandLogo ${classes.root}`}
+			component="img"
+			image={logo}
+		/>
+	);
 }
+
+const styles = {
+	root: {
+		maxWidth: '75px',
+	},
+};
+
+BrandLogo.propTypes = propTypes;
+
+export default withStyles(styles)(BrandLogo);
