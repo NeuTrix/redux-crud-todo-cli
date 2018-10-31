@@ -60,6 +60,7 @@ class MenuDrawer extends Component {
   };
 
   render() {
+    const { mobileOpen } = this.state;
     const { auth, classes, logout, theme } = this.props;
 
     const drawer = (
@@ -96,7 +97,7 @@ class MenuDrawer extends Component {
               container={this.props.container}
               variant="temporary"
               anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-              open={this.state.mobileOpen}
+              open={mobileOpen}
               onClose={this.handleDrawerToggle}
               classes={{
                 paper: classes.drawerPaper,
