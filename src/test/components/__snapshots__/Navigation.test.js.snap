@@ -14,13 +14,13 @@ Object {
         "children": Array [
           Object {
             "attribs": Object {
-              "class": "Navigation-root-1",
+              "class": "Navigation-root-2",
               "href": "/todos",
             },
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-1",
+                  "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-2",
                   "role": "button",
                   "tabindex": "0",
                 },
@@ -605,13 +605,13 @@ Object {
           "children": Array [
             Object {
               "attribs": Object {
-                "class": "Navigation-root-1",
+                "class": "Navigation-root-2",
                 "href": "/login",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-1",
+                    "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-2",
                     "role": "button",
                     "tabindex": "0",
                   },
@@ -1196,13 +1196,13 @@ Object {
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "Navigation-root-1",
+                  "class": "Navigation-root-2",
                   "href": "/register",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-1",
+                      "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-2",
                       "role": "button",
                       "tabindex": "0",
                     },
@@ -2007,7 +2007,7 @@ Object {
                       "namespace": "http://www.w3.org/1999/xhtml",
                       "next": Object {
                         "attribs": Object {
-                          "class": "MuiTypography-root-37 MuiTypography-h6-54 MuiTypography-colorInherit-66 MuiTypography-noWrap-63",
+                          "class": "MuiTypography-root-37 MuiTypography-body1-46 MuiTypography-colorInherit-66 MuiTypography-noWrap-63",
                         },
                         "children": Array [
                           Object {
@@ -2018,7 +2018,7 @@ Object {
                             "type": "text",
                           },
                         ],
-                        "name": "h6",
+                        "name": "p",
                         "namespace": "http://www.w3.org/1999/xhtml",
                         "next": null,
                         "parent": [Circular],
@@ -2043,7 +2043,7 @@ Object {
                     },
                     Object {
                       "attribs": Object {
-                        "class": "MuiTypography-root-37 MuiTypography-h6-54 MuiTypography-colorInherit-66 MuiTypography-noWrap-63",
+                        "class": "MuiTypography-root-37 MuiTypography-body1-46 MuiTypography-colorInherit-66 MuiTypography-noWrap-63",
                       },
                       "children": Array [
                         Object {
@@ -2054,7 +2054,7 @@ Object {
                           "type": "text",
                         },
                       ],
-                      "name": "h6",
+                      "name": "p",
                       "namespace": "http://www.w3.org/1999/xhtml",
                       "next": null,
                       "parent": [Circular],
@@ -2359,13 +2359,13 @@ Object {
         "children": Array [
           Object {
             "attribs": Object {
-              "class": "Navigation-root-1",
+              "class": "Navigation-root-2",
               "href": "/login",
             },
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-1",
+                  "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-2",
                   "role": "button",
                   "tabindex": "0",
                 },
@@ -2950,13 +2950,13 @@ Object {
           "children": Array [
             Object {
               "attribs": Object {
-                "class": "Navigation-root-1",
+                "class": "Navigation-root-2",
                 "href": "/register",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-1",
+                    "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-2",
                     "role": "button",
                     "tabindex": "0",
                   },
@@ -3761,7 +3761,7 @@ Object {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Object {
                       "attribs": Object {
-                        "class": "MuiTypography-root-37 MuiTypography-h6-54 MuiTypography-colorInherit-66 MuiTypography-noWrap-63",
+                        "class": "MuiTypography-root-37 MuiTypography-body1-46 MuiTypography-colorInherit-66 MuiTypography-noWrap-63",
                       },
                       "children": Array [
                         Object {
@@ -3772,7 +3772,7 @@ Object {
                           "type": "text",
                         },
                       ],
-                      "name": "h6",
+                      "name": "p",
                       "namespace": "http://www.w3.org/1999/xhtml",
                       "next": null,
                       "parent": [Circular],
@@ -3797,7 +3797,7 @@ Object {
                   },
                   Object {
                     "attribs": Object {
-                      "class": "MuiTypography-root-37 MuiTypography-h6-54 MuiTypography-colorInherit-66 MuiTypography-noWrap-63",
+                      "class": "MuiTypography-root-37 MuiTypography-body1-46 MuiTypography-colorInherit-66 MuiTypography-noWrap-63",
                     },
                     "children": Array [
                       Object {
@@ -3808,7 +3808,7 @@ Object {
                         "type": "text",
                       },
                     ],
-                    "name": "h6",
+                    "name": "p",
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": null,
                     "parent": [Circular],
@@ -4094,13 +4094,13 @@ Object {
           "children": Array [
             Object {
               "attribs": Object {
-                "class": "Navigation-root-1",
+                "class": "Navigation-root-2",
                 "href": "/todos",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-1",
+                    "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-2",
                     "role": "button",
                     "tabindex": "0",
                   },
@@ -4704,13 +4704,13 @@ Object {
         "children": Array [
           Object {
             "attribs": Object {
-              "class": "Navigation-root-1",
+              "class": "Navigation-root-2",
               "href": "/register",
             },
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-1",
+                  "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-2",
                   "role": "button",
                   "tabindex": "0",
                 },
@@ -5515,7 +5515,7 @@ Object {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Object {
                     "attribs": Object {
-                      "class": "MuiTypography-root-37 MuiTypography-h6-54 MuiTypography-colorInherit-66 MuiTypography-noWrap-63",
+                      "class": "MuiTypography-root-37 MuiTypography-body1-46 MuiTypography-colorInherit-66 MuiTypography-noWrap-63",
                     },
                     "children": Array [
                       Object {
@@ -5526,7 +5526,7 @@ Object {
                         "type": "text",
                       },
                     ],
-                    "name": "h6",
+                    "name": "p",
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": null,
                     "parent": [Circular],
@@ -5551,7 +5551,7 @@ Object {
                 },
                 Object {
                   "attribs": Object {
-                    "class": "MuiTypography-root-37 MuiTypography-h6-54 MuiTypography-colorInherit-66 MuiTypography-noWrap-63",
+                    "class": "MuiTypography-root-37 MuiTypography-body1-46 MuiTypography-colorInherit-66 MuiTypography-noWrap-63",
                   },
                   "children": Array [
                     Object {
@@ -5562,7 +5562,7 @@ Object {
                       "type": "text",
                     },
                   ],
-                  "name": "h6",
+                  "name": "p",
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": null,
                   "parent": [Circular],
@@ -5838,13 +5838,13 @@ Object {
           "children": Array [
             Object {
               "attribs": Object {
-                "class": "Navigation-root-1",
+                "class": "Navigation-root-2",
                 "href": "/login",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-1",
+                    "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-2",
                     "role": "button",
                     "tabindex": "0",
                   },
@@ -6431,13 +6431,13 @@ Object {
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "Navigation-root-1",
+                  "class": "Navigation-root-2",
                   "href": "/todos",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-1",
+                      "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-2",
                       "role": "button",
                       "tabindex": "0",
                     },
@@ -7269,7 +7269,7 @@ Object {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Object {
                   "attribs": Object {
-                    "class": "MuiTypography-root-37 MuiTypography-h6-54 MuiTypography-colorInherit-66 MuiTypography-noWrap-63",
+                    "class": "MuiTypography-root-37 MuiTypography-body1-46 MuiTypography-colorInherit-66 MuiTypography-noWrap-63",
                   },
                   "children": Array [
                     Object {
@@ -7280,7 +7280,7 @@ Object {
                       "type": "text",
                     },
                   ],
-                  "name": "h6",
+                  "name": "p",
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": null,
                   "parent": [Circular],
@@ -7305,7 +7305,7 @@ Object {
               },
               Object {
                 "attribs": Object {
-                  "class": "MuiTypography-root-37 MuiTypography-h6-54 MuiTypography-colorInherit-66 MuiTypography-noWrap-63",
+                  "class": "MuiTypography-root-37 MuiTypography-body1-46 MuiTypography-colorInherit-66 MuiTypography-noWrap-63",
                 },
                 "children": Array [
                   Object {
@@ -7316,7 +7316,7 @@ Object {
                     "type": "text",
                   },
                 ],
-                "name": "h6",
+                "name": "p",
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": null,
                 "parent": [Circular],
@@ -7582,13 +7582,13 @@ Object {
           "children": Array [
             Object {
               "attribs": Object {
-                "class": "Navigation-root-1",
+                "class": "Navigation-root-2",
                 "href": "/register",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-1",
+                    "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-2",
                     "role": "button",
                     "tabindex": "0",
                   },
@@ -8175,13 +8175,13 @@ Object {
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "Navigation-root-1",
+                  "class": "Navigation-root-2",
                   "href": "/login",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-1",
+                      "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-2",
                       "role": "button",
                       "tabindex": "0",
                     },
@@ -8768,13 +8768,13 @@ Object {
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "Navigation-root-1",
+                    "class": "Navigation-root-2",
                     "href": "/todos",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-1",
+                        "class": "MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-2",
                         "role": "button",
                         "tabindex": "0",
                       },
@@ -9422,11 +9422,11 @@ Object {
       style="display:none"
     >
       <a
-        class="Navigation-root-1"
+        class="Navigation-root-2"
         href="/todos"
       >
         <div
-          class="MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-1"
+          class="MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-2"
           role="button"
           tabindex="0"
         >
@@ -9469,11 +9469,11 @@ Object {
       style="display:flex"
     >
       <a
-        class="Navigation-root-1"
+        class="Navigation-root-2"
         href="/login"
       >
         <div
-          class="MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-1"
+          class="MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-2"
           role="button"
           tabindex="0"
         >
@@ -9516,11 +9516,11 @@ Object {
       style="display:flex"
     >
       <a
-        class="Navigation-root-1"
+        class="Navigation-root-2"
         href="/register"
       >
         <div
-          class="MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-1"
+          class="MuiButtonBase-root-18 MuiListItem-root-7 MuiListItem-default-10 MuiListItem-gutters-14 MuiListItem-button-15 Navigation-root-2"
           role="button"
           tabindex="0"
         >
@@ -9590,11 +9590,11 @@ Object {
             />
           </svg>
         </div>
-        <h6
-          class="MuiTypography-root-37 MuiTypography-h6-54 MuiTypography-colorInherit-66 MuiTypography-noWrap-63"
+        <p
+          class="MuiTypography-root-37 MuiTypography-body1-46 MuiTypography-colorInherit-66 MuiTypography-noWrap-63"
         >
           Logout
-        </h6>
+        </p>
       </div>
     </span>
   </ul>,

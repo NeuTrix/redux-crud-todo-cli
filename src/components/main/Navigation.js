@@ -2,20 +2,24 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React from 'react';
 // ===> MUI components <===
-import { withStyles } from '@material-ui/core/styles';
 
 import Circle from '@material-ui/icons/TripOrigin';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import shortid from 'shortid';
 import ListItemText from '@material-ui/core/ListItemText';
+import shortid from 'shortid';
 import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
 
 const propTypes = {
 	classes: PropTypes.instanceOf(Object).isRequired,
 	isAuth: PropTypes.bool.isRequired,
 	logout: PropTypes.func.isRequired,
+};
+// to facilitate routing
+const contextTypes = {
+	router: PropTypes.instanceOf(Object).isRequired,
 };
 
 function Navigation(props, context) {
@@ -24,37 +28,30 @@ function Navigation(props, context) {
 		isAuth,
 		logout,
 	} = props;
-
 	// unauthorized navigation links
 	const registerLink = {
-		id: shortid.generate(),
 		link: '/register',
 		showWithAuth: 'false',
 		title: 'Register',
 	};
 
 	const logInLink = {
-		id: shortid.generate(),
 		link: '/login',
 		showWithAuth: 'false',
 		title: 'Login',
 	};
-
 	// authorized navigation links
 	const todosLink = {
-		id: shortid.generate(),
 		link: '/todos',
 		showWithAuth: 'true',
 		title: 'Todos',
 	};
 
 	const logOutLink = {
-		id: shortid.generate(),
 		link: '#',
 		showWithAuth: 'true',
 		title: 'Logout',
 	};
-
 	// filter links based on authorization status
 	const displayLogic = item => ({
 		display: String(isAuth) === item.showWithAuth ? 'flex' : 'none',
@@ -69,7 +66,7 @@ function Navigation(props, context) {
 	return (
 		<List>
 			{ [todosLink, logInLink, registerLink].map(item => (
-				<span key={item.id} style={displayLogic(item)}>
+				<span key={shortid.generate()} style={displayLogic(item)}>
 					<NavLink to={item.link} className={classes.root} activeClassName={classes.active}>
 						<ListItem className={classes.root} button>
 							<ListItemIcon>
@@ -86,7 +83,7 @@ function Navigation(props, context) {
 					<ListItemIcon>
 						<Circle />
 					</ListItemIcon>
-					<Typography variant="h6" color="inherit" noWrap>
+					<Typography color="inherit" noWrap>
 						{logOutLink.title}
 					</Typography>
 				</ListItem>
@@ -95,14 +92,17 @@ function Navigation(props, context) {
 	);
 }
 
-Navigation.propTypes = propTypes;
-
-Navigation.contextTypes = { router: PropTypes.object.isRequired };
-
-export default withStyles(theme => ({
+const styles = theme => ({
+	active: {
+		background: theme.palette.primary.light,
+	},
 	root: {
 		textDecoration: 'none',
 		width: '100%',
 	},
-	active: { background: 'aliceblue' },
-}))(Navigation);
+});
+
+Navigation.propTypes = propTypes;
+Navigation.contextTypes = contextTypes;
+
+export default withStyles(styles, { withTheme: true })(Navigation);
