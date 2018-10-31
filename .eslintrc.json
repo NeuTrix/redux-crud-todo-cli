@@ -15,12 +15,14 @@
         "indent": [
             "error",
             "tab"
-        ], 
+        ],
         "no-console": "off",
         "no-tabs": [
-            "error", 
-            { "allowIndentationTabs": true }
-        ], 
+            "error",
+            {
+                "allowIndentationTabs": true
+            }
+        ],
         "padded-blocks": [
             "error",
             {
@@ -28,8 +30,10 @@
             }
         ],
         "react/jsx-filename-extension": [
-            1, 
-            { "extensions": [".js", ".jsx"] }
+            1,
+            {
+                "extensions": [".js", ".jsx"]
+            }
         ],
         "react/jsx-indent": [
             "error",
@@ -38,7 +42,7 @@
         "react/jsx-indent-props": [
             "error",
             "tab"
-        ], 
+        ],
         "space-in-parens": ["error", "never"]
     }
 }
