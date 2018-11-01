@@ -16,8 +16,6 @@ const propTypes = {
 	addFlashMessage: PropTypes.func.isRequired,
 	authApi: PropTypes.instanceOf(Object).isRequired,
 	classes: PropTypes.instanceOf(Object).isRequired,
-	className: PropTypes.string.isRequired, // from styled-components
-	currUser: PropTypes.instanceOf(Object).isRequired,
 	userLoginRequest: PropTypes.func.isRequired,
 };
 
@@ -96,54 +94,67 @@ class Loginform extends Component {
 
 		return (
 			<div
-				className={`{LoginTest ${classes.grid}`}
+				className={`{loginGrid ${classes.grid}`}
 				onSubmit={this.onSubmit}
 			>
-				<Title
-					className="title"
+				<div
+					className={`{loginTitle ${classes.loginTitle}`}
 					variant="h2"
 					color="secondary"
 				>
-					{ !isLoading ? 'Login' : <ProgressBar color="greenyellow" /> }
-				</Title>
+					{ !isLoading
+						? (
+							<Typography
+								variant="title"
+								color="secondary"
+							>
+								{'Login'}
+							</Typography>
+						)
+						: <ProgressBar color="greenyellow" />
+					}
+				</div>
 
-				<Email
-					InputLabelProps={stylesInput}
-					className="email"
+				<TextField
+					className={`{email ${classes.email}`}
 					errors={errors.identifier}
+					InputLabelProps={stylesInput}
 					label="Username | Email"
 					margin="normal"
 					name="identifier"
-					onChange={this.onChange}
 					placeholder="enter username or email"
 					required
 					// type='email'
 					value={identifier}
 					variant="outlined"
+					onChange={this.onChange}
 				/>
 
-				<Pword
-					InputLabelProps={stylesInput}
-					className="password"
+				<TextField
+					className={`{password ${classes.password}`}
 					errors={errors.password}
+					InputLabelProps={stylesInput}
 					label="Password"
 					margin="normal"
 					name="password"
-					onChange={this.onChange}
 					placeholder="enter password"
 					required
 					type="password"
 					value={password}
 					variant="outlined"
+					onChange={this.onChange}
 				/>
-				<RegLink to="/register" className="regLink">
-					Click here for a new account
+				<Link
+					className={classes.regLink}
+					to="/register"
+				>
+					<Typography>
+						{'Click here for a new account'}
+					</Typography>
+				</Link>
 
-
-				</RegLink>
-
-				<Submit
-					// className={ this.props.classes.button}
+				<Button
+					className={`{submit ${classes.submit}`}
 					color="primary"
 					disabled={isLoading}
 					name="Log in"
@@ -154,25 +165,13 @@ class Loginform extends Component {
 					Go
 
 
-				</Submit>
+				
+</Button>
 			</div>
 		);
 	}
 }
 
-
-const Title = styled(Typography)`
-	grid-area: title;
-`;
-const Email = styled(TextField)`
-	grid-area: email;
-`;
-const Pword = styled(TextField)`
-	grid-area: pword;
-`;
-const Submit = styled(Button)`
-	grid-area: submit;
-`;
 const RegLink = styled(Link)`
 	grid-area: link;
 	padding-top: 25px;
@@ -191,6 +190,7 @@ const styles = theme => ({
 		color: '#fafafa',
 		margin: theme.spacing.unit,
 	},
+	email: { gridArea: 'email' },
 	grid: {
 		border: `1px solid ${colors._mintgreen}`,
 		borderRadius: 5,
@@ -198,22 +198,26 @@ const styles = theme => ({
 		display: 'grid',
 		gridRowGap: 15,
 		gridTemplateAreas: ` 
-			'title'
+			'loginTitle'
 			'email'
-			'pword'
+			'password'
 			'submit'
-			'link'
+			'regLink'
 		`,
 		padding: 20,
 		width: 300,
-
-		[`@media (${media._large})`]: {
+		[theme.breakpoints.up('lg')]: {
 			width: 500,
 		},
 	},
 	input: {
 		display: 'none',
 	},
+	loginTitle: { gridArea: 'loginTitle' },
+	regLink: { gridArea: 'regLink' },
+	password: { gridArea: 'password' },
+	submit: { gridArea: 'submit' },
+
 });
 
 Loginform.propTypes = propTypes;
