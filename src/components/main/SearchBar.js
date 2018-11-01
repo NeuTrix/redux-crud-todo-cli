@@ -55,9 +55,9 @@ function SearchBar(props) {
 	const { classes } = props;
 
 	return (
-		<div className={classes.search}>
-			<div className={classes.searchIcon}>
-				<SearchIcon />
+		<div className={`searchFullWrapper ${classes.search}`}>
+			<div className={`searchIconWrapper ${classes.searchIcon}`}>
+				<SearchIcon className="searchIcon" />
 			</div>
 			<InputBase
 				placeholder="Search…"

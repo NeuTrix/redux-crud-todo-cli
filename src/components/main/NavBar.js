@@ -71,7 +71,9 @@ class NavBar extends Component {
 					<IconButton className={classes.brandLogo}>
 						<BrandLogo />
 					</IconButton>
-					<SearchBar className={classes.searchBar} />
+					<div className={classes.searchBar}>
+						<SearchBar />
+					</div>
 				</AppBar>
 				<nav className={classes.drawer}>
 					<Hidden implementation="css">
@@ -132,7 +134,10 @@ const styles = theme => ({
 		marginRight: 20,
 	},
 	root: { display: 'flex' },
-	searchBar: { gridArea: 'searchBar' },
+	searchBar: { 
+		gridArea: 'searchBar',
+		padding: theme.spacing.unit,
+},
 	toolbar: theme.mixins.toolbar,
 });
 
