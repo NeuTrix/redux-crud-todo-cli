@@ -1,45 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The LoginForm ...renders the login form 1`] = `
-<form
-  class="LoginTest sc-bdVaJa hBUaoe"
+<div
+  class="{LoginTest Loginform-grid-2"
 >
   <h2
-    class="MuiTypography-root-3 MuiTypography-h2-16 MuiTypography-colorSecondary-34 title sc-bwzfXH gXFEMh"
+    class="MuiTypography-root-4 MuiTypography-h2-17 MuiTypography-colorSecondary-35 title sc-bdVaJa kpcbbS"
   >
     Login
   </h2>
   <div
-    class="MuiFormControl-root-38 MuiFormControl-marginNormal-39 email sc-htpNat uoNzJ"
+    class="MuiFormControl-root-39 MuiFormControl-marginNormal-40 email sc-bwzfXH iTiVBl"
   >
     <label
-      class="MuiFormLabel-root-49 MuiFormLabel-required-54 MuiInputLabel-root-42 MuiInputLabel-formControl-43 MuiInputLabel-animated-46 MuiInputLabel-outlined-48"
+      class="MuiFormLabel-root-50 MuiFormLabel-required-55 MuiInputLabel-root-43 MuiInputLabel-formControl-44 MuiInputLabel-animated-47 MuiInputLabel-outlined-49"
       data-shrink="false"
       style="background:#fafafa"
     >
       Username | Email
       <span
-        class="MuiFormLabel-asterisk-55"
+        class="MuiFormLabel-asterisk-56"
       >
          *
       </span>
     </label>
     <div
-      class="MuiInputBase-root-69 MuiOutlinedInput-root-56 MuiInputBase-formControl-70"
+      class="MuiInputBase-root-70 MuiOutlinedInput-root-57 MuiInputBase-formControl-71"
     >
       <fieldset
         aria-hidden="true"
-        class="MuiPrivateNotchedOutline-root-86 MuiOutlinedInput-notchedOutline-63"
+        class="MuiPrivateNotchedOutline-root-87 MuiOutlinedInput-notchedOutline-64"
         style="padding-left:8px"
       >
         <legend
-          class="MuiPrivateNotchedOutline-legend-87"
+          class="MuiPrivateNotchedOutline-legend-88"
           style="width:0.01px"
         />
       </fieldset>
       <input
         aria-invalid="false"
-        class="MuiInputBase-input-79 MuiOutlinedInput-input-64"
+        class="MuiInputBase-input-80 MuiOutlinedInput-input-65"
         name="identifier"
         placeholder="enter username or email"
         required=""
@@ -49,36 +49,36 @@ exports[`The LoginForm ...renders the login form 1`] = `
     </div>
   </div>
   <div
-    class="MuiFormControl-root-38 MuiFormControl-marginNormal-39 password sc-bxivhb CjTVf"
+    class="MuiFormControl-root-39 MuiFormControl-marginNormal-40 password sc-htpNat eNzgWE"
   >
     <label
-      class="MuiFormLabel-root-49 MuiFormLabel-required-54 MuiInputLabel-root-42 MuiInputLabel-formControl-43 MuiInputLabel-animated-46 MuiInputLabel-outlined-48"
+      class="MuiFormLabel-root-50 MuiFormLabel-required-55 MuiInputLabel-root-43 MuiInputLabel-formControl-44 MuiInputLabel-animated-47 MuiInputLabel-outlined-49"
       data-shrink="false"
       style="background:#fafafa"
     >
       Password
       <span
-        class="MuiFormLabel-asterisk-55"
+        class="MuiFormLabel-asterisk-56"
       >
          *
       </span>
     </label>
     <div
-      class="MuiInputBase-root-69 MuiOutlinedInput-root-56 MuiInputBase-formControl-70"
+      class="MuiInputBase-root-70 MuiOutlinedInput-root-57 MuiInputBase-formControl-71"
     >
       <fieldset
         aria-hidden="true"
-        class="MuiPrivateNotchedOutline-root-86 MuiOutlinedInput-notchedOutline-63"
+        class="MuiPrivateNotchedOutline-root-87 MuiOutlinedInput-notchedOutline-64"
         style="padding-left:8px"
       >
         <legend
-          class="MuiPrivateNotchedOutline-legend-87"
+          class="MuiPrivateNotchedOutline-legend-88"
           style="width:0.01px"
         />
       </fieldset>
       <input
         aria-invalid="false"
-        class="MuiInputBase-input-79 MuiOutlinedInput-input-64 MuiInputBase-inputType-82"
+        class="MuiInputBase-input-80 MuiOutlinedInput-input-65 MuiInputBase-inputType-83"
         name="password"
         placeholder="enter password"
         required=""
@@ -88,22 +88,22 @@ exports[`The LoginForm ...renders the login form 1`] = `
     </div>
   </div>
   <a
-    class="regLink sc-EHOje pFMQs"
+    class="regLink sc-ifAKCX ciSOvH"
     href="/register"
   >
     Click here for a new account
   </a>
   <button
-    class="MuiButtonBase-root-117 MuiButton-root-91 MuiButton-contained-102 MuiButton-containedPrimary-103 MuiButton-raised-105 MuiButton-raisedPrimary-106 MuiButton-sizeSmall-114 sc-ifAKCX qzBPD"
+    class="MuiButtonBase-root-118 MuiButton-root-92 MuiButton-contained-103 MuiButton-containedPrimary-104 MuiButton-raised-106 MuiButton-raisedPrimary-107 MuiButton-sizeSmall-115 sc-bxivhb dwQCxZ"
     name="Log in"
     tabindex="0"
     type="submit"
   >
     <span
-      class="MuiButton-label-92"
+      class="MuiButton-label-93"
     >
       Go
     </span>
   </button>
-</form>
+</div>
 `;

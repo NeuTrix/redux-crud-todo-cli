@@ -15,6 +15,7 @@ import { colors, media } from '../../helpers/cssConstants';
 const propTypes = {
 	addFlashMessage: PropTypes.func.isRequired,
 	authApi: PropTypes.instanceOf(Object).isRequired,
+	classes: PropTypes.instanceOf(Object).isRequired,
 	className: PropTypes.string.isRequired, // from styled-components
 	currUser: PropTypes.instanceOf(Object).isRequired,
 	userLoginRequest: PropTypes.func.isRequired,
@@ -31,7 +32,6 @@ const defaultProps = {
 	currUser: { },
 	userLoginRequest: f => f,
 };
-
 
 // +++++++++  COMPONENT  +++++++++
 class Loginform extends Component {
@@ -51,7 +51,6 @@ class Loginform extends Component {
 		e.preventDefault();
 		this.setState({ [e.target.name]: e.target.value });
 	}
-
 
 	onSubmit(e) {
 		e.preventDefault();
@@ -90,8 +89,9 @@ class Loginform extends Component {
 	}
 
 	render() {
+		const { classes } = this.props;
 		const {
-			classes, errors, identifier, password, isLoading,
+			errors, identifier, password, isLoading,
 		} = this.state;
 
 		return (
@@ -140,7 +140,7 @@ class Loginform extends Component {
 					Click here for a new account
 
 
-    </RegLink>
+				</RegLink>
 
 				<Submit
 					// className={ this.props.classes.button}
@@ -154,7 +154,7 @@ class Loginform extends Component {
 					Go
 
 
-    </Submit>
+				</Submit>
 			</div>
 		);
 	}
