@@ -31,7 +31,6 @@ const defaultProps = {
 	userLoginRequest: f => f,
 };
 
-// +++++++++  COMPONENT  +++++++++
 class Loginform extends Component {
 	constructor(props, context) {
 		super(props, context);
@@ -51,25 +50,29 @@ class Loginform extends Component {
 	}
 
 	onSubmit(e) {
+		const { router } = this.context;
+		const {
+			addFlashMessage,
+			userLoginRequest,
+		} = this.props;
+
 		e.preventDefault();
-		// upon a valid set of inputs
 		if (this.isValid()) {
 			// reset state if no errors
 			this.setState({ errors: { }, isLoading: true });
 			// pass the state forward for a login ...
-			this.props.userLoginRequest(this.state)
+			userLoginRequest(this.state)
 				.then((res) => {
-					this.props.addFlashMessage({
-						type: 'success',
+					addFlashMessage({
 						text: `Hi ${res.data.username}! You're Logged In.`,
+						type: 'success',
 					});
-					this.context.router.history.push('/todos');
+					router.history.push('/todos');
 					return res;
 				})
-				.catch((err, res) => {
-					// console.log(err)
+				.catch((err) => {
 					this.setState({ errors: err, isLoading: false });
-					this.props.addFlashMessage({
+					addFlashMessage({
 						type: 'error',
 						text: 'Invalid username, id or password. Try again.',
 					});
@@ -81,7 +84,7 @@ class Loginform extends Component {
 		// collect the return objects from #validateInput
 		const { errors, isValid } = validateInput(this.state);
 		if (!isValid) {
-			this.setState({ errors }); // if errors, pass, to state
+			this.setState({ errors });
 		}
 		return isValid; // a boolean value from #validateInput
 	}
@@ -104,21 +107,17 @@ class Loginform extends Component {
 				>
 					{ !isLoading
 						? (
-							<Typography
-								variant="title"
-								color="secondary"
-							>
+							<Typography variant="title" color="secondary">
 								{'Login'}
 							</Typography>
 						)
-						: <ProgressBar color="greenyellow" />
+						: <ProgressBar />
 					}
 				</div>
 
 				<TextField
 					className={`{email ${classes.email}`}
 					errors={errors.identifier}
-					InputLabelProps={stylesInput}
 					label="Username | Email"
 					margin="normal"
 					name="identifier"
@@ -133,7 +132,6 @@ class Loginform extends Component {
 				<TextField
 					className={`{password ${classes.password}`}
 					errors={errors.password}
-					InputLabelProps={stylesInput}
 					label="Password"
 					margin="normal"
 					name="password"
@@ -156,34 +154,19 @@ class Loginform extends Component {
 				<Button
 					className={`{submit ${classes.submit}`}
 					color="primary"
+					component="button"
 					disabled={isLoading}
 					name="Log in"
 					size="small"
 					type="submit"
 					variant="contained"
 				>
-					Go
-
-
-				
-</Button>
+					{'Go'}
+				</Button>
 			</div>
 		);
 	}
 }
-
-const RegLink = styled(Link)`
-	grid-area: link;
-	padding-top: 25px;
-	place-self: center; 
-`;
-
-// custom component styling
-const stylesInput = {
-	style: {
-		background: colors._white,
-	},
-};
 
 const styles = theme => ({
 	button: {
@@ -196,7 +179,7 @@ const styles = theme => ({
 		borderRadius: 5,
 		color: `${colors._mintgreen}`,
 		display: 'grid',
-		gridRowGap: 15,
+		gridRowGap: theme.spacing.unit * 4,
 		gridTemplateAreas: ` 
 			'loginTitle'
 			'email'
@@ -210,12 +193,14 @@ const styles = theme => ({
 			width: 500,
 		},
 	},
-	input: {
-		display: 'none',
-	},
+	input: { display: 'none' },
 	loginTitle: { gridArea: 'loginTitle' },
-	regLink: { gridArea: 'regLink' },
 	password: { gridArea: 'password' },
+	regLink: {
+		gridArea: 'regLink',
+		paddingTop: 25,
+		placeSelf: 'center',
+	},
 	submit: { gridArea: 'submit' },
 
 });
