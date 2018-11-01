@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // import functions
 import Button from '@material-ui/core/Button';
-import styled from 'styled-components';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
@@ -34,11 +33,12 @@ const defaultProps = {
 class Loginform extends Component {
 	constructor(props, context) {
 		super(props, context);
+		const { authApi } = this.props;
 		this.state = {
-			identifier: '',
-			password: '',
 			errors: { },
-			isLoading: this.props.authApi.loginIsPosting,
+			identifier: '',
+			isLoading: authApi.loginIsPosting,
+			password: '',
 		};
 		this.onChange = this.onChange.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
@@ -73,8 +73,8 @@ class Loginform extends Component {
 				.catch((err) => {
 					this.setState({ errors: err, isLoading: false });
 					addFlashMessage({
-						type: 'error',
 						text: 'Invalid username, id or password. Try again.',
+						type: 'error',
 					});
 				});
 		}
