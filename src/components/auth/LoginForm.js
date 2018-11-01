@@ -1,75 +1,37 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 // import functions
-import styled from 'styled-components';
-// import material-ui
 import Button from '@material-ui/core/Button';
+import styled from 'styled-components';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
-import { colors, media } from '../../helpers/cssConstants';
-import validateInput from '../../helpers/loginValidator';
-// import components
 import ProgressBar from '../buttons/ProgressBar';
-import Spinner from '../buttons/Spinner';
-// ===== set CSS
+import validateInput from '../../helpers/loginValidator';
+import { colors, media } from '../../helpers/cssConstants';
 
-const Grid = styled.form`
-	grid-template-areas: 
-		'title'
-		'email'
-		'pword'
-		'submit'
-		'link'
-	;
-	grid-row-gap: 15px;
-
-	border: 1px solid ${colors._mintgreen};
-	border-radius: 5px;
-	color: ${colors._mintgreen};
-	display: grid;
-  padding: 20px;
-	width: 300px;
-
-	@media (${media._large}) {
-		width: 500px;
-	}
-`;
-const Title = styled(Typography)`
-	grid-area: title;
-`;
-const Email = styled(TextField)`
-	grid-area: email;
-`;
-const Pword = styled(TextField)`
-	grid-area: pword;
-`;
-const Submit = styled(Button)`
-	grid-area: submit;
-`;
-const RegLink = styled(Link)`
-	grid-area: link;
-	padding-top: 25px;
-	place-self: center; 
-`;
-// custom component styling
-const stylesInput = {
-	style: {
-		background: colors._white,
-	},
+const propTypes = {
+	addFlashMessage: PropTypes.func.isRequired,
+	authApi: PropTypes.instanceOf(Object).isRequired,
+	className: PropTypes.string.isRequired, // from styled-components
+	currUser: PropTypes.instanceOf(Object).isRequired,
+	userLoginRequest: PropTypes.func.isRequired,
 };
 
-const styles = theme => ({
-	button: {
-		margin: theme.spacing.unit,
-		color: '#fafafa',
-	},
-	input: {
-		display: 'none',
-	},
-});
+const contextTypes = {
+	router: PropTypes.instanceOf(Object).isRequired,
+};
+
+const defaultProps = {
+	addFlashMessage: f => f,
+	authApi: { loginIsPosting: false },
+	className: '',
+	currUser: { },
+	userLoginRequest: f => f,
+};
+
 
 // +++++++++  COMPONENT  +++++++++
 class Loginform extends Component {
@@ -81,7 +43,6 @@ class Loginform extends Component {
 			errors: { },
 			isLoading: this.props.authApi.loginIsPosting,
 		};
-
 		this.onChange = this.onChange.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 	}
@@ -91,14 +52,6 @@ class Loginform extends Component {
 		this.setState({ [e.target.name]: e.target.value });
 	}
 
-	isValid() {
-		// collect the return objects from #validateInput
-		const { errors, isValid } = validateInput(this.state);
-		if (!isValid) {
-			this.setState({ errors }); // if errors, pass, to state
-		}
-		return isValid; // a boolean value from #validateInput
-	}
 
 	onSubmit(e) {
 		e.preventDefault();
@@ -127,14 +80,23 @@ class Loginform extends Component {
 		}
 	}
 
+	isValid() {
+		// collect the return objects from #validateInput
+		const { errors, isValid } = validateInput(this.state);
+		if (!isValid) {
+			this.setState({ errors }); // if errors, pass, to state
+		}
+		return isValid; // a boolean value from #validateInput
+	}
+
 	render() {
 		const {
-			errors, identifier, password, isLoading,
+			classes, errors, identifier, password, isLoading,
 		} = this.state;
 
 		return (
-			<Grid
-				className="LoginTest"
+			<div
+				className={`{LoginTest ${classes.grid}`}
 				onSubmit={this.onSubmit}
 			>
 				<Title
@@ -178,7 +140,7 @@ class Loginform extends Component {
 					Click here for a new account
 
 
-				</RegLink>
+    </RegLink>
 
 				<Submit
 					// className={ this.props.classes.button}
@@ -192,31 +154,70 @@ class Loginform extends Component {
 					Go
 
 
-				</Submit>
-			</Grid>
+    </Submit>
+			</div>
 		);
 	}
 }
 
-Loginform.propTypes = {
-	addFlashMessage: PropTypes.func.isRequired,
-	authApi: PropTypes.object.isRequired,
-	className: PropTypes.string.isRequired, // from styled-components
-	currUser: PropTypes.object.isRequired,
-	userLoginRequest: PropTypes.func.isRequired,
+
+const Title = styled(Typography)`
+	grid-area: title;
+`;
+const Email = styled(TextField)`
+	grid-area: email;
+`;
+const Pword = styled(TextField)`
+	grid-area: pword;
+`;
+const Submit = styled(Button)`
+	grid-area: submit;
+`;
+const RegLink = styled(Link)`
+	grid-area: link;
+	padding-top: 25px;
+	place-self: center; 
+`;
+
+// custom component styling
+const stylesInput = {
+	style: {
+		background: colors._white,
+	},
 };
 
-Loginform.defaultProps = {
-	addFlashMessage: f => f,
-	authApi: { loginIsPosting: false },
-	className: '',
-	currUser: { },
-	userLoginRequest: f => f,
-};
+const styles = theme => ({
+	button: {
+		color: '#fafafa',
+		margin: theme.spacing.unit,
+	},
+	grid: {
+		border: `1px solid ${colors._mintgreen}`,
+		borderRadius: 5,
+		color: `${colors._mintgreen}`,
+		display: 'grid',
+		gridRowGap: 15,
+		gridTemplateAreas: ` 
+			'title'
+			'email'
+			'pword'
+			'submit'
+			'link'
+		`,
+		padding: 20,
+		width: 300,
 
-Loginform.contextTypes = {
-	router: PropTypes.object.isRequired,
-};
+		[`@media (${media._large})`]: {
+			width: 500,
+		},
+	},
+	input: {
+		display: 'none',
+	},
+});
 
-// export default Loginform;
+Loginform.propTypes = propTypes;
+Loginform.defaultProps = defaultProps;
+Loginform.contextTypes = contextTypes;
+
 export default withStyles(styles)(Loginform);
