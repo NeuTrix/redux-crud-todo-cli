@@ -27,7 +27,7 @@
         "no-tabs": ["error", {
             "allowIndentationTabs": true 
         }],
-        "no-underscore-dangle": ["error", { 
+        "no-underscore-dangle": ["warn", { 
             "allow": ["_id"] 
         }],
         "padded-blocks": ["error", { 
