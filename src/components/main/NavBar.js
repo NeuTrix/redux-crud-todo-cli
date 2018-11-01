@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
-import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -42,19 +41,6 @@ class NavBar extends Component {
 			isAuth, classes, container, logout, theme,
 		} = this.props;
 
-		const drawer = (
-			<div>
-				<div className={classes.toolbar} />
-				<Divider />
-				<NavigationLinks
-					isAuth={isAuth}
-					logout={logout}
-					toggle={this.handleDrawerToggle}
-				/>
-				<Divider />
-			</div>
-		);
-
 		return (
 			<div className={`NavBar ${classes.root}`}>
 				<AppBar className={classes.grid} position="fixed">
@@ -76,20 +62,25 @@ class NavBar extends Component {
 					</div>
 				</AppBar>
 				<nav className={classes.drawer}>
-					<Hidden implementation="css">
-						<Drawer
-							id="mainDrawer"
-							container={container}
-							variant="temporary"
-							anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-							open={showMenu}
-							classes={{ paper: classes.drawerPaper }}
-							ModalProps={{ keepMounted: true }} // Better open performance on mobile.
-							onClose={this.handleDrawerToggle}
-						>
-							{drawer}
-						</Drawer>
-					</Hidden>
+					<Drawer
+						id="mainDrawer"
+						container={container}
+						variant="temporary"
+						anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+						open={showMenu}
+						classes={{ paper: classes.drawerPaper }}
+						// Better open performance on mobile.
+						ModalProps={{ keepMounted: true }}
+						onClick={this.handleDrawerToggle}
+					>
+						<Divider />
+						<NavigationLinks
+							isAuth={isAuth}
+							logout={logout}
+							toggle={this.handleDrawerToggle}
+						/>
+						<Divider />
+					</Drawer>
 				</nav>
 			</div>
 		);
@@ -134,11 +125,10 @@ const styles = theme => ({
 		marginRight: 20,
 	},
 	root: { display: 'flex' },
-	searchBar: { 
+	searchBar: {
 		gridArea: 'searchBar',
 		padding: theme.spacing.unit,
-},
-	toolbar: theme.mixins.toolbar,
+	},
 });
 
 NavBar.propTypes = propTypes;
