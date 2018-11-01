@@ -9,7 +9,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 import ProgressBar from '../buttons/ProgressBar';
 import validateInput from '../../helpers/loginValidator';
-import { colors, media } from '../../helpers/cssConstants';
+import { colors } from '../../helpers/cssConstants';
 
 const propTypes = {
 	addFlashMessage: PropTypes.func.isRequired,
@@ -20,14 +20,6 @@ const propTypes = {
 
 const contextTypes = {
 	router: PropTypes.instanceOf(Object).isRequired,
-};
-
-const defaultProps = {
-	addFlashMessage: f => f,
-	authApi: { loginIsPosting: false },
-	className: '',
-	currUser: { },
-	userLoginRequest: f => f,
 };
 
 class Loginform extends Component {
@@ -206,7 +198,6 @@ const styles = theme => ({
 });
 
 Loginform.propTypes = propTypes;
-Loginform.defaultProps = defaultProps;
 Loginform.contextTypes = contextTypes;
 
 export default withStyles(styles)(Loginform);
