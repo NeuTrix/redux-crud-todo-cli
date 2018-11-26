@@ -114,7 +114,6 @@ class Loginform extends Component {
 					name="identifier"
 					placeholder="enter username or email"
 					required
-					// type='email'
 					value={identifier}
 					variant="outlined"
 					onChange={this.onChange}
@@ -168,7 +167,6 @@ const styles = theme => ({
 	grid: {
 		border: `1px solid ${colors._mintgreen}`,
 		borderRadius: 5,
-		color: `${colors._mintgreen}`,
 		display: 'grid',
 		gridRowGap: theme.spacing.unit * 4,
 		gridTemplateAreas: ` 
