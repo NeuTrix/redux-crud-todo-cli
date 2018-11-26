@@ -4,22 +4,21 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import LoginForm from '../../components/auth/LoginForm';
 
 describe('The LoginForm', () => {
-  const authApi = {
-    loginIsPosting: true,
-  };
+	const authApi = {
+		loginIsPosting: true,
+	};
 
-  const addFlashMessage = () => f;
-  const wrapper = render(
-    <Router>
-      <LoginForm 
-        authApi={authApi}
-        addFlashMessage={addFlashMessage}
-      />
-    </Router>
-  );
+	const wrapper = render(
+		<Router>
+			<LoginForm
+				authApi={authApi}
+				addFlashMessage={f => f}
+				userLoginRequest={f => f}
+			/>
+		</Router>
+	);
 
-  it('...renders the login form', () => {
-    expect(wrapper).toMatchSnapshot();
-  });
-
+	it('...renders the login form', () => {
+		expect(wrapper).toMatchSnapshot();
+	});
 });
