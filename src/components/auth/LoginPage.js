@@ -41,9 +41,9 @@ LoginPage.propTypes = {
 };
 
 LoginPage.defaultProps = {
-  authApi: {},
+  // authApi: {},
   // addFlashMessage: f => f,
   // userLoginRequest: f => f,
 };
 
-export default connect(mapStateToProps, { userLoginRequest, addFlashMessage })(LoginPage);
+export default connect(mapStateToProps, { addFlashMessage, userLoginRequest })(LoginPage);

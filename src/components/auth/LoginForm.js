@@ -88,7 +88,6 @@ class Loginform extends Component {
 			<FormControl
 				className={`{loginGrid ${classes.grid}`}
 				component="form"
-				error="true"
 				onSubmit={this.onSubmit}
 			>
 				<div
@@ -98,7 +97,7 @@ class Loginform extends Component {
 				>
 					{ !isLoading
 						? (
-							<Typography variant="title" color="secondary">
+							<Typography variant="h4" color="secondary">
 								{'Login'}
 							</Typography>
 						)
@@ -140,9 +139,9 @@ class Loginform extends Component {
 						{'Click here for a new account'}
 					</Typography>
 				</Link>
-
+					
 				<Button
-					className={`{submit ${classes.submit}`}
+					className={`{submit ${classes.button}`}
 					color="primary"
 					component="button"
 					disabled={isLoading}
@@ -161,7 +160,10 @@ class Loginform extends Component {
 const styles = theme => ({
 	button: {
 		color: '#fafafa',
-		margin: theme.spacing.unit,
+		gridArea: 'button',
+		placeSelf: 'center',
+		marginTop: theme.spacing.unit * 2,
+		width: 100,
 	},
 	email: { gridArea: 'email' },
 	grid: {
@@ -173,7 +175,7 @@ const styles = theme => ({
 			'loginTitle'
 			'email'
 			'password'
-			'submit'
+			'button'
 			'regLink'
 		`,
 		padding: 20,
@@ -190,7 +192,7 @@ const styles = theme => ({
 		paddingTop: 25,
 		placeSelf: 'center',
 	},
-	submit: { gridArea: 'submit' },
+	submit: { },
 
 });
 
