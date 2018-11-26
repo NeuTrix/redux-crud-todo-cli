@@ -51,7 +51,7 @@
             "reservedFirst": true
         }],
         "space-in-parens": ["error", "never"],
-        "sort-keys": ["error", "asc", {
+        "sort-keys": ["warn", "asc", {
             "caseSensitive": true,
             "natural": false
         }],

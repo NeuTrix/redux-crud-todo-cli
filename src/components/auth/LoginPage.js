@@ -22,9 +22,9 @@ const LoginPage = (props) => {
     <Grid className="loginPage">
       <LoginForm
         style={{ gridArea: 'form' }}
-        userLoginRequest={userLoginRequest}
-        addFlashMessage={addFlashMessage}
-        authApi={authApi}
+        userLoginRequest={ userLoginRequest }
+        addFlashMessage={ addFlashMessage }
+        authApi={ authApi }
       />
     </Grid>
   );
@@ -37,13 +37,13 @@ LoginPage.propTypes = {
   authApi: PropTypes.object.isRequired,
   // from styled-components...
   className: PropTypes.string,
-  userLoginRequest: PropTypes.func.isRequired,
+  // userLoginRequest: PropTypes.func.isRequired,
 };
 
 LoginPage.defaultProps = {
   authApi: {},
-  addFlashMessage: f => f,
-  userLoginRequest: f => f,
+  // addFlashMessage: f => f,
+  // userLoginRequest: f => f,
 };
 
 export default connect(mapStateToProps, { userLoginRequest, addFlashMessage })(LoginPage);

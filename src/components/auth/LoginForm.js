@@ -43,12 +43,10 @@ class Loginform extends Component {
 
 	onSubmit(e) {
 		const { router } = this.context;
-		const {
-			addFlashMessage,
-			userLoginRequest,
-		} = this.props;
+		const { addFlashMessage, userLoginRequest } = this.props;
 
 		e.preventDefault();
+
 		if (this.isValid()) {
 			// reset state if no errors
 			this.setState({ errors: { }, isLoading: true });
@@ -83,9 +81,7 @@ class Loginform extends Component {
 
 	render() {
 		const { classes } = this.props;
-		const {
-			errors, identifier, password, isLoading,
-		} = this.state;
+		const { errors, identifier, password, isLoading } = this.state;
 
 		return (
 			<div
@@ -152,6 +148,11 @@ class Loginform extends Component {
 					size="small"
 					type="submit"
 					variant="contained"
+					// onClick="on"
+				onClick = {
+					this.onSubmit
+				}
+					
 				>
 					{'Go'}
 				</Button>

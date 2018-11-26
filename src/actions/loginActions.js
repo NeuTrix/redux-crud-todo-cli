@@ -13,28 +13,28 @@ import {
 	LOGIN_HAS_SUCCEEDED,
 } from './typeConstants';
 
-export function loginIsPosting (bool) {
+export function loginIsPosting(bool) {
 	return {
+		payload: { status: bool },
 		type: LOGIN_IS_POSTING,
-		payload: { status: bool }
 	};
 }
-export function loginHasSucceeded (bool) {
+export function loginHasSucceeded(bool) {
 	return {
+		payload: { status: bool },
 		type: LOGIN_HAS_SUCCEEDED,
-		payload: { status: bool }
 	};
 }
 
-export function loginHasErrored (bool) {
+export function loginHasErrored(bool) {
 	return {
+		payload: { status: bool },
 		type: LOGIN_HAS_ERRORED,
-		payload: { status: bool }
 	};
 }
 
 export function userLoginRequest(userData) {
-	return dispatch => {
+	return (dispatch) => {
 		return axios.post(`${ url }/api/auth/login`, userData)
 			.then((res) => {
 				dispatch(loginIsPosting(true));
@@ -45,12 +45,12 @@ export function userLoginRequest(userData) {
 				const user = jwtDecode(token);
 				localStorage.setItem('jwtToken', token);
 				setAuthorizationToken (token);
-				dispatch(setCurrentUser (user));
+				dispatch(setCurrentUser(user));
 				return res;
 			})
 			.then((res) => {
 				dispatch(loginIsPosting(false));
-				return res
+				return res;
 			})
 			.then((res) => {
 				dispatch(loginHasSucceeded(true));

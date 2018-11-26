@@ -12,8 +12,8 @@ const Grid = styled.form `
 	/* mobile view */
 	display: grid;
 	grid-template-areas:
-		" glyph task  task  task "
-		" ...	 	rank 	date 	add " 
+		" glyph task task task "
+		" . rank date add " 
 	;
 	grid-template-columns: 1fr 3fr 4fr 1fr;
 	grid-gap: 10px;
