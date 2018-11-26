@@ -161,8 +161,8 @@ const styles = theme => ({
 	button: {
 		color: '#fafafa',
 		gridArea: 'button',
-		placeSelf: 'center',
 		marginTop: theme.spacing.unit * 2,
+		placeSelf: 'center',
 		width: 100,
 	},
 	email: { gridArea: 'email' },
