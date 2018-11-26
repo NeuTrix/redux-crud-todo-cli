@@ -10,7 +10,6 @@ import FormControl from '@material-ui/core/FormControl';
 
 import ProgressBar from '../buttons/ProgressBar';
 import validateInput from '../../helpers/loginValidator';
-import { colors } from '../../helpers/cssConstants';
 
 const propTypes = {
 	addFlashMessage: PropTypes.func.isRequired,
@@ -167,7 +166,7 @@ const styles = theme => ({
 	},
 	email: { gridArea: 'email' },
 	grid: {
-		border: `1px solid ${colors._mintgreen}`,
+		border: `1px solid ${theme.palette.primary.main}`,
 		borderRadius: 5,
 		display: 'grid',
 		gridRowGap: theme.spacing.unit * 4,
