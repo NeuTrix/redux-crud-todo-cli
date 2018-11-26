@@ -192,8 +192,6 @@ const styles = theme => ({
 		paddingTop: 25,
 		placeSelf: 'center',
 	},
-	submit: { },
-
 });
 
 Loginform.propTypes = propTypes;
