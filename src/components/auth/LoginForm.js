@@ -84,7 +84,7 @@ class Loginform extends Component {
 		const { errors, identifier, password, isLoading } = this.state;
 
 		return (
-			<div
+			<form
 				className={`{loginGrid ${classes.grid}`}
 				onSubmit={this.onSubmit}
 			>
@@ -148,15 +148,10 @@ class Loginform extends Component {
 					size="small"
 					type="submit"
 					variant="contained"
-					// onClick="on"
-				onClick = {
-					this.onSubmit
-				}
-					
 				>
 					{'Go'}
 				</Button>
-			</div>
+			</form>
 		);
 	}
 }
