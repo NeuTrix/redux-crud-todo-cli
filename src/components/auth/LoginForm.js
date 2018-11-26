@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import FormControl from '@material-ui/core/FormControl';
 
 import ProgressBar from '../buttons/ProgressBar';
 import validateInput from '../../helpers/loginValidator';
@@ -84,8 +85,10 @@ class Loginform extends Component {
 		const { errors, identifier, password, isLoading } = this.state;
 
 		return (
-			<form
+			<FormControl
 				className={`{loginGrid ${classes.grid}`}
+				component="form"
+				error="true"
 				onSubmit={this.onSubmit}
 			>
 				<div
@@ -151,7 +154,7 @@ class Loginform extends Component {
 				>
 					{'Go'}
 				</Button>
-			</form>
+			</FormControl>
 		);
 	}
 }
