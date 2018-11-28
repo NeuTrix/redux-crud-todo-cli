@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { addFlashMessage } from '../../actions/flashActions';
 import { userLoginRequest } from '../../actions/loginActions';
 import validateInput from '../../helpers/loginValidator';
+import LoginForm from './LoginForm';
 
 const propTypes = {
 	addFlashMessage: PropTypes.func.isRequired,
@@ -85,14 +86,15 @@ class LoginContainer extends Component {
 		} = this.state;
 
 		return (
-			<div
+			<LoginForm
+				errors={errors}
+				identifier={identifier}
+				// password={password}
+				isLoading={isLoading}
 				isValid={this.isValid}
 				onSubmit={this.onSubmit}
 				onChange={this.onChange}
-			>
-				
-				{'Hello'}
-			</div>
+			/>
 		);
 	}
 }
