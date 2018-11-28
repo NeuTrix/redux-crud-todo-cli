@@ -80,15 +80,15 @@ class LoginContainer extends Component {
 	render() {
 		const {
 			errors,
-			identifier,
-			password,
+			// identifier,
+			// password,
 			isLoading,
 		} = this.state;
 
 		return (
 			<LoginForm
 				errors={errors}
-				identifier={identifier}
+				// identifier={identifier}
 				// password={password}
 				isLoading={isLoading}
 				isValid={this.isValid}

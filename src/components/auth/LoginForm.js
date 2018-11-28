@@ -13,8 +13,8 @@ const propTypes = {
 	// addFlashMessage: PropTypes.func.isRequired,
 	// authApi: PropTypes.instanceOf(Object).isRequired,
 	classes: PropTypes.instanceOf(Object).isRequired,
-	errors: PropTypes.instanceOf(Object).isRequired,
-	isLoading: PropTypes.func.isRequired,
+	// errors: PropTypes.instanceOf(Object).isRequired,
+	isLoading: PropTypes.bool.isRequired,
 	onChange: PropTypes.func.isRequired,
 	onSubmit: PropTypes.func.isRequired,
 	// userLoginRequest: PropTypes.func.isRequired,
@@ -27,7 +27,7 @@ const contextTypes = {
 const Loginform = (props) => {
 	const {
 		classes,
-		errors,
+		// errors,
 		// identifier,
 		isLoading, //
 		onSubmit,
@@ -57,7 +57,7 @@ const Loginform = (props) => {
 
 			<TextField
 				className={`{email ${classes.email}`}
-				errors={errors.identifier}
+				// errors={errors.identifier}
 				label="Username | Email"
 				margin="normal"
 				name="identifier"
@@ -69,7 +69,7 @@ const Loginform = (props) => {
 
 			<TextField
 				className={`{password ${classes.password}`}
-				errors={errors.password}
+				// errors={errors.password}
 				label="Password"
 				margin="normal"
 				name="password"
