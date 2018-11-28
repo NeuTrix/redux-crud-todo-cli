@@ -37,7 +37,6 @@ function App(props) {
 	return (
 		<div className={`grid ${classes.grid}`}>
 			<CssBaseline />
-			<NavBar isAuth={isAuth} logout={handleLogout} />
 			<div className={`messages ${classes.messages}`}>
 				<FlashMessageList />
 			</div>
@@ -51,6 +50,7 @@ function App(props) {
 					component={requireAuth(ReactDom.render = () => (<TodoPage />))}
 				/>
 			</div>
+			<NavBar className={classes.navBar} isAuth={isAuth} logout={handleLogout} />
 		</div>
 	);
 }
@@ -61,11 +61,11 @@ const styles = () => ({
 		fontFamily: 'arial',
 		gridGap: '10px',
 		gridTemplateAreas: `   
-			" navBar " 
 			" messages "  
 			" main " 
+			" navBar " 
 		`,
-		gridTemplateRows: 'auto',
+		// gridTemplateRows: 'auto',
 		marginTop: '50px',
 		padding: '0px 10px 0px 10px',
 	},
@@ -73,8 +73,10 @@ const styles = () => ({
 		display: 'grid',
 		gridArea: 'main',
 		justifyContent: 'center',
+		paddingTop: 40,
 	},
 	messages: { gridArea: 'messages' },
+	navBar: { gridArea: 'navBar' },
 });
 
 App.propTypes = propTypes;
