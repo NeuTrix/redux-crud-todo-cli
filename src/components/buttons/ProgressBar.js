@@ -39,7 +39,11 @@ class ProgressBar extends Component {
 		const { completed } = this.state;
 		return (
 			<div className={classes.root}>
-				<LinearProgress className={classes.bar} variant="determinate" value={completed} />
+				<LinearProgress
+					className={classes.bar}
+					variant="determinate"
+					value={completed}
+				/>
 			</div>
 		);
 	}
