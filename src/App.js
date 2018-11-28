@@ -9,7 +9,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 import FlashMessageList from './components/messages/FlashMessageList';
 import Home from './components/main/Home';
-import LoginPage from './components/auth/LoginPage';
+import LoginContainer from './components/auth/LoginContainer';
 import { logout } from './actions/loginActions';
 import NavBar from './components/main/NavBar';
 import RegisterPage from './components/auth/RegisterPage';
@@ -39,7 +39,7 @@ function App(props) {
 			</div>
 			<div className={`main ${classes.main}`}>
 				<Route exact path="/" render={() => <Home authorized={isAuth} />} />
-				<Route path="/login" component={LoginPage} />
+				<Route path="/login" component={LoginContainer} />
 				<Route path="/register" component={RegisterPage} />
 				<Route
 					exact

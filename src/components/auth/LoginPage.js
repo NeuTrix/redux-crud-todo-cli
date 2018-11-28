@@ -1,10 +1,11 @@
 // connects to redux store and passes props to the LoginForm ...
 import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import LoginContainer from './LoginContainer';
+// import LoginContainer from './LoginContainer';
+import { connect } from 'react-redux';
 import { addFlashMessage } from '../../actions/flashActions';
 import { userLoginRequest } from '../../actions/loginActions';
-import LoginForm from './LoginForm';
 
 const propTypes = {
 	addFlashMessage: PropTypes.func.isRequired,
@@ -24,7 +25,7 @@ const LoginPage = (props) => {
 	} = props;
 	return (
 		<div >
-			<LoginForm
+			<LoginContainer
 				userLoginRequest={userLoginRequest}
 				addFlashMessage={addFlashMessage}
 				authApi={authApi}
