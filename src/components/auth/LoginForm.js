@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-// import functions
 import Button from '@material-ui/core/Button';
+import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import FormControl from '@material-ui/core/FormControl';
-
 import ProgressBar from '../buttons/ProgressBar';
 import validateInput from '../../helpers/loginValidator';
 
@@ -81,7 +79,18 @@ class Loginform extends Component {
 
 	render() {
 		const { classes } = this.props;
-		const { errors, identifier, password, isLoading } = this.state;
+		const {
+			errors,
+			identifier,
+			password,
+			isLoading,
+		} = this.state;
+
+		const formTitle = (
+			<Typography variant="h4" color="secondary">
+				{ 'Login' }
+			</Typography>
+		);
 
 		return (
 			<FormControl
@@ -94,14 +103,7 @@ class Loginform extends Component {
 					variant="h2"
 					color="secondary"
 				>
-					{ !isLoading
-						? (
-							<Typography variant="h4" color="secondary">
-								{'Login'}
-							</Typography>
-						)
-						: <ProgressBar />
-					}
+					{ isLoading ? <ProgressBar /> : formTitle }
 				</div>
 
 				<TextField
@@ -138,7 +140,7 @@ class Loginform extends Component {
 						{'Click here for a new account'}
 					</Typography>
 				</Link>
-					
+
 				<Button
 					className={`{submit ${classes.button}`}
 					color="primary"

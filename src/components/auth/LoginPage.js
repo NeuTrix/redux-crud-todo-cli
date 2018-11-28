@@ -2,48 +2,44 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// ===== import components
-import styled from 'styled-components';
+import { withStyles } from '@material-ui/core/styles';
 import LoginForm from './LoginForm';
-// ===== import functions
 import { addFlashMessage } from '../../actions/flashActions';
 import { userLoginRequest } from '../../actions/loginActions';
-// ===== set CSS
-const Grid = styled.div`
-	grid-template-areas: " form ";
-	display: grid;
-	justify-items: center;
-	padding: 20px;
-`;
-// ===== main Component
+
 const LoginPage = (props) => {
-  const { addFlashMessage, authApi, userLoginRequest } = props;
-  return (
-    <Grid className="loginPage">
-      <LoginForm
-        style={{ gridArea: 'form' }}
-        userLoginRequest={ userLoginRequest }
-        addFlashMessage={ addFlashMessage }
-        authApi={ authApi }
-      />
-    </Grid>
-  );
+	const {
+		addFlashMessage,
+		authApi,
+		classes,
+		userLoginRequest,
+	} = props;
+	return (
+		<div className={classes.grid}>
+			<LoginForm
+				style={{ gridArea: 'form' }}
+				userLoginRequest={userLoginRequest}
+				addFlashMessage={addFlashMessage}
+				authApi={authApi}
+			/>
+		</div>
+	);
 };
 // ===== Props
 const mapStateToProps = state => ({ authApi: state.authApi });
 
 LoginPage.propTypes = {
-  addFlashMessage: PropTypes.func.isRequired,
-  authApi: PropTypes.object.isRequired,
-  // from styled-components...
-  className: PropTypes.string,
-  // userLoginRequest: PropTypes.func.isRequired,
+	addFlashMessage: PropTypes.func.isRequired,
+	authApi: PropTypes.instanceOf(Object).isRequired,
+	classes: PropTypes.instanceOf(Object).isRequired,
+	userLoginRequest: PropTypes.func.isRequired,
 };
 
-LoginPage.defaultProps = {
-  // authApi: {},
-  // addFlashMessage: f => f,
-  // userLoginRequest: f => f,
+const styles = {
+	grid: {
+		justifyItems: 'center',
+		padding: '20px',
+	},
 };
 
-export default connect(mapStateToProps, { addFlashMessage, userLoginRequest })(LoginPage);
+export default connect(mapStateToProps, { addFlashMessage, userLoginRequest })(withStyles(styles)(LoginPage));
