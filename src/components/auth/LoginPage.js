@@ -3,9 +3,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import LoginForm from './LoginForm';
 import { addFlashMessage } from '../../actions/flashActions';
 import { userLoginRequest } from '../../actions/loginActions';
+import LoginForm from './LoginForm';
+
+const propTypes = {
+	addFlashMessage: PropTypes.func.isRequired,
+	authApi: PropTypes.instanceOf(Object).isRequired,
+	classes: PropTypes.instanceOf(Object).isRequired,
+	userLoginRequest: PropTypes.func.isRequired,
+};
 
 const LoginPage = (props) => {
 	const {
@@ -25,15 +32,6 @@ const LoginPage = (props) => {
 		</div>
 	);
 };
-// ===== Props
-const mapStateToProps = state => ({ authApi: state.authApi });
-
-LoginPage.propTypes = {
-	addFlashMessage: PropTypes.func.isRequired,
-	authApi: PropTypes.instanceOf(Object).isRequired,
-	classes: PropTypes.instanceOf(Object).isRequired,
-	userLoginRequest: PropTypes.func.isRequired,
-};
 
 const styles = {
 	grid: {
@@ -41,5 +39,8 @@ const styles = {
 		padding: '20px',
 	},
 };
+
+const mapStateToProps = state => ({ authApi: state.authApi });
+LoginPage.propTypes = propTypes;
 
 export default connect(mapStateToProps, { addFlashMessage, userLoginRequest })(withStyles(styles)(LoginPage));
