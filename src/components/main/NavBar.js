@@ -38,7 +38,11 @@ class NavBar extends Component {
 	render() {
 		const { showMenu } = this.state;
 		const {
-			isAuth, classes, container, logout, theme,
+			isAuth,
+			classes,
+			container,
+			logout,
+			theme,
 		} = this.props;
 
 		return (
