@@ -1,21 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-// import Button from '@material-ui/core/Button';
-// import FormControl from '@material-ui/core/FormControl';
-// import TextField from '@material-ui/core/TextField';
-// import Typography from '@material-ui/core/Typography';
-// import { withStyles } from '@material-ui/core/styles';
-// import ProgressBar from '../buttons/ProgressBar';
-import validateInput from '../../helpers/loginValidator';
 import { connect } from 'react-redux';
 import { addFlashMessage } from '../../actions/flashActions';
 import { userLoginRequest } from '../../actions/loginActions';
+import validateInput from '../../helpers/loginValidator';
 
 const propTypes = {
 	addFlashMessage: PropTypes.func.isRequired,
 	authApi: PropTypes.instanceOf(Object).isRequired,
-	classes: PropTypes.instanceOf(Object).isRequired,
 	userLoginRequest: PropTypes.func.isRequired,
 };
 
@@ -85,7 +77,6 @@ class LoginContainer extends Component {
 	}
 
 	render() {
-		const { classes } = this.props;
 		const {
 			errors,
 			identifier,
@@ -94,53 +85,20 @@ class LoginContainer extends Component {
 		} = this.state;
 
 		return (
-			<div>
+			<div
+				isValid={this.isValid}
+				onSubmit={this.onSubmit}
+				onChange={this.onChange}
+			>
+				
 				{'Hello'}
 			</div>
 		);
 	}
 }
 
-// const styles = theme => ({
-// 	button: {
-// 		color: '#fafafa',
-// 		gridArea: 'button',
-// 		marginTop: theme.spacing.unit * 2,
-// 		placeSelf: 'center',
-// 		width: 100,
-// 	},
-// 	email: { gridArea: 'email' },
-// 	grid: {
-// 		border: `1px solid ${theme.palette.primary.main}`,
-// 		borderRadius: 5,
-// 		display: 'grid',
-// 		gridRowGap: theme.spacing.unit * 4,
-// 		gridTemplateAreas: ` 
-// 			'loginTitle'
-// 			'email'
-// 			'password'
-// 			'button'
-// 			'regLink'
-// 		`,
-// 		padding: 20,
-// 		width: 300,
-// 		[theme.breakpoints.up('lg')]: {
-// 			width: 500,
-// 		},
-// 	},
-// 	input: { display: 'none' },
-// 	loginTitle: { gridArea: 'loginTitle' },
-// 	password: { gridArea: 'password' },
-// 	regLink: {
-// 		gridArea: 'regLink',
-// 		paddingTop: 25,
-// 		placeSelf: 'center',
-// 	},
-// });
 
 LoginContainer.propTypes = propTypes;
 LoginContainer.contextTypes = contextTypes;
 
-// export default (LoginContainer);
-// export default withStyles(styles)(LoginContainer);
 export default connect(mapStateToProps, { addFlashMessage, userLoginRequest })(LoginContainer);

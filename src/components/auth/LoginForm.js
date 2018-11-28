@@ -7,7 +7,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import ProgressBar from '../buttons/ProgressBar';
-import validateInput from '../../helpers/loginValidator';
+// import validateInput from '../../helpers/loginValidator';
 
 const propTypes = {
 	addFlashMessage: PropTypes.func.isRequired,
@@ -15,6 +15,8 @@ const propTypes = {
 	classes: PropTypes.instanceOf(Object).isRequired,
 	userLoginRequest: PropTypes.func.isRequired,
 };
+
+
 
 const contextTypes = {
 	router: PropTypes.instanceOf(Object).isRequired,
