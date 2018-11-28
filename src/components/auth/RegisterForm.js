@@ -6,6 +6,8 @@ import validateInput from '../../helpers/signupValidator';
 import TextFieldGroup from './TextFieldGroup';
 import Spinner from '../buttons/Spinner';
 import { colors, media } from '../../helpers/cssConstants';
+import ProgressBar from '../buttons/ProgressBar';
+import { withStyles } from '@material-ui/core/styles';
 
 // +++++++++  CSS  +++++++++
 const baseColor = colors._deepblue;
@@ -16,7 +18,7 @@ const Grid = styled.form`
 		"title"
 		"user"
 		"email"
-		"emConf"
+		"emConf"¡
 		"pword"
 		"pwConf"
 		"submit"
@@ -129,7 +131,7 @@ class RegisterForm extends Component {
   }
 
   render() {
-    const { errors, isLoading } = this.state;
+    const { classes, errors, isLoading } = this.state;
 
     return (
 
@@ -140,11 +142,16 @@ class RegisterForm extends Component {
       >
         <Title classNam="ctr engr under">
           <h1>
-            {' '}
-            { !isLoading ? 'Registration' : <Spinner color={colors._iceblue} /> }
-            {' '}
+            { !isLoading ? <Spinner color={colors._iceblue} /> : 'Registration' }
           </h1>
         </Title>
+        	{/* <div
+					className={`{loginTitle ${classes.loginTitle}`}
+					variant="h2"
+					color="secondary"
+				>
+					{ isLoading ? <ProgressBar /> : formTitle }
+				</div> */}
 
         <User
           errors={errors.username}
@@ -223,4 +230,5 @@ RegisterForm.contextTypes = {
   router: PropTypes.object.isRequired,
 };
 
-export default RegisterForm;
+// export default withStyles(styles)(RegisterForm);
+export default (RegisterForm);

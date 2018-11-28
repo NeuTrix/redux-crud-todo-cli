@@ -1,53 +1,57 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
-// custom
+import { withStyles } from '@material-ui/core/styles';
 import RegisterForm from './RegisterForm';
 import { userSignupRequest } from '../../actions/registerActions';
 import { addFlashMessage } from '../../actions/flashActions';
 import { colors } from '../../helpers/cssConstants';
 
-const Grid = styled.div`
-	display: grid;
-	grid-template-areas: " form ";
-	grid-template-columns: 1fr;
+const propTypes = {
+	addFlashMessage: PropTypes.func.isRequired,
+	classes: PropTypes.instanceOf(Object).isRequired, // from styled-components
+	userSignupRequest: PropTypes.func.isRequired,
+};
 
-	justify-items: center;
-	padding: 20px;
-	border: ${colors._iceblue};
-`;
+const RegisterPage = (props) => {
+	const {
+		addFlashMessage,
+		authApi,
+	  classes,
+	  userSignupRequest,
+	} = props;
+	return (
+		<div className={classes.grid}>
+			<RegisterForm
+				addFlashMessage={addFlashMessage}
+				authApi={authApi}
+				className={classes.entryForm}
+				userSignupRequest={userSignupRequest}
+			/>
+		</div>
+	);
+};
 
-const EntryForm = styled(RegisterForm)`
-	grid-area: form;
-`;
-
-const RegisterPage = props => (
-  <Grid
-    className={`RegisterPage ${props.className}`}
-		>
-    <EntryForm
-      userSignupRequest={props.userSignupRequest}
-      addFlashMessage={props.addFlashMessage}
-      authApi={props.authApi}
-    />
-  </Grid>
-);
-
-
-const mapStateToProps = state => ({
-  authApi: state.authApi,
+const styles = theme => ({
+	entryForm: {
+		gridArea: 'form',
+	},
+	grid: {
+		display: 'grid',
+		gridTemplateAreas: ' form ',
+		gridTemplateColumns: '1fr',
+		justifyItems: 'center',
+		padding: '20px',
+	},
 });
 
-RegisterPage.propTypes = {
-  addFlashMessage: PropTypes.func.isRequired,
-  className: PropTypes.string, // from styled-components
-  userSignupRequest: PropTypes.func.isRequired,
-};
+const mapStateToProps = state => ({
+	authApi: state.authApi,
+});
 
-RegisterPage.defaultProps = {
-  // addFlashMessage: f => f,
-  userSignupRequest: f => alert('error: default fn for RegisterPage'),
-};
+RegisterPage.propTypes = propTypes;
 
-export default connect(mapStateToProps, { userSignupRequest, addFlashMessage })(RegisterPage);
+export default connect(mapStateToProps, {
+	addFlashMessage,
+	userSignupRequest,
+})(withStyles(styles)(RegisterPage));

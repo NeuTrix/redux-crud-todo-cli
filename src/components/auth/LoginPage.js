@@ -9,14 +9,12 @@ import LoginForm from './LoginForm';
 const propTypes = {
 	addFlashMessage: PropTypes.func.isRequired,
 	authApi: PropTypes.instanceOf(Object).isRequired,
-	classes: PropTypes.instanceOf(Object).isRequired,
 	userLoginRequest: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
 	authApi: state.authApi,
 });
-
 
 const LoginPage = (props) => {
 	const {
