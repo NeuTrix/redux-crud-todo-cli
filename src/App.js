@@ -69,7 +69,11 @@ const styles = () => ({
 		marginTop: '50px',
 		padding: '0px 10px 0px 10px',
 	},
-	main: { gridArea: 'main' },
+	main: {
+		display: 'grid',
+		gridArea: 'main',
+		justifyContent: 'center',
+	},
 	messages: { gridArea: 'messages' },
 });
 
