@@ -19,24 +19,21 @@ import TodoPage from './components/todos/TodoPage';
 const propTypes = {
 	authApi: PropTypes.instanceOf(Object).isRequired,
 	classes: PropTypes.instanceOf(Object).isRequired,
-	handleLogout: PropTypes.func.isRequired,
+	logout: PropTypes.func.isRequired,
 };
-
-const mapDispatchToProps = dispatch => ({
-	handleLogout: () => { dispatch(logout()); },
-});
 
 const mapStateToProps = state => ({
 	authApi: state.authApi,
 });
 
 function App(props) {
-	const { authApi, handleLogout, classes } = props;
-	const isAuth = authApi.isAuthenticated; // boolean val to pass down to children
+	const { authApi, logout, classes } = props;
+	const isAuth = authApi.isAuthenticated;
 
 	return (
 		<div className={`grid ${classes.grid}`}>
 			<CssBaseline />
+			<NavBar isAuth={isAuth} logout={logout} />
 			<div className={`messages ${classes.messages}`}>
 				<FlashMessageList />
 			</div>
@@ -50,7 +47,6 @@ function App(props) {
 					component={requireAuth(ReactDom.render = () => (<TodoPage />))}
 				/>
 			</div>
-			<NavBar className={classes.navBar} isAuth={isAuth} logout={handleLogout} />
 		</div>
 	);
 }
@@ -63,9 +59,7 @@ const styles = () => ({
 		gridTemplateAreas: `   
 			" messages "  
 			" main " 
-			" navBar " 
 		`,
-		// gridTemplateRows: 'auto',
 		marginTop: '50px',
 		padding: '0px 10px 0px 10px',
 	},
@@ -76,9 +70,8 @@ const styles = () => ({
 		paddingTop: 40,
 	},
 	messages: { gridArea: 'messages' },
-	navBar: { gridArea: 'navBar' },
 });
 
 App.propTypes = propTypes;
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(App));
+export default connect(mapStateToProps, { logout })(withStyles(styles)(App));
