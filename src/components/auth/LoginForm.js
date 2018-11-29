@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
@@ -22,12 +22,13 @@ const contextTypes = {
 const Loginform = (props) => {
 	const {
 		classes,
-		isLoading, 
+		isLoading,
 		onSubmit,
 		onChange,
 	} = props;
 
 	const formTitle = (
+		// <Typography color="secondary">
 		<Typography variant="h4" color="secondary">
 			{ 'Login' }
 		</Typography>

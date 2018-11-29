@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addFlashMessage } from '../../actions/flashActions';
 import { userLoginRequest } from '../../actions/loginActions';
-// import validateInput from '../../helpers/loginValidator';
 import LoginForm from './LoginForm';
 
 const propTypes = {
@@ -25,10 +24,9 @@ class LoginContainer extends Component {
 		super(props, context);
 		const { authApi } = this.props;
 		this.state = {
-			errors: { },
-			identifier: '',
+			identifier: '', // dervied from input
 			isLoading: authApi.loginIsPosting,
-			password: '',
+			password: '', // dervied from input
 		};
 		this.onChange = this.onChange.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
@@ -44,39 +42,27 @@ class LoginContainer extends Component {
 		const { addFlashMessage, userLoginRequest } = this.props;
 
 		e.preventDefault();
-
-		// if (this.isValid()) {
-			// reset state if no errors
-			this.setState({ errors: { }, isLoading: true });
-			// pass the state forward for a login ...
-			userLoginRequest(this.state)
-				.then((res) => {
-					addFlashMessage({
-						text: `Hi ${res.data.username}! You're Logged In.`,
-						type: 'success',
-					});
-					router.history.push('/todos');
-					return res;
-				})
-				.catch((err) => {
-					this.setState({ errors: err, isLoading: false });
-					
-					addFlashMessage({
-						text: 'Invalid username, id or password. Try again.',
-						type: 'error',
-					});
+		// reset state if no errors
+		this.setState({ isLoading: true });
+		// pass the state forward for a login ...
+		userLoginRequest(this.state)
+			.then((res) => {
+				addFlashMessage({
+					text: `Hi ${res.data.username}! You're Logged In.`,
+					type: 'success',
 				});
-		// }
-	}
+				router.history.push('/todos');
+				return res;
+			})
+			.catch((err) => {
+				this.setState({ isLoading: false });
 
-	// isValid() {
-	// 	// collect the return objects from #validateInput
-	// 	const { errors, isValid } = validateInput(this.state);
-	// 	if (!isValid) {
-	// 		this.setState({ errors });
-	// 	}
-	// 	return isValid; // a boolean value from #validateInput
-	// }
+				addFlashMessage({
+					text: 'Invalid username, id or password. Try again',
+					type: 'error',
+				});
+			});
+	}
 
 	render() {
 		const { isLoading } = this.state;
@@ -84,14 +70,12 @@ class LoginContainer extends Component {
 		return (
 			<LoginForm
 				isLoading={isLoading}
-				// isValid={this.isValid}
 				onSubmit={this.onSubmit}
 				onChange={this.onChange}
 			/>
 		);
 	}
 }
-
 
 LoginContainer.propTypes = propTypes;
 LoginContainer.contextTypes = contextTypes;
