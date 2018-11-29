@@ -6,14 +6,9 @@ import { userLoginRequest } from '../../actions/loginActions';
 import LoginForm from './LoginForm';
 
 const propTypes = {
-	authApi: PropTypes.instanceOf(Object).isRequired,
 	handleLogin: PropTypes.func.isRequired,
 	handleMessage: PropTypes.func.isRequired,
 };
-
-const mapStateToProps = state => ({
-	authApi: state.authApi,
-});
 
 const mapDispatchToProps = {
 	handleLogin: userLoginRequest,
@@ -27,10 +22,9 @@ const contextTypes = {
 class LoginContainer extends Component {
 	constructor(props, context) {
 		super(props, context);
-		const { authApi } = this.props;
 		this.state = {
 			identifier: '', // dervied from input
-			isLoading: authApi.loginIsPosting,
+			isLoading: false,
 			password: '', // dervied from input
 		};
 		this.onChange = this.onChange.bind(this);
@@ -71,7 +65,6 @@ class LoginContainer extends Component {
 
 	render() {
 		const { isLoading } = this.state;
-
 		return (
 			<LoginForm
 				isLoading={isLoading}
@@ -85,5 +78,4 @@ class LoginContainer extends Component {
 LoginContainer.propTypes = propTypes;
 LoginContainer.contextTypes = contextTypes;
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);
-// export default connect(mapStateToProps, { addFlashMessage, userLoginRequest })(LoginContainer);
+export default connect(f => f, mapDispatchToProps)(LoginContainer);

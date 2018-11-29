@@ -39,11 +39,7 @@ const Loginform = (props) => {
 			component="form"
 			onSubmit={onSubmit}
 		>
-			<div
-				className={`{loginTitle ${classes.loginTitle}`}
-				variant="h2"
-				color="secondary"
-			>
+			<div className={classes.loginTitle} color="secondary">
 				{ isLoading ? <ProgressBar /> : formTitle }
 			</div>
 
@@ -69,13 +65,9 @@ const Loginform = (props) => {
 				variant="outlined"
 				onChange={onChange}
 			/>
-			<Link
-				className={classes.regLink}
-				to="/register"
-			>
-				<Typography>
-					{'Click here for a new account'}
-				</Typography>
+
+			<Link className={classes.regLink} to="/register">
+				<Typography> Click here for a new account </Typography>
 			</Link>
 
 			<Button
@@ -120,7 +112,7 @@ const styles = theme => ({
 		[theme.breakpoints.up('lg')]: { width: 500 },
 	},
 	input: { display: 'none' },
-	loginTitle: { gridArea: 'loginTitle' },
+	loginTitle: { gridArea: 'loginTitle', minHeight: 69 },
 	password: { gridArea: 'password' },
 	regLink: {
 		gridArea: 'regLink',

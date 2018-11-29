@@ -5,9 +5,8 @@ exports[`The LoginForm ...renders the login form 1`] = `
   class="MuiFormControl-root-8 {loginGrid Loginform-grid-3"
 >
   <div
-    class="{loginTitle Loginform-loginTitle-5"
+    class="Loginform-loginTitle-5"
     color="secondary"
-    variant="h2"
   >
     <h4
       class="MuiTypography-root-12 MuiTypography-h4-27 MuiTypography-colorSecondary-43"
@@ -96,7 +95,7 @@ exports[`The LoginForm ...renders the login form 1`] = `
     <p
       class="MuiTypography-root-12 MuiTypography-body1-21"
     >
-      Click here for a new account
+       Click here for a new account 
     </p>
   </a>
   <button
