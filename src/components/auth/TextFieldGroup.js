@@ -4,76 +4,36 @@ import classnames from 'classnames';
 import styled from 'styled-components';
 import TextField from '@material-ui/core/TextField';
 import { colors } from '../../helpers/cssConstants';
+import { withStyles } from '@material-ui/core/styles';
 
 
 // +++++++++  CSS  +++++++++
 
-const Grid = styled.div`
-	/* mobile view */
-	display: grid;
-	grid-template-areas: 
-		" title "
-		" input "
-	;
-`;
-
-const Input = styled(TextField)`
-	grid-area: input;
-	text-indent: 10px;
-	color: ${colors._charcoal};
-	font-size: 1.0em;
-
-	
-`;
-
-const Title = styled.div`
-	grid-area: title;
-`;
-
-const HelpBlock = styled.span`
-	color: red;
-`;
 // +++++++++  COMPONENNT  +++++++++
 const TextFieldGroup = (props) => {
-	const { className, errors, placeholder } = props;
+	const { className, classes, placeholder } = props;
 
 	return (
-		<Grid className={classnames(`${className} form-group`, { 'has-error': errors })}>
+		<div className={classes.grid} >
 
-			<Title>
-				{ props.label && (
-					<h3>
-						{' '}
-						{ props.label }
-						{' '}
-					</h3>
-				) }
-			</Title>
+			<div className={classes.title}> 
+				{ props.label && ( <h3> { props.label } </h3> )} 
+			</div>
 
-			<Input
-				className="mat"
+			<TextField
+				className={classes.inputField}
 				name={props.name}
 				onChange={props.onChange}
 				placeholder={placeholder}
 				type={props.type}
 				value={props.value}
 			/>
-
-			{ errors
-				&& (
-					<HelpBlock id="helpBlock">
-						{ `WARNING: ${errors}!. Please re-${placeholder}` }
-					</HelpBlock>
-				)
-			}
-
-		</Grid>
+		</div>
 	);
 };
 
 TextFieldGroup.propTypes = {
 	className: PropTypes.string.isRequired, // from styled-components
-	errors: PropTypes.string,
 	label: PropTypes.string,
 	name: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired,
@@ -89,4 +49,26 @@ TextFieldGroup.defaultProps = {
 	type: 'text',
 };
 
-export default TextFieldGroup;
+const styles = {
+	grid: {
+		display: 'grid',
+		gridTemplateAreas:
+			`
+				" title "
+				" input " 
+			`,
+	},
+
+	inputField: {
+		color: `${colors._charcoal}`,
+		fontSize: '1.0em',
+		gridArea: 'input',
+		textIndent: 10,
+	},
+
+	title: {
+		gridArea: 'title',
+	},
+
+}
+export default withStyles(styles)(TextFieldGroup);
