@@ -9,56 +9,46 @@ exports[`The LoginForm ...renders the login form 1`] = `
     color="secondary"
     variant="h2"
   >
-    <div
-      class="ProgressBar-root-13"
+    <h4
+      class="MuiTypography-root-12 MuiTypography-h4-27 MuiTypography-colorSecondary-43"
     >
-      <div
-        aria-valuenow="0"
-        class="MuiLinearProgress-root-14 MuiLinearProgress-colorPrimary-15 ProgressBar-bar-12"
-        role="progressbar"
-      >
-        <div
-          class="MuiLinearProgress-bar-22 MuiLinearProgress-barColorPrimary-23 MuiLinearProgress-bar1Determinate-26"
-          style="transform:scaleX(0)"
-        />
-      </div>
-    </div>
+      Login
+    </h4>
   </div>
   <div
     class="MuiFormControl-root-8 MuiFormControl-marginNormal-9 {email Loginform-email-2"
   >
     <label
-      class="MuiFormLabel-root-38 MuiFormLabel-required-43 MuiInputLabel-root-31 MuiInputLabel-formControl-32 MuiInputLabel-animated-35 MuiInputLabel-outlined-37"
+      class="MuiFormLabel-root-54 MuiFormLabel-required-59 MuiInputLabel-root-47 MuiInputLabel-formControl-48 MuiInputLabel-animated-51 MuiInputLabel-outlined-53"
       data-shrink="false"
     >
       Username | Email
       <span
-        class="MuiFormLabel-asterisk-44"
+        class="MuiFormLabel-asterisk-60"
       >
          *
       </span>
     </label>
     <div
-      class="MuiInputBase-root-58 MuiOutlinedInput-root-45 MuiInputBase-formControl-59"
+      class="MuiInputBase-root-74 MuiOutlinedInput-root-61 MuiInputBase-formControl-75"
     >
       <fieldset
         aria-hidden="true"
-        class="MuiPrivateNotchedOutline-root-75 MuiOutlinedInput-notchedOutline-52"
+        class="MuiPrivateNotchedOutline-root-91 MuiOutlinedInput-notchedOutline-68"
         style="padding-left:8px"
       >
         <legend
-          class="MuiPrivateNotchedOutline-legend-76"
+          class="MuiPrivateNotchedOutline-legend-92"
           style="width:0.01px"
         />
       </fieldset>
       <input
         aria-invalid="false"
-        class="MuiInputBase-input-68 MuiOutlinedInput-input-53"
+        class="MuiInputBase-input-84 MuiOutlinedInput-input-69"
         name="identifier"
         placeholder="enter username or email"
         required=""
         type="text"
-        value=""
       />
     </div>
   </div>
@@ -66,37 +56,36 @@ exports[`The LoginForm ...renders the login form 1`] = `
     class="MuiFormControl-root-8 MuiFormControl-marginNormal-9 {password Loginform-password-6"
   >
     <label
-      class="MuiFormLabel-root-38 MuiFormLabel-required-43 MuiInputLabel-root-31 MuiInputLabel-formControl-32 MuiInputLabel-animated-35 MuiInputLabel-outlined-37"
+      class="MuiFormLabel-root-54 MuiFormLabel-required-59 MuiInputLabel-root-47 MuiInputLabel-formControl-48 MuiInputLabel-animated-51 MuiInputLabel-outlined-53"
       data-shrink="false"
     >
       Password
       <span
-        class="MuiFormLabel-asterisk-44"
+        class="MuiFormLabel-asterisk-60"
       >
          *
       </span>
     </label>
     <div
-      class="MuiInputBase-root-58 MuiOutlinedInput-root-45 MuiInputBase-formControl-59"
+      class="MuiInputBase-root-74 MuiOutlinedInput-root-61 MuiInputBase-formControl-75"
     >
       <fieldset
         aria-hidden="true"
-        class="MuiPrivateNotchedOutline-root-75 MuiOutlinedInput-notchedOutline-52"
+        class="MuiPrivateNotchedOutline-root-91 MuiOutlinedInput-notchedOutline-68"
         style="padding-left:8px"
       >
         <legend
-          class="MuiPrivateNotchedOutline-legend-76"
+          class="MuiPrivateNotchedOutline-legend-92"
           style="width:0.01px"
         />
       </fieldset>
       <input
         aria-invalid="false"
-        class="MuiInputBase-input-68 MuiOutlinedInput-input-53 MuiInputBase-inputType-71"
+        class="MuiInputBase-input-84 MuiOutlinedInput-input-69 MuiInputBase-inputType-87"
         name="password"
         placeholder="enter password"
         required=""
         type="password"
-        value=""
       />
     </div>
   </div>
@@ -105,20 +94,19 @@ exports[`The LoginForm ...renders the login form 1`] = `
     href="/register"
   >
     <p
-      class="MuiTypography-root-80 MuiTypography-body1-89"
+      class="MuiTypography-root-12 MuiTypography-body1-21"
     >
       Click here for a new account
     </p>
   </a>
   <button
-    class="MuiButtonBase-root-141 MuiButtonBase-disabled-142 MuiButton-root-115 MuiButton-contained-126 MuiButton-containedPrimary-127 MuiButton-raised-129 MuiButton-raisedPrimary-130 MuiButton-sizeSmall-138 MuiButton-disabled-135 {submit Loginform-button-1"
-    disabled=""
+    class="MuiButtonBase-root-122 MuiButton-root-96 MuiButton-contained-107 MuiButton-containedPrimary-108 MuiButton-raised-110 MuiButton-raisedPrimary-111 MuiButton-sizeSmall-119 {submit Loginform-button-1"
     name="Log in"
-    tabindex="-1"
+    tabindex="0"
     type="submit"
   >
     <span
-      class="MuiButton-label-116"
+      class="MuiButton-label-97"
     >
       Go
     </span>

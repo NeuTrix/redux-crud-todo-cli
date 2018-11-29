@@ -5,7 +5,6 @@ import { withStyles } from '@material-ui/core/styles';
 import RegisterForm from './RegisterForm';
 import { userSignupRequest } from '../../actions/registerActions';
 import { addFlashMessage } from '../../actions/flashActions';
-import { colors } from '../../helpers/cssConstants';
 
 const propTypes = {
 	addFlashMessage: PropTypes.func.isRequired,

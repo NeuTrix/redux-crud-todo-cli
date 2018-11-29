@@ -12,8 +12,9 @@ describe('The LoginForm', () => {
 		<Router>
 			<LoginForm
 				authApi={authApi}
-				addFlashMessage={f => f}
-				userLoginRequest={f => f}
+				isLoading={false}  
+				onSubmit={f => f}
+				onChange={f => f}
 			/>
 		</Router>
 	);
