@@ -35,58 +35,58 @@ const HelpBlock = styled.span`
 `;
 // +++++++++  COMPONENNT  +++++++++
 const TextFieldGroup = (props) => {
-  const { className, errors, placeholder } = props;
+	const { className, errors, placeholder } = props;
 
-  return (
-    <Grid className={classnames(`${className} form-group`, { 'has-error': errors })}>
+	return (
+		<Grid className={classnames(`${className} form-group`, { 'has-error': errors })}>
 
-      <Title>
-        { props.label && (
-        <h3>
-          {' '}
-          { props.label }
-          {' '}
-        </h3>
-        ) }
-      </Title>
+			<Title>
+				{ props.label && (
+					<h3>
+						{' '}
+						{ props.label }
+						{' '}
+					</h3>
+				) }
+			</Title>
 
-      <Input
-        className="mat"
-        name={props.name}
-        onChange={props.onChange}
-        placeholder={placeholder}
-        type={props.type}
-        value={props.value}
-      />
+			<Input
+				className="mat"
+				name={props.name}
+				onChange={props.onChange}
+				placeholder={placeholder}
+				type={props.type}
+				value={props.value}
+			/>
 
-      { errors
+			{ errors
 				&& (
-<HelpBlock id="helpBlock">
-  { `WARNING: ${errors}!. Please re-${placeholder}` }
-</HelpBlock>
+					<HelpBlock id="helpBlock">
+						{ `WARNING: ${errors}!. Please re-${placeholder}` }
+					</HelpBlock>
 				)
 			}
 
-    </Grid>
-  );
+		</Grid>
+	);
 };
 
 TextFieldGroup.propTypes = {
-  className: PropTypes.string.isRequired, // from styled-components
-  errors: PropTypes.string,
-  label: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  placeholder: PropTypes.string,
-  type: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+	className: PropTypes.string.isRequired, // from styled-components
+	errors: PropTypes.string,
+	label: PropTypes.string,
+	name: PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired,
+	placeholder: PropTypes.string,
+	type: PropTypes.string.isRequired,
+	value: PropTypes.string.isRequired,
 };
 
 TextFieldGroup.defaultProps = {
-  className: 'TextFieldGroup',
-  name: 'default',
-  onChange: f => alert('default error: see TextFieldGroup'),
-  type: 'text',
+	className: 'TextFieldGroup',
+	name: 'default',
+	onChange: f => alert('default error: see TextFieldGroup'),
+	type: 'text',
 };
 
 export default TextFieldGroup;
