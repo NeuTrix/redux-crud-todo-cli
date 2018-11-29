@@ -2,33 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styled from 'styled-components';
-import TextField from '@material-ui/core/TextField';
-import { colors } from '../../helpers/cssConstants';
+import Input from '@material-ui/core/Input';
+
 import { withStyles } from '@material-ui/core/styles';
-
-
-// +++++++++  CSS  +++++++++
 
 // +++++++++  COMPONENNT  +++++++++
 const TextFieldGroup = (props) => {
-	const { className, classes, placeholder } = props;
+	const { classes, placeholder } = props;
 
 	return (
-		<div className={classes.grid} >
-
-			<div className={classes.title}> 
-				{ props.label && ( <h3> { props.label } </h3> )} 
-			</div>
-
-			<TextField
-				className={classes.inputField}
-				name={props.name}
-				onChange={props.onChange}
-				placeholder={placeholder}
-				type={props.type}
-				value={props.value}
-			/>
-		</div>
+		<Input
+			className={classes.inputField}
+			name={props.name}
+			error={true}
+			onChange={props.onChange}
+			placeholder={placeholder}
+			type={props.type}
+			value={props.value}
+		/>
 	);
 };
 
@@ -49,26 +40,13 @@ TextFieldGroup.defaultProps = {
 	type: 'text',
 };
 
-const styles = {
-	grid: {
-		display: 'grid',
-		gridTemplateAreas:
-			`
-				" title "
-				" input " 
-			`,
-	},
-
+const styles = theme => ({
 	inputField: {
-		color: `${colors._charcoal}`,
+		background: 'orangered',
+		color: 'primary',
 		fontSize: '1.0em',
 		gridArea: 'input',
 		textIndent: 10,
 	},
-
-	title: {
-		gridArea: 'title',
-	},
-
-}
+})
 export default withStyles(styles)(TextFieldGroup);
