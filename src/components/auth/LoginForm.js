@@ -28,7 +28,6 @@ const Loginform = (props) => {
 	} = props;
 
 	const formTitle = (
-		// <Typography color="secondary">
 		<Typography variant="h4" color="secondary">
 			{ 'Login' }
 		</Typography>
@@ -118,9 +117,7 @@ const styles = theme => ({
 		`,
 		padding: 20,
 		width: 300,
-		[theme.breakpoints.up('lg')]: {
-			width: 500,
-		},
+		[theme.breakpoints.up('lg')]: { width: 500 },
 	},
 	input: { display: 'none' },
 	loginTitle: { gridArea: 'loginTitle' },
