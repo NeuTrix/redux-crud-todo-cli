@@ -6,14 +6,19 @@ import { userLoginRequest } from '../../actions/loginActions';
 import LoginForm from './LoginForm';
 
 const propTypes = {
-	addFlashMessage: PropTypes.func.isRequired,
 	authApi: PropTypes.instanceOf(Object).isRequired,
-	userLoginRequest: PropTypes.func.isRequired,
+	handleLogin: PropTypes.func.isRequired,
+	handleMessage: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
 	authApi: state.authApi,
 });
+
+const mapDispatchToProps = {
+	handleLogin: userLoginRequest,
+	handleMessage: addFlashMessage,
+};
 
 const contextTypes = {
 	router: PropTypes.instanceOf(Object).isRequired,
@@ -39,15 +44,15 @@ class LoginContainer extends Component {
 
 	onSubmit(e) {
 		const { router } = this.context;
-		const { addFlashMessage, userLoginRequest } = this.props;
+		const { handleMessage, handleLogin } = this.props;
 
 		e.preventDefault();
 		// reset state if no errors
 		this.setState({ isLoading: true });
 		// pass the state forward for a login ...
-		userLoginRequest(this.state)
+		handleLogin(this.state)
 			.then((res) => {
-				addFlashMessage({
+				handleMessage({
 					text: `Hi ${res.data.username}! You're Logged In.`,
 					type: 'success',
 				});
@@ -56,8 +61,8 @@ class LoginContainer extends Component {
 			})
 			.catch((err) => {
 				this.setState({ isLoading: false });
-
-				addFlashMessage({
+				console.error(err);
+				handleMessage({
 					text: 'Invalid username, id or password. Try again',
 					type: 'error',
 				});
@@ -80,4 +85,5 @@ class LoginContainer extends Component {
 LoginContainer.propTypes = propTypes;
 LoginContainer.contextTypes = contextTypes;
 
-export default connect(mapStateToProps, { addFlashMessage, userLoginRequest })(LoginContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);
+// export default connect(mapStateToProps, { addFlashMessage, userLoginRequest })(LoginContainer);
