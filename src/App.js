@@ -12,7 +12,8 @@ import Home from './components/main/Home';
 import LoginContainer from './components/auth/LoginContainer';
 import { logout } from './actions/loginActions';
 import NavBar from './components/main/NavBar';
-import RegisterPage from './components/auth/RegisterPage';
+// import RegisterPage from './components/auth/RegisterPage';
+import NewAccountContainer from './components/auth/NewAccountContainer';
 import requireAuth from './helpers/requireAuth';
 import TodoPage from './components/todos/TodoPage';
 
@@ -40,7 +41,7 @@ function App(props) {
 			<div className={`main ${classes.main}`}>
 				<Route exact path="/" render={() => <Home authorized={isAuth} />} />
 				<Route path="/login" component={LoginContainer} />
-				<Route path="/register" component={RegisterPage} />
+				<Route path="/register" component={NewAccountContainer} />
 				<Route
 					exact
 					path="/todos"
