@@ -39,7 +39,7 @@ const Loginform = (props) => {
 			component="form"
 			onSubmit={onSubmit}
 		>
-			<div className={classes.loginTitle} color="secondary">
+			<div className={classes.title} color="secondary">
 				{ isLoading ? <ProgressBar /> : formTitle }
 			</div>
 
@@ -94,14 +94,16 @@ const styles = theme => ({
 		placeSelf: 'center',
 		width: 100,
 	},
-	email: { gridArea: 'email' },
+	email: {
+		gridArea: 'email',
+	},
 	grid: {
 		border: `1px solid ${theme.palette.primary.main}`,
 		borderRadius: 5,
 		display: 'grid',
 		gridRowGap: theme.spacing.unit * 4,
 		gridTemplateAreas: ` 
-			'loginTitle'
+			'title'
 			'email'
 			'password'
 			'button'
@@ -111,13 +113,17 @@ const styles = theme => ({
 		width: 300,
 		[theme.breakpoints.up('lg')]: { width: 500 },
 	},
-	input: { display: 'none' },
-	loginTitle: { gridArea: 'loginTitle', minHeight: 69 },
-	password: { gridArea: 'password' },
+	password: {
+		gridArea: 'password',
+	},
 	regLink: {
 		gridArea: 'regLink',
 		paddingTop: 25,
 		placeSelf: 'center',
+	},
+	title: {
+		gridArea: 'title',
+		minHeight: 69,
 	},
 });
 
