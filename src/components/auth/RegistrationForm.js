@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
@@ -107,9 +106,13 @@ const styles = theme => ({
 		width: 300,
 		[theme.breakpoints.up('lg')]: { width: 500 },
 	},
-	input: { display: 'none' },
-	title: { gridArea: 'title', minHeight: 69 },
-	password: { gridArea: 'password' },
+	title: {
+		gridArea: 'title',
+		minHeight: 69,
+	},
+	password: {
+		gridArea: 'password',
+	},
 
 });
 

@@ -51,7 +51,7 @@ class LoginContainer extends Component {
 			.then((res) => {
 				handleMessage({
 					// text: `Hi ${res.data.username}! You're Logged In.`,
-					text: `Welcome ${res.data.username} ! You have successfully Registered and Logged In.`,
+					text: `Welcome ${res.data.username}! You'v successfully Registered & Logged In.`,
 					type: 'success',
 				});
 				router.history.push('/todos');
