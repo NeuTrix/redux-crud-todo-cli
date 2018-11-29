@@ -12,7 +12,10 @@ const TextFieldGroup = (props) => {
 
 	return (
 		<Input
-			className={classes.inputField}
+			classes={{
+				focused: classes.focused,
+				root: classes.root, 
+			}}
 			name={props.name}
 			error={true}
 			onChange={props.onChange}
@@ -40,13 +43,11 @@ TextFieldGroup.defaultProps = {
 	type: 'text',
 };
 
-const styles = theme => ({
-	inputField: {
-		background: 'orangered',
-		color: 'primary',
-		fontSize: '1.0em',
-		gridArea: 'input',
-		textIndent: 10,
+const styles = {
+	root: {background: 'red'},
+	focused: {
+		background: 'orange',
+		color: 'orange',
 	},
-})
+}
 export default withStyles(styles)(TextFieldGroup);
