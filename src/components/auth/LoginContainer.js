@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addFlashMessage } from '../../actions/flashActions';
 import { userLoginRequest } from '../../actions/loginActions';
-import validateInput from '../../helpers/loginValidator';
+// import validateInput from '../../helpers/loginValidator';
 import LoginForm from './LoginForm';
 
 const propTypes = {
@@ -45,7 +45,7 @@ class LoginContainer extends Component {
 
 		e.preventDefault();
 
-		if (this.isValid()) {
+		// if (this.isValid()) {
 			// reset state if no errors
 			this.setState({ errors: { }, isLoading: true });
 			// pass the state forward for a login ...
@@ -60,38 +60,31 @@ class LoginContainer extends Component {
 				})
 				.catch((err) => {
 					this.setState({ errors: err, isLoading: false });
+					
 					addFlashMessage({
 						text: 'Invalid username, id or password. Try again.',
 						type: 'error',
 					});
 				});
-		}
+		// }
 	}
 
-	isValid() {
-		// collect the return objects from #validateInput
-		const { errors, isValid } = validateInput(this.state);
-		if (!isValid) {
-			this.setState({ errors });
-		}
-		return isValid; // a boolean value from #validateInput
-	}
+	// isValid() {
+	// 	// collect the return objects from #validateInput
+	// 	const { errors, isValid } = validateInput(this.state);
+	// 	if (!isValid) {
+	// 		this.setState({ errors });
+	// 	}
+	// 	return isValid; // a boolean value from #validateInput
+	// }
 
 	render() {
-		const {
-			errors,
-			// identifier,
-			// password,
-			isLoading,
-		} = this.state;
+		const { isLoading } = this.state;
 
 		return (
 			<LoginForm
-				errors={errors}
-				// identifier={identifier}
-				// password={password}
 				isLoading={isLoading}
-				isValid={this.isValid}
+				// isValid={this.isValid}
 				onSubmit={this.onSubmit}
 				onChange={this.onChange}
 			/>

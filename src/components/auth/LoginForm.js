@@ -7,17 +7,12 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import ProgressBar from '../buttons/ProgressBar';
-// import validateInput from '../../helpers/loginValidator';
 
 const propTypes = {
-	// addFlashMessage: PropTypes.func.isRequired,
-	// authApi: PropTypes.instanceOf(Object).isRequired,
 	classes: PropTypes.instanceOf(Object).isRequired,
-	// errors: PropTypes.instanceOf(Object).isRequired,
 	isLoading: PropTypes.bool.isRequired,
 	onChange: PropTypes.func.isRequired,
 	onSubmit: PropTypes.func.isRequired,
-	// userLoginRequest: PropTypes.func.isRequired,
 };
 
 const contextTypes = {
@@ -27,12 +22,9 @@ const contextTypes = {
 const Loginform = (props) => {
 	const {
 		classes,
-		// errors,
-		// identifier,
-		isLoading, //
+		isLoading, 
 		onSubmit,
 		onChange,
-		// password,
 	} = props;
 
 	const formTitle = (
@@ -57,7 +49,6 @@ const Loginform = (props) => {
 
 			<TextField
 				className={`{email ${classes.email}`}
-				// errors={errors.identifier}
 				label="Username | Email"
 				margin="normal"
 				name="identifier"
@@ -69,7 +60,6 @@ const Loginform = (props) => {
 
 			<TextField
 				className={`{password ${classes.password}`}
-				// errors={errors.password}
 				label="Password"
 				margin="normal"
 				name="password"
