@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
-import FormGroup from '@material-ui/core/FormGroup';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import InputField from './InputField';
 import ProgressBar from '../buttons/ProgressBar';
 
 const propTypes = {
@@ -35,7 +35,7 @@ const Loginform = (props) => {
 	);
 
 	return (
-		<FormGroup
+		<FormControl
 			className={classes.grid}
 			component="form"
 			onSubmit={onSubmit}
@@ -43,15 +43,13 @@ const Loginform = (props) => {
 			<div className={classes.title} color="secondary">
 				{ isLoading ? <ProgressBar /> : formTitle }
 			</div>
-			<FormControl>
-				<InputLabel className={classes.username}> Enter Username </InputLabel>
-				<Input
-					className={classes.username}
-					name="username"
-					required
-					onChange={onChange}
-				/>
-			</FormControl>
+			<InputField
+			// required
+				className={classes.username}
+				label="Enter Username"
+				name="username"
+				onChange={onChange}
+			/>
 
 			<InputLabel className={classes.email}> Enter Email </InputLabel>
 			<Input
@@ -89,7 +87,7 @@ const Loginform = (props) => {
 			/>
 
 			<Button
-				className={`{submit ${classes.button}`}
+				className={classes.button}
 				color="primary"
 				component="button"
 				disabled={isLoading}
@@ -100,7 +98,7 @@ const Loginform = (props) => {
 			>
 				{'Go'}
 			</Button>
-		</FormGroup>
+		</FormControl>
 	);
 };
 

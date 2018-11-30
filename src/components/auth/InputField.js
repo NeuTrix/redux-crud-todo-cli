@@ -12,6 +12,7 @@ const propTypes = {
 
 	color: PropTypes.string,
 	placeholder: PropTypes.string,
+	required: PropTypes.bool,
 	type: PropTypes.string,
 	variant: PropTypes.string,
 };
@@ -19,6 +20,7 @@ const propTypes = {
 const defaultProps = {
 	color: 'primary',
 	placeholder: '',
+	required: '',
 	type: 'text',
 	variant: 'body2',
 }
@@ -29,6 +31,7 @@ const InputFieldRequired = (props) => {
 		label,
 		name,
 		placeholder,
+		required,
 		onChange,
 		type,
 		variant,
@@ -43,7 +46,7 @@ const InputFieldRequired = (props) => {
 			</InputLabel>
 			<Input
 				name={name}
-				required
+				required={required}
 				placeholder={placeholder}
 				type={type}
 				onChange={onChange}
