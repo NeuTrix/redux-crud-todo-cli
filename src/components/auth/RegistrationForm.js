@@ -52,7 +52,7 @@ const Loginform = (props) => {
 					onChange={onChange}
 				/>
 			</FormControl>
-			
+
 			<InputLabel className={classes.email}> Enter Email </InputLabel>
 			<Input
 				className={`{email ${classes.email}`}
