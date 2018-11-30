@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
+import FormGroup from '@material-ui/core/FormGroup';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import Typography from '@material-ui/core/Typography';
@@ -34,58 +35,56 @@ const Loginform = (props) => {
 	);
 
 	return (
-		<FormControl
-			className={`{loginGrid ${classes.grid}`}
+		<FormGroup
+			className={classes.grid}
 			component="form"
 			onSubmit={onSubmit}
 		>
 			<div className={classes.title} color="secondary">
 				{ isLoading ? <ProgressBar /> : formTitle }
 			</div>
-
-			<InputLabel className={classes.username} > Username </InputLabel>
-
-			<Input
-				className={classes.username}
-				name="username"
-				placeholder="enter a username"
-				required
-				onChange={onChange}
-			/>
-
+			<FormControl>
+				<InputLabel className={classes.username}> Enter Username </InputLabel>
+				<Input
+					className={classes.username}
+					name="username"
+					required
+					onChange={onChange}
+				/>
+			</FormControl>
+			
+			<InputLabel className={classes.email}> Enter Email </InputLabel>
 			<Input
 				className={`{email ${classes.email}`}
-				label="Email"
-				margin="normal"
-				name="identifier"
-				placeholder="enter your email "
+				name="email"
 				required
 				type="email"
-				variant="outlined"
 				onChange={onChange}
 			/>
 
+			<InputLabel className={classes.emailConfirm}> Confirm Email </InputLabel>
 			<Input
 				className={`{email ${classes.emailConfirm}`}
-				label="Confirm Email"
-				margin="normal"
-				name="identifier"
-				placeholder="confirm your email"
+				name="emailConfirm"
 				required
 				type="email"
-				variant="outlined"
+				onChange={onChange}
+			/>
+			<InputLabel className={classes.password}> Enter Password </InputLabel>
+			<Input
+				className={`{password ${classes.password}`}
+				name="password"
+				required
+				type="password"
 				onChange={onChange}
 			/>
 
+			<InputLabel className={classes.passwordConfirm}> Confirm Password </InputLabel>
 			<Input
-				className={`{password ${classes.password}`}
-				label="Password"
-				margin="normal"
-				name="password"
-				placeholder="enter password"
+				className={`{password ${classes.passwordConfirm}`}
+				name="passwordConfirm"
 				required
 				type="password"
-				variant="outlined"
 				onChange={onChange}
 			/>
 
@@ -101,7 +100,7 @@ const Loginform = (props) => {
 			>
 				{'Go'}
 			</Button>
-		</FormControl>
+		</FormGroup>
 	);
 };
 
@@ -123,7 +122,7 @@ const styles = theme => ({
 		border: `1px solid ${theme.palette.primary.main}`,
 		borderRadius: 5,
 		display: 'grid',
-		gridRowGap: '25px',
+		gridRowGap: '10px',
 		gridTemplateAreas: ` 
 			'title'
 			'username'
