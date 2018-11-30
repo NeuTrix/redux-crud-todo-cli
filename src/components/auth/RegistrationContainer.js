@@ -19,7 +19,7 @@ const contextTypes = {
 	router: PropTypes.instanceOf(Object).isRequired,
 };
 
-class LoginContainer extends Component {
+class RegistrationContainer extends Component {
 	constructor(props, context) {
 		super(props, context);
 		this.state = {
@@ -80,7 +80,7 @@ class LoginContainer extends Component {
 	}
 }
 
-LoginContainer.propTypes = propTypes;
-LoginContainer.contextTypes = contextTypes;
+RegistrationContainer.propTypes = propTypes;
+RegistrationContainer.contextTypes = contextTypes;
 
-export default connect(f => f, mapDispatchToProps)(LoginContainer);
+export default connect(f => f, mapDispatchToProps)(RegistrationContainer);

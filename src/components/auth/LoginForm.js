@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
-import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import InputField from './InputField';
 import ProgressBar from '../buttons/ProgressBar';
 
 const propTypes = {
@@ -35,7 +35,7 @@ const Loginform = (props) => {
 
 	return (
 		<FormControl
-			className={`{loginGrid ${classes.grid}`}
+			className={classes.grid}
 			component="form"
 			onSubmit={onSubmit}
 		>
@@ -43,26 +43,19 @@ const Loginform = (props) => {
 				{ isLoading ? <ProgressBar /> : formTitle }
 			</div>
 
-			<TextField
-				className={`{email ${classes.email}`}
-				label="Username | Email"
-				margin="normal"
+			<InputField
+				className={classes.email}
+				label="Username -or- Email"
 				name="identifier"
-				placeholder="enter username or email"
 				required
-				variant="outlined"
 				onChange={onChange}
 			/>
 
-			<TextField
-				className={`{password ${classes.password}`}
+			<InputField
+				className={classes.password}
 				label="Password"
-				margin="normal"
 				name="password"
-				placeholder="enter password"
 				required
-				type="password"
-				variant="outlined"
 				onChange={onChange}
 			/>
 
@@ -71,16 +64,14 @@ const Loginform = (props) => {
 			</Link>
 
 			<Button
-				className={`{submit ${classes.button}`}
+				className={classes.button}
 				color="primary"
 				component="button"
 				disabled={isLoading}
-				name="Log in"
-				size="small"
 				type="submit"
 				variant="contained"
 			>
-				{'Go'}
+				{'Submit'}
 			</Button>
 		</FormControl>
 	);
@@ -101,7 +92,7 @@ const styles = theme => ({
 		border: `1px solid ${theme.palette.primary.main}`,
 		borderRadius: 5,
 		display: 'grid',
-		gridRowGap: theme.spacing.unit * 4,
+		gridRowGap: '25px',
 		gridTemplateAreas: ` 
 			'title'
 			'email'

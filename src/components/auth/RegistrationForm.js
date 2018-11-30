@@ -18,7 +18,7 @@ const contextTypes = {
 	router: PropTypes.instanceOf(Object).isRequired,
 };
 
-const Loginform = (props) => {
+const RegistrationForm = (props) => {
 	const {
 		classes,
 		isLoading,
@@ -28,7 +28,7 @@ const Loginform = (props) => {
 
 	const formTitle = (
 		<Typography variant="h4" color="secondary">
-			{ 'Sign Up!' }
+			{ 'Register...' }
 		</Typography>
 	);
 
@@ -70,7 +70,7 @@ const Loginform = (props) => {
 
 			<InputField
 				className={classes.password}
-				label="Enter Password"
+				label="Create a Password"
 				name="password"
 				required
 				type="password"
@@ -91,12 +91,10 @@ const Loginform = (props) => {
 				color="primary"
 				component="button"
 				disabled={isLoading}
-				name="Log in"
-				size="small"
 				type="submit"
 				variant="contained"
 			>
-				{'Go'}
+				{'Submit'}
 			</Button>
 		</FormControl>
 	);
@@ -149,7 +147,7 @@ const styles = theme => ({
 	},
 });
 
-Loginform.propTypes = propTypes;
-Loginform.contextTypes = contextTypes;
+RegistrationForm.propTypes = propTypes;
+RegistrationForm.contextTypes = contextTypes;
 
-export default withStyles(styles)(Loginform);
+export default withStyles(styles)(RegistrationForm);

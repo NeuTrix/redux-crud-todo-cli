@@ -2,7 +2,7 @@
 
 exports[`The LoginForm ...renders the login form 1`] = `
 <form
-  class="MuiFormControl-root-7 {loginGrid Loginform-grid-3"
+  class="MuiFormControl-root-7 Loginform-grid-3"
 >
   <div
     class="Loginform-title-6"
@@ -15,76 +15,56 @@ exports[`The LoginForm ...renders the login form 1`] = `
     </h4>
   </div>
   <div
-    class="MuiFormControl-root-7 MuiFormControl-marginNormal-8 {email Loginform-email-2"
+    class="MuiFormControl-root-7"
   >
     <label
-      class="MuiFormLabel-root-53 MuiFormLabel-required-58 MuiInputLabel-root-46 MuiInputLabel-formControl-47 MuiInputLabel-animated-50 MuiInputLabel-outlined-52"
+      class="MuiFormLabel-root-53 MuiInputLabel-root-46 MuiInputLabel-formControl-47 MuiInputLabel-animated-50"
       data-shrink="false"
     >
-      Username | Email
-      <span
-        class="MuiFormLabel-asterisk-59"
+      <p
+        class="MuiTypography-root-11 MuiTypography-body1-20 MuiTypography-colorInherit-40"
       >
-         *
-      </span>
+        Username -or- Email
+      </p>
     </label>
     <div
-      class="MuiInputBase-root-73 MuiOutlinedInput-root-60 MuiInputBase-formControl-74"
+      class="MuiInputBase-root-73 MuiInput-root-60 MuiInput-underline-64 MuiInputBase-formControl-74 MuiInput-formControl-61"
+      required=""
     >
-      <fieldset
-        aria-hidden="true"
-        class="MuiPrivateNotchedOutline-root-90 MuiOutlinedInput-notchedOutline-67"
-        style="padding-left:8px"
-      >
-        <legend
-          class="MuiPrivateNotchedOutline-legend-91"
-          style="width:0.01px"
-        />
-      </fieldset>
       <input
         aria-invalid="false"
-        class="MuiInputBase-input-83 MuiOutlinedInput-input-68"
+        class="MuiInputBase-input-83 MuiInput-input-68"
         name="identifier"
-        placeholder="enter username or email"
+        placeholder=""
         required=""
         type="text"
       />
     </div>
   </div>
   <div
-    class="MuiFormControl-root-7 MuiFormControl-marginNormal-8 {password Loginform-password-4"
+    class="MuiFormControl-root-7"
   >
     <label
-      class="MuiFormLabel-root-53 MuiFormLabel-required-58 MuiInputLabel-root-46 MuiInputLabel-formControl-47 MuiInputLabel-animated-50 MuiInputLabel-outlined-52"
+      class="MuiFormLabel-root-53 MuiInputLabel-root-46 MuiInputLabel-formControl-47 MuiInputLabel-animated-50"
       data-shrink="false"
     >
-      Password
-      <span
-        class="MuiFormLabel-asterisk-59"
+      <p
+        class="MuiTypography-root-11 MuiTypography-body1-20 MuiTypography-colorInherit-40"
       >
-         *
-      </span>
+        Password
+      </p>
     </label>
     <div
-      class="MuiInputBase-root-73 MuiOutlinedInput-root-60 MuiInputBase-formControl-74"
+      class="MuiInputBase-root-73 MuiInput-root-60 MuiInput-underline-64 MuiInputBase-formControl-74 MuiInput-formControl-61"
+      required=""
     >
-      <fieldset
-        aria-hidden="true"
-        class="MuiPrivateNotchedOutline-root-90 MuiOutlinedInput-notchedOutline-67"
-        style="padding-left:8px"
-      >
-        <legend
-          class="MuiPrivateNotchedOutline-legend-91"
-          style="width:0.01px"
-        />
-      </fieldset>
       <input
         aria-invalid="false"
-        class="MuiInputBase-input-83 MuiOutlinedInput-input-68 MuiInputBase-inputType-86"
+        class="MuiInputBase-input-83 MuiInput-input-68"
         name="password"
-        placeholder="enter password"
+        placeholder=""
         required=""
-        type="password"
+        type="text"
       />
     </div>
   </div>
@@ -99,15 +79,14 @@ exports[`The LoginForm ...renders the login form 1`] = `
     </p>
   </a>
   <button
-    class="MuiButtonBase-root-121 MuiButton-root-95 MuiButton-contained-106 MuiButton-containedPrimary-107 MuiButton-raised-109 MuiButton-raisedPrimary-110 MuiButton-sizeSmall-118 {submit Loginform-button-1"
-    name="Log in"
+    class="MuiButtonBase-root-116 MuiButton-root-90 MuiButton-contained-101 MuiButton-containedPrimary-102 MuiButton-raised-104 MuiButton-raisedPrimary-105 Loginform-button-1"
     tabindex="0"
     type="submit"
   >
     <span
-      class="MuiButton-label-96"
+      class="MuiButton-label-91"
     >
-      Go
+      Submit
     </span>
   </button>
 </form>
