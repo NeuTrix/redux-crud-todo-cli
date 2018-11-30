@@ -43,6 +43,7 @@ const RegistrationForm = (props) => {
 			</div>
 
 			<InputField
+				autoFocus
 				className={classes.username}
 				label="Create a Username"
 				name="username"
