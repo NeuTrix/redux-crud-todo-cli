@@ -10,6 +10,7 @@ const propTypes = {
 	name: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired,
 
+	autoFocus: PropTypes.string,
 	color: PropTypes.string,
 	placeholder: PropTypes.string,
 	required: PropTypes.bool,
@@ -18,15 +19,17 @@ const propTypes = {
 };
 
 const defaultProps = {
+	autoFocus: '',
 	color: 'inherit',
 	placeholder: '',
 	required: '',
 	type: 'text',
 	variant: 'body1',
-}
+};
 
-const InputFieldRequired = (props) => {
+const InputField = (props) => {
 	const {
+		autoFocus,
 		color,
 		label,
 		name,
@@ -45,6 +48,7 @@ const InputFieldRequired = (props) => {
 				</Typography>
 			</InputLabel>
 			<Input
+				autoFocus={autoFocus}
 				name={name}
 				required={required}
 				placeholder={placeholder}
@@ -55,7 +59,7 @@ const InputFieldRequired = (props) => {
 	);
 };
 
-InputFieldRequired.propTypes = propTypes;
-InputFieldRequired.defaultProps = defaultProps;
+InputField.propTypes = propTypes;
+InputField.defaultProps = defaultProps;
 
-export default InputFieldRequired;
+export default InputField;

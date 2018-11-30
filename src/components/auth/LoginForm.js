@@ -44,6 +44,7 @@ const Loginform = (props) => {
 			</div>
 
 			<InputField
+				autoFocus
 				className={classes.email}
 				label="Username -or- Email"
 				name="identifier"
@@ -56,6 +57,7 @@ const Loginform = (props) => {
 				label="Password"
 				name="password"
 				required
+				type="password"
 				onChange={onChange}
 			/>
 
