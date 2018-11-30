@@ -18,11 +18,11 @@ const propTypes = {
 };
 
 const defaultProps = {
-	color: 'primary',
+	color: 'inherit',
 	placeholder: '',
 	required: '',
 	type: 'text',
-	variant: 'body2',
+	variant: 'body1',
 }
 
 const InputFieldRequired = (props) => {

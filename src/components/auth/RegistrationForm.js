@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import InputField from './InputField';
@@ -43,43 +41,45 @@ const Loginform = (props) => {
 			<div className={classes.title} color="secondary">
 				{ isLoading ? <ProgressBar /> : formTitle }
 			</div>
+
 			<InputField
-			// required
 				className={classes.username}
-				label="Enter Username"
+				label="Create a Username"
 				name="username"
+				required
 				onChange={onChange}
 			/>
 
-			<InputLabel className={classes.email}> Enter Email </InputLabel>
-			<Input
-				className={`{email ${classes.email}`}
+			<InputField
+				className={classes.email}
+				label="Enter Email"
 				name="email"
 				required
 				type="email"
 				onChange={onChange}
 			/>
 
-			<InputLabel className={classes.emailConfirm}> Confirm Email </InputLabel>
-			<Input
-				className={`{email ${classes.emailConfirm}`}
+			<InputField
+				className={classes.emailConfirm}
+				label="Confirm Email"
 				name="emailConfirm"
 				required
 				type="email"
 				onChange={onChange}
 			/>
-			<InputLabel className={classes.password}> Enter Password </InputLabel>
-			<Input
-				className={`{password ${classes.password}`}
+
+			<InputField
+				className={classes.password}
+				label="Enter Password"
 				name="password"
 				required
 				type="password"
 				onChange={onChange}
 			/>
 
-			<InputLabel className={classes.passwordConfirm}> Confirm Password </InputLabel>
-			<Input
-				className={`{password ${classes.passwordConfirm}`}
+			<InputField
+				className={classes.passwordConfirm}
+				label="Confirm Password"
 				name="passwordConfirm"
 				required
 				type="password"
