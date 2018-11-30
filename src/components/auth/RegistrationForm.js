@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
-import TextField from '@material-ui/core/TextField';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import ProgressBar from '../buttons/ProgressBar';
@@ -42,18 +43,41 @@ const Loginform = (props) => {
 				{ isLoading ? <ProgressBar /> : formTitle }
 			</div>
 
-			<TextField
+			<InputLabel className={classes.username} > Username </InputLabel>
+
+			<Input
+				className={classes.username}
+				name="username"
+				placeholder="enter a username"
+				required
+				onChange={onChange}
+			/>
+
+			<Input
 				className={`{email ${classes.email}`}
-				label="Username | Email"
+				label="Email"
 				margin="normal"
 				name="identifier"
-				placeholder="enter username or email"
+				placeholder="enter your email "
 				required
+				type="email"
 				variant="outlined"
 				onChange={onChange}
 			/>
 
-			<TextField
+			<Input
+				className={`{email ${classes.emailConfirm}`}
+				label="Confirm Email"
+				margin="normal"
+				name="identifier"
+				placeholder="confirm your email"
+				required
+				type="email"
+				variant="outlined"
+				onChange={onChange}
+			/>
+
+			<Input
 				className={`{password ${classes.password}`}
 				label="Password"
 				margin="normal"
@@ -89,18 +113,25 @@ const styles = theme => ({
 		placeSelf: 'center',
 		width: 100,
 	},
-	email: { gridArea: 'email' },
+	email: {
+		gridArea: 'email',
+	},
+	emailConfirm: {
+		gridArea: 'emailConfirm',
+	},
 	grid: {
 		border: `1px solid ${theme.palette.primary.main}`,
 		borderRadius: 5,
 		display: 'grid',
-		gridRowGap: theme.spacing.unit * 4,
+		gridRowGap: '25px',
 		gridTemplateAreas: ` 
 			'title'
+			'username'
 			'email'
+			'emailConfirm'
 			'password'
+			'passwordConfirm'
 			'button'
-
 		`,
 		padding: 20,
 		width: 300,
@@ -110,10 +141,15 @@ const styles = theme => ({
 		gridArea: 'title',
 		minHeight: 69,
 	},
+	username: {
+		gridArea: 'username',
+	},
 	password: {
 		gridArea: 'password',
 	},
-
+	passwordConfirm: {
+		gridArea: 'passwordConfirm',
+	},
 });
 
 Loginform.propTypes = propTypes;

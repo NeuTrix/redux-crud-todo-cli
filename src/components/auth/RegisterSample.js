@@ -12,64 +12,64 @@ import ProgressBar from '../buttons/ProgressBar';
 // +++++++++  CSS  +++++++++
 const baseColor = colors._deepblue;
 
-const Grid = styled.form`
-	display: grid;
-	grid-template-areas: 
-		"title"
-		"user"
-		"email"
-		"emConf"
-		"pword"
-		"pwConf"
-		"submit"
-	;
-	grid-row-gap: 10px;
-	border: 1px solid steelblue;
-	color: ${baseColor};
-	padding: 20px;
-	width: 300px;
-	font-size: 1.0em;
+// const Grid = styled.form`
+// 	display: grid;
+// 	grid-template-areas: 
+// 		"title"
+// 		"user"
+// 		"email"
+// 		"emConf"
+// 		"pword"
+// 		"pwConf"
+// 		"submit"
+// 	;
+// 	grid-row-gap: 10px;
+// 	border: 1px solid steelblue;
+// 	color: ${baseColor};
+// 	padding: 20px;
+// 	width: 300px;
+// 	font-size: 1.0em;
 
-	@media (${media._large}) {
-		width: 500px;
-	}
+// 	@media (${media._large}) {
+// 		width: 500px;
+// 	}
 `;
 
-const Title = styled.div`
-	gride-area: title;
-`;
+// const Title = styled.div`
+// 	gride-area: title;
+// `;
 
-const User = styled(TextFieldGroup)`
-	gride-area: user;
-`;
+// const User = styled(TextFieldGroup)`
+// 	gride-area: user;
+// `;
 
-const Email = styled(TextFieldGroup)`
-	gride-area: email;
-`;
+// const Email = styled(TextFieldGroup)`
+// 	gride-area: email;
+// `;
 
-const EmailConf = styled(TextFieldGroup)`
-	gride-area: emConf;
-`;
+// const EmailConf = styled(TextFieldGroup)`
+// 	gride-area: emConf;
+// `;
 
-const Pword = styled(TextFieldGroup)`
-	gride-area: pword;
-`;
+// const Pword = styled(TextFieldGroup)`
+// 	gride-area: pword;
+// `;
 
-const PwordConf = styled(TextFieldGroup)`
-	gride-area: pwConf;
-`;
+// const PwordConf = styled(TextFieldGroup)`
+// 	gride-area: pwConf;
+// `;
 
-const Submit = styled.button`
-	gride-area: submit;
-	font-weight: bold;
-	font-size: 1.0em;
-	height: 35px;
-	width: 90px;
-	background: aliceblue;
-	border: 4px solid ${baseColor};
-	border-radius: 4px;
-	color: ${baseColor}
-`;
+// const Submit = styled.button`
+// 	gride-area: submit;
+// 	font-weight: bold;
+// 	font-size: 1.0em;
+// 	height: 35px;
+// 	width: 90px;
+// 	background: aliceblue;
+// 	border: 4px solid ${baseColor};
+// 	border-radius: 4px;
+// 	color: ${baseColor}
+// `;
 
 // +++++++++  COMPONENT  +++++++++
 
