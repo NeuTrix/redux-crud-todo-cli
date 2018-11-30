@@ -1,6 +1,6 @@
-import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 // ===> MUI components <===
 
 import Circle from '@material-ui/icons/TripOrigin';

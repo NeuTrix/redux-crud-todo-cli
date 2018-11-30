@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 import AppBar from '@material-ui/core/AppBar';
 import Divider from '@material-ui/core/Divider';
@@ -59,7 +60,9 @@ class NavBar extends Component {
 						</IconButton>
 					</Toolbar>
 					<IconButton className={classes.brandLogo}>
-						<BrandLogo />
+						<NavLink to="/">
+							<BrandLogo />
+						</NavLink>
 					</IconButton>
 					<div className={classes.searchBar}>
 						<SearchBar />
