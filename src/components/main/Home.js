@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import LinkedButton from '../buttons/LinkedButton';
 import Stamp from '../buttons/Stamp';
 import { colors } from '../../helpers/cssConstants';
+import Card from '../buttons/Card';
 
 // +++++++++  CSS  +++++++++ 
 
@@ -59,6 +60,11 @@ const Subtitle = styled.div`
 	color: darkgrey;
 `;
 
+const Test = styled(Card)`
+	grid-area: react;
+	color: darkgrey;
+`;
+
 const showLogin = (
 	<Login 
 		className= '_login'
@@ -94,9 +100,11 @@ const Home = ({ authorized }) => {
 				<span>Fullstack MERN CRUD web app featuring:</span> 
 			</Subtitle>  
 
+			<Test color='orange'/>
+			{/* <Card style={{gridArea: 'react'}}/> */}
 			<Stamp area= 'mongo' color= 'steelblue' name= 'Mongo'/>
 			<Stamp area= 'expr' color= 'steelblue' name= 'Express'/>
-			<Stamp area= 'react' color= 'steelblue' name= 'React'/>
+			{/* <Stamp area= 'react' color= 'steelblue' name= 'React'/> */}
 			<Stamp area= 'node' color= 'steelblue' name= 'NodeJS'/>
 			<Stamp area= 'redux' color= 'orange' name= 'Redux'/>
 			<Stamp area= 'grid' color= 'orange' name= 'Grid'/>

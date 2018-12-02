@@ -55,7 +55,7 @@ class NavBar extends Component {
 							aria-label="Open drawer"
 							className={`menuButton ${classes.menuButton}`}
 							onClick={this.handleDrawerToggle}
-						>
+					>
 							<MenuIcon />
 						</IconButton>
 					</Toolbar>
