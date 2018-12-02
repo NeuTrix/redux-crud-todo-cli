@@ -9,13 +9,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-const styles = {
-  card: {
-    maxWidth: 200,
-  },
-  media: {
-    height: 25,
-  },
+const propTypes = {
+  classes: PropTypes.instanceOf(Object).isRequired,
 };
 
 function MediaCard(props) {
@@ -46,8 +41,14 @@ function MediaCard(props) {
   );
 }
 
-MediaCard.propTypes = {
-  classes: PropTypes.object.isRequired,
+const styles = {
+  card: {
+    maxWidth: 150,
+  },
+  media: {
+    height: 25,
+  },
 };
+MediaCard.propTypes = propTypes;
 
 export default withStyles(styles)(MediaCard);
