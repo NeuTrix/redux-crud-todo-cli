@@ -39,24 +39,25 @@ const Home = ({ authorized, classes }) => {
 		<div className={classes.grid}>
 
 			<Typography
-				className={classes.subtitle}
+				className={classes.mainTitle}
 				variant="h4"
 			>
 				{'Welcome to Done'}
 			</Typography>
 
 			<Typography
-				className={classes.subtitle}
+				className = {
+					classes.subTitle
+				}
 				variant="h6"
 			>
 				{'a full-stack React | Redux toy app'}
 			</Typography>
 
-			<Card className={classes.react} />
-			<Card className={classes.react} />
-			<Card className={classes.react} />
-			<Card className={classes.react} />
-			<Card className={classes.react} />
+			<Card className={classes.card} />
+			<Card className={classes.card} />
+			<Card className={classes.card} />
+			<Card className={classes.card} />
 
 			{ !authorized && loginButton }
 			{ !authorized && registerButton }
@@ -66,38 +67,35 @@ const Home = ({ authorized, classes }) => {
 };
 
 const styles = theme => ({
+	button: {
+		gridArea: 'button',
+	},
+	card: {
+		gridArea: 'card',
+		width: 100,
+	},
+
 	grid: {
 		gridTemplateAreas: `
-			'title title title title title'
-			'subtitle subtitle subtitle subtitle subtitle'
-			'react redux grid mongo express'
-			'. login . register .'
+			'mainTitle'
+			'subTitle'
+			'card'
+			'button'
 		`,
 		gridColumnGap: '50px',
-	},
-
-	react: {
-
-	},
-
-	redux: {
-
-	},
-
-	mongo: {
-
-	},
-
-	express: {
-
+		[theme.breakpoints.up('sm')]: {
+			
+		},
 	},
 
 	login: {
-		gridArea: 'redux'
+		gridArea: 'login'
 	},
-
-	register: {
-
+	mainTitle: {
+		gridArea: 'mainTitle',
+	},
+	subTitle: {
+		gridArea: 'subTitle',
 	},
 
 });
