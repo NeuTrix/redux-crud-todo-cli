@@ -6,37 +6,49 @@ import Card from '../buttons/Card';
 import { NavLink } from 'react-router-dom';
 import SubmitButton from '../buttons/SubmitButton';
 
-
 const propTypes = {
 	authorized: PropTypes.bool.isRequired,
 	classes: PropTypes.instanceOf(Object).isRequired,
 }
 
+const loginButton = (
+	<div>
+		Login
+	</div>
+)
+
+const registerButton= (
+	<div>
+		Register
+	</div>
+)
+
 const Home = ({ authorized, classes }) => {
 
 	return (
-		<Grid className={classes.Grid}  >
-
-			<Typography 
-				className={classes.subtitle}
-				variant="h1"
-			>
-				React-Todo toy app
-			</Typography>  
+		<div className={classes.grid} >
 
 			<Typography 
 				className={classes.subtitle}
 				variant="h3"
+			>
+				React-Todo 
+				toy app
+			</Typography>  
+
+			<Typography 
+				className={classes.subtitle}
+				variant="h6"
 			> 
 				Fullstack MERN CRUD web app featuring:
 			</Typography>  
 
 			<Card className={classes.react} />
 
-			{ !authorized && showLogin }
-			{ !authorized && showRegister }
+			{ !authorized && loginButton }
+			{ !authorized && registerButton }
 
-		</Grid>
+		</div>
 	);
 };
 
