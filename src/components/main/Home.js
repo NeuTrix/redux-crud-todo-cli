@@ -1,113 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-// custom
-import LinkedButton from '../buttons/LinkedButton';
-import Stamp from '../buttons/Stamp';
-import { colors } from '../../helpers/cssConstants';
+import { withStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import Card from '../buttons/Card';
+import { NavLink } from 'react-router-dom';
+import SubmitButton from '../buttons/SubmitButton';
 
-// +++++++++  CSS  +++++++++ 
 
-const Grid = styled.div`
-	display: grid;
-	grid-template-areas: 
-	 	" title		title 	title 	title 	title	"
-	  " subt		subt 		subt 		subt   	subt 	"
-	  " ...			mongo 	expr 		react  	...	 	" 
-	  " ...			redux 	node 		grid   	...	 	" 
-	  " ... 		login 	...			regis  	...	  "
-  ;
-	grid-template-columns: auto;
-	grid-auto-rows: auto;
-	grid-gap: 25px 5px;
-	padding: 10px;
-	& * {
-		font-size:1em;
-	}
-	@media (min-width: 600px) {
-		grid-template-areas: 
-		 	" title 	title 	title 	title 	title 	title "
-		  " subt 		subt 		subt 		subt 		subt 		subt 	"
-		  " mongo 	expr 		react 	node 		redux 		grid 	" 
-		  " ... 		...			login 	regis 	...			... 	" 
-		 	" drop 	drop 	drop 	drop 	drop 	drop "
-	  ;
-		grid-template-columns: auto;
-		grid-auto-rows: auto;
-		grid-gap: 25px 5px;
+const propTypes = {
+	authorized: PropTypes.bool.isRequired,
+	classes: PropTypes.instanceOf(Object).isRequired,
+}
 
-		& * {
-			font-size:1em;
-		}
-`;
-
-const Login = styled(LinkedButton)`
-	grid-area: login;
-`;
-const Register = styled(LinkedButton)`
-	grid-area: regis;
-`;
-
-const Title = styled.div`
-	grid-area: title;
-	color-darkgrey;
-	font-size: 2em;
-`;
-
-const Subtitle = styled.div`
-	grid-area: subt;
-	color: darkgrey;
-`;
-
-const Test = styled(Card)`
-	grid-area: react;
-	color: darkgrey;
-`;
-
-const showLogin = (
-	<Login 
-		className= '_login'
-		name = 'Log In' 
-		bgColor = 'greenyellow'
-		color = {colors._mintgreen}
-		path = '/login' 
-	/>
-);
-
-const showRegister = (
-	<Register 
-		className= '_register'
-		name = 'Register' 
-		bgColor = 'aliceblue'
-		color = 'steelblue'
-		path = '/register'
-	/>
-);
-
-// +++++++++ COMPONENT  +++++++++ 
-
-const Home = ({ authorized }) => {
+const Home = ({ authorized, classes }) => {
 
 	return (
-		<Grid className = 'Home engrBox paper'  >
+		<Grid className={classes.Grid}  >
 
-			<Title className= '_title ctr engr under'> 
-				<h1>React-Todo (beta)</h1> 
-			</Title>  
+			<Typography 
+				className={classes.subtitle}
+				variant="h1"
+			>
+				React-Todo toy app
+			</Typography>  
 
-			<Subtitle className = '-subtitle ctr' > 
-				<span>Fullstack MERN CRUD web app featuring:</span> 
-			</Subtitle>  
+			<Typography 
+				className={classes.subtitle}
+				variant="h3"
+			> 
+				Fullstack MERN CRUD web app featuring:
+			</Typography>  
 
-			<Test color='orange'/>
-			{/* <Card style={{gridArea: 'react'}}/> */}
-			<Stamp area= 'mongo' color= 'steelblue' name= 'Mongo'/>
-			<Stamp area= 'expr' color= 'steelblue' name= 'Express'/>
-			{/* <Stamp area= 'react' color= 'steelblue' name= 'React'/> */}
-			<Stamp area= 'node' color= 'steelblue' name= 'NodeJS'/>
-			<Stamp area= 'redux' color= 'orange' name= 'Redux'/>
-			<Stamp area= 'grid' color= 'orange' name= 'Grid'/>
+			<Card className={classes.react} />
 
 			{ !authorized && showLogin }
 			{ !authorized && showRegister }
@@ -116,12 +40,38 @@ const Home = ({ authorized }) => {
 	);
 };
 
-Home.propTypes = {
-	authorized: PropTypes.bool.isRequired,
-};
+const styles = {
+	grid: {
+		gridTemplateAreas:`
+			'title title title title title'
+			'subtitle subtitle subtitle subtitle subtitle'
+			'react redux grid mongo express'
+			'. login . register .'
+		`
+	},
 
-Home.defaultProps = {
-	authorized: true,
-};
+	react: {
 
-export default Home;
+	} ,
+
+	redux: {
+
+	},
+
+	grid: {
+
+	},
+
+	mongo: {
+
+	},
+
+	express: {
+
+	},
+
+}
+
+Home.propTypes = propTypes
+
+export default withStyles(styles)(Home);
