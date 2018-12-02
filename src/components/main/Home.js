@@ -3,49 +3,59 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { NavLink } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 import Card from '../buttons/Card';
-import SubmitButton from '../buttons/SubmitButton';
 
 const propTypes = {
 	authorized: PropTypes.bool.isRequired,
 	classes: PropTypes.instanceOf(Object).isRequired,
 };
 
-const loginButton = (
-	<SubmitButton
-		color="secondary"
-		label="Login"
-	>
-		<NavLink to="/login"/>
-	</SubmitButton>
-);
+const Home = ({ authorized, classes }) => {
+	const loginButton = (
+		<Button
+			className={classes.login}
+			color="primary"
+			component="button"
+			variant="contained"
+		>
+			<NavLink to="/login">Login</NavLink>
+		</Button>
+	);
 
-const registerButton = (
-	<SubmitButton
-		color="primary"
-		label="Register"
-	>
-		<NavLink to="/register"/>
-	</SubmitButton>
-);
+	const registerButton = (
+		<Button
+			className={classes.register}
+			color="primary"
+			component="button"
+			type="submit"
+			variant="contained"
+		>
+			{'Register'}
+		</Button>
+	);
 
-const Home = ({ authorized, classes }) => (
-		<div className={classes.grid} >
+	return (
+		<div className={classes.grid}>
 
-			<Typography 
+			<Typography
 				className={classes.subtitle}
 				variant="h4"
 			>
-				Welcome to Done
-			</Typography>  
+				{'Welcome to Done'}
+			</Typography>
 
-			<Typography 
+			<Typography
 				className={classes.subtitle}
 				variant="h6"
-			> 
-				a full-stack React | Redux toy app
-			</Typography>  
+			>
+				{'a full-stack React | Redux toy app'}
+			</Typography>
 
+			<Card className={classes.react} />
+			<Card className={classes.react} />
+			<Card className={classes.react} />
+			<Card className={classes.react} />
 			<Card className={classes.react} />
 
 			{ !authorized && loginButton }
@@ -53,8 +63,9 @@ const Home = ({ authorized, classes }) => (
 
 		</div>
 	);
+};
 
-const styles = {
+const styles = theme => ({
 	grid: {
 		gridTemplateAreas: `
 			'title title title title title'
@@ -62,6 +73,7 @@ const styles = {
 			'react redux grid mongo express'
 			'. login . register .'
 		`,
+		gridColumnGap: '50px',
 	},
 
 	react: {
@@ -80,7 +92,15 @@ const styles = {
 
 	},
 
-};
+	login: {
+		gridArea: 'redux'
+	},
+
+	register: {
+
+	},
+
+});
 
 Home.propTypes = propTypes;
 
