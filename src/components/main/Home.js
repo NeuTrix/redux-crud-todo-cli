@@ -1,46 +1,49 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import { NavLink } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import Card from '../buttons/Card';
-import { NavLink } from 'react-router-dom';
 import SubmitButton from '../buttons/SubmitButton';
 
 const propTypes = {
 	authorized: PropTypes.bool.isRequired,
 	classes: PropTypes.instanceOf(Object).isRequired,
-}
+};
 
 const loginButton = (
-	<div>
-		Login
-	</div>
-)
+	<SubmitButton
+		color="secondary"
+		label="Login"
+	>
+		<NavLink to="/login"/>
+	</SubmitButton>
+);
 
-const registerButton= (
-	<div>
-		Register
-	</div>
-)
+const registerButton = (
+	<SubmitButton
+		color="primary"
+		label="Register"
+	>
+		<NavLink to="/register"/>
+	</SubmitButton>
+);
 
-const Home = ({ authorized, classes }) => {
-
-	return (
+const Home = ({ authorized, classes }) => (
 		<div className={classes.grid} >
 
 			<Typography 
 				className={classes.subtitle}
-				variant="h3"
+				variant="h4"
 			>
-				React-Todo 
-				toy app
+				Welcome to Done
 			</Typography>  
 
 			<Typography 
 				className={classes.subtitle}
 				variant="h6"
 			> 
-				Fullstack MERN CRUD web app featuring:
+				a full-stack React | Redux toy app
 			</Typography>  
 
 			<Card className={classes.react} />
@@ -50,27 +53,22 @@ const Home = ({ authorized, classes }) => {
 
 		</div>
 	);
-};
 
 const styles = {
 	grid: {
-		gridTemplateAreas:`
+		gridTemplateAreas: `
 			'title title title title title'
 			'subtitle subtitle subtitle subtitle subtitle'
 			'react redux grid mongo express'
 			'. login . register .'
-		`
+		`,
 	},
 
 	react: {
 
-	} ,
-
-	redux: {
-
 	},
 
-	grid: {
+	redux: {
 
 	},
 
@@ -82,8 +80,8 @@ const styles = {
 
 	},
 
-}
+};
 
-Home.propTypes = propTypes
+Home.propTypes = propTypes;
 
 export default withStyles(styles)(Home);
