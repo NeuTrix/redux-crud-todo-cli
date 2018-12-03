@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { NavLink } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import Card from '../buttons/Card';
+import MediaCard from '../buttons/MediaCard';
 
 const propTypes = {
 	authorized: PropTypes.bool.isRequired,
@@ -13,26 +13,30 @@ const propTypes = {
 
 const Home = ({ authorized, classes }) => {
 	const loginButton = (
-		<Button
-			className={classes.button}
-			color="primary"
-			component="button"
-			variant="contained"
-		>
-			<NavLink to="/login">Login</NavLink>
-		</Button>
+		<NavLink to="/login">
+			<Button
+				className={classes.button}
+				color="primary"
+				component="button"
+				variant="contained"
+			>
+				{'Login'}
+			</Button>
+		</NavLink>
 	);
 
 	const registerButton = (
-		<Button
-			className={classes.button}
-			color="primary"
-			component="button"
-			type="submit"
-			variant="contained"
-		>
-			{'Register'}
-		</Button>
+		<NavLink to="/login">
+			<Button
+				className={classes.button}
+				color="primary"
+				component="button"
+				type="submit"
+				variant="contained"
+			>
+				{'Register'}
+			</Button>
+		</NavLink>
 	);
 
 	return (
@@ -51,30 +55,42 @@ const Home = ({ authorized, classes }) => {
 			>
 				{'a full-stack React | Redux toy app'}
 			</Typography>
-			<div className={classes.codeCards}>
-				<div className={classes.tiles}><Card/></div>
-				<div className={classes.tiles}><Card/></div>
-				<div className={classes.tiles}><Card/></div>
-				<div className={classes.tiles}><Card/></div>
-				
+			<div className={classes.cardsDisplay}>
+				<div className={classes.tiles}><MediaCard label="Be" /></div>
+				<div className={classes.tiles}><MediaCard label="Ce" /></div>
+				<div className={classes.tiles}><MediaCard label="De" /></div>
+				<div className={classes.tiles}><MediaCard label="Ee" /></div>
 			</div>
-			<div className={classes.button}>
-				{ !authorized && loginButton }
-				{ !authorized && registerButton }
+			<div className={classes.buttonDisplay}>
+				<div>{ !authorized && loginButton }</div>
+				<div>{ !authorized && registerButton }</div>
 			</div>
 		</div>
 	);
 };
 
+const areaWidth = 500;
+
 const styles = theme => ({
 	button: {
-		gridArea: 'button',
+		width: 100,
+		color: 'white',
 	},
-	codeCards: {
+
+	buttonDisplay: {
+		background: 'lime',
+		display: 'flex',
+		gridArea: 'buttonDisplay',
+		justifyContent: 'space-around',
+		width: 'inherit',
+	},
+	// The media card display section
+	cardsDisplay: {
 		background: 'orangered',
-		display: 'inline-block',
-		gridArea: 'codeCards',
-		width: 350,
+		display: 'flex',
+		flexWrap: 'wrap',
+		placeContent: 'center',
+		gridArea: 'cardsDisplay',
 		padding: 25,
 	},
 
@@ -83,10 +99,13 @@ const styles = theme => ({
 		gridTemplateAreas: `
 			"mainTitle"
 			"subTitle"
-			"codeCards"
-			"button"
+			"cardsDisplay"
+			"buttonDisplay"
 		`,
 		gridColumnGap: '50px',
+		placeItems: 'center',
+		width: areaWidth,
+
 	},
 
 	login: {
@@ -100,10 +119,9 @@ const styles = theme => ({
 		gridArea: 'subTitle',
 	},
 	tiles: {
-		// gridArea: ''
-		float: 'left',
 		border: '3px solid purple',
-	}
+		float: 'left',
+	},
 
 });
 

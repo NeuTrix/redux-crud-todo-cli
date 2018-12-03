@@ -11,10 +11,15 @@ import Typography from '@material-ui/core/Typography';
 
 const propTypes = {
   classes: PropTypes.instanceOf(Object).isRequired,
+  label: PropTypes.string
+};
+
+const defaultProps = {
+  label: "A"
 };
 
 function MediaCard(props) {
-  const { classes } = props;
+  const { classes, label } = props;
   return (
     <div>
       <Card className={classes.card}>
@@ -26,10 +31,10 @@ function MediaCard(props) {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              React
+              {label}
             </Typography>
             <Typography component="p">
-              React
+              {label}
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -53,5 +58,6 @@ const styles = {
   },
 };
 MediaCard.propTypes = propTypes;
+MediaCard.defaultProps = defaultProps;
 
 export default withStyles(styles)(MediaCard);
