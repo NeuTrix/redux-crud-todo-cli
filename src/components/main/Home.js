@@ -6,15 +6,15 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
-import cssLogo from '../../assets/mediaCardLogos/css3_logo.jpg';
-import htmlLogo from '../../assets/mediaCardLogos/html_logo.png';
-import expressLogo from '../../assets/mediaCardLogos/express_logo.png';
-import jsLogo from '../../assets/mediaCardLogos/js_logo.png';
+import cssLogo from '../../assets/mediaCardLogos/resized_images/css_logo.png';
+import htmlLogo from '../../assets/mediaCardLogos/resized_images/html_logo.png';
+import expressLogo from '../../assets/mediaCardLogos/resized_images/express_logo.png';
+import jsLogo from '../../assets/mediaCardLogos/resized_images/js_logo.png';
 import MediaCard from '../buttons/MediaCard';
-import mongoLogo from '../../assets/mediaCardLogos/mongo_logo.png';
-import nodeLogo from '../../assets/mediaCardLogos/node_logo.png';
-import reactLogo from '../../assets/mediaCardLogos/react_logo.png';
-import reduxLogo from '../../assets/mediaCardLogos/redux_logo.png';
+import mongoLogo from '../../assets/mediaCardLogos/resized_images/mongo_logo.png';
+import nodeLogo from '../../assets/mediaCardLogos/resized_images/node_logo.png';
+import reactLogo from '../../assets/mediaCardLogos/resized_images/react_logo.png';
+import reduxLogo from '../../assets/mediaCardLogos/resized_images/redux_logo.png';
 
 const propTypes = {
 	authorized: PropTypes.bool.isRequired,
@@ -65,6 +65,7 @@ const Home = ({ authorized, classes }) => {
 			>
 				{'a full-stack React | Redux toy app'}
 			</Typography>
+
 			<div className={classes.tilesDisplay}>
 				<div className={classes.tiles}>
 					<MediaCard imageUrl={mongoLogo} label="MongoDB" />
@@ -91,10 +92,12 @@ const Home = ({ authorized, classes }) => {
 					<MediaCard imageUrl={htmlLogo} label="HTML5" />
 				</div>
 			</div>
+
 			<div className={classes.buttonDisplay}>
 				<div>{ !authorized && loginButton }</div>
 				<div>{ !authorized && registerButton }</div>
 			</div>
+
 		</div>
 	);
 };

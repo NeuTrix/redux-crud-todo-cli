@@ -12,7 +12,7 @@ describe('The LoginForm', () => {
 		<Router>
 			<LoginForm
 				authApi={authApi}
-				isLoading="false"
+				isLoading={false}
 				onSubmit={f => f}
 				onChange={f => f}
 			/>

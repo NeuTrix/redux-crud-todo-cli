@@ -60,7 +60,7 @@ const styles = theme => ({
 	},
 
 	media: {
-		height: 100,
+		height: 105,
 		marginBottom: 5,
 		placeSelf: 'center',
 		width: 100,

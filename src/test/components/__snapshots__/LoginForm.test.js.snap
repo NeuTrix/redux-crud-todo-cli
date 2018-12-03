@@ -8,42 +8,33 @@ exports[`The LoginForm ...renders the login form 1`] = `
     class="Loginform-title-6"
     color="secondary"
   >
-    <div
-      class="ProgressBar-root-12"
+    <h4
+      class="MuiTypography-root-11 MuiTypography-h4-26 MuiTypography-colorSecondary-42"
     >
-      <div
-        aria-valuenow="0"
-        class="MuiLinearProgress-root-13 MuiLinearProgress-colorPrimary-14 ProgressBar-bar-11"
-        role="progressbar"
-      >
-        <div
-          class="MuiLinearProgress-bar-21 MuiLinearProgress-barColorPrimary-22 MuiLinearProgress-bar1Determinate-25"
-          style="transform:scaleX(0)"
-        />
-      </div>
-    </div>
+      Login
+    </h4>
   </div>
   <div
     class="MuiFormControl-root-7"
   >
     <label
-      class="MuiFormLabel-root-37 MuiInputLabel-root-30 MuiInputLabel-formControl-31 MuiInputLabel-animated-34"
+      class="MuiFormLabel-root-53 MuiInputLabel-root-46 MuiInputLabel-formControl-47 MuiInputLabel-animated-50"
       data-shrink="false"
     >
       <p
-        class="MuiTypography-root-44 MuiTypography-body1-53 MuiTypography-colorInherit-73"
+        class="MuiTypography-root-11 MuiTypography-body1-20 MuiTypography-colorInherit-40"
       >
         Username -or- Email
       </p>
     </label>
     <div
-      class="MuiInputBase-root-92 MuiInput-root-79 MuiInput-underline-83 MuiInputBase-formControl-93 MuiInput-formControl-80"
+      class="MuiInputBase-root-73 MuiInput-root-60 MuiInput-underline-64 MuiInputBase-formControl-74 MuiInput-formControl-61"
       required=""
     >
       <input
         aria-invalid="false"
         autofocus=""
-        class="MuiInputBase-input-102 MuiInput-input-87"
+        class="MuiInputBase-input-83 MuiInput-input-68"
         name="identifier"
         placeholder=""
         required=""
@@ -55,22 +46,22 @@ exports[`The LoginForm ...renders the login form 1`] = `
     class="MuiFormControl-root-7"
   >
     <label
-      class="MuiFormLabel-root-37 MuiInputLabel-root-30 MuiInputLabel-formControl-31 MuiInputLabel-animated-34"
+      class="MuiFormLabel-root-53 MuiInputLabel-root-46 MuiInputLabel-formControl-47 MuiInputLabel-animated-50"
       data-shrink="false"
     >
       <p
-        class="MuiTypography-root-44 MuiTypography-body1-53 MuiTypography-colorInherit-73"
+        class="MuiTypography-root-11 MuiTypography-body1-20 MuiTypography-colorInherit-40"
       >
         Password
       </p>
     </label>
     <div
-      class="MuiInputBase-root-92 MuiInput-root-79 MuiInput-underline-83 MuiInputBase-formControl-93 MuiInput-formControl-80"
+      class="MuiInputBase-root-73 MuiInput-root-60 MuiInput-underline-64 MuiInputBase-formControl-74 MuiInput-formControl-61"
       required=""
     >
       <input
         aria-invalid="false"
-        class="MuiInputBase-input-102 MuiInput-input-87 MuiInputBase-inputType-105 MuiInput-inputType-90"
+        class="MuiInputBase-input-83 MuiInput-input-68 MuiInputBase-inputType-86 MuiInput-inputType-71"
         name="password"
         placeholder=""
         required=""
@@ -83,19 +74,18 @@ exports[`The LoginForm ...renders the login form 1`] = `
     href="/register"
   >
     <p
-      class="MuiTypography-root-44 MuiTypography-body1-53"
+      class="MuiTypography-root-11 MuiTypography-body1-20"
     >
        Click here for a new account 
     </p>
   </a>
   <button
-    class="MuiButtonBase-root-135 MuiButtonBase-disabled-136 MuiButton-root-109 MuiButton-contained-120 MuiButton-containedPrimary-121 MuiButton-raised-123 MuiButton-raisedPrimary-124 MuiButton-disabled-129 Loginform-button-1"
-    disabled=""
-    tabindex="-1"
+    class="MuiButtonBase-root-116 MuiButton-root-90 MuiButton-contained-101 MuiButton-containedPrimary-102 MuiButton-raised-104 MuiButton-raisedPrimary-105 Loginform-button-1"
+    tabindex="0"
     type="submit"
   >
     <span
-      class="MuiButton-label-110"
+      class="MuiButton-label-91"
     >
       Submit
     </span>
