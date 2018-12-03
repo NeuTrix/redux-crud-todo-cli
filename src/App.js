@@ -38,7 +38,7 @@ function App(props) {
 			<div className={`messages ${classes.messages}`}>
 				<FlashMessageList />
 			</div>
-			<div className={`main ${classes.main}`}>
+			<div className={classes.main}>
 				<Route exact path="/" render={() => <Home authorized={isAuth} />} />
 				<Route path="/login" component={LoginContainer} />
 				<Route path="/register" component={RegistrationContainer} />

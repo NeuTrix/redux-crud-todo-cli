@@ -14,7 +14,7 @@ const propTypes = {
 const Home = ({ authorized, classes }) => {
 	const loginButton = (
 		<Button
-			className={classes.login}
+			className={classes.button}
 			color="primary"
 			component="button"
 			variant="contained"
@@ -25,7 +25,7 @@ const Home = ({ authorized, classes }) => {
 
 	const registerButton = (
 		<Button
-			className={classes.register}
+			className={classes.button}
 			color="primary"
 			component="button"
 			type="submit"
@@ -46,22 +46,22 @@ const Home = ({ authorized, classes }) => {
 			</Typography>
 
 			<Typography
-				className = {
-					classes.subTitle
-				}
+				className={classes.subTitle}
 				variant="h6"
 			>
 				{'a full-stack React | Redux toy app'}
 			</Typography>
-
-			<Card className={classes.card} />
-			<Card className={classes.card} />
-			<Card className={classes.card} />
-			<Card className={classes.card} />
-
-			{ !authorized && loginButton }
-			{ !authorized && registerButton }
-
+			<div className={classes.codeCards}>
+				<div className={classes.tiles}><Card/></div>
+				<div className={classes.tiles}><Card/></div>
+				<div className={classes.tiles}><Card/></div>
+				<div className={classes.tiles}><Card/></div>
+				
+			</div>
+			<div className={classes.button}>
+				{ !authorized && loginButton }
+				{ !authorized && registerButton }
+			</div>
 		</div>
 	);
 };
@@ -70,33 +70,40 @@ const styles = theme => ({
 	button: {
 		gridArea: 'button',
 	},
-	card: {
-		gridArea: 'card',
-		width: 100,
+	codeCards: {
+		background: 'orangered',
+		display: 'inline-block',
+		gridArea: 'codeCards',
+		width: 350,
+		padding: 25,
 	},
 
 	grid: {
+		display: 'grid',
 		gridTemplateAreas: `
-			'mainTitle'
-			'subTitle'
-			'card'
-			'button'
+			"mainTitle"
+			"subTitle"
+			"codeCards"
+			"button"
 		`,
 		gridColumnGap: '50px',
-		[theme.breakpoints.up('sm')]: {
-			
-		},
 	},
 
 	login: {
-		gridArea: 'login'
+		gridArea: 'login',
 	},
 	mainTitle: {
 		gridArea: 'mainTitle',
 	},
+	placeItems: 'center',
 	subTitle: {
 		gridArea: 'subTitle',
 	},
+	tiles: {
+		// gridArea: ''
+		float: 'left',
+		border: '3px solid purple',
+	}
 
 });
 
