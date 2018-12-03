@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import MediaCard from '../buttons/MediaCard';
+import reactLogo from '../../assets/mediaCardLogos/react_logo.png'
 
 const propTypes = {
 	authorized: PropTypes.bool.isRequired,
@@ -56,7 +57,9 @@ const Home = ({ authorized, classes }) => {
 				{'a full-stack React | Redux toy app'}
 			</Typography>
 			<div className={classes.tilesDisplay}>
-				<div className={classes.tiles}><MediaCard label="Be" /></div>
+				<div className={classes.tiles}>
+					<MediaCard imageUrl={reactLogo} label="React" />
+				</div>
 				<div className={classes.tiles}><MediaCard label="Ce" /></div>
 				<div className={classes.tiles}><MediaCard label="De" /></div>
 				<div className={classes.tiles}><MediaCard label="Ee" /></div>
@@ -72,13 +75,14 @@ const Home = ({ authorized, classes }) => {
 const areaWidth = 500;
 
 const styles = () => ({
+	// login and register buttons
 	button: {
 		color: 'white',
 		width: 100,
 	},
 
 	buttonDisplay: {
-		background: 'lime',
+		// background: 'lime',
 		display: 'flex',
 		gridArea: 'buttonDisplay',
 		justifyContent: 'space-around',
@@ -87,7 +91,7 @@ const styles = () => ({
 	},
 	// The media card display section
 	tilesDisplay: {
-		background: 'orangered',
+		// background: 'orangered',
 		display: 'flex',
 		flexWrap: 'wrap',
 		placeContent: 'center',
@@ -103,7 +107,6 @@ const styles = () => ({
 			"tilesDisplay"
 			"buttonDisplay"
 		`,
-		gridColumnGap: '50px',
 		placeItems: 'center',
 		width: areaWidth,
 	},
@@ -111,15 +114,17 @@ const styles = () => ({
 	login: {
 		gridArea: 'login',
 	},
+
 	mainTitle: {
 		gridArea: 'mainTitle',
 	},
-	placeItems: 'center',
+
 	subTitle: {
 		gridArea: 'subTitle',
 	},
+
 	tiles: {
-		border: '3px solid purple',
+		// border: '3px solid purple',
 		float: 'left',
 		margin: 10,
 		minWidth: 150,
