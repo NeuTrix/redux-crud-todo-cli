@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import TodoItem from './TodoItem';
 
-// +++++++++ CSS +++++++++ 
+// +++++++++ CSS +++++++++
 
 const Grid = styled.div`
 	display: grid;
@@ -15,44 +15,44 @@ const Grid = styled.div`
 	grid-row-gap: 10px;
 `;
 
-// +++++++++ COMPONENT  +++++++++ 
+// +++++++++ COMPONENT  +++++++++
 
 class TodoList extends Component {
-	
-	constructor (props) {
+
+	constructor(props) {
 		super(props);
-		this.state = { 
-			todoArray: this.props.todoArray			
+		this.state = {
+			todoArray: this.props.todoArray,
 		};
 	}
 
-	componentWillReceiveProps (newProps) {
+	componentWillReceiveProps(newProps) {
 		this.setState({ todoArray: newProps.todoArray });
 	}
 
 	render() {
-		let _todoArray = this.state.todoArray; 
-		
-		let todos = _todoArray.map (item => {
-			return <TodoItem 
-				key = { shortid.generate() } 
-				item = { item } 
-				deleteTodo = { this.props.deleteTodo }
-				editTodo = { this.props.editTodo }
-			/>;
-		});
+		const _todoArray = this.state.todoArray;
+
+		const todos = _todoArray.map(item => (
+			<TodoItem
+				key={shortid.generate()}
+				item={item}
+				deleteTodo={this.props.deleteTodo}
+				editTodo={this.props.editTodo}
+			/>
+		));
 
 		return (
-			<Grid 
-				className = {`TodoList ${ this.props.className } `} 
-				>
-					{ todos.reverse() } 
+			<Grid
+				className={`TodoList ${this.props.className} `}
+			>
+				{ todos.reverse() }
 			</Grid>
 		);
 	}
-} 
+}
 
-// +++++++++ PROPS +++++++++ 
+// +++++++++ PROPS +++++++++
 
 TodoList.propTypes = {
 	todoArray: PropTypes.array.isRequired,
@@ -60,7 +60,7 @@ TodoList.propTypes = {
 	editTodo: PropTypes.func.isRequired,
 };
 
-TodoList.defaultProps = { 
+TodoList.defaultProps = {
 	todoArray: [],
 	deleteTodo: f => alert('default function.  check component props'),
 	editTodo: f => alert('default function.  check component props'),

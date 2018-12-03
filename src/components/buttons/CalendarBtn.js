@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const CalendarBtn = (props) => {
 
-}; 
+};
 
 CalendarBtn.propTypes = {
 };

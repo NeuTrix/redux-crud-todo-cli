@@ -34,8 +34,7 @@ const Flash = styled.div`
 			}
 	}
 		
-	${ ({ type }) =>
-		type === 'success' ? ` 
+	${({ type }) => (type === 'success' ? ` 
 			background: greenyellow ;
 			color: ${colors._mintgreen} ;
 			border-color: ${colors._mintgreen} ;
@@ -51,7 +50,7 @@ const Flash = styled.div`
 			color: darkgoldenrod;
 			border-color: darkgoldenrod;
 			background: lightgoldenrodyellow;
-		` : 'color: grey'
+		` : 'color: grey')
 }
 `;
 
@@ -89,9 +88,8 @@ class FlashMessage extends Component {
 		setTimeout(this.closeMessage(), 750);
 	}
 
-	
-	render() {
 
+	render() {
 		const { type, text } = this.props.message;
 
 		setTimeout(this.closeMessage, 10000);
@@ -99,13 +97,17 @@ class FlashMessage extends Component {
 		return (
 
 			<Flash
-				className='FlashMessage paper'
+				className="FlashMessage paper"
 				type={type}
 			>
-				<Message
-				> {text} </Message>
+				<Message>
+					{' '}
+					{text}
+					{' '}
+
+				</Message>
 				<Clear
-					className='close btn fa fa-times'
+					className="close btn fa fa-times"
 					onClick={this.onClick}
 				/>
 			</Flash>
@@ -116,12 +118,11 @@ class FlashMessage extends Component {
 
 FlashMessage.propTypes = {
 	message: PropTypes.object.isRequired,
-	deleteFlashMessage: PropTypes.func.isRequired
+	deleteFlashMessage: PropTypes.func.isRequired,
 };
 
 FlashMessage.defaultProps = {
-	deleteFlashMessage: f => alert('Default fn: deleteFlashMessage')
+	deleteFlashMessage: f => alert('Default fn: deleteFlashMessage'),
 };
 
 export default FlashMessage;
-

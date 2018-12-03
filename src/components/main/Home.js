@@ -73,8 +73,8 @@ const areaWidth = 500;
 
 const styles = () => ({
 	button: {
-		width: 100,
 		color: 'white',
+		width: 100,
 	},
 
 	buttonDisplay: {

@@ -2,53 +2,56 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-// +++++++++ CSS +++++++++ 
+// +++++++++ CSS +++++++++
 
-const Glyph = styled.i `
+const Glyph = styled.i`
 	color: #00cc00;  
 	font-size: 1.5em ;
 	justify-self: center; 
 	align-self: center;
 `;
 
-// +++++++++ COMPONENT +++++++++ 
+// +++++++++ COMPONENT +++++++++
 
 class CheckComplete extends Component {
-			
-	constructor (props) {
-		super (props);
+
+	constructor(props) {
+		super(props);
 		this.state = { completed: this.props.completed };
-		this.handleToggle = this.handleToggle.bind(this)
+		this.handleToggle = this.handleToggle.bind(this);
 	}
 
-	handleToggle (e) {
+	handleToggle(e) {
 		e.preventDefault();
-		this.props.editTodo ( 
-			this.props._id, 
-			{ completed: ! this.state.completed }
+		
+		this.props.editTodo(
+			this.props._id,
+			{ completed: !this.state.completed },
 		);
-	};
+	}
 
 	render() {
-		const checked = ( 
-				<Glyph className = 'engr ctr fa fa-check-square-o fa-2x'/>
-		);
-		
-		const unchecked = ( 
-				<Glyph className = "engr ctr fa fa-square-o fa-2x"/>
+		const checked = (
+			<Glyph className='engr ctr fa fa-check-square-o fa-2x' />
 		);
 
-		return (  
-			<div 
-				className= {`${this.props.className} ctr`} 
-				onClick = { this.handleToggle } 
-			> { this.state.completed ? checked : unchecked }
+		const unchecked = (
+			<Glyph className="engr ctr fa fa-square-o fa-2x" />
+		);
+
+		return (
+			<div
+				className={`${this.props.className} ctr`}
+				onClick={this.handleToggle}
+			> 
+{' '}
+{ this.state.completed ? checked : unchecked }
 			</div>
 		);
 	}
 }
 
-// +++++++++ PROPS +++++++++ 
+// +++++++++ PROPS +++++++++
 
 CheckComplete.propTypes = {
 	_id: PropTypes.string.isRequired,

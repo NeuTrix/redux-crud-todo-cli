@@ -2,27 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Delete = styled.div `
+const Delete = styled.div`
 	color: pink;
 `;
 
 const DeleteBtn = (props) => {
-
 	const handleDelete = (e) => {
 		e.preventDefault();
 		// allow restricted global use of `confirm`
 		// eslint-disable-next-line
 		let _confirmed = confirm(`Do you want to delete the task : \n\t  "${props.task}" ?` ) 
 		if (_confirmed) {
-			props.deleteTodo(props._id)
-		} 
-	}
+			props.deleteTodo(props._id);
+		}
+	};
 
 	return (
-		<Delete 
-			className = {`.${props.className} ctr engr fa fa-trash fa-2x`} 
-			onClick= { handleDelete } > 
-		</Delete>
+		<Delete
+			className={`.${props.className} ctr engr fa fa-trash fa-2x`}
+			onClick={handleDelete}
+		/>
 	);
 };
 
@@ -33,7 +32,7 @@ DeleteBtn.propTypes = {
 };
 
 DeleteBtn.defaultProps = {
-	deleteTodo: f => alert('default fn. Check deleteTodo props.') ,
+	deleteTodo: f => alert('default fn. Check deleteTodo props.'),
 	_id: 'default',
  	task: 'default',
 };

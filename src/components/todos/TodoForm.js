@@ -6,9 +6,9 @@ import normalizeDate from '../../helpers/normalizeDate';
 import { colors, media } from '../../helpers/cssConstants';
 
 
-// +++++++++ CSS  +++++++++ 
+// +++++++++ CSS  +++++++++
 
-const Grid = styled.form `
+const Grid = styled.form`
 	/* mobile view */
 	display: grid;
 	grid-template-areas:
@@ -40,7 +40,7 @@ const Grid = styled.form `
 	}
 `;
 
-const Add = styled.button `
+const Add = styled.button`
 	grid-area: add;
 	color: #00cc00;
 	background: none;
@@ -48,14 +48,14 @@ const Add = styled.button `
 	font-size: 2em;
 	`;
 
-const DatePick = styled.input `
+const DatePick = styled.input`
 	grid-area: date;
 	text-indent: 10px;
 `;
 
-const Rank = styled.select `grid-area: rank;`;
+const Rank = styled.select`grid-area: rank;`;
 
-const Task = styled.input `
+const Task = styled.input`
 	grid-area: task;
 	text-indent: 10px;
 	&:hover {
@@ -63,105 +63,103 @@ const Task = styled.input `
 	}
 `;
 
-const Glyph = styled.i `
+const Glyph = styled.i`
 	grid-area: glyph;
 	color: ${colors._iceblue} ;
 	font-size: 1.5em;
 `;
 
-// +++++++++ COMPONENT +++++++++ 
+// +++++++++ COMPONENT +++++++++
 
 class TodoForm extends Component {
 
-	constructor (props) {
+	constructor(props) {
 		super(props);
 		this.state = {
-			date: normalizeDate(new Date()) ,
-			task: '', 
+			date: normalizeDate(new Date()),
+			task: '',
 			rank: 'Med',
-		 	owner: this.props.owner ,
+		 	owner: this.props.owner,
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 	}
 
 	handleSubmit(e) {
-		e.preventDefault ();
-		this.props.createTodo (this.state);
-		this.setState ({ task: ''});
+		e.preventDefault();
+		this.props.createTodo(this.state);
+		this.setState({ task: '' });
 	}
 
 	handleChange(e) {
 		e.preventDefault();
-		this.setState ({ [ e.target.name ]: e.target.value });
+		this.setState({ [e.target.name]: e.target.value });
 	}
 
-	render () {
-
+	render() {
 		return (
-			<Grid 
-				className= { `TodoForm ${ this.props.className } 
-				boxClr engrBox` } 
-				onSubmit= { this.handleSubmit } 
+			<Grid
+				className={`TodoForm ${this.props.className} 
+				boxClr engrBox`}
+				onSubmit={this.handleSubmit}
 			>
-				<Glyph className = 'ctr engr fa fa-tasks fa-lg'/>
+				<Glyph className="ctr engr fa fa-tasks fa-lg" />
 
-				<Task 
-					id= 'new_item_task'
-					type= 'text'
-					name= 'task'
-					value= { this.state.task }
-					onChange= { this.handleChange }
-					placeholder= 'Enter a new task here'
+				<Task
+					id="new_item_task"
+					type="text"
+					name="task"
+					value={this.state.task}
+					onChange={this.handleChange}
+					placeholder="Enter a new task here"
 					autoFocus
 					required
-				/> 
-
-				<Rank
-					className= 'mat'
-					id= 'new_item_priority' 
-					name= 'rank'
-					type= 'select'
-					value= { this.state.rank }
-					onChange= { this.handleChange }
-			 	> 
-					<option value= 'High'> High	</option>
-					<option value= 'Med'>	Med		</option>
-					<option value= 'Low'>	Low		</option>
-					
-				</Rank>
-
-				<DatePick 
-					className= 'mat'
-					id= 'new_item_date'
-					name= 'date' 
-					type= 'date'
-					onChange= { this.handleChange }
-					value= { this.state.date }
 				/>
 
-				<Add 
-					className= 'ctr engr fa fa-plus fa-2x'
-					id= 'new_item_submit'
-					type= 'submit' 
-				> 
-				</Add> 
+				<Rank
+					className="mat"
+					id="new_item_priority"
+					name="rank"
+					type="select"
+					value={this.state.rank}
+					onChange={this.handleChange}
+				>
+					<option value="High"> High	</option>
+					<option value="Med">	Med		</option>
+					<option value="Low">	Low		</option>
+
+				</Rank>
+
+				<DatePick
+					className="mat"
+					id="new_item_date"
+					name="date"
+					type="date"
+					onChange={this.handleChange}
+					value={this.state.date}
+				/>
+
+				<Add
+					className="ctr engr fa fa-plus fa-2x"
+					id="new_item_submit"
+					type="submit"
+				/>
 
 			</Grid>
 		);
 	}
 }
 
-// +++++++++ PROPS +++++++++ 
+// +++++++++ PROPS +++++++++
 
 TodoForm.propTypes = {
 	createTodo: PropTypes.func.isRequired,
-	owner: PropTypes.string.isRequired
+	owner: PropTypes.string.isRequired,
 };
 
 TodoForm.defaultProps = {
 	createTodo: f => f,
-	owner: 'Default from APP.js'
+	owner: 'Default from APP.js',
 };
 
 export default TodoForm;

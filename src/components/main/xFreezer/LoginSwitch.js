@@ -7,41 +7,41 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 class LoginSwitch extends Component {
 
-  // onLogout(e) {
+	// onLogout(e) {
 	// 	e.preventDefault();
 	// 	this.props.logout();
 	// 	// context.router.history.push('/login');
-  // };
-  
-  render() {
-    const { auth, logout } = this.props;
+	// };
 
-    return (
-      <FormGroup>
-        <FormControlLabel
-          control={
-            <Switch 
-              checked={ auth } 
-              // onChange={ this.onLogout }
-              aria-label='LoginSwitch'
-            />
-          }
-            label={ auth ? 'Logout' : 'Login' }
-          />
-      </FormGroup>
-    )
-  }
-};
+	render() {
+		const { auth, logout } = this.props;
+
+		return (
+			<FormGroup>
+				<FormControlLabel
+					control={(
+						<Switch
+							checked={auth}
+							// onChange={ this.onLogout }
+							aria-label="LoginSwitch"
+						/>
+					)}
+					label={auth ? 'Logout' : 'Login'}
+				/>
+			</FormGroup>
+		);
+	}
+}
 
 
 LoginSwitch.propTypes = {
-  auth: PropTypes.bool,
-  logout: PropTypes.func.isRequired,
+	auth: PropTypes.bool,
+	logout: PropTypes.func.isRequired,
 };
 
 LoginSwitch.defaultProps = {
-  auth: false,
-  logout: (f) => 'Default action: Navbar logout fn',
+	auth: false,
+	logout: f => 'Default action: Navbar logout fn',
 };
 
-export default LoginSwitch
+export default LoginSwitch;

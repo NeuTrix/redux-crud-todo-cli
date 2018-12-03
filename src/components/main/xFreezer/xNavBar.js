@@ -1,17 +1,17 @@
-// This component holds the full navigation bar 
+// This component holds the full navigation bar
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { colors } from '../../helpers/cssConstants';
 import logo from '../../assets/logo-white.png';
-import styled from 'styled-components';
 
 // === components ===
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NavSection from './NavSection';
 
-// ===  CSS  === 
-const Grid = styled.div `
+// ===  CSS  ===
+const Grid = styled.div`
 	grid-area: navBar;
 	grid-template-areas: " logo nav-section ";
 	grid-template-columns: repeat(3, 1fr);
@@ -26,34 +26,34 @@ const Grid = styled.div `
 	}
 `;
 // navbar logo
-const Logo = styled.img `
+const Logo = styled.img`
 	grid-area: logo;
 	max-width: 75px;
 	place-self: center left;
 `;
 
 // dashboard icon for pulling up stats
-const Dash = styled(FontAwesomeIcon) `
+const Dash = styled(FontAwesomeIcon)`
 	// color: ${colors._iceblue};
 	grid-area: dash;
 	font-size: 2em;
 	place-self: center;
 `;
 
-// ===  Main Component  === 
+// ===  Main Component  ===
 const NavBar = (props, context) => {
 	const { auth, logout } = props;
 
 	return (
-		<Grid className='nav-bar'>
-			<Logo className='logo' src={ logo } alt='logo'/> 
-			<Dash className='dash-icon' icon='tachometer-alt'/>
-			<NavSection auth={ auth } logout={ logout }/>
+		<Grid className="nav-bar">
+			<Logo className="logo" src={logo} alt="logo" />
+			<Dash className="dash-icon" icon="tachometer-alt" />
+			<NavSection auth={auth} logout={logout} />
 		</Grid>
 	);
 };
 
-// === Props  === 
+// === Props  ===
 NavBar.propTypes = {
 	auth: PropTypes.bool,
 	logout: PropTypes.func.isRequired,
@@ -61,7 +61,7 @@ NavBar.propTypes = {
 
 NavBar.defaultProps = {
 	auth: false,
-	logout: (f) => 'Default action: Navbar logout fn',
+	logout: f => 'Default action: Navbar logout fn',
 };
 
 NavBar.contextTypes = { router: PropTypes.object.isRequired };
