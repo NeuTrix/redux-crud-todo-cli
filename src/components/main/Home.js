@@ -26,7 +26,7 @@ const Home = ({ authorized, classes }) => {
 	);
 
 	const registerButton = (
-		<NavLink to="/login">
+		<NavLink to="/register">
 			<Button
 				className={classes.button}
 				color="primary"
@@ -55,7 +55,7 @@ const Home = ({ authorized, classes }) => {
 			>
 				{'a full-stack React | Redux toy app'}
 			</Typography>
-			<div className={classes.cardsDisplay}>
+			<div className={classes.tilesDisplay}>
 				<div className={classes.tiles}><MediaCard label="Be" /></div>
 				<div className={classes.tiles}><MediaCard label="Ce" /></div>
 				<div className={classes.tiles}><MediaCard label="De" /></div>
@@ -82,16 +82,17 @@ const styles = theme => ({
 		display: 'flex',
 		gridArea: 'buttonDisplay',
 		justifyContent: 'space-around',
+		paddingTop: 25,
 		width: 'inherit',
 	},
 	// The media card display section
-	cardsDisplay: {
+	tilesDisplay: {
 		background: 'orangered',
 		display: 'flex',
 		flexWrap: 'wrap',
 		placeContent: 'center',
-		gridArea: 'cardsDisplay',
-		padding: 25,
+		gridArea: 'tilesDisplay',
+		marginTop: 25,
 	},
 
 	grid: {
@@ -99,13 +100,12 @@ const styles = theme => ({
 		gridTemplateAreas: `
 			"mainTitle"
 			"subTitle"
-			"cardsDisplay"
+			"tilesDisplay"
 			"buttonDisplay"
 		`,
 		gridColumnGap: '50px',
 		placeItems: 'center',
 		width: areaWidth,
-
 	},
 
 	login: {
@@ -121,6 +121,8 @@ const styles = theme => ({
 	tiles: {
 		border: '3px solid purple',
 		float: 'left',
+		margin: 10,
+		minWidth: 150,
 	},
 
 });
