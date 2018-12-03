@@ -1,11 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import { NavLink } from 'react-router-dom';
+// @material-ui
+import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+
+import cssLogo from '../../assets/mediaCardLogos/css3_logo.jpg';
+import htmlLogo from '../../assets/mediaCardLogos/html_logo.png';
+import expressLogo from '../../assets/mediaCardLogos/express_logo.png';
+import jsLogo from '../../assets/mediaCardLogos/js_logo.png';
 import MediaCard from '../buttons/MediaCard';
-import reactLogo from '../../assets/mediaCardLogos/react_logo.png'
+import mongoLogo from '../../assets/mediaCardLogos/mongo_logo.png';
+import nodeLogo from '../../assets/mediaCardLogos/node_logo.png';
+import reactLogo from '../../assets/mediaCardLogos/react_logo.png';
+import reduxLogo from '../../assets/mediaCardLogos/redux_logo.png';
 
 const propTypes = {
 	authorized: PropTypes.bool.isRequired,
@@ -58,11 +67,29 @@ const Home = ({ authorized, classes }) => {
 			</Typography>
 			<div className={classes.tilesDisplay}>
 				<div className={classes.tiles}>
+					<MediaCard imageUrl={mongoLogo} label="MongoDB" />
+				</div>
+				<div className={classes.tiles}>
+					<MediaCard imageUrl={nodeLogo} label="Node" />
+				</div>
+				<div className={classes.tiles}>
+					<MediaCard imageUrl={expressLogo} label="express" />
+				</div>
+				<div className={classes.tiles}>
 					<MediaCard imageUrl={reactLogo} label="React" />
 				</div>
-				<div className={classes.tiles}><MediaCard label="Ce" /></div>
-				<div className={classes.tiles}><MediaCard label="De" /></div>
-				<div className={classes.tiles}><MediaCard label="Ee" /></div>
+				<div className={classes.tiles}>
+					<MediaCard imageUrl={reduxLogo} label="Redux" />
+				</div>
+				<div className={classes.tiles}>
+					<MediaCard imageUrl={jsLogo} label="JavaScript" />
+				</div>
+				<div className={classes.tiles}>
+					<MediaCard imageUrl={cssLogo} label="CSS3" />
+				</div>
+				<div className={classes.tiles}>
+					<MediaCard imageUrl={htmlLogo} label="HTML5" />
+				</div>
 			</div>
 			<div className={classes.buttonDisplay}>
 				<div>{ !authorized && loginButton }</div>
@@ -72,20 +99,21 @@ const Home = ({ authorized, classes }) => {
 	);
 };
 
-const areaWidth = 500;
+const areaWidth = 800;
 
 const styles = () => ({
 	// login and register buttons
 	button: {
 		color: 'white',
 		width: 100,
+		margin: 20,
 	},
 
 	buttonDisplay: {
 		// background: 'lime',
 		display: 'flex',
 		gridArea: 'buttonDisplay',
-		justifyContent: 'space-around',
+		justifyContent: 'center',
 		paddingTop: 25,
 		width: 'inherit',
 	},

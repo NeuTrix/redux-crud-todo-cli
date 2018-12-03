@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 
 const propTypes = {
 	classes: PropTypes.instanceOf(Object).isRequired,
-	imageUrl: PropTypes.instanceOf(Object),
+	imageUrl: PropTypes.string,
 	label: PropTypes.string,
 };
 
@@ -48,6 +48,7 @@ const styles = theme => ({
 
 	card: {
 		maxWidth: 150,
+		paddingTop: 15,
 	},
 
 	cardContent: {
@@ -60,7 +61,7 @@ const styles = theme => ({
 
 	media: {
 		height: 100,
-		marginBottom: 10,
+		marginBottom: 5,
 		placeSelf: 'center',
 		width: 100,
 	},
