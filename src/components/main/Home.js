@@ -71,7 +71,7 @@ const Home = ({ authorized, classes }) => {
 
 const areaWidth = 500;
 
-const styles = theme => ({
+const styles = () => ({
 	button: {
 		width: 100,
 		color: 'white',
