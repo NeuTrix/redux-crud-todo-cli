@@ -6,12 +6,11 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Typography from '@material-ui/core/Typography';
 
 const propTypes = {
+	autoFocus: PropTypes.bool,
+	color: PropTypes.string,
 	label: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired,
-
-	autoFocus: PropTypes.string,
-	color: PropTypes.string,
 	placeholder: PropTypes.string,
 	required: PropTypes.bool,
 	type: PropTypes.string,
@@ -19,7 +18,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-	autoFocus: '',
+	autoFocus: true,
 	color: 'inherit',
 	placeholder: '',
 	required: '',

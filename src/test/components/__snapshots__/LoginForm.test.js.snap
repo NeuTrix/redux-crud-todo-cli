@@ -61,6 +61,7 @@ exports[`The LoginForm ...renders the login form 1`] = `
     >
       <input
         aria-invalid="false"
+        autofocus=""
         class="MuiInputBase-input-83 MuiInput-input-68 MuiInputBase-inputType-86 MuiInput-inputType-71"
         name="password"
         placeholder=""
