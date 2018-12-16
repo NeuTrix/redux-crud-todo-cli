@@ -17,10 +17,10 @@ const propTypes = {
 };
 
 const defaultProps = {
-	height: 105,
+	height: '105px',
 	imageUrl: '/#',
 	label: 'placeholder',
-	width: 100,
+	width: '100px',
 };
 
 function MediaCard(props) {

@@ -48,7 +48,7 @@ class NavBar extends Component {
 			width
 		} = this.props;
 
-		const displayDrawer = width === 'sm' ? 'left' : 'right'
+		const displayDrawer = width === 'xs' ? 'top' : 'right'
 		// const test= 9;
 		return (
 			<div className={`NavBar ${classes.root}`}>
@@ -66,7 +66,6 @@ class NavBar extends Component {
 					<IconButton className={classes.brandLogo}>
 						<NavLink to="/">
 							<BrandLogo />
-						x: {width}
 						</NavLink>
 					</IconButton>
 					<div className={classes.searchBar}>
@@ -120,6 +119,9 @@ const styles = theme => ({
 	},
 
 	drawerPaper: {
+		[theme.breakpoints.down('xs')]: {
+			width: '100%',
+		},
 		width: drawerWidth,
 	},
 
@@ -152,7 +154,7 @@ const styles = theme => ({
 
 	test: {
 		anchor: 'bottom',
-	}
+	},
 });
 
 NavBar.propTypes = propTypes;

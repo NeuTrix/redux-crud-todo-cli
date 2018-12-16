@@ -74,10 +74,10 @@ const Home = ({ authorized, classes }) => {
 					<MediaCard imageUrl={nodeLogo} label="Node" />
 				</div>
 				<div className={classes.tiles}>
-					<MediaCard 
-						imageUrl={expressLogo} 
+					<MediaCard
+						imageUrl={expressLogo}
 						width="150%"
-						label="express" 
+						label="express"
 					/>
 				</div>
 				<div className={classes.tiles}>
@@ -90,10 +90,10 @@ const Home = ({ authorized, classes }) => {
 					<MediaCard imageUrl={htmlLogo} label="HTML5" />
 				</div>
 				<div className={classes.tiles}>
-					<MediaCard imageUrl={cssLogo} width={75} label="CSS3" />
+					<MediaCard imageUrl={cssLogo} width="75px" label="CSS3" />
 				</div>
 				<div className={classes.tiles}>
-					<MediaCard imageUrl={jsLogo}  width={100} label="JavaScript" />
+					<MediaCard imageUrl={jsLogo} width="100px" label="JavaScript" />
 				</div>
 			</div>
 
