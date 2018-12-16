@@ -9,6 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import { withStyles } from '@material-ui/core/styles';
+import { withWidth } from '@material-ui/core';
 // custom components
 import BrandLogo from './BrandLogo';
 import NavigationLinks from './NavigationLinks';
@@ -44,8 +45,11 @@ class NavBar extends Component {
 			container,
 			logout,
 			theme,
+			width
 		} = this.props;
 
+		const displayDrawer = width === 'sm' ? 'left' : 'right'
+		// const test= 9;
 		return (
 			<div className={`NavBar ${classes.root}`}>
 				<AppBar className={classes.grid} position="fixed">
@@ -62,6 +66,7 @@ class NavBar extends Component {
 					<IconButton className={classes.brandLogo}>
 						<NavLink to="/">
 							<BrandLogo />
+						x: {width}
 						</NavLink>
 					</IconButton>
 					<div className={classes.searchBar}>
@@ -71,9 +76,12 @@ class NavBar extends Component {
 				<nav className={classes.drawer}>
 					<Drawer
 						id="mainDrawer"
+						className={classes.test}
 						container={container}
 						variant="temporary"
-						anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+						// anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+						anchor={displayDrawer}
+						// anchor={width === 'lg' ? 'top' : 'right'}
 						open={showMenu}
 						classes={{ paper: classes.drawerPaper }}
 						// Better open performance on mobile.
@@ -103,15 +111,18 @@ const styles = theme => ({
 			display: 'inherit',
 		},
 	},
+
 	drawer: {
 		[theme.breakpoints.up('sm')]: {
 			flexShrink: 0,
 			width: drawerWidth,
 		},
 	},
+
 	drawerPaper: {
 		width: drawerWidth,
 	},
+
 	grid: {
 		display: 'grid',
 		gridTemplateAreas: `
@@ -126,18 +137,26 @@ const styles = theme => ({
 			gridTemplateColumns: '2fr 4fr 1fr',
 		},
 	},
+
 	menuButton: {
 		color: theme.palette.contrast, // custom theme prop
 		gridArea: 'menuButton',
 		marginRight: 20,
 	},
+
 	root: { display: 'flex' },
 	searchBar: {
 		gridArea: 'searchBar',
 		padding: theme.spacing.unit,
 	},
+
+	test: {
+		anchor: 'bottom',
+	}
 });
 
 NavBar.propTypes = propTypes;
 
-export default withStyles(styles, { withTheme: true })(NavBar);
+export default withWidth()(withStyles(styles, {
+	withTheme: true,
+})(NavBar));
