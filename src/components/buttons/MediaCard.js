@@ -35,7 +35,12 @@ function MediaCard(props) {
 					title="Contemplative Reptile"
 				/>
 				<CardContent className={classes.cardContent}>
-					<Typography gutterBottom variant="h5" component="h2">
+					<Typography
+						className={classes.titles}
+						gutterBottom
+						variant="h6" 
+						component="h2"
+					>
 						{label}
 					</Typography>
 				</CardContent>
@@ -54,10 +59,11 @@ const styles = theme => ({
 	card: {
 		maxWidth: 150,
 		paddingTop: 15,
+		color:'white',
 	},
 
 	cardContent: {
-		background: theme.palette.secondary.main,
+		background: theme.palette.primary.main,
 		color: 'white',
 		display: 'flex',
 		placeContent: 'center',
@@ -68,6 +74,10 @@ const styles = theme => ({
 		marginBottom: 5,
 		placeSelf: 'center',
 	},
+
+	titles: {
+		color: 'white',
+	}
 });
 MediaCard.propTypes = propTypes;
 MediaCard.defaultProps = defaultProps;
