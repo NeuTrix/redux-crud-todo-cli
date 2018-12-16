@@ -38,7 +38,7 @@ function MediaCard(props) {
 					<Typography
 						className={classes.titles}
 						gutterBottom
-						variant="h6" 
+						variant="h6"
 						component="h2"
 					>
 						{label}

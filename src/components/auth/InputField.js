@@ -42,7 +42,7 @@ const InputField = (props) => {
 	return (
 		<FormControl>
 			<InputLabel>
-				<Typography variant={variant} color={color}>
+				<Typography variant= {variant} color={color}>
 					{label}
 				</Typography>
 			</InputLabel>
