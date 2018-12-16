@@ -8,7 +8,7 @@ import Button from '@material-ui/core/Button';
 
 import cssLogo from '../../assets/mediaCardLogos/resized_images/css_logo.png';
 import htmlLogo from '../../assets/mediaCardLogos/resized_images/html_logo.png';
-import expressLogo from '../../assets/mediaCardLogos/resized_images/express_logo.png';
+import expressLogo from '../../assets/mediaCardLogos/resized_images/exp.png';
 import jsLogo from '../../assets/mediaCardLogos/resized_images/js_logo.png';
 import MediaCard from '../buttons/MediaCard';
 import mongoLogo from '../../assets/mediaCardLogos/resized_images/mongo_logo.png';
@@ -74,7 +74,11 @@ const Home = ({ authorized, classes }) => {
 					<MediaCard imageUrl={nodeLogo} label="Node" />
 				</div>
 				<div className={classes.tiles}>
-					<MediaCard imageUrl={expressLogo} label="express" />
+					<MediaCard 
+						imageUrl={expressLogo} 
+						width="150%"
+						label="express" 
+					/>
 				</div>
 				<div className={classes.tiles}>
 					<MediaCard imageUrl={reactLogo} label="React" />
@@ -83,13 +87,13 @@ const Home = ({ authorized, classes }) => {
 					<MediaCard imageUrl={reduxLogo} label="Redux" />
 				</div>
 				<div className={classes.tiles}>
-					<MediaCard imageUrl={jsLogo} label="JavaScript" />
-				</div>
-				<div className={classes.tiles}>
-					<MediaCard imageUrl={cssLogo} label="CSS3" />
-				</div>
-				<div className={classes.tiles}>
 					<MediaCard imageUrl={htmlLogo} label="HTML5" />
+				</div>
+				<div className={classes.tiles}>
+					<MediaCard imageUrl={cssLogo} width={75} label="CSS3" />
+				</div>
+				<div className={classes.tiles}>
+					<MediaCard imageUrl={jsLogo}  width={100} label="JavaScript" />
 				</div>
 			</div>
 

@@ -10,23 +10,28 @@ import Typography from '@material-ui/core/Typography';
 
 const propTypes = {
 	classes: PropTypes.instanceOf(Object).isRequired,
+	height: PropTypes.string,
 	imageUrl: PropTypes.string,
 	label: PropTypes.string,
+	width: PropTypes.string,
 };
 
 const defaultProps = {
-	label: 'placeholder',
+	height: 105,
 	imageUrl: '/#',
+	label: 'placeholder',
+	width: 100,
 };
 
 function MediaCard(props) {
-	const { classes, label, imageUrl } = props;
+	const { classes, label, height, imageUrl, width } = props;
 	return (
 		<Card className={classes.card}>
 			<CardActionArea className={classes.actionArea}>
 				<CardMedia
 					className={classes.media}
 					image={imageUrl}
+					style={{width:width, height: height}}
 					title="Contemplative Reptile"
 				/>
 				<CardContent className={classes.cardContent}>
@@ -60,10 +65,8 @@ const styles = theme => ({
 	},
 
 	media: {
-		height: 105,
 		marginBottom: 5,
 		placeSelf: 'center',
-		width: 100,
 	},
 });
 MediaCard.propTypes = propTypes;
