@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The NavBar Component w/ ReactDom ... renders the NavBar component 1`] = `
+exports[`The NavBar Component w/ ReactDom ...renders the NavBar component 1`] = `
 Object {
   "options": Object {
     "decodeEntities": true,

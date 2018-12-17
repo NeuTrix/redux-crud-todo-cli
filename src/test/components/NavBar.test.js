@@ -7,11 +7,11 @@ import NavBar from '../../components/main/NavBar';
 describe('The NavBar Component w/ ReactDom', () => {
 	const wrapper = render(
 		<Router>
-			<NavBar isAuth={false} logout={f => f}/>
-		</Router>    
+			<NavBar isAuth={false} logout={f => f} />
+		</Router>
 	);
 
-	it('... renders the NavBar component', () => {
+	it('...renders the NavBar component', () => {
 		// handle randomly generated class names from React
 		expect(wrapper).toMatchSnapshot({
 			// class: expect.any(Object)

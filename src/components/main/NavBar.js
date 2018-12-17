@@ -20,7 +20,7 @@ const propTypes = {
 	container: PropTypes.instanceOf(Object),
 	isAuth: PropTypes.bool.isRequired,
 	logout: PropTypes.func.isRequired,
-	theme: PropTypes.instanceOf(Object).isRequired,
+	width: PropTypes.string.isRequired,
 };
 
 class NavBar extends Component {
@@ -44,8 +44,7 @@ class NavBar extends Component {
 			classes,
 			container,
 			logout,
-			theme,
-			width
+			width,
 		} = this.props;
 
 		const displayDrawer = width === 'xs' ? 'top' : 'right'
