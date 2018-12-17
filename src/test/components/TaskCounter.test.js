@@ -65,7 +65,7 @@ describe ('The TaskCounter Component', () => {
 			expect (Object.keys(_tasks.props()).length).to.eql(1);		
 		});
 
-		it ('...has an todos prop', () => {
+		xit ('...has an todos prop', () => {
 			expect (Object.keys(_tasks.props())).to.include('todos');
 		});
 	});
