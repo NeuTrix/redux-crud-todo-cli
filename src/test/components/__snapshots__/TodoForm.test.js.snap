@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`...renders the TodoForm  1`] = `
+<div
+  class="TodoForm-grid-1"
+>
+  <div
+    class="TodoForm-glyph-4"
+  />
+  <div
+    autofocus=""
+    class="TodoForm-task-6"
+    id="new_item_task"
+    name="task"
+    placeholder="Enter a new task here"
+    required=""
+    type="text"
+    value=""
+  />
+  <div
+    class="TodoForm-rank-5"
+    id="new_item_priority"
+    name="rank"
+    type="select"
+    value="Med"
+  >
+    <option
+      value="High"
+    >
+       High 
+    </option>
+    <option
+      value="Med"
+    >
+       Med  
+    </option>
+    <option
+      value="Low"
+    >
+       Low  
+    </option>
+  </div>
+  <div
+    class="TodoForm-datePick-3"
+    id="new_item_date"
+    name="date"
+    type="date"
+    value="2018-12-17"
+  />
+  <div
+    class="TodoForm-add-2"
+    id="new_item_submit"
+    type="submit"
+  />
+</div>
+`;
