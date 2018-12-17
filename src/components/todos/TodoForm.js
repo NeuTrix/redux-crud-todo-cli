@@ -35,6 +35,7 @@ class TodoForm extends Component {
 
 	render() {
 		const { classes } = this.props;
+		const { date, rank } = this.state;
 
 		return (
 			<form
@@ -58,7 +59,7 @@ class TodoForm extends Component {
 					id="new_item_priority"
 					name="rank"
 					type="select"
-					defaultValue={this.state.rank}
+					defaultValue={rank}
 					onBlur={this.handleChange}
 				>
 					<option value="High"> High	</option>
@@ -72,8 +73,8 @@ class TodoForm extends Component {
 					id="new_item_date"
 					name="date"
 					type="date"
+					defaultValue={date}
 					onChange={this.handleChange}
-					defaultValue={this.state.date}
 				/>
 
 				<button
@@ -103,18 +104,18 @@ const styles = {
 		marginBottom: 20,
 		padding: 10,
 		// & * {
-		// 	font-size: 1em,
-		// 	&:hover {
-		// 		color: steelblue,
-		// 	}
+		// font-size: 1em,
+		// &:hover {
+		// color: steelblue,
+		// }
 	},
 
 	/* iPad and large view */
 	// @media (${media._medium}) {
-	// 	gridTemplateAreas: 
-	// 		" glyph 	task  rank  date 	add  "
-	// 	,
-	// 	gridTemplateColumns: 1fr 8fr 2fr 3fr 1fr,
+	// gridTemplateAreas:
+	// " glyph task  rank  date add  "
+	// ,
+	// gridTemplateColumns: 1fr 8fr 2fr 3fr 1fr,
 	// },
 
 	add: {
@@ -149,7 +150,7 @@ const styles = {
 	},
 
 
-}
+};
 
 TodoForm.propTypes = propTypes;
 

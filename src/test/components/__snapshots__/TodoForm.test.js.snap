@@ -8,14 +8,12 @@ exports[`...renders the TodoForm  1`] = `
     class="TodoForm-glyph-4"
   />
   <input
-    autofocus=""
     class="TodoForm-task-6"
     id="new_item_task"
     name="task"
     placeholder="Enter a new task here"
     required=""
     type="text"
-    value=""
   />
   <select
     class="TodoForm-rank-5"
@@ -52,7 +50,7 @@ exports[`...renders the TodoForm  1`] = `
     id="new_item_submit"
     type="submit"
   >
-     Add
+    Add
   </button>
 </form>
 `;
