@@ -1,59 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import { withStyles } from '@material-ui/core/styles';
+import { Typography } from '@material-ui/core';
 
-// +++++++++  CSS  +++++++++
-
-const Grid = styled.div`
-	 	display: grid;
-	 	grid-template-areas: " title count ";
-		grid-template-columns: auto;
-		
-		& * {
-			font-size: 1.35em
-		}
- `;
-
-const Title = styled.div`
- 	grid-area: title;
- `;
-
-const Count = styled.div`
- 	grid-area: count;
- 	justify-content: left;
- 	color: #ffcc66;
- 	padding-left: 10px;
- `;
-
-// +++++++++  COMPONENT +++++++++
-
-const TaskCounter = props => (
-
-	<Grid className={`TaskCounter ${props.className} ctr mat engrBox paper`}>
-
-		<Title className="ctr engr">
-			<h3> Todos Count: </h3>
-		</Title>
-
-		<Count className="ctr engr">
-			<h2>
-				{' '}
-				{ props.todos.length }
-				{' '}
-			</h2>
-		</Count>
-
-	</Grid>
-);
-
-// +++++++++ PROPS +++++++++
-
-TaskCounter.propTypes = {
-	todos: PropTypes.array.isRequired,
+const propTypes = {
+	classes: PropTypes.instanceOf(Object).isRequired,
+	todos: PropTypes.instanceOf(Array).isRequired,
 };
 
-TaskCounter.defaultProps = {
-	todos: [],
+const TaskCounter = (props) => {
+	// todos rep the total num of items in current todolist
+	const { classes, todos } = props;
+	const counter = (
+		<span className={classes.counter}>
+			{ todos.length }
+		</span>
+	);
+
+	return (
+		<div>
+			<Typography variant="h4">
+				{'Todos:'}
+				{counter}
+			</Typography>
+		</div>
+	);
 };
 
-export default TaskCounter;
+const styles = theme => ({
+	counter: {
+		color: theme.palette.primary.main,
+		gridArea: 'count',
+		justifyContent: 'left',
+		paddingLeft: 10,
+	},
+});
+
+TaskCounter.propTypes = propTypes;
+
+export default withStyles(styles)(TaskCounter);
