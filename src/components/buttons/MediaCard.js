@@ -57,9 +57,8 @@ const styles = theme => ({
 	},
 
 	card: {
+		color: 'white',
 		maxWidth: 150,
-		paddingTop: 15,
-		color:'white',
 	},
 
 	cardContent: {
@@ -71,12 +70,13 @@ const styles = theme => ({
 	},
 
 	media: {
-		marginBottom: 5,
+		margin: 10,
 		placeSelf: 'center',
 	},
 
 	titles: {
 		color: 'white',
+		height: 20,
 	}
 });
 MediaCard.propTypes = propTypes;
