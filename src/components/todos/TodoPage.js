@@ -57,7 +57,7 @@ class TodoPage extends Component {
 			<div className={classes.grid}>
 				<div className={classes.taskCounter}>
 					<TaskCounter
-						fetchTodos={handleFetchTodos}
+						// fetchTodos={handleFetchTodos}
 						todos={todoArray}
 					/>
 				</div>

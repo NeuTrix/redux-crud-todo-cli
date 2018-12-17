@@ -13,7 +13,7 @@ const TaskCounter = (props) => {
 	const { classes, todos } = props;
 	const counter = (
 		<span className={classes.counter}>
-			{ todos.length }
+			{ todos && todos.length }
 		</span>
 	);
 
@@ -21,6 +21,7 @@ const TaskCounter = (props) => {
 		<div>
 			<Typography variant="h4">
 				{'Todos:'}
+				{console.log(props)}
 				{counter}
 			</Typography>
 		</div>
