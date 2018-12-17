@@ -35,7 +35,7 @@ function App(props) {
 		<div className={`grid ${classes.grid}`}>
 			<CssBaseline />
 			<NavBar isAuth={isAuth} logout={logout} />
-			<div className={`messages ${classes.messages}`}>
+			<div className={classes.messages}>
 				<FlashMessageList />
 			</div>
 			<div className={classes.main}>
@@ -70,7 +70,10 @@ const styles = () => ({
 		justifyContent: 'center',
 		paddingTop: 40,
 	},
-	messages: { gridArea: 'messages' },
+	messages: {
+		gridArea: 'messages',
+		marginTop: 25,
+	},
 });
 
 App.propTypes = propTypes;

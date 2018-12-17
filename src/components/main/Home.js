@@ -63,7 +63,7 @@ const Home = ({ authorized, classes }) => {
 				className={classes.subTitle}
 				variant="h6"
 			>
-				{'a full-stack React | Redux toy app'}
+				{'a full-stack React CRUD app'}
 			</Typography>
 
 			<div className={classes.tilesDisplay}>
@@ -106,8 +106,6 @@ const Home = ({ authorized, classes }) => {
 	);
 };
 
-const areaWidth = 800;
-
 const styles = () => ({
 	// login and register buttons
 	button: {
@@ -143,7 +141,7 @@ const styles = () => ({
 			"buttonDisplay"
 		`,
 		placeItems: 'center',
-		width: areaWidth,
+		maxWidth: 800,
 	},
 
 	login: {
