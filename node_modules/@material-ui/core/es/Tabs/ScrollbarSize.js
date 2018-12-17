@@ -4,11 +4,12 @@ import EventListener from 'react-event-listener';
 import debounce from 'debounce'; // < 1kb payload overhead when lodash/debounce is > 3kb.
 
 const styles = {
-  width: 100,
-  height: 100,
+  width: 90,
+  height: 90,
   position: 'absolute',
-  top: -10000,
+  top: -9000,
   overflow: 'scroll',
+  // Support IE 11
   msOverflowStyle: 'scrollbar'
 };
 /**
@@ -21,6 +22,10 @@ class ScrollbarSize extends React.Component {
   constructor() {
     super();
 
+    this.handleRef = ref => {
+      this.nodeRef = ref;
+    };
+
     this.setMeasurements = () => {
       const nodeRef = this.nodeRef;
 
@@ -29,23 +34,15 @@ class ScrollbarSize extends React.Component {
       }
 
       this.scrollbarHeight = nodeRef.offsetHeight - nodeRef.clientHeight;
-      this.scrollbarWidth = nodeRef.offsetWidth - nodeRef.clientWidth;
     };
 
     if (typeof window !== 'undefined') {
       this.handleResize = debounce(() => {
-        const {
-          onChange
-        } = this.props;
         const prevHeight = this.scrollbarHeight;
-        const prevWidth = this.scrollbarWidth;
         this.setMeasurements();
 
-        if (prevHeight !== this.scrollbarHeight || prevWidth !== this.scrollbarWidth) {
-          onChange({
-            scrollbarHeight: this.scrollbarHeight,
-            scrollbarWidth: this.scrollbarWidth
-          });
+        if (prevHeight !== this.scrollbarHeight) {
+          this.props.onChange(this.scrollbarHeight);
         }
       }, 166); // Corresponds to 10 frames at 60 Hz.
     }
@@ -53,10 +50,7 @@ class ScrollbarSize extends React.Component {
 
   componentDidMount() {
     this.setMeasurements();
-    this.props.onLoad({
-      scrollbarHeight: this.scrollbarHeight,
-      scrollbarWidth: this.scrollbarWidth
-    });
+    this.props.onChange(this.scrollbarHeight);
   }
 
   componentWillUnmount() {
@@ -64,24 +58,18 @@ class ScrollbarSize extends React.Component {
   }
 
   render() {
-    const {
-      onChange
-    } = this.props;
-    return React.createElement("div", null, onChange ? React.createElement(EventListener, {
+    return React.createElement(React.Fragment, null, React.createElement(EventListener, {
       target: "window",
       onResize: this.handleResize
-    }) : null, React.createElement("div", {
+    }), React.createElement("div", {
       style: styles,
-      ref: ref => {
-        this.nodeRef = ref;
-      }
+      ref: this.handleRef
     }));
   }
 
 }
 
-ScrollbarSize.propTypes = process.env.NODE_ENV !== "production" ? {
-  onChange: PropTypes.func.isRequired,
-  onLoad: PropTypes.func.isRequired
-} : {};
+process.env.NODE_ENV !== "production" ? ScrollbarSize.propTypes = {
+  onChange: PropTypes.func.isRequired
+} : void 0;
 export default ScrollbarSize;

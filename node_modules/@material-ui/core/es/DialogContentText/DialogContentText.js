@@ -21,7 +21,7 @@ function DialogContentText(props) {
   }, props));
 }
 
-DialogContentText.propTypes = process.env.NODE_ENV !== "production" ? {
+process.env.NODE_ENV !== "production" ? DialogContentText.propTypes = {
   /**
    * The content of the component.
    */
@@ -32,7 +32,7 @@ DialogContentText.propTypes = process.env.NODE_ENV !== "production" ? {
    * See [CSS API](#css-api) below for more details.
    */
   classes: PropTypes.object.isRequired
-} : {};
+} : void 0;
 export default withStyles(styles, {
   name: 'MuiDialogContentText'
 })(DialogContentText);

@@ -15,7 +15,7 @@ var _createBreakpoints = require("../styles/createBreakpoints");
 
 var _withWidth = _interopRequireWildcard(require("../withWidth"));
 
-var _exactProp = _interopRequireDefault(require("../utils/exactProp"));
+var _utils = require("@material-ui/utils");
 
 /**
  * @ignore - internal component.
@@ -154,7 +154,10 @@ HiddenJs.propTypes = {
    */
   xsUp: _propTypes.default.bool
 };
-HiddenJs.propTypes = (0, _exactProp.default)(HiddenJs.propTypes);
+
+if (process.env.NODE_ENV !== 'production') {
+  HiddenJs.propTypes = (0, _utils.exactProp)(HiddenJs.propTypes);
+}
 
 var _default = (0, _withWidth.default)()(HiddenJs);
 

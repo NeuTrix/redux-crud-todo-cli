@@ -12,6 +12,7 @@
 'use strict';
 
 (function(global, factory) {
+  // eslint-disable-next-line no-unused-expressions
   typeof exports === 'object' && typeof module !== 'undefined'
     ? (module.exports = factory(require('react')))
     : typeof define === 'function' && define.amd // eslint-disable-line no-undef
@@ -34,6 +35,13 @@
 
   function unstable_cancelCallback() {
     return global.React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.Scheduler.unstable_cancelCallback.apply(
+      this,
+      arguments
+    );
+  }
+
+  function unstable_shouldYield() {
+    return global.React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.Scheduler.unstable_shouldYield.apply(
       this,
       arguments
     );
@@ -64,6 +72,7 @@
     unstable_now: unstable_now,
     unstable_scheduleCallback: unstable_scheduleCallback,
     unstable_cancelCallback: unstable_cancelCallback,
+    unstable_shouldYield: unstable_shouldYield,
     unstable_runWithPriority: unstable_runWithPriority,
     unstable_wrapCallback: unstable_wrapCallback,
     unstable_getCurrentPriorityLevel: unstable_getCurrentPriorityLevel,

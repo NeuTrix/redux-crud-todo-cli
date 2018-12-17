@@ -19,9 +19,9 @@ const withMobileDialog = (options = {}) => Component => {
     }, props));
   }
 
-  WithMobileDialog.propTypes = process.env.NODE_ENV !== "production" ? {
+  process.env.NODE_ENV !== "production" ? WithMobileDialog.propTypes = {
     width: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']).isRequired
-  } : {};
+  } : void 0;
   return withWidth()(WithMobileDialog);
 };
 

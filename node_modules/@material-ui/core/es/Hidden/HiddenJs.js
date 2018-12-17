@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { keys as breakpointKeys } from '../styles/createBreakpoints';
 import withWidth, { isWidthDown, isWidthUp } from '../withWidth';
-import exactProp from '../utils/exactProp';
+import { exactProp } from '@material-ui/utils';
 /**
  * @ignore - internal component.
  */
@@ -142,5 +142,9 @@ HiddenJs.propTypes = {
    */
   xsUp: PropTypes.bool
 };
-HiddenJs.propTypes = exactProp(HiddenJs.propTypes);
+
+if (process.env.NODE_ENV !== 'production') {
+  HiddenJs.propTypes = exactProp(HiddenJs.propTypes);
+}
+
 export default withWidth()(HiddenJs);

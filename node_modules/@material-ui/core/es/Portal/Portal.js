@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import ownerDocument from '../utils/ownerDocument';
-import exactProp from '../utils/exactProp';
+import { exactProp } from '@material-ui/utils';
 
 function getContainer(container, defaultContainer) {
   container = typeof container === 'function' ? container() : container;
@@ -77,7 +77,7 @@ class Portal extends React.Component {
 
 }
 
-Portal.propTypes = process.env.NODE_ENV !== "production" ? {
+process.env.NODE_ENV !== "production" ? Portal.propTypes = {
   /**
    * The children to render into the `container`.
    */
@@ -101,9 +101,13 @@ Portal.propTypes = process.env.NODE_ENV !== "production" ? {
    * Callback fired once the children has been mounted into the `container`.
    */
   onRendered: PropTypes.func
-} : {};
+} : void 0;
 Portal.defaultProps = {
   disablePortal: false
 };
-Portal.propTypes = process.env.NODE_ENV !== "production" ? exactProp(Portal.propTypes) : {};
+
+if (process.env.NODE_ENV !== 'production') {
+  process.env.NODE_ENV !== "production" ? Portal.propTypes = exactProp(Portal.propTypes) : void 0;
+}
+
 export default Portal;

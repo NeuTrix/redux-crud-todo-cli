@@ -3,15 +3,14 @@ import { StandardProps } from '..';
 
 export interface InputBaseProps
   extends StandardProps<
-      React.HTMLAttributes<HTMLDivElement>,
-      InputBaseClassKey,
-      'onChange' | 'onKeyUp' | 'onKeyDown' | 'defaultValue'
-    > {
+    React.HTMLAttributes<HTMLDivElement>,
+    InputBaseClassKey,
+    'onChange' | 'onKeyUp' | 'onKeyDown' | 'defaultValue'
+  > {
   autoComplete?: string;
   autoFocus?: boolean;
-  defaultValue?: string | number;
+  defaultValue?: Array<string | number | boolean | object> | string | number | boolean | object;
   disabled?: boolean;
-  disableUnderline?: boolean;
   endAdornment?: React.ReactNode;
   error?: boolean;
   fullWidth?: boolean;
@@ -40,7 +39,7 @@ export interface InputBaseProps
   rowsMax?: string | number;
   startAdornment?: React.ReactNode;
   type?: string;
-  value?: Array<string | number | boolean> | string | number | boolean;
+  value?: Array<string | number | boolean | object> | string | number | boolean | object;
   onFilled?: () => void;
   /**
    * `onChange`, `onKeyUp` + `onKeyDown` are applied to the inner `InputComponent`,

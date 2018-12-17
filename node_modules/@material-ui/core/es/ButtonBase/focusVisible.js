@@ -5,13 +5,25 @@ const internal = {
   focusKeyPressed: false,
   keyUpEventTimeout: -1
 };
+
+function findActiveElement(doc) {
+  let activeElement = doc.activeElement;
+
+  while (activeElement && activeElement.shadowRoot && activeElement.shadowRoot.activeElement) {
+    activeElement = activeElement.shadowRoot.activeElement;
+  }
+
+  return activeElement;
+}
+
 export function detectFocusVisible(instance, element, callback, attempt = 1) {
   process.env.NODE_ENV !== "production" ? warning(instance.focusVisibleCheckTime, 'Material-UI: missing instance.focusVisibleCheckTime.') : void 0;
   process.env.NODE_ENV !== "production" ? warning(instance.focusVisibleMaxCheckTimes, 'Material-UI: missing instance.focusVisibleMaxCheckTimes.') : void 0;
   instance.focusVisibleTimeout = setTimeout(() => {
     const doc = ownerDocument(element);
+    const activeElement = findActiveElement(doc);
 
-    if (internal.focusKeyPressed && (doc.activeElement === element || element.contains(doc.activeElement))) {
+    if (internal.focusKeyPressed && (activeElement === element || element.contains(activeElement))) {
       callback();
     } else if (attempt < instance.focusVisibleMaxCheckTimes) {
       detectFocusVisible(instance, element, callback, attempt + 1);

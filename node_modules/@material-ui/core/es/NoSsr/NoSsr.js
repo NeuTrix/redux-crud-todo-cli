@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import exactProp from '../utils/exactProp';
+import { exactProp } from '@material-ui/utils';
 /**
  * NoSsr purposely removes components from the subject of Server Side Rendering (SSR).
  *
@@ -40,7 +40,7 @@ class NoSsr extends React.Component {
     } else {
       this.setState({
         mounted: true
-      }); // eslint-disable-line react/no-did-mount-set-state
+      });
     }
   }
 
@@ -58,7 +58,7 @@ class NoSsr extends React.Component {
 
 }
 
-NoSsr.propTypes = process.env.NODE_ENV !== "production" ? {
+process.env.NODE_ENV !== "production" ? NoSsr.propTypes = {
   children: PropTypes.node.isRequired,
 
   /**
@@ -71,8 +71,12 @@ NoSsr.propTypes = process.env.NODE_ENV !== "production" ? {
    * The fallback content to display.
    */
   fallback: PropTypes.node
-} : {};
-NoSsr.propTypes = process.env.NODE_ENV !== "production" ? exactProp(NoSsr.propTypes) : {};
+} : void 0;
+
+if (process.env.NODE_ENV !== 'production') {
+  process.env.NODE_ENV !== "production" ? NoSsr.propTypes = exactProp(NoSsr.propTypes) : void 0;
+}
+
 NoSsr.defaultProps = {
   defer: false,
   fallback: null
