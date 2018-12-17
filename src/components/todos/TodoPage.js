@@ -85,11 +85,18 @@ const styles = {
       "todoForm"
       "todoList"
     `,
-		marginTop: '10px',
 	},
-	taskCounter: { gridArea: 'taskCounter' },
-	todoForm: { gridArea: 'todoForm' },
-	todoList: { gridArea: 'todoList' },
+	taskCounter: {
+		gridArea: 'taskCounter',
+	},
+
+	todoForm: {
+		gridArea: 'todoForm',
+	},
+
+	todoList: {
+		gridArea: 'todoList',
+	},
 };
 
 TodoPage.propTypes = propTypes; // connect prop-types validation

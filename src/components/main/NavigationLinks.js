@@ -65,7 +65,6 @@ function NavigationLinks(props, context) {
 
 	return (
 		<List>
-
 			<span className={classes.logout} style={displayLogic(logOutLink)}>
 				<ListItem button onClick={handleLogout}>
 					<ListItemIcon>
@@ -79,7 +78,11 @@ function NavigationLinks(props, context) {
 
 			{ [todosLink, logInLink, registerLink].map(item => (
 				<span key={shortid.generate()} style={displayLogic(item)}>
-					<NavLink to={item.link} className={classes.root} activeClassName={classes.active}>
+					<NavLink
+						to={item.link}
+						className={classes.root}
+						activeClassName={classes.active}
+					>
 						<ListItem className={classes.root} button>
 							<ListItemIcon>
 								<Circle />
