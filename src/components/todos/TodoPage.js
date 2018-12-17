@@ -48,7 +48,6 @@ class TodoPage extends Component {
 			handleCreateTodo,
 			handleDeleteTodo,
 			handleEditTodo,
-			handleFetchTodos,
 			todoArray,
 			user,
 		} = this.props;
@@ -57,7 +56,6 @@ class TodoPage extends Component {
 			<div className={classes.grid}>
 				<div className={classes.taskCounter}>
 					<TaskCounter
-						// fetchTodos={handleFetchTodos}
 						todos={todoArray}
 					/>
 				</div>
