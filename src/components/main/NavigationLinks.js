@@ -65,6 +65,18 @@ function NavigationLinks(props, context) {
 
 	return (
 		<List>
+
+			<span className={classes.logout} style={displayLogic(logOutLink)}>
+				<ListItem button onClick={handleLogout}>
+					<ListItemIcon>
+						<Circle />
+					</ListItemIcon>
+					<Typography color="inherit" noWrap>
+						{logOutLink.title}
+					</Typography>
+				</ListItem>
+			</span>
+
 			{ [todosLink, logInLink, registerLink].map(item => (
 				<span key={shortid.generate()} style={displayLogic(item)}>
 					<NavLink to={item.link} className={classes.root} activeClassName={classes.active}>
@@ -78,16 +90,6 @@ function NavigationLinks(props, context) {
 				</span>
 			)) }
 
-			<span style={displayLogic(logOutLink)}>
-				<ListItem button onClick={handleLogout}>
-					<ListItemIcon>
-						<Circle />
-					</ListItemIcon>
-					<Typography color="inherit" noWrap>
-						{logOutLink.title}
-					</Typography>
-				</ListItem>
-			</span>
 		</List>
 	);
 }
@@ -95,6 +97,9 @@ function NavigationLinks(props, context) {
 const styles = theme => ({
 	active: {
 		background: theme.palette.primary.light,
+	},
+	logout: {
+		textIndent: 15,
 	},
 	root: {
 		textDecoration: 'none',
