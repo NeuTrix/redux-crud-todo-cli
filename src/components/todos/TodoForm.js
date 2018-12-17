@@ -7,18 +7,14 @@ import normalizeDate from '../../helpers/normalizeDate';
 
 const propTypes = {
 	createTodo: PropTypes.func.isRequired,
-	owner: PropTypes.string.isRequired,
 };
 
 class TodoForm extends Component {
 
 	constructor(props) {
-		// const { owner } = props;
 		super(props);
 		this.state = {
 			date: normalizeDate(new Date()),
-			owner: this.props.owner,
-			// owner,
 			rank: 'Med',
 			task: '',
 		};
@@ -84,7 +80,8 @@ class TodoForm extends Component {
 					className={classes.add}
 					id="new_item_submit"
 					type="submit"
-				> Add
+				>
+					{'Add'}
 				</button>
 
 			</form>
