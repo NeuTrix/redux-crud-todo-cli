@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import { withStyles } from '@material-ui/core/styles';
 import normalizeDate from '../../helpers/normalizeDate';
-import { colors, media } from '../../helpers/cssConstants';
+// import { colors, media } from '../../helpers/cssConstants';
 
 const propTypes = {
 	createTodo: PropTypes.func.isRequired,
@@ -41,13 +41,13 @@ class TodoForm extends Component {
 		const { classes } = this.props;
 
 		return (
-			<div
+			<form
 				className={classes.grid}
 				onSubmit={this.handleSubmit}
 			>
-				<div className={classes.glyph} />
+				<i className={classes.glyph} />
 
-				<div
+				<input
 					className={classes.task}
 					id="new_item_task"
 					type="text"
@@ -59,21 +59,21 @@ class TodoForm extends Component {
 					required
 				/>
 
-				<div
+				<select
 					className={classes.rank}
 					id="new_item_priority"
 					name="rank"
 					type="select"
 					value={this.state.rank}
-					onChange={this.handleChange}
+					onBlur={this.handleChange}
 				>
 					<option value="High"> High	</option>
 					<option value="Med">	Med		</option>
 					<option value="Low">	Low		</option>
 
-				</div>
+				</select>
 
-				<div
+				<input
 					className={classes.datePick}
 					id="new_item_date"
 					name="date"
@@ -82,13 +82,14 @@ class TodoForm extends Component {
 					value={this.state.date}
 				/>
 
-				<div
+				<button
 					className={classes.add}
 					id="new_item_submit"
 					type="submit"
-				/>
+				> Add
+				</button>
 
-			</div>
+			</form>
 		);
 	}
 }
@@ -122,10 +123,10 @@ const styles = {
 	// },
 
 	add: {
-		background: 'none',
-		border: 'none',
+		// background: 'none',
+		// border: 'none',
 		color: '#00cc00',
-		fontSize: '2em',
+		// fontSize: '2em',
 		gridArea: 'add',
 	},
 
