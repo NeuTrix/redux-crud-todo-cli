@@ -50,13 +50,11 @@ class TodoForm extends Component {
 				<input
 					className={classes.task}
 					id="new_item_task"
-					type="text"
 					name="task"
-					value={this.state.task}
-					onChange={this.handleChange}
 					placeholder="Enter a new task here"
-					autoFocus
 					required
+					type="text"
+					onChange={this.handleChange}
 				/>
 
 				<select
@@ -64,7 +62,7 @@ class TodoForm extends Component {
 					id="new_item_priority"
 					name="rank"
 					type="select"
-					value={this.state.rank}
+					defaultValue={this.state.rank}
 					onBlur={this.handleChange}
 				>
 					<option value="High"> High	</option>
@@ -79,7 +77,7 @@ class TodoForm extends Component {
 					name="date"
 					type="date"
 					onChange={this.handleChange}
-					value={this.state.date}
+					defaultValue={this.state.date}
 				/>
 
 				<button

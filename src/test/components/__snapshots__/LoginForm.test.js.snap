@@ -18,7 +18,7 @@ exports[`The LoginForm ...renders the login form 1`] = `
     class="MuiFormControl-root-7"
   >
     <label
-      class="MuiFormLabel-root-53 MuiInputLabel-root-46 MuiInputLabel-formControl-47 MuiInputLabel-animated-50"
+      class="MuiFormLabel-root-57 MuiInputLabel-root-46 MuiInputLabel-formControl-51 MuiInputLabel-animated-54"
       data-shrink="false"
     >
       <p
@@ -28,13 +28,13 @@ exports[`The LoginForm ...renders the login form 1`] = `
       </p>
     </label>
     <div
-      class="MuiInputBase-root-73 MuiInput-root-60 MuiInput-underline-64 MuiInputBase-formControl-74 MuiInput-formControl-61"
+      class="MuiInputBase-root-77 MuiInput-root-64 MuiInput-underline-68 MuiInputBase-formControl-78 MuiInput-formControl-65"
       required=""
     >
       <input
         aria-invalid="false"
         autofocus=""
-        class="MuiInputBase-input-83 MuiInput-input-68"
+        class="MuiInputBase-input-87 MuiInput-input-72"
         name="identifier"
         placeholder=""
         required=""
@@ -46,7 +46,7 @@ exports[`The LoginForm ...renders the login form 1`] = `
     class="MuiFormControl-root-7"
   >
     <label
-      class="MuiFormLabel-root-53 MuiInputLabel-root-46 MuiInputLabel-formControl-47 MuiInputLabel-animated-50"
+      class="MuiFormLabel-root-57 MuiInputLabel-root-46 MuiInputLabel-formControl-51 MuiInputLabel-animated-54"
       data-shrink="false"
     >
       <p
@@ -56,13 +56,13 @@ exports[`The LoginForm ...renders the login form 1`] = `
       </p>
     </label>
     <div
-      class="MuiInputBase-root-73 MuiInput-root-60 MuiInput-underline-64 MuiInputBase-formControl-74 MuiInput-formControl-61"
+      class="MuiInputBase-root-77 MuiInput-root-64 MuiInput-underline-68 MuiInputBase-formControl-78 MuiInput-formControl-65"
       required=""
     >
       <input
         aria-invalid="false"
         autofocus=""
-        class="MuiInputBase-input-83 MuiInput-input-68 MuiInputBase-inputType-86 MuiInput-inputType-71"
+        class="MuiInputBase-input-87 MuiInput-input-72 MuiInputBase-inputType-90 MuiInput-inputType-75"
         name="password"
         placeholder=""
         required=""
@@ -81,12 +81,12 @@ exports[`The LoginForm ...renders the login form 1`] = `
     </p>
   </a>
   <button
-    class="MuiButtonBase-root-116 MuiButton-root-90 MuiButton-contained-101 MuiButton-containedPrimary-102 MuiButton-raised-104 MuiButton-raisedPrimary-105 Loginform-button-1"
+    class="MuiButtonBase-root-120 MuiButton-root-94 MuiButton-contained-105 MuiButton-containedPrimary-106 MuiButton-raised-108 MuiButton-raisedPrimary-109 Loginform-button-1"
     tabindex="0"
     type="submit"
   >
     <span
-      class="MuiButton-label-91"
+      class="MuiButton-label-95"
     >
       Submit
     </span>

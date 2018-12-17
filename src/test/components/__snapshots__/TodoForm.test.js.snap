@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`...renders the TodoForm  1`] = `
-<div
+<form
   class="TodoForm-grid-1"
 >
-  <div
+  <i
     class="TodoForm-glyph-4"
   />
-  <div
+  <input
     autofocus=""
     class="TodoForm-task-6"
     id="new_item_task"
@@ -17,12 +17,11 @@ exports[`...renders the TodoForm  1`] = `
     type="text"
     value=""
   />
-  <div
+  <select
     class="TodoForm-rank-5"
     id="new_item_priority"
     name="rank"
     type="select"
-    value="Med"
   >
     <option
       value="High"
@@ -30,6 +29,7 @@ exports[`...renders the TodoForm  1`] = `
        High 
     </option>
     <option
+      selected=""
       value="Med"
     >
        Med  
@@ -39,18 +39,20 @@ exports[`...renders the TodoForm  1`] = `
     >
        Low  
     </option>
-  </div>
-  <div
+  </select>
+  <input
     class="TodoForm-datePick-3"
     id="new_item_date"
     name="date"
     type="date"
     value="2018-12-17"
   />
-  <div
+  <button
     class="TodoForm-add-2"
     id="new_item_submit"
     type="submit"
-  />
-</div>
+  >
+     Add
+  </button>
+</form>
 `;
