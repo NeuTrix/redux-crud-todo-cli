@@ -55,22 +55,28 @@ class TodoPage extends Component {
 
 		return (
 			<div className={classes.grid}>
-				<TaskCounter
-					className={classes.taskCounter}
-					fetchTodos={handleFetchTodos}
-					todos={todoArray}
-				/>
-				<TodoForm
-					className={classes.todoForm}
-					createTodo={handleCreateTodo}
-					owner={user._id}
-				/>
-				<TodoList
-					className={classes.todoList}
-					deleteTodo={handleDeleteTodo}
-					editTodo={handleEditTodo}
-					todoArray={todoArray}
-				/>
+				<div className={classes.taskCounter}>
+					<TaskCounter
+						fetchTodos={handleFetchTodos}
+						todos={todoArray}
+					/>
+				</div>
+
+				<div className={classes.todoForm}>
+					<TodoForm
+						createTodo={handleCreateTodo}
+						owner={user._id}
+					/>
+				</div>
+
+				<div className={classes.todoList}>
+					<TodoList
+						deleteTodo={handleDeleteTodo}
+						editTodo={handleEditTodo}
+						todoArray={todoArray}
+					/>
+				</div>
+
 			</div>
 		);
 	}
@@ -88,6 +94,7 @@ const styles = {
 	},
 	taskCounter: {
 		gridArea: 'taskCounter',
+		marginBottom: 25,
 	},
 
 	todoForm: {
