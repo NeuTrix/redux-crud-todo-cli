@@ -6,6 +6,7 @@ import normalizeDate from '../../helpers/normalizeDate';
 // import { colors, media } from '../../helpers/cssConstants';
 
 const propTypes = {
+	classes: PropTypes.instanceOf(Object).isRequired,
 	createTodo: PropTypes.func.isRequired,
 };
 
@@ -23,8 +24,9 @@ class TodoForm extends Component {
 	}
 
 	handleSubmit(e) {
+		const { createTodo } = this.props;
 		e.preventDefault();
-		this.props.createTodo(this.state);
+		createTodo(this.state);
 		this.setState({ task: '' });
 	}
 
@@ -62,9 +64,9 @@ class TodoForm extends Component {
 					defaultValue={rank}
 					onBlur={this.handleChange}
 				>
-					<option value="High"> High	</option>
-					<option value="Med">	Med		</option>
-					<option value="Low">	Low		</option>
+					<option value="High">High</option>
+					<option value="Med">Med</option>
+					<option value="Low">Low</option>
 
 				</select>
 
@@ -148,7 +150,6 @@ const styles = {
 		// color: 'steelblue'
 		// }
 	},
-
 
 };
 
