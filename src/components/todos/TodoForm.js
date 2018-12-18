@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import styled from 'styled-components';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
-import Input  from '@material-ui/core/Input';
+import Input from '@material-ui/core/Input';
 import normalizeDate from '../../helpers/normalizeDate';
-// import { colors, media } from '../../helpers/cssConstants';
 
 const propTypes = {
 	classes: PropTypes.instanceOf(Object).isRequired,
@@ -102,41 +100,7 @@ class TodoForm extends Component {
 }
 
 const styles = {
-	grid: {
-		/* mobile view */
-		backgroundColor: 'aliceblue',
-		display: 'grid',
-		gridGap: 10,
-		gridTemplateAreas: `
-			" task task task "
-			" rank date add " 
-		`,
-		gridTemplateColumns: '3fr 3fr 2fr',
-		gridRowGap: 200,
-		gridColumnGap: 20,
-		marginBottom: 20,
-		placeContents: 'center',
-		padding: 10,
-		// & * {
-		// font-size: 1em,
-		// &:hover {
-		// color: steelblue,
-		// }
-	},
-
-	/* iPad and large view */
-	// @media (${media._medium}) {
-	// gridTemplateAreas:
-	// " glyph task  rank  date add  "
-	// ,
-	// gridTemplateColumns: 1fr 8fr 2fr 3fr 1fr,
-	// },
-
 	add: {
-		// background: 'none',
-		// border: 'none',
-		// color: '#00cc00',
-		// fontSize: '2em',
 		gridArea: 'add',
 		maxWidth: 50,
 	},
@@ -152,6 +116,23 @@ const styles = {
 		gridArea: 'glyph',
 	},
 
+	grid: {
+		/* mobile view */
+		backgroundColor: 'aliceblue',
+		display: 'grid',
+		gridColumnGap: 20,
+		gridGap: 10,
+		gridRowGap: 200,
+		gridTemplateAreas: `
+			" task task task "
+			" rank date add " 
+		`,
+		gridTemplateColumns: '3fr 3fr 2fr',
+		marginBottom: 20,
+		padding: 10,
+		placeContents: 'center',
+	},
+
 	rank: {
 		gridArea: 'rank',
 	},
@@ -160,11 +141,7 @@ const styles = {
 		gridArea: 'task',
 		marginBottom: 15,
 		textIndent: 10,
-		// &: hover {
-		// color: 'steelblue'
-		// }
 	},
-
 };
 
 TodoForm.propTypes = propTypes;

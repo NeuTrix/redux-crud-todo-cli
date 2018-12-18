@@ -33,7 +33,6 @@ exports[`The LoginForm ...renders the login form 1`] = `
     >
       <input
         aria-invalid="false"
-        autofocus=""
         class="MuiInputBase-input-87 MuiInput-input-72"
         name="identifier"
         placeholder=""
@@ -61,7 +60,6 @@ exports[`The LoginForm ...renders the login form 1`] = `
     >
       <input
         aria-invalid="false"
-        autofocus=""
         class="MuiInputBase-input-87 MuiInput-input-72 MuiInputBase-inputType-90 MuiInput-inputType-75"
         name="password"
         placeholder=""

@@ -2,19 +2,26 @@
 
 exports[`...renders the TodoForm  1`] = `
 <form
-  class="TodoForm-grid-1"
+  class="MuiFormControl-root-7 TodoForm-grid-1"
 >
   <i
     class="TodoForm-glyph-4"
   />
-  <input
-    class="TodoForm-task-6"
-    id="new_item_task"
-    name="task"
-    placeholder="Enter a new task here"
+  <div
+    class="MuiInputBase-root-24 MuiInput-root-11 MuiInput-underline-15 MuiInputBase-fullWidth-33 MuiInput-fullWidth-18 MuiInputBase-formControl-25 MuiInput-formControl-12 TodoForm-task-6"
     required=""
-    type="text"
-  />
+  >
+    <input
+      aria-invalid="false"
+      class="MuiInputBase-input-34 MuiInput-input-19"
+      id="new_item_task"
+      name="task"
+      placeholder="Enter a new task here"
+      required=""
+      type="text"
+      value=""
+    />
+  </div>
   <select
     class="TodoForm-rank-5"
     id="new_item_priority"
@@ -24,18 +31,18 @@ exports[`...renders the TodoForm  1`] = `
     <option
       value="High"
     >
-       High 
+      High
     </option>
     <option
       selected=""
       value="Med"
     >
-       Med  
+      Med
     </option>
     <option
       value="Low"
     >
-       Low  
+      Low
     </option>
   </select>
   <input
@@ -46,11 +53,16 @@ exports[`...renders the TodoForm  1`] = `
     value="2018-12-17"
   />
   <button
-    class="TodoForm-add-2"
+    class="MuiButtonBase-root-67 MuiButton-root-41 MuiButton-contained-52 MuiButton-containedSecondary-54 MuiButton-raised-55 MuiButton-raisedSecondary-57 TodoForm-add-2"
     id="new_item_submit"
+    tabindex="0"
     type="submit"
   >
-    Add
+    <span
+      class="MuiButton-label-42"
+    >
+      Add
+    </span>
   </button>
 </form>
 `;
