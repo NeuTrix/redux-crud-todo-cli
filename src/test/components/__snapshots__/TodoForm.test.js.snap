@@ -55,7 +55,7 @@ exports[`...renders the TodoForm  1`] = `
       data-shrink="true"
       for="new_item_priority"
     >
-      rank
+      set rank
     </label>
     <div
       class="MuiInputBase-root-43 MuiOutlinedInput-root-30 MuiInputBase-fullWidth-52 MuiInputBase-formControl-44 MuiInputBase-marginDense-50"

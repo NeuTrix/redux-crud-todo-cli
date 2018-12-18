@@ -10,6 +10,7 @@ import normalizeDate from '../../helpers/normalizeDate';
 const propTypes = {
 	classes: PropTypes.instanceOf(Object).isRequired,
 	createTodo: PropTypes.func.isRequired,
+	owner: PropTypes.string.isRequired, // id of the current list owner
 };
 
 class TodoForm extends Component {
@@ -18,6 +19,7 @@ class TodoForm extends Component {
 		super(props);
 		this.state = {
 			date: normalizeDate(new Date()),
+			owner: this.props.owner, // assign owner to state for createTodo function
 			rank: 'Med',
 			task: '',
 		};
@@ -81,13 +83,18 @@ class TodoForm extends Component {
 				<TextField
 					className={classes.datePick}
 					id="new_item_date"
+					//  InputLabelProps = {
+					//  	{
+					//  		shrink: true,
+					//  	}
+					//  }
 					fullWidth
 					label="set due date"
 					margin="dense"
 					name="date"
 					type="date"
 					value={date}
-					variant="outlined"
+					// variant="outlined"
 					onChange={this.handleChange}
 				/>
 
