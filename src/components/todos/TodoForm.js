@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import FormControl from '@material-ui/core/FormControl';
+import Input  from '@material-ui/core/Input';
 import normalizeDate from '../../helpers/normalizeDate';
 // import { colors, media } from '../../helpers/cssConstants';
 
@@ -40,14 +43,16 @@ class TodoForm extends Component {
 		const { date, rank } = this.state;
 
 		return (
-			<form
+			<FormControl
 				className={classes.grid}
+				component="form"
 				onSubmit={this.handleSubmit}
 			>
 				<i className={classes.glyph} />
 
-				<input
+				<Input
 					className={classes.task}
+					fullWidth
 					id="new_item_task"
 					name="task"
 					placeholder="Enter a new task here"
@@ -79,15 +84,17 @@ class TodoForm extends Component {
 					onChange={this.handleChange}
 				/>
 
-				<button
+				<Button
 					className={classes.add}
 					id="new_item_submit"
+					color="secondary"
 					type="submit"
+					variant="contained"
 				>
 					{'Add'}
-				</button>
+				</Button>
 
-			</form>
+			</FormControl>
 		);
 	}
 }
@@ -99,11 +106,14 @@ const styles = {
 		display: 'grid',
 		gridGap: 10,
 		gridTemplateAreas: `
-			" glyph task task task "
-			" . rank date add " 
+			" task task task "
+			" rank date add " 
 		`,
-		gridTemplateColumns: '1fr 3fr 4fr 1fr',
+		gridTemplateColumns: '3fr 3fr 2fr',
+		gridRowGap: 200,
+		gridColumnGap: 20,
 		marginBottom: 20,
+		placeContents: 'center',
 		padding: 10,
 		// & * {
 		// font-size: 1em,
@@ -123,9 +133,10 @@ const styles = {
 	add: {
 		// background: 'none',
 		// border: 'none',
-		color: '#00cc00',
+		// color: '#00cc00',
 		// fontSize: '2em',
 		gridArea: 'add',
+		maxWidth: 50,
 	},
 
 	datePick: {
@@ -145,6 +156,7 @@ const styles = {
 
 	task: {
 		gridArea: 'task',
+		marginBottom: 15,
 		textIndent: 10,
 		// &: hover {
 		// color: 'steelblue'
