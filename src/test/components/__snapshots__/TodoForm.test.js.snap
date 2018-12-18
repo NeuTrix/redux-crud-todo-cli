@@ -2,64 +2,163 @@
 
 exports[`...renders the TodoForm  1`] = `
 <form
-  class="MuiFormControl-root-7 TodoForm-grid-4"
+  class="MuiFormControl-root-8 TodoForm-grid-4"
 >
-  <i
-    class="TodoForm-glyph-3"
-  />
   <div
-    class="MuiInputBase-root-24 MuiInput-root-11 MuiInput-underline-15 MuiInputBase-fullWidth-33 MuiInput-fullWidth-18 MuiInputBase-formControl-25 MuiInput-formControl-12 TodoForm-task-6"
-    required=""
+    class="MuiFormControl-root-8 MuiFormControl-marginDense-10 MuiFormControl-fullWidth-11 TodoForm-task-7"
   >
-    <input
-      aria-invalid="false"
-      class="MuiInputBase-input-34 MuiInput-input-19"
-      id="new_item_task"
-      name="task"
-      placeholder="Enter a new task here"
-      required=""
-      type="text"
-      value=""
-    />
+    <label
+      class="MuiFormLabel-root-23 MuiFormLabel-required-28 MuiInputLabel-required-16 MuiInputLabel-root-12 MuiInputLabel-formControl-17 MuiInputLabel-animated-20 MuiInputLabel-marginDense-18 MuiInputLabel-outlined-22"
+      data-shrink="false"
+      for="new_item_task"
+    >
+      enter new task
+      <span
+        class="MuiFormLabel-asterisk-29"
+      >
+         *
+      </span>
+    </label>
+    <div
+      class="MuiInputBase-root-43 MuiOutlinedInput-root-30 MuiInputBase-fullWidth-52 MuiInputBase-formControl-44 MuiInputBase-marginDense-50"
+    >
+      <fieldset
+        aria-hidden="true"
+        class="MuiPrivateNotchedOutline-root-60 MuiOutlinedInput-notchedOutline-37"
+        style="padding-left:8px"
+      >
+        <legend
+          class="MuiPrivateNotchedOutline-legend-61"
+          style="width:0.01px"
+        >
+          <span>
+            ​
+          </span>
+        </legend>
+      </fieldset>
+      <input
+        aria-invalid="false"
+        class="MuiInputBase-input-53 MuiOutlinedInput-input-38 MuiInputBase-inputMarginDense-54 MuiOutlinedInput-inputMarginDense-39"
+        id="new_item_task"
+        name="task"
+        required=""
+        type="text"
+        value=""
+      />
+    </div>
   </div>
-  <select
-    class="TodoForm-rank-5"
-    id="new_item_priority"
-    name="rank"
-    type="select"
+  <div
+    class="MuiFormControl-root-8 MuiFormControl-marginDense-10 MuiFormControl-fullWidth-11 TodoForm-rank-6"
   >
-    <option
-      value="High"
+    <label
+      class="MuiFormLabel-root-23 MuiFormLabel-filled-27 MuiInputLabel-root-12 MuiInputLabel-formControl-17 MuiInputLabel-animated-20 MuiInputLabel-shrink-19 MuiInputLabel-marginDense-18 MuiInputLabel-outlined-22"
+      data-shrink="true"
+      for="new_item_priority"
     >
-      High
-    </option>
-    <option
-      selected=""
-      value="Med"
+      rank
+    </label>
+    <div
+      class="MuiInputBase-root-43 MuiOutlinedInput-root-30 MuiInputBase-fullWidth-52 MuiInputBase-formControl-44 MuiInputBase-marginDense-50"
     >
-      Med
-    </option>
-    <option
-      value="Low"
+      <fieldset
+        aria-hidden="true"
+        class="MuiPrivateNotchedOutline-root-60 MuiOutlinedInput-notchedOutline-37"
+        style="padding-left:8px"
+      >
+        <legend
+          class="MuiPrivateNotchedOutline-legend-61"
+          style="width:0"
+        >
+          <span>
+            ​
+          </span>
+        </legend>
+      </fieldset>
+      <div
+        class="MuiSelect-root-62"
+      >
+        <select
+          aria-invalid="false"
+          class="MuiSelect-select-63 MuiSelect-outlined-65 MuiInputBase-input-53 MuiOutlinedInput-input-38 MuiInputBase-inputMarginDense-54 MuiOutlinedInput-inputMarginDense-39"
+          id="new_item_priority"
+          name="rank"
+        >
+          <option
+            value="High"
+          >
+            High
+          </option>
+          <option
+            selected=""
+            value="Med"
+          >
+            Med
+          </option>
+          <option
+            value="Low"
+          >
+            Low
+          </option>
+        </select>
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root-69 MuiSelect-icon-68"
+          focusable="false"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7 10l5 5 5-5z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div
+    class="MuiFormControl-root-8 MuiFormControl-marginDense-10 TodoForm-datePick-2"
+  >
+    <label
+      class="MuiFormLabel-root-23 MuiFormLabel-filled-27 MuiInputLabel-root-12 MuiInputLabel-formControl-17 MuiInputLabel-animated-20 MuiInputLabel-shrink-19 MuiInputLabel-marginDense-18 MuiInputLabel-outlined-22"
+      data-shrink="true"
+      for="new_item_date"
     >
-      Low
-    </option>
-  </select>
-  <input
-    class="TodoForm-datePick-2"
-    id="new_item_date"
-    name="date"
-    type="date"
-    value="2018-12-17"
-  />
+      set due date
+    </label>
+    <div
+      class="MuiInputBase-root-43 MuiOutlinedInput-root-30 MuiInputBase-formControl-44 MuiInputBase-marginDense-50"
+    >
+      <fieldset
+        aria-hidden="true"
+        class="MuiPrivateNotchedOutline-root-60 MuiOutlinedInput-notchedOutline-37"
+        style="padding-left:8px"
+      >
+        <legend
+          class="MuiPrivateNotchedOutline-legend-61"
+          style="width:0"
+        >
+          <span>
+            ​
+          </span>
+        </legend>
+      </fieldset>
+      <input
+        aria-invalid="false"
+        class="MuiInputBase-input-53 MuiOutlinedInput-input-38 MuiInputBase-inputType-56 MuiInputBase-inputMarginDense-54 MuiOutlinedInput-inputMarginDense-39"
+        id="new_item_date"
+        name="date"
+        type="date"
+        value="2018-12-18"
+      />
+    </div>
+  </div>
   <button
-    class="MuiButtonBase-root-67 MuiButton-root-41 MuiButton-contained-52 MuiButton-containedSecondary-54 MuiButton-raised-55 MuiButton-raisedSecondary-57 TodoForm-add-1"
+    class="MuiButtonBase-root-104 MuiButton-root-78 MuiButton-contained-89 MuiButton-containedSecondary-91 MuiButton-raised-92 MuiButton-raisedSecondary-94 TodoForm-button-1"
     id="new_item_submit"
     tabindex="0"
     type="submit"
   >
     <span
-      class="MuiButton-label-42"
+      class="MuiButton-label-79"
     >
       Add
     </span>

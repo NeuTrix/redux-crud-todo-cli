@@ -77,7 +77,7 @@ class TodoForm extends Component {
 					margin="dense"
 					name="rank"
 					select
-					 SelectProps={{
+					SelectProps={{
             native: true,
             MenuProps: {
               className: classes.menu,
@@ -132,10 +132,7 @@ const styles = theme => ({
 	datePick: {
 		flexDirection: 'unset',
 		gridArea: 'date',
-		inputProps: {
-			textIndent: '5px',
-		},
-		padding: 10,
+		
 	},
 
 	glyph: {
@@ -161,6 +158,7 @@ const styles = theme => ({
 	},
 
 	menu: {
+		background: 'orange',
 		width: 200,
 	},
 
@@ -172,7 +170,6 @@ const styles = theme => ({
 		gridArea: 'task',
 		marginBottom: 10,
 		textIndent: 10,
-		// padding: 5,
 	},
 });
 
