@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
-import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
 
 import normalizeDate from '../../helpers/normalizeDate';
 
@@ -53,7 +47,6 @@ class TodoForm extends Component {
 				component="form"
 				onSubmit={this.handleSubmit}
 			>
-			
 				<TextField
 					className={classes.task}
 					value={task}
@@ -72,18 +65,10 @@ class TodoForm extends Component {
 					className={classes.rank}
 					fullWidth
 					id="new_item_priority"
-					// native
 					label="rank"
 					margin="dense"
 					name="rank"
 					select
-					SelectProps={{
-            native: true,
-            MenuProps: {
-              className: classes.menu,
-            },
-          }}
-					// type="select"
 					variant="outlined"
 					value={rank}
 					onChange={this.handleChange}
@@ -97,6 +82,7 @@ class TodoForm extends Component {
 				<TextField
 					className={classes.datePick}
 					id="new_item_date"
+					fullWidth
 					label="set due date"
 					margin="dense"
 					name="date"
@@ -125,14 +111,11 @@ class TodoForm extends Component {
 const styles = theme => ({
 	button: {
 		gridArea: 'button',
-		// maxWidth: 50,
-		// height: 'auto',
 	},
 
 	datePick: {
 		flexDirection: 'unset',
 		gridArea: 'date',
-		
 	},
 
 	glyph: {
