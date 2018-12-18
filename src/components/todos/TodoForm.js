@@ -72,7 +72,6 @@ class TodoForm extends Component {
 					name="rank"
 					select
 					value={rank}
-					variant="outlined"
 					onChange={this.handleChange}
 				>
 					<option value="High">High</option>
@@ -83,18 +82,12 @@ class TodoForm extends Component {
 				<TextField
 					className={classes.datePick}
 					id="new_item_date"
-					//  InputLabelProps = {
-					//  	{
-					//  		shrink: true,
-					//  	}
-					//  }
 					fullWidth
 					label="set due date"
 					margin="dense"
 					name="date"
 					type="date"
 					value={date}
-					// variant="outlined"
 					onChange={this.handleChange}
 				/>
 
@@ -108,7 +101,6 @@ class TodoForm extends Component {
 				>
 					{'Add'}
 				</Button>
-
 			</FormControl>
 		);
 	}
@@ -117,7 +109,7 @@ class TodoForm extends Component {
 const styles = theme => ({
 	button: {
 		gridArea: 'button',
-		height: '80%', 
+		height: '75%',
 		marginTop: 5,
 	},
 
@@ -134,7 +126,7 @@ const styles = theme => ({
 
 	grid: {
 		/* mobile view */
-		border: '1px solid',
+		border: '2px solid',
 		borderColor: theme.palette.secondary.main,
 		display: 'inline-grid',
 		gridColumnGap: '20px',
