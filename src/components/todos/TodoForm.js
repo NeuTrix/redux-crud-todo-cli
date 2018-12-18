@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import Select from '@material-ui/core/Select';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+
 import normalizeDate from '../../helpers/normalizeDate';
 
 const propTypes = {
@@ -46,45 +53,61 @@ class TodoForm extends Component {
 				component="form"
 				onSubmit={this.handleSubmit}
 			>
-				<i className={classes.glyph} />
-
-				<Input
+			
+				<TextField
 					className={classes.task}
 					value={task}
 					fullWidth
 					id="new_item_task"
+					label="enter new task"
+					margin="dense"
 					name="task"
-					placeholder="Enter a new task here"
 					required
 					type="text"
+					variant="outlined"
 					onChange={this.handleChange}
 				/>
 
-				<select
+				<TextField
 					className={classes.rank}
+					fullWidth
 					id="new_item_priority"
+					// native
+					label="rank"
+					margin="dense"
 					name="rank"
-					type="select"
-					defaultValue={rank}
-					onBlur={this.handleChange}
+					select
+					 SelectProps={{
+            native: true,
+            MenuProps: {
+              className: classes.menu,
+            },
+          }}
+					// type="select"
+					variant="outlined"
+					value={rank}
+					onChange={this.handleChange}
 				>
 					<option value="High">High</option>
 					<option value="Med">Med</option>
 					<option value="Low">Low</option>
 
-				</select>
+				</TextField>
 
-				<input
+				<TextField
 					className={classes.datePick}
 					id="new_item_date"
+					label="set due date"
+					margin="dense"
 					name="date"
 					type="date"
-					defaultValue={date}
+					value={date}
+					variant="outlined"
 					onChange={this.handleChange}
 				/>
 
 				<Button
-					className={classes.add}
+					className={classes.button}
 					component="button"
 					id="new_item_submit"
 					color="secondary"
@@ -99,15 +122,20 @@ class TodoForm extends Component {
 	}
 }
 
-const styles = {
-	add: {
-		gridArea: 'add',
-		maxWidth: 50,
+const styles = theme => ({
+	button: {
+		gridArea: 'button',
+		// maxWidth: 50,
+		// height: 'auto',
 	},
 
 	datePick: {
+		flexDirection: 'unset',
 		gridArea: 'date',
-		textIndent: 10,
+		inputProps: {
+			textIndent: '5px',
+		},
+		padding: 10,
 	},
 
 	glyph: {
@@ -118,19 +146,22 @@ const styles = {
 
 	grid: {
 		/* mobile view */
-		backgroundColor: 'aliceblue',
-		display: 'grid',
-		gridColumnGap: 20,
-		gridGap: 10,
-		gridRowGap: 200,
+		border:'1px solid',
+		borderColor: theme.palette.secondary.main,
+		display: 'inline-grid',
+		gridColumnGap: '20px',
 		gridTemplateAreas: `
 			" task task task "
-			" rank date add " 
+			" rank date button " 
 		`,
-		gridTemplateColumns: '3fr 3fr 2fr',
+		gridTemplateColumns: '3fr 4fr 1fr',
 		marginBottom: 20,
 		padding: 10,
-		placeContents: 'center',
+		placeItems: 'center',
+	},
+
+	menu: {
+		width: 200,
 	},
 
 	rank: {
@@ -139,10 +170,11 @@ const styles = {
 
 	task: {
 		gridArea: 'task',
-		marginBottom: 15,
+		marginBottom: 10,
 		textIndent: 10,
+		// padding: 5,
 	},
-};
+});
 
 TodoForm.propTypes = propTypes;
 

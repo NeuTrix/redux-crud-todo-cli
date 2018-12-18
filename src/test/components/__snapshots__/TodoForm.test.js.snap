@@ -2,10 +2,10 @@
 
 exports[`...renders the TodoForm  1`] = `
 <form
-  class="MuiFormControl-root-7 TodoForm-grid-1"
+  class="MuiFormControl-root-7 TodoForm-grid-4"
 >
   <i
-    class="TodoForm-glyph-4"
+    class="TodoForm-glyph-3"
   />
   <div
     class="MuiInputBase-root-24 MuiInput-root-11 MuiInput-underline-15 MuiInputBase-fullWidth-33 MuiInput-fullWidth-18 MuiInputBase-formControl-25 MuiInput-formControl-12 TodoForm-task-6"
@@ -46,14 +46,14 @@ exports[`...renders the TodoForm  1`] = `
     </option>
   </select>
   <input
-    class="TodoForm-datePick-3"
+    class="TodoForm-datePick-2"
     id="new_item_date"
     name="date"
     type="date"
     value="2018-12-17"
   />
   <button
-    class="MuiButtonBase-root-67 MuiButton-root-41 MuiButton-contained-52 MuiButton-containedSecondary-54 MuiButton-raised-55 MuiButton-raisedSecondary-57 TodoForm-add-2"
+    class="MuiButtonBase-root-67 MuiButton-root-41 MuiButton-contained-52 MuiButton-containedSecondary-54 MuiButton-raised-55 MuiButton-raisedSecondary-57 TodoForm-add-1"
     id="new_item_submit"
     tabindex="0"
     type="submit"
