@@ -9,6 +9,7 @@ it('renders without crashing', () => {
 	ReactDOM.render(
 		<TodoForm
 			createTodo={f => f}
+			owner="100"
 		/>, div,
 	);
 });
@@ -16,6 +17,7 @@ it('renders without crashing', () => {
 const wrapper = render(
 	<TodoForm
 		createTodo={f => f}
+		owner = "100"
 	/>,
 );
 

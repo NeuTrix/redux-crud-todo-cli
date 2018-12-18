@@ -17,9 +17,10 @@ class TodoForm extends Component {
 
 	constructor(props) {
 		super(props);
+		const { owner } = this.props; // lint requires deconstruction
 		this.state = {
 			date: normalizeDate(new Date()),
-			owner: this.props.owner, // assign owner to state for createTodo function
+			owner, // assign owner to state for createTodo function
 			rank: 'Med',
 			task: '',
 		};

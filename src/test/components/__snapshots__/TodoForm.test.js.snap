@@ -51,36 +51,22 @@ exports[`...renders the TodoForm  1`] = `
     class="MuiFormControl-root-8 MuiFormControl-marginDense-10 MuiFormControl-fullWidth-11 TodoForm-rank-6"
   >
     <label
-      class="MuiFormLabel-root-23 MuiFormLabel-filled-27 MuiInputLabel-root-12 MuiInputLabel-formControl-17 MuiInputLabel-animated-20 MuiInputLabel-shrink-19 MuiInputLabel-marginDense-18 MuiInputLabel-outlined-22"
+      class="MuiFormLabel-root-23 MuiFormLabel-filled-27 MuiInputLabel-root-12 MuiInputLabel-formControl-17 MuiInputLabel-animated-20 MuiInputLabel-shrink-19 MuiInputLabel-marginDense-18"
       data-shrink="true"
       for="new_item_priority"
     >
       set rank
     </label>
     <div
-      class="MuiInputBase-root-43 MuiOutlinedInput-root-30 MuiInputBase-fullWidth-52 MuiInputBase-formControl-44 MuiInputBase-marginDense-50"
+      class="MuiInputBase-root-43 MuiInput-root-69 MuiInput-underline-73 MuiInputBase-fullWidth-52 MuiInput-fullWidth-76 MuiInputBase-formControl-44 MuiInput-formControl-70 MuiInputBase-marginDense-50"
     >
-      <fieldset
-        aria-hidden="true"
-        class="MuiPrivateNotchedOutline-root-60 MuiOutlinedInput-notchedOutline-37"
-        style="padding-left:8px"
-      >
-        <legend
-          class="MuiPrivateNotchedOutline-legend-61"
-          style="width:0"
-        >
-          <span>
-            ​
-          </span>
-        </legend>
-      </fieldset>
       <div
         class="MuiSelect-root-62"
       >
         <div
           aria-haspopup="true"
           aria-pressed="false"
-          class="MuiSelect-select-63 MuiSelect-selectMenu-66 MuiSelect-outlined-65 MuiInputBase-input-53 MuiOutlinedInput-input-38 MuiInputBase-inputMarginDense-54 MuiOutlinedInput-inputMarginDense-39"
+          class="MuiSelect-select-63 MuiSelect-selectMenu-66 MuiInputBase-input-53 MuiInput-input-77 MuiInputBase-inputMarginDense-54 MuiInput-inputMarginDense-78"
           role="button"
           tabindex="0"
         >
@@ -94,7 +80,7 @@ exports[`...renders the TodoForm  1`] = `
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root-69 MuiSelect-icon-68"
+          class="MuiSvgIcon-root-82 MuiSelect-icon-68"
           focusable="false"
           role="presentation"
           viewBox="0 0 24 24"
@@ -117,11 +103,11 @@ exports[`...renders the TodoForm  1`] = `
       set due date
     </label>
     <div
-      class="MuiInputBase-root-43 MuiInput-root-82 MuiInput-underline-86 MuiInputBase-fullWidth-52 MuiInput-fullWidth-89 MuiInputBase-formControl-44 MuiInput-formControl-83 MuiInputBase-marginDense-50"
+      class="MuiInputBase-root-43 MuiInput-root-69 MuiInput-underline-73 MuiInputBase-fullWidth-52 MuiInput-fullWidth-76 MuiInputBase-formControl-44 MuiInput-formControl-70 MuiInputBase-marginDense-50"
     >
       <input
         aria-invalid="false"
-        class="MuiInputBase-input-53 MuiInput-input-90 MuiInputBase-inputType-56 MuiInput-inputType-93 MuiInputBase-inputMarginDense-54 MuiInput-inputMarginDense-91"
+        class="MuiInputBase-input-53 MuiInput-input-77 MuiInputBase-inputType-56 MuiInput-inputType-80 MuiInputBase-inputMarginDense-54 MuiInput-inputMarginDense-78"
         id="new_item_date"
         name="date"
         type="date"
