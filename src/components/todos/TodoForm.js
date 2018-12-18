@@ -49,7 +49,6 @@ class TodoForm extends Component {
 			>
 				<TextField
 					className={classes.task}
-					value={task}
 					fullWidth
 					id="new_item_task"
 					label="enter new task"
@@ -57,6 +56,7 @@ class TodoForm extends Component {
 					name="task"
 					required
 					type="text"
+					value={task}
 					variant="outlined"
 					onChange={this.handleChange}
 				/>
@@ -65,18 +65,17 @@ class TodoForm extends Component {
 					className={classes.rank}
 					fullWidth
 					id="new_item_priority"
-					label="rank"
+					label="set rank"
 					margin="dense"
 					name="rank"
 					select
-					variant="outlined"
 					value={rank}
+					variant="outlined"
 					onChange={this.handleChange}
 				>
 					<option value="High">High</option>
 					<option value="Med">Med</option>
 					<option value="Low">Low</option>
-
 				</TextField>
 
 				<TextField
@@ -111,6 +110,8 @@ class TodoForm extends Component {
 const styles = theme => ({
 	button: {
 		gridArea: 'button',
+		height: '80%', 
+		marginTop: 5,
 	},
 
 	datePick: {
@@ -126,7 +127,7 @@ const styles = theme => ({
 
 	grid: {
 		/* mobile view */
-		border:'1px solid',
+		border: '1px solid',
 		borderColor: theme.palette.secondary.main,
 		display: 'inline-grid',
 		gridColumnGap: '20px',
