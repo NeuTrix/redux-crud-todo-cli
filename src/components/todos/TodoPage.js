@@ -12,13 +12,13 @@ import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 
 const propTypes = {
-	classes: PropTypes.instanceOf(Object).isRequired, // MUI classes object from withStyles
+	classes: PropTypes.instanceOf(Object).isRequired, // MUI classes object
 	handleCreateTodo: PropTypes.func.isRequired, // create a new todo
 	handleDeleteTodo: PropTypes.func.isRequired, // delete a todo item
 	handleEditTodo: PropTypes.func.isRequired, // edit a todo item
 	handleFetchTodos: PropTypes.func.isRequired, // fetch new todos
 	isAuthenticated: PropTypes.bool.isRequired, // validate authentication
-	todoArray: PropTypes.arrayOf(PropTypes.object).isRequired, // collect todos in array
+	todoArray: PropTypes.arrayOf(PropTypes.object).isRequired, // collect todos
 	user: PropTypes.instanceOf(Object).isRequired, // user profile
 };
 
@@ -36,7 +36,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class TodoPage extends Component {
-
 	componentDidMount() {
 		const { isAuthenticated, handleFetchTodos } = this.props;
 		return (isAuthenticated ? handleFetchTodos() : '');
@@ -55,9 +54,7 @@ class TodoPage extends Component {
 		return (
 			<div className={classes.grid}>
 				<div className={classes.taskCounter}>
-					<TaskCounter
-						todos={todoArray}
-					/>
+					<TaskCounter todos={todoArray} />
 				</div>
 
 				<div className={classes.todoForm}>
@@ -74,7 +71,6 @@ class TodoPage extends Component {
 						todoArray={todoArray}
 					/>
 				</div>
-
 			</div>
 		);
 	}

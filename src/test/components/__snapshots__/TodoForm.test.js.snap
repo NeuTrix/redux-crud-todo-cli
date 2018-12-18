@@ -110,32 +110,18 @@ exports[`...renders the TodoForm  1`] = `
     class="MuiFormControl-root-8 MuiFormControl-marginDense-10 MuiFormControl-fullWidth-11 TodoForm-datePick-2"
   >
     <label
-      class="MuiFormLabel-root-23 MuiFormLabel-filled-27 MuiInputLabel-root-12 MuiInputLabel-formControl-17 MuiInputLabel-animated-20 MuiInputLabel-shrink-19 MuiInputLabel-marginDense-18 MuiInputLabel-outlined-22"
+      class="MuiFormLabel-root-23 MuiFormLabel-filled-27 MuiInputLabel-root-12 MuiInputLabel-formControl-17 MuiInputLabel-animated-20 MuiInputLabel-shrink-19 MuiInputLabel-marginDense-18"
       data-shrink="true"
       for="new_item_date"
     >
       set due date
     </label>
     <div
-      class="MuiInputBase-root-43 MuiOutlinedInput-root-30 MuiInputBase-fullWidth-52 MuiInputBase-formControl-44 MuiInputBase-marginDense-50"
+      class="MuiInputBase-root-43 MuiInput-root-82 MuiInput-underline-86 MuiInputBase-fullWidth-52 MuiInput-fullWidth-89 MuiInputBase-formControl-44 MuiInput-formControl-83 MuiInputBase-marginDense-50"
     >
-      <fieldset
-        aria-hidden="true"
-        class="MuiPrivateNotchedOutline-root-60 MuiOutlinedInput-notchedOutline-37"
-        style="padding-left:8px"
-      >
-        <legend
-          class="MuiPrivateNotchedOutline-legend-61"
-          style="width:0"
-        >
-          <span>
-            ​
-          </span>
-        </legend>
-      </fieldset>
       <input
         aria-invalid="false"
-        class="MuiInputBase-input-53 MuiOutlinedInput-input-38 MuiInputBase-inputType-56 MuiInputBase-inputMarginDense-54 MuiOutlinedInput-inputMarginDense-39"
+        class="MuiInputBase-input-53 MuiInput-input-90 MuiInputBase-inputType-56 MuiInput-inputType-93 MuiInputBase-inputMarginDense-54 MuiInput-inputMarginDense-91"
         id="new_item_date"
         name="date"
         type="date"
@@ -144,13 +130,13 @@ exports[`...renders the TodoForm  1`] = `
     </div>
   </div>
   <button
-    class="MuiButtonBase-root-108 MuiButton-root-82 MuiButton-contained-93 MuiButton-containedSecondary-95 MuiButton-raised-96 MuiButton-raisedSecondary-98 TodoForm-button-1"
+    class="MuiButtonBase-root-121 MuiButton-root-95 MuiButton-contained-106 MuiButton-containedSecondary-108 MuiButton-raised-109 MuiButton-raisedSecondary-111 TodoForm-button-1"
     id="new_item_submit"
     tabindex="0"
     type="submit"
   >
     <span
-      class="MuiButton-label-83"
+      class="MuiButton-label-96"
     >
       Add
     </span>
