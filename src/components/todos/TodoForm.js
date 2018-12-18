@@ -40,7 +40,7 @@ class TodoForm extends Component {
 
 	render() {
 		const { classes } = this.props;
-		const { date, rank } = this.state;
+		const { date, rank, task } = this.state;
 
 		return (
 			<FormControl
@@ -52,6 +52,7 @@ class TodoForm extends Component {
 
 				<Input
 					className={classes.task}
+					value={task}
 					fullWidth
 					id="new_item_task"
 					name="task"
@@ -86,6 +87,7 @@ class TodoForm extends Component {
 
 				<Button
 					className={classes.add}
+					component="button"
 					id="new_item_submit"
 					color="secondary"
 					type="submit"
