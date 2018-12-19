@@ -26,7 +26,7 @@ class CheckComplete extends Component {
 		
 		this.props.editTodo(
 			this.props._id,
-			{ completed: !this.state.completed },
+			{ completed: !this.state.completed }
 		);
 	}
 
