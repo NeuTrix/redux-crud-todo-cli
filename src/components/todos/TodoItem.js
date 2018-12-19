@@ -21,7 +21,7 @@ class TodoItem extends Component {
 	constructor(props) {
 		super(props);
 		const { item } = this.props;
-		console.log('*****',item);
+		console.log('*****', item);
 		this.state = {
 			_id: item._id || '',
 			completed: item.completed,
