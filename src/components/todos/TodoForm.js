@@ -7,6 +7,7 @@ import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 // custom
 import normalizeDate from '../../helpers/normalizeDate';
+import DatePicker from './DatePicker';
 import Rank from './Rank';
 
 const propTypes = {
@@ -73,15 +74,8 @@ class TodoForm extends Component {
 					value={rank}
 					onChange={this.handleChange}
 				/>
-				<TextField
-					className={classes.datePick}
-					fullWidth
-					label="set due date"
-					margin="dense"
-					name="date"
-					type="date"
+				<DatePicker
 					value={date}
-					variant="outlined"
 					onChange={this.handleChange}
 				/>
 				<Button

@@ -10,7 +10,6 @@ exports[`...renders the TodoForm  1`] = `
     <label
       class="MuiFormLabel-root-21 MuiFormLabel-required-26 MuiInputLabel-required-14 MuiInputLabel-root-10 MuiInputLabel-formControl-15 MuiInputLabel-animated-18 MuiInputLabel-marginDense-16 MuiInputLabel-outlined-20"
       data-shrink="false"
-      for="new_item_task"
     >
       enter new task
       <span
@@ -39,7 +38,6 @@ exports[`...renders the TodoForm  1`] = `
       <input
         aria-invalid="false"
         class="MuiInputBase-input-51 MuiOutlinedInput-input-36 MuiInputBase-inputMarginDense-52 MuiOutlinedInput-inputMarginDense-37"
-        id="new_item_task"
         name="task"
         required=""
         type="text"
@@ -112,7 +110,6 @@ exports[`...renders the TodoForm  1`] = `
     <label
       class="MuiFormLabel-root-21 MuiFormLabel-filled-25 MuiInputLabel-root-10 MuiInputLabel-formControl-15 MuiInputLabel-animated-18 MuiInputLabel-shrink-17 MuiInputLabel-marginDense-16 MuiInputLabel-outlined-20"
       data-shrink="true"
-      for="new_item_date"
     >
       set due date
     </label>
@@ -136,7 +133,6 @@ exports[`...renders the TodoForm  1`] = `
       <input
         aria-invalid="false"
         class="MuiInputBase-input-51 MuiOutlinedInput-input-36 MuiInputBase-inputType-54 MuiInputBase-inputMarginDense-52 MuiOutlinedInput-inputMarginDense-37"
-        id="new_item_date"
         name="date"
         type="date"
         value="2018-12-18"
@@ -145,7 +141,6 @@ exports[`...renders the TodoForm  1`] = `
   </div>
   <button
     class="MuiButtonBase-root-106 MuiButton-root-80 MuiButton-contained-91 MuiButton-containedSecondary-93 MuiButton-raised-94 MuiButton-raisedSecondary-96 TodoForm-button-1"
-    id="new_item_submit"
     tabindex="0"
     type="submit"
   >

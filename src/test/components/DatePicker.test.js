@@ -9,7 +9,7 @@ it('renders without crashing', () => {
 	ReactDOM.render(
 		<DatePicker
 			rank="med"
-			handleChange={f => f}		
+			// handleChange={f => f}		
 		/>, div,
 	);
 });
@@ -17,7 +17,7 @@ it('renders without crashing', () => {
 const wrapper = render(
 	<DatePicker
 		rank="med"
-		handleChange={f => f}
+		// handleChange={f => f}
 	/>,
 );
 
