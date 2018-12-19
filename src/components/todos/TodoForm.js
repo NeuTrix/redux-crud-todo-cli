@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// material-ui
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
-// custom
+
 import DatePicker from './DatePicker';
 import Rank from './Rank';
 import TaskEntry from './TaskEntry';
