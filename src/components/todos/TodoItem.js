@@ -19,7 +19,7 @@ const propTypes = {
 const defaultProps = {
 	item: {
 		_id: 'placeholder',
-		date: '12.14.1963',
+		date: '1963-12-14',
 	}
 }
 
