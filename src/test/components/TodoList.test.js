@@ -10,10 +10,13 @@ import TodoList from '../../components/todos/TodoList';
 it('renders without crashing', () => {
 	const div = document.createElement('div');
 	ReactDOM.render(
-		<Provider store={ store } >
-			<TodoList />
+		<Provider store={ store }>
+			<TodoList
+				deleteTodo={f => f}
+				editTodo={f => f}
+				todoArray={[]}
+			/>
 		</Provider>
-		, div);
+		, div, 
+	);
 });
-
-
