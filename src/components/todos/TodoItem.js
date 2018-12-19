@@ -16,6 +16,13 @@ const propTypes = {
 	item: PropTypes.instanceOf(Object).isRequired,
 };
 
+const defaultProps = {
+	item: {
+		_id: 'placeholder',
+		date: '12.14.1963',
+	}
+}
+
 class TodoItem extends Component {
 
 	constructor(props) {
@@ -168,5 +175,6 @@ const styles = theme => ({
 });
 
 TodoItem.propTypes = propTypes;
+TodoItem.defaultProps = defaultProps;
 
 export default withStyles(styles)(TodoItem);
