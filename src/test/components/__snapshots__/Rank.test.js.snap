@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`...renders the Rank  1`] = `
+<div
+  class="MuiFormControl-root-1 MuiFormControl-marginDense-3 MuiFormControl-fullWidth-4"
+>
+  <label
+    class="MuiFormLabel-root-16 MuiFormLabel-filled-20 MuiInputLabel-root-5 MuiInputLabel-formControl-10 MuiInputLabel-animated-13 MuiInputLabel-shrink-12 MuiInputLabel-marginDense-11 MuiInputLabel-outlined-15"
+    data-shrink="true"
+    for="new_item_priority"
+  >
+    set rank
+  </label>
+  <div
+    class="MuiInputBase-root-43 MuiOutlinedInput-root-30 MuiInputBase-fullWidth-52 MuiInputBase-formControl-44 MuiInputBase-marginDense-50"
+  >
+    <fieldset
+      aria-hidden="true"
+      class="MuiPrivateNotchedOutline-root-60 MuiOutlinedInput-notchedOutline-37"
+      style="padding-left:8px"
+    >
+      <legend
+        class="MuiPrivateNotchedOutline-legend-61"
+        style="width:0"
+      >
+        <span>
+          ​
+        </span>
+      </legend>
+    </fieldset>
+    <div
+      class="MuiSelect-root-23"
+    >
+      <div
+        aria-haspopup="true"
+        aria-pressed="false"
+        class="MuiSelect-select-24 MuiSelect-selectMenu-27 MuiSelect-outlined-26 MuiInputBase-input-53 MuiOutlinedInput-input-38 MuiInputBase-inputMarginDense-54 MuiOutlinedInput-inputMarginDense-39"
+        role="button"
+        tabindex="0"
+      >
+        <span>
+          ​
+        </span>
+      </div>
+      <input
+        id="new_item_priority"
+        name="rank"
+        type="hidden"
+        value="med"
+      />
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root-62 MuiSelect-icon-29"
+        focusable="false"
+        role="presentation"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M7 10l5 5 5-5z"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
