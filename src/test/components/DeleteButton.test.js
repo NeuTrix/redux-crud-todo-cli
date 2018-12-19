@@ -3,29 +3,29 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { expect } from 'chai';
 import { mount } from 'enzyme';
-import DeleteBtn from '../../components/buttons/DeleteBtn';
+import DeleteButton from '../../components/buttons/DeleteButton';
 
 it ('renders without crashing', () => {
 	const div = document.createElement('div');
 	ReactDOM.render (
-		<DeleteBtn/>, div
+		<DeleteButton/>, div
 	);
 });
 
-describe ('The DeleteBtn Component', () => {
+describe ('The DeleteButton Component', () => {
 	let props; // default props to clear objects before each test
 	let mountDeleteBtn; // the mounted object
 
 	const deleteComp = () => {
 		if(!mountDeleteBtn) {
 			mountDeleteBtn = mount (
-				<DeleteBtn {...props}/> 
+				<DeleteButton {...props}/> 
 			);
 		}
 		return mountDeleteBtn;
 	};
 
-	let _deletebtns = deleteComp().find('DeleteBtn'); // wrapper
+	let _deletebtns = deleteComp().find('DeleteButton'); // wrapper
 	let _buttons = deleteComp().find('Button'); // wrapper
 
 	beforeEach (() => {
@@ -45,11 +45,11 @@ describe ('The DeleteBtn Component', () => {
 		console.log('***> Button props beforeEach', _buttons.props());
 	});
 
-	describe ('the wrapping DeleteBtn component...', () => {
-		const deleteButtons = deleteComp().find('DeleteBtn');
+	describe ('the wrapping DeleteButton component...', () => {
+		const deleteButtons = deleteComp().find('DeleteButton');
 		const wrappingRow = deleteButtons.first();
 
-		it ('always renders (1) outer DeleteBtn', () => {
+		it ('always renders (1) outer DeleteButton', () => {
 			expect (deleteButtons.length).to.be.eql(1);
 		});
 
@@ -60,7 +60,7 @@ describe ('The DeleteBtn Component', () => {
 
 	describe (' Then component PROPS...', () => {
 
-		it ('...DeleteBtn is passed (3) props', () => {
+		it ('...DeleteButton is passed (3) props', () => {
 			expect (Object.keys(_deletebtns.props()).length).to.eql(3);		
 		});
 

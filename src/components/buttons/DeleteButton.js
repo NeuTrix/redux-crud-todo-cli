@@ -1,12 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
-const Delete = styled.div`
-	color: pink;
-`;
+const propTypes = {
+	_id: PropTypes.string.isRequired,
+	classes: PropTypes.instanceOf(Object).isRequired,
+	deleteTodo: PropTypes.func.isRequired,
+	task: PropTypes.string.isRequired,
+};
 
-const DeleteBtn = (props) => {
+// const defaultProps = {
+// 	_id: 'default',
+// 	deleteTodo: f => alert('default fn. Check deleteTodo props.'),
+// 	task: 'default',
+// };
+
+const DeleteButton = (props) => {
+	const { classes } = props;
 	const handleDelete = (e) => {
 		e.preventDefault();
 		// allow restricted global use of `confirm`
@@ -18,23 +29,31 @@ const DeleteBtn = (props) => {
 	};
 
 	return (
-		<Delete
-			className={`.${props.className} ctr engr fa fa-trash fa-2x`}
+		<Button
+			{...props}
+			className={classes.button}
+			// color="primary"
+			component="button"
+			name="delete"
+			type="submit"
+			variant="contained"
 			onClick={handleDelete}
-		/>
+		>
+			{'Del'}
+		</Button>
 	);
 };
 
-DeleteBtn.propTypes = {
-	deleteTodo: PropTypes.func.isRequired,
-	_id: PropTypes.string.isRequired,
-	task: PropTypes.string.isRequired,
-};
+const styles = theme => ({
+	button: {
+		background: 'pink',
+		color: 'maroon',
+		height: '80%',
+		marginTop: 5,
+	},
+});
 
-DeleteBtn.defaultProps = {
-	deleteTodo: f => alert('default fn. Check deleteTodo props.'),
-	_id: 'default',
- 	task: 'default',
-};
+DeleteButton.propTypes = propTypes;
+// DeleteButton.defaultProps = defaultProps;
 
-export default DeleteBtn;
+export default withStyles(styles)(DeleteButton);
