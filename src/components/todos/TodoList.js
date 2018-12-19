@@ -8,7 +8,7 @@ const propTypes = {
 	classes: PropTypes.instanceOf(Object).isRequired,
 	deleteTodo: PropTypes.func.isRequired,
 	editTodo: PropTypes.func.isRequired,
-	todoArray: PropTypes.array.isRequired,
+	todoArray: PropTypes.instanceOf(Array).isRequired,
 };
 
 class TodoList extends Component {
@@ -26,15 +26,16 @@ class TodoList extends Component {
 	}
 
 	render() {
-		const _todoArray = this.state.todoArray;
-		const { classes } = this.props;
+		const { todoArray } = this.state;
+		const { classes, deleteTodo, editTodo } = this.props;
 
-		const todos = _todoArray.map(item => (
+		// generate list of today items for display
+		const todos = todoArray.map(item => (
 			<TodoItem
 				key={shortid.generate()}
 				item={item}
-				deleteTodo={this.props.deleteTodo}
-				editTodo={this.props.editTodo}
+				deleteTodo={deleteTodo}
+				editTodo={editTodo}
 			/>
 		));
 
@@ -46,16 +47,16 @@ class TodoList extends Component {
 	}
 }
 
-const styles = theme => ({
+const styles = {
 	list: {
 		display: 'inline-grid',
+		gridRowGap: '10px',
 		gridTemplateAreas: `
 			" todoItems "
 		`,
 		gridTemplateColumns: '1fr',
-		gridRowGap: '10px', 
-	}
-});
+	},
+};
 
 TodoList.propTypes = propTypes;
 
