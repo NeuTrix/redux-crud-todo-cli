@@ -6,172 +6,163 @@ import FormControl from '@material-ui/core/FormControl';
 import CheckComplete from '../buttons/CheckComplete';
 import DatePicker from './DatePicker';
 import DeleteButton from '../buttons/DeleteButton';
-import Rank	from './Rank';
+import Rank from './Rank';
 import TaskEntry from './TaskEntry';
-// import { media } from '../../helpers/cssConstants';
 
 const propTypes = {
 	classes: PropTypes.instanceOf(Object).isRequired,
 	deleteTodo: PropTypes.func.isRequired,
 	editTodo: PropTypes.func.isRequired,
-	item: PropTypes.object.isRequired,
-};
-
-const defaultProps = {
-	deleteTodo: f => alert("default function triggered"),
-	editTodo: f => alert("default function triggered"),
-	item: {date: '2020-11-04'},
+	item: PropTypes.instanceOf(Object).isRequired,
 };
 
 class TodoItem extends Component {
 
-	constructor (props) {
+	constructor(props) {
 		super(props);
+		const { item } = this.props;
 		this.state = {
-			completed: this.props.item.completed,
-			date: (this.props.item.date.slice(0,10) :''),
-			rank: this.props.item.rank,
-			task: this.props.item.task, 
-			_id: this.props.item._id,
-		}
+			completed: item.completed,
+			date: item.date.slice(0, 10) || '',
+			rank: item.rank || '',
+			task: item.task || '',
+			_id: item._id || '',
+		};
 
-		this.handleBlur 	= this.handleBlur.bind(this)
-		this.handleChange = this.handleChange.bind(this)
-		this.handleEdit 	= this.handleEdit.bind(this)
-		this.handleSubmit = this.handleSubmit.bind(this)
+		this.handleBlur = this.handleBlur.bind(this);
+		this.handleChange = this.handleChange.bind(this);
+		this.handleEdit = this.handleEdit.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
-	
+
 	handleBlur(e) {
+		const { editTodo, item } = this.props;
 		e.preventDefault();
-		this.props.editTodo(this.props.item._id, this.state)
+		editTodo(item._id, this.state);
 	}
 
 	handleChange(e) {
 		e.preventDefault();
-		this.setState ({ [ e.target.name ]: e.target.value })
+		this.setState({ [e.target.name]: e.target.value });
 	}
 
 	handleEdit(e) {
 		e.preventDefault();
 		e.target.setSelectionRange(0, e.target.value.length);
+		// this.setState({ [e.target.name]: e.target.value });
 	}
 
 	handleSubmit(e) {
-		e.preventDefault ();
-		this.props.editTodo (this.props.item._id, this.state);
-	};
+		const { editTodo, item } = this.props;
+		e.preventDefault();
+		editTodo(item._id, this.state);
+	}
 
-	render () {
-		const { task, _id } = this.state
-		const { classes } = this.props
+	render() {
+		const {
+			_id, completed, date, rank, task,
+		} = this.state;
+		const {
+			classes, deleteTodo, editTodo, item,
+		} = this.props;
 
 		return (
-			<FormControl 
-				className= {classes.grid} 
-				onSubmit= { this.handleSubmit } 
+			<FormControl
+				className={classes.grid}
+				onSubmit={this.handleSubmit}
 			>
 				<TaskEntry
 					className={classes.task}
-					disabled= { this.state.completed }
+					disabled={completed}
 					label="edit task"
-					value= { this.state.task }
-					onBlur= { this.handleBlur }
-					onChange= { this.handleChange }
-					onFocus= { this.handleEdit }
+					value={task}
+					onBlur={this.handleBlur}
+					onChange={this.handleChange}
+					onFocus={this.handleEdit}
 				/>
 
 				<CheckComplete
-					_id= { this.props.item._id }
+					_id={item._id}
 					className={classes.checkBox}
-					completed= { this.state.completed }
-					editTodo= { this.props.editTodo }
-					name= 'complete'
+					completed={completed}
+					editTodo={editTodo}
+					name="complete"
 				/>
 
 				<Rank
 					className={classes.rank}
-					disabled= { this.state.completed }
-					value= { this.state.rank }
-					onBlur= { this.handleBlur }
-					onChange= { this.handleChange }
-			 	/> 
+					disabled={completed}
+					value={rank}
+					onBlur={this.handleBlur}
+					onChange={this.handleChange}
+				/>
 
-				<DatePicker 
+				<DatePicker
 					className={classes.datePicker}
-					disabled= { this.state.completed }
-					onBlur= { this.handleBlur }
-					onChange= { this.handleChange }
-					defaultValue= { this.state.date }
+					disabled={completed}
+					defaultValue={date}
+					onBlur={this.handleBlur}
+					onChange={this.handleChange}
 				/>
 
 				<DeleteButton
 					// className={classes.delete}
-					style={{ gridArea:'delete'}}
-					task={ task }
-					_id={ _id }
-					deleteTodo={ this.props.deleteTodo }
-				/> 
+					style={{ gridArea: 'delete' }}
+					task={task}
+					_id={_id}
+					deleteTodo={deleteTodo}
+				/>
 			</FormControl>
-		)
+		);
 	}
-};
+}
 
 const styles = theme => ({
-	
+
+	checkBox: {
+		fontSize: '2em',
+		gridArea: 'check',
+	},
+
+	datePicker: {
+		background: 'white',
+		gridArea: 'date',
+	},
+
 	grid: {
-		/* mobile mode */
 		backgroundColor: 'aliceblue',
 		border: '2px solid',
 		borderColor: theme.palette.primary.main,
 		borderRadius: 5,
 		display: 'grid',
+		gridGap: '5px',
 		gridTemplateAreas: `
-			" check task 	task " 
-			" rank	date 	delete "
+			" check task task " 
+			" rank date delete "
 		`,
 		gridTemplateColumns: '1fr 4fr 1fr',
-		gridGap: '5px',
 		padding: '10px',
 	},
 
-	/* iPad mini screen mode */
 	[theme.breakpoints.up('xs')]: {
 		gridGap: '5px',
-		gridTemplateAreas:`
+		gridTemplateAreas: `
 			" check task rank date delete " 
 		`,
 		gridTemplateColumns: '1fr 8fr 2fr 3fr 1fr',
 	},
 
-	checkBox: {
-		gridArea: 'check',
-		fontSize: '2em',
-	},
-
-	datePicker: {
-		gridArea: 'date',
-		background: 'white'
-	},
-	
 	rank: {
+		background: 'white',
 		gridArea: 'rank',
-		background: 'white'
 	},
 
 	task: {
+		background: 'white',
 		gridArea: 'task',
-		background: 'white'
-		// style for completed state
-		// 	${ ({ isComplete }) => isComplete && `
-		// color: lightgrey,
-		// text - decoration: line - through,
-		// background - color: whitesmoke,
-		// `}
 	},
-	
 });
 
 TodoItem.propTypes = propTypes;
-TodoItem.defaultProps = defaultProps;
 
 export default withStyles(styles)(TodoItem);
