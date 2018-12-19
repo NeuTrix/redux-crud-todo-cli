@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { render } from 'enzyme';
 import TodoForm from '../../components/todos/TodoForm';
 
-xit('renders without crashing', () => {
+it('renders without crashing', () => {
 	const div = document.createElement('div');
 	ReactDOM.render(
 		<TodoForm
@@ -21,6 +21,10 @@ const wrapper = render(
 	/>,
 );
 
-xit('...renders the TodoForm ', () => {
+it('...renders the TodoForm ', () => {
 	expect(wrapper).toMatchSnapshot();
+});
+
+xit('... creates a new todo item', () => {
+	
 });

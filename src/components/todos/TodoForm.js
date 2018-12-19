@@ -70,8 +70,8 @@ class TodoForm extends Component {
 				/>
 				<Rank
 					className={classes.rank}
-					rank={rank}
-					handleChange={this.handleChange}
+					value={rank}
+					onChange={this.handleChange}
 				/>
 				<TextField
 					className={classes.datePick}
