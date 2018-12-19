@@ -53,6 +53,7 @@ class TodoForm extends Component {
 				onSubmit={this.handleSubmit}
 			>
 				<TaskEntry
+					label="enter new task"
 					style={{ gridArea: 'task' }}
 					required
 					value={task}

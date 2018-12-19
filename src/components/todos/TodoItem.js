@@ -5,7 +5,9 @@ import { withStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 //  custom
 import CheckComplete from '../buttons/CheckComplete';
+import DatePicker from './DatePicker';
 import DeleteBtn from '../buttons/DeleteBtn';
+import Rank	from './Rank';
 import TaskEntry from './TaskEntry';
 import { media } from '../../helpers/cssConstants';
 
@@ -74,6 +76,7 @@ class TodoItem extends Component {
 				<TaskEntry
 					className={classes.task}
 					disabled= { this.state.completed }
+					label="edit task"
 					value= { this.state.task }
 					onBlur= { this.handleBlur }
 					onChange= { this.handleChange }
@@ -89,27 +92,19 @@ class TodoItem extends Component {
 					editTodo= { this.props.editTodo }
 				/> */}
 
-				{/* <Rank
-					className= '_rank mat'
-					name= 'rank'
-					type= 'select'
-					defaultValue= { this.state.rank }
+				<Rank
+					className={classes.rank}
+					value= { this.state.rank }
 					onBlur= { this.handleBlur }
 					onChange= { this.handleChange }
-			 	> 
-					<option value= 'High'> High	</option>
-					<option value= 'Med'>	Med		</option>
-					<option value= 'Low'>	Low		</option>
-				</Rank> */}
+			 	/> 
 
-				{/* <DatePick 
-					className= '_date mat'
-					name= 'date' 
-					type= 'date'
+				<DatePicker 
+					className={classes.datePicker}
 					onBlur= { this.handleBlur }
 					onChange= { this.handleChange }
 					defaultValue= { this.state.date }
-				/> */}
+				/>
 
 				{/* <Delete
 					className= '_delete'
@@ -130,12 +125,13 @@ const styles = theme => ({
 		backgroundColor: 'aliceblue',
 		border: '2px solid',
 		borderColor: theme.palette.primary.main,
+		borderRadius: 5,
 		display: 'inline-grid',
 		gridTemplateAreas: `
-			" check task 	task 	task " 
-			" 	.		rank 	date 	dele "
+			" check task 	task " 
+			" rank	date 	dele "
 		`,
-		gridTemplateColumns: '1fr 3fr 4fr 1fr',
+		gridTemplateColumns: '1fr 4fr 1fr',
 		gridGap: '5px',
 		padding: '10px',
 	},
@@ -152,6 +148,16 @@ const styles = theme => ({
 	checkBox: {
 		gridArea: 'check',
 		fontSize: '2em',
+	},
+
+	datePicker: {
+		gridArea: 'date',
+		background: 'white'
+	},
+
+	rank: {
+		gridArea: 'rank',
+		background: 'white'
 	},
 
 	task: {

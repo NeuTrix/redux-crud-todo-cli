@@ -5,7 +5,6 @@ const TaskEntry = props => (
 	<TextField
 		{...props}
 		fullWidth
-		label="enter new task"
 		margin="dense"
 		name="task"
 		type="text"
