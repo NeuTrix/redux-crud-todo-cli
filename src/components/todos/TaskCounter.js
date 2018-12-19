@@ -31,7 +31,6 @@ const TaskCounter = (props) => {
 const styles = theme => ({
 	counter: {
 		color: theme.palette.primary.main,
-		gridArea: 'count',
 		justifyContent: 'left',
 		paddingLeft: 10,
 	},

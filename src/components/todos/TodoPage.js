@@ -78,8 +78,8 @@ class TodoPage extends Component {
 
 const styles = {
 	grid: {
-		display: 'grid',
-		gridAutoRows: 'auto',
+		display: 'inline-grid',
+		// gridAutoRows: 'auto',
 		gridTemplateAreas: `
       "taskCounter"
       "todoForm"
