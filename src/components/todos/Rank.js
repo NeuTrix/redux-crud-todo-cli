@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 
 const propTypes = {
-	handleChange: PropTypes.func.isRequired,
-	rank: PropTypes.string.isRequired,
+	value: PropTypes.string.isRequired,
 };
 
 const Rank = (props) => {
-	const { handleChange, rank } = props;
+	const { value } = props;
 
 	return (
 		<TextField
@@ -19,9 +18,8 @@ const Rank = (props) => {
 			margin="dense"
 			name="rank"
 			select
-			value={rank}
+			value={value}
 			variant="outlined"
-			onChange={handleChange}
 		>
 			<option value="High">High</option>
 			<option value="Med">Med</option>

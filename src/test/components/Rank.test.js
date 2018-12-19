@@ -8,16 +8,14 @@ it('renders without crashing', () => {
 	const div = document.createElement('div');
 	ReactDOM.render(
 		<Rank
-			rank="med"
-			handleChange={f => f}		
+			value="med"
 		/>, div,
 	);
 });
 
 const wrapper = render(
 	<Rank
-		rank="med"
-		handleChange={f => f}
+		value="med"
 	/>,
 );
 
