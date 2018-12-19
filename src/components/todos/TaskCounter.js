@@ -18,13 +18,10 @@ const TaskCounter = (props) => {
 	);
 
 	return (
-		<div>
-			<Typography variant="h4">
-				{'Todos:'}
-				{console.log(props)}
-				{counter}
-			</Typography>
-		</div>
+		<Typography variant="h4">
+			{'Todos:'}
+			{counter}
+		</Typography>
 	);
 };
 

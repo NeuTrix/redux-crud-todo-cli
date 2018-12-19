@@ -11,7 +11,9 @@ import TaskCounter from '../../components/todos/TaskCounter';
 it ('renders without crashing', () => {
 	const div = document.createElement('div');
 	ReactDOM.render(
-		<TaskCounter/>, div
+		<TaskCounter
+			todos={[]}
+		/>, div,
 	);
 });
 
