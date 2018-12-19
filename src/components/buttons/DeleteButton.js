@@ -10,12 +10,6 @@ const propTypes = {
 	task: PropTypes.string.isRequired,
 };
 
-// const defaultProps = {
-// 	_id: 'default',
-// 	deleteTodo: f => alert('default fn. Check deleteTodo props.'),
-// 	task: 'default',
-// };
-
 const DeleteButton = (props) => {
 	const { classes } = props;
 	const handleDelete = (e) => {
@@ -54,6 +48,5 @@ const styles = {
 };
 
 DeleteButton.propTypes = propTypes;
-// DeleteButton.defaultProps = defaultProps;
 
 export default withStyles(styles)(DeleteButton);
