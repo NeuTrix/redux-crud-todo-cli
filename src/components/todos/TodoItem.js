@@ -1,75 +1,29 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { withStyles } from '@material-ui/core/styles';
+import FormControl from '@material-ui/core/FormControl';
 //  custom
 import CheckComplete from '../buttons/CheckComplete';
 import DeleteBtn from '../buttons/DeleteBtn';
+import TaskEntry from './TaskEntry';
 import { media } from '../../helpers/cssConstants';
-// +++++++++ CSS +++++++++ 
-const Grid = styled.form `
-	/* mobile mode */
 
-	display: grid;
-	grid-template-areas:
-		" check 	task 		task 		task " 
-		" ... 		rank 		date 		dele	" 
-	;
+const propTypes = {
+	classes: PropTypes.instanceOf(Object).isRequired,
+	deleteTodo: PropTypes.func.isRequired,
+	editTodo: PropTypes.func.isRequired,
+	item: PropTypes.object.isRequired,
+};
 
-	grid-template-columns: 1fr 3fr 4fr 1fr;
-	grid-gap: 10px;
-
-	background-color: aliceblue;
-	border: 2px solid lightsteelblue;
-	padding: 10px;
-	
-	& * {
-		font-size: 1em;	
-		&: hover: not(._task) {
-			color: steelblue;
-		}
+const defaultProps = {
+	deleteTodo: f => alert("default function triggered"),
+	editTodo: f => alert("default function triggered"),
+	item: {
+		date: '2020-11-04'
 	}
+};
 
-	/* iPad mini screen mode */
-
-	@media (${media._large}) {
-		grid-template-areas:
-		" check 	task 	rank 	date 	dele " 
-		;
-
-		grid-template-columns: 1fr 8fr 2fr 3fr 1fr;
-		grid-gap: 10px;
-	}
-`;
-
-const Checked = styled(CheckComplete) `
-	grid-area: check;
-	font-size: 2em;
-`;
-
-const DatePick = styled.input `
-	grid-area: date;
-	text-indent: 10px;
-`;
-const Delete = styled(DeleteBtn) `
-	grid-area: dele;
-	font-size: 2em;
-`;
-
-const Rank = styled.select `
-	grid-area: rank;
-`;
-
-const Task = styled.input `
-	grid-area: task;
-  text-indent: 10px;
-
-  ${ ({ isComplete }) => isComplete && `
-  	color: lightgrey;
-  	text-decoration: line-through;
-  	background-color: whitesmoke;
-  `}
-`;
-// +++++++++ COMPONENT +++++++++ 
 class TodoItem extends Component {
 
 	constructor (props) {
@@ -87,13 +41,11 @@ class TodoItem extends Component {
 		this.handleEdit 	= this.handleEdit.bind(this)
 		this.handleSubmit = this.handleSubmit.bind(this)
 	}
-
 	
 	handleBlur(e) {
 		e.preventDefault();
 		this.props.editTodo(this.props.item._id, this.state)
 	}
-
 
 	handleChange(e) {
 		e.preventDefault();
@@ -112,35 +64,33 @@ class TodoItem extends Component {
 
 	render () {
 		const { task, _id } = this.state
-		const { className } = this.props
+		const { className, classes } = this.props
 
 		return (
-			<Grid 
-				className= {`TodoItem ${className} engrBox boxClr paper`} 
+			<FormControl 
+				className= {classes.grid} 
 				onSubmit= { this.handleSubmit } 
 			>
-				<Task 
+				{/* <TaskEntry
+					className={classes.task}
 					isComplete= { this.state.completed }
-					className= '_task'
 					disabled= { this.state.completed }
-					name= 'task'
-					type= 'text'
 					defaultValue= { this.state.task }
 					onBlur= { this.handleBlur }
 					onChange= { this.handleChange }
 					onFocus= { this.handleEdit }
-				/>
+				/> */}
 
-				<Checked
-					className= '_checked'
+				{/* <CheckComplete
+					className={classes.checkBox}
 					style = {this.checkStyle}
 					name= 'complete'
 					_id= { this.props.item._id }
 					completed= { this.state.completed }
 					editTodo= { this.props.editTodo }
-				/>
+				/> */}
 
-				<Rank
+				{/* <Rank
 					className= '_rank mat'
 					name= 'rank'
 					type= 'select'
@@ -151,41 +101,89 @@ class TodoItem extends Component {
 					<option value= 'High'> High	</option>
 					<option value= 'Med'>	Med		</option>
 					<option value= 'Low'>	Low		</option>
-				</Rank>
+				</Rank> */}
 
-				<DatePick 
+				{/* <DatePick 
 					className= '_date mat'
 					name= 'date' 
 					type= 'date'
 					onBlur= { this.handleBlur }
 					onChange= { this.handleChange }
 					defaultValue= { this.state.date }
-				/>
+				/> */}
 
-				<Delete
+				{/* <Delete
 					className= '_delete'
 					name= 'delete'
 					type= 'button'
 					task= { task }
 					_id = { _id }
 					deleteTodo= { this.props.deleteTodo }
-					/> 
-			</Grid>
+					/>  */}
+			</FormControl>
 		)
 	}
 };
-// +++++++++ PROPS +++++++++ 
-TodoItem.propTypes= {
-	deleteTodo: PropTypes.func.isRequired,
-	editTodo: PropTypes.func.isRequired,
-	item: PropTypes.object.isRequired,
-};
 
-TodoItem.defaultProps= {
-	deleteTodo: f => alert("default function triggered"),
-	editTodo: f => alert("default function triggered"),
-	item: { date: '2020-11-04' }
-};
+const styles = theme => ({
+	// grid: {
+	// 	/* mobile mode */
+	// 	backgroundColor: 'aliceblue',
+	// 	border: '2px solid',
+	// 	borderColor: theme.palette.primary.main,
+	// 	display: 'inline-grid',
+	// 	gridTemplateAreas: `
+	// 		" check task 	task 	task " 
+	// 		" 	.		rank 	date 	dele "
+	// 	`,
+	// 	gridTemplateColumns: '1fr 3fr 4fr 1fr',
+	// 	gridGap: '5px',
+	// 	padding: '10px',
+	// },
 
-export default TodoItem;
+
+		/* iPad mini screen mode */
+		// [theme.breakpoints.up('xs')]: {
+		// 	gridGap: '5px',
+		// 	gridTemplateAreas:`
+		// 		" check task rank date dele " 
+		// 	`,
+		// 	gridTemplateColumns: '1fr 8fr 2fr 3fr 1fr',
+		// }
+
+// 	checkBox: {
+// 		gridArea: 'check',
+// 		fontSize: '2em',
+// 	},
+
+});
+
+	// const DatePick = styled.input `
+	// 	grid-area: date,
+	// 	text-indent: 10px,
+	// `,
+	// const Delete = styled(DeleteBtn)
+	// `
+	// 	grid-area: dele,
+	// 	font-size: 2em,
+	// `,
+
+	// const Rank = styled.select `
+	// 	grid-area: rank,
+	// `,
+
+	// const Task = styled.input `
+	// 	grid-area: task,
+	// 	text-indent: 10px,
+
+	// 	${ ({ isComplete }) => isComplete && `
+	// color: lightgrey,
+	// text - decoration: line - through,
+	// background - color: whitesmoke,
+	// `}
+
+TodoItem.propTypes = propTypes;
+TodoItem.defaultProps = defaultProps;
+
+export default withStyles(styles)(TodoItem);
 
