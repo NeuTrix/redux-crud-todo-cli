@@ -44,14 +44,14 @@ const DeleteButton = (props) => {
 	);
 };
 
-const styles = theme => ({
+const styles = {
 	button: {
 		background: 'pink',
 		color: 'maroon',
 		height: '80%',
 		marginTop: 5,
 	},
-});
+};
 
 DeleteButton.propTypes = propTypes;
 // DeleteButton.defaultProps = defaultProps;
