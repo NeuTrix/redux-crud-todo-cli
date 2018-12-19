@@ -10,15 +10,15 @@ import TaskCounter from '../../components/todos/TaskCounter';
 
 it ('renders without crashing', () => {
 	const div = document.createElement('div');
+	let props = { todos: [ ] }; // default props to clear objects before each test
+
 	ReactDOM.render(
-		<TaskCounter
-			todos={[]}
-		/>, div,
+		<TaskCounter {...props}/>, div,
 	);
 });
 
 describe ('The TaskCounter Component', () => {
-	let props; // default props to clear objects before each test
+	let props = { todos: [ ] }; // default props to clear objects before each test
 	let mountdTaskCounter; // the mounted object
 
 	const checkComp = () => {
@@ -63,8 +63,9 @@ describe ('The TaskCounter Component', () => {
 			console.log('*** Render the Props: ', _tasks.props()); 
 		});
 
-		it ('...TaskCounter is passed (1) props', () => {
-			expect (Object.keys(_tasks.props()).length).to.eql(1);		
+		it ('...TaskCounter is passed (2) props', () => {
+			console.log(Object.keys(_tasks.props()))
+			expect (Object.keys(_tasks.props()).length).to.eql(2˝);		
 		});
 
 		xit ('...has an todos prop', () => {
