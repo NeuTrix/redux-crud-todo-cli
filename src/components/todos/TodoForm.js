@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+// material-ui
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
-
+// custom
 import normalizeDate from '../../helpers/normalizeDate';
 
 const propTypes = {
@@ -13,6 +13,10 @@ const propTypes = {
 	createTodo: PropTypes.func.isRequired,
 	owner: PropTypes.string.isRequired, // id of the current list owner
 };
+
+// const defaultProps = {
+// owner: 'placeholder',
+// };
 
 class TodoForm extends Component {
 
@@ -73,6 +77,7 @@ class TodoForm extends Component {
 					name="rank"
 					select
 					value={rank}
+					variant="outlined"
 					onChange={this.handleChange}
 				>
 					<option value="High">High</option>
@@ -87,9 +92,9 @@ class TodoForm extends Component {
 					label="set due date"
 					margin="dense"
 					name="date"
-					// style={{background:'orange', padding: 10}}
 					type="date"
 					value={date}
+					variant="outlined"
 					onChange={this.handleChange}
 				/>
 
@@ -111,8 +116,8 @@ class TodoForm extends Component {
 const styles = theme => ({
 	button: {
 		gridArea: 'button',
-		height: '75%',
-		marginTop: 5,
+		height: '80%',
+		marginTop: 5, // adjust height against date, rank labels
 	},
 
 	datePick: {
@@ -121,28 +126,23 @@ const styles = theme => ({
 
 	grid: {
 		/* mobile view */
-		border: '2px solid',
+		border: '1px solid',
 		borderColor: theme.palette.secondary.main,
+		borderRadius: 5,
 		display: 'inline-grid',
-		gridColumnGap: '20px',
+		gridColumnGap: '10px',
 		gridTemplateAreas: `
 			" task task task "
 			" rank date button " 
 		`,
-		gridTemplateColumns: '3fr 4fr 1fr',
+		gridTemplateColumns: '2fr 4fr 1fr',
 		marginBottom: 20,
 		padding: 10,
 		placeItems: 'center',
 	},
 
-	menu: {
-		background: 'orange',
-		color: 'orange',
-	},
-
 	rank: {
 		gridArea: 'rank',
-
 	},
 
 	task: {
@@ -153,5 +153,6 @@ const styles = theme => ({
 });
 
 TodoForm.propTypes = propTypes;
+// TodoForm.defaultProps = defaultProps; // linting warning if not using this
 
 export default withStyles(styles)(TodoForm);

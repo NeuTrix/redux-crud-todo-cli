@@ -8,11 +8,14 @@ import store from '../../store/store';
 import TodoPage from '../../components/todos/TodoPage'
 
 describe ('The TodoPage renders', () => {
+	const user = {_id: 'placeholder'}
 	it ('renders without crashing', () => {
 		const div = document.createElement('div');
 		ReactDOM.render(
 		<Provider store= { store } >
-			<TodoPage />
+			<TodoPage 
+				user="user"
+			/>
 		</Provider>
 		, div);
 	});
