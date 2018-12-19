@@ -49,7 +49,7 @@ class TodoItem extends Component {
 	handleEdit(e) {
 		e.preventDefault();
 		e.target.setSelectionRange(0, e.target.value.length);
-		// this.setState({ [e.target.name]: e.target.value });
+		this.setState({ [e.target.name]: e.target.value });
 	}
 
 	handleSubmit(e) {
