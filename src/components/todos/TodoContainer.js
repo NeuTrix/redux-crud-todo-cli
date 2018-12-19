@@ -35,7 +35,7 @@ const mapDispatchToProps = dispatch => ({
 	handleFetchTodos: () => { dispatch(fetchTodos()); },
 });
 
-class TodoPage extends Component {
+class TodoContainer extends Component {
 	componentDidMount() {
 		const { isAuthenticated, handleFetchTodos } = this.props;
 		return (isAuthenticated ? handleFetchTodos() : '');
@@ -100,6 +100,6 @@ const styles = {
 	},
 };
 
-TodoPage.propTypes = propTypes; // connect prop-types validation
+TodoContainer.propTypes = propTypes; // connect prop-types validation
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(TodoPage));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(TodoContainer));

@@ -5,15 +5,15 @@ import { expect } from 'chai';
 import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import store from '../../store/store';
-import TodoPage from '../../components/todos/TodoPage'
+import TodoContainer from '../../components/todos/TodoContainer'
 
-describe ('The TodoPage renders', () => {
+describe ('The TodoContainer renders', () => {
 	const user = {_id: 'placeholder'}
 	it ('renders without crashing', () => {
 		const div = document.createElement('div');
 		ReactDOM.render(
 		<Provider store= { store } >
-			<TodoPage 
+			<TodoContainer 
 				user="user"
 			/>
 		</Provider>
@@ -21,7 +21,7 @@ describe ('The TodoPage renders', () => {
 	});
 });
 
-xdescribe ('The TodoPage store connection', () => {
+xdescribe ('The TodoContainer store connection', () => {
 
 	xit ('... can connect to the store', () => {
 		//  how to test for this?
@@ -29,13 +29,13 @@ xdescribe ('The TodoPage store connection', () => {
 
 });
 
-xdescribe ('The TodoPage dispatch props', () => {
+xdescribe ('The TodoContainer dispatch props', () => {
 
 	let mountedTodoPage; // the mounted object
 
 	const todopageComp = () => {
 		if (!mountedTodoPage) {
-			mountedTodoPage = mount (<TodoPage {...props}/>);
+			mountedTodoPage = mount (<TodoContainer {...props}/>);
 		}
 		return mountedTodoPage;
 	};
@@ -64,7 +64,7 @@ xdescribe ('The TodoPage dispatch props', () => {
 
 
 
-xdescribe ('The TodoPage Component', () => {
+xdescribe ('The TodoContainer Component', () => {
 	
 
 	let _state = todopageComp().state(); // mounted component state 
@@ -87,7 +87,7 @@ xdescribe ('The TodoPage Component', () => {
 			console.log('*** Render the Props: ', _tasks.props()); 
 		});
 
-		it ('...TodoPage is passed (3) props', () => {
+		it ('...TodoContainer is passed (3) props', () => {
 			expect (Object.keys(_tasks.props()).length).to.eql(3);
 		});
 

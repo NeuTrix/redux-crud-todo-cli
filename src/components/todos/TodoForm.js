@@ -4,21 +4,17 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
-import TextField from '@material-ui/core/TextField';
 // custom
-import normalizeDate from '../../helpers/normalizeDate';
 import DatePicker from './DatePicker';
 import Rank from './Rank';
+import TaskEntry from './TaskEntry';
+import normalizeDate from '../../helpers/normalizeDate';
 
 const propTypes = {
 	classes: PropTypes.instanceOf(Object).isRequired,
 	createTodo: PropTypes.func.isRequired,
 	owner: PropTypes.string.isRequired, // id of the current list owner
 };
-
-// const defaultProps = {
-// owner: 'placeholder',
-// };
 
 class TodoForm extends Component {
 
@@ -57,24 +53,19 @@ class TodoForm extends Component {
 				component="form"
 				onSubmit={this.handleSubmit}
 			>
-				<TextField
-					className={classes.task}
-					fullWidth
-					label="enter new task"
-					margin="dense"
-					name="task"
+				<TaskEntry
+					style={{ gridArea: 'task' }}
 					required
-					type="text"
 					value={task}
-					variant="outlined"
 					onChange={this.handleChange}
 				/>
 				<Rank
-					className={classes.rank}
+					style={{ gridArea: 'rank' }}
 					value={rank}
 					onChange={this.handleChange}
 				/>
 				<DatePicker
+					style={{ gridArea: 'date' }}
 					value={date}
 					onChange={this.handleChange}
 				/>
@@ -99,10 +90,6 @@ const styles = theme => ({
 		marginTop: 5, // adjust height against date, rank labels
 	},
 
-	datePick: {
-		gridArea: 'date',
-	},
-
 	grid: {
 		/* mobile view */
 		border: '1px solid',
@@ -112,26 +99,15 @@ const styles = theme => ({
 		gridColumnGap: '10px',
 		gridTemplateAreas: `
 			" task task task "
-			" rank date button " 
+			" rank date button "
 		`,
 		gridTemplateColumns: '2fr 4fr 1fr',
 		marginBottom: 20,
 		padding: 10,
 		placeItems: 'center',
 	},
-
-	rank: {
-		gridArea: 'rank',
-	},
-
-	task: {
-		gridArea: 'task',
-		marginBottom: 10,
-		textIndent: 5,
-	},
 });
 
 TodoForm.propTypes = propTypes;
-// TodoForm.defaultProps = defaultProps; // linting warning if not using this
 
 export default withStyles(styles)(TodoForm);

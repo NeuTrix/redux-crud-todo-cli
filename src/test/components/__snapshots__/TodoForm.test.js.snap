@@ -2,32 +2,33 @@
 
 exports[`...renders the TodoForm  1`] = `
 <form
-  class="MuiFormControl-root-6 TodoForm-grid-3"
+  class="MuiFormControl-root-3 TodoForm-grid-2"
 >
   <div
-    class="MuiFormControl-root-6 MuiFormControl-marginDense-8 MuiFormControl-fullWidth-9 TodoForm-task-5"
+    class="MuiFormControl-root-3 MuiFormControl-marginDense-5 MuiFormControl-fullWidth-6"
+    style="grid-area:task"
   >
     <label
-      class="MuiFormLabel-root-21 MuiFormLabel-required-26 MuiInputLabel-required-14 MuiInputLabel-root-10 MuiInputLabel-formControl-15 MuiInputLabel-animated-18 MuiInputLabel-marginDense-16 MuiInputLabel-outlined-20"
+      class="MuiFormLabel-root-18 MuiFormLabel-required-23 MuiInputLabel-required-11 MuiInputLabel-root-7 MuiInputLabel-formControl-12 MuiInputLabel-animated-15 MuiInputLabel-marginDense-13 MuiInputLabel-outlined-17"
       data-shrink="false"
     >
       enter new task
       <span
-        class="MuiFormLabel-asterisk-27"
+        class="MuiFormLabel-asterisk-24"
       >
          *
       </span>
     </label>
     <div
-      class="MuiInputBase-root-41 MuiOutlinedInput-root-28 MuiInputBase-fullWidth-50 MuiInputBase-formControl-42 MuiInputBase-marginDense-48"
+      class="MuiInputBase-root-38 MuiOutlinedInput-root-25 MuiInputBase-fullWidth-47 MuiInputBase-formControl-39 MuiInputBase-marginDense-45"
     >
       <fieldset
         aria-hidden="true"
-        class="MuiPrivateNotchedOutline-root-58 MuiOutlinedInput-notchedOutline-35"
+        class="MuiPrivateNotchedOutline-root-55 MuiOutlinedInput-notchedOutline-32"
         style="padding-left:8px"
       >
         <legend
-          class="MuiPrivateNotchedOutline-legend-59"
+          class="MuiPrivateNotchedOutline-legend-56"
           style="width:0.01px"
         >
           <span>
@@ -37,7 +38,7 @@ exports[`...renders the TodoForm  1`] = `
       </fieldset>
       <input
         aria-invalid="false"
-        class="MuiInputBase-input-51 MuiOutlinedInput-input-36 MuiInputBase-inputMarginDense-52 MuiOutlinedInput-inputMarginDense-37"
+        class="MuiInputBase-input-48 MuiOutlinedInput-input-33 MuiInputBase-inputMarginDense-49 MuiOutlinedInput-inputMarginDense-34"
         name="task"
         required=""
         type="text"
@@ -46,25 +47,26 @@ exports[`...renders the TodoForm  1`] = `
     </div>
   </div>
   <div
-    class="MuiFormControl-root-6 MuiFormControl-marginDense-8 MuiFormControl-fullWidth-9 TodoForm-rank-4"
+    class="MuiFormControl-root-3 MuiFormControl-marginDense-5 MuiFormControl-fullWidth-6"
+    style="grid-area:rank"
   >
     <label
-      class="MuiFormLabel-root-21 MuiFormLabel-filled-25 MuiInputLabel-root-10 MuiInputLabel-formControl-15 MuiInputLabel-animated-18 MuiInputLabel-shrink-17 MuiInputLabel-marginDense-16 MuiInputLabel-outlined-20"
+      class="MuiFormLabel-root-18 MuiFormLabel-filled-22 MuiInputLabel-root-7 MuiInputLabel-formControl-12 MuiInputLabel-animated-15 MuiInputLabel-shrink-14 MuiInputLabel-marginDense-13 MuiInputLabel-outlined-17"
       data-shrink="true"
       for="new_item_priority"
     >
       set rank
     </label>
     <div
-      class="MuiInputBase-root-41 MuiOutlinedInput-root-28 MuiInputBase-fullWidth-50 MuiInputBase-formControl-42 MuiInputBase-marginDense-48"
+      class="MuiInputBase-root-38 MuiOutlinedInput-root-25 MuiInputBase-fullWidth-47 MuiInputBase-formControl-39 MuiInputBase-marginDense-45"
     >
       <fieldset
         aria-hidden="true"
-        class="MuiPrivateNotchedOutline-root-58 MuiOutlinedInput-notchedOutline-35"
+        class="MuiPrivateNotchedOutline-root-55 MuiOutlinedInput-notchedOutline-32"
         style="padding-left:8px"
       >
         <legend
-          class="MuiPrivateNotchedOutline-legend-59"
+          class="MuiPrivateNotchedOutline-legend-56"
           style="width:0"
         >
           <span>
@@ -73,12 +75,12 @@ exports[`...renders the TodoForm  1`] = `
         </legend>
       </fieldset>
       <div
-        class="MuiSelect-root-60"
+        class="MuiSelect-root-57"
       >
         <div
           aria-haspopup="true"
           aria-pressed="false"
-          class="MuiSelect-select-61 MuiSelect-selectMenu-64 MuiSelect-outlined-63 MuiInputBase-input-51 MuiOutlinedInput-input-36 MuiInputBase-inputMarginDense-52 MuiOutlinedInput-inputMarginDense-37"
+          class="MuiSelect-select-58 MuiSelect-selectMenu-61 MuiSelect-outlined-60 MuiInputBase-input-48 MuiOutlinedInput-input-33 MuiInputBase-inputMarginDense-49 MuiOutlinedInput-inputMarginDense-34"
           role="button"
           tabindex="0"
         >
@@ -92,7 +94,7 @@ exports[`...renders the TodoForm  1`] = `
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root-67 MuiSelect-icon-66"
+          class="MuiSvgIcon-root-64 MuiSelect-icon-63"
           focusable="false"
           role="presentation"
           viewBox="0 0 24 24"
@@ -105,24 +107,25 @@ exports[`...renders the TodoForm  1`] = `
     </div>
   </div>
   <div
-    class="MuiFormControl-root-6 MuiFormControl-marginDense-8 MuiFormControl-fullWidth-9 TodoForm-datePick-2"
+    class="MuiFormControl-root-3 MuiFormControl-marginDense-5 MuiFormControl-fullWidth-6"
+    style="grid-area:date"
   >
     <label
-      class="MuiFormLabel-root-21 MuiFormLabel-filled-25 MuiInputLabel-root-10 MuiInputLabel-formControl-15 MuiInputLabel-animated-18 MuiInputLabel-shrink-17 MuiInputLabel-marginDense-16 MuiInputLabel-outlined-20"
+      class="MuiFormLabel-root-18 MuiFormLabel-filled-22 MuiInputLabel-root-7 MuiInputLabel-formControl-12 MuiInputLabel-animated-15 MuiInputLabel-shrink-14 MuiInputLabel-marginDense-13 MuiInputLabel-outlined-17"
       data-shrink="true"
     >
       set due date
     </label>
     <div
-      class="MuiInputBase-root-41 MuiOutlinedInput-root-28 MuiInputBase-fullWidth-50 MuiInputBase-formControl-42 MuiInputBase-marginDense-48"
+      class="MuiInputBase-root-38 MuiOutlinedInput-root-25 MuiInputBase-fullWidth-47 MuiInputBase-formControl-39 MuiInputBase-marginDense-45"
     >
       <fieldset
         aria-hidden="true"
-        class="MuiPrivateNotchedOutline-root-58 MuiOutlinedInput-notchedOutline-35"
+        class="MuiPrivateNotchedOutline-root-55 MuiOutlinedInput-notchedOutline-32"
         style="padding-left:8px"
       >
         <legend
-          class="MuiPrivateNotchedOutline-legend-59"
+          class="MuiPrivateNotchedOutline-legend-56"
           style="width:0"
         >
           <span>
@@ -132,20 +135,20 @@ exports[`...renders the TodoForm  1`] = `
       </fieldset>
       <input
         aria-invalid="false"
-        class="MuiInputBase-input-51 MuiOutlinedInput-input-36 MuiInputBase-inputType-54 MuiInputBase-inputMarginDense-52 MuiOutlinedInput-inputMarginDense-37"
+        class="MuiInputBase-input-48 MuiOutlinedInput-input-33 MuiInputBase-inputType-51 MuiInputBase-inputMarginDense-49 MuiOutlinedInput-inputMarginDense-34"
         name="date"
         type="date"
-        value="2018-12-18"
+        value="2018-12-19"
       />
     </div>
   </div>
   <button
-    class="MuiButtonBase-root-106 MuiButton-root-80 MuiButton-contained-91 MuiButton-containedSecondary-93 MuiButton-raised-94 MuiButton-raisedSecondary-96 TodoForm-button-1"
+    class="MuiButtonBase-root-103 MuiButton-root-77 MuiButton-contained-88 MuiButton-containedSecondary-90 MuiButton-raised-91 MuiButton-raisedSecondary-93 TodoForm-button-1"
     tabindex="0"
     type="submit"
   >
     <span
-      class="MuiButton-label-81"
+      class="MuiButton-label-78"
     >
       Add
     </span>

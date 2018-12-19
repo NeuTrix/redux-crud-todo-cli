@@ -2,18 +2,18 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 
-const DatePicker = props => (
+const TaskEntry = props => (
 	<TextField
 		{...props}
 		fullWidth
-		label="set due date"
+		label="enter new task"
 		margin="dense"
-		name="date"
-		type="date"
+		name="task"
+		type="text"
 		variant="outlined"
 	/>
 );
 
-// DatePicker.propTypes = propTypes;
+// TaskEntry.propTypes = propTypes;
 
-export default DatePicker;
+export default TaskEntry;

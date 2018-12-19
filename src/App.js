@@ -15,7 +15,7 @@ import NavBar from './components/main/NavBar';
 // import RegisterPage from './components/auth/RegisterPage';
 import RegistrationContainer from './components/auth/RegistrationContainer';
 import requireAuth from './helpers/requireAuth';
-import TodoPage from './components/todos/TodoPage';
+import TodoContainer from './components/todos/TodoContainer';
 
 const propTypes = {
 	authApi: PropTypes.instanceOf(Object).isRequired,
@@ -45,7 +45,7 @@ function App(props) {
 				<Route
 					exact
 					path="/todos"
-					component={requireAuth(ReactDom.render = () => (<TodoPage />))}
+					component={requireAuth(ReactDom.render = () => (<TodoContainer />))}
 				/>
 			</div>
 		</div>
