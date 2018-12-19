@@ -80,17 +80,17 @@ class TodoItem extends Component {
 					onFocus= { this.handleEdit }
 				/>
 
-				{/* <CheckComplete
-					className={classes.checkBox}
-					style = {this.checkStyle}
-					name= 'complete'
+				<CheckComplete
 					_id= { this.props.item._id }
+					className={classes.checkBox}
 					completed= { this.state.completed }
 					editTodo= { this.props.editTodo }
-				/> */}
+					name= 'complete'
+				/>
 
 				<Rank
 					className={classes.rank}
+					disabled= { this.state.completed }
 					value= { this.state.rank }
 					onBlur= { this.handleBlur }
 					onChange= { this.handleChange }
@@ -98,6 +98,7 @@ class TodoItem extends Component {
 
 				<DatePicker 
 					className={classes.datePicker}
+					disabled= { this.state.completed }
 					onBlur= { this.handleBlur }
 					onChange= { this.handleChange }
 					defaultValue= { this.state.date }
