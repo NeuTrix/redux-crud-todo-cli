@@ -126,38 +126,36 @@ class TodoItem extends Component {
 };
 
 const styles = theme => ({
-	// grid: {
-	// 	/* mobile mode */
-	// 	backgroundColor: 'aliceblue',
-	// 	border: '2px solid',
-	// 	borderColor: theme.palette.primary.main,
-	// 	display: 'inline-grid',
-	// 	gridTemplateAreas: `
-	// 		" check task 	task 	task " 
-	// 		" 	.		rank 	date 	dele "
-	// 	`,
-	// 	gridTemplateColumns: '1fr 3fr 4fr 1fr',
-	// 	gridGap: '5px',
-	// 	padding: '10px',
-	// },
+	grid: {
+		/* mobile mode */
+		backgroundColor: 'aliceblue',
+		border: '2px solid',
+		borderColor: theme.palette.primary.main,
+		display: 'inline-grid',
+		gridTemplateAreas: `
+			" check task 	task 	task " 
+			" 	.		rank 	date 	dele "
+		`,
+		gridTemplateColumns: '1fr 3fr 4fr 1fr',
+		gridGap: '5px',
+		padding: '10px',
+	},
 
+	/* iPad mini screen mode */
+	[theme.breakpoints.up('xs')]: {
+		gridGap: '5px',
+		gridTemplateAreas:`
+			" check task rank date dele " 
+		`,
+		gridTemplateColumns: '1fr 8fr 2fr 3fr 1fr',
+	},
 
-		/* iPad mini screen mode */
-		// [theme.breakpoints.up('xs')]: {
-		// 	gridGap: '5px',
-		// 	gridTemplateAreas:`
-		// 		" check task rank date dele " 
-		// 	`,
-		// 	gridTemplateColumns: '1fr 8fr 2fr 3fr 1fr',
-		// }
+	checkBox: {
+		gridArea: 'check',
+		fontSize: '2em',
+	},
 
-// 	checkBox: {
-// 		gridArea: 'check',
-// 		fontSize: '2em',
-// 	},
-
-});
-
+	
 	// const DatePick = styled.input `
 	// 	grid-area: date,
 	// 	text-indent: 10px,
@@ -167,7 +165,8 @@ const styles = theme => ({
 	// 	grid-area: dele,
 	// 	font-size: 2em,
 	// `,
-
+	
+});
 	// const Rank = styled.select `
 	// 	grid-area: rank,
 	// `,

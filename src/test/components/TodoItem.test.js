@@ -8,18 +8,28 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from '../../store/store';
 import { expect } from 'chai';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 // custom
 import TodoItem from '../../components/todos/TodoItem';
 
 it('renders without crashing', () => {
 	const div = document.createElement('div');
 	ReactDOM.render(
-		<Provider store = { store } >
+		<Provider store={ store }>
 			<TodoItem />
 		</Provider>
-		, div
+		, div,
 	);
+});
+
+xdescribe('...the snapshot is consistent', () => {
+	const wrapper = render(
+			<TodoItem/>
+	);
+
+	it('...renders the login form', () => {
+		expect(wrapper).toMatchSnapshot();
+	});
 });
 
 describe('The TodoItem Component', () => {
