@@ -6,9 +6,6 @@ import styled from 'styled-components';
 
 const Glyph = styled.i`
 	color: #00cc00;  
-	font-size: 1.5em ;
-	justify-self: center; 
-	align-self: center;
 `;
 
 // +++++++++ COMPONENT +++++++++
@@ -44,8 +41,8 @@ class CheckComplete extends Component {
 				className={`${this.props.className} ctr`}
 				onClick={this.handleToggle}
 			> 
-{' '}
-{ this.state.completed ? checked : unchecked }
+				{' '}
+				{ this.state.completed ? checked : unchecked }
 			</div>
 		);
 	}

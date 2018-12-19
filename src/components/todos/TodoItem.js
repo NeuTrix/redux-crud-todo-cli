@@ -21,12 +21,13 @@ class TodoItem extends Component {
 	constructor(props) {
 		super(props);
 		const { item } = this.props;
+		console.log('*****',item);
 		this.state = {
+			_id: item._id || '',
 			completed: item.completed,
 			date: item.date.slice(0, 10) || '',
 			rank: item.rank || '',
 			task: item.task || '',
-			_id: item._id || '',
 		};
 
 		this.handleBlur = this.handleBlur.bind(this);
@@ -39,6 +40,7 @@ class TodoItem extends Component {
 		const { editTodo, item } = this.props;
 		e.preventDefault();
 		editTodo(item._id, this.state);
+		// this.setState({ [e.target.name]: e.target.value });
 	}
 
 	handleChange(e) {
@@ -49,12 +51,13 @@ class TodoItem extends Component {
 	handleEdit(e) {
 		e.preventDefault();
 		e.target.setSelectionRange(0, e.target.value.length);
-		this.setState({ [e.target.name]: e.target.value });
+		// this.setState({ [e.target.name]: e.target.value });
 	}
 
 	handleSubmit(e) {
 		const { editTodo, item } = this.props;
 		e.preventDefault();
+		// this.setState({ [e.target.name]: e.target.value });		
 		editTodo(item._id, this.state);
 	}
 
@@ -100,7 +103,7 @@ class TodoItem extends Component {
 				<DatePicker
 					className={classes.datePicker}
 					disabled={completed}
-					defaultValue={date}
+					value={date}
 					onBlur={this.handleBlur}
 					onChange={this.handleChange}
 				/>
@@ -120,8 +123,9 @@ class TodoItem extends Component {
 const styles = theme => ({
 
 	checkBox: {
-		fontSize: '2em',
+		display: 'inline-grid',
 		gridArea: 'check',
+		placeContent: 'center',
 	},
 
 	datePicker: {
@@ -134,7 +138,7 @@ const styles = theme => ({
 		border: '2px solid',
 		borderColor: theme.palette.primary.main,
 		borderRadius: 5,
-		display: 'grid',
+		display: 'inline-grid',
 		gridGap: '5px',
 		gridTemplateAreas: `
 			" check task task " 

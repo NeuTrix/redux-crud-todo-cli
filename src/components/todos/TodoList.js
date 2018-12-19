@@ -32,6 +32,7 @@ class TodoList extends Component {
 		// generate list of today items for display
 		const todos = todoArray.map(item => (
 			<TodoItem
+				// {...props}
 				key={shortid.generate()}
 				item={item}
 				deleteTodo={deleteTodo}
