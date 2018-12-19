@@ -12,6 +12,7 @@ const Rank = (props) => {
 
 	return (
 		<TextField
+			{...props} // allow props to pass to wrapped component
 			fullWidth
 			id="new_item_priority"
 			label="set rank"
