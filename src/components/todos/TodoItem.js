@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { withStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 //  custom
 import CheckComplete from '../buttons/CheckComplete';
 import DatePicker from './DatePicker';
-import DeleteBtn from '../buttons/DeleteBtn';
+import DeleteButton from '../buttons/DeleteButton';
 import Rank	from './Rank';
 import TaskEntry from './TaskEntry';
-import { media } from '../../helpers/cssConstants';
+// import { media } from '../../helpers/cssConstants';
 
 const propTypes = {
 	classes: PropTypes.instanceOf(Object).isRequired,
@@ -21,9 +20,7 @@ const propTypes = {
 const defaultProps = {
 	deleteTodo: f => alert("default function triggered"),
 	editTodo: f => alert("default function triggered"),
-	item: {
-		date: '2020-11-04'
-	}
+	item: {date: '2020-11-04'},
 };
 
 class TodoItem extends Component {
@@ -66,7 +63,7 @@ class TodoItem extends Component {
 
 	render () {
 		const { task, _id } = this.state
-		const { className, classes } = this.props
+		const { classes } = this.props
 
 		return (
 			<FormControl 
@@ -106,30 +103,30 @@ class TodoItem extends Component {
 					defaultValue= { this.state.date }
 				/>
 
-				{/* <Delete
-					className= '_delete'
-					name= 'delete'
-					type= 'button'
-					task= { task }
-					_id = { _id }
-					deleteTodo= { this.props.deleteTodo }
-					/>  */}
+				<DeleteButton
+					// className={classes.delete}
+					style={{ gridArea:'delete'}}
+					task={ task }
+					_id={ _id }
+					deleteTodo={ this.props.deleteTodo }
+				/> 
 			</FormControl>
 		)
 	}
 };
 
 const styles = theme => ({
+	
 	grid: {
 		/* mobile mode */
 		backgroundColor: 'aliceblue',
 		border: '2px solid',
 		borderColor: theme.palette.primary.main,
 		borderRadius: 5,
-		display: 'inline-grid',
+		display: 'grid',
 		gridTemplateAreas: `
 			" check task 	task " 
-			" rank	date 	dele "
+			" rank	date 	delete "
 		`,
 		gridTemplateColumns: '1fr 4fr 1fr',
 		gridGap: '5px',
@@ -140,7 +137,7 @@ const styles = theme => ({
 	[theme.breakpoints.up('xs')]: {
 		gridGap: '5px',
 		gridTemplateAreas:`
-			" check task rank date dele " 
+			" check task rank date delete " 
 		`,
 		gridTemplateColumns: '1fr 8fr 2fr 3fr 1fr',
 	},
@@ -154,7 +151,7 @@ const styles = theme => ({
 		gridArea: 'date',
 		background: 'white'
 	},
-
+	
 	rank: {
 		gridArea: 'rank',
 		background: 'white'
@@ -164,34 +161,16 @@ const styles = theme => ({
 		gridArea: 'task',
 		background: 'white'
 		// style for completed state
+		// 	${ ({ isComplete }) => isComplete && `
+		// color: lightgrey,
+		// text - decoration: line - through,
+		// background - color: whitesmoke,
+		// `}
 	},
-
 	
-	// const DatePick = styled.input `
-	// 	grid-area: date,
-	// 	text-indent: 10px,
-	// `,
-	// const Delete = styled(DeleteBtn)
-	// `
-	// 	grid-area: dele,
-	// 	font-size: 2em,
-	// `,
-	
-	// const Rank = styled.select `
-	// 	grid-area: rank,
-	// `,
-	
-
-	
-	// 	${ ({ isComplete }) => isComplete && `
-	// color: lightgrey,
-	// text - decoration: line - through,
-	// background - color: whitesmoke,
-	// `}
 });
 
 TodoItem.propTypes = propTypes;
 TodoItem.defaultProps = defaultProps;
 
 export default withStyles(styles)(TodoItem);
-

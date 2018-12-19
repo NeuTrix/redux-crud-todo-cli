@@ -105,8 +105,8 @@ describe('The TodoItem Component', () => {
 			expect(Object.keys(checkboxes.props()).length).to.eql(4);
 		});
 
-		xit ('always renders a DeleteBtn component ', () => {
-			const deleteBtn = todoItem().find('DeleteBtn');
+		xit ('always renders a DeleteButton component ', () => {
+			const deleteBtn = todoItem().find('DeleteButton');
 			expect(deleteBtn.length).to.be.eql(1);
 		});
 	});
