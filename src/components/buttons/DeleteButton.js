@@ -25,7 +25,7 @@ const DeleteButton = (props) => {
 	return (
 		<Button
 			{...props}
-			className={classes.button}
+			className={classes.root}
 			// color="primary"
 			component="button"
 			name="delete"
@@ -39,7 +39,7 @@ const DeleteButton = (props) => {
 };
 
 const styles = {
-	button: {
+	root: {
 		background: 'pink',
 		color: 'maroon',
 		height: '80%',
