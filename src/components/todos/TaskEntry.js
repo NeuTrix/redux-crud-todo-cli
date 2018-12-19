@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 
 const TaskEntry = props => (
@@ -13,7 +12,5 @@ const TaskEntry = props => (
 		variant="outlined"
 	/>
 );
-
-// TaskEntry.propTypes = propTypes;
 
 export default TaskEntry;
