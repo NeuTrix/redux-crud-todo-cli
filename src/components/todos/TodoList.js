@@ -1,28 +1,23 @@
 import React, { Component } from 'react';
-import shortid from 'shortid';
-import styled from 'styled-components';
-// custom
 import PropTypes from 'prop-types';
+import shortid from 'shortid';
+import { withStyles } from '@material-ui/core/styles';
 import TodoItem from './TodoItem';
 
-// +++++++++ CSS +++++++++
-
-const Grid = styled.div`
-	display: grid;
-	grid-template-areas: " todoItems ";
-	grid-template-columns: 1fr;
-	grid-template-rows: auto;
-	grid-row-gap: 10px;
-`;
-
-// +++++++++ COMPONENT  +++++++++
+const propTypes = {
+	classes: PropTypes.instanceOf(Object).isRequired,
+	deleteTodo: PropTypes.func.isRequired,
+	editTodo: PropTypes.func.isRequired,
+	todoArray: PropTypes.array.isRequired,
+};
 
 class TodoList extends Component {
 
 	constructor(props) {
 		super(props);
+		const { todoArray } = this.props;
 		this.state = {
-			todoArray: this.props.todoArray,
+			todoArray: todoArray || [],
 		};
 	}
 
@@ -32,6 +27,7 @@ class TodoList extends Component {
 
 	render() {
 		const _todoArray = this.state.todoArray;
+		const { classes } = this.props;
 
 		const todos = _todoArray.map(item => (
 			<TodoItem
@@ -43,27 +39,24 @@ class TodoList extends Component {
 		));
 
 		return (
-			<Grid
-				className={`TodoList ${this.props.className} `}
-			>
+			<div className={classes.list}>
 				{ todos.reverse() }
-			</Grid>
+			</div>
 		);
 	}
 }
 
-// +++++++++ PROPS +++++++++
+const styles = theme => ({
+	list: {
+		display: 'inline-grid',
+		gridTemplateAreas: `
+			" todoItems "
+		`,
+		gridTemplateColumns: '1fr',
+		gridRowGap: '10px', 
+	}
+});
 
-TodoList.propTypes = {
-	todoArray: PropTypes.array.isRequired,
-	deleteTodo: PropTypes.func.isRequired,
-	editTodo: PropTypes.func.isRequired,
-};
+TodoList.propTypes = propTypes;
 
-TodoList.defaultProps = {
-	todoArray: [],
-	deleteTodo: f => alert('default function.  check component props'),
-	editTodo: f => alert('default function.  check component props'),
-};
-
-export default TodoList;
+export default withStyles(styles)(TodoList);
