@@ -71,15 +71,14 @@ class TodoItem extends Component {
 				className= {classes.grid} 
 				onSubmit= { this.handleSubmit } 
 			>
-				{/* <TaskEntry
+				<TaskEntry
 					className={classes.task}
-					isComplete= { this.state.completed }
 					disabled= { this.state.completed }
-					defaultValue= { this.state.task }
+					value= { this.state.task }
 					onBlur= { this.handleBlur }
 					onChange= { this.handleChange }
 					onFocus= { this.handleEdit }
-				/> */}
+				/>
 
 				{/* <CheckComplete
 					className={classes.checkBox}
@@ -155,6 +154,12 @@ const styles = theme => ({
 		fontSize: '2em',
 	},
 
+	task: {
+		gridArea: 'task',
+		background: 'white'
+		// style for completed state
+	},
+
 	
 	// const DatePick = styled.input `
 	// 	grid-area: date,
@@ -166,20 +171,18 @@ const styles = theme => ({
 	// 	font-size: 2em,
 	// `,
 	
-});
 	// const Rank = styled.select `
 	// 	grid-area: rank,
 	// `,
+	
 
-	// const Task = styled.input `
-	// 	grid-area: task,
-	// 	text-indent: 10px,
-
+	
 	// 	${ ({ isComplete }) => isComplete && `
 	// color: lightgrey,
 	// text - decoration: line - through,
 	// background - color: whitesmoke,
 	// `}
+});
 
 TodoItem.propTypes = propTypes;
 TodoItem.defaultProps = defaultProps;
