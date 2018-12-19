@@ -7,6 +7,7 @@ import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 // custom
 import normalizeDate from '../../helpers/normalizeDate';
+import Rank from './Rank';
 
 const propTypes = {
 	classes: PropTypes.instanceOf(Object).isRequired,
@@ -58,7 +59,6 @@ class TodoForm extends Component {
 				<TextField
 					className={classes.task}
 					fullWidth
-					id="new_item_task"
 					label="enter new task"
 					margin="dense"
 					name="task"
@@ -68,26 +68,13 @@ class TodoForm extends Component {
 					variant="outlined"
 					onChange={this.handleChange}
 				/>
-				<TextField
+				<Rank
 					className={classes.rank}
-					fullWidth
-					id="new_item_priority"
-					label="set rank"
-					margin="dense"
-					name="rank"
-					select
-					value={rank}
-					variant="outlined"
-					onChange={this.handleChange}
-				>
-					<option value="High">High</option>
-					<option value="Med">Med</option>
-					<option value="Low">Low</option>
-				</TextField>
-
+					rank={rank}
+					handleChange={this.handleChange}
+				/>
 				<TextField
 					className={classes.datePick}
-					id="new_item_date"
 					fullWidth
 					label="set due date"
 					margin="dense"
@@ -97,11 +84,9 @@ class TodoForm extends Component {
 					variant="outlined"
 					onChange={this.handleChange}
 				/>
-
 				<Button
 					className={classes.button}
 					component="button"
-					id="new_item_submit"
 					color="secondary"
 					type="submit"
 					variant="contained"
