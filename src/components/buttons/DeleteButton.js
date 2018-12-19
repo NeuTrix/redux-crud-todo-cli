@@ -42,8 +42,8 @@ const styles = {
 	root: {
 		background: 'pink',
 		color: 'maroon',
-		height: '80%',
-		marginTop: 5,
+		height: '75%',
+		marginTop: 10,
 	},
 };
 
