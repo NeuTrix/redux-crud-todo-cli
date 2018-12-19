@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
 
 import normalizeDate from '../../helpers/normalizeDate';
@@ -63,7 +64,6 @@ class TodoForm extends Component {
 					variant="outlined"
 					onChange={this.handleChange}
 				/>
-
 				<TextField
 					className={classes.rank}
 					fullWidth
@@ -87,6 +87,7 @@ class TodoForm extends Component {
 					label="set due date"
 					margin="dense"
 					name="date"
+					// style={{background:'orange', padding: 10}}
 					type="date"
 					value={date}
 					onChange={this.handleChange}
@@ -115,14 +116,7 @@ const styles = theme => ({
 	},
 
 	datePick: {
-		flexDirection: 'unset',
 		gridArea: 'date',
-	},
-
-	glyph: {
-		color: 'aliceblue',
-		fontSize: '1.5em',
-		gridArea: 'glyph',
 	},
 
 	grid: {
@@ -143,17 +137,18 @@ const styles = theme => ({
 
 	menu: {
 		background: 'orange',
-		width: 200,
+		color: 'orange',
 	},
 
 	rank: {
 		gridArea: 'rank',
+
 	},
 
 	task: {
 		gridArea: 'task',
 		marginBottom: 10,
-		textIndent: 10,
+		textIndent: 5,
 	},
 });
 
