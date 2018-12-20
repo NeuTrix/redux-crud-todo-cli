@@ -28,7 +28,6 @@ const DeleteButton = (props) => {
 			className={classes.root}
 			component="button"
 			name="delete"
-			// type="submit"
 			variant="contained"
 			onClick={handleDelete}
 		>
