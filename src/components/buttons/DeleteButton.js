@@ -11,14 +11,14 @@ const propTypes = {
 };
 
 const DeleteButton = (props) => {
-	const { classes } = props;
+	const { classes, deleteTodo, _id, task } = props;
 	const handleDelete = (e) => {
 		e.preventDefault();
 		// allow restricted global use of `confirm`
 		// eslint-disable-next-line
-		let _confirmed = confirm(`Do you want to delete the task : \n\t  "${props.task}" ?` ) 
+		let _confirmed = confirm(`Do you want to delete the task : \n\t  "${task}" ?` ) 
 		if (_confirmed) {
-			props.deleteTodo(props._id);
+			deleteTodo(_id);
 		}
 	};
 

@@ -17,6 +17,8 @@ const propTypes = {
 };
 
 const defaultProps = {
+	deleteTodo: f => f,
+	editTodo: f => f,
 	item: {
 		_id: 'placeholder',
 		date: '1963-12-14',

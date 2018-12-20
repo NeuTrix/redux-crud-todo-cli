@@ -17,13 +17,9 @@ it('', () => {
 });
 it('renders without crashing', () => {
 	const div = document.createElement('div');
-	const props = {
-		deleteTodo: f => f,
-		editTodo: f => f,
-	}
 	ReactDOM.render(
 		<Provider store={ store }>
-			<TodoItem/>
+			<TodoItem />
 		</Provider>
 		, div,
 	);
