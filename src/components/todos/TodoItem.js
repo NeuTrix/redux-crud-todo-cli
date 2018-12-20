@@ -15,15 +15,15 @@ const propTypes = {
 	editTodo: PropTypes.func.isRequired,
 	item: PropTypes.instanceOf(Object).isRequired,
 };
-
+// currently need to prevent `undefined` errors on `item`
 const defaultProps = {
 	deleteTodo: f => f,
 	editTodo: f => f,
 	item: {
 		_id: 'placeholder',
 		date: '1963-12-14',
-	}
-}
+	},
+};
 
 class TodoItem extends Component {
 
@@ -49,7 +49,6 @@ class TodoItem extends Component {
 		const { editTodo, item } = this.props;
 		e.preventDefault();
 		editTodo(item._id, this.state);
-		// this.setState({ [e.target.name]: e.target.value });
 	}
 
 	handleChange(e) {
@@ -66,7 +65,6 @@ class TodoItem extends Component {
 	handleSubmit(e) {
 		const { editTodo, item } = this.props;
 		e.preventDefault();
-		// this.setState({ [e.target.name]: e.target.value });		
 		editTodo(item._id, this.state);
 	}
 
@@ -90,8 +88,6 @@ class TodoItem extends Component {
 					label="edit task"
 					value={task}
 					onBlur={this.handleBlur}
-					// onClick={this.handleBlur}
-					onSubmit={this.handleSubmit}
 					onChange={this.handleChange}
 					onFocus={this.handleEdit}
 				/>
@@ -133,7 +129,6 @@ class TodoItem extends Component {
 }
 
 const styles = theme => ({
-
 	checkBox: {
 		display: 'inline-grid',
 		gridArea: 'check',
