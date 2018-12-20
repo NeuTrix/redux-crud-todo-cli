@@ -26,10 +26,9 @@ const DeleteButton = (props) => {
 		<Button
 			{...props}
 			className={classes.root}
-			// color="primary"
 			component="button"
 			name="delete"
-			type="submit"
+			// type="submit"
 			variant="contained"
 			onClick={handleDelete}
 		>

@@ -60,7 +60,7 @@ class TodoItem extends Component {
 	handleEdit(e) {
 		e.preventDefault();
 		e.target.setSelectionRange(0, e.target.value.length);
-		// this.setState({ [e.target.name]: e.target.value });
+		this.setState({ [e.target.name]: e.target.value });
 	}
 
 	handleSubmit(e) {
@@ -81,6 +81,7 @@ class TodoItem extends Component {
 		return (
 			<FormControl
 				className={classes.grid}
+				component="form"
 				onSubmit={this.handleSubmit}
 			>
 				<TaskEntry
@@ -89,6 +90,8 @@ class TodoItem extends Component {
 					label="edit task"
 					value={task}
 					onBlur={this.handleBlur}
+					// onClick={this.handleBlur}
+					onSubmit={this.handleSubmit}
 					onChange={this.handleChange}
 					onFocus={this.handleEdit}
 				/>
