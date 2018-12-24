@@ -11,7 +11,12 @@ const propTypes = {
 };
 
 const DeleteButton = (props) => {
-	const { classes, deleteTodo, _id, task } = props;
+	const {
+		classes, 
+		deleteTodo, 
+		_id, 
+		task,
+	} = props;
 	const handleDelete = (e) => {
 		e.preventDefault();
 		// allow restricted global use of `confirm`
