@@ -138,7 +138,7 @@ exports[`...renders the TodoForm  1`] = `
         class="MuiInputBase-input-48 MuiOutlinedInput-input-33 MuiInputBase-inputType-51 MuiInputBase-inputMarginDense-49 MuiOutlinedInput-inputMarginDense-34"
         name="date"
         type="date"
-        value="2018-12-19"
+        value="2018-12-24"
       />
     </div>
   </div>

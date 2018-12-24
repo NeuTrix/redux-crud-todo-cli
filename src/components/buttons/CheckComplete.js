@@ -20,16 +20,16 @@ class CheckComplete extends Component {
 
 	handleToggle(e) {
 		e.preventDefault();
-		
+
 		this.props.editTodo(
 			this.props._id,
-			{ completed: !this.state.completed }
+			{ completed: !this.state.completed },
 		);
 	}
 
 	render() {
 		const checked = (
-			<Glyph className='engr ctr fa fa-check-square-o fa-2x' />
+			<Glyph className="engr ctr fa fa-check-square-o fa-2x" />
 		);
 
 		const unchecked = (
@@ -40,7 +40,7 @@ class CheckComplete extends Component {
 			<div
 				className={`${this.props.className} ctr`}
 				onClick={this.handleToggle}
-			> 
+			>
 				{' '}
 				{ this.state.completed ? checked : unchecked }
 			</div>

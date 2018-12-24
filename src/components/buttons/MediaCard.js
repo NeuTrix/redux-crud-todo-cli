@@ -24,14 +24,20 @@ const defaultProps = {
 };
 
 function MediaCard(props) {
-	const { classes, label, height, imageUrl, width } = props;
+	const {
+		classes,
+		label,
+		height,
+		imageUrl,
+		width,
+	} = props;
 	return (
 		<Card className={classes.card}>
 			<CardActionArea className={classes.actionArea}>
 				<CardMedia
 					className={classes.media}
 					image={imageUrl}
-					style={{width:width, height: height}}
+					style={{ width, height }}
 					title="Contemplative Reptile"
 				/>
 				<CardContent className={classes.cardContent}>
@@ -77,7 +83,7 @@ const styles = theme => ({
 	titles: {
 		color: 'white',
 		height: 20,
-	}
+	},
 });
 MediaCard.propTypes = propTypes;
 MediaCard.defaultProps = defaultProps;

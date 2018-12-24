@@ -47,7 +47,7 @@ class NavBar extends Component {
 			width,
 		} = this.props;
 
-		const displayDrawer = width === 'xs' ? 'top' : 'right'
+		const displayDrawer = width === 'xs' ? 'top' : 'right';
 		// const test= 9;
 		return (
 			<div className={`NavBar ${classes.root}`}>
