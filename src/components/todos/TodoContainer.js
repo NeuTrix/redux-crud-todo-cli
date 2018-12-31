@@ -79,12 +79,11 @@ class TodoContainer extends Component {
 const styles = {
 	grid: {
 		display: 'inline-grid',
-		// gridAutoRows: 'auto',
 		gridTemplateAreas: `
       "taskCounter"
       "todoForm"
       "todoList"
-    `,
+		`,
 	},
 	taskCounter: {
 		gridArea: 'taskCounter',

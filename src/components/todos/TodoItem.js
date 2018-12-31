@@ -153,6 +153,8 @@ const styles = theme => ({
 		`,
 		gridTemplateColumns: '1fr 4fr 1fr',
 		padding: '10px',
+		width: '100%',
+		// width: 575,
 	},
 
 	[theme.breakpoints.up('xs')]: {

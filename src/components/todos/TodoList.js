@@ -32,7 +32,6 @@ class TodoList extends Component {
 		// generate list of today items for display
 		const todos = todoArray.map(item => (
 			<TodoItem
-				// {...props}
 				key={shortid.generate()}
 				item={item}
 				deleteTodo={deleteTodo}
@@ -41,7 +40,7 @@ class TodoList extends Component {
 		));
 
 		return (
-			<div className={classes.list}>
+			<div className={classes.grid}>
 				{ todos.reverse() }
 			</div>
 		);
@@ -49,13 +48,14 @@ class TodoList extends Component {
 }
 
 const styles = {
-	list: {
+	grid: {
 		display: 'inline-grid',
 		gridRowGap: '10px',
 		gridTemplateAreas: `
 			" todoItems "
 		`,
 		gridTemplateColumns: '1fr',
+		width: '100%',
 	},
 };
 
