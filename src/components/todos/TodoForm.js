@@ -103,6 +103,7 @@ const styles = theme => ({
 		`,
 		gridTemplateColumns: '2fr 4fr 1fr',
 		marginBottom: 20,
+		width: '100%',
 		padding: 10,
 		placeItems: 'center',
 	},
