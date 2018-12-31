@@ -14,7 +14,7 @@ const Rank = (props) => {
 			{...props} // allow props to pass to wrapped component
 			fullWidth
 			id="new_item_priority"
-			label="set rank"
+			label="rank"
 			margin="dense"
 			name="rank"
 			select
