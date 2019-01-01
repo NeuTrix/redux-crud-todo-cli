@@ -16,6 +16,14 @@ const Rank = (props) => {
 			InputLabelProps={{
 				className:classes.label,
 			}}
+			SelectProps={{
+				MenuProps: {
+						MenuListProps:
+								{
+							style: {background: 'orangered'}
+						},
+				},
+			}}
 			fullWidth
 			id="new_item_priority"
 			label="rank"
