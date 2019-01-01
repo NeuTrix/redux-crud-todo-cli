@@ -148,13 +148,12 @@ const styles = theme => ({
 		display: 'inline-grid',
 		gridGap: '5px',
 		gridTemplateAreas: `
-			" check task task " 
+			" task task check"
 			" rank date delete "
 		`,
-		gridTemplateColumns: '1fr 4fr 1fr',
+		gridTemplateColumns: '2fr 4fr 1fr',
 		padding: '10px',
 		width: '100%',
-		// width: 575,
 	},
 
 	[theme.breakpoints.up('xs')]: {
