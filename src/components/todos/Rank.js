@@ -14,13 +14,13 @@ const Rank = (props) => {
 		<TextField
 			{...props} // allow props to pass to wrapped component
 			InputLabelProps={{
-				className:classes.label,
+				className: classes.label,
 			}}
 			SelectProps={{
 				MenuProps: {
 						MenuListProps:
 								{
-							style: {background: 'orangered'}
+							className: classes.menulist,
 						},
 				},
 			}}
@@ -42,6 +42,10 @@ const Rank = (props) => {
 
 const styles = {
 	label: {
+		color: 'orangered',
+	},
+	menulist: {
+		background: 'lime',
 		color: 'orangered',
 	},
 };
