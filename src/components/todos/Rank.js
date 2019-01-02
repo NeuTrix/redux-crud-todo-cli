@@ -16,7 +16,10 @@ const Rank = (props) => {
 			InputLabelProps={{ className: classes.label }}
 			SelectProps={{
 				MenuProps: {
-					MenuListProps: { className: classes.menulist } },
+					MenuListProps: {
+						className: classes.menulist,
+					},
+				},
 			}}
 			fullWidth
 			id="new_item_priority"
@@ -27,23 +30,24 @@ const Rank = (props) => {
 			value={value}
 			variant="outlined"
 		>
-			<option value="High">High</option>
-			<option value="Med">Med</option>
-			<option value="Low">Low</option>
+			<option className={classes.option} value="High">High</option>
+			<option className={classes.option} value="Med">Med</option>
+			<option className={classes.option} value="Low">Low</option>
 		</TextField>
 	);
 };
 
-const styles = {
+const styles = theme => ({
 	label: {
 		color: 'orangered',
 	},
 	menulist: {
-		background: 'lime',
-		font: 'inherit',
-		// fontSize: '0.8em',
+		fontFamily: theme.typography.fontFamily,
 	},
-};
+	option: {
+		textIndent: theme.spacing.unit * 2,
+	},
+});
 
 Rank.propTypes = propTypes;
 
