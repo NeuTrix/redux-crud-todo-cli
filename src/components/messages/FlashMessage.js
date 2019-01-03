@@ -19,7 +19,7 @@ const Flash = styled.div`
 	border-radius: 5px;
 	height: 100px;
 	width: 300px;
-	opacity: .85;
+	opacity: .90;
 	z-index: -10;
 	
 	animation: fadein 1s;
@@ -99,7 +99,7 @@ class FlashMessage extends Component {
 	render() {
 		const { type, text } = this.props.message;
 
-		setTimeout(this.closeMessage, 7000);
+		setTimeout(this.closeMessage, 10000);
 
 		return (
 
@@ -108,10 +108,7 @@ class FlashMessage extends Component {
 				type={type}
 			>
 				<Message>
-					{' '}
 					{text}
-					{' '}
-
 				</Message>
 				<Clear
 					className="close btn fa fa-times"

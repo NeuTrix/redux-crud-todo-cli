@@ -28,22 +28,20 @@ const mapStateToProps = state => ({
 });
 
 function App(props) {
-	const { authApi, logout, classes } = props;
+	// logout must be passed in through redux map-to-props
+	const { authApi, classes, logout } = props;
 	const isAuth = authApi.isAuthenticated;
-	const testMessages = [ 'One', 'Two', 'Three'].reverse().map(msg => {
-		return (<div className={classes.test}>
-					{msg}
-			</div>)
-	})
 
 	return (
 		<div className={`grid ${classes.grid}`}>
 			<CssBaseline />
+
 			<NavBar isAuth={isAuth} logout={logout} />
+
 			<div className={classes.messages}>
 				<FlashMessageList />
 			</div>
-		
+
 			<div className={classes.main}>
 				<Route exact path="/" render={() => <Home authorized={isAuth} />} />
 				<Route path="/login" component={LoginContainer} />
@@ -58,58 +56,34 @@ function App(props) {
 	);
 }
 
-const styles = () => ({
+const styles = theme => ({
 	grid: {
 		display: 'grid',
-		fontFamily: 'arial',
-		gridGap: '10px',
+		fontFamily: theme.typography.fontFamily,
+		gridGap: theme.spacing.unit,
 		gridTemplateAreas: ` 
 			"main" 
 		`,
-		// gridTemplateColumns: '1fr 9fr',
 		marginTop: '50px',
 		padding: '0px 10px 0px 10px',
 	},
+
 	main: {
 		display: 'grid',
 		gridArea: 'main',
 		justifyContent: 'center',
-		paddingTop: 40,
+		paddingTop: theme.spacing.unit * 5,
 	},
+
 	messages: {
-		bottom: 10,
-		left: 15,
+		bottom: theme.spacing.unit,
 		display: 'inline-grid',
-		gridArea: 'messages',
-		marginTop: 10,
+		fontFamily: theme.typography.fontFamily,
+		left: theme.spacing.unit * 2,
+		marginTop: theme.spacing.unit,
 		position: 'fixed',
-		zIndex: 10000,
+		zIndex: theme.zIndex.tooltip,
 	},
-
-	msg: {
-		bottom: '10px',
-		display: 'inline-grid',
-		gridArea: 'msg',
-		left: '15px',
-		opacity: '.85',
-		position: 'fixed',
-		zIndex: 10000,
-	},
-
-	test: {
-		width: '200px',
-    background: 'orangered',
-		height: '100px',
-		margin: 5,
-    zIndex: '1000000',
-    boxShadow: 'black',
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: '10px',
-    color: 'white',
-    fontSize: '2em',
-	}
 });
 
 App.propTypes = propTypes;
