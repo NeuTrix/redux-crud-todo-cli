@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { colors } from '../../helpers/cssConstants';
 
-// CSS
+const propTypes = {
+	message: PropTypes.object.isRequired,
+	deleteFlashMessage: PropTypes.func.isRequired,
+};
+
 const Flash = styled.div`
 	display: grid;
 	grid-template-areas: "message clear";
@@ -13,6 +17,9 @@ const Flash = styled.div`
 	border: 1px solid grey;
 	padding: 10px;
 	border-radius: 5px;
+	height: 100px;
+	width: 300px;
+	opacity: .85;
 	z-index: -10;
 	
 	animation: fadein 1s;
@@ -92,7 +99,7 @@ class FlashMessage extends Component {
 	render() {
 		const { type, text } = this.props.message;
 
-		setTimeout(this.closeMessage, 10000);
+		setTimeout(this.closeMessage, 7000);
 
 		return (
 
@@ -115,14 +122,6 @@ class FlashMessage extends Component {
 	}
 }
 
-
-FlashMessage.propTypes = {
-	message: PropTypes.object.isRequired,
-	deleteFlashMessage: PropTypes.func.isRequired,
-};
-
-FlashMessage.defaultProps = {
-	deleteFlashMessage: f => alert('Default fn: deleteFlashMessage'),
-};
+FlashMessage.propTypes = propTypes;
 
 export default FlashMessage;

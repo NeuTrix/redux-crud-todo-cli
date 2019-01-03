@@ -30,6 +30,11 @@ const mapStateToProps = state => ({
 function App(props) {
 	const { authApi, logout, classes } = props;
 	const isAuth = authApi.isAuthenticated;
+	const testMessages = [ 'One', 'Two', 'Three'].reverse().map(msg => {
+		return (<div className={classes.test}>
+					{msg}
+			</div>)
+	})
 
 	return (
 		<div className={`grid ${classes.grid}`}>
@@ -38,6 +43,7 @@ function App(props) {
 			<div className={classes.messages}>
 				<FlashMessageList />
 			</div>
+		
 			<div className={classes.main}>
 				<Route exact path="/" render={() => <Home authorized={isAuth} />} />
 				<Route path="/login" component={LoginContainer} />
@@ -57,10 +63,10 @@ const styles = () => ({
 		display: 'grid',
 		fontFamily: 'arial',
 		gridGap: '10px',
-		gridTemplateAreas: `   
-			" messages "  
-			" main " 
+		gridTemplateAreas: ` 
+			"main" 
 		`,
+		// gridTemplateColumns: '1fr 9fr',
 		marginTop: '50px',
 		padding: '0px 10px 0px 10px',
 	},
@@ -71,9 +77,39 @@ const styles = () => ({
 		paddingTop: 40,
 	},
 	messages: {
+		bottom: 10,
+		left: 15,
+		display: 'inline-grid',
 		gridArea: 'messages',
-		marginTop: 25,
+		marginTop: 10,
+		position: 'fixed',
+		zIndex: 10000,
 	},
+
+	msg: {
+		bottom: '10px',
+		display: 'inline-grid',
+		gridArea: 'msg',
+		left: '15px',
+		opacity: '.85',
+		position: 'fixed',
+		zIndex: 10000,
+	},
+
+	test: {
+		width: '200px',
+    background: 'orangered',
+		height: '100px',
+		margin: 5,
+    zIndex: '1000000',
+    boxShadow: 'black',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: '10px',
+    color: 'white',
+    fontSize: '2em',
+	}
 });
 
 App.propTypes = propTypes;
