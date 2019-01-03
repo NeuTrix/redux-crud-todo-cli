@@ -47,9 +47,6 @@ const styles = theme => ({
 	option: {
 		textIndent: theme.spacing.unit * 2,
 	},
-	// option.selected: {
-	// 	color: 'orangered'.
-	// },
 });
 
 Rank.propTypes = propTypes;
