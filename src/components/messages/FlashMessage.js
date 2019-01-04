@@ -27,16 +27,18 @@ class FlashMessage extends Component {
 
 	render() {
 		const { classes, message } = this.props;
-		setTimeout(this.closeMessage, 100000);
+		setTimeout(this.closeMessage, 1000000);
 		return (
-			<div className={classes.grid} type={message.type}>
-				<Typography
-					className={classes.message}
-					variant="h4"
-				>
-					{message.text}
-				</Typography>
-				<span className={classes.delete} onClick={this.onClick} />
+			<div className={classes[message.type]}>
+					<div className={classes.delete}  onClick={this.onClick} >
+						{'X'}
+					</div>
+					<Typography
+						className={classes.message}
+						variant="body2"
+						>
+						{message.text}
+					</Typography>
 			</div>
 		);
 	}
@@ -46,14 +48,20 @@ const styles = theme => ({
 	grid: {
 		border: '1px solid grey',
 		borderRadius: 5,
-		display: 'grid',
-		gridTemplateAreas: 'message delete',
-		gridTemplateColumns: '9fr 1fr',
+		display: 'inline-flex',
+		// gridTemplateAreas: 'message delete',
+		// gridTemplateColumns: '9fr 1fr',
 		height: theme.spacing.unit * 12,
 		marginTop: theme.spacing.unit,
 		opacity: 0.95,
 		padding: theme.spacing.unit,
 		width: theme.spacing.unit * 36,
+	},
+
+	error: {
+		display: 'inline-flex',
+		background: 'lime',
+		width: '100%',
 	},
 	// animation: fadein 1s,
 	// @keyframes fadein {
@@ -99,9 +107,10 @@ const styles = theme => ({
 
 	delete: {
 		border: 'none',
+		marginRight: theme.spacing.unit,
 		display: 'inherit',
 		fontSize: '1.25em',
-		gridArea: 'clear',
+		gridArea: 'delete',
 		height: 'auto',
 		placeContent: 'center',
 		width: 'auto',
