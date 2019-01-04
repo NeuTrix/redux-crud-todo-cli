@@ -6,30 +6,32 @@ import {
 } from '../actions/typeConstants';
 
 const flashReducer = (state = [], action = {}) => {
-
-	let _pay = action.payload;
+	const _pay = action.payload;
 
 	switch (action.type) {
 	case ADD_FLASH_MESSAGE:
 		return [
-			...state, 
-			{ 
+			...state,
+			{
 				_id: shortid.generate(),
 				type:	_pay.message.type,
-				text: _pay.message.text 
-			}
+				text: _pay.message.text,
+			},
 		];
 
-	case DELETE_FLASH_MESSAGE:
-		return ( 
-			state.length > 1 ?
-				state.filter( msg => msg._id !== _pay._id) :
-				state = []
+	case DELETE_FLASH_MESSAGE: 
+		return (
+			state.length > 1 
+			? state.filter(msg => msg._id !== _pay._id)
+			: state = []
 		);
 
-	default:
+		default:
 		return state;
 	}
 };
 
 export default flashReducer;
+
+
+// https://codeinterview.io/TJYVJSVACP

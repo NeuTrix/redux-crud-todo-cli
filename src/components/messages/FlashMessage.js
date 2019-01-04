@@ -19,8 +19,8 @@ const Flash = styled.div`
 	border-radius: 5px;
 	height: 100px;
 	width: 300px;
-	opacity: .90;
-	z-index: -10;
+	opacity: .95;
+	// z-index: -10;
 	
 	animation: fadein 1s;
 	@keyframes fadein {
@@ -99,7 +99,7 @@ class FlashMessage extends Component {
 	render() {
 		const { type, text } = this.props.message;
 
-		setTimeout(this.closeMessage, 10000);
+		setTimeout(this.closeMessage, 100000);
 
 		return (
 

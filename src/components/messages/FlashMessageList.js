@@ -7,7 +7,7 @@ import { deleteFlashMessage } from '../../actions/flashActions';
 class FlashMessagesList extends Component {
 
 	render() {
-		const messages = this.props.messages.reverse().map(message => (
+		const messages = this.props.messages.map(message => (
 			<FlashMessage
 				key={message._id}
 				message={message}
@@ -17,9 +17,7 @@ class FlashMessagesList extends Component {
 
 		return (
 			<div>
-				{' '}
 				{ messages }
-				{' '}
 			</div>
 		);
 	}

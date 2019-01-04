@@ -76,10 +76,10 @@ const styles = theme => ({
 	},
 
 	messages: {
-		bottom: theme.spacing.unit,
+		top: theme.spacing.unit * 6,
 		display: 'inline-grid',
 		fontFamily: theme.typography.fontFamily,
-		left: theme.spacing.unit * 2,
+		left: 0,
 		marginTop: theme.spacing.unit,
 		position: 'fixed',
 		zIndex: theme.zIndex.tooltip,
