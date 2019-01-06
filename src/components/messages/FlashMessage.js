@@ -28,15 +28,20 @@ class FlashMessage extends Component {
 	render() {
 		const { classes, message } = this.props;
 		setTimeout(this.closeMessage, 1000000);
+
 		return (
-			<div className={classes[message.type]}>
-					<div className={classes.delete}  onClick={this.onClick} >
-						{'X'}
-					</div>
+			< div className = {
+				classes[message.type],
+				classes.grid
+			} >
 					<Typography
-						className={classes.message}
+						className={classes[message.type]} 
+						
 						variant="body2"
-						>
+					>
+						<span className={classes.delete}  onClick={this.onClick} >
+							{'X'}
+						</span>
 						{message.text}
 					</Typography>
 			</div>
@@ -46,23 +51,59 @@ class FlashMessage extends Component {
 
 const styles = theme => ({
 	grid: {
-		border: '1px solid grey',
-		borderRadius: 5,
 		display: 'inline-flex',
-		// gridTemplateAreas: 'message delete',
-		// gridTemplateColumns: '9fr 1fr',
-		height: theme.spacing.unit * 12,
+		height: theme.spacing.unit * 9,
 		marginTop: theme.spacing.unit,
-		opacity: 0.95,
-		padding: theme.spacing.unit,
-		width: theme.spacing.unit * 36,
+		opacity: 0.9,
+		width: theme.spacing.unit * 27,
 	},
 
+	delete: {
+		marginRight: 10,
+	},
+
+	// Message type styling
 	error: {
-		display: 'inline-flex',
-		background: 'lime',
+		background: 'pink',
+		border: '2px solid',
+		borderRadius: theme.shape.borderRadius,
+		color: 'maroon',
+		display: 'inherit',
+		padding: theme.spacing.unit,
 		width: '100%',
 	},
+
+	info: {
+		background: 'aliceblue',
+		border: '2px solid',
+		borderRadius: theme.shape.borderRadius,
+		color: 'navy',
+		display: 'inherit',
+		padding: theme.spacing.unit,
+		width: '100%',
+	},
+
+	success: {
+		background: 'lime',
+		border: '2px solid',
+		borderRadius: theme.shape.borderRadius,
+		color: 'green',
+		display: 'inherit',
+		padding: theme.spacing.unit,
+		width: '100%',
+	},
+
+	warning: {
+		background: 'lightyellow',
+		border: '2px solid',
+		borderRadius: theme.shape.borderRadius,
+		color: 'darkgoldenrod',
+		display: 'inherit',
+		padding: theme.spacing.unit,
+		width: '100%',
+	},
+
+});
 	// animation: fadein 1s,
 	// @keyframes fadein {
 	// 	from {opacity: 0,}
@@ -105,17 +146,16 @@ const styles = theme => ({
 	// 	` : 'color: grey')
 	// 	},
 
-	delete: {
-		border: 'none',
-		marginRight: theme.spacing.unit,
-		display: 'inherit',
-		fontSize: '1.25em',
-		gridArea: 'delete',
-		height: 'auto',
-		placeContent: 'center',
-		width: 'auto',
-	},
-});
+	// delete: {
+	// 	border: 'none',
+	// 	marginRight: theme.spacing.unit,
+	// 	display: 'inherit',
+	// 	fontSize: '1.25em',
+	// 	gridArea: 'delete',
+	// 	height: 'auto',
+	// 	placeContent: 'center',
+	// 	width: 'auto',
+	// },
 
 FlashMessage.propTypes = propTypes;
 

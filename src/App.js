@@ -76,12 +76,12 @@ const styles = theme => ({
 	},
 
 	messages: {
-		top: theme.spacing.unit * 6,
 		display: 'inline-grid',
 		fontFamily: theme.typography.fontFamily,
-		left: 0,
+		left: theme.spacing.unit,
 		marginTop: theme.spacing.unit,
 		position: 'fixed',
+		top: theme.spacing.unit * 6,
 		zIndex: theme.zIndex.tooltip,
 	},
 });
