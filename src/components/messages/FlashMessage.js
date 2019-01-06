@@ -42,9 +42,10 @@ class FlashMessage extends Component {
 		const { show } = this.state;
 		setTimeout(() => {
 			this.closeMessage();
-		}, 5000);
+		}, 7000);
 
 		return (
+			<div>
 			<Fade
 				in={show}
 				timeout={{ enter: 500, exit: 750 }}
@@ -59,6 +60,8 @@ class FlashMessage extends Component {
 					</Typography>
 				</div>
 			</Fade>
+			</div>
+			
 		);
 	}
 }
@@ -66,7 +69,7 @@ class FlashMessage extends Component {
 const styles = theme => ({
 	grid: {
 		display: 'inline-flex',
-		height: theme.spacing.unit * 9,
+		minHeight: theme.spacing.unit * 9,
 		marginTop: theme.spacing.unit,
 		opacity: 0.9,
 		width: theme.spacing.unit * 27,

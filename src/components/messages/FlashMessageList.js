@@ -22,7 +22,7 @@ class FlashMessagesList extends Component {
 
 		return (
 			<div>
-				{ messages }
+				{ messages.reverse() }
 			</div>
 		);
 	}
