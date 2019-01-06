@@ -4,6 +4,11 @@ import PropTypes from 'prop-types';
 import FlashMessage from './FlashMessage';
 import { deleteFlashMessage } from '../../actions/flashActions';
 
+const propTypes = {
+	deleteFlashMessage: PropTypes.func.isRequired,
+	messages: PropTypes.instanceOf(Array).isRequired,
+};
+
 class FlashMessagesList extends Component {
 
 	render() {
@@ -23,10 +28,7 @@ class FlashMessagesList extends Component {
 	}
 }
 
-FlashMessagesList.propTypes = {
-	messages: PropTypes.array.isRequired,
-	deleteFlashMessage: PropTypes.func.isRequired,
-};
+FlashMessagesList.propTypes = propTypes;
 
 function mapStateToProps(state) {
 	return {
