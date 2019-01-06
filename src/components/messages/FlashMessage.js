@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import CloseIcon from '@material-ui/icons/Close';
 
 const propTypes = {
 	deleteFlashMessage: PropTypes.func.isRequired,
@@ -39,9 +40,7 @@ class FlashMessage extends Component {
 						
 						variant="body2"
 					>
-						<span className={classes.delete}  onClick={this.onClick} >
-							{'X'}
-						</span>
+						<CloseIcon className={classes.closeIcon}  onClick={this.onClick} />
 						{message.text}
 					</Typography>
 			</div>
@@ -58,8 +57,8 @@ const styles = theme => ({
 		width: theme.spacing.unit * 27,
 	},
 
-	delete: {
-		marginRight: 10,
+	closeIcon: {
+		marginRight: theme.spacing.unit,
 	},
 
 	// Message type styling
