@@ -48,7 +48,6 @@ class NavBar extends Component {
 		} = this.props;
 
 		const displayDrawer = width === 'xs' ? 'top' : 'right';
-		// const test= 9;
 		return (
 			<div className={`NavBar ${classes.root}`}>
 				<AppBar className={classes.grid} position="fixed">
@@ -63,7 +62,7 @@ class NavBar extends Component {
 						</IconButton>
 					</Toolbar>
 					<IconButton className={classes.brandLogo} disableRipple>
-						<NavLink to="/">
+						<NavLink to="/todos">
 							<BrandLogo />
 						</NavLink>
 					</IconButton>
@@ -77,9 +76,7 @@ class NavBar extends Component {
 						className={classes.test}
 						container={container}
 						variant="temporary"
-						// anchor={theme.direction === 'rtl' ? 'right' : 'left'}
 						anchor={displayDrawer}
-						// anchor={width === 'lg' ? 'top' : 'right'}
 						open={showMenu}
 						classes={{ paper: classes.drawerPaper }}
 						// Better open performance on mobile.
@@ -129,20 +126,11 @@ const styles = theme => ({
 		gridTemplateAreas: `
 			"brandLogo menuButton"
 		`,
-		// gridTemplateColumns: '1fr 4fr',
-		// placeItems: 'center',
-		// [theme.breakpoints.up('sm')]: {
-		// 	gridTemplateAreas: `
-		// 	" brandLogo searchBar menuButton   "
-		// `,
-		// 	gridTemplateColumns: '2fr 4fr 1fr',
-		// },
 	},
 
 	menuButton: {
 		color: theme.palette.contrast, // custom theme prop
 		gridArea: 'menuButton',
-		// marginRight: 20,
 	},
 
 	muitoolbar: {
