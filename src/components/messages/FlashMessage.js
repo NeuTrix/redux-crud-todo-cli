@@ -29,12 +29,11 @@ class FlashMessage extends Component {
 	}
 
 	closeMessage() {
+		const { deleteFlashMessage, message } = this.props;
+		this.setState({ show: false });
 		setTimeout(() => {
-			this.setState({ show: false });
-		}, 100);
-		setTimeout(() => {
-			this.props.deleteFlashMessage(this.props.message._id);
-		}, 2000);
+			deleteFlashMessage(message._id);
+		}, 1000);
 	}
 
 	render() {
@@ -46,22 +45,22 @@ class FlashMessage extends Component {
 
 		return (
 			<div>
-			<Fade
-				in={show}
-				timeout={{ enter: 500, exit: 750 }}
-			>
-				<div className={classes.grid}>
-					<Typography
-						className={classes[message.type]}
-						variant="body2"
-					>
-						<CloseIcon className={classes.closeIcon} onClick={this.onClick} />
-						{message.text}
-					</Typography>
-				</div>
-			</Fade>
+				<Slide
+					in={show}
+					direction="right"
+					timeout={{ enter: 500, exit: 500 }}
+				>
+					<div className={classes.grid}>
+						<Typography
+							className={classes[message.type]}
+							variant="body2"
+						>
+							<CloseIcon className={classes.closeIcon} onClick={this.onClick} />
+							{message.text}
+						</Typography>
+					</div>
+				</Slide>
 			</div>
-			
 		);
 	}
 }
@@ -69,9 +68,9 @@ class FlashMessage extends Component {
 const styles = theme => ({
 	grid: {
 		display: 'inline-flex',
-		minHeight: theme.spacing.unit * 9,
 		marginTop: theme.spacing.unit,
-		opacity: 0.9,
+		minHeight: theme.spacing.unit * 9,
+		opacity: 0.95,
 		width: theme.spacing.unit * 27,
 	},
 
@@ -88,10 +87,10 @@ const styles = theme => ({
 		display: 'inherit',
 		padding: theme.spacing.unit,
 		width: '100%',
-		[`&:hover`]: {
+		['&:hover']: {
 			background: theme.palette.grey[200],
 			color: theme.palette.grey[700],
-		}
+		},
 	},
 
 	info: {
@@ -102,6 +101,10 @@ const styles = theme => ({
 		display: 'inherit',
 		padding: theme.spacing.unit,
 		width: '100%',
+		['&:hover']: {
+			background: theme.palette.grey[200],
+			color: theme.palette.grey[700],
+		},
 	},
 
 	success: {
@@ -112,6 +115,10 @@ const styles = theme => ({
 		display: 'inherit',
 		padding: theme.spacing.unit,
 		width: '100%',
+		['&:hover']: {
+			background: theme.palette.grey[200],
+			color: theme.palette.grey[700],
+		},
 	},
 
 	warning: {
@@ -122,55 +129,12 @@ const styles = theme => ({
 		display: 'inherit',
 		padding: theme.spacing.unit,
 		width: '100%',
+		['&:hover']: {
+			background: theme.palette.grey[200],
+			color: theme.palette.grey[700],
+		},
 	},
-
 });
-// &:hover {
-// 	backgroundColor: whitesmoke,
-// 	color: darkgrey,
-// 	border: 1px solid black,
-// 	transition: 5s,
-
-// 	animation: fade-out 5s,
-// 	@keyframes fade-out {
-// 		from {opacity: 1.0,}
-// 		to {opacity: 0.4,}
-// 	}
-// },
-
-// success: {
-
-// }
-
-// ${({ type }) => (type === 'success' ? `
-// 		background: greenyellow ;
-// 		color: ${colors._mintgreen} ;
-// 		borderColor: ${colors._mintgreen} ;
-// 	` : type === 'error' ? `
-// 		color: red;
-// 		borderColor: red;
-// 		background: ${colors._pinkrose} ;
-// 	` : type === 'info' ? `
-// 		color: ${colors._deepblue} ;
-// 		borderColor: ${colors._deepblue} ;
-// 		background: aliceblue;
-// 	` : type === 'warning' ? `
-// 		color: darkgoldenrod;
-// 		borderColor: darkgoldenrod;
-// 		background: lightgoldenrodyellow;
-// 	` : 'color: grey')
-// 	},
-
-// delete: {
-// 	border: 'none',
-// 	marginRight: theme.spacing.unit,
-// 	display: 'inherit',
-// 	fontSize: '1.25em',
-// 	gridArea: 'delete',
-// 	height: 'auto',
-// 	placeContent: 'center',
-// 	width: 'auto',
-// },
 
 FlashMessage.propTypes = propTypes;
 
