@@ -52,7 +52,7 @@ class NavBar extends Component {
 		return (
 			<div className={`NavBar ${classes.root}`}>
 				<AppBar className={classes.grid} position="fixed">
-					<Toolbar>
+					<Toolbar className={classes.muitoolbar}>
 						<IconButton
 							color="inherit"
 							aria-label="Open drawer"
@@ -67,9 +67,9 @@ class NavBar extends Component {
 							<BrandLogo />
 						</NavLink>
 					</IconButton>
-					<div className={classes.searchBar}>
+					{/* <div className={classes.searchBar}>
 						<SearchBar />
-					</div>
+					</div> */}
 				</AppBar>
 				<nav className={classes.drawer}>
 					<Drawer
@@ -103,11 +103,12 @@ class NavBar extends Component {
 const drawerWidth = 264;
 const styles = theme => ({
 	brandLogo: {
-		display: 'none',
+		// display: 'none',
 		gridArea: 'brandLogo',
-		[theme.breakpoints.up('sm')]: {
-			display: 'inherit',
-		},
+		placeContent: 'flex-start',		
+		// [theme.breakpoints.up('sm')]: {
+			// display: 'inherit',
+		// },
 	},
 
 	drawer: {
@@ -127,22 +128,26 @@ const styles = theme => ({
 	grid: {
 		display: 'grid',
 		gridTemplateAreas: `
-			" menuButton searchBar "
+			"brandLogo menuButton"
 		`,
-		gridTemplateColumns: '1fr 4fr',
-		placeItems: 'center',
-		[theme.breakpoints.up('sm')]: {
-			gridTemplateAreas: `
-			" brandLogo searchBar menuButton   "
-		`,
-			gridTemplateColumns: '2fr 4fr 1fr',
-		},
+		// gridTemplateColumns: '1fr 4fr',
+		// placeItems: 'center',
+		// [theme.breakpoints.up('sm')]: {
+		// 	gridTemplateAreas: `
+		// 	" brandLogo searchBar menuButton   "
+		// `,
+		// 	gridTemplateColumns: '2fr 4fr 1fr',
+		// },
 	},
 
 	menuButton: {
 		color: theme.palette.contrast, // custom theme prop
 		gridArea: 'menuButton',
-		marginRight: 20,
+		// marginRight: 20,
+	},
+
+	muitoolbar: {
+		placeContent: 'flex-end',
 	},
 
 	root: { display: 'flex' },
