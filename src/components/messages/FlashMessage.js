@@ -88,6 +88,10 @@ const styles = theme => ({
 		display: 'inherit',
 		padding: theme.spacing.unit,
 		width: '100%',
+		[`&:hover`]: {
+			background: theme.palette.grey[200],
+			color: theme.palette.grey[700],
+		}
 	},
 
 	info: {
@@ -121,12 +125,6 @@ const styles = theme => ({
 	},
 
 });
-	// animation: fadein 1s,
-	// @keyframes fadein {
-	// 	from {opacity: 0,}
-	// 	to {opacity: 1,}
-	// }
-
 // &:hover {
 // 	backgroundColor: whitesmoke,
 // 	color: darkgrey,
