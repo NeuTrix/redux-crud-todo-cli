@@ -62,7 +62,7 @@ class NavBar extends Component {
 							<MenuIcon />
 						</IconButton>
 					</Toolbar>
-					<IconButton className={classes.brandLogo}>
+					<IconButton className={classes.brandLogo} disableRipple>
 						<NavLink to="/">
 							<BrandLogo />
 						</NavLink>
@@ -103,12 +103,11 @@ class NavBar extends Component {
 const drawerWidth = 264;
 const styles = theme => ({
 	brandLogo: {
-		// display: 'none',
 		gridArea: 'brandLogo',
 		placeContent: 'flex-start',		
-		// [theme.breakpoints.up('sm')]: {
-			// display: 'inherit',
-		// },
+		[`&:hover`]: {
+			background: 'none',
+		}
 	},
 
 	drawer: {
