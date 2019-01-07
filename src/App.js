@@ -79,7 +79,7 @@ const styles = theme => ({
 		display: 'inline-grid',
 		fontFamily: theme.typography.fontFamily,
 		left: theme.spacing.unit,
-		marginTop: theme.spacing.unit,
+		marginTop: theme.spacing.unit * 3,
 		position: 'fixed',
 		top: theme.spacing.unit * 6,
 		zIndex: theme.zIndex.tooltip,

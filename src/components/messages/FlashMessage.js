@@ -101,7 +101,7 @@ const styles = theme => ({
 	},
 
 	success: {
-		background: 'lime',
+		background: 'greenyellow',
 		border: '2px solid',
 		borderRadius: theme.shape.borderRadius,
 		color: 'green',
