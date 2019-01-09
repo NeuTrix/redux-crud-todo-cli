@@ -30,7 +30,7 @@ class TodoItem extends Component {
 	constructor(props) {
 		super(props);
 		const { item } = this.props;
-		console.log('*****', item);
+
 		this.state = {
 			_id: item._id || '',
 			completed: item.completed,
@@ -117,12 +117,12 @@ class TodoItem extends Component {
 				/>
 
 				<DeleteButton
-					// className={classes.delete}
-					style={{ gridArea: 'delete' }}
+					className={classes.deleteButton}
 					task={task}
 					_id={_id}
 					deleteTodo={deleteTodo}
 				/>
+
 			</FormControl>
 		);
 	}
@@ -136,8 +136,13 @@ const styles = theme => ({
 	},
 
 	datePicker: {
-		background: 'white',
+		background: theme.palette.background.paper,
 		gridArea: 'date',
+	},
+
+	deleteButton: {
+		background: theme.palette.background.paper,
+		gridArea: 'delete',
 	},
 
 	grid: {
@@ -165,12 +170,12 @@ const styles = theme => ({
 	},
 
 	rank: {
-		background: 'white',
+		background: theme.palette.background.paper,
 		gridArea: 'rank',
 	},
 
 	task: {
-		background: 'white',
+		background: theme.palette.background.paper,
 		gridArea: 'task',
 	},
 });
