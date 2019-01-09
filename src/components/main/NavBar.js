@@ -13,11 +13,11 @@ import { withWidth } from '@material-ui/core';
 // custom components
 import BrandLogo from './BrandLogo';
 import NavigationLinks from './NavigationLinks';
-import SearchBar from './SearchBar';
+// import SearchBar from './SearchBar';
 
 const propTypes = {
 	classes: PropTypes.instanceOf(Object).isRequired,
-	container: PropTypes.instanceOf(Object),
+	container: PropTypes.instanceOf(Object).isRequired,
 	isAuth: PropTypes.bool.isRequired,
 	logout: PropTypes.func.isRequired,
 	width: PropTypes.string.isRequired,
@@ -70,7 +70,8 @@ class NavBar extends Component {
 						<SearchBar />
 					</div> */}
 				</AppBar>
-`				<nav className={classes.drawer}>
+
+				<nav className={classes.drawer}>
 					<Drawer
 						id="mainDrawer"
 						className={classes.test}
@@ -101,10 +102,10 @@ const drawerWidth = 264;
 const styles = theme => ({
 	brandLogo: {
 		gridArea: 'brandLogo',
-		placeContent: 'flex-start',		
-		[`&:hover`]: {
+		placeContent: 'flex-start',
+		'&:hover': {
 			background: 'none',
-		}
+		},
 	},
 
 	drawer: {
