@@ -70,7 +70,7 @@ class NavBar extends Component {
 						<SearchBar />
 					</div> */}
 				</AppBar>
-				<nav className={classes.drawer}>
+`				<nav className={classes.drawer}>
 					<Drawer
 						id="mainDrawer"
 						className={classes.test}

@@ -51,11 +51,11 @@ exports[`...renders the TodoForm  1`] = `
     style="grid-area:rank"
   >
     <label
-      class="MuiFormLabel-root-18 MuiFormLabel-filled-22 MuiInputLabel-root-7 MuiInputLabel-formControl-12 MuiInputLabel-animated-15 MuiInputLabel-shrink-14 MuiInputLabel-marginDense-13 MuiInputLabel-outlined-17"
+      class="MuiFormLabel-root-18 MuiFormLabel-filled-22 MuiInputLabel-root-7 MuiInputLabel-formControl-12 MuiInputLabel-animated-15 MuiInputLabel-shrink-14 MuiInputLabel-marginDense-13 MuiInputLabel-outlined-17 Rank-label-57"
       data-shrink="true"
       for="new_item_priority"
     >
-      set rank
+      rank
     </label>
     <div
       class="MuiInputBase-root-38 MuiOutlinedInput-root-25 MuiInputBase-fullWidth-47 MuiInputBase-formControl-39 MuiInputBase-marginDense-45"
@@ -75,12 +75,12 @@ exports[`...renders the TodoForm  1`] = `
         </legend>
       </fieldset>
       <div
-        class="MuiSelect-root-57"
+        class="MuiSelect-root-60"
       >
         <div
           aria-haspopup="true"
           aria-pressed="false"
-          class="MuiSelect-select-58 MuiSelect-selectMenu-61 MuiSelect-outlined-60 MuiInputBase-input-48 MuiOutlinedInput-input-33 MuiInputBase-inputMarginDense-49 MuiOutlinedInput-inputMarginDense-34"
+          class="MuiSelect-select-61 MuiSelect-selectMenu-64 MuiSelect-outlined-63 MuiInputBase-input-48 MuiOutlinedInput-input-33 MuiInputBase-inputMarginDense-49 MuiOutlinedInput-inputMarginDense-34"
           role="button"
           tabindex="0"
         >
@@ -94,7 +94,7 @@ exports[`...renders the TodoForm  1`] = `
         />
         <svg
           aria-hidden="true"
-          class="MuiSvgIcon-root-64 MuiSelect-icon-63"
+          class="MuiSvgIcon-root-67 MuiSelect-icon-66"
           focusable="false"
           role="presentation"
           viewBox="0 0 24 24"
@@ -138,17 +138,17 @@ exports[`...renders the TodoForm  1`] = `
         class="MuiInputBase-input-48 MuiOutlinedInput-input-33 MuiInputBase-inputType-51 MuiInputBase-inputMarginDense-49 MuiOutlinedInput-inputMarginDense-34"
         name="date"
         type="date"
-        value="2018-12-24"
+        value="2019-01-08"
       />
     </div>
   </div>
   <button
-    class="MuiButtonBase-root-103 MuiButton-root-77 MuiButton-contained-88 MuiButton-containedSecondary-90 MuiButton-raised-91 MuiButton-raisedSecondary-93 TodoForm-button-1"
+    class="MuiButtonBase-root-106 MuiButton-root-80 MuiButton-contained-91 MuiButton-containedSecondary-93 MuiButton-raised-94 MuiButton-raisedSecondary-96 TodoForm-button-1"
     tabindex="0"
     type="submit"
   >
     <span
-      class="MuiButton-label-78"
+      class="MuiButton-label-81"
     >
       Add
     </span>

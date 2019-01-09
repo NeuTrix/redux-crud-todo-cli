@@ -2,25 +2,25 @@
 
 exports[`...renders the Rank  1`] = `
 <div
-  class="MuiFormControl-root-1 MuiFormControl-marginDense-3 MuiFormControl-fullWidth-4"
+  class="MuiFormControl-root-4 MuiFormControl-marginDense-6 MuiFormControl-fullWidth-7"
 >
   <label
-    class="MuiFormLabel-root-16 MuiFormLabel-filled-20 MuiInputLabel-root-5 MuiInputLabel-formControl-10 MuiInputLabel-animated-13 MuiInputLabel-shrink-12 MuiInputLabel-marginDense-11 MuiInputLabel-outlined-15"
+    class="MuiFormLabel-root-19 MuiFormLabel-filled-23 MuiInputLabel-root-8 MuiInputLabel-formControl-13 MuiInputLabel-animated-16 MuiInputLabel-shrink-15 MuiInputLabel-marginDense-14 MuiInputLabel-outlined-18 Rank-label-1"
     data-shrink="true"
     for="new_item_priority"
   >
-    set rank
+    rank
   </label>
   <div
-    class="MuiInputBase-root-43 MuiOutlinedInput-root-30 MuiInputBase-fullWidth-52 MuiInputBase-formControl-44 MuiInputBase-marginDense-50"
+    class="MuiInputBase-root-46 MuiOutlinedInput-root-33 MuiInputBase-fullWidth-55 MuiInputBase-formControl-47 MuiInputBase-marginDense-53"
   >
     <fieldset
       aria-hidden="true"
-      class="MuiPrivateNotchedOutline-root-60 MuiOutlinedInput-notchedOutline-37"
+      class="MuiPrivateNotchedOutline-root-63 MuiOutlinedInput-notchedOutline-40"
       style="padding-left:8px"
     >
       <legend
-        class="MuiPrivateNotchedOutline-legend-61"
+        class="MuiPrivateNotchedOutline-legend-64"
         style="width:0"
       >
         <span>
@@ -29,12 +29,12 @@ exports[`...renders the Rank  1`] = `
       </legend>
     </fieldset>
     <div
-      class="MuiSelect-root-23"
+      class="MuiSelect-root-26"
     >
       <div
         aria-haspopup="true"
         aria-pressed="false"
-        class="MuiSelect-select-24 MuiSelect-selectMenu-27 MuiSelect-outlined-26 MuiInputBase-input-53 MuiOutlinedInput-input-38 MuiInputBase-inputMarginDense-54 MuiOutlinedInput-inputMarginDense-39"
+        class="MuiSelect-select-27 MuiSelect-selectMenu-30 MuiSelect-outlined-29 MuiInputBase-input-56 MuiOutlinedInput-input-41 MuiInputBase-inputMarginDense-57 MuiOutlinedInput-inputMarginDense-42"
         role="button"
         tabindex="0"
       >
@@ -50,7 +50,7 @@ exports[`...renders the Rank  1`] = `
       />
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root-62 MuiSelect-icon-29"
+        class="MuiSvgIcon-root-65 MuiSelect-icon-32"
         focusable="false"
         role="presentation"
         viewBox="0 0 24 24"
