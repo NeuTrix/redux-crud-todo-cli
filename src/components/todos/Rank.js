@@ -23,7 +23,7 @@ const Rank = (props) => {
 			}}
 			fullWidth
 			id="new_item_priority"
-			label="rank"
+			label="set rank"
 			margin="dense"
 			name="rank"
 			select
@@ -39,7 +39,7 @@ const Rank = (props) => {
 
 const styles = theme => ({
 	label: {
-		color: 'orangered',
+		color: theme.palette.primary.main,
 	},
 	menulist: {
 		fontFamily: theme.typography.fontFamily,
