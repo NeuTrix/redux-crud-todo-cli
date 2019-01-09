@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
+import NoteAddIcon from '@material-ui/icons/NoteAdd';
 
 import DatePicker from './DatePicker';
 import Rank from './Rank';
@@ -72,11 +73,13 @@ class TodoForm extends Component {
 				<Button
 					className={classes.button}
 					component="button"
-					color="secondary"
 					type="submit"
-					variant="contained"
 				>
-					{'Add'}
+					<NoteAddIcon
+						className={classes.iconAdd}
+						color="secondary"
+						fontSize="large"
+					/>
 				</Button>
 			</FormControl>
 		);
@@ -101,12 +104,13 @@ const styles = theme => ({
 			" task task task "
 			" rank date button "
 		`,
-		gridTemplateColumns: '2fr 4fr 1fr',
+		gridTemplateColumns: '4fr 8fr 1fr',
 		marginBottom: 20,
-		width: '100%',
 		padding: 10,
 		placeItems: 'center',
+		width: '100%',
 	},
+
 });
 
 TodoForm.propTypes = propTypes;
