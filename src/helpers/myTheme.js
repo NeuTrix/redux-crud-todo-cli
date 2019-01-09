@@ -5,18 +5,20 @@ import lightBlue from '@material-ui/core/colors/lightBlue';
 import lightGreen from '@material-ui/core/colors/lightGreen';
 import pink from '@material-ui/core/colors/pink';
 
-const shade = '500'; // set common shade for color palette
+const shadeLight = '50'; // set common shadeMain for color palette
+const shadeMain = '500'; // set common shadeMain for color palette
 
 const options = {
 	palette: {
 		primary: {
-			main: lightBlue[shade],
+			light: lightBlue[shadeLight],
+			main: lightBlue[shadeMain],
 		},
 		secondary: {
-			main: lightGreen[shade],
+			main: lightGreen[shadeMain],
 		},
 		tertiary: {
-			main: pink[shade],
+			main: pink[shadeMain],
 		},
 	},
 	sizes: {

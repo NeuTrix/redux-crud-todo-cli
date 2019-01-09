@@ -98,7 +98,7 @@ class TodoItem extends Component {
 					completed={completed}
 					editTodo={editTodo}
 					name="complete"
-				/>
+					>
 
 				<Rank
 					className={classes.rank}
@@ -141,7 +141,7 @@ const styles = theme => ({
 	},
 
 	grid: {
-		backgroundColor: 'aliceblue',
+		backgroundColor: theme.palette.primary.light,
 		border: '2px solid',
 		borderColor: theme.palette.primary.main,
 		borderRadius: 5,
