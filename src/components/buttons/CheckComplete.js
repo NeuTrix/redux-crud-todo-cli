@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+// Material-ui
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import CheckedIcon from '@material-ui/icons/CheckBoxTwoTone';
+import UnCheckedIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 
-// +++++++++ CSS +++++++++
-
-const Glyph = styled.i`
-	color: #00cc00;  
-`;
-
-// +++++++++ COMPONENT +++++++++
+const propTypes = {
+	_id: PropTypes.string.isRequired,
+	completed: PropTypes.bool.isRequired,
+	editTodo: PropTypes.func.isRequired,
+};
 
 class CheckComplete extends Component {
 
@@ -20,7 +22,6 @@ class CheckComplete extends Component {
 
 	handleToggle(e) {
 		e.preventDefault();
-
 		this.props.editTodo(
 			this.props._id,
 			{ completed: !this.state.completed },
@@ -28,38 +29,35 @@ class CheckComplete extends Component {
 	}
 
 	render() {
+		const { classes } = this.props;
 		const checked = (
-			<Glyph className="engr ctr fa fa-check-square-o fa-2x" />
+			<CheckedIcon color="secondary" fontSize="large" />
 		);
 
 		const unchecked = (
-			<Glyph className="engr ctr fa fa-square-o fa-2x" />
+			<UnCheckedIcon color="primary" fontSize="large" />
 		);
 
 		return (
-			<div
-				className={`${this.props.className} ctr`}
+			<Button
+				className={classes.button}
+				component="button"
+				name="checked"
 				onClick={this.handleToggle}
 			>
-				{' '}
 				{ this.state.completed ? checked : unchecked }
-			</div>
+			</Button>
 		);
 	}
 }
 
-// +++++++++ PROPS +++++++++
+const styles = theme => ({
+	button: {
+		height: '75%',
+		marginTop: theme.spacing.unit + 2,
+	},
+});
 
-CheckComplete.propTypes = {
-	_id: PropTypes.string.isRequired,
-	completed: PropTypes.bool.isRequired,
-	editTodo: PropTypes.func.isRequired,
-};
+CheckComplete.propTypes = propTypes;
 
-CheckComplete.defaultProps = {
-	_id: '',
-	completed: false,
-	editTodo: f => alert('error: CheckComplete default fn'),
-};
-
-export default CheckComplete;
+export default withStyles(styles)(CheckComplete);
