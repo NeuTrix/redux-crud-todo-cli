@@ -28,7 +28,7 @@ const RegistrationForm = (props) => {
 
 	const formTitle = (
 		<Typography variant="h4" color="secondary">
-			{ 'Register...' }
+			{ 'Registration' }
 		</Typography>
 	);
 

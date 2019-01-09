@@ -62,7 +62,7 @@ class NavBar extends Component {
 						</IconButton>
 					</Toolbar>
 					<IconButton className={classes.brandLogo} disableRipple>
-						<NavLink to="/todos">
+						<NavLink to="/">
 							<BrandLogo />
 						</NavLink>
 					</IconButton>

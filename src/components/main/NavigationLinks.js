@@ -2,14 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 // ===> MUI components <===
-
 import Circle from '@material-ui/icons/TripOrigin';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import shortid from 'shortid';
-import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
 const propTypes = {
@@ -28,6 +26,12 @@ function NavigationLinks(props, context) {
 		isAuth,
 		logout,
 	} = props;
+	//  persistent links
+	const homeLink = {
+		link: '/',
+		showWithAuth: 'true',
+		title: 'Home',
+	};
 	// unauthorized navigation links
 	const registerLink = {
 		link: '/register',
@@ -65,14 +69,29 @@ function NavigationLinks(props, context) {
 
 	return (
 		<List>
-			<span className={classes.logout} style={displayLogic(logOutLink)}>
+			{/* separate home to show persistently for auth and no-auth */}
+			<span>
+				<NavLink
+					to={homeLink.link}
+					className={classes.root}
+					activeClassName={classes.active}
+				>
+					<ListItem button>
+						<ListItemIcon>
+							<Circle />
+						</ListItemIcon>
+						<ListItemText primary={homeLink.title} />
+					</ListItem>
+				</NavLink>
+			</span>
+
+			{/* separate logut- need to assign #onClick fn */}
+			<span style={displayLogic(logOutLink)}>
 				<ListItem button onClick={handleLogout}>
 					<ListItemIcon>
 						<Circle />
 					</ListItemIcon>
-					<Typography color="inherit" noWrap>
-						{logOutLink.title}
-					</Typography>
+					<ListItemText primary={logOutLink.title} />
 				</ListItem>
 			</span>
 
@@ -101,9 +120,7 @@ const styles = theme => ({
 	active: {
 		background: theme.palette.primary.light,
 	},
-	logout: {
-		textIndent: 15,
-	},
+
 	root: {
 		textDecoration: 'none',
 		width: '100%',
