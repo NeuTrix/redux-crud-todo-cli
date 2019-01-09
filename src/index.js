@@ -15,7 +15,7 @@ import App from './App';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 
-import green from '@material-ui/core/colors/green';
+import lightGreen from '@material-ui/core/colors/lightGreen';
 // // import white from '@material-ui/core/colors/white';
 import lightBlue from '@material-ui/core/colors/lightBlue';
 
@@ -38,14 +38,16 @@ const Store = styled(Provider)`
 const options = {
 	palette: {
 		primary: lightBlue,
-    secondary: green,
+    secondary: {
+			main: lightGreen['500'],
+		},
     contrast: 'whitesmoke'
 	},
 	sizes: {
 		drawerWidth: 264,
 	},
 	status: {
-		danger: 'orange',
+		danger: 'orangered',
 	},
 	typography: {
 		useNextVariants: true,
