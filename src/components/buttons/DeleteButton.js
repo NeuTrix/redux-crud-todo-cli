@@ -34,7 +34,6 @@ const DeleteButton = (props) => {
 			className={classes.button}
 			component="button"
 			name="delete"
-			// variant="contained"
 			onClick={handleDelete}
 		>
 			<DeleteForeverTwoToneIcon
