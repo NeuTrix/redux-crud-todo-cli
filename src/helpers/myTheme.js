@@ -1,9 +1,10 @@
 // Customized material-ui theme
 import { createMuiTheme } from '@material-ui/core/styles';
-
+//  Color Palette (MUI)
 import lightBlue from '@material-ui/core/colors/lightBlue';
 import lightGreen from '@material-ui/core/colors/lightGreen';
 import pink from '@material-ui/core/colors/pink';
+import grey from '@material-ui/core/colors/grey';
 
 const shadeLight = '50'; // set common shadeMain for color palette
 const shadeMain = '500'; // set common shadeMain for color palette
@@ -11,6 +12,7 @@ const shadeMain = '500'; // set common shadeMain for color palette
 const options = {
 	palette: {
 		primary: {
+			constrastText: grey[shadeLight],
 			light: lightBlue[shadeLight],
 			main: lightBlue[shadeMain],
 		},

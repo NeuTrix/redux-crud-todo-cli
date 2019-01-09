@@ -130,7 +130,7 @@ const styles = theme => ({
 	},
 
 	menuButton: {
-		color: theme.palette.contrast, // custom theme prop
+		color: theme.palette.primary.constrastText, // custom theme prop
 		gridArea: 'menuButton',
 	},
 

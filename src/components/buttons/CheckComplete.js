@@ -35,7 +35,7 @@ class CheckComplete extends Component {
 		);
 
 		const unchecked = (
-			<UnCheckedIcon color="secondary" fontSize="large" />
+			<UnCheckedIcon color="primary" fontSize="large" />
 		);
 
 		return (
