@@ -16,19 +16,24 @@ const options = {
 			light: lightBlue[shadeLight],
 			main: lightBlue[shadeMain],
 		},
+
 		secondary: {
 			main: lightGreen[shadeMain],
 		},
+
 		tertiary: {
 			main: pink[shadeMain],
 		},
 	},
+
 	sizes: {
 		drawerWidth: 264,
 	},
+
 	status: {
 		danger: pink,
 	},
+	
 	typography: {
 		useNextVariants: true,
 	},
