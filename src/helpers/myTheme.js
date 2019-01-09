@@ -12,7 +12,7 @@ const shadeMain = '500'; // set common shadeMain for color palette
 const options = {
 	palette: {
 		primary: {
-			constrastText: grey[shadeLight],
+			contrastText: grey[shadeLight],
 			light: lightBlue[shadeLight],
 			main: lightBlue[shadeMain],
 		},

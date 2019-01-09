@@ -9,7 +9,7 @@ exports[`...renders the Rank  1`] = `
     data-shrink="true"
     for="new_item_priority"
   >
-    rank
+    set rank
   </label>
   <div
     class="MuiInputBase-root-46 MuiOutlinedInput-root-33 MuiInputBase-fullWidth-55 MuiInputBase-formControl-47 MuiInputBase-marginDense-53"

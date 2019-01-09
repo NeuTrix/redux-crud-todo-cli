@@ -30,7 +30,7 @@ const DeleteButton = (props) => {
 
 	return (
 		<Button
-			{...props}
+			// {...props}
 			className={classes.button}
 			component="button"
 			name="delete"
