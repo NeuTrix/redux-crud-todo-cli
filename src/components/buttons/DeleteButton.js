@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import DeleteForeverTwoToneIcon from '@material-ui/icons/DeleteForeverTwoTone';
 
 const propTypes = {
 	_id: PropTypes.string.isRequired,
@@ -30,23 +31,28 @@ const DeleteButton = (props) => {
 	return (
 		<Button
 			{...props}
-			className={classes.root}
+			className={classes.button}
 			component="button"
 			name="delete"
-			variant="contained"
+			// variant="contained"
 			onClick={handleDelete}
 		>
-			{'Del'}
+			<DeleteForeverTwoToneIcon
+				className={classes.icon}
+				fontSize="large"
+			/>
 		</Button>
 	);
 };
 
 const styles = {
-	root: {
-		background: 'pink',
-		color: 'maroon',
+	button: {
 		height: '75%',
 		marginTop: 10,
+	},
+
+	icon: {
+		color: 'orangered',
 	},
 };
 
