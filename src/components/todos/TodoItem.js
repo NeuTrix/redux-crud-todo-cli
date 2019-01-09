@@ -98,7 +98,7 @@ class TodoItem extends Component {
 					completed={completed}
 					editTodo={editTodo}
 					name="complete"
-					>
+				/>
 
 				<Rank
 					className={classes.rank}
