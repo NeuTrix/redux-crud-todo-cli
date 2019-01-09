@@ -35,16 +35,18 @@ const Store = styled(Provider)`
   font-family: sans-serif;
 `;
 
+const shade = `500`; // set common shade for color palette
+
 const options = {
 	palette: {
 		primary: {
-			main: lightBlue['500'],
+			main: lightBlue[shade],
 		},
     secondary: {
-			main: lightGreen['500'],
+			main: lightGreen[shade],
 		},
 		tertiary:  {
-			main: deepOrange['500'],
+			main: deepOrange[shade],
 		},
 	},
 	sizes: {
