@@ -13,9 +13,9 @@ const propTypes = {
 
 const DeleteButton = (props) => {
 	const {
-		classes, 
-		deleteTodo, 
-		_id, 
+		classes,
+		deleteTodo,
+		_id,
 		task,
 	} = props;
 	const handleDelete = (e) => {
@@ -45,16 +45,15 @@ const DeleteButton = (props) => {
 	);
 };
 
-const styles = {
+const styles = theme => ({
 	button: {
 		height: '75%',
 		marginTop: 10,
 	},
-
 	icon: {
-		color: 'orangered',
+		color: theme.palette.tertiary.main,
 	},
-};
+});
 
 DeleteButton.propTypes = propTypes;
 
