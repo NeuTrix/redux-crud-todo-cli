@@ -33,7 +33,7 @@ const options = {
 	status: {
 		danger: pink,
 	},
-	
+
 	typography: {
 		useNextVariants: true,
 	},
