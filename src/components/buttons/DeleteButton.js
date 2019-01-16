@@ -54,6 +54,6 @@ const styles = theme => ({
 	},
 });
 
-DeleteButton.propTypes = propTypes;
+DeleteButton.propTypes = propTypes; ˝
 
 export default withStyles(styles)(DeleteButton);
