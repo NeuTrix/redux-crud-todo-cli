@@ -41,6 +41,11 @@ class TodoContainer extends Component {
 		return (isAuthenticated ? handleFetchTodos() : '');
 	}
 
+	componentDidUpdate(prevState) {
+		console.log('hello')
+		console.log('--->', prevState)
+	}
+
 	render() {
 		const {
 			classes, // from MUI for styling

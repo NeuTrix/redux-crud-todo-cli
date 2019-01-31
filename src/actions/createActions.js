@@ -36,7 +36,7 @@ export const createHasErrored = (bool) => {
 
 export function createTodo(data) {
 	return (dispatch) => {
-		return axios.post (`${ url }/api/todos`, data)
+		return axios.post(`${ url }/api/todos`, data)
 			.then ((res) => {
 				dispatch (createIsPosting (true));
 				if (res.status !== 201) {

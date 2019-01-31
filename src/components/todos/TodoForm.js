@@ -17,7 +17,7 @@ const propTypes = {
 };
 
 class TodoForm extends Component {
-
+o
 	constructor(props) {
 		super(props);
 		const { owner } = this.props; // lint requires deconstruction

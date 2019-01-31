@@ -1,4 +1,4 @@
-import chai, { expect } 	from 'chai';
+import chai, { expect } from 'chai';
 import deepFreeze from 'deep-freeze';
 import TodoReducer from '../../reducers/todoReducer';
 import * as mod from '../../actions/readActions';
